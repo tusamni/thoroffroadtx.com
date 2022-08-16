@@ -12,3 +12,10 @@ export const Business = {
         zip: "78620"
     }
 }
+
+export const Social = {
+    facebook: "https://www.facebook.com/thoroffroadtx/",
+    instagram: "https://www.instagram.com/thor_offroad/",
+    youtube: "https://www.youtube.com/channel/UCq4-u8q-XIz4_YyCrZC_y6w/featured",
+    googlemaps: "https://g.page/thoroffroadtx?share"
+}

@@ -42,5 +42,8 @@
             "public/images/shoots/*"
         ]
     },
+    "types": [
+        "@astrojs/image/client"
+    ]
   }
 }

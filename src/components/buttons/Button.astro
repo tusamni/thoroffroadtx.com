@@ -1,0 +1,16 @@
+---
+// data
+import { Buttons } from "@/data/Buttons";
+
+export interface Props {
+    text: string;
+    url: string;
+    theme?: string;
+}
+const { text, url, theme = "primary" } = Astro.props as Props;
+---
+
+<a href={url} title={text} class:list={["flex gap-3 rounded-md px-5 py-4 shadow-solid border-2 transition duration-200 w-fit", Buttons[theme]]}>
+    <slot />
+    {text}
+</a>

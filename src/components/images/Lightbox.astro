@@ -1,0 +1,18 @@
+---
+// components
+import { getImage } from "@astrojs/image";
+import { Image } from "@astrojs/image/components";
+
+// props
+export interface Props {
+    image: string;
+    classes?: string;
+}
+const { image, classes } = Astro.props as Props;
+
+const { src } = await getImage({ src: image, width: 500, height: 500 });
+---
+
+<a href={src} class="lightbox">
+    <Image src={image} width={500} height={500} class={classes} />
+</a>

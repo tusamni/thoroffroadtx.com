@@ -13,9 +13,12 @@
     "@astrojs/image": "^0.3.4",
     "@astrojs/tailwind": "^1.0.0",
     "astro": "^1.0.6",
+    "lightgallery": "^2.5.0",
     "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.5.0",
-    "prettier-plugin-tailwindcss": "^0.1.13",
     "sass": "^1.54.4"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.5.0",
+    "prettier-plugin-tailwindcss": "^0.1.13"
   }
 }

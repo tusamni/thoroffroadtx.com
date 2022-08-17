@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import "fonts";
-@import "typography"
+@import "typography";
+@import './node_modules/lightgallery/scss/lightgallery.scss';

@@ -1,7 +1,6 @@
 ---
-// components
-import { getImage } from "@astrojs/image";
-import { Image } from "@astrojs/image/components";
+// functions
+//import { getMetadata } from "@/functions/Media";
 
 // props
 export interface Props {
@@ -10,9 +9,9 @@ export interface Props {
 }
 const { image, classes } = Astro.props as Props;
 
-const { src } = await getImage({ src: image, width: 500, height: 500 });
+//const metadata = await getMetadata(image);
 ---
 
-<a href={src} class="lightbox">
-    <Image src={image} width={500} height={500} class={classes} />
-</a>
+<!-- <a href={image} class={classes}>
+    <img src={image} width={metadata.width} height={metadata.height} class={classes} />
+</a> -->

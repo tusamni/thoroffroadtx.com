@@ -3,36 +3,42 @@
 import Layout from "../layouts/Layout.astro";
 
 // components
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
 import Vector from "@/components/images/Vector";
 import Lightbox from "@/components/images/Lightbox";
 import Link from "@/components/buttons/LinkArrow";
 import Container from "@/components/Container";
 
-// images
-const carli = [
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/Bronco/2203-2022-Ford-Bronco-Wild-Track-Grey/_07A9839.jpg",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/_07A2427.jpg",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Grey/IMG_6714.JPG",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/F-250/2207-2022-Ford-F-250-Lariat-White/_07A3140.jpg",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/F-350/2205-2022-Ford-F-350-XLT-Grey/_07A0466.jpg",
-];
+// functions
+import { getImage } from "@/functions/Media";
 
+// images
+const hero = await getImage("/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_001.jpg");
+const carliLogo = "/Images/Brands/Parts/Color/carli-suspension.png";
+const carli = [
+    "/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
+    "/Images/Vehicles/Ford/Bronco/2203-2022-Ford-Bronco-Wild-Track-Grey/_07A9839.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/_07A2427.jpg",
+    "/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Grey/IMG_6714.JPG",
+    "/Images/Vehicles/Ford/F-250/2207-2022-Ford-F-250-Lariat-White/_07A3140.jpg",
+    "/Images/Vehicles/Ford/F-350/2205-2022-Ford-F-350-XLT-Grey/_07A0466.jpg",
+];
+const jamey = "/Images/Team/Jamey/DSC08086-2.jpg";
+const signature = "/Images/Team/Jamey/signature.png";
 const recent = [
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/Bronco/2203-2022-Ford-Bronco-Wild-Track-Grey/_07A9839.jpg",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/_07A2427.jpg",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Grey/IMG_6714.JPG",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/F-250/2207-2022-Ford-F-250-Lariat-White/_07A3140.jpg",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/F-350/2205-2022-Ford-F-350-XLT-Grey/_07A0466.jpg",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/GMC/1500/2205-2022-GMC-1500-AT4-Tan/_07A0947.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1660684438874",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/GMC/2500/2205-2021-GMC-2500-AT4-White/IMG_6388.JPG?ik-sdk-version=javascript-1.4.3&updatedAt=1660684539628",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/_07A9746.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1660684506466",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/RAM/2500/2205-2006-RAM-2500-Red/_07A1090.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1660685177528",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/RAM/2500/2207-2022-RAM-2500-Limited-White/_07A3824.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1660685177907",
-    "https://ik.imagekit.io/eriksolsen/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
+    "/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
+    "/Images/Vehicles/Ford/Bronco/2203-2022-Ford-Bronco-Wild-Track-Grey/_07A9839.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/_07A2427.jpg",
+    "/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Grey/IMG_6714.JPG",
+    "/Images/Vehicles/Ford/F-250/2207-2022-Ford-F-250-Lariat-White/_07A3140.jpg",
+    "/Images/Vehicles/Ford/F-350/2205-2022-Ford-F-350-XLT-Grey/_07A0466.jpg",
+    "/Images/Vehicles/GMC/1500/2205-2022-GMC-1500-AT4-Tan/_07A0947.jpg",
+    "/Images/Vehicles/GMC/2500/2205-2021-GMC-2500-AT4-White/IMG_6388.JPG",
+    "/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/_07A9746.jpg",
+    "/Images/Vehicles/RAM/2500/2205-2006-RAM-2500-Red/_07A1090.jpg",
+    "/Images/Vehicles/RAM/2500/2207-2022-RAM-2500-Limited-White/_07A3824.jpg",
+    "/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
 ];
 ---
 
@@ -64,10 +70,14 @@ const recent = [
             </div>
         </Container>
 
+        <!-- red gradient -->
         <div class="bg-gradient-to-tl from-red-500/60 via-neutral-700/90 to-neutral-900 absolute w-full h-full z-10"></div>
-        <Image src="https://ik.imagekit.io/eriksolsen/Images/Vehicles/RAM/1500/2100-2021-RAM-1500-TRX-White/_07A9525.jpg" width={2500} height={2500} class="absolute object-cover w-full h-[50vh]" />
+
+        <!-- bg image -->
+        <Picture src={hero.src} alt={hero.title} widths={[250, 500, 1000, hero.width]} aspectRatio={hero.aspectRatio} class="hero" />
+        <!-- <img src={hero.src} class="absolute object-cover w-full h-[50vh]" /> -->
         <!-- <video autoplay muted loop class="absolute object-cover w-full h-[50vh]">
-            <source src="https://ik.imagekit.io/eriksolsen/videos/homepage/roller_v2.mp4?tr=w-300,h-300" type="video/mp4" />
+            <source src="/videos/homepage/roller_v2.mp4?tr=w-300,h-300" type="video/mp4" />
         </video> -->
     </div>
 
@@ -75,7 +85,7 @@ const recent = [
         <div class="flex flex-col gap-8 space-y-8">
             <Container>
                 <div class="flex flex-col lg:flex-row items-start justify-between gap-24">
-                    <Image src="https://ik.imagekit.io/eriksolsen/images/brands/parts/color/carli-suspension.png" width={287} height={116} class="" />
+                    <img src="" width="287" height="116" class="" />
 
                     <div class="flex flex-col gap-4">
                         <h2 class="text-blue-900">Texas' Only Carli Stocking Dealer</h2>
@@ -88,7 +98,7 @@ const recent = [
             </Container>
 
             <div class="grid grid-cols-6 gap-4 px-4">
-                {carli.map((i) => <Image src={i} width={300} height={300} class="h-auto w-full rounded-sm object-cover shadow-xl" />)}
+                {carli.map((i) => <img src="" width="300" height="300" class="h-auto w-full rounded-sm object-cover shadow-xl" />)}
             </div>
 
             <Container>
@@ -108,7 +118,7 @@ const recent = [
     <div class="bg-tan-500 py-40 space-y-60">
         <div class="relative">
             <Container classes="flex flex-col lg:flex-row gap-16">
-                <Image src="https://ik.imagekit.io/eriksolsen/Images/Team/Jamey/DSC08086-2.jpg" width={1875} height={2500} class="w-1/2 object-cover object-right shadow-2xl rounded-sm" />
+                <img src="" width="1875" height="2500" class="w-1/2 object-cover object-right shadow-2xl rounded-sm" />
 
                 <div class="space-y-16 py-12">
                     <div class="space-y-8">
@@ -125,7 +135,7 @@ const recent = [
                     </div>
 
                     <div class="space-y-4">
-                        <Image src="https://ik.imagekit.io/eriksolsen/Images/Team/Jamey/signature.png" width={394} height={98} class="w-72" />
+                        <img src="" width="394" height="98" class="w-72" />
                         <p class="font-medium text-gray-400">Owner, THOR Off-Road</p>
                     </div>
                 </div>
@@ -135,12 +145,13 @@ const recent = [
         </div>
 
         <div class="space-y-16">
-            <Container>
+            <Container classes="flex justify-between items-center">
                 <h2 class="text-gray-900">Recent Builds</h2>
+                <Link text="See More Builds" url="/builds" />
             </Container>
 
             <div class="grid grid-cols-4 gap-4" id="gallery">
-                {recent.map((i) => <Lightbox image={i} />)}
+                {recent.map((i) => <Lightbox image={i} classes="object-cover h-full w-full" />)}
             </div>
         </div>
     </div>

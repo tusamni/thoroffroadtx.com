@@ -2,17 +2,16 @@
 // components
 import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
-import { Image } from "@astrojs/image/components";
 
 // images
-import Logo from "../../assets/images/logos/logo-black.png";
+const logo = "https://ik.imagekit.io/eriksolsen/Images/Website/Logos/logo-black.svg";
 ---
 
 <div class="bg-tan-500 py-8">
     <Container>
         <div class="flex justify-between items-center">
             <div class="flex flex-row sm:flex-col w-full lg:w-auto md:flex-row justify-between lg:justify-start items-center sm:items-start md:items-center gap-8 md:gap-16">
-                <Image src={Logo} width={180} />
+                <img src={logo} width="180" alt="THOR Off-Road" />
 
                 <div class="hidden sm:flex gap-8 lg:gap-12 font-light text-neutral-600">
                     <div class="flex gap-1 lg:gap-2">

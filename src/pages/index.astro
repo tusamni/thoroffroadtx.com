@@ -3,7 +3,7 @@
 import Layout from "../layouts/Layout.astro";
 
 // components
-import { Picture } from "@astrojs/image/components";
+import { Picture, Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
 import Vector from "@/components/images/Vector";
 import Lightbox from "@/components/images/Lightbox";
@@ -15,7 +15,7 @@ import { getImage } from "@/functions/Media";
 
 // images
 const hero = await getImage("/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_001.jpg");
-const carliLogo = "/Images/Brands/Parts/Color/carli-suspension.png";
+const carliLogo = "/Images/Bran ds/Parts/Color/carli-suspension.png";
 const carli = [
     "/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
     "/Images/Vehicles/Ford/Bronco/2203-2022-Ford-Bronco-Wild-Track-Grey/_07A9839.jpg",
@@ -43,10 +43,10 @@ const recent = [
 ---
 
 <Layout title="Welcome to Astro.">
-    <div class="relative flex items-center justify-start h-[50vh]">
+    <div class="relative flex items-center justify-start h-[70vh]">
         <Container>
-            <div class="relative z-20 w-full flex flex-col gap-6">
-                <div class="flex flex-col gap-2">
+            <div class="relative z-20 w-full flex flex-col gap-10">
+                <div class="flex flex-col gap-4">
                     <h1>Purpose-Built Vehicles</h1>
                     <div class="text-2xl max-w-xl text-white">
                         We are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.
@@ -74,11 +74,10 @@ const recent = [
         <div class="bg-gradient-to-tl from-red-500/60 via-neutral-700/90 to-neutral-900 absolute w-full h-full z-10"></div>
 
         <!-- bg image -->
-        <Picture src={hero.src} alt={hero.title} widths={[250, 500, 1000, hero.width]} aspectRatio={hero.aspectRatio} class="hero" />
-        <!-- <img src={hero.src} class="absolute object-cover w-full h-[50vh]" /> -->
-        <!-- <video autoplay muted loop class="absolute object-cover w-full h-[50vh]">
+        <Image src={hero.src} alt={hero.title} width={hero.width} aspectRatio={hero.aspectRatio} class="absolute object-cover w-full h-full" />
+        <video autoplay muted loop class="absolute object-cover w-full h-[50vh]">
             <source src="/videos/homepage/roller_v2.mp4?tr=w-300,h-300" type="video/mp4" />
-        </video> -->
+        </video>
     </div>
 
     <div class="bg-blue-200 py-28">

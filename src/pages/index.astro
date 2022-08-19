@@ -11,11 +11,11 @@ import Link from "@/components/buttons/LinkArrow";
 import Container from "@/components/Container";
 
 // functions
-import { getImage } from "@/functions/Media";
+import { getImage, getPublicPath } from "@/functions/Media";
 
 // images
 const hero = await getImage("/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_001.jpg");
-const carliLogo = "/Images/Bran ds/Parts/Color/carli-suspension.png";
+const carliLogo = getPublicPath("/Images/Brands/Parts/Color/carli-suspension.png");
 const carli = [
     "/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
     "/Images/Vehicles/Ford/Bronco/2203-2022-Ford-Bronco-Wild-Track-Grey/_07A9839.jpg",
@@ -24,8 +24,10 @@ const carli = [
     "/Images/Vehicles/Ford/F-250/2207-2022-Ford-F-250-Lariat-White/_07A3140.jpg",
     "/Images/Vehicles/Ford/F-350/2205-2022-Ford-F-350-XLT-Grey/_07A0466.jpg",
 ];
-const jamey = "/Images/Team/Jamey/DSC08086-2.jpg";
-const signature = "/Images/Team/Jamey/signature.png";
+const jamey = {
+    portrait: getPublicPath("/Images/Team/Jamey/jamey-01.jpg"),
+    signature: getPublicPath("/Images/Team/Jamey/signature.png"),
+};
 const recent = [
     "/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
     "/Images/Vehicles/Ford/Bronco/2203-2022-Ford-Bronco-Wild-Track-Grey/_07A9839.jpg",
@@ -73,18 +75,18 @@ const recent = [
         <!-- red gradient -->
         <div class="bg-gradient-to-tl from-red-500/60 via-neutral-700/90 to-neutral-900 absolute w-full h-full z-10"></div>
 
-        <!-- bg image -->
-        <Image src={hero.src} alt={hero.title} width={hero.width} aspectRatio={hero.aspectRatio} class="absolute object-cover w-full h-full" />
-        <video autoplay muted loop class="absolute object-cover w-full h-[50vh]">
-            <source src="/videos/homepage/roller_v2.mp4?tr=w-300,h-300" type="video/mp4" />
+        <!-- bg video -->
+        <video autoplay muted loop class="absolute object-cover w-full h-full">
+            <source src={getPublicPath("/Videos/Homepage/roller_v2.mp4")} type="video/mp4" />
         </video>
     </div>
 
+    <!-- featured Carli section -->
     <div class="bg-blue-200 py-28">
         <div class="flex flex-col gap-8 space-y-8">
             <Container>
                 <div class="flex flex-col lg:flex-row items-start justify-between gap-24">
-                    <img src="" width="287" height="116" class="" />
+                    <Image src={carliLogo} alt="Carli Logo" width={287} height={116} />
 
                     <div class="flex flex-col gap-4">
                         <h2 class="text-blue-900">Texas' Only Carli Stocking Dealer</h2>
@@ -114,10 +116,11 @@ const recent = [
         </div>
     </div>
 
+    <!-- Jamey quote -->
     <div class="bg-tan-500 py-40 space-y-60">
         <div class="relative">
             <Container classes="flex flex-col lg:flex-row gap-16">
-                <img src="" width="1875" height="2500" class="w-1/2 object-cover object-right shadow-2xl rounded-sm" />
+                <Image src={jamey.portrait} width={1875} height={2500} class="w-1/2 object-cover object-right shadow-2xl rounded-sm" />
 
                 <div class="space-y-16 py-12">
                     <div class="space-y-8">
@@ -134,13 +137,14 @@ const recent = [
                     </div>
 
                     <div class="space-y-4">
-                        <img src="" width="394" height="98" class="w-72" />
+                        <Image src={jamey.signature} width={394} height={98} class="w-72" />
                         <p class="font-medium text-gray-400">Owner, THOR Off-Road</p>
                     </div>
                 </div>
             </Container>
 
             <Vector src="tire-tracks" classes="absolute bottom-0 right-0 text-tan-700/10 w-[500px]" />
+            <Vector src="tire-tracks" classes="absolute top-0 left-0 text-tan-700/10 w-[500px] rotate-180" />
         </div>
 
         <div class="space-y-16">

@@ -3,8 +3,11 @@
 import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
 
+// functions
+import { getPublicPath } from "@/functions/Media";
+
 // images
-const logo = "https://ik.imagekit.io/eriksolsen/Images/Website/Logos/logo-black.svg";
+const logo = getPublicPath("/Images/Website/Logos/logo-black.svg");
 ---
 
 <div class="bg-tan-500 py-8">

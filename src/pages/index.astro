@@ -14,33 +14,35 @@ import Container from "@/components/Container";
 import { getImage, getPublicPath } from "@/functions/Media";
 
 // images
-const hero = await getImage("/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_001.jpg");
-const carliLogo = getPublicPath("/Images/Brands/Parts/Color/carli-suspension.png");
-const carli = [
-    "/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
-    "/Images/Vehicles/Ford/Bronco/2203-2022-Ford-Bronco-Wild-Track-Grey/_07A9839.jpg",
-    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/_07A2427.jpg",
-    "/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Grey/IMG_6714.JPG",
-    "/Images/Vehicles/Ford/F-250/2207-2022-Ford-F-250-Lariat-White/_07A3140.jpg",
-    "/Images/Vehicles/Ford/F-350/2205-2022-Ford-F-350-XLT-Grey/_07A0466.jpg",
-];
+const carli = {
+    logo: getPublicPath("/Images/Brands/Parts/Color/carli-suspension.png"),
+    recent: [
+        await getImage("/Images/Vehicles/Ford/Bronco/2112-2021-Ford-Bronco-Badlands-Oxford-White/2021-Ford-Bronco-Badlands-Oxford-White_009.jpg"),
+        await getImage("/Images/Vehicles/Ford/Bronco/2204-2021-Ford-Bronco-Outer-Banks-Black/2021-Ford-Bronco-Outer-Banks-Black_004.jpg"),
+        await getImage("/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Stone-Grey/2022-Ford-F-250-Stone-Grey_002.jpg"),
+        await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"),
+        await getImage("/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_003.jpg"),
+        await getImage("/Images/Vehicles/RAM/2500/2207-2022-RAM-2500-Limited-White/2022-RAM-2500-Limited-White_002.jpg"),
+    ],
+};
+
 const jamey = {
     portrait: getPublicPath("/Images/Team/Jamey/jamey-01.jpg"),
     signature: getPublicPath("/Images/Team/Jamey/signature.png"),
 };
 const recent = [
-    "/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
-    "/Images/Vehicles/Ford/Bronco/2203-2022-Ford-Bronco-Wild-Track-Grey/_07A9839.jpg",
-    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/_07A2427.jpg",
-    "/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Grey/IMG_6714.JPG",
-    "/Images/Vehicles/Ford/F-250/2207-2022-Ford-F-250-Lariat-White/_07A3140.jpg",
-    "/Images/Vehicles/Ford/F-350/2205-2022-Ford-F-350-XLT-Grey/_07A0466.jpg",
-    "/Images/Vehicles/GMC/1500/2205-2022-GMC-1500-AT4-Tan/_07A0947.jpg",
-    "/Images/Vehicles/GMC/2500/2205-2021-GMC-2500-AT4-White/IMG_6388.JPG",
-    "/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/_07A9746.jpg",
-    "/Images/Vehicles/RAM/2500/2205-2006-RAM-2500-Red/_07A1090.jpg",
-    "/Images/Vehicles/RAM/2500/2207-2022-RAM-2500-Limited-White/_07A3824.jpg",
-    "/Images/Vehicles/Ford/F-250/2205-2022-Ford-F-250-Grey/_07A1493.jpg",
+    "/Images/Vehicles/Toyota/Land-Cruiser/2111-2007-Toyota-Land-Cruiser-Black/2007-Toyota-Land-Cruiser-Black_010.jpg",
+    "/Images/Vehicles/Toyota/Tacoma/2204-2021-Toyota-Tacoma-Silver/2021-Toyota-Tacoma-Silver_006.jpg",
+    "/Images/Vehicles/RAM/2500/2109-2019-RAM-2500-Limited-White/2019-RAM-2500-Limited-White_003.jpg",
+    "/Images/Vehicles/RAM/2500/2205-2006-RAM-2500-Red/2006-RAM-2500-Red_007.jpg",
+    "/Images/Vehicles/RAM/1500/2100-2021-RAM-1500-TRX-White/2021-RAM-1500-TRX-White_005.jpg",
+    "/Images/Vehicles/Lexus/GX/2112-2018-Lexus-GX460-Silver/2018-Lexus-GX460-Silver_009.jpg",
+    "/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_004.jpg",
+    "/Images/Vehicles/Ford/F-350/2110-2021-Ford-F-350-King-Ranch-Black/2021-Ford-F-350-King-Ranch-Black_005.jpg",
+    "/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Stone-Grey/2022-Ford-F-250-Stone-Grey_005.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_015.jpg",
+    "/Images/Vehicles/Ford/F-150/2109-2021-Ford-F-150-Lariat-Ridge-Runner-Silver/2021-Ford-F-150-Lariat-Ridge-Runner-Silver_010.jpg",
+    "/Images/Vehicles/Ford/F-150/2109-2021-Ford-F-150-XLT-Great-Plains-Silver/2021-Ford-F-150-XLT-Great-Plains-Silver_007.jpg",
 ];
 ---
 
@@ -86,7 +88,7 @@ const recent = [
         <div class="flex flex-col gap-8 space-y-8">
             <Container>
                 <div class="flex flex-col lg:flex-row items-start justify-between gap-24">
-                    <Image src={carliLogo} alt="Carli Logo" width={287} height={116} />
+                    <Image src={carli.logo} alt="Carli Logo" width={287} height={116} />
 
                     <div class="flex flex-col gap-4">
                         <h2 class="text-blue-900">Texas' Only Carli Stocking Dealer</h2>
@@ -99,7 +101,7 @@ const recent = [
             </Container>
 
             <div class="grid grid-cols-6 gap-4 px-4">
-                {carli.map((i) => <img src="" width="300" height="300" class="h-auto w-full rounded-sm object-cover shadow-xl" />)}
+                {carli.recent.map((i) => <Image src={i.src} width={500} height={500} class="h-72 w-auto rounded-sm object-cover shadow-xl" />)}
             </div>
 
             <Container>
@@ -154,7 +156,7 @@ const recent = [
             </Container>
 
             <div class="grid grid-cols-4 gap-4" id="gallery">
-                {recent.map((i) => <Lightbox image={i} classes="object-cover h-full w-full" />)}
+                {recent.map((i) => <Lightbox src={i} classes="object-cover h-full w-full" />)}
             </div>
         </div>
     </div>
@@ -162,5 +164,8 @@ const recent = [
 
 <script>
     import lightGallery from "lightgallery";
-    lightGallery(document.getElementById("gallery"));
+
+    lightGallery(document.getElementById("gallery"), {
+        subHtmlSelectorRelative: true,
+    });
 </script>

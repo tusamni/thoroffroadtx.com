@@ -1,17 +1,24 @@
 ---
+import { Image } from "@astrojs/image/components";
+
 // functions
-//import { getMetadata } from "@/functions/Media";
+import { getImage } from "@/functions/Media";
 
 // props
 export interface Props {
-    image: string;
+    src: string;
     classes?: string;
 }
-const { image, classes } = Astro.props as Props;
+const { src, classes } = Astro.props as Props;
 
-//const metadata = await getMetadata(image);
+const lightbox = await getImage(src);
 ---
 
-<!-- <a href={image} class={classes}>
-    <img src={image} width={metadata.width} height={metadata.height} class={classes} />
-</a> -->
+<a href={lightbox.src} class={classes} data-sub-html={`<div class="text-xl font-medium">${lightbox.title}</div><div class="font-light">${lightbox.description}</div>`}>
+    <Image src={lightbox.src} width={500} height={500} class={classes} alt={lightbox.alt} />
+
+    <div class="caption hidden">
+        <div class="text-xl font-medium">{lightbox.title}</div>
+        <div class="font-light">{lightbox.description}</div>
+    </div>
+</a>

@@ -155,8 +155,8 @@ const recent = [
                 <Link text="See More Builds" url="/builds" />
             </Container>
 
-            <div class="grid grid-cols-4 gap-4" id="gallery">
-                {recent.map((i) => <Lightbox src={i} classes="object-cover h-full w-full" />)}
+            <div class="grid grid-cols-4 gap-4" id="lightgallery">
+                {recent.map((i) => <Lightbox src={i} classes="object-cover h-full w-full" gallery="gallery" />)}
             </div>
         </div>
     </div>
@@ -165,7 +165,5 @@ const recent = [
 <script>
     import lightGallery from "lightgallery";
 
-    lightGallery(document.getElementById("gallery"), {
-        subHtmlSelectorRelative: true,
-    });
+    lightGallery(document.getElementById("lightgallery"));
 </script>

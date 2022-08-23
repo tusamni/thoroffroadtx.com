@@ -17,12 +17,10 @@ import { getImage, getPublicPath } from "@/functions/Media";
 const carli = {
     logo: getPublicPath("/Images/Brands/Parts/Color/carli-suspension.png"),
     recent: [
-        await getImage("/Images/Vehicles/Ford/Bronco/2112-2021-Ford-Bronco-Badlands-Oxford-White/2021-Ford-Bronco-Badlands-Oxford-White_009.jpg"),
-        await getImage("/Images/Vehicles/Ford/Bronco/2204-2021-Ford-Bronco-Outer-Banks-Black/2021-Ford-Bronco-Outer-Banks-Black_004.jpg"),
-        await getImage("/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Stone-Grey/2022-Ford-F-250-Stone-Grey_002.jpg"),
         await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"),
-        await getImage("/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_003.jpg"),
-        await getImage("/Images/Vehicles/RAM/2500/2207-2022-RAM-2500-Limited-White/2022-RAM-2500-Limited-White_002.jpg"),
+        await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"),
+        await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"),
+        await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"),
     ],
 };
 
@@ -31,18 +29,14 @@ const jamey = {
     signature: getPublicPath("/Images/Team/Jamey/signature.png"),
 };
 const recent = [
-    "/Images/Vehicles/Ford/Bronco/2204-2021-Ford-Bronco-Outer-Banks-Black/2021-Ford-Bronco-Outer-Banks-Black_003.jpg",
-    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
     "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
-    "/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Stone-Grey/2022-Ford-F-250-Stone-Grey_004.jpg",
-    "/Images/Vehicles/RAM/1500/2100-2021-RAM-1500-TRX-White/2021-RAM-1500-TRX-White_005.jpg",
-    "/Images/Vehicles/Ford/F-350/2204-2016-Ford-F-350-White/2016-Ford-F-350-White_004.jpg",
-    "/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_004.jpg",
-    "/Images/Vehicles/RAM/2500/2207-2022-RAM-2500-Limited-White/2022-RAM-2500-Limited-White_004.jpg",
-    "/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Stone-Grey/2022-Ford-F-250-Stone-Grey_005.jpg",
-    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_015.jpg",
-    "/Images/Vehicles/RAM/2500/2205-2006-RAM-2500-Red/2006-RAM-2500-Red_005.jpg",
-    "/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_001.jpg",
+    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
+    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
+    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
+    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
+    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
+    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
+    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
 ];
 ---
 
@@ -86,7 +80,7 @@ const recent = [
     <!-- featured Carli section -->
     <div class="bg-blue-200 py-28">
         <div class="flex flex-col gap-8 space-y-8">
-            <Container>
+            <Container classes="space-y-8">
                 <div class="flex flex-col lg:flex-row items-start justify-between gap-24">
                     <Image src={carli.logo} alt="Carli Logo" width={287} height={116} />
 
@@ -98,13 +92,11 @@ const recent = [
                         </p>
                     </div>
                 </div>
-            </Container>
 
-            <div class="grid grid-cols-6 gap-4 px-4">
-                {carli.recent.map((i) => <Image src={i.src} width={500} height={500} class="h-72 w-full rounded-sm object-cover shadow-xl" />)}
-            </div>
+                <div class="grid grid-cols-4 gap-4">
+                    {carli.recent.map((i) => <Image src={i.src} width={500} height={500} class="h-[24rem] w-full rounded-sm object-cover shadow-xl" />)}
+                </div>
 
-            <Container>
                 <div class="flex justify-between items-center">
                     <div class="flex gap-2">
                         <h4 class="text-blue-900">Recent Carli Builds</h4>
@@ -183,6 +175,7 @@ const recent = [
         bp.open({
             items: imageLinks,
             el: e.currentTarget,
+            scale: 0.8,
         });
     }
 </script>

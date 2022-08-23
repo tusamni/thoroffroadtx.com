@@ -6,22 +6,52 @@ import Container from "@/components/Container";
 import { getPublicPath } from "@/functions/Media";
 
 // images
-const logo = getPublicPath("/Images/Website/Logos/logo-white.svg");
+const logo = getPublicPath("/Images/Website/Logos/logo-black.svg");
 ---
 
-<div class="bg-black py-16">
+<div class="py-16">
     <Container>
         <img src={logo} width="250" alt="THOR Off-Road" class="mb-12" />
 
-        <div class="flex justify-between items-center">
-            <div class="max-w-md text-white">
+        <div class="flex justify-between">
+            <div class="max-w-md text-neutral-800">
                 Located in Dripping Springs, TX, THOR Off-Road are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.
             </div>
 
-            <div class="flex gap-8">
-                <h4>Vehicles</h4>
-                <h4>Parts</h4>
-                <h4>Other</h4>
+            <div class="flex gap-20">
+                <div class="flex flex-col gap-3">
+                    <h4 class="text-neutral-900">Vehicles</h4>
+                    <ul class="text-neutral-700 font-light space-y-2">
+                        <li>Chevrolet & GMC</li>
+                        <li>Ford</li>
+                        <li>RAM</li>
+                        <li>Jeep</li>
+                        <li>Toyota & Lexus</li>
+                        <li>UTV's</li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h4 class="text-neutral-900">Parts</h4>
+                    <ul class="text-neutral-700 font-light space-y-2">
+                        <li>Bed & Roof</li>
+                        <li>Body & Bumper</li>
+                        <li>Lighting</li>
+                        <li>Performance</li>
+                        <li>Specialties</li>
+                        <li>Suspension</li>
+                        <li>Wheel & Tire</li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h4 class="text-neutral-900">Other</h4>
+                    <ul class="text-neutral-700 font-light space-y-2">
+                        <li>Sitemap</li>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Use</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </Container>

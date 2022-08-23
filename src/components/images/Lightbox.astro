@@ -8,13 +8,12 @@ import { getImage } from "@/functions/Media";
 export interface Props {
     src: string;
     classes?: string;
-    gallery?: string;
 }
-const { src, classes, gallery } = Astro.props as Props;
+const { src, classes } = Astro.props as Props;
 
 const lightbox = await getImage(src);
 ---
 
-<a href={lightbox.src} class:list={[classes]}>
-    <Image src={lightbox.src} width={500} height={500} class={classes} alt={lightbox.alt} />
+<a href={lightbox.src} data-img={lightbox.src} data-alt={lightbox.description} data-height={lightbox.height} data-width={lightbox.width} data-caption={lightbox.description}>
+    <Image src={lightbox.src} class:list={[classes]} width={500} height={500} alt={lightbox.alt} />
 </a>

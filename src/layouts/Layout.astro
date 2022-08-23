@@ -4,6 +4,7 @@ import "../assets/css/base.scss";
 // components
 import ContactBar from "@/components/navigation/ContactBar";
 import Navigation from "@/components/navigation/Navigation";
+import Footer from "@/components/Footer";
 
 export interface Props {
     title: string;
@@ -26,5 +27,7 @@ const { title } = Astro.props as Props;
         <Navigation />
 
         <slot />
+
+        <Footer />
     </body>
 </html>

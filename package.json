@@ -13,7 +13,7 @@
     "@astrojs/image": "^0.3.6",
     "@astrojs/tailwind": "^1.0.0",
     "astro": "^1.0.7",
-    "lightgallery": "^2.5.0",
+    "bigger-picture": "^1.1.6",
     "prettier": "^2.7.1",
     "sass": "^1.54.5"
   },

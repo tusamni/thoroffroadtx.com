@@ -31,18 +31,18 @@ const jamey = {
     signature: getPublicPath("/Images/Team/Jamey/signature.png"),
 };
 const recent = [
-    "/Images/Vehicles/Toyota/Land-Cruiser/2111-2007-Toyota-Land-Cruiser-Black/2007-Toyota-Land-Cruiser-Black_010.jpg",
-    "/Images/Vehicles/Toyota/Tacoma/2204-2021-Toyota-Tacoma-Silver/2021-Toyota-Tacoma-Silver_006.jpg",
-    "/Images/Vehicles/RAM/2500/2109-2019-RAM-2500-Limited-White/2019-RAM-2500-Limited-White_003.jpg",
-    "/Images/Vehicles/RAM/2500/2205-2006-RAM-2500-Red/2006-RAM-2500-Red_007.jpg",
+    "/Images/Vehicles/Ford/Bronco/2204-2021-Ford-Bronco-Outer-Banks-Black/2021-Ford-Bronco-Outer-Banks-Black_003.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
+    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
+    "/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Stone-Grey/2022-Ford-F-250-Stone-Grey_004.jpg",
     "/Images/Vehicles/RAM/1500/2100-2021-RAM-1500-TRX-White/2021-RAM-1500-TRX-White_005.jpg",
-    "/Images/Vehicles/Lexus/GX/2112-2018-Lexus-GX460-Silver/2018-Lexus-GX460-Silver_009.jpg",
+    "/Images/Vehicles/Ford/F-350/2204-2016-Ford-F-350-White/2016-Ford-F-350-White_004.jpg",
     "/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_004.jpg",
-    "/Images/Vehicles/Ford/F-350/2110-2021-Ford-F-350-King-Ranch-Black/2021-Ford-F-350-King-Ranch-Black_005.jpg",
+    "/Images/Vehicles/RAM/2500/2207-2022-RAM-2500-Limited-White/2022-RAM-2500-Limited-White_004.jpg",
     "/Images/Vehicles/Ford/F-250/2206-2022-Ford-F-250-Stone-Grey/2022-Ford-F-250-Stone-Grey_005.jpg",
     "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_015.jpg",
-    "/Images/Vehicles/Ford/F-150/2109-2021-Ford-F-150-Lariat-Ridge-Runner-Silver/2021-Ford-F-150-Lariat-Ridge-Runner-Silver_010.jpg",
-    "/Images/Vehicles/Ford/F-150/2109-2021-Ford-F-150-XLT-Great-Plains-Silver/2021-Ford-F-150-XLT-Great-Plains-Silver_007.jpg",
+    "/Images/Vehicles/RAM/2500/2205-2006-RAM-2500-Red/2006-RAM-2500-Red_005.jpg",
+    "/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_001.jpg",
 ];
 ---
 
@@ -101,7 +101,7 @@ const recent = [
             </Container>
 
             <div class="grid grid-cols-6 gap-4 px-4">
-                {carli.recent.map((i) => <Image src={i.src} width={500} height={500} class="h-72 w-auto rounded-sm object-cover shadow-xl" />)}
+                {carli.recent.map((i) => <Image src={i.src} width={500} height={500} class="h-72 w-full rounded-sm object-cover shadow-xl" />)}
             </div>
 
             <Container>
@@ -155,15 +155,34 @@ const recent = [
                 <Link text="See More Builds" url="/builds" />
             </Container>
 
-            <div class="grid grid-cols-4 gap-4" id="lightgallery">
-                {recent.map((i) => <Lightbox src={i} classes="object-cover h-full w-full" gallery="gallery" />)}
+            <div class="grid grid-cols-4 gap-4" id="gallery">
+                {recent.map((i) => <Lightbox src={i} classes="object-cover h-full w-full" />)}
             </div>
         </div>
     </div>
 </Layout>
 
 <script>
-    import lightGallery from "lightgallery";
+    import BiggerPicture from "bigger-picture";
 
-    lightGallery(document.getElementById("lightgallery"));
+    let bp = BiggerPicture({
+        target: document.body,
+    });
+
+    // open (will be a child of the target element above)
+    let imageLinks = document.querySelectorAll("#gallery > a");
+
+    // add click listener to open BiggerPicture
+    for (let link of imageLinks) {
+        link.addEventListener("click", openGallery);
+    }
+
+    // function to open BiggerPicture
+    function openGallery(e) {
+        e.preventDefault();
+        bp.open({
+            items: imageLinks,
+            el: e.currentTarget,
+        });
+    }
 </script>

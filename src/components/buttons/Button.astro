@@ -6,11 +6,12 @@ export interface Props {
     text: string;
     url: string;
     theme?: string;
+    classes?: string;
 }
-const { text, url, theme = "primary" } = Astro.props as Props;
+const { text, url, theme = "primary", classes } = Astro.props as Props;
 ---
 
-<a href={url} title={text} class:list={["flex gap-3 rounded-md px-5 py-4 font-medium shadow-solid border transition duration-200 w-fit", Buttons[theme]]}>
+<a href={url} title={text} class:list={["flex gap-3 rounded-md px-5 py-4 font-medium shadow-solid border transition duration-200 w-fit", Buttons[theme], classes]}>
     <slot />
     {text}
 </a>

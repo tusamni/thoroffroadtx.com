@@ -24,11 +24,11 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
 <div class="bg-tan-500 relative">
     <Container>
         <div class="flex justify-between items-center">
-            <div class="flex flex-row sm:flex-col w-full lg:w-auto md:flex-row justify-between lg:justify-start items-center sm:items-start md:items-center gap-2 md:gap-16 pt-6 pb-4 md:pt-0 md:pb-0">
+            <div class="flex flex-row sm:flex-col w-full lg:w-auto md:flex-row justify-between lg:justify-start items-center sm:items-start md:items-center gap-2 md:gap-16 pt-6 md:pt-0 md:pb-0">
                 <img src={logo} width="180" alt="THOR Off-Road" class="w-40 lg:w-52" />
 
                 <div class="hidden sm:flex lg:gap-0 font-medium text-neutral-600">
-                    <div class="dropdown py-4 md:py-12 px-4">
+                    <div class="dropdown pt-4 pb-6 md:py-12 px-4">
                         <button class="flex gap-1 lg:gap-2">
                             <div class="flex gap-1 lg:gap-2">
                                 Vehicles
@@ -37,7 +37,7 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
                         </button>
 
                         <MegaMenu>
-                            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                                 {
                                     [...Array(8)].map((d) => (
                                         <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
@@ -54,7 +54,7 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
                         </MegaMenu>
                     </div>
 
-                    <div class="dropdown py-4 md:py-12 px-4">
+                    <div class="dropdown pt-4 pb-6 md:py-12 px-4">
                         <button class="flex gap-1 lg:gap-2">
                             <div class="flex gap-1 lg:gap-2">
                                 Parts
@@ -80,9 +80,9 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
                             </div>
                         </MegaMenu>
                     </div>
-                    <div class="py-4 md:py-12 px-4">Gallery</div>
-                    <div class="py-4 md:py-12 px-4">Feed</div>
-                    <div class="lg:hidden py-4 md:py-12 px-4">Contact Us</div>
+                    <div class="pt-4 pb-6 md:py-12 px-4">Gallery</div>
+                    <div class="pt-4 pb-6 md:py-12 px-4">Feed</div>
+                    <div class="lg:hidden pt-4 pb-6 md:py-12 px-4">Contact Us</div>
                 </div>
 
                 <div class="sm:hidden">

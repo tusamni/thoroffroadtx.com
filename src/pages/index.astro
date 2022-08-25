@@ -3,10 +3,9 @@
 import Layout from "../layouts/Layout.astro";
 
 // components
-// import { Picture, Image } from "@astrojs/image/components";
+import { Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
-import Vector from "@/components/images/Vector";
-// import Lightbox from "@/components/images/Lightbox";
+import Lightbox from "@/components/images/Lightbox";
 import Link from "@/components/buttons/LinkArrow";
 import Container from "@/components/Container";
 
@@ -14,6 +13,7 @@ import Container from "@/components/Container";
 import { getImage, getPublicPath } from "@/functions/Media";
 
 // images
+const devImage = await getImage("devImage");
 const carli = {
     logo: getPublicPath("/Images/Brands/Parts/Color/carli-suspension.png"),
     // recent: [
@@ -28,16 +28,6 @@ const jamey = {
     portrait: getPublicPath("/Images/Team/Jamey/jamey-01.jpg"),
     signature: getPublicPath("/Images/Team/Jamey/signature.png"),
 };
-const recent = [
-    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
-    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
-    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
-    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
-    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
-    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
-    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
-    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg",
-];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -72,9 +62,10 @@ const recent = [
         <div class="bg-gradient-to-tl from-red-500/60 via-neutral-700/90 to-neutral-900 absolute w-full h-full z-10"></div>
 
         <!-- bg video -->
+        <Image src={devImage} width={devImage.width} height={devImage.height} class="absolute object-cover w-full h-full" />
         <!-- <video autoplay muted loop class="absolute object-cover w-full h-full">
             <source src={getPublicPath("/Videos/Homepage/roller_v2.mp4")} type="video/mp4" />
-        </video> -->
+        -->
     </div>
 
     <!-- featured Carli section -->
@@ -94,7 +85,7 @@ const recent = [
                 </div>
 
                 <div class="grid grid-cols-4 gap-4">
-                    <!-- {carli.recent.map((i) => <img src={i.src} width={500} height={500} class="h-[24rem] w-full rounded-sm object-cover shadow-xl" />)} -->
+                    {[...Array(4)].map((i) => <Image src={devImage} width={500} height={500} class="h-[24rem] w-full rounded-sm object-cover shadow-xl" />)}
                 </div>
 
                 <div class="flex justify-between items-center">
@@ -114,7 +105,7 @@ const recent = [
     <div class="bg-tan-500 py-40 space-y-60">
         <div class="relative">
             <Container classes="flex flex-col lg:flex-row gap-16">
-                <!-- <img src={jamey.portrait} class="w-1/2 object-cover object-right shadow-2xl rounded-sm" /> -->
+                <Image src={devImage} class="w-1/2 object-cover object-right shadow-2xl rounded-sm" />
 
                 <div class="space-y-16 py-12">
                     <div class="space-y-8">
@@ -137,8 +128,8 @@ const recent = [
                 </div>
             </Container>
 
-            <Vector src="../../assets/images/vectors/tire-tracks.svg?raw" classes="absolute bottom-0 right-0 text-tan-700/10 w-[500px]" />
-            <Vector src="../../assets/images/vectors/tire-tracks.svg?raw" classes="absolute top-0 left-0 text-tan-700/10 w-[500px] rotate-180" />
+            <!-- <Vector src="../../assets/images/vectors/tire-tracks.svg?raw" classes="absolute bottom-0 right-0 text-tan-700/10 w-[500px]" />
+            <Vector src="../../assets/images/vectors/tire-tracks.svg?raw" classes="absolute top-0 left-0 text-tan-700/10 w-[500px] rotate-180" /> -->
         </div>
 
         <div class="space-y-16">
@@ -148,7 +139,7 @@ const recent = [
             </Container>
 
             <div class="grid grid-cols-4 gap-4" id="gallery">
-                <!-- {recent.map((i) => <Lightbox src={i} classes="object-cover h-full w-full" />)} -->
+                {[...Array(12)].map((i) => <Lightbox src={i} classes="object-cover h-full w-full" />)}
             </div>
         </div>
     </div>

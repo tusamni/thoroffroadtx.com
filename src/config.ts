@@ -1,3 +1,3 @@
 export const imageConfig = {
-    cloudUrl: "https://thoroffroad.nyc3.digitaloceanspaces.com",
+    cloudUrl: "https://thoroffroad.nyc3.cdn.digitaloceanspaces.com",
 }

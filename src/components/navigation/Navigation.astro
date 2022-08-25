@@ -11,7 +11,7 @@ import { getPublicPath, getImage } from "@/functions/Media";
 
 // images
 const logo = getPublicPath("/Images/Website/Logos/logo-black.svg");
-const devImage = await getImage("devImage");
+const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg");
 ---
 
 <style>
@@ -41,7 +41,7 @@ const devImage = await getImage("devImage");
                                 {
                                     [...Array(8)].map((d) => (
                                         <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
-                                            <Image src={devImage} width={100} height={100} class="h-full w-1/4 rounded-sm object-cover shadow-md" />
+                                            <Image src={icon.src} width={100} height={100} class="h-full w-1/4 rounded-sm object-cover shadow-md" />
 
                                             <div class="flex flex-col">
                                                 <div class="text-lg font-medium">Chevrolet</div>

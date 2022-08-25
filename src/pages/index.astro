@@ -14,21 +14,30 @@ import Container from "@/components/Container";
 import { getImage, getPublicPath } from "@/functions/Media";
 
 // images
-const devImage = await getImage("devImage");
 const carli = {
     logo: getPublicPath("/Images/Brands/Parts/Color/carli-suspension.png"),
-    // recent: [
-    //     await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"),
-    //     await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"),
-    //     await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"),
-    //     await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"),
-    // ],
+    recent: [
+        await getImage("/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_001.jpg"),
+        await getImage("/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_001.jpg"),
+        await getImage("/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_001.jpg"),
+        await getImage("/Images/Vehicles/GMC/2500/2203-2021-GMC-2500-AT4-White/2021-GMC-2500-AT4-White_001.jpg"),
+    ],
 };
-
+const hero = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg");
 const jamey = {
-    portrait: getPublicPath("/Images/Team/Jamey/jamey-01.jpg"),
+    portrait: getPublicPath("/Images/Team/Jamey/jamey-02.jpg"),
     signature: getPublicPath("/Images/Team/Jamey/signature.png"),
 };
+const builds = [
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
+    "/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_011.jpg",
+];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -63,7 +72,7 @@ const jamey = {
         <div class="bg-gradient-to-tl from-red-500/60 via-neutral-700/90 to-neutral-900 absolute w-full h-full z-10"></div>
 
         <!-- bg video -->
-        <Image src={devImage} width={devImage.width} height={devImage.height} class="absolute object-cover w-full h-full" />
+        <Image src={hero.src} width={hero.width} height={hero.height} class="absolute object-cover w-full h-full" />
         <!-- <video autoplay muted loop class="absolute object-cover w-full h-full">
             <source src={getPublicPath("/Videos/Homepage/roller_v2.mp4")} type="video/mp4" />
         -->
@@ -74,7 +83,7 @@ const jamey = {
         <div class="flex flex-col gap-8 space-y-8">
             <Container classes="space-y-8">
                 <div class="flex flex-col lg:flex-row items-start justify-between gap-24">
-                    <img src={carli.logo} alt="Carli Logo" width={287} height={116} />
+                    <Image src={carli.logo} alt="Carli Logo" width={287} height={116} />
 
                     <div class="flex flex-col gap-4">
                         <h2 class="text-blue-900">Texas' Only Carli Stocking Dealer</h2>
@@ -86,7 +95,7 @@ const jamey = {
                 </div>
 
                 <div class="grid grid-cols-4 gap-4">
-                    {[...Array(4)].map((i) => <Image src={devImage} width={500} height={500} class="h-[24rem] w-full rounded-sm object-cover shadow-xl" />)}
+                    {carli.recent.map((i) => <Image src={i.src} width={500} height={500} class="h-[24rem] w-full rounded-sm object-cover shadow-xl" />)}
                 </div>
 
                 <div class="flex justify-between items-center">
@@ -106,7 +115,7 @@ const jamey = {
     <div class="bg-tan-500 py-40 space-y-60 overflow-hidden">
         <div class="relative">
             <Container classes="flex flex-col lg:flex-row gap-16">
-                <Image src={devImage} class="w-1/2 object-cover object-right shadow-2xl rounded-sm" />
+                <Image src={jamey.portrait} height={1000} width={1000} class="w-1/2 object-cover shadow-2xl rounded-sm" />
 
                 <div class="space-y-16 py-12">
                     <div class="space-y-8">
@@ -123,7 +132,7 @@ const jamey = {
                     </div>
 
                     <div class="space-y-4">
-                        <img src={jamey.signature} width={394} height={98} class="w-72" />
+                        <Image src={jamey.signature} width={394} height={98} class="w-72" />
                         <p class="font-medium text-gray-400">Owner, THOR Off-Road</p>
                     </div>
                 </div>
@@ -140,7 +149,7 @@ const jamey = {
             </Container>
 
             <div class="grid grid-cols-4 gap-4" id="gallery">
-                {[...Array(12)].map((i) => <Lightbox src={i} classes="object-cover h-full w-full" />)}
+                {builds.map((i) => <Lightbox src={i} classes="object-cover h-full w-full" />)}
             </div>
         </div>
     </div>

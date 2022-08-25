@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   viewBox="0 0 8.4666665 8.4666669"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="power-steering-warning-caution-light-car-alert.svg">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="fillet-chamfer"
+       id="path-effect6194-9"
+       is_visible="true"
+       fillet_chamfer_values="-2.083553,1 | -1.5194253,1 | 0,1"
+       method="auto"
+       radius="2"
+       chamfer_steps="1"
+       helper_size="0"
+       flexible="false"
+       use_knot_distance="false"
+       ignore_radius_0="false"
+       only_selected="true"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet-chamfer"
+       id="path-effect6200-3"
+       is_visible="true"
+       fillet_chamfer_values="0,0 | -2.1346047,1 | -1.3969861,1 | -0.057274208,1 | -0.16666667,1"
+       method="auto"
+       radius="0.5"
+       chamfer_steps="1"
+       helper_size="0"
+       flexible="false"
+       use_knot_distance="false"
+       ignore_radius_0="false"
+       only_selected="true"
+       hide_knots="false" />
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern" />
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern-6" />
+    <inkscape:path-effect
+       effect="fillet-chamfer"
+       id="path-effect6795-9"
+       is_visible="true"
+       fillet_chamfer_values="0,0 | -2,1 | -2,1 | -2,1"
+       method="auto"
+       radius="2"
+       chamfer_steps="1"
+       helper_size="0"
+       flexible="false"
+       use_knot_distance="false"
+       ignore_radius_0="false"
+       only_selected="true"
+       hide_knots="false" />
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern-4" />
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern-3" />
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern-0" />
+    <inkscape:path-effect
+       effect="fillet-chamfer"
+       id="path-effect5842-1-6-2-7"
+       is_visible="true"
+       fillet_chamfer_values="0,0 | -0.49999733,1 | -0.50000267,1"
+       method="auto"
+       radius="0.5"
+       chamfer_steps="1"
+       helper_size="0"
+       flexible="false"
+       use_knot_distance="false"
+       ignore_radius_0="false"
+       only_selected="true"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet-chamfer"
+       id="path-effect9698-1"
+       is_visible="true"
+       fillet_chamfer_values="0,0 | -0.71730365,1"
+       method="auto"
+       radius="1"
+       chamfer_steps="1"
+       helper_size="0"
+       flexible="false"
+       use_knot_distance="false"
+       ignore_radius_0="false"
+       only_selected="true"
+       hide_knots="false" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.9999996"
+     inkscape:cx="-10.324162"
+     inkscape:cy="20.858521"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     units="px"
+     inkscape:window-width="1366"
+     inkscape:window-height="716"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4726" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-288.53332)">
+    <path
+       style="opacity:1;fill:#3b3c3d;fill-opacity:1;stroke:none;stroke-width:0.99999994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 3.3734104,289.98852 c -1.5343188,0 -2.77812504,1.24381 -2.77812504,2.77813 0,1.53431 1.24380624,2.77812 2.77812504,2.77812 1.5343188,0 2.7781251,-1.24381 2.7781251,-2.77812 0,-1.53432 -1.2438063,-2.77813 -2.7781251,-2.77813 z m 0,0.79375 c 0.6131984,2.7e-4 1.1917628,0.28424 1.5673388,0.76895 -0.5196946,-0.0895 -1.0444692,-0.13792 -1.5694025,-0.13901 -0.5223669,0 -1.0446809,0.045 -1.5621794,0.13746 0.3752321,-0.48327 0.9523942,-0.76643 1.5642431,-0.7674 z m 0,1.32292 a 0.46302085,0.46302088 0 0 1 0.4630209,0.46302 0.46302085,0.46302088 0 0 1 -0.4630209,0.46302 0.46302085,0.46302088 0 0 1 -0.4630208,-0.46302 0.46302085,0.46302088 0 0 1 0.4630208,-0.46302 z m -1.9704315,0.43615 c 0.2731294,0.0257 0.4908286,0.26881 0.4909344,0.57567 -7.94e-5,0.22421 -0.1219465,0.42146 -0.3033448,0.51729 -0.1320535,-0.27021 -0.2009775,-0.5669 -0.2015331,-0.86765 0,-0.0753 0.00503,-0.15053 0.014023,-0.22531 z m 3.939302,0 c 0.00952,0.0747 0.014552,0.14997 0.01561,0.22531 0,0.30044 -0.069982,0.59676 -0.2020623,0.86661 -0.1807898,-0.096 -0.3022071,-0.293 -0.3022865,-0.51676 1.059e-4,-0.30621 0.216588,-0.54852 0.4888442,-0.57516 z m -1.9683413,1.08986 c 0.4654285,0 0.8873331,0.31073 1.0846859,0.79581 -0.3225801,0.21113 -0.6996907,0.32372 -1.0852151,0.32401 -0.3853921,-5.3e-4 -0.7623175,-0.11331 -1.0846858,-0.32452 0.1975379,-0.48494 0.6195483,-0.79504 1.085215,-0.7953 z"
+       id="path34279-3"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path34281-5"
+       d="m 6.8130468,290.51767 1.0583333,0 -0.1322916,3.43958 -0.7937501,0 z"
+       style="fill:#3b3c3d;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path34283-7"
+       d="m 7.7390885,295.01558 a 0.39687501,0.39687504 0 0 1 -0.3968751,0.39688 0.39687501,0.39687504 0 0 1 -0.396875,-0.39688 0.39687501,0.39687504 0 0 1 0.396875,-0.39687 0.39687501,0.39687504 0 0 1 0.3968751,0.39687 z"
+       style="opacity:1;fill:#3b3c3d;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

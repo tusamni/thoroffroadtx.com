@@ -3,6 +3,7 @@
 import Layout from "../layouts/Layout.astro";
 
 // components
+import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
 import Lightbox from "@/components/images/Lightbox";
@@ -102,7 +103,7 @@ const jamey = {
     </div>
 
     <!-- Jamey quote -->
-    <div class="bg-tan-500 py-40 space-y-60">
+    <div class="bg-tan-500 py-40 space-y-60 overflow-hidden">
         <div class="relative">
             <Container classes="flex flex-col lg:flex-row gap-16">
                 <Image src={devImage} class="w-1/2 object-cover object-right shadow-2xl rounded-sm" />
@@ -128,8 +129,8 @@ const jamey = {
                 </div>
             </Container>
 
-            <!-- <Vector src="../../assets/images/vectors/tire-tracks.svg?raw" classes="absolute bottom-0 right-0 text-tan-700/10 w-[500px]" />
-            <Vector src="../../assets/images/vectors/tire-tracks.svg?raw" classes="absolute top-0 left-0 text-tan-700/10 w-[500px] rotate-180" /> -->
+            <Icon name="tracks/tire-tracks_03" class="absolute bottom-0 right-0 text-tan-700/10 w-[500px]" />
+            <Icon name="tracks/tire-tracks_03" class="absolute top-0 left-0 text-tan-700/10 w-[500px] rotate-180" />
         </div>
 
         <div class="space-y-16">

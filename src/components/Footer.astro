@@ -1,58 +1,85 @@
 ---
 // components
+import { Icon } from "astro-icon";
 import Container from "@/components/Container";
+
+// data
+import { Business, Social } from "@/data/business";
 
 // functions
 import { getPublicPath } from "@/functions/Media";
 
 // images
-const logo = getPublicPath("/Images/Website/Logos/logo-black.svg");
+const logo = getPublicPath("/Images/Website/Logos/logo-white.svg");
 ---
 
-<div class="py-16">
-    <Container>
-        <img src={logo} width="250" alt="THOR Off-Road" class="mb-12" />
+<div class="relative bg-gradient-to-tl from-neutral-700 to-neutral-100 overflow-hidden">
+    <div class="py-16 md:py-24 bg-neutral-700 z-50">
+        <Container>
+            <img src={logo} width="250" alt="THOR Off-Road" class="mb-8 md:mb-12 w-40 md:w-52 z-10" />
 
-        <div class="flex justify-between">
-            <div class="max-w-md text-neutral-800">
-                Located in Dripping Springs, TX, THOR Off-Road are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.
+            <div class="flex flex-col md:flex-row justify-between gap-12">
+                <div class="z-10 max-w-md text-neutral-200 space-y-10">
+                    <p>
+                        Located in Dripping Springs, TX, THOR Off-Road are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream
+                        about.
+                    </p>
+
+                    <div class="space-y-4 font-light">
+                        <a href={Social.googlemaps} title="Directions to THOR Off-Road">
+                            <address>
+                                {Business.address.street_01}
+                                {Business.address.street_02}<br />
+                                {Business.address.city}, {Business.address.state}<br />
+                                {Business.address.zip}
+                            </address>
+                        </a>
+                        <div>
+                            <a href={`tel:${Business.phone}`} title="Call THOR Off-Road">{Business.phone}</a><br />
+                            <a href={`mailto:${Business.email}`} title="Contact THOR Off-Road">{Business.email}</a>
+                        </div>
+                        <div>{Business.hours}</div>
+                    </div>
+                </div>
+
+                <div class="z-10 flex flex-col md:flex-row gap-10 md:gap-20">
+                    <div class="flex flex-col gap-3">
+                        <h4 class="text-neutral-100">Vehicles</h4>
+                        <ul class="text-neutral-200 font-light space-y-2">
+                            <li>Chevrolet & GMC</li>
+                            <li>Ford</li>
+                            <li>RAM</li>
+                            <li>Jeep</li>
+                            <li>Toyota & Lexus</li>
+                            <li>UTV's</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <h4 class="text-neutral-100">Parts</h4>
+                        <ul class="text-neutral-200 font-light space-y-2">
+                            <li>Bed & Roof</li>
+                            <li>Body & Bumper</li>
+                            <li>Lighting</li>
+                            <li>Performance</li>
+                            <li>Specialties</li>
+                            <li>Suspension</li>
+                            <li>Wheel & Tire</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <h4 class="text-neutral-100">Other</h4>
+                        <ul class="text-neutral-200 font-light space-y-2">
+                            <li>Sitemap</li>
+                            <li>Privacy Policy</li>
+                            <li>Terms of Use</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </Container>
+    </div>
 
-            <div class="flex gap-20">
-                <div class="flex flex-col gap-3">
-                    <h4 class="text-neutral-900">Vehicles</h4>
-                    <ul class="text-neutral-700 font-light space-y-2">
-                        <li>Chevrolet & GMC</li>
-                        <li>Ford</li>
-                        <li>RAM</li>
-                        <li>Jeep</li>
-                        <li>Toyota & Lexus</li>
-                        <li>UTV's</li>
-                    </ul>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h4 class="text-neutral-900">Parts</h4>
-                    <ul class="text-neutral-700 font-light space-y-2">
-                        <li>Bed & Roof</li>
-                        <li>Body & Bumper</li>
-                        <li>Lighting</li>
-                        <li>Performance</li>
-                        <li>Specialties</li>
-                        <li>Suspension</li>
-                        <li>Wheel & Tire</li>
-                    </ul>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h4 class="text-neutral-900">Other</h4>
-                    <ul class="text-neutral-700 font-light space-y-2">
-                        <li>Sitemap</li>
-                        <li>Privacy Policy</li>
-                        <li>Terms of Use</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </Container>
+    <Icon name="tracks/tire-tracks_04" class="absolute bottom-10 right-10 text-neutral-600/30 w-[800px] scale-x-[-1]" />
 </div>

@@ -10,7 +10,8 @@ export const Business = {
         city: "Dripping Springs",
         state: "TX",
         zip: "78620"
-    }
+    },
+    hours: "Mon-Fri: 8am - 5pm"
 }
 
 export const Social = {

@@ -4,6 +4,7 @@ import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
+import Flyout from "@/components/navigation/Flyout";
 import MegaMenu from "@/components/navigation/MegaMenu";
 
 // functions
@@ -14,13 +15,6 @@ const logo = getPublicPath("/Images/Website/Logos/logo-black.svg");
 const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg");
 ---
 
-<style>
-    /* on hover, show megamenu */
-    .dropdown:hover > :global(.megamenu) {
-        display: block;
-    }
-</style>
-
 <div class="bg-tan-500 relative">
     <Container>
         <div class="flex justify-between items-center">
@@ -28,7 +22,7 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
                 <img src={logo} width="180" alt="THOR Off-Road" class="w-40" />
 
                 <div class="hidden md:flex font-medium text-neutral-600">
-                    <div class="dropdown py-10 px-4">
+                    <div class="dropdown py-10 px-4" x-data="{ vehiclesMega: false }" @mouseover.away="vehiclesMega = false" @mouseover="vehiclesMega = true">
                         <button class="flex gap-1 lg:gap-2">
                             <div class="flex gap-1 lg:gap-2">
                                 Vehicles
@@ -36,25 +30,27 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
                             </div>
                         </button>
 
-                        <MegaMenu>
-                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                                {
-                                    [...Array(8)].map((d) => (
-                                        <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
-                                            <Image src={icon.src} width={100} height={100} class="h-full w-1/4 rounded-sm object-cover shadow-md" />
+                        <div x-show="vehiclesMega">
+                            <MegaMenu>
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                    {
+                                        [...Array(8)].map((d) => (
+                                            <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
+                                                <Image src={icon.src} width={100} height={100} class="h-full w-1/4 rounded-sm object-cover shadow-md" />
 
-                                            <div class="flex flex-col">
-                                                <div class="text-lg font-medium">Chevrolet</div>
-                                                <p class="text-sm font-light">Colorado, Canyon, Silverado, Sierra, Tahoe & Yukon.</p>
+                                                <div class="flex flex-col">
+                                                    <div class="text-lg font-medium">Chevrolet</div>
+                                                    <p class="text-sm font-light">Colorado, Canyon, Silverado, Sierra, Tahoe & Yukon.</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </MegaMenu>
+                                        ))
+                                    }
+                                </div>
+                            </MegaMenu>
+                        </div>
                     </div>
 
-                    <div class="dropdown py-10 px-4">
+                    <div class="dropdown py-10 px-4" x-data="{ partsMega: false }" @mouseover="partsMega = true" @mouseover.away="partsMega = false">
                         <button class="flex gap-1 lg:gap-2">
                             <div class="flex gap-1 lg:gap-2">
                                 Parts
@@ -62,31 +58,39 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
                             </div>
                         </button>
 
-                        <MegaMenu>
-                            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-                                {
-                                    [...Array(8)].map((d) => (
-                                        <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
-                                            <div class="flex h-full w-1/4 justify-center rounded-md bg-neutral-200 p-2">
-                                                <Icon name="car-parts/glyph/door-open-car" class="h-auto w-8" />
+                        <div x-show="partsMega">
+                            <MegaMenu>
+                                <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                                    {
+                                        [...Array(8)].map((d) => (
+                                            <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
+                                                <div class="flex h-full w-1/4 justify-center rounded-md bg-neutral-200 p-2">
+                                                    <Icon name="car-parts/glyph/door-open-car" class="h-auto w-8" />
+                                                </div>
+                                                <div class="flex flex-col">
+                                                    <div class="text-lg font-medium">Wheel & Tire</div>
+                                                    <p class="text-sm font-light">We can create the perfect wheel & tire package.</p>
+                                                </div>
                                             </div>
-                                            <div class="flex flex-col">
-                                                <div class="text-lg font-medium">Wheel & Tire</div>
-                                                <p class="text-sm font-light">We can create the perfect wheel & tire package.</p>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </MegaMenu>
+                                        ))
+                                    }
+                                </div>
+                            </MegaMenu>
+                        </div>
                     </div>
                     <div class="py-10 px-4">Gallery</div>
                     <div class="py-10 px-4">Feed</div>
                     <div class="lg:hidden py-10 px-4">Contact Us</div>
                 </div>
 
-                <div class="md:hidden">
-                    <Icon name="bi:list" class="w-8 h-auto" />
+                <div class="md:hidden" x-data="{ flyout: false }">
+                    <a x-on:click="flyout = true">
+                        <Icon name="bi:list" class="w-8 h-auto" />
+
+                        <div x-show="flyout">
+                            <Flyout />
+                        </div>
+                    </a>
                 </div>
             </div>
 

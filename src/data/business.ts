@@ -14,9 +14,25 @@ export const Business = {
     hours: "Mon-Fri: 8am - 5pm"
 }
 
-export const Social = {
-    facebook: "https://www.facebook.com/thoroffroadtx/",
-    instagram: "https://www.instagram.com/thor_offroad/",
-    youtube: "https://www.youtube.com/channel/UCq4-u8q-XIz4_YyCrZC_y6w/featured",
-    googlemaps: "https://g.page/thoroffroadtx?share"
-}
+export const Social = [
+    {
+        title: "Facebook",
+        icon: "bi:facebook",
+        url: "https://www.facebook.com/thoroffroadtx/"
+    },
+    {
+        title: "Instagram",
+        icon: "bi:instagram",
+        url: "https://www.instagram.com/thor_offroad/"
+    },
+    {
+        title: "YouTube",
+        icon: "bi:youtube",
+        url: "https://www.youtube.com/channel/UCq4-u8q-XIz4_YyCrZC_y6w/featured"
+    },
+    {
+        title: "Google Maps",
+        icon: "bi:map-fill",
+        url: "https://g.page/thoroffroadtx"
+    }
+]

@@ -11,15 +11,15 @@ import { Business, Social } from "@/data/business";
     <Container>
         <div class="flex justify-between items-center">
             <!-- contact icons -->
-            <div class="flex text-xs">
+            <div class="flex sm:w-full sm:justify-between md:justify-start text-xs">
                 <!-- phone -->
-                <a href={`tel:${Business.phone}`} title={`${Business.name_long} Phone`} class="flex items-center gap-2 font-extralight py-4 px-4 hover:bg-red-400 transition duration-200">
+                <a href={`tel:${Business.phone}`} title={`${Business.name_long} Phone`} class="flex items-center gap-2 font-extralight py-4 md:px-4 hover:bg-red-400 transition duration-200">
                     <Icon name="bi:telephone-fill" class="w-3 h-auto" />
                     {Business.phone}
                 </a>
 
                 <!-- email -->
-                <a href={`mailto:${Business.email}`} title={`${Business.name_long} Email`} class="flex items-center gap-2 font-extralight py-4 px-4 hover:bg-red-400 transition duration-200">
+                <a href={`mailto:${Business.email}`} title={`${Business.name_long} Email`} class="flex items-center gap-2 font-extralight py-4 md:px-4 hover:bg-red-400 transition duration-200">
                     <Icon name="bi:envelope-fill" class="w-3 h-auto" />
                     {Business.email}
                 </a>

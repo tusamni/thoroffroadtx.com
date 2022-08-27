@@ -20,48 +20,36 @@ const iconImage = await getImage({
 ---
 
 <!-- transparency -->
-<div class="fixed top-0 right-0 z-30 h-full w-screen bg-black bg-opacity-50"></div>
-
-<!-- menu -->
-<div class="fixed z-50 top-0 right-0 p-8 h-screen max-w-[350px] bg-white shadow-xl">
+<div class="fixed top-0 right-0 z-30 h-full w-screen bg-black bg-opacity-70"></div>
+<div class="fixed z-50 top-0 right-0 p-8 h-screen max-w-[350px] bg-gradient-to-tr from-neutral-300 to-white" x-on:click.outside="flyout = false">
     <div class="space-y-12">
         <div class="flex justify-between items-center">
+            <!-- logo -->
             <img src={logo} class="w-32" />
+
+            <!-- hamburger -->
             <button x-on:click="flyout = false">
-                <Icon name="bi:x" class="w-6 text-neutral-500" />
+                <Icon name="bi:x" class="w-8 text-neutral-300" />
             </button>
         </div>
 
-        <div class="space-y-4">
-            <div class="space-y-2">
-                <div class="flex justify-between items-center">
-                    <h4 class="text-neutral-800 text-3xl">Vehicles</h4>
-                    <Icon name="bi:plus" class="w-5 text-neutral-500" />
-                </div>
-
-                <div class="hidden">
-                    {
-                        [...Array(3)].map((d) => (
-                            <div class="flex gap-2">
-                                <div class="grow">
-                                    <div class="font-medium">Chevrolet</div>
-                                    <p class="text-xs font-light">Colorado, Canyon, Silverado, Sierra, Tahoe & Yukon.</p>
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
+        <!-- flyout -->
+        <div>
+            <!-- heading -->
+            <div class="flex justify-between items-center bg-red-500 rounded-sm text-white p-2">
+                <h4 class="text-3xl">Parts</h4>
+                <Icon name="bi:dash" class="w-5" />
             </div>
 
-            <div class="space-y-2">
-                <div class="flex justify-between items-center">
-                    <h4 class="text-neutral-800 text-3xl">Parts</h4>
-                    <Icon name="bi:dash" class="w-5 text-neutral-500" />
-                </div>
+            <!-- menu -->
+            <div class="border border-red-500 p-4 space-y-3">
                 {
                     [...Array(3)].map((d) => (
                         <div class="grid grid-cols-3 gap-2">
-                            <div style={`background-image: url(${iconImage.src}); background-repeat: no-repeat; background-size: cover; background-position: center`} class="h-auto max-w-[100px]" />
+                            <div
+                                style={`background-image: url(${iconImage.src}); background-repeat: no-repeat; background-size: cover; background-position: center`}
+                                class="h-auto max-w-[100px] rounded-sm"
+                            />
 
                             <div class="col-span-2">
                                 <div class="font-medium">Chevrolet</div>
@@ -71,7 +59,6 @@ const iconImage = await getImage({
                     ))
                 }
             </div>
-
             <h4 class="text-neutral-800 text-3xl">Gallery</h4>
             <h4 class="text-neutral-800 text-3xl">Feed</h4>
         </div>

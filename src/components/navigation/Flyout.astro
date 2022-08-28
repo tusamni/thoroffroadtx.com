@@ -37,7 +37,7 @@ const iconImage = await getImage({
             <!-- vehicles -->
             <div x-data="{ vehiclesFlyout: false }">
                 <!-- heading -->
-                <div class="flex justify-between items-center rounded-sm p-2" :class="{ 'bg-red-500' : vehiclesFlyout }" x-on:click="vehiclesFlyout = !vehiclesFlyout">
+                <div class="flex justify-between items-center rounded-sm p-2 hover:bg-white" :class="{ 'bg-red-500 hover:bg-red-500' : vehiclesFlyout }" x-on:click="vehiclesFlyout = !vehiclesFlyout">
                     <h4 class="text-3xl" :class="vehiclesFlyout ? 'text-white' : 'text-black'">Vehicles</h4>
                     <Icon name="bi:plus" class="w-5 text-black" x-show="!vehiclesFlyout" />
                     <Icon name="bi:dash" class="w-5 text-white" x-show="vehiclesFlyout" />
@@ -66,7 +66,7 @@ const iconImage = await getImage({
             <!-- parts -->
             <div x-data="{ partsFlyout: false }">
                 <!-- heading -->
-                <div class="flex justify-between items-center rounded-sm p-2" :class="{ 'bg-red-500' : partsFlyout }" x-on:click="partsFlyout = !partsFlyout">
+                <div class="flex justify-between items-center rounded-sm p-2 hover:bg-white" :class="{ 'bg-red-500 hover:bg-red-500' : partsFlyout }" x-on:click="partsFlyout = !partsFlyout">
                     <h4 class="text-3xl" :class="partsFlyout ? 'text-white' : 'text-black'">Parts</h4>
                     <Icon name="bi:plus" class="w-5 text-black" x-show="!partsFlyout" />
                     <Icon name="bi:dash" class="w-5 text-white" x-show="partsFlyout" />
@@ -91,6 +91,10 @@ const iconImage = await getImage({
                     }
                 </div>
             </div>
+
+            <!-- other links -->
+            <h4 class="text-3xl text-black p-2">Gallery</h4>
+            <h4 class="text-3xl text-black p-2">Social Feed</h4>
         </div>
     </div>
 </div>

@@ -23,7 +23,7 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
 
                 <div class="hidden md:flex font-medium text-neutral-600">
                     <div class="dropdown py-10 px-4 hover:bg-white" x-data="{ vehiclesMega: false }" @mouseover.away="vehiclesMega = false" @mouseover="vehiclesMega = true">
-                        <a href="#" class="flex gap-1 lg:gap-2" :class="{ 'text-black':vehiclesMega }">
+                        <a href="#" class="flex gap-1 lg:gap-2" :class="{ 'text-black' : vehiclesMega }">
                             <div class="flex gap-1 lg:gap-2">
                                 Vehicles
                                 <Icon name="bi:caret-down" class="w-3 h-auto" />
@@ -51,7 +51,7 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
                     </div>
 
                     <div class="dropdown py-10 px-4 hover:bg-white" x-data="{ partsMega: false }" @mouseover="partsMega = true" @mouseover.away="partsMega = false">
-                        <a href="#" class="flex gap-1 lg:gap-2" :class="{ 'text-black':partsMega }">
+                        <a href="#" class="flex gap-1 lg:gap-2" :class="{ 'text-black' : partsMega }">
                             <div class="flex gap-1 lg:gap-2">
                                 Parts
                                 <Icon name="bi:caret-down" class="w-3 h-auto" />
@@ -83,7 +83,7 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
                     <div class="lg:hidden py-10 px-4">Contact Us</div>
                 </div>
 
-                <div class="md:hidden" x-data="{ flyout: false }">
+                <div class="md:hidden" x-data="{ flyout: true }">
                     <a x-on:click="flyout = true">
                         <Icon name="bi:list" class="w-8 h-auto" />
                     </a>

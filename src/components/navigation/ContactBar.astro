@@ -7,11 +7,11 @@ import Container from "@/components/Container";
 import { Business, Social } from "@/data/business";
 ---
 
-<div class="bg-red-500 text-white">
+<div class="bg-red-500 text-white hidden md:block">
     <Container>
         <div class="flex justify-between items-center py-4">
             <!-- contact icons -->
-            <div class="flex sm:w-full md:justify-start text-xs gap-6">
+            <div class="flex justify-start text-xs gap-6">
                 <!-- phone -->
                 <a href={`tel:${Business.phone}`} title={`${Business.name_long} Phone`} class="flex items-center gap-2 font-extralight">
                     <Icon name="bi:telephone" class="w-4 h-auto" />

@@ -26,35 +26,23 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
 
                 <!-- desktop menu -->
                 <div class="hidden md:flex font-medium">
-                    <!-- vehicles -->
-                    <div class="py-10 px-4 hover:bg-white" x-data="{ vehiclesMega: false }" x-on:mouseover.away="vehiclesMega = false" x-on:mouseover="vehiclesMega = true">
-                        <a href="/vehicles" title="Vehicles" class="flex gap-1 lg:gap-2">
-                            <div class="flex gap-2">
-                                Vehicles
-                                <Icon name="bi:caret-down" class="w-3 h-auto" />
-                            </div>
-                        </a>
+                    <MegaMenu name="Vehicles" target="vehiclesMega" url="/vehicles">
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            {
+                                [...Array(8)].map((d) => (
+                                    <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
+                                        <Image src={icon.src} width={100} height={100} class="h-full w-1/4 rounded-sm object-cover shadow-md" />
 
-                        <div x-show="vehiclesMega">
-                            <MegaMenu>
-                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                                    {
-                                        [...Array(8)].map((d) => (
-                                            <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
-                                                <Image src={icon.src} width={100} height={100} class="h-full w-1/4 rounded-sm object-cover shadow-md" />
-
-                                                <div class="flex flex-col">
-                                                    <div class="text-lg font-medium">Chevrolet</div>
-                                                    <p class="text-sm font-light">Colorado, Canyon, Silverado, Sierra, Tahoe & Yukon.</p>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                            </MegaMenu>
+                                        <div class="flex flex-col">
+                                            <div class="text-lg font-medium">Chevrolet</div>
+                                            <p class="text-sm font-light">Colorado, Canyon, Silverado, Sierra, Tahoe & Yukon.</p>
+                                        </div>
+                                    </div>
+                                ))
+                            }
                         </div>
-                    </div>
-
+                    </MegaMenu>
+                    <!-- 
                     <div class="dropdown py-10 px-4 hover:bg-white" x-data="{ partsMega: false }" @mouseover="partsMega = true" @mouseover.away="partsMega = false">
                         <a href="#" class="flex gap-1 lg:gap-2" :class="{ 'text-black' : partsMega }">
                             <div class="flex gap-1 lg:gap-2">
@@ -82,7 +70,7 @@ const icon = await getImage("/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-La
                                 </div>
                             </MegaMenu>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="py-10 px-4">Gallery</div>
                     <div class="py-10 px-4">Feed</div>
                     <div class="lg:hidden py-10 px-4">Contact Us</div>

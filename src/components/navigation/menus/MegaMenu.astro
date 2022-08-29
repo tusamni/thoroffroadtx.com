@@ -11,8 +11,8 @@ export interface Props {
 const { name, target, url } = Astro.props as Props;
 ---
 
-<div class="py-10 px-4 hover:bg-white" x-data=`{ ${target} : false }` x-on:mouseover.away=`${target} = false` x-on:mouseover=`${target} = true`>
-    <a href={url} title={name} class="flex gap-1 lg:gap-2">
+<div class="py-10 px-4" x-data=`{ ${target} : false }` x-on:mouseenter=`${target} = !${target}` x-on:mouseover.away=`${target} = false` x-on:touchstart.away=`${target} = false`>
+    <a href={url} title={name} class="flex gap-1 lg:gap-2" x-on:touchstart.prevent=`${target} = !${target}`>
         <div class="flex gap-2">
             {name}
             <Icon name="bi:caret-down" class="w-3 h-auto" />

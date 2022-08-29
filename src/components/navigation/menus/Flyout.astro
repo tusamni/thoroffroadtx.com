@@ -1,28 +1,21 @@
 ---
 // components
 import { Icon } from "astro-icon";
-import { getImage } from "@astrojs/image";
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import Accordion from "@/components/navigation/menus/Accordion";
 import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
-
-import { imageConfig } from "@/src/config";
 
 // data
 import { Business, Social } from "@/data/business";
 
 // functions
-import { getPublicPath } from "@/functions/Media";
+import { getImage } from "@/functions/Media";
 
 // images
-const logo = getPublicPath("/Images/Website/Logos/logo-black.svg");
-const icon = `${imageConfig.cloudUrl}/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg`;
-const iconImage = await getImage({
-    src: icon,
-    width: 100,
-    height: 100,
-});
+const thumbnail = await getImage(
+    "/Images/Vehicles/Ford/F-250/2110-2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey/2021-Ford-F-250-Lariat-De-Tremor-Lithium-Grey_003.jpg"
+);
 ---
 
 <div class="fixed top-[90px] inset-0 z-50 w-full overflow-y-scroll bg-tan-200" x-on:click.outside={"flyout = false"}>
@@ -35,29 +28,15 @@ const iconImage = await getImage({
                     {
                         [...Array(8)].map((d) => (
                             <div class="grid grid-cols-4 gap-2">
-                                <div
-                                    style={`background-image: url(${iconImage.src}); background-repeat: no-repeat; background-size: cover; background-position: center`}
-                                    class="max-w-20 h-auto rounded-sm"
-                                />
-
-                                <div class="col-span-3">
-                                    <div class="font-medium">Chevrolet</div>
-                                    <p class="text-xs font-light">Colorado, Canyon, Silverado, Sierra, Tahoe & Yukon.</p>
+                                <div class="max-h-24 w-auto">
+                                    <Picture
+                                        src={thumbnail.src}
+                                        widths={[100, 250, 500]}
+                                        sizes="(max-width: 800px) 100vw, 800px"
+                                        aspectRatio={thumbnail.aspectRatio}
+                                        class="rounded-sm object-cover"
+                                    />
                                 </div>
-                            </div>
-                        ))
-                    }
-                </Accordion>
-
-                <!-- parts -->
-                <Accordion name="Parts" target="partsAccordion" url="">
-                    {
-                        [...Array(8)].map((d) => (
-                            <div class="grid grid-cols-4 gap-2">
-                                <div
-                                    style={`background-image: url(${iconImage.src}); background-repeat: no-repeat; background-size: cover; background-position: center`}
-                                    class="max-w-20 h-auto rounded-sm"
-                                />
 
                                 <div class="col-span-3">
                                     <div class="font-medium">Chevrolet</div>

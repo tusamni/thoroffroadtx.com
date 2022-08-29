@@ -13,11 +13,11 @@ const { name, target, url } = Astro.props as Props;
 
 <div
     class="py-10 px-4"
-    x-data=`{ ${target} : false }`
-    x-on:mouseenter=`${target} = true`
-    x-on:mouseover.away=`${target} = false`
-    x-on:click=`${target} = true`
-    :class=`${target} ? 'bg-white' : ''`
+    x-data={`{ ${target} : false }`}
+    x-on:mouseenter={`${target} = true`}
+    x-on:mouseover.away={`${target} = false`}
+    x-on:click={`${target} = true`}
+    :class={`${target} ? 'bg-white' : ''`}
 >
     <button class="flex gap-1 lg:gap-2">
         <div class="flex gap-2">

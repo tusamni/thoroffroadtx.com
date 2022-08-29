@@ -1,3 +1,5 @@
+import { imageConfig } from "@/src/config"
+
 export const Business = {
     name_long: "THOR Off-Road",
     name_short: "THOR",
@@ -36,3 +38,8 @@ export const Social = [
         url: "https://g.page/thoroffroadtx"
     }
 ]
+
+export const Logos = {
+    dark: `${imageConfig.cloudUrl}/Images/Website/Logos/logo-black.png`,
+    light: `${imageConfig.cloudUrl}/Images/Website/Logos/logo-white.png`,
+}

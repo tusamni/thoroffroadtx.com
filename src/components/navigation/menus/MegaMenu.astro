@@ -13,7 +13,7 @@ const { name, target, url } = Astro.props as Props;
 
 <div
     class="py-10 px-4"
-    x-data={`{ ${target} : false }`}
+    x-data={`{ ${target} : true }`}
     x-on:mouseenter={`${target} = true`}
     x-on:mouseover.away={`${target} = false`}
     x-on:click={`${target} = true`}
@@ -31,9 +31,7 @@ const { name, target, url } = Astro.props as Props;
         <div class="absolute top-[100px] inset-0 w-full z-30">
             <div class="bg-white w-full">
                 <Container classes="py-8">
-                    <div class="flex flex-row">
-                        <slot />
-                    </div>
+                    <slot />
                 </Container>
             </div>
         </div>

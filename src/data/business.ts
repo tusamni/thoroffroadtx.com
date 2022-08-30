@@ -40,6 +40,6 @@ export const Social = [
 ]
 
 export const Logos = {
-    dark: `${imageConfig.cloudUrl}/Images/Website/Logos/logo-black.png`,
-    light: `${imageConfig.cloudUrl}/Images/Website/Logos/logo-white.png`,
+    dark: `${imageConfig.cloudUrl}/Images/Website/Logos/logo-black`,
+    light: `${imageConfig.cloudUrl}/Images/Website/Logos/logo-white`,
 }

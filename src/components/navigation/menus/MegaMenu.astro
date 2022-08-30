@@ -22,7 +22,8 @@ const { name, target, url } = Astro.props as Props;
     <button class="flex gap-1 lg:gap-2">
         <div class="flex gap-2">
             {name}
-            <Icon name="bi:caret-down" class="w-3 h-auto" />
+            <Icon name="bi:caret-down" class="w-3 h-auto" x-show={`!${target}`} />
+            <Icon name="bi:caret-down-fill" class="w-3 h-auto" x-show={`${target}`} />
         </div>
     </button>
 

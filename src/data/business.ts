@@ -1,6 +1,6 @@
 import { imageConfig } from "@/src/config"
 
-export const Business = {
+export const business = {
     name_long: "THOR Off-Road",
     name_short: "THOR",
     phone: "512-894-2790",
@@ -16,7 +16,7 @@ export const Business = {
     hours: "Mon-Fri: 8am - 5pm"
 }
 
-export const Social = [
+export const social = [
     {
         title: "Facebook",
         icon: "bi:facebook",
@@ -39,7 +39,7 @@ export const Social = [
     }
 ]
 
-export const Logos = {
+export const logos = {
     dark: `${imageConfig.cloudUrl}/Images/Website/Logos/logo-black`,
     light: `${imageConfig.cloudUrl}/Images/Website/Logos/logo-white`,
 }

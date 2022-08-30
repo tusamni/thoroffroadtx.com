@@ -7,7 +7,7 @@ import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
 
 // data
-import { Business, Social } from "@/data/business";
+import { business, social } from "@/data/business";
 
 // functions
 import { getImage } from "@/functions/Media";
@@ -66,8 +66,8 @@ const thumbnail = await getImage(
             <!-- social icons -->
             <div class="flex gap-6 justify-around">
                 {
-                    Social.map((i) => (
-                        <a href={i.url} target="_blank" title={`${Business.name_long} ${i.title}`}>
+                    social.map((i) => (
+                        <a href={i.url} target="_blank" title={`${business.name_long} ${i.title}`}>
                             <Icon name={i.icon} class="h-auto w-5 text-neutral-700" />
                         </a>
                     ))

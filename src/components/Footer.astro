@@ -4,7 +4,7 @@ import { Icon } from "astro-icon";
 import Container from "@/components/Container";
 
 // data
-import { Business, Social } from "@/data/business";
+import { business, social, logos } from "@/data/business";
 
 // functions
 import { getPublicPath } from "@/functions/Media";
@@ -16,29 +16,28 @@ const logo = getPublicPath("/Images/Website/Logos/logo-white.svg");
 <div class="relative bg-gradient-to-tl from-neutral-700 to-neutral-100 overflow-hidden">
     <div class="py-16 md:py-24 bg-neutral-700 z-50">
         <Container>
-            <img src={logo} width="250" alt="THOR Off-Road" class="mb-8 md:mb-12 w-40 md:w-52 z-10" />
+            <!-- logo -->
+            <img src={`${logos.light}.svg`} alt={business.name_long} class="mb-8 md:mb-12 w-40 md:w-52 z-10" />
 
             <div class="flex flex-col md:flex-row justify-between gap-12">
                 <div class="z-10 max-w-md text-neutral-200 space-y-10">
                     <p>
-                        Located in Dripping Springs, TX, THOR Off-Road are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream
-                        about.
+                        Located in Dripping Springs, TX, {business.name_long} are experts in designing and building off-road vehicles that deliver the
+                        exact performance and style that our customers dream about.
                     </p>
 
                     <div class="space-y-4 font-light">
-                        <a href={Social.googlemaps} title="Directions to THOR Off-Road">
-                            <address>
-                                {Business.address.street_01}
-                                {Business.address.street_02}<br />
-                                {Business.address.city}, {Business.address.state}<br />
-                                {Business.address.zip}
-                            </address>
-                        </a>
+                        <address>
+                            {business.address.street_01}
+                            {business.address.street_02}<br />
+                            {business.address.city}, {business.address.state}<br />
+                            {business.address.zip}
+                        </address>
                         <div>
-                            <a href={`tel:${Business.phone}`} title="Call THOR Off-Road">{Business.phone}</a><br />
-                            <a href={`mailto:${Business.email}`} title="Contact THOR Off-Road">{Business.email}</a>
+                            <a href={`tel:${business.phone}`} title={`Call ${business.name_long}`}>{business.phone}</a><br />
+                            <a href={`mailto:${business.email}`} title={`Contact ${business.name_long}`}>{business.email}</a>
                         </div>
-                        <div>{Business.hours}</div>
+                        <div>{business.hours}</div>
                     </div>
                 </div>
 

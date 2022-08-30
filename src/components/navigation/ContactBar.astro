@@ -4,7 +4,7 @@ import { Icon } from "astro-icon";
 import Container from "@/components/Container";
 
 // data
-import { Business, Social } from "@/data/business";
+import { business, social } from "@/data/business";
 ---
 
 <div class="bg-red-500 text-white hidden md:block">
@@ -13,23 +13,23 @@ import { Business, Social } from "@/data/business";
             <!-- contact icons -->
             <div class="flex justify-start text-xs gap-6">
                 <!-- phone -->
-                <a href={`tel:${Business.phone}`} title={`${Business.name_long} Phone`} class="flex items-center gap-2 font-extralight">
+                <a href={`tel:${business.phone}`} title={`${business.name_long} Phone`} class="flex items-center gap-2 font-extralight">
                     <Icon name="bi:telephone" class="w-4 h-auto" />
-                    <div class="hidden md:block">{Business.phone}</div>
+                    <div class="hidden md:block">{business.phone}</div>
                 </a>
 
                 <!-- email -->
-                <a href="/contact" title={`${Business.name_long} Contact`} class="flex items-center gap-2 font-extralight">
+                <a href="/contact" title={`${business.name_long} Contact`} class="flex items-center gap-2 font-extralight">
                     <Icon name="bi:envelope" class="w-4 h-auto" />
-                    <div class="hidden md:block">{Business.email}</div>
+                    <div class="hidden md:block">{business.email}</div>
                 </a>
             </div>
 
             <!-- social icons -->
             <div class="flex gap-6">
                 {
-                    Social.map((i) => (
-                        <a href={i.url} target="_blank" title={`${Business.name_long} ${i.title}`}>
+                    social.map((i) => (
+                        <a href={i.url} target="_blank" title={`${business.name_long} ${i.title}`}>
                             <Icon name={i.icon} class="h-auto w-4" />
                         </a>
                     ))

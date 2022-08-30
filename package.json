@@ -16,7 +16,7 @@
     "astro-icon": "^0.7.3",
     "bigger-picture": "^1.1.6",
     "prettier": "^2.7.1",
-    "sass": "^1.54.5"
+    "sass": "^1.54.6"
   },
   "devDependencies": {
     "@astrojs/alpinejs": "^0.1.1",

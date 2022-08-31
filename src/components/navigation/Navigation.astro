@@ -9,7 +9,7 @@ import MegaMenu from "@/components/navigation/menus/MegaMenu";
 
 // data
 import { business, logos } from "@/data/business";
-import { vehicles } from "@/data/menus";
+import { parts, vehicles } from "@/data/menus";
 
 // functions
 import { getPublicPath } from "@/functions/Media";
@@ -62,14 +62,14 @@ const thumbnail = await getImage({
                         <MegaMenu name="Parts" target="partsMega" url="/parts">
                             <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
                                 {
-                                    [...Array(8)].map((d) => (
+                                    parts.map((p) => (
                                         <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
                                             <div class="flex h-full w-1/4 justify-center rounded-md bg-neutral-100 p-2">
-                                                <Icon name="car-parts/glyph/door-open-car" class="h-auto w-8" />
+                                                <Icon name={p.logo} class="h-auto w-8" />
                                             </div>
                                             <div class="flex flex-col">
-                                                <div class="text-lg font-medium">Wheel & Tire</div>
-                                                <p class="text-sm font-light">We can create the perfect wheel & tire package.</p>
+                                                <div class="text-lg font-medium">{p.name}</div>
+                                                <p class="text-sm font-light">{p.description}</p>
                                             </div>
                                         </div>
                                     ))

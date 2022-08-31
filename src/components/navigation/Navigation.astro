@@ -39,16 +39,16 @@ const thumbnail = await getImage({
                     <div class="hidden md:flex font-medium">
                         <!-- vehicles -->
                         <MegaMenu name="Vehicles" target="vehiclesMega" url="/vehicles">
-                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="grid grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-4">
                                 {
                                     vehicles.map((v) => (
-                                        <div class="group relative grid grid-cols-3 items-center gap-2 overflow-hidden rounded-md border border-neutral-200 p-3">
+                                        <div class="group relative grid grid-cols-3 gap-2 overflow-hidden rounded-md border border-neutral-200 md:p-2 lg:items-center lg:p-3">
                                             <Icon
                                                 name={v.logo}
                                                 class="absolute right-0 bottom-0 h-auto w-32 -rotate-6 object-cover text-neutral-100 group-hover:text-neutral-200"
                                             />
 
-                                            <div class="z-10 col-span-2 flex flex-col">
+                                            <div class="z-10 col-span-3 flex flex-col lg:col-span-2">
                                                 <div class="text-lg font-medium">{v.name}</div>
                                                 <p class="text-sm font-light">{v.models.map((m, index) => (index ? ", " : "") + m)}</p>
                                             </div>

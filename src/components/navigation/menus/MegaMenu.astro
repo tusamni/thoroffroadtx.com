@@ -27,13 +27,11 @@ const { name, target, url } = Astro.props as Props;
         </div>
     </button>
 
-    <div x-show={target}>
-        <div class="absolute top-[100px] inset-0 w-full z-30">
-            <div class="bg-white w-full">
-                <Container classes="py-8">
-                    <slot />
-                </Container>
-            </div>
+    <div x-show={target} class="absolute top-[100px] inset-0 w-full z-30">
+        <div class="bg-white w-full">
+            <Container classes="py-8">
+                <slot />
+            </Container>
         </div>
     </div>
 </div>

@@ -1,21 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = require("tailwindcss/defaultTheme")
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-	content: ["./src/**/*.{astro,html,js,mdx,ts,tsx}"],
-	theme: {
+    content: ["./src/**/*.{astro,html,js,mdx,ts,tsx}"],
+    theme: {
         extend: {
             fontFamily: {
-                sans: [
-                    "Inter", ...defaultTheme.fontFamily.sans,
-                ],
-                serif: [
-                    "Fairweather", ...defaultTheme.fontFamily.serif,
-                ]
+                sans: ["Inter", ...defaultTheme.fontFamily.sans],
+                serif: ["Fairweather", ...defaultTheme.fontFamily.serif],
             },
             colors: {
-                "yellow": {
+                yellow: {
                     50: "#fffcef",
                     100: "#fff5d1",
                     200: "#ffefb4",
@@ -27,7 +23,7 @@ module.exports = {
                     800: "#75652a",
                     900: "#473e1a",
                 },
-                "red": {
+                red: {
                     50: "#f7e9e9",
                     100: "#e9c3c3",
                     200: "#da9c9c",
@@ -39,7 +35,7 @@ module.exports = {
                     800: "#511212",
                     900: "#310b0b",
                 },
-                "blue": {
+                blue: {
                     50: "#f4f9fb",
                     100: "#e1edf4",
                     200: "#cde2ed",
@@ -51,7 +47,7 @@ module.exports = {
                     800: "#445863",
                     900: "#29363c",
                 },
-                "tan": {
+                tan: {
                     50: "#fefefe",
                     100: "#fdfcfb",
                     200: "#fbf9f8",
@@ -62,12 +58,12 @@ module.exports = {
                     700: "#9e9c9a",
                     800: "#72706e",
                     900: "#454443",
-                }
+                },
             },
             boxShadow: {
-                "solid": "5px 5px",
-            }
+                solid: "5px 5px",
+            },
         },
-	},
-	plugins: [],
-}
+    },
+    plugins: [require("@tailwindcss/line-clamp")],
+};

@@ -5,10 +5,11 @@ import Container from "@/components/Container";
 
 export interface Props {
     name: string;
+    menu: any;
     target: string;
     url: string;
 }
-const { name, target, url } = Astro.props as Props;
+const { name, menu, target, url } = Astro.props as Props;
 ---
 
 <div
@@ -30,7 +31,23 @@ const { name, target, url } = Astro.props as Props;
     <div x-show={target} class="absolute top-[100px] inset-0 w-full z-30">
         <div class="bg-white w-full">
             <Container classes="py-8">
-                <slot />
+                <div class="grid grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-4">
+                    {
+                        menu.map((m) => (
+                            <div class="relative grid grid-cols-3 gap-2 overflow-hidden rounded-md border border-neutral-200 md:p-2 lg:items-center lg:p-3">
+                                <Icon
+                                    name={m.logo}
+                                    class="absolute right-0 bottom-0 hidden h-auto w-32 -rotate-6 object-cover text-neutral-100 lg:block"
+                                />
+
+                                <div class="z-10 col-span-3 flex flex-col lg:col-span-2">
+                                    <div class="text-lg font-medium">{m.name}</div>
+                                    <p class="text-sm font-light">{m.listing.map((l, index) => (index ? ", " : "") + l)}</p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
             </Container>
         </div>
     </div>

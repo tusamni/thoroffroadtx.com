@@ -38,59 +38,25 @@ const thumbnail = await getImage({
                     <!-- desktop menu -->
                     <div class="hidden md:flex font-medium">
                         <!-- vehicles -->
-                        <MegaMenu name="Vehicles" target="vehiclesMega" url="/vehicles">
-                            <div class="grid grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-4">
-                                {
-                                    vehicles.map((v) => (
-                                        <div class="group relative grid grid-cols-3 gap-2 overflow-hidden rounded-md border border-neutral-200 md:p-2 lg:items-center lg:p-3">
-                                            <Icon
-                                                name={v.logo}
-                                                class="absolute right-0 bottom-0 h-auto w-32 -rotate-6 object-cover text-neutral-100 group-hover:text-neutral-200"
-                                            />
-
-                                            <div class="z-10 col-span-3 flex flex-col lg:col-span-2">
-                                                <div class="text-lg font-medium">{v.name}</div>
-                                                <p class="text-sm font-light">{v.models.map((m, index) => (index ? ", " : "") + m)}</p>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </MegaMenu>
+                        <MegaMenu name="Vehicles" menu={vehicles} target="vehiclesMega" url="/vehicles" />
 
                         <!-- parts -->
-                        <MegaMenu name="Parts" target="partsMega" url="/parts">
-                            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-                                {
-                                    parts.map((p) => (
-                                        <div class="flex items-center gap-2 rounded-md border border-white p-3 hover:border-neutral-200">
-                                            <div class="flex h-full w-1/4 justify-center rounded-md bg-neutral-100 p-2">
-                                                <Icon name={p.logo} class="h-auto w-8" />
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <div class="text-lg font-medium">{p.name}</div>
-                                                <p class="text-sm font-light">{p.description}</p>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </MegaMenu>
+                        <MegaMenu name="Parts" menu={parts} target="partsMega" url="/parts" />
 
                         <div class="py-10 px-4 hover:bg-white">Gallery</div>
                         <div class="py-10 px-4 hover:bg-white">Feed</div>
                         <div class="lg:hidden py-10 px-4 hover:bg-white">Contact Us</div>
                     </div>
+                </div>
 
-                    <div class="md:hidden" x-data={"{ flyout: true }"}>
-                        <a x-on:click={"flyout = true"}>
-                            <Icon name="bi:list" class="w-8 h-auto" x-show={"!flyout"} />
-                            <Icon name="bi:x" class="w-8 h-auto" x-show={"flyout"} />
-                        </a>
+                <div class="md:hidden" x-data={"{ flyout: true }"}>
+                    <a x-on:click={"flyout = true"}>
+                        <Icon name="bi:list" class="w-8 h-auto" x-show={"!flyout"} />
+                        <Icon name="bi:x" class="w-8 h-auto" x-show={"flyout"} />
+                    </a>
 
-                        <div x-show={"flyout"}>
-                            <Flyout />
-                        </div>
+                    <div x-show={"flyout"}>
+                        <Flyout />
                     </div>
                 </div>
 

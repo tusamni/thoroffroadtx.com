@@ -3,7 +3,7 @@ import { getImage } from "@astrojs/image";
 export const vehicles = [
     {
         name: "Chevrolet",
-        models: [
+        listing: [
             "Colorado",
             "Silverado",
             "Silverado HD",
@@ -14,7 +14,7 @@ export const vehicles = [
     },
     {
         name: "Ford",
-        models: [
+        listing: [
             "Bronco",
             "F-150",
             "Ranger",
@@ -26,7 +26,7 @@ export const vehicles = [
     },
     {
         name: "GMC",
-        models: [
+        listing: [
             "Canyon",
             "Sierra",
             "Sierra HD",
@@ -37,7 +37,7 @@ export const vehicles = [
     },
     {
         name: "Jeep",
-        models: [
+        listing: [
             "Gladiator",
             "Wrangler",
         ],
@@ -46,7 +46,7 @@ export const vehicles = [
     },
     {
         name: "Lexus",
-        models: [
+        listing: [
             "GX",
             "LX",
         ],
@@ -55,7 +55,7 @@ export const vehicles = [
     },
     {
         name: "RAM",
-        models: [
+        listing: [
             "1500",
             "2500",
             "3500"
@@ -65,7 +65,7 @@ export const vehicles = [
     },
     {
         name: "Toyota",
-        models: [
+        listing: [
             "4Runner",
             "Land Cruiser",
             "Tundra"
@@ -75,7 +75,7 @@ export const vehicles = [
     },
     {
         name: "UTV",
-        models: [
+        listing: [
             "Can-Am",
             "Polaris"
         ],
@@ -87,44 +87,73 @@ export const vehicles = [
 export const parts = [
     {
         name: "Bed & Roof",
-        description: "Expand the flexibility and cargo-carrying capability of your truck",
+        listing: [
+            "Bed covers",
+            "roof racks",
+            "cargo solutions"
+        ],
         logo: "car-parts/door_outline",
-        url: "/parts/bed-roof"
+        url: "/listing/bed-roof"
     },
     {
         name: "Body & Bumper",
-        description: "We have the highest quality bumpers, grill guards, fenders, side rails and more",
+        listing: [
+            "Bumpers",
+            "grill guards",
+            "fenders",
+            "side rails"
+        ],
         logo: "car-parts/pickup_outline",
-        url: "/parts/body-bumper"
+        url: "/listing/body-bumper"
     },
     {
         name: "Lighting",
-        description: "High-performance LED headlight upgrades, pocket lights, light bars and more",
+        listing: [
+            "LED headlight upgrades",
+            "pocket lights",
+            "light bars",
+        ],
         logo: "car-parts/lighting_outline",
-        url: "/parts/lighting"
+        url: "/listing/lighting"
     },
     {
         name: "Performance",
-        description: "We sell and install proven engine, fuel delivery, exhaust and brake upgrades",
+        listing: [
+            "Engine",
+            "fuel delivery",
+            "exhaust",
+            "brake upgrades",
+        ],
         logo: "car-parts/tachometer_outline",
-        url: "/parts/performance"
+        url: "/listing/performance"
     },
     {
         name: "Specialties",
-        description: "Custom fuel tanks, gun racks, interior upgrades and custom fabrication",
+        listing: [
+            "Custom fuel tanks",
+            "gun racks",
+            "custom fabrication",
+        ],
         logo: "car-parts/pistons_outline",
-        url: "/parts/specialties"
+        url: "/listing/specialties"
     },
     {
         name: "Suspension",
-        description: "Get there fast, reliably, and in comfort with the perfect lift",
+        listing: [
+            "Carli suspension",
+            "air ride",
+            "shocks",
+            "springs",
+        ],
         logo: "car-parts/coilover_outline",
-        url: "/parts/suspension"
+        url: "/listing/suspension"
     },
     {
         name: "Wheel & Tire",
-        description: "We install performance wheel and tire combos, suited for your adventure",
+        listing: [
+            "Off-road wheel and tire combos",
+        ],
         logo: "car-parts/wheel_outline",
-        url: "/parts/wheel-tire"
+        url: "/listing/wheel-tire"
     }
 ]

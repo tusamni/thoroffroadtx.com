@@ -2,7 +2,7 @@ import * as path from "path";
 
 // config
 import { imageConfig } from "@/src/config.ts";
-import devImage from "../../public/images/dev.jpg";
+import devImage from "@/src/assets/images/dev.jpg";
 
 // get the public image url
 export function getPublicPath(file) {

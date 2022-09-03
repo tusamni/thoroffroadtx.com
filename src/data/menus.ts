@@ -1,6 +1,3 @@
-const vehicleList = import.meta.glob("../pages/vehicles/**/*.mdx")
-console.log(vehicleList)
-
 export const vehicles = [
     {
         name: "Chevrolet",

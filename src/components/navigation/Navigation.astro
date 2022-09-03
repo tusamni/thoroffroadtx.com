@@ -10,6 +10,10 @@ import MegaMenu from "@/components/navigation/menus/MegaMenu";
 // data
 import { business, logos } from "@/data/business";
 import { parts, vehicles } from "@/data/menus";
+
+// get navigation
+const vehicleList = await Astro.glob("../../pages/vehicles/**/*.mdx");
+console.log(vehicleList)
 ---
 
 <div class="bg-tan-500 sticky top-0 z-50 shadow-2xl">

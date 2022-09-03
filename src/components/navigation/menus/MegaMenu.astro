@@ -34,7 +34,11 @@ const { name, menu, target, url } = Astro.props as Props;
                 <div class="grid grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-4">
                     {
                         menu.map((m) => (
-                            <div class="relative flex items-center gap-2 rounded-md border border-neutral-200 md:px-4 md:py-3 lg:p-0">
+                            <a
+                                href={m.url}
+                                title={m.name}
+                                class="relative flex items-center gap-2 rounded-md border border-neutral-200 md:px-4 md:py-3 lg:p-0"
+                            >
                                 <div class="hidden h-full w-12 items-center bg-neutral-200 p-2 lg:flex">
                                     <Icon name={m.logo} class="w-12 text-neutral-400" />
                                 </div>
@@ -43,7 +47,7 @@ const { name, menu, target, url } = Astro.props as Props;
                                     <div class="text-lg font-medium">{m.name}</div>
                                     <p class="line-clamp-2 text-sm font-light">{m.listing.map((l, index) => (index ? ", " : "") + l)}</p>
                                 </div>
-                            </div>
+                            </a>
                         ))
                     }
                 </div>

@@ -1,19 +1,24 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import image from "@astrojs/image";
-
 import alpinejs from "@astrojs/alpinejs";
+import image from "@astrojs/image";
+import mdx from "@astrojs/mdx";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind({
-    config: {
-      applyBaseStyles: false
-    }
-  }), image(), alpinejs()],
-  vite: {
-    ssr: {
-      external: ["svgo"]
-    }
-  }
+    integrations: [
+        alpinejs(),
+        image(),
+        mdx(),
+        tailwind({
+            config: {
+                applyBaseStyles: false,
+            },
+        }),
+    ],
+    vite: {
+        ssr: {
+            external: ["svgo"],
+        },
+    },
 });

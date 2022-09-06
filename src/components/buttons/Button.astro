@@ -14,7 +14,11 @@ const buttons = {
 };
 ---
 
-<a href={url} title={text} class:list={["flex gap-3 rounded-md px-4 py-3 font-medium shadow-solid border transition duration-200", buttons[theme], classes]}>
+<a
+    href={url}
+    title={text}
+    class:list={["flex gap-3 rounded-md px-4 py-3 font-medium shadow-solid border transition duration-200", buttons[theme], classes]}
+>
     <slot />
     {text}
 </a>

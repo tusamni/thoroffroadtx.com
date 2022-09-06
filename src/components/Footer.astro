@@ -1,7 +1,7 @@
 ---
 // components
-import { Icon } from "astro-icon";
 import Container from "@/components/Container";
+import { Image } from "@astrojs/image/components";
 
 // data
 import { business, social, logos } from "@/data/business";
@@ -13,8 +13,17 @@ import { getPublicPath } from "@/functions/Media";
 const logo = getPublicPath("/Images/Website/Logos/logo-white.svg");
 ---
 
-<div class="relative bg-gradient-to-tl from-neutral-700 to-neutral-100 overflow-hidden">
-    <div class="py-16 md:py-24 bg-neutral-700 z-50">
+<div class="relative">
+    <div class="absolute z-10 w-full h-full bg-gradient-to-br from-blue-700/95 to-blue-900/95"></div>
+    <Image
+        src="https://thoroffroad.nyc3.cdn.digitaloceanspaces.com/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_014.jpg"
+        width={2000}
+        height={2000}
+        alt="test"
+        class="absolute object-cover h-full w-full"
+    />
+
+    <div class="relative z-20 py-16 md:py-24">
         <Container>
             <!-- logo -->
             <img src={`${logos.light}.svg`} alt={business.name_long} class="mb-8 md:mb-12 w-40 md:w-52 z-10" />
@@ -79,6 +88,4 @@ const logo = getPublicPath("/Images/Website/Logos/logo-white.svg");
             </div>
         </Container>
     </div>
-
-    <Icon name="tracks/tire-tracks_04" class="absolute bottom-10 right-10 text-neutral-600/30 w-[800px] scale-x-[-1]" />
 </div>

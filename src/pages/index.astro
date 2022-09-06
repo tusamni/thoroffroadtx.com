@@ -25,7 +25,7 @@ const carli = {
     ],
 };
 const jamey = {
-    portrait: getPublicPath("/Images/Team/Jamey/jamey-02.jpg"),
+    portrait: await getImage("/Images/Team/Jamey/jamey-01.jpg"),
     signature: getPublicPath("/Images/Team/Jamey/signature.png"),
 };
 const builds = [
@@ -128,7 +128,7 @@ const hero = getPublicPath("/Videos/Homepage/thor-in-action.mp4");
     <div class="bg-tan-500 py-40 space-y-60">
         <div class="relative">
             <Container classes="flex flex-col lg:flex-row gap-16">
-                <Image src={jamey.portrait} height={1000} width={1000} class="w-1/2 object-cover shadow-2xl rounded-sm" />
+                <Image src={jamey.portrait.src} height={1400} width={1200} class="w-1/2 object-cover object-center shadow-2xl rounded-sm" />
 
                 <div class="space-y-16 py-12">
                     <div class="space-y-8">

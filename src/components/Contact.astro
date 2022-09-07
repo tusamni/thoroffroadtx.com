@@ -8,8 +8,10 @@ import Container from "@/components/Container";
 import { getImage, getPublicPath } from "@/functions/Media";
 ---
 
-<div class="py-40 bg-red-500">
-    <Container>
+<div class="relative py-40 bg-red-500 overflow-hidden">
+    <Icon name="tracks/tire-tracks_05" class="absolute bottom-0 right-0 text-red-700/10 w-[1000px]" />
+
+    <Container classes="relative z-10">
         <div class="flex flex-col gap-10">
             <div class="space-y-4 max-w-2xl">
                 <h2>Let's Create Your Dream Truck</h2>

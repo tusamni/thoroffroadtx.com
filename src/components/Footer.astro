@@ -1,29 +1,13 @@
 ---
 // components
 import Container from "@/components/Container";
-import { Image } from "@astrojs/image/components";
 
 // data
-import { business, social, logos } from "@/data/business";
-
-// functions
-import { getPublicPath } from "@/functions/Media";
-
-// images
-const logo = getPublicPath("/Images/Website/Logos/logo-white.svg");
+import { business, logos } from "@/data/business";
 ---
 
-<div class="relative">
-    <div class="absolute z-10 w-full h-full bg-gradient-to-br from-blue-700/95 to-blue-900/95"></div>
-    <Image
-        src="https://thoroffroad.nyc3.cdn.digitaloceanspaces.com/Images/Vehicles/Ford/Bronco/2206-2021-Ford-Bronco-Wild-Track-Antimatter-Blue/2021-Ford-Bronco-Wild-Track-Antimatter-Blue_014.jpg"
-        width={2000}
-        height={2000}
-        alt="test"
-        class="absolute object-cover h-full w-full"
-    />
-
-    <div class="relative z-20 py-16 md:py-24">
+<div class="bg-neutral-800">
+    <div class="py-16 md:py-24">
         <Container>
             <!-- logo -->
             <img src={`${logos.light}.svg`} alt={business.name_long} class="mb-8 md:mb-12 w-40 md:w-52 z-10" />

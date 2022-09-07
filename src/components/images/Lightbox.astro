@@ -1,19 +1,23 @@
 ---
 import { Image } from "@astrojs/image/components";
 
-// functions
-import { getImage } from "@/functions/Media";
-
 // props
 export interface Props {
-    src: string;
+    image: object;
+    width: number;
     classes?: string;
 }
-const { src, classes } = Astro.props as Props;
-
-const lightbox = await getImage(src);
+const { image, width = 500, classes } = Astro.props as Props;
 ---
 
-<a href={lightbox.src} data-img={lightbox.src} data-alt={lightbox.description} data-height={lightbox.height} data-width={lightbox.width} data-caption={lightbox.description}>
-    <Image src={lightbox.src} class:list={[classes]} width={500} height={500} alt={lightbox.alt} />
+<a
+    href={image.src}
+    data-img={image.src}
+    data-alt={image.description}
+    data-height={image.height}
+    data-width={image.width}
+    data-caption={image.description}
+    class="object-cover"
+>
+    <Image src={image.src} class:list={[classes]} width={width} aspectRatio={image.aspectRatio} alt={image.alt} />
 </a>

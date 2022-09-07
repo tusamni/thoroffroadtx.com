@@ -1,8 +1,9 @@
 import * as path from "path";
+import * as fs from "fs";
+import jsonFile from "jsonfile";
 
 // config
 import { imageConfig } from "@/src/config.ts";
-import devImage from "@/src/assets/images/dev.jpg";
 
 // get the public image url
 export function getPublicPath(file) {
@@ -10,37 +11,20 @@ export function getPublicPath(file) {
 }
 
 export async function getImage(image) {
-    // load placeholder image and json when in dev mode
-    if (import.meta.env.MODE === "development") {
-        return {
-            width: 1539,
-            height: 2736,
-            title: "THOR Off Road",
-            description: "Carli lift kit, Rock Slide steps, Method wheels, Poison Spider bumper, Warn winch",
-            alt: "Carli lift kit, Rock Slide steps, Method wheels, Poison Spider bumper, Warn winch",
-            src: devImage.src,
-            aspectRatio: 1539 / 2736,
-        };
-    } else {
-        const publicPath = getPublicPath(image);
+    const dir = "src/assets/images";
+    const extension = "jpg";
+    const metafile = `${dir}/${image}.json`;
+    const source = getPublicPath(`/images/${image}.${extension}`);
 
-        const extension = path.extname(publicPath); // extension of the image file
-        const baseFilename = path.basename(publicPath, extension); // filename of the image minus the extension
-        const dirPath = path.dirname(publicPath);
+    const metadata = jsonFile.readFileSync(metafile);
 
-        const metaFile = dirPath + "/" + baseFilename + ".json";
-
-        const response = await fetch(metaFile);
-        const json = await response.json();
-
-        return {
-            width: json.width,
-            height: json.height,
-            title: json.title,
-            description: json.description,
-            alt: json.alt,
-            src: publicPath,
-            aspectRatio: json.width / json.height,
-        };
-    }
+    return {
+        width: metadata.width,
+        height: metadata.height,
+        title: metadata.title,
+        description: metadata.description,
+        alt: metadata.alt,
+        src: source,
+        aspectRatio: metadata.width / metadata.height,
+    };
 }

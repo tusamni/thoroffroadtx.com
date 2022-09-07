@@ -1,0 +1,44 @@
+---
+// modules
+import Filehound from "filehound";
+
+// layouts
+import Layout from "../layouts/Layout.astro";
+
+// components
+import { Image } from "@astrojs/image/components";
+import Container from "@/components/Container";
+
+// functions
+import { getImage, getPublicPath } from "@/functions/Media";
+
+const filehound = Filehound.create();
+const files = filehound.paths("src/assets/images").ext("json").find();
+
+const fileList = await files;
+const imageList = [];
+for (const file of fileList) {
+    const replace = file.replace("src\\assets\\images\\", "").replaceAll("\\", "/").replace(".json", ".jpg");
+    imageList.push(replace);
+}
+---
+
+<Layout>
+    <Container>
+        <div class="grid grid-cols-6 gap-8">
+            {
+                imageList.map((i) => (
+                    <a class="cursor-pointer" onclick={`copyToClipboard('${i.replace(".jpg", "")}')`}>
+                        <Image src={getPublicPath(`/images/${i}`)} width={200} height={200} alt="" />
+                    </a>
+                ))
+            }
+        </div>
+    </Container>
+</Layout>
+
+<script is:inline>
+    function copyToClipboard(text) {
+        if (navigator && navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    }
+</script>

@@ -14,14 +14,25 @@ const { images, selector, classes } = Astro.props as Props;
 <div class="gallery flex flex-wrap gap-3">
     {
         images.map((i) => (
-            <div class:list={["relative h-[500px] flex-grow overflow-hidden", selector]}>
-                <a href={i.src} data-img={i.src} data-alt={i.description} data-height={i.height} data-width={i.width} data-caption={i.description}>
+            <div class:list={["group relative h-[500px] flex-grow overflow-hidden", selector]}>
+                <a
+                    href={i.src}
+                    data-img={i.src}
+                    data-alt={i.description}
+                    data-height={i.height}
+                    data-width={i.width}
+                    data-caption={i.description}
+                    class="relative"
+                >
                     <Image
                         src={i.src}
                         width={1000}
                         aspectRatio={i.aspectRatio}
-                        class="h-full w-full rounded-sm object-cover duration-500 hover:scale-[103%]"
+                        class="h-full w-full rounded-sm object-cover duration-500 group-hover:scale-[103%]"
                     />
+                    <div class="line-clamp-1 absolute bottom-3 left-3 rounded-sm bg-neutral-700 bg-opacity-50 p-2 text-sm font-bold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        {i.title}
+                    </div>
                 </a>
             </div>
         ))

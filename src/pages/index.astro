@@ -92,8 +92,10 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
     </div>
 
     <!-- featured Carli section -->
-    <div class="bg-blue-200 py-28">
-        <div class="flex flex-col gap-8 space-y-8">
+    <div class="bg-blue-200 py-28 relative overflow-hidden">
+        <Icon name="car-parts/coilover_fill" class="absolute -bottom-32 left-0 text-tan-700/10 w-[900px] -rotate-45" />
+
+        <div class="z-10 flex flex-col gap-8 space-y-8">
             <Container classes="space-y-8">
                 <div class="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-24">
                     <Image src={carli.logo} alt="Carli Logo" width={287} height={116} />
@@ -131,7 +133,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
                             ></path>
                         </svg>
                     </div>
-                    <Link text="Get a Quote for Your Carli Install" url="#" textSize="text-xl" />
+                    <Link text="Get a Quote for Your Carli Install" url="/contact" textSize="text-xl" />
                 </div>
             </Container>
         </div>
@@ -175,7 +177,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
         <Icon name="tracks/tire-tracks_01" class="absolute top-0 left-0 text-tan-700/10 w-[500px] rotate-180" />
     </div>
 
-    <div class="space-y-16 bg-tan-500 pt-40">
+    <div class="space-y-16 bg-tan-500 pt-40 lg:pb-3">
         <Container classes="flex flex-col lg:flex-row justify-between items-center">
             <h2 class="text-gray-900">Recent Builds</h2>
             <Link text="See More Builds" url="/builds" />

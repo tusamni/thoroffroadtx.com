@@ -11,8 +11,8 @@ import MegaMenu from "@/components/navigation/menus/MegaMenu";
 import { business, logos } from "@/data/business";
 
 // get navigation
-const vehicles = await Astro.glob("../../pages/vehicles/**/*.mdx");
-const parts = await Astro.glob("../../pages/parts/**/*.mdx");
+const vehicles = await Astro.glob("../../pages/vehicles/**/*.astro");
+const parts = await Astro.glob("../../pages/parts/**/*.astro");
 ---
 
 <div class="bg-tan-500 sticky top-0 z-50 shadow-2xl">
@@ -39,7 +39,7 @@ const parts = await Astro.glob("../../pages/parts/**/*.mdx");
                     </div>
                 </div>
 
-                <div class="md:hidden" x-data={"{ flyout: false }"}>
+                <div class="md:hidden" x-data={"{ flyout: true }"}>
                     <a x-on:click={"flyout = true"}>
                         <Icon name="bi:list" class="w-8 h-auto" x-show={"!flyout"} />
                         <Icon name="bi:x" class="w-8 h-auto" x-show={"flyout"} />

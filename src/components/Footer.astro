@@ -1,13 +1,16 @@
 ---
 // components
+import { Icon } from "astro-icon";
 import Container from "@/components/Container";
 
 // data
 import { business, logos } from "@/data/business";
 ---
 
-<div class="bg-neutral-800">
-    <div class="py-16 md:py-24">
+<div class="bg-neutral-800 relative overflow-hidden">
+    <Icon name="tracks/vertical/vertical-track-03" class="absolute inset-0 text-neutral-700/20 w-[300px] lg:w-[600px]" />
+
+    <div class="relative z-10 py-16 md:py-24">
         <Container>
             <!-- logo -->
             <img src={`${logos.light}.svg`} alt={business.name_long} class="mb-8 md:mb-12 w-40 md:w-52 z-10" />

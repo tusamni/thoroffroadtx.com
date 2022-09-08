@@ -7,6 +7,10 @@ import Container from "@/components/Container";
 
 // data
 import { business, social } from "@/data/business";
+
+// get navigation
+const vehicles = await Astro.glob("../../../pages/vehicles/**/*.astro");
+const parts = await Astro.glob("../../../pages/parts/**/*.astro");
 ---
 
 <div class="fixed top-[90px] inset-0 z-50 w-full overflow-y-scroll bg-tan-200" x-on:click.outside={"flyout = false"}>
@@ -15,16 +19,28 @@ import { business, social } from "@/data/business";
             <!-- links -->
             <div class="space-y-4">
                 <!-- vehicles -->
-                <Accordion name="Vehicles" target="vehiclesAccordion" url="">
+                <Accordion name="Vehicles" target="vehiclesAccordion">
                     {
-                        [...Array(8)].map((d) => (
+                        vehicles.map((v) => (
                             <div class="grid grid-cols-4 gap-2">
-                                <div class="max-h-24 w-auto" />
+                                <a href={v.url} class="col-span-3 ml-3">
+                                    <div class="font-medium">{v.name}</div>
+                                    <p class="text-xs font-light">{v.listing.map((l, index) => (index ? ", " : "") + l)}</p>
+                                </a>
+                            </div>
+                        ))
+                    }
+                </Accordion>
 
-                                <div class="col-span-3">
-                                    <div class="font-medium">Chevrolet</div>
-                                    <p class="text-xs font-light">Colorado, Canyon, Silverado, Sierra, Tahoe & Yukon.</p>
-                                </div>
+                <!-- parts -->
+                <Accordion name="Parts" target="partsAccordion">
+                    {
+                        parts.map((p) => (
+                            <div class="grid grid-cols-4 gap-2">
+                                <a href={p.url} class="col-span-3 ml-3">
+                                    <div class="font-medium">{p.name}</div>
+                                    <p class="text-xs font-light">{p.listing.map((l, index) => (index ? ", " : "") + l)}</p>
+                                </a>
                             </div>
                         ))
                     }

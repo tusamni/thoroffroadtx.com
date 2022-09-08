@@ -36,16 +36,16 @@ const { name, menu, target, url } = Astro.props as Props;
                         menu.map((m) => (
                             <a
                                 href={m.url}
-                                title={m.frontmatter.name}
-                                class="relative flex items-center gap-2 rounded-md border border-neutral-200 md:px-4 md:py-3 lg:gap-4 lg:p-0"
+                                title={m.name}
+                                class="group relative flex items-center rounded-md border border-neutral-200 p-2 md:px-4 md:py-3 lg:p-0"
                             >
                                 <div class="hidden h-full w-12 items-center bg-neutral-200 p-2 lg:flex">
-                                    <Icon name={m.frontmatter.logo} class="w-12 text-neutral-400" />
+                                    <Icon name={m.logo} class="w-12 text-neutral-400" />
                                 </div>
 
-                                <div class="z-10 flex flex-col py-2">
-                                    <div class="text-lg font-medium">{m.frontmatter.name}</div>
-                                    <p class="line-clamp-2 text-sm font-light">{m.frontmatter.listing.map((l, index) => (index ? ", " : "") + l)}</p>
+                                <div class="z-10 flex h-full w-full flex-col p-2 group-hover:bg-neutral-100">
+                                    <div class="text-lg font-medium group-hover:underline">{m.name}</div>
+                                    <p class="line-clamp-2 text-sm font-light">{m.listing.map((l, index) => (index ? ", " : "") + l)}</p>
                                 </div>
                             </a>
                         ))

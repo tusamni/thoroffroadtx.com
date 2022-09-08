@@ -6,7 +6,7 @@ import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
-import Lightbox from "@/components/images/Lightbox";
+import Gallery from "@/components/images/Gallery";
 import Link from "@/components/buttons/LinkArrow";
 import Contact from "@/components/Contact";
 import Container from "@/components/Container";
@@ -95,7 +95,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
     <div class="bg-blue-200 py-28">
         <div class="flex flex-col gap-8 space-y-8">
             <Container classes="space-y-8">
-                <div class="flex flex-col lg:flex-row items-start justify-between gap-24">
+                <div class="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-24">
                     <Image src={carli.logo} alt="Carli Logo" width={287} height={116} />
 
                     <div class="flex flex-col gap-4">
@@ -107,16 +107,22 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
                     </div>
                 </div>
 
-                <div class="grid grid-cols-4 gap-4">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     {
                         carli.recent.map((i) => (
-                            <Image src={i.src} width={500} height={500} alt={i.alt} class="h-[24rem] w-full rounded-sm object-cover shadow-xl" />
+                            <Image
+                                src={i.src}
+                                width={500}
+                                height={500}
+                                alt={i.alt}
+                                class="h-18 w-full rounded-sm object-cover shadow-xl lg:h-[24rem]"
+                            />
                         ))
                     }
                 </div>
 
                 <div class="flex justify-between items-center">
-                    <div class="flex gap-2">
+                    <div class="hidden lg:flex gap-2">
                         <h4 class="text-blue-900">Recent Carli Builds</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-auto" viewBox="0 0 16 16">
                             <path
@@ -132,14 +138,14 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
     </div>
 
     <!-- Jamey quote -->
-    <div class="relative bg-tan-500 py-40 space-y-60">
-        <Container classes="z-10 relative flex flex-col lg:flex-row gap-16">
+    <div class="relative bg-tan-500 py-40 space-y-60 overflow-hidden">
+        <Container classes="z-10 relative flex flex-col lg:flex-row gap-8 lg:gap-16">
             <Image
                 src={jamey.portrait}
                 height={1500}
                 width={1200}
                 alt="Jamey from THOR Off-Road"
-                class="w-1/2 object-cover object-[65%] shadow-2xl rounded-sm"
+                class="w-full lg:w-1/2 object-cover object-[65%] shadow-2xl rounded-sm"
             />
 
             <div class="space-y-16 py-12">
@@ -170,50 +176,12 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
     </div>
 
     <div class="space-y-16 bg-tan-500 py-40">
-        <Container classes="flex justify-between items-center">
+        <Container classes="flex flex-col lg:flex-row justify-between items-center">
             <h2 class="text-gray-900">Recent Builds</h2>
             <Link text="See More Builds" url="/builds" />
         </Container>
 
-        <div class="grid grid-cols-4 grid-rows-4 grid-flow-col gap-2" id="gallery">
-            <div class="w-full row-span-2">
-                <Lightbox image={builds[3]} width={1000} classes="inset-0 h-full w-full object-cover object-center" />
-            </div>
-            <div class="w-full col-span-2 row-span-2">
-                <Lightbox image={builds[1]} width={1000} classes="inset-0 h-full w-full object-cover object-center" />
-            </div>
-            <div class="w-full">
-                <Lightbox image={builds[2]} width={1000} classes="inset-0 h-full w-full object-cover object-center" />
-            </div>
-            <div class="w-full">
-                <Lightbox image={builds[3]} width={1000} classes="inset-0 h-full w-full object-cover object-center" />
-            </div>
-            <div class="w-full col-span-2 row-span-2">
-                <Lightbox image={builds[5]} width={1000} classes="inset-0 h-full w-full object-cover object-center" />
-            </div>
-
-            <div class="w-full col-span-2">
-                <img
-                    src="https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                    alt="Photo by Claudio Schwarz on Unsplash"
-                    class="inset-0 h-full w-full object-cover object-center rounded opacity-75 hover:opacity-100"
-                />
-            </div>
-            <div class="w-full">
-                <img
-                    src="https://images.unsplash.com/photo-1489981424607-45c58daf0581?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                    alt="Photo by Claudio Schwarz on Unsplash"
-                    class="inset-0 h-full w-full object-cover object-center rounded opacity-75 hover:opacity-100"
-                />
-            </div>
-            <div class="w-full">
-                <img
-                    src="https://images.unsplash.com/photo-1489981424607-45c58daf0581?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                    alt="Photo by Claudio Schwarz on Unsplash"
-                    class="inset-0 h-full w-full object-cover object-center rounded opacity-75 hover:opacity-100"
-                />
-            </div>
-        </div>
+        <Gallery images={builds} selector="builds" />
     </div>
 
     <Contact />
@@ -227,7 +195,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
     });
 
     // open (will be a child of the target element above)
-    let imageLinks = document.querySelectorAll("#gallery > a");
+    let imageLinks = document.querySelectorAll(".builds > a");
 
     // add click listener to open BiggerPicture
     for (let link of imageLinks) {
@@ -264,38 +232,3 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
         });
     }
 </script>
-
-<style>
-    .parent {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(12, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-    }
-
-    .div1 {
-        grid-area: 1 / 1 / 7 / 5;
-    }
-    .div2 {
-        grid-area: 1 / 5 / 4 / 7;
-    }
-    .div3 {
-        grid-area: 4 / 5 / 7 / 7;
-    }
-    .div4 {
-        grid-area: 7 / 1 / 9 / 3;
-    }
-    .div5 {
-        grid-area: 7 / 3 / 9 / 5;
-    }
-    .div6 {
-        grid-area: 7 / 5 / 9 / 7;
-    }
-    .div7 {
-        grid-area: 9 / 4 / 13 / 7;
-    }
-    .div8 {
-        grid-area: 9 / 1 / 13 / 4;
-    }
-</style>

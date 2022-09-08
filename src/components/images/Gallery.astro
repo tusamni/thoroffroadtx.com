@@ -1,0 +1,31 @@
+---
+// components
+import { Image } from "@astrojs/image/components";
+
+// props
+export interface Props {
+    images: any;
+    selector: string;
+    classes?: string;
+}
+const { images, selector, classes } = Astro.props as Props;
+---
+
+<div class="gallery flex flex-wrap gap-3">
+    {
+        images.map((i) => (
+            <div class:list={["relative h-[500px] flex-grow", selector]}>
+                <a href={i.src} data-img={i.src} data-alt={i.description} data-height={i.height} data-width={i.width} data-caption={i.description}>
+                    <Image src={i.src} width={1000} aspectRatio={i.aspectRatio} class="h-full w-full rounded-sm object-cover" />
+                </a>
+            </div>
+        ))
+    }
+</div>
+
+<style>
+    .gallery::after {
+        content: "";
+        flex-grow: 999;
+    }
+</style>

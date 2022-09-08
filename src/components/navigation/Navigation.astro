@@ -39,7 +39,7 @@ const parts = await Astro.glob("../../pages/parts/**/*.astro");
                     </div>
                 </div>
 
-                <div class="md:hidden" x-data={"{ flyout: true }"}>
+                <div class="md:hidden" x-data={"{ flyout: false }"}>
                     <a x-on:click={"flyout = true"}>
                         <Icon name="bi:list" class="w-8 h-auto" x-show={"!flyout"} />
                         <Icon name="bi:x" class="w-8 h-auto" x-show={"flyout"} />

@@ -7,10 +7,10 @@ export interface Props {
     classes?: string;
 }
 const { text, url, type = "a", theme = "btn-primary", classes } = Astro.props as Props;
-const styles = "flex gap-3 skew-x-6";
+const styles = "flex gap-3 skew-x-12";
 ---
 
-<div class:list={["-skew-x-6 px-4 py-3px-4 py-3 shadow-solid rounded-sm border font-medium transition duration-200", theme]}>
+<div class:list={["-skew-x-12 px-4 py-3 px-4 py-3 shadow-solid rounded-sm border font-medium transition duration-200", theme]}>
     {
         type == "a" ? (
             <a href={url} title={text} class:list={[styles, classes]}>

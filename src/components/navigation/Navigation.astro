@@ -50,7 +50,7 @@ const parts = await Astro.glob("../../pages/parts/**/*.astro");
                 </div>
 
                 <div class="hidden lg:flex gap-4">
-                    <Button text="Call Us" url="/contact">
+                    <Button text={business.phone} url="/contact">
                         <Icon name="bi:telephone" class="w-3 h-auto" />
                     </Button>
                     <Button text="Contact Us" url="/contact" theme="btn-secondary">

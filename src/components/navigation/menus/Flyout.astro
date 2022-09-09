@@ -52,12 +52,12 @@ const parts = await Astro.glob("../../../pages/parts/**/*.astro");
             </div>
 
             <!-- cta buttons -->
-            <div class="space-y-2">
-                <Button text="Contact Us" url="/contact" theme="secondary">
+            <div class="flex flex-col sm:flex-row gap-2">
+                <Button text="Contact Us" url="/contact" theme="btn-secondary" classes="w-full sm:w-fit">
                     <Icon name="bi:envelope" class="w-3 h-auto" />
                 </Button>
 
-                <Button text="Call Us" url="/contact">
+                <Button text={business.phone} url="/contact" classes="w-full sm:w-fit">
                     <Icon name="bi:telephone" class="w-3 h-auto" />
                 </Button>
             </div>

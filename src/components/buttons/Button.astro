@@ -2,23 +2,26 @@
 export interface Props {
     text: string;
     url: string;
+    type?: string;
     theme?: string;
     classes?: string;
 }
-const { text, url, theme = "primary", classes } = Astro.props as Props;
-
-// button themes
-const buttons = {
-    primary: ["bg-white", "hover:bg-neutral-50", "border-neutral-400", "hover:border-neutral-500", "shadow-tan-600/50"],
-    secondary: ["bg-yellow-500", "hover:bg-yellow-400", "border-yellow-600", "hover:border-yellow-700/80", "shadow-tan-600/50"],
-};
+const { text, url, type = "a", theme = "btn-primary", classes } = Astro.props as Props;
+const styles = "flex gap-3 skew-x-6";
 ---
 
-<a
-    href={url}
-    title={text}
-    class:list={["flex gap-3 rounded-md px-4 py-3 font-medium shadow-solid border transition duration-200", buttons[theme], classes]}
->
-    <slot />
-    {text}
-</a>
+<div class:list={["-skew-x-6 px-4 py-3px-4 py-3 shadow-solid rounded-sm border font-medium transition duration-200", theme]}>
+    {
+        type == "a" ? (
+            <a href={url} title={text} class:list={[styles, classes]}>
+                <slot />
+                {text}
+            </a>
+        ) : (
+            <button type="submit" title={text} class:list={[styles, classes]}>
+                <slot />
+                {text}
+            </button>
+        )
+    }
+</div>

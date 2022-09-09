@@ -24,13 +24,14 @@ const { images, selector, classes } = Astro.props as Props;
                     data-caption={i.description}
                     class="relative"
                 >
+                    <div class="absolute z-10 h-full w-full bg-gradient-to-tr from-neutral-800/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     <Image
                         src={i.src}
                         width={1000}
                         aspectRatio={i.aspectRatio}
                         class="h-full w-full rounded-sm object-cover duration-500 group-hover:scale-[103%]"
                     />
-                    <div class="line-clamp-1 absolute bottom-3 left-3 rounded-sm bg-neutral-700 bg-opacity-50 p-2 text-sm font-bold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div class="line-clamp-1 absolute bottom-3 left-3 z-20 rounded-sm bg-neutral-700 bg-opacity-50 p-2 text-sm font-bold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         {i.title}
                     </div>
                 </a>

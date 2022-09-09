@@ -21,16 +21,17 @@ import { getImage, getPublicPath } from "@/functions/Media";
                 </p>
             </div>
 
-            <div class="flex flex-col gap-4">
+            <form class="flex flex-col gap-6">
                 <div class="flex flex-col lg:flex-row gap-6">
-                    <div class="w-full flex flex-col gap-4">
+                    <div class="w-full flex flex-col gap-6">
                         <div class="flex flex-col gap-1">
                             <label for="name" class="text-white text-lg">Name</label>
                             <input
                                 type="text"
                                 name="name"
                                 id="name"
-                                class="font-light text-lg rounded-sm w-full p-2 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                required
                             />
                         </div>
 
@@ -40,7 +41,8 @@ import { getImage, getPublicPath } from "@/functions/Media";
                                 type="email"
                                 name="email"
                                 id="email"
-                                class="font-light text-lg rounded-sm w-full p-2 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                required
                             />
                         </div>
 
@@ -50,7 +52,7 @@ import { getImage, getPublicPath } from "@/functions/Media";
                                 type="tel"
                                 name="phone"
                                 id="phone"
-                                class="font-light text-lg rounded-sm w-full p-2 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"
                             />
                         </div>
                     </div>
@@ -61,12 +63,13 @@ import { getImage, getPublicPath } from "@/functions/Media";
                             <textarea
                                 name="message"
                                 id="message"
-                                class="font-light text-lg rounded-sm w-full h-full p-2 outline-0 border-0 focus:ring-4 focus:ring-red-400"></textarea>
+                                class="font-light text-sm rounded-sm w-full h-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"></textarea>
                         </div>
                     </div>
                 </div>
-                <Button theme="secondary" text="Get Started!" classes="max-w-fit" />
-            </div>
+
+                <Button theme="btn-secondary" type="button" text="Get Started!" classes="max-w-fit" />
+            </form>
         </div>
     </Container>
 </div>

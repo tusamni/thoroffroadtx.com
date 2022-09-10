@@ -1,4 +1,27 @@
-<h1>Layout Heading</h1>
-<p>Layout Content</p>
+---
+// layouts
+import Layout from "@/layouts/Layout";
 
-<slot />
+// components
+import { Icon } from "astro-icon";
+import { Image } from "@astrojs/image/components";
+import Contact from "@/components/Contact";
+
+// functions
+import { getImage } from "@/functions/Media";
+
+const { frontmatter } = Astro.props;
+
+const heroImage = await getImage(frontmatter.hero);
+---
+
+<Layout title={frontmatter.name}>
+    <div class="relative h-[600px]">
+        <Icon name="brands/manufacturers/chevrolet" class="absolute z-10 bottom-0 left-0 text-white/60 w-[900px]" />
+        <Image src={heroImage.src} alt="" width={2000} aspectRatio={heroImage.aspectRatio} class="object-cover h-full w-full" />
+    </div>
+
+    <slot />
+
+    <Contact />
+</Layout>

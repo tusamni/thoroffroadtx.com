@@ -1,6 +1,6 @@
 ---
 // layouts
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout";
 
 // components
 import { Icon } from "astro-icon";
@@ -83,7 +83,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
         </Container>
 
         <!-- red gradient -->
-        <div class="bg-gradient-to-tl from-red-500/60 via-neutral-700/90 to-neutral-900 absolute w-full h-full z-10"></div>
+        <div class="bg-gradient-to-tl from-blue-500 via-neutral-800/50 to-neutral-800/40 absolute w-full h-full z-10"></div>
 
         <!-- bg video -->
         <video autoplay muted loop class="absolute object-cover w-full h-full">

@@ -14,24 +14,45 @@ import { getImage } from "@/functions/Media";
 const { frontmatter } = Astro.props;
 
 const heroImage = await getImage(frontmatter.hero);
+
+const headingImages = [
+    await getImage("vehicles/ford/f-350/2204-2016-ford-f-350-white/2016-ford-f-350-white_017"),
+    await getImage("vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_002"),
+    await getImage("vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_011"),
+];
 ---
 
 <Layout title={frontmatter.name}>
     <div class="relative h-[600px] overflow-hidden">
         <Image src={heroImage.src} alt={heroImage.alt} width={2000} aspectRatio={heroImage.aspectRatio} class="absolute object-cover h-full w-full" />
-        <Icon name={frontmatter.logo} class="absolute bottom-20 right-10 w-[700px] text-white/50 -rotate-[20deg]" />
+        <div class="inset-0 absolute bg-gradient-to-tr from-black/80 to-transparent"></div>
     </div>
 
-    <div class="bg-[#7d766e]">
+    <div class="bg-white py-3">
         <Container>
-            <div class="flex justify-between">
-                <div class="flex flex-col">
-                    <div class="text-white font-bold text-lg">{heroImage.title}</div>
-                    <div class="text-white font-extralight">{heroImage.description}</div>
-                </div>
+            <div class="flex gap-2 items-center text-sm">
+                <Icon name="bi:arrow-up-square-fill" class="w-3 text-stone-700" />
+                <div class="text-stone-700 font-medium">{heroImage.title}</div>
+                <span>//</span>
+                <div class="text-stone-600 font-light">{heroImage.description}</div>
             </div>
         </Container>
     </div>
 
-    <Contact />
+    <div class="bg-stone-200 py-28">
+        <Container>
+            <div class="flex justify-center items-center gap-12">
+                <div class="flex flex-col gap-4">
+                    {headingImages.map((i) => <Image src={i.src} height={150} width={800} alt={i.title} class="rounded-sm shadow-xl" />)}
+                </div>
+
+                <div class="max-w-xl flex flex-col gap-3">
+                    <h1 class="h2 text-neutral-800">{frontmatter.subtitle}</h1>
+                    <p class="text-neutral-700 text-xl leading-9">{frontmatter.subdescription}</p>
+                </div>
+            </div>
+        </Container>
+    </div>
 </Layout>
+
+<Contact />

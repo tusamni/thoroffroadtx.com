@@ -6,6 +6,7 @@ import Layout from "@/layouts/Layout";
 import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
 import Contact from "@/components/Contact";
+import Container from "@/components/Container";
 
 // functions
 import { getImage } from "@/functions/Media";
@@ -17,11 +18,19 @@ const heroImage = await getImage(frontmatter.hero);
 
 <Layout title={frontmatter.name}>
     <div class="relative h-[600px]">
-        <Icon name="brands/manufacturers/chevrolet" class="absolute z-10 bottom-0 left-0 text-white/60 w-[900px]" />
-        <Image src={heroImage.src} alt="" width={2000} aspectRatio={heroImage.aspectRatio} class="object-cover h-full w-full" />
+        <Image src={heroImage.src} alt={heroImage.alt} width={2000} aspectRatio={heroImage.aspectRatio} class="absolute object-cover h-full w-full" />
+
+        <Container classes="h-full relative">
+            <div class="z-10 absolute flex flex-col bottom-0 left-0 px-5 py-3 bg-[#7d766e] bg-opacity-70 rounded-sm">
+                <div class="text-white font-bold text-lg">{heroImage.title}</div>
+                <div class="text-white font-extralight">{heroImage.description}</div>
+            </div>
+        </Container>
     </div>
 
-    <slot />
+    <div class="bg-[#7d766e] h-72">
+        <Icon name={frontmatter.logo} class="w-72 text-white" />
+    </div>
 
     <Contact />
 </Layout>

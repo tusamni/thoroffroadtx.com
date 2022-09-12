@@ -1,0 +1,19 @@
+---
+// layouts
+import Vehicle from "@/layouts/Vehicle";
+
+// components
+import { Image } from "@astrojs/image/components";
+import Container from "@/components/Container";
+
+// functions
+import { getImage } from "@/functions/Media";
+
+// page data
+const model = "Ford";
+const subtitle = "Something for Everyone";
+const description =
+    "As the oldest brand and the top selling truck line in the industry, Ford boasts that they have something for everyone. Ford owners love their trucks and SUVs for their ability to get things done and for giving owners the freedom to adventure and explore new frontiers. THOR Off Road can help you build a Ford vehicle capable of taming the road or tackling any backcountry trail.";
+---
+
+<Vehicle model={model} subtitle={subtitle} description={description} />

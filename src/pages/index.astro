@@ -8,7 +8,6 @@ import { Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
 import Gallery from "@/components/images/Gallery";
 import Link from "@/components/buttons/LinkArrow";
-import Contact from "@/components/Contact";
 import Container from "@/components/Container";
 
 // functions
@@ -16,7 +15,7 @@ import { getImage, getPublicPath } from "@/functions/Media";
 
 // images
 const carli = {
-    logo: getPublicPath("/Images/Brands/Parts/Color/carli-suspension.png"),
+    logo: getPublicPath("/images/brands/parts/color/carli-suspension.png"),
     recent: [
         await getImage("vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_007"),
         await getImage("vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_013"),
@@ -185,8 +184,6 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
 
         <Gallery images={builds} selector="builds" />
     </div>
-
-    <Contact />
 </Layout>
 
 <script>

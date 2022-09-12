@@ -28,9 +28,9 @@ import { business, social } from "@/data/business";
             <!-- social icons -->
             <div class="flex gap-6">
                 {
-                    social.map((i) => (
-                        <a href={i.url} target="_blank" title={`${business.name_long} ${i.title}`}>
-                            <Icon name={i.icon} class="h-auto w-4" />
+                    social.map((social) => (
+                        <a href={social.url} target="_blank" title={`${business.name_long} ${social.title}`}>
+                            <Icon name={social.icon} class="h-auto w-4" />
                         </a>
                     ))
                 }

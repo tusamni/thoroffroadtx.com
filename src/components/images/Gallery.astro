@@ -27,6 +27,7 @@ const { images, selector, classes } = Astro.props as Props;
                     <div class="absolute z-10 h-full w-full bg-gradient-to-tr from-neutral-800/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     <Image
                         src={i.src}
+                        alt={i.alt}
                         width={1000}
                         aspectRatio={i.aspectRatio}
                         class="h-full w-full rounded-sm object-cover duration-500 group-hover:scale-[103%]"

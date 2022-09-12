@@ -7,10 +7,7 @@ import Container from "@/components/Container";
 
 // data
 import { business, social } from "@/data/business";
-
-// get navigation
-const vehicles = await Astro.glob("../../../pages/vehicles/**/*.astro");
-const parts = await Astro.glob("../../../pages/parts/**/*.astro");
+import { vehicles } from "@/data/vehicles";
 ---
 
 <div class="fixed top-[90px] inset-0 z-50 w-full overflow-y-scroll bg-tan-200" x-on:click.outside={"flyout = false"}>
@@ -24,8 +21,8 @@ const parts = await Astro.glob("../../../pages/parts/**/*.astro");
                         vehicles.map((v) => (
                             <div class="grid grid-cols-4 gap-2">
                                 <a href={v.url} class="col-span-3 ml-3">
-                                    <div class="font-medium">{v.name}</div>
-                                    <p class="text-xs font-light">{v.listing.map((l, index) => (index ? ", " : "") + l)}</p>
+                                    <div class="font-medium">{v.title}</div>
+                                    <p class="text-xs font-light">{v.models.map((l, index) => (index ? ", " : "") + l.title)}</p>
                                 </a>
                             </div>
                         ))
@@ -33,7 +30,7 @@ const parts = await Astro.glob("../../../pages/parts/**/*.astro");
                 </Accordion>
 
                 <!-- parts -->
-                <Accordion name="Parts" target="partsAccordion">
+                <!-- <Accordion name="Parts" target="partsAccordion">
                     {
                         parts.map((p) => (
                             <div class="grid grid-cols-4 gap-2">
@@ -44,7 +41,7 @@ const parts = await Astro.glob("../../../pages/parts/**/*.astro");
                             </div>
                         ))
                     }
-                </Accordion>
+                </Accordion> -->
 
                 <!-- other links -->
                 <h4 class="text-3xl text-black">Gallery</h4>
@@ -65,9 +62,9 @@ const parts = await Astro.glob("../../../pages/parts/**/*.astro");
             <!-- social icons -->
             <div class="flex gap-6 justify-around">
                 {
-                    social.map((i) => (
-                        <a href={i.url} target="_blank" title={`${business.name_long} ${i.title}`}>
-                            <Icon name={i.icon} class="h-auto w-5 text-neutral-700" />
+                    social.map((social) => (
+                        <a href={social.url} target="_blank" title={`${business.name_long} ${social.title}`}>
+                            <Icon name={social.icon} class="h-auto w-5 text-neutral-700" />
                         </a>
                     ))
                 }

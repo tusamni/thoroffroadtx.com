@@ -9,38 +9,42 @@ import Container from "@/components/Container";
 import Link from "@/components/buttons/LinkArrow";
 
 // functions
-import { getModel } from "@/functions/Content";
+//import { getMake } from "@/functions/Content";
 
 // props
-const { model, subtitle, description } = Astro.props;
+const { make, subtitle, description } = Astro.props;
 
-const modelData = getModel(model);
+// page data
+//const makeData = getMake(make);
 ---
 
-<Layout title={modelData.title}>
-    <div class="relative h-[600px] overflow-hidden">
+<Layout title={makeData.title}>
+    <!-- headline image -->
+    <div class="relative h-[600px]">
         <Image
-            src={modelData.photo.src}
-            alt={modelData.photo.alt}
+            src={makeData.photo.src}
+            alt={makeData.photo.alt}
             width={2000}
-            aspectRatio={modelData.photo.aspectRatio}
+            aspectRatio={makeData.photo.aspectRatio}
             class="absolute object-cover h-full w-full"
         />
         <div class="inset-0 absolute bg-gradient-to-tr from-black/80 via-black/20 to-transparent"></div>
     </div>
 
-    <div class="bg-white py-3">
+    <!-- headline metadata -->
+    <div class="bg-white py-5">
         <Container>
             <div class="flex gap-2 items-center text-sm">
-                <Icon name="bi:arrow-up-square-fill" class="w-3 text-stone-700" />
-                <div class="text-stone-700 font-medium">{modelData.photo.title}</div>
+                <Icon name="bi:arrow-up-square" class="w-3 text-stone-700" />
+                <div class="text-stone-700 font-medium">{makeData.photo.title}</div>
                 <span>//</span>
-                <div class="text-stone-600 font-light">{modelData.photo.description}</div>
+                <div class="text-stone-600 font-light">{makeData.photo.description}</div>
             </div>
         </Container>
     </div>
 
-    <div class="bg-stone-200 py-28 relative">
+    <!-- summary -->
+    <div class="bg-stone-200 py-28">
         <Container classes="relative">
             <Icon name="brands/manufacturers/ford" class="absolute -top-16 -right-32 w-[500px] h-auto text-stone-300/50" />
 
@@ -57,24 +61,19 @@ const modelData = getModel(model);
         </Container>
     </div>
 
+    <!-- model listing -->
     <div class="bg-stone-300">
         <Container>
             {
-                modelData.models.map((m) => (
+                makeData.models.map((m) => (
                     <div class="space-y-12">
                         <div class="flex flex-col gap-4">
-                            <div class="flex flex-col justify-between">
-                                <h1 class="text-stone-700">{m.title}</h1>
-                                <Link text="Ford Models" url="models" />
-                            </div>
+                            <h1 class="text-stone-700">{m.title}</h1>
                             <div class="max-w-3xl text-stone-600">{m.description}</div>
                         </div>
 
-                        <div class="relative grid grid-cols-3 gap-4">
+                        <div class="relative grid grid-cols-3 gap-5">
                             <Icon name="tracks/tire-tracks_01" class="absolute inset-0 text-stone-300/90" />
-
-                            <Image src={m.photo.src} alt={m.photo.alt} width={800} height={800} class="h-[600px] rounded-sm object-cover shadow-xl" />
-                            <Image src={m.photo.src} alt={m.photo.alt} width={800} height={800} class="h-[600px] rounded-sm object-cover shadow-xl" />
                             <Image src={m.photo.src} alt={m.photo.alt} width={800} height={800} class="h-[600px] rounded-sm object-cover shadow-xl" />
                         </div>
 

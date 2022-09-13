@@ -12,6 +12,12 @@ export const vehicles = [
                 url: "/ford/bronco",
                 description: "One of the most iconic vehicle badges in the world, the Ford Bronco has been reinvented for a whole new generation of drivers and off-road enthusiasts. THOR is your Ford Bronco headquarters and we are ready to guide you through the nearly endless options for your build. With products from RPG and Baja Kits the performance and capability of the new Bronco is endless.",
                 photo: await getImage("vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_019"),
+                featured: [
+                    await getImage("vehicles/ford/bronco/2112-2021-ford-bronco-badlands-oxford-white/2021-ford-bronco-badlands-oxford-white_015"),
+                    await getImage("vehicles/ford/bronco/2112-2021-ford-bronco-badlands-oxford-white/2021-ford-bronco-badlands-oxford-white_017"),
+                    await getImage("vehicles/ford/bronco/2204-2021-ford-bronco-outer-banks-black/2021-ford-bronco-outer-banks-black_004"),
+                    await getImage("vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_013"),
+                ]
             },
             {
                 title: "F-150",

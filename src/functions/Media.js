@@ -10,7 +10,7 @@ export function getPublicPath(file) {
     return `${imageConfig.cloudUrl}${file}`;
 }
 
-export async function getImage(image) {
+export function getImage(image) {
     const dir = "src/assets/images";
     const extension = "jpg";
     const metafile = `${dir}/${image}.json`;

@@ -9,13 +9,13 @@ import Container from "@/components/Container";
 import Link from "@/components/buttons/LinkArrow";
 
 // functions
-//import { getMake } from "@/functions/Content";
+import { getMake } from "@/functions/Content";
 
 // props
 const { make, subtitle, description } = Astro.props;
 
 // page data
-//const makeData = getMake(make);
+const makeData = getMake(make);
 ---
 
 <Layout title={makeData.title}>

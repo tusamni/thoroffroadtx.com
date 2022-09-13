@@ -9,76 +9,87 @@ import Container from "@/components/Container";
 import Link from "@/components/buttons/LinkArrow";
 
 // functions
-import { getMake } from "@/functions/Content";
+//import { getMake } from "@/functions/Content";
 
 // props
-const { make, subtitle, description } = Astro.props;
+const { content, images, models } = Astro.props;
 
 // page data
-const makeData = getMake(make);
+//const makeData = getMake(make);
 ---
 
-<Layout title={makeData.title}>
+<Layout>
     <!-- headline image -->
     <div class="relative h-[600px]">
         <Image
-            src={makeData.photo.src}
-            alt={makeData.photo.alt}
+            src={images.photo.src}
+            alt={images.photo.alt}
             width={2000}
-            aspectRatio={makeData.photo.aspectRatio}
+            aspectRatio={images.photo.aspectRatio}
             class="absolute object-cover h-full w-full"
         />
         <div class="inset-0 absolute bg-gradient-to-tr from-black/80 via-black/20 to-transparent"></div>
     </div>
 
     <!-- headline metadata -->
-    <div class="bg-white py-5">
+    <div class="bg-stone-100 py-5">
         <Container>
-            <div class="flex gap-2 items-center text-sm">
-                <Icon name="bi:arrow-up-square" class="w-3 text-stone-700" />
-                <div class="text-stone-700 font-medium">{makeData.photo.title}</div>
+            <div class="flex gap-2 items-center">
+                <Icon name="bi:arrow-up-square" class="w-4 text-stone-700" />
+
+                <div class="text-stone-700 font-medium">{images.photo.title}</div>
                 <span>//</span>
-                <div class="text-stone-600 font-light">{makeData.photo.description}</div>
+                <div class="text-stone-600 font-light">{images.photo.description}</div>
             </div>
         </Container>
     </div>
 
     <!-- summary -->
-    <div class="bg-stone-200 py-28">
-        <Container classes="relative">
-            <Icon name="brands/manufacturers/ford" class="absolute -top-16 -right-32 w-[500px] h-auto text-stone-300/50" />
+    <div class="bg-white py-40 relative">
+        <Icon name={images.logo} class="absolute -bottom-16 right-0 w-[850px] h-auto text-stone-400/20" />
 
-            <div class="flex justify-center relative">
-                <div class="max-w-5xl grid grid-cols-2 items-center gap-12">
-                    <div class="flex flex-col h-full justify-between items-end">
-                        <h1 class="text-neutral-800 text-right">{subtitle}</h1>
-                        <Link text="Ford Models" url="models" />
-                    </div>
-
-                    <p class="text-neutral-600 text-xl leading-9">{description}</p>
+        <Container>
+            <div class="space-y-52">
+                <div class="max-w-3xl space-y-8">
+                    <h1 class="text-neutral-800">{content.subtitle}</h1>
+                    <p class="text-neutral-600 text-xl leading-9">
+                        {content.description}
+                    </p>
                 </div>
             </div>
         </Container>
     </div>
 
     <!-- model listing -->
-    <div class="bg-stone-300">
-        <Container>
+    <div class="bg-stone-400 py-40 relative overflow-hidden">
+        <Icon name="tracks/tire-tracks_05" class="absolute -top-20 -left-20 w-[800px] text-stone-500/20" />
+        <Icon name="tracks/tire-tracks_03" class="absolute -bottom-20 -right-20 w-[800px] text-stone-500/20 rotate-90" />
+
+        <Container classes="relative space-y-24">
             {
-                makeData.models.map((m) => (
-                    <div class="space-y-12">
-                        <div class="flex flex-col gap-4">
-                            <h1 class="text-stone-700">{m.title}</h1>
-                            <div class="max-w-3xl text-stone-600">{m.description}</div>
+                models.map((m) => (
+                    <div class="space-y-4">
+                        <div>
+                            <div class="relative flex">
+                                <div class="flex min-w-fit items-center rounded-tl-sm bg-stone-200 px-8">
+                                    <h2 class="text-neutral-700">{m.content.model}</h2>
+                                </div>
+                                <div class="col-span-2 rounded-tr-sm bg-stone-200/90 p-8 text-lg text-stone-600">{m.content.description}</div>
+                            </div>
+
+                            <Image
+                                src={m.images.photo.src}
+                                alt={m.images.photo.alt}
+                                width={1300}
+                                height={600}
+                                class="col-span-3 h-[600px] rounded-sm object-cover shadow-2xl"
+                            />
                         </div>
 
-                        <div class="relative grid grid-cols-3 gap-5">
-                            <Icon name="tracks/tire-tracks_01" class="absolute inset-0 text-stone-300/90" />
-                            <Image src={m.photo.src} alt={m.photo.alt} width={800} height={800} class="h-[600px] rounded-sm object-cover shadow-xl" />
-                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-lg font-light text-stone-200">{m.images.photo.title}</div>
 
-                        <div class="flex justify-center">
-                            <Link text="Customize Your Bronco!" url="/contact" />
+                            <Link text={`Customize Your ${m.content.model}!`} url="/contact" textColor="text-white" textSize="text-xl" />
                         </div>
                     </div>
                 ))

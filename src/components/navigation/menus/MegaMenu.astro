@@ -35,16 +35,16 @@ const { name, menu, target } = Astro.props as Props;
                         menu.map((m) => (
                             <a
                                 href={m.url}
-                                title={m.title}
+                                title={m.content.title}
                                 class="group relative flex items-center rounded-md border border-neutral-200 p-2 md:px-4 md:py-3 lg:p-0"
                             >
                                 <div class="hidden h-full w-12 items-center bg-neutral-200 p-2 lg:flex">
-                                    <Icon name={m.logo} class="w-12 text-neutral-400" />
+                                    <Icon name={m.images.logo} class="w-12 text-neutral-400" />
                                 </div>
 
                                 <div class="z-10 flex h-full w-full flex-col p-2 group-hover:bg-neutral-100">
-                                    <div class="text-lg font-medium group-hover:underline">{m.title}</div>
-                                    <p class="line-clamp-2 text-sm font-light">{m.models.map((l, index) => (index ? ", " : "") + l.title)}</p>
+                                    <div class="text-lg font-medium group-hover:underline">{m.content.make}</div>
+                                    <p class="line-clamp-2 text-sm font-light">{m.content.models.map((l, index) => (index ? ", " : "") + l)}</p>
                                 </div>
                             </a>
                         ))

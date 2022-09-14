@@ -4,7 +4,7 @@ import "../assets/css/_base.scss";
 // components
 import ContactBar from "@/components/navigation/ContactBar";
 import Navigation from "@/components/navigation/Navigation";
-import Contact from "@/components/Contact";
+import Lead from "@/components/Lead";
 import Footer from "@/components/Footer";
 
 export interface Props {
@@ -32,7 +32,7 @@ const { title, contact = true } = Astro.props;
 
         <slot />
 
-        {contact ? <Contact /> : ""}
+        {contact ? <Lead /> : ""}
         <Footer />
     </body>
 </html>

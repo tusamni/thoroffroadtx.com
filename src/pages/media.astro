@@ -9,9 +9,14 @@ import Layout from "@/layouts/Layout";
 import { Image } from "@astrojs/image/components";
 import Container from "@/components/Container";
 
+// config
+import { imageConfig } from "@/src/config";
+
 // functions
 import { getImage, getPublicPath } from "@/functions/Media";
 
+// page data
+// find all json files in the image directory
 const filehound = Filehound.create();
 const files = filehound.paths("src/assets/images").ext("json").find();
 
@@ -21,15 +26,22 @@ for (const file of fileList) {
     const replace = file.replace("src\\assets\\images\\", "").replaceAll("\\", "/").replace(".json", ".jpg");
     imageList.push(replace);
 }
+
+const jsonList = [];
+for (const file of fileList) {
+    const replaceJson = file.replace("src\\assets\\images\\", "").replaceAll("\\", "/").replace(".json", "");
+    const imageData = await getImage(replaceJson);
+    jsonList.push(imageData);
+}
 ---
 
 <Layout>
     <Container>
         <div class="grid grid-cols-6 gap-8">
             {
-                imageList.map((i) => (
-                    <a class="cursor-pointer" onclick={`copyToClipboard('${i.replace(".jpg", "")}')`}>
-                        <Image src={getPublicPath(`/images/${i}`)} width={200} height={200} alt="" />
+                jsonList.map((i) => (
+                    <a class="cursor-pointer" onclick={`copyToClipboard('${i.src}')`}>
+                        <Image src={i.src} width={200} aspectRatio={i.aspectRatio} alt={i.alt} />
                     </a>
                 ))
             }
@@ -37,8 +49,10 @@ for (const file of fileList) {
     </Container>
 </Layout>
 
-<script is:inline>
+<script define:vars={{ imageConfig }}>
     function copyToClipboard(text) {
-        if (navigator && navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+        const url = text.replace(`${imageConfig.cloudUrl}/images/`, ``).replace(`.jpg`, ``);
+
+        navigator.clipboard.writeText(url);
     }
 </script>

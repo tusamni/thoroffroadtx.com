@@ -1,8 +1,8 @@
 [class*="btn-"] {
-    @apply sm:-skew-x-12 px-5 py-4 border-r-4 border-t-4 rounded-md font-medium transition-all duration-500
+    @apply sm:-skew-x-12 border-r-4 border-t-4 rounded-md font-medium transition-all duration-500
 }
 [class*="btn-"] > a, [class*="btn-"] button {
-    @apply flex gap-3 sm:skew-x-12
+    @apply flex gap-3 sm:skew-x-12 px-5 py-4
 }
 
 .btn-primary {

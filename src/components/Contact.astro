@@ -11,7 +11,7 @@ const mapsUrl = social.find((s) => s.title === "Google Maps");
 ---
 
 <div class:list={[classes]}>
-    <a href={mapsUrl.url} title="Google Maps" target="_blank">
+    <a href={mapsUrl.url} title="Google Maps" target="_blank" class="inline-flex">
         <address>
             {business.address.street_01}
             {business.address.street_02}<br />

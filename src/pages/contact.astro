@@ -22,7 +22,7 @@ const bg = await getImage("vehicles/ford/bronco/2112-2021-ford-bronco-badlands-o
 <Layout contact={false}>
     <div class="relative py-52">
         <Image src={bg.src} width={2000} aspectRatio={bg.aspectRatio} alt={bg.alt} class="object-cover absolute inset-0 w-full h-full" />
-        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div>
 
         <Container classes="py-28 !px-16 relative bg-white bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 rounded-sm shadow-2xl">
             <div class="grid grid-cols-2 gap-12">
@@ -45,7 +45,7 @@ const bg = await getImage("vehicles/ford/bronco/2112-2021-ford-bronco-badlands-o
                                     type="text"
                                     name="name"
                                     id="name"
-                                    class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                    class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-neutral-200"
                                     required
                                 />
                             </div>
@@ -56,7 +56,7 @@ const bg = await getImage("vehicles/ford/bronco/2112-2021-ford-bronco-badlands-o
                                     type="email"
                                     name="email"
                                     id="email"
-                                    class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                    class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-neutral-200"
                                     required
                                 />
                             </div>
@@ -67,7 +67,7 @@ const bg = await getImage("vehicles/ford/bronco/2112-2021-ford-bronco-badlands-o
                                     type="tel"
                                     name="phone"
                                     id="phone"
-                                    class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                    class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-neutral-200"
                                 />
                             </div>
 
@@ -76,7 +76,7 @@ const bg = await getImage("vehicles/ford/bronco/2112-2021-ford-bronco-badlands-o
                                 <textarea
                                     name="message"
                                     id="message"
-                                    class="font-light text-sm rounded-sm w-full h-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400 h-32"
+                                    class="font-light text-sm rounded-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-neutral-200 h-32"
                                 ></textarea>
                             </div>
                         </div>

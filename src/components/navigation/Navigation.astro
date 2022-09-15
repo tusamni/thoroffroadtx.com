@@ -4,13 +4,11 @@ import { Icon } from "astro-icon";
 import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
 import Flyout from "@/components/navigation/menus/Flyout";
-import MegaMenu from "@/components/navigation/menus/MegaMenu";
+import MegaVehicles from "@/components/navigation/menus/MegaVehicles";
+import MegaParts from "@/components/navigation/menus/MegaParts";
 
 // data
 import { business, logos } from "@/data/business";
-
-// page data
-const vehicles = await Astro.glob("../../pages/vehicles/*.astro");
 ---
 
 <div class="bg-tan-500 sticky top-0 z-50 shadow-2xl">
@@ -26,10 +24,10 @@ const vehicles = await Astro.glob("../../pages/vehicles/*.astro");
                     <!-- desktop menu -->
                     <div class="hidden md:flex font-medium">
                         <!-- vehicles -->
-                        <MegaMenu name="Vehicles" menu={vehicles} target="vehiclesMega" />
+                        <MegaVehicles />
 
                         <!-- parts -->
-                        <!-- <MegaMenu name="Parts" menu={parts} target="partsMega" url="/parts" /> -->
+                        <MegaParts />
 
                         <div class="py-10 px-4 hover:bg-white">Gallery</div>
                         <div class="py-10 px-4 hover:bg-white">Feed</div>

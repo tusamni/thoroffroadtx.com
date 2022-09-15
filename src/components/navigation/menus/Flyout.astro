@@ -24,7 +24,7 @@ const vehicles = await Astro.glob("../../../pages/vehicles/*.astro");
                             <div class="grid grid-cols-4 gap-2">
                                 <a href={v.url} class="col-span-3 ml-3">
                                     <div class="font-medium">{v.content.make}</div>
-                                    <p class="text-xs font-light">{v.content.models.map((l, index) => (index ? ", " : "") + l)}</p>
+                                    <p class="text-xs font-light">{v.models.map((l, index) => (index ? ", " : "") + l)}</p>
                                 </a>
                             </div>
                         ))

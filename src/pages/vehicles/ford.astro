@@ -3,15 +3,12 @@
 import Vehicle from "@/layouts/Vehicle";
 
 // components
-import { Image } from "@astrojs/image/components";
 import { getImage } from "@/functions/Media";
-import Container from "@/components/Container";
 
 // content
 export const models = await Astro.glob("./**/*.astro");
 export const content = {
-    make: "Ford",
-    models: ["Bronco", "F-150", "Ranger", "Raptor", "Super-Duty"],
+    title: "Ford",
     subtitle: "Something for Everyone",
     description:
         "As the oldest brand and the top selling truck line in the industry, Ford boasts that they have something for everyone. Ford owners love their trucks and SUVs for their ability to get things done and for giving owners the freedom to adventure and explore new frontiers. THOR Off Road can help you build a Ford vehicle capable of taming the road or tackling any backcountry trail.",

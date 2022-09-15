@@ -8,14 +8,8 @@ import { Image } from "@astrojs/image/components";
 import Container from "@/components/Container";
 import Link from "@/components/buttons/LinkArrow";
 
-// functions
-//import { getMake } from "@/functions/Content";
-
 // props
 const { content, images, models } = Astro.props;
-
-// page data
-//const makeData = getMake(make);
 ---
 
 <Layout>
@@ -72,7 +66,7 @@ const { content, images, models } = Astro.props;
                         <div>
                             <div class="relative flex">
                                 <div class="flex min-w-fit items-center rounded-tl-sm bg-stone-200 px-8">
-                                    <h2 class="text-neutral-700">{m.content.model}</h2>
+                                    <h2 class="text-neutral-700">{m.content.title}</h2>
                                 </div>
                                 <div class="col-span-2 rounded-tr-sm bg-stone-200/90 p-8 text-lg text-stone-600">{m.content.description}</div>
                             </div>

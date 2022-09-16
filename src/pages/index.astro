@@ -193,24 +193,6 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
         target: document.body,
     });
 
-    // open (will be a child of the target element above)
-    let imageLinks = document.querySelectorAll(".builds > a");
-
-    // add click listener to open BiggerPicture
-    for (let link of imageLinks) {
-        link.addEventListener("click", openGallery);
-    }
-
-    // function to open BiggerPicture
-    function openGallery(e) {
-        e.preventDefault();
-        bp.open({
-            items: imageLinks,
-            el: e.currentTarget,
-            scale: 0.8,
-        });
-    }
-
     // hero video player
     let heroVideo = document.querySelector(".hero-video");
     heroVideo.addEventListener("click", openVideo);
@@ -220,7 +202,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
 
         let items = [
             {
-                sources: [{ src: "https://thoroffroad.nyc3.cdn.digitaloceanspaces.com/Videos/Homepage/thor-in-action.mp4", type: "video/mp4" }],
+                sources: [{ src: "https://thoroffroad.nyc3.cdn.digitaloceanspaces.com/videos/homepage/thor-in-action.mp4", type: "video/mp4" }],
                 height: 720,
                 width: 1280,
             },

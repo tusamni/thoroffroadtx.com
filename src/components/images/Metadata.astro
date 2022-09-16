@@ -1,0 +1,21 @@
+---
+// components
+import { Icon } from "astro-icon";
+import Container from "@/components/Container";
+
+// props
+export interface Props {
+    title: string;
+    description?: string;
+}
+const { title, description } = Astro.props as Props;
+---
+
+<div class="bg-stone-100">
+    <Container>
+        <div class="flex flex-col gap-1 py-5">
+            <div class="text-stone-700 font-medium">{title}</div>
+            <div class="text-stone-600 text-xs font-light">{description}</div>
+        </div>
+    </Container>
+</div>

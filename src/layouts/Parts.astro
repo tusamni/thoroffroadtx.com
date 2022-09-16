@@ -3,11 +3,55 @@
 import Layout from "@/layouts/Layout";
 
 // components
-import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
 import Container from "@/components/Container";
 import Link from "@/components/buttons/LinkArrow";
+import Metadata from "@/components/images/Metadata";
 
 // props
-const { content, images, models } = Astro.props;
+const { content, images, brands } = Astro.props;
 ---
+
+<Layout>
+    <!-- headline image -->
+    <div class="relative h-[600px]">
+        <Image
+            src={images.photo.src}
+            alt={images.photo.alt}
+            width={2000}
+            aspectRatio={images.photo.aspectRatio}
+            class="absolute object-cover h-full w-full object-left"
+        />
+        <div class="inset-0 absolute bg-gradient-to-tr from-black/80 via-black/20 to-transparent"></div>
+    </div>
+
+    <!-- headline metadata -->
+    <Metadata title={images.photo.title} description={images.photo.description} />
+
+    <!-- summary -->
+    <div class="bg-white py-40">
+        <Container>
+            <div class="space-y-20">
+                <div class="space-y-52">
+                    <div class="max-w-3xl space-y-8">
+                        <h1 class="text-neutral-800">{content.subtitle}</h1>
+                        <p class="text-neutral-600 text-xl leading-9">
+                            {content.description}
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="flex gap-6 items-center overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white"></div>
+                        {
+                            brands
+                                .map((b) => <img src={`/src/assets/images/parts/brands/brands_${b.logo}.png`} alt={b.title} class="h-16 w-auto" />)
+                                .splice(0, 5)
+                        }
+                    </div>
+                    <Link text="See All Our Bed & Roof Brands" url="#a" textSize="text-base" />
+                </div>
+            </div>
+        </Container>
+    </div>
+</Layout>

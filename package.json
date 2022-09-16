@@ -13,12 +13,12 @@
         "@astrojs/alpinejs": "^0.1.2",
         "@astrojs/image": "^0.7.0",
         "@astrojs/mdx": "^0.11.1",
-        "@astrojs/tailwind": "^2.0.0",
+        "@astrojs/tailwind": "^2.0.1",
         "@tailwindcss/forms": "^0.5.3",
         "@tailwindcss/line-clamp": "^0.4.2",
         "@types/alpinejs": "^3.7.0",
         "alpinejs": "^3.10.3",
-        "astro": "1.2.4",
+        "astro": "1.2.5",
         "astro-icon": "^0.7.3",
         "bigger-picture": "latest",
         "filehound": "^1.17.6",
@@ -26,6 +26,7 @@
         "prettier": "^2.7.1",
         "prettier-plugin-astro": "^0.5.4",
         "prettier-plugin-tailwindcss": "^0.1.13",
-        "sass": "^1.54.9"
+        "sass": "^1.54.9",
+        "slick-carousel": "^1.8.1"
     }
 }

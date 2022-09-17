@@ -5,7 +5,7 @@ import Layout from "@/layouts/Layout";
 // components
 import { Image } from "@astrojs/image/components";
 import Container from "@/components/Container";
-import Link from "@/components/buttons/LinkArrow";
+import Link from "@/components/buttons/Link";
 import Metadata from "@/components/images/Metadata";
 
 // props
@@ -49,7 +49,7 @@ const { content, images, brands } = Astro.props;
                                 .splice(0, 5)
                         }
                     </div>
-                    <Link text="See All Our Bed & Roof Brands" url="#a" textSize="text-base" />
+                    <Link text="See All Our Bed & Roof Brands" href="#a" classes="text-base" />
                 </div>
             </div>
         </Container>

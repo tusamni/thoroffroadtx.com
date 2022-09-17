@@ -52,12 +52,12 @@ const vehicles = await Astro.glob("../../../pages/vehicles/*.astro");
 
             <!-- cta buttons -->
             <div class="flex flex-col sm:flex-row gap-2">
-                <Button text="Contact Us" url="/contact" theme="btn-secondary" classes="w-full sm:w-fit">
-                    <Icon name="bi:envelope" class="w-3 h-auto" />
+                <Button text={business.phone} href={`tel:${business.phone}`} classes="w-full sm:w-fit">
+                    <Icon name="bi:telephone" class="w-3 h-auto" />
                 </Button>
 
-                <Button text={business.phone} url="/contact" classes="w-full sm:w-fit">
-                    <Icon name="bi:telephone" class="w-3 h-auto" />
+                <Button text="Contact Us" href="/contact" theme="btn-secondary" classes="w-full sm:w-fit">
+                    <Icon name="bi:envelope" class="w-3 h-auto" />
                 </Button>
             </div>
 

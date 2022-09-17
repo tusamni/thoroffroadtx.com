@@ -47,11 +47,11 @@ import { business, logos } from "@/data/business";
                 </div>
 
                 <div class="hidden lg:flex gap-4">
-                    <Button text={business.phone} url="/contact">
+                    <Button text={business.phone} href={`tel:${business.phone}`}>
                         <Icon name="bi:telephone" class="w-3 h-auto" />
                     </Button>
-                    <Button text="Contact Us" url="/contact" theme="btn-secondary">
-                        <Icon name="bi:envelope-fill" class="w-3 h-auto" />
+                    <Button text="Contact Us" href="/contact" theme="btn-secondary">
+                        <Icon name="bi:envelope" class="w-3 h-auto" />
                     </Button>
                 </div>
             </div>

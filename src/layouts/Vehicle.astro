@@ -6,7 +6,7 @@ import Layout from "@/layouts/Layout";
 import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
 import Container from "@/components/Container";
-import Link from "@/components/buttons/LinkArrow";
+import Link from "@/components/buttons/Link";
 import Metadata from "@/components/images/Metadata";
 
 // props
@@ -74,7 +74,7 @@ const { content, images, models } = Astro.props;
                         <div class="flex items-center justify-between">
                             <div class="text-lg font-light text-stone-200">{m.images.photo.title}</div>
 
-                            <Link text={`Customize Your ${m.content.model}!`} url="/contact" textColor="text-white" textSize="text-xl" />
+                            <Link text={`Customize Your ${m.content.model}!`} href="/contact" classes="text-white text-xl" />
                         </div>
                     </div>
                 ))

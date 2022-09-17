@@ -7,7 +7,7 @@ import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
 import Gallery from "@/components/images/Gallery";
-import Link from "@/components/buttons/LinkArrow";
+import Link from "@/components/buttons/Link";
 import Container from "@/components/Container";
 
 // functions
@@ -62,7 +62,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <Button text="Get in Touch" url="/contact" classes="w-fit">
+                    <Button text="Get in Touch" href="/contact" classes="w-fit">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-auto" viewBox="0 0 16 16">
                             <path
                                 d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
@@ -70,7 +70,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
                         </svg>
                     </Button>
 
-                    <Button text="THOR in Action!" url={hero} theme="btn-secondary" classes="hero-video w-fit">
+                    <Button text="THOR in Action!" theme="btn-secondary" classes="w-fit">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-auto" viewBox="0 0 16 16">
                             <path
                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"
@@ -132,7 +132,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
                             ></path>
                         </svg>
                     </div>
-                    <Link text="Get a Quote for Your Carli Install" url="/contact" textSize="text-xl" />
+                    <Link text="Get a Quote for Your Carli Install" href="/contact" classes="text-xl" />
                 </div>
             </Container>
         </div>
@@ -179,7 +179,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
     <div class="space-y-16 bg-tan-500 pt-40 lg:pb-3">
         <Container classes="flex flex-col lg:flex-row justify-between items-center">
             <h2 class="text-gray-900">Recent Builds</h2>
-            <Link text="See More Builds" url="/builds" />
+            <Link text="See More Builds" href="/builds" classes="text-xl" />
         </Container>
 
         <Gallery images={builds} selector="builds" />

@@ -8,7 +8,7 @@ export interface Props {
     href: string;
     classes?: string;
 }
-const { text, href, classes = ["text-lg", "text-black"] } = Astro.props as Props;
+const { text, href, classes = ["text-lg"] } = Astro.props as Props;
 ---
 
 <a href={href} title={text} class:list={["inline-flex gap-2 font-medium underline underline-offset-4 decoration-1", classes]}>

@@ -9,7 +9,7 @@ export function getPublicPath(file) {
 }
 
 export function getImage(image) {
-    const dir = "src/assets/images";
+    const dir = "./src/assets/images";
     const extension = "jpg";
     const metafile = `${dir}/${image}.json`;
     const source = getPublicPath(`/images/${image}.${extension}`);

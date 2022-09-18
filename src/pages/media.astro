@@ -24,7 +24,7 @@ const fileList = await files;
 
 const jsonList = [];
 for (const file of fileList) {
-    const replaceJson = file.replace("src\\assets\\images\\", "/").replaceAll("\\", "/").replace(".json", "");
+    const replaceJson = file.replace("src\\assets\\images\\", "").replaceAll("\\", "/").replace(".json", "");
     const imageData = await getImage(replaceJson);
     jsonList.push(imageData);
 }

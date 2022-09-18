@@ -21,11 +21,6 @@ const filehound = Filehound.create();
 const files = filehound.paths("src/assets/images").ext("json").find();
 
 const fileList = await files;
-const imageList = [];
-for (const file of fileList) {
-    const replace = file.replace("src\\assets\\images\\", "").replaceAll("\\", "/").replace(".json", ".jpg");
-    imageList.push(replace);
-}
 
 const jsonList = [];
 for (const file of fileList) {

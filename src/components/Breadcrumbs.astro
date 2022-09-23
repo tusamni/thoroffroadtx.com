@@ -1,0 +1,45 @@
+---
+// components
+import { Icon } from "astro-icon";
+import Container from "@/components/Container";
+
+// props
+export interface Props {
+    path: any;
+}
+const { path } = Astro.props;
+
+let url = path.split("/");
+var crumbParts = [
+    {
+        text: "home",
+        link: "/",
+    },
+];
+
+for (var i = 1; i < url.length; i++) {
+    var crumbPart = url[i];
+    var text = crumbPart.replace(/-/g, " ").toLowerCase();
+    var link = url.slice(0, i + 1).join("/");
+    crumbParts.push({ text: text, link: link });
+}
+---
+
+<div class="bg-stone-100 py-4 text-sm font-light uppercase italic">
+    <Container>
+        <nav>
+            <ol class="flex gap-1">
+                {crumbParts.map((crumb) =>
+                <li>
+                    <a class={(path === crumb.link) ? 'font-semibold' : ''} href={path === crumb.link ? '#' : crumb.link}>
+                        <span>{crumb.text}</span>
+                    </a>
+                </li>
+                <Icon name="bi:chevron-right" class="w-2" />                
+                )}
+
+                {p.brands.map((b, index) => (index ? ", " : "") + b.name)}
+            </ol>
+        </nav>
+</Container>
+</div>

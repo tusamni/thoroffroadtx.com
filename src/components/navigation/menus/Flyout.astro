@@ -66,7 +66,7 @@ const vehicles = await Astro.glob("../../../pages/vehicles/*.astro");
                 {
                     social.map((social) => (
                         <a href={social.url} target="_blank" title={`${business.name_long} ${social.title}`}>
-                            <Icon name={social.icon} class="h-auto w-5 text-neutral-700" />
+                            <Icon name={social.icon} class="h-auto w-5 text-stone-700" />
                         </a>
                     ))
                 }

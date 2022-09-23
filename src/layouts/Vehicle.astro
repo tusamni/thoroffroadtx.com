@@ -26,7 +26,7 @@ const { content, images, models } = Astro.props;
         />
 
         <!-- bg -->
-        <div class="inset-0 absolute bg-gradient-to-l from-black/80 via-black/20 to-transparent"></div>
+        <div class="inset-0 absolute bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
         <!-- headline metadata -->
         <Metadata title={images.photo.title} description={images.photo.description} />
@@ -36,13 +36,13 @@ const { content, images, models } = Astro.props;
 
     <!-- summary -->
     <div class="bg-white py-40 relative">
-        <Icon name={images.logo} class="absolute -bottom-16 right-0 w-[850px] h-auto text-stone-400/20" />
+        <Icon name={images.logo} class="absolute -bottom-16 right-0 w-[850px] h-auto text-stone-100" />
 
         <Container>
             <div class="space-y-52">
                 <div class="max-w-3xl space-y-8">
-                    <h1 class="text-neutral-800">{content.subtitle}</h1>
-                    <p class="text-neutral-600 text-xl leading-9">
+                    <h1 class="text-stone-800">{content.subtitle}</h1>
+                    <p class="text-stone-600 text-xl leading-9">
                         {content.description}
                     </p>
                 </div>
@@ -51,18 +51,18 @@ const { content, images, models } = Astro.props;
     </div>
 
     <!-- model listing -->
-    <div class="bg-stone-400 py-40 relative overflow-hidden">
-        <Icon name="tracks/tire-tracks_05" class="absolute -top-20 -left-20 w-[800px] text-stone-500/20" />
-        <Icon name="tracks/tire-tracks_03" class="absolute -bottom-20 -right-20 w-[800px] text-stone-500/20 rotate-90" />
+    <div class="bg-stone-100 py-40 relative overflow-hidden">
+        <Icon name="tracks/tire-tracks_05" class="absolute -top-20 -left-20 w-[800px] text-stone-300/20" />
+        <Icon name="tracks/tire-tracks_03" class="absolute -bottom-20 -left-20 w-[800px] text-stone-300/20 rotate-90" />
 
         <Container classes="relative space-y-24">
             {
                 models.map((m) => (
-                    <div class="space-y-4">
+                    <div>
                         <div>
                             <div class="relative flex">
                                 <div class="flex min-w-fit items-center rounded-tl-sm bg-stone-200 px-8">
-                                    <h2 class="text-neutral-700">{m.content.title}</h2>
+                                    <h2 class="text-stone-700">{m.content.title}</h2>
                                 </div>
                                 <div class="col-span-2 rounded-tr-sm bg-stone-200/90 p-8 text-lg text-stone-600">{m.content.description}</div>
                             </div>
@@ -76,10 +76,16 @@ const { content, images, models } = Astro.props;
                             />
                         </div>
 
-                        <div class="flex items-center justify-between">
-                            <div class="text-lg font-light text-stone-200">{m.images.photo.title}</div>
+                        <div class="flex items-center">
+                            <div class="w-full text-lg font-light italic text-stone-700">{m.images.photo.title}</div>
 
-                            <Link text={`Customize Your ${m.content.title}!`} href="/contact" classes="text-white text-xl" />
+                            <div class="bg-yellow-500 py-5 px-6">
+                                <Link
+                                    text={`Customize Your ${m.content.title}!`}
+                                    href="/contact"
+                                    classes="text-yellow-900 text-xl whitespace-nowrap"
+                                />
+                            </div>
                         </div>
                     </div>
                 ))

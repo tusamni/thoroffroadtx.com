@@ -25,7 +25,7 @@ const { content, images, brands } = Astro.props;
         />
 
         <!-- bg -->
-        <div class="inset-0 absolute bg-gradient-to-l from-black/80 via-black/20 to-transparent"></div>
+        <div class="inset-0 absolute bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
         <!-- headline metadata -->
         <Metadata title={images.photo.title} description={images.photo.description} />
@@ -39,8 +39,8 @@ const { content, images, brands } = Astro.props;
             <div class="space-y-20">
                 <div class="space-y-52">
                     <div class="max-w-3xl space-y-8">
-                        <h1 class="text-neutral-800">{content.subtitle}</h1>
-                        <p class="text-neutral-600 text-xl leading-9">
+                        <h1 class="text-stone-800">{content.subtitle}</h1>
+                        <p class="text-stone-600 text-xl leading-9">
                             {content.description}
                         </p>
                     </div>

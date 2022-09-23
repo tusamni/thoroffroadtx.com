@@ -32,13 +32,13 @@ const vehicles = await Astro.glob("../../../pages/vehicles/*.astro");
                             <a
                                 href={m.url}
                                 title={m.content.title}
-                                class="group relative flex items-center rounded-md border border-neutral-200 p-2 md:px-4 md:py-3 lg:p-0"
+                                class="group relative flex items-center rounded-md border border-stone-200 p-2 md:px-4 md:py-3 lg:p-0"
                             >
-                                <div class="hidden h-full w-12 items-center bg-neutral-200 p-2 lg:flex">
-                                    <Icon name={m.images.logo} class="w-12 text-neutral-400" />
+                                <div class="hidden h-full w-12 items-center bg-stone-200 p-2 lg:flex">
+                                    <Icon name={m.images.logo} class="w-12 text-stone-400" />
                                 </div>
 
-                                <div class="z-10 flex h-full w-full flex-col p-2 group-hover:bg-neutral-100">
+                                <div class="z-10 flex h-full w-full flex-col p-4 group-hover:bg-stone-100">
                                     <div class="text-lg font-medium group-hover:underline">{m.content.title}</div>
                                     <p class="line-clamp-2 text-sm font-light">{m.models.map((l, index) => (index ? ", " : "") + l.content.title)}</p>
                                 </div>

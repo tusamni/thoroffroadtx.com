@@ -1,0 +1,24 @@
+---
+// layouts
+import Vehicle from "@/layouts/Vehicle";
+
+// components
+import { getImage } from "@/functions/Media";
+
+// content
+export const models = await Astro.glob("./gmc/**/*.astro");
+export const content = {
+    title: "GMC",
+    subtitle: "Tackle Any Task",
+    description:
+        "Chevrolet and GMC offer you capable, efficient, durable, and professional vehicles backed by a 100 years of proven performance. With their bulletproof transmissions and unique styling and with the abundant supply of high-performance parts from companies like BDS Suspensions, Cognito, RPG Offroad and Baja Kits, THOR can help you build a serious off-road machine with the on-road comfort and towing capability that make these vehicles a dream to drive. ",
+};
+
+// images
+export const images = {
+    logo: "brands/manufacturers/gmc",
+    photo: getImage("vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_003"),
+};
+---
+
+<Vehicle content={content} images={images} models={models} />

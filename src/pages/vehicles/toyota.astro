@@ -1,0 +1,24 @@
+---
+// layouts
+import Vehicle from "@/layouts/Vehicle";
+
+// components
+import { getImage } from "@/functions/Media";
+
+// content
+export const models = await Astro.glob("./toyota/**/*.astro");
+export const content = {
+    title: "Toyota",
+    subtitle: "Let's Go Places",
+    description:
+        "Toyota trucks are made for the toughest terrains, from remote trails to daily worksites, allowing you to go places others can’t. No other word describes Toyota like Durability.  The Toyota brand has literally been built on the durability of their engine and drivetrain. Lexus SUVs offer the ultimate in luxury and off-road performance to get you anywhere you want to go in comfort and style.",
+};
+
+// images
+export const images = {
+    logo: "brands/manufacturers/toyota",
+    photo: getImage("vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_003"),
+};
+---
+
+<Vehicle content={content} images={images} models={models} />

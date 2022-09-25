@@ -1,0 +1,24 @@
+---
+// layouts
+import Vehicle from "@/layouts/Vehicle";
+
+// components
+import { getImage } from "@/functions/Media";
+
+// content
+export const models = await Astro.glob("./jeep/**/*.astro");
+export const content = {
+    title: "Jeep",
+    subtitle: "A Jeep for Every Challenge",
+    description:
+        "If you are looking for the ultimate off-roading, weekend-cruising, mountain-climbing, and sun-catching vehicle, everyone knows Jeep has this market locked up. The choices of style and performance for your Jeep are almost limitless and THOR can help you design and build a Jeep that can do anything, go anywhere, and turn heads doing it. We have partnered with AEV Conversions, Carli Suspension, Bodyguard Bumpers, AEV, and other top-tier manufacturers to give you the Jeep of your off-roading dreams.",
+};
+
+// images
+export const images = {
+    logo: "brands/manufacturers/jeep",
+    photo: getImage("vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_003"),
+};
+---
+
+<Vehicle content={content} images={images} models={models} />

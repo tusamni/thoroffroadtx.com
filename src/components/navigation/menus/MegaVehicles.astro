@@ -40,7 +40,7 @@ const vehicles = await Astro.glob("../../../pages/vehicles/*.astro");
 
                                 <div class="z-10 flex h-full w-full flex-col p-4 group-hover:bg-stone-100">
                                     <div class="text-lg font-medium group-hover:underline">{m.content.title}</div>
-                                    <p class="line-clamp-2 text-sm font-light">{m.models.map((l, index) => (index ? ", " : "") + l.content.title)}</p>
+                                    <p class="line-clamp-1 text-sm font-light">{m.models.map((l, index) => (index ? ", " : "") + l.content.title)}</p>
                                 </div>
                             </a>
                         ))

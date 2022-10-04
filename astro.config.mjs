@@ -8,7 +8,9 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
     integrations: [
         alpinejs(),
-        image(),
+        image({
+            serviceEntryPoint: "@astrojs/image/sharp",
+        }),
         mdx(),
         tailwind({
             config: {

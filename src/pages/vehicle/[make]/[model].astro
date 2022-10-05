@@ -1,14 +1,15 @@
 ---
 export async function getStaticPaths() {
-    const vehicles = await Astro.glob("../../data/vehicles/*.json");
+    const vehicles = await Astro.glob("../../../data/vehicles/*.json");
+    const make = vehicles[0].slug;
 
-    return vehicles.map((v) => ({
-        params: { make: v.slug },
-        props: v,
+    return vehicles[0].models.map((m) => ({
+        params: { make: make, model: m.slug },
+        props: m,
     }));
 }
 
-const { slug } = Astro.params;
+const { make, model } = Astro.params;
 const { title, subheading } = Astro.props;
 ---
 

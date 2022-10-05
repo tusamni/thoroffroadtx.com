@@ -1,0 +1,24 @@
+{
+    "slug": "toyota",
+    "title": "Toyota",
+    "heading": "Let's Go Places",
+    "subheading": "Toyota vehicles are made for the toughest terrains, from remote trails to daily worksites, allowing you to go places others can't. No other word describes Toyota like Durability. The Toyota brand has literally been built on the durability of their engine and drivetrain. Toyota SUVs offer the ultimate in luxury and off-road performance to get you anywhere you want to go in comfort and style.",
+    "logo": "brands/manufacturers/toyota",
+    "models": [
+        {
+            "slug": "4runner",
+            "title": "4Runner",
+            "description": "Want the durability and capability of the Toyota brand but want to take your family along for the ride? The Toyota 4Runner is built on a tried-and-true platform that can tackle every adventure whether solo or with friends and family."
+        },
+        {
+            "slug": "land-cruiser",
+            "title": "Land Cruiser",
+            "description": "As the king of off-road adventuring, the Toyota Land Cruiser has conquered every environment on the planet. THOR can outfit your Land Cruiser to do anything, go anywhere and get you home safely."
+        },
+        {
+            "slug": "tundra",
+            "title": "Tundra",
+            "description": "When you make the best-selling mid-size truck you must make a bigger one. Texas-sized to be exact. The Toyota Tundra is manufactured here in Texas and is built to be a serious workhorse or a weekend off roading machine. Let THOR give your Tundra the performance and features you just can't get from the factory."
+        }
+    ]
+}

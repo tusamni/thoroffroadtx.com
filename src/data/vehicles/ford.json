@@ -3,14 +3,32 @@
     "title": "Ford",
     "heading": "Something for Everyone",
     "subheading": "As the oldest brand and the top selling truck line in the industry, Ford boasts that they have something for everyone. Ford owners love their trucks and SUVs for their ability to get things done and for giving owners the freedom to adventure and explore new frontiers. THOR Off Road can help you build a Ford vehicle capable of taming the road or tackling any backcountry trail.",
-    "models": {
-        "f-150": {
+    "logo": "brands/manufacturers/ford",
+    "models": [
+        {
+            "slug": "bronco",
+            "title": "Bronco",
+            "subheading": "One of the most iconic vehicle badges in the world, the Ford Bronco has been reinvented for a whole new generation of drivers and off-road enthusiasts. THOR is your Ford Bronco headquarters and we are ready to guide you through the nearly endless options for your build. With products from RPG and Baja Kits the performance and capability of the new Bronco is endless."
+        },
+        {
+            "slug": "f-150",
             "title": "F-150",
             "subheading": "As the best-selling vehicle in America, there is no limit to what you can do with the Ford F-150. THOR can help you build a comfortable daily commuter or work truck, a trusty ranch or farm vehicle, or even a supercharged off-road racer capable of absorbing anything you throw at it."
         },
-        "super-duty": {
+        {
+            "slug": "ranger",
+            "title": "Ranger",
+            "description": "With more bang per buck and power per pound, there are so many build options for the Ford Ranger midsize truck. Whether you are simply looking to upgrade the appearance of your Ford Ranger or want to build a super capable off-road truck, THOR knows exactly how to execute the perfect build for you."
+        },
+        {
+            "slug": "raptor",
+            "title": "Raptor",
+            "description": "If you are starting with an already awesome truck platform like the Ford Raptor and want to take it to new heights of performance, THOR can make it happen. We use carefully researched and tested parts from top manufacturers like RPG Offroad and Baja Kits to make the capabilities of the Ford Raptor, quite simply, mind blowing."
+        },
+        {
+            "slug": "super-duty",
             "title": "Super Duty",
             "subheading": "Ford Super Duty trucks are some of the hardest working and best looking trucks on the road today. THOR outfits Super Duty trucks to do many different things with top line equipment like Carli Suspension, giving you comfort on the road and performance off road without sacrificing towing or cargo carrying capabilities."
         }
-    }
+    ]
 }

@@ -6,10 +6,10 @@ import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
 
 // data
-import { business, social } from "@/data/business";
+import { business, social } from "@/src/config";
 
 // page data
-const vehicles = await Astro.glob("../../../pages/vehicles/*.astro");
+const vehicles = await Astro.glob("../../../data/vehicles/*.json");
 ---
 
 <div class="fixed top-[90px] inset-0 z-50 w-full overflow-y-scroll bg-tan-200" x-on:click.outside={"flyout = false"}>
@@ -22,9 +22,9 @@ const vehicles = await Astro.glob("../../../pages/vehicles/*.astro");
                     {
                         vehicles.map((v) => (
                             <div class="grid grid-cols-4 gap-2">
-                                <a href={v.url} class="col-span-3 ml-3">
-                                    <div class="font-medium">{v.content.title}</div>
-                                    <p class="text-xs font-light">{v.models.map((l, index) => (index ? ", " : "") + l.content.title)}</p>
+                                <a href={`/vehicles/${v.slug}`} class="col-span-3 ml-3">
+                                    <div class="font-medium">{v.title}</div>
+                                    <p class="text-xs font-light">{v.models.map((l, index) => (index ? ", " : "") + l.title)}</p>
                                 </a>
                             </div>
                         ))

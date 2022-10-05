@@ -4,7 +4,7 @@ import { Icon } from "astro-icon";
 import Container from "@/components/Container";
 
 // get vehicle data
-const vehicles = await Astro.glob("../../../pages/vehicles/*.astro");
+const vehicles = await Astro.glob("../../../data/vehicles/*.json");
 ---
 
 <div
@@ -30,17 +30,17 @@ const vehicles = await Astro.glob("../../../pages/vehicles/*.astro");
                     {
                         vehicles.map((m) => (
                             <a
-                                href={m.url}
-                                title={m.content.title}
+                                href={`/vehicles/${m.slug}`}
+                                title={m.title}
                                 class="group relative flex items-center rounded-md border border-stone-200 p-2 md:px-4 md:py-3 lg:p-0"
                             >
                                 <div class="hidden h-full w-12 items-center bg-stone-200 p-2 lg:flex">
-                                    <Icon name={m.images.logo} class="w-12 text-stone-400" />
+                                    <Icon name={m.logo} class="w-12 text-stone-400" />
                                 </div>
 
                                 <div class="z-10 flex h-full w-full flex-col p-4 group-hover:bg-stone-100">
-                                    <div class="text-lg font-medium group-hover:underline">{m.content.title}</div>
-                                    <p class="line-clamp-1 text-sm font-light">{m.models.map((l, index) => (index ? ", " : "") + l.content.title)}</p>
+                                    <div class="text-lg font-medium group-hover:underline">{m.title}</div>
+                                    <p class="line-clamp-1 text-sm font-light">{m.models.map((l, index) => (index ? ", " : "") + l.title)}</p>
                                 </div>
                             </a>
                         ))

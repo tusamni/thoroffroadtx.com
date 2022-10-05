@@ -1,4 +1,7 @@
 ---
+// layouts
+import Layout from "@/layouts/Vehicle";
+
 export async function getStaticPaths() {
     const vehicles = await Astro.glob("../../data/vehicles/*.json");
 
@@ -9,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { make } = Astro.params;
-const { title, subheading } = Astro.props;
+const { title, heading, subheading, featured, logo } = Astro.props;
 ---
 
-{title}
+<Layout title={title} heading={heading} subheading={subheading} featured={featured} logo={logo} />

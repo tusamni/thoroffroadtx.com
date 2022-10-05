@@ -1,0 +1,16 @@
+{
+    "slug": "ford",
+    "title": "Ford",
+    "heading": "Something for Everyone",
+    "subheading": "As the oldest brand and the top selling truck line in the industry, Ford boasts that they have something for everyone. Ford owners love their trucks and SUVs for their ability to get things done and for giving owners the freedom to adventure and explore new frontiers. THOR Off Road can help you build a Ford vehicle capable of taming the road or tackling any backcountry trail.",
+    "models": {
+        "f-150": {
+            "title": "F-150",
+            "subheading": "As the best-selling vehicle in America, there is no limit to what you can do with the Ford F-150. THOR can help you build a comfortable daily commuter or work truck, a trusty ranch or farm vehicle, or even a supercharged off-road racer capable of absorbing anything you throw at it."
+        },
+        "super-duty": {
+            "title": "Super Duty",
+            "subheading": "Ford Super Duty trucks are some of the hardest working and best looking trucks on the road today. THOR outfits Super Duty trucks to do many different things with top line equipment like Carli Suspension, giving you comfort on the road and performance off road without sacrificing towing or cargo carrying capabilities."
+        }
+    }
+}

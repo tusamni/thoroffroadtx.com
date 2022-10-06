@@ -16,5 +16,5 @@ export async function getModels(make) {
     const filteredMakes = Object.keys(vehicles).filter((key) => key.includes(make));
 
     // return the simple object
-    return vehicles[filteredMakes];
+    return vehicles[filteredMakes.models];
 }

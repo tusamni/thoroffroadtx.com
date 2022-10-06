@@ -1,18 +1,22 @@
 {
     "slug": "lexus",
     "title": "Lexus",
+    "description": "Lexus trucks are made for the toughest terrains. Allowing you to go places others can't.",
     "heading": "Let's Go Places",
     "subheading": "Lexus vehicles are made for the toughest terrains, from remote trails to daily worksites, allowing you to go places others can't. No other word describes Lexus like Durability. The Lexus brand has literally been built on the durability of their engine and drivetrain. Lexus SUVs offer the ultimate in luxury and off-road performance to get you anywhere you want to go in comfort and style.",
     "logo": "brands/manufacturers/lexus",
+    "featured": "vehicles/lexus/gx/2112-2018-lexus-gx460-silver/2018-lexus-gx460-silver_002",
     "models": [
         {
             "slug": "gx",
             "title": "GX",
+            "featured": "vehicles/lexus/gx/2112-2018-lexus-gx460-silver/2018-lexus-gx460-silver_002",
             "description": "Want the durability and capability of the Lexus brand but want to take your family along for the ride? The Lexus GX is built on a tried-and-true platform that can tackle every adventure whether solo or with friends and family."
         },
         {
             "slug": "lx",
             "title": "LX",
+            "featured": "vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_003",
             "description": "As the king of off-road adventuring, the Lexus LX has conquered every environment on the planet. THOR can outfit your Lexus LX to do anything, go anywhere and get you home safely."
         }
     ]

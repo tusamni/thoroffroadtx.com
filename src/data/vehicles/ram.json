@@ -1,18 +1,22 @@
 {
     "slug": "ram",
     "title": "RAM",
+    "description": "RAM is America's longest-lasting pickup truck, known for its reliability, power, durability and quality.",
     "heading": "Long-Lasting Performance",
     "subheading": "RAM trucks are the longest lasting and hardest working trucks on the market, and we love outfitting these trucks for our customers. THOR can help you with the unmatched Carli Suspension system to provide the very best ride quality on and off the road, and we can build the ultimate overlanding truck with products from AEV Conversions. We know how to get RAM trucks to reach a level of performance to take on anything and get you anywhere you want to go.",
     "logo": "brands/manufacturers/ram",
+    "featured": "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_001",
     "models": [
         {
             "slug": "1500",
             "title": "1500",
+            "featured": "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_001",
             "description": "The RAM 1500 series of trucks can get you through any adventure with ease. The Rebel and TRX packages offer more off road capability than a standard 1500, and THOR can help you take it to the next level with suspension systems from Carli Suspension, AEV Conversions, and BDS."
         },
         {
             "slug": "2500-3500",
             "title": "2500 & 3500",
+            "featured": "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_057",
             "description": "When it comes to heavy duty trucks, RAM has led the way with massive powerplants and extremely capable suspensions. Starting with these fantastic platforms, THOR can help you build a truck to do everything well using parts from industry leaders like Carli Suspension and AEV Conversion. There isn't much you can't do with a Ram 2500 and 3500 truck."
         }
     ]

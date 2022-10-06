@@ -1,0 +1,44 @@
+---
+// components
+import Breadcrumbs from "@/components/Breadcrumbs";
+import Container from "@/components/Container";
+import Photo from "@/components/images/Photo";
+
+// functions
+import { getImage } from "@/functions/Media";
+
+// props
+export interface Props {
+    image: string;
+    title: string;
+}
+const { image, title } = Astro.props as Props;
+---
+
+<div class="relative h-[600px]">
+    <!-- header image -->
+    <Photo src={image} width={2000} height={1000} classes="absolute object-cover h-full w-full" />
+
+    <!-- bg -->
+    <div class="inset-0 absolute bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+</div>
+
+<div class="bg-stone-100">
+    <Container>
+        <div class="flex justify-between py-5 items-center">
+            <!-- breadcrumbs -->
+            <div class="bg-stone-100">
+                <span class="text-stone-800 text-2xl uppercase italic font-extrabold tracking-tighter">{title}</span>
+                <div class="text-sm">
+                    <Breadcrumbs path={Astro.url.pathname} />
+                </div>
+            </div>
+
+            <!-- metadata -->
+            <div class="flex flex-col text-right max-w-md">
+                <div class="text-stone-700">{getImage(image).title}</div>
+                <div class="text-stone-600 text-sm font-light line-clamp-1" title={getImage(image).description}>{getImage(image).description}</div>
+            </div>
+        </div>
+    </Container>
+</div>

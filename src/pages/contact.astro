@@ -3,26 +3,18 @@
 import Layout from "@/layouts/Layout";
 
 // components
-import { Icon } from "astro-icon";
-import { Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
 import Contact from "@/components/Contact";
 import Container from "@/components/Container";
-
-// data
-import { business, logos } from "@/src/config";
-
-// functions
-import { getImage, getPublicPath } from "@/functions/Media";
+import Photo from "@/components/images/Photo";
 
 // page data
-const bg = await getImage("vehicles/ford/f-350/2110-2021-ford-f-350-king-ranch-black/2021-ford-f-350-king-ranch-black_005");
+const bg = "vehicles/ford/f-350/2110-2021-ford-f-350-king-ranch-black/2021-ford-f-350-king-ranch-black_005";
 ---
 
 <Layout contact={false}>
     <div class="relative py-52">
-        <Image src={bg.src} width={2000} aspectRatio={bg.aspectRatio} alt={bg.alt} class="object-cover absolute inset-0 w-full h-full" />
-        <!-- <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div> -->
+        <Photo src={bg} width={2000} height={2000} classes="object-cover absolute inset-0 w-full h-full" />
 
         <Container classes="py-28 !px-16 relative bg-white bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 rounded-sm shadow-2xl">
             <div class="grid grid-cols-2 gap-12">

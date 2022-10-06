@@ -4,14 +4,14 @@ import Layout from "@/layouts/Layout";
 
 // components
 import { Icon } from "astro-icon";
-import { Image } from "@astrojs/image/components";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
+import Hero from "@/components/Hero";
 import Link from "@/components/buttons/Link";
-import Metadata from "@/components/images/Metadata";
+import Photo from "@/components/images/Photo";
 
 // functions
-import { getImage, getPublicPath } from "@/functions/Media";
+import { getImage } from "@/functions/Media";
 import { getModels } from "@/functions/Vehicles";
 
 export async function getStaticPaths() {
@@ -27,32 +27,10 @@ const { make } = Astro.params;
 const { title, heading, subheading, featured, logo } = Astro.props;
 
 const models = await getModels(make);
-const images = {
-    featured: getImage(featured),
-};
-
-console.log(models);
 ---
 
 <Layout>
-    <!-- headline image -->
-    <div class="relative h-[600px]">
-        <Image
-            src={images.featured.src}
-            alt={images.featured.alt}
-            width={2000}
-            aspectRatio={images.featured.aspectRatio}
-            class="absolute object-cover h-full w-full"
-        />
-
-        <!-- bg -->
-        <div class="inset-0 absolute bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-        <!-- headline metadata -->
-        <Metadata title={images.featured.title} description={images.featured.description} />
-    </div>
-
-    <Breadcrumbs path={Astro.url.pathname} />
+    <Hero image={featured} title={title} />
 
     <!-- summary -->
     <div class="bg-white py-40 relative">
@@ -82,29 +60,19 @@ console.log(models);
                         <div>
                             <div class="relative flex">
                                 <div class="flex min-w-fit items-center rounded-tl-sm bg-stone-200 px-8">
-                                    <h2 class="text-stone-700">{m.content.title}</h2>
+                                    <h2 class="text-stone-700">{m.title}</h2>
                                 </div>
-                                <div class="col-span-2 rounded-tr-sm bg-stone-200/90 p-8 text-lg text-stone-600">{m.content.description}</div>
+                                <div class="col-span-2 rounded-tr-sm bg-stone-200/90 p-8 text-lg text-stone-600">{m.description}</div>
                             </div>
 
-                            <Image
-                                src={m.images.photo.src}
-                                alt={m.images.photo.alt}
-                                width={1300}
-                                height={600}
-                                class="col-span-3 h-[600px] rounded-sm object-cover shadow-2xl"
-                            />
+                            <Photo src={m.featured} width={1300} height={600} classes="col-span-3 h-[600px] rounded-sm object-cover shadow-2xl" />
                         </div>
 
                         <div class="flex items-center">
-                            <div class="w-full text-lg font-light italic text-stone-700">{m.images.photo.title}</div>
+                            <div class="w-full text-lg font-light italic text-stone-700">{getImage(m.featured).title}</div>
 
                             <div class="bg-yellow-500 py-5 px-6">
-                                <Link
-                                    text={`Customize Your ${m.content.title}!`}
-                                    href="/contact"
-                                    classes="text-yellow-900 text-xl whitespace-nowrap"
-                                />
+                                <Link text={`Customize Your ${m.title}!`} href="/contact" classes="text-yellow-900 text-xl whitespace-nowrap" />
                             </div>
                         </div>
                     </div>

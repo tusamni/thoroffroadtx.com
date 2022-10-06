@@ -1,0 +1,54 @@
+---
+// layouts
+import Layout from "@/layouts/Layout";
+
+// components
+import Container from "@/components/Container";
+import Hero from "@/components/Hero";
+
+// functions
+import { getMakes } from "@/functions/Vehicles";
+
+const makes = await getMakes();
+const steps = [
+    {
+        title: "We Know the Brands",
+        description: "We love everything automotive and have decades of experience working on the top vehicle brands and platforms.",
+    },
+    {
+        title: "We Know the Parts",
+        description:
+            "We only work with top manufacturers and have done the research and testing required to perfectly match parts for our off-road vehicle builds.",
+    },
+    {
+        title: "Tell Us What You're Looking For",
+        description:
+            "Our entire mission is to create purpose-built vehicles and we take the time to know you and the goals you have for your vehicle.",
+    },
+    {
+        title: "We'll Build Your Dream Vehicle",
+        description:
+            "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
+    },
+];
+const image = "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_041";
+---
+
+<Layout>
+    <Hero image={image} />
+
+    <Container classes="py-24 space-y-12">
+        <h1 class="text-black">Vehicles</h1>
+        <div class="grid grid-cols-2 gap-12">
+            {
+                steps.map((s) => (
+                    <div class="space-y-4">
+                        <h3 class="text-black">{s.title}</h3>
+                        <hr class="w-20" />
+                        <p class="text-lg font-light text-neutral-800">{s.description}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </Container>
+</Layout>

@@ -24,7 +24,7 @@ const vehicles = await Astro.glob("../../../data/vehicles/*.json");
     </button>
 
     <div x-show="vehiclesMega" class="absolute top-[100px] inset-0 w-full z-30">
-        <div class="bg-white w-full">
+        <div class="bg-gradient-to-b from-stone-800 to-stone-900 w-full">
             <Container classes="py-8">
                 <div class="grid grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-4">
                     {
@@ -32,15 +32,13 @@ const vehicles = await Astro.glob("../../../data/vehicles/*.json");
                             <a
                                 href={`/vehicles/${m.slug}`}
                                 title={m.title}
-                                class="group relative flex items-center rounded-md border border-stone-200 p-2 md:px-4 md:py-3 lg:p-0"
+                                class="relative flex items-center rounded-sm border border-stone-600 p-2 md:px-4 md:py-3 lg:p-0"
                             >
-                                <div class="hidden h-full w-12 items-center bg-stone-200 p-2 lg:flex">
-                                    <Icon name={m.logo} class="w-12 text-stone-400" />
-                                </div>
-
-                                <div class="z-10 flex h-full w-full flex-col p-4 group-hover:bg-stone-100">
-                                    <div class="text-lg font-medium group-hover:underline">{m.title}</div>
-                                    <p class="line-clamp-1 text-sm font-light">{m.models.map((l, index) => (index ? ", " : "") + l.title)}</p>
+                                <div class="z-10 flex h-full w-full flex-col from-stone-700 to-stone-600 p-4 hover:bg-gradient-to-br">
+                                    <div class="text-lg font-medium text-white group-hover:underline">{m.title}</div>
+                                    <p class="line-clamp-1 text-sm font-light text-stone-300">
+                                        {m.models.map((l, index) => (index ? ", " : "") + l.title)}
+                                    </p>
                                 </div>
                             </a>
                         ))

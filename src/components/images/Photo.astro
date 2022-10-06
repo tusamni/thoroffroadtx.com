@@ -1,0 +1,21 @@
+---
+// components
+import { Image } from "@astrojs/image/components";
+
+// functions
+import { getImage } from "@/functions/Media";
+
+// props
+export interface Props {
+    src: string;
+    picture?: boolean;
+    width: number;
+    height: number;
+    classes?: string;
+}
+const { src, picture = false, width, height, classes, ...attrs } = Astro.props as Props;
+
+const image = getImage(src);
+---
+
+<Image src={image.src} alt={image.alt} width={width} height={height} class={classes} />

@@ -4,12 +4,17 @@ const vehicles = await import.meta.glob("../data/vehicles/*.json", { eager: true
 export async function getMakes() {
     const makes = [];
 
+    // map the object into an array of vehicles makes
+    Object.entries(vehicles).map(([key, value]) => makes.push(value.title));
+
     return makes;
 }
 
 // get all vehicle models associated with a make
 export async function getModels(make) {
-    const makeKey = Object.keys(vehicles).filter((key) => key.includes(make));
+    // filter the boject down to the selected make
+    const filteredMakes = Object.keys(vehicles).filter((key) => key.includes(make));
 
-    Object.console.log(models);
+    // return the simple object
+    return vehicles[filteredMakes];
 }

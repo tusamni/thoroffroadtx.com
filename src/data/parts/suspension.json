@@ -1,0 +1,15 @@
+{
+    "slug": "suspension",
+    "title": "Suspension",
+    "description": "Your off-road vehicle is only as capable as the suspension system will allow. THOR can get you where you want and get there fast, reliably, and in comfort with the perfect lift and suspension setup that your truck or adventure vehicle needs.",
+    "heading": "Flatten the Bumps",
+    "subheading": "Go where you want and get there fast, reliably, and in comfort with the perfect lift and suspension setup that your truck or adventure vehicle needs.",
+    "logo": "car-parts/coilover",
+    "featured": "vehicles/chevy/colorado/2110-2020-chevy-colorado-red/2020-chevy-colorado-red_006",
+    "brands": [
+        {
+            "title": "BedRug",
+            "logo": "bedrug"
+        }
+    ]
+}

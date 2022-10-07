@@ -1,0 +1,15 @@
+{
+    "slug": "body-bumper",
+    "title": "Body & Bumper",
+    "description": "Your truck must be ready to take on the bangs and bumps that just come naturally with back-country adventuring. Let THOR add practicality, durability, and performance to your off-road vehicle with the industry's highest quality bumpers, grill guards, fenders, side rails, steps, and winches.",
+    "heading": "Rugged Capability",
+    "subheading": "Add practicality, durability, and performance to your off-road vehicle with the industry's highest quality bumpers, grill guards, fenders, side rails, steps, and winches.",
+    "logo": "car-parts/pickup",
+    "featured": "vehicles/chevy/colorado/2110-2020-chevy-colorado-red/2020-chevy-colorado-red_006",
+    "brands": [
+        {
+            "title": "BedRug",
+            "logo": "bedrug"
+        }
+    ]
+}

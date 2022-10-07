@@ -4,7 +4,7 @@ import { Icon } from "astro-icon";
 import Container from "@/components/Container";
 
 // get vehicle data
-const parts = await Astro.glob("../../../pages/parts/*.astro");
+const parts = await Astro.glob("../../../data/parts/*.json");
 ---
 
 <div
@@ -24,23 +24,25 @@ const parts = await Astro.glob("../../../pages/parts/*.astro");
     </button>
 
     <div x-show="partsMega" class="absolute top-[100px] inset-0 w-full z-30">
-        <div class="bg-white w-full">
+        <div class="bg-gradient-to-tr from-stone-700 via-stone-800 to-stone-800 w-full">
             <Container classes="py-8">
                 <div class="grid grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-4">
                     {
                         parts.map((p) => (
                             <a
-                                href={p.url}
-                                title={p.content.title}
-                                class="group relative flex items-center rounded-md border border-stone-200 p-2 md:px-4 md:py-3 lg:p-0"
+                                href={p.slug}
+                                title={p.title}
+                                class="relative flex items-center rounded-sm border border-stone-600 p-2 md:px-4 md:py-3 lg:p-0"
                             >
-                                <div class="hidden h-full w-12 items-center bg-stone-200 p-2 lg:flex">
-                                    <Icon name={p.images.logo} class="w-12 text-stone-400" />
+                                <div class="hidden h-full w-12 items-center bg-stone-700 p-2 lg:flex">
+                                    <Icon name={`${p.logo}_outline`} class="w-12 text-stone-300" />
                                 </div>
 
-                                <div class="z-10 flex h-full w-full flex-col p-4 group-hover:bg-stone-100">
-                                    <div class="text-lg font-medium group-hover:underline">{p.content.title}</div>
-                                    <p class="line-clamp-2 text-sm font-light">{p.brands.map((b, index) => (index ? ", " : "") + b.name)}</p>
+                                <div class="z-10 flex h-full w-full flex-col from-stone-700 to-stone-600 p-4 hover:bg-gradient-to-br">
+                                    <div class="text-lg font-medium text-white group-hover:underline">{p.title}</div>
+                                    <p class="line-clamp-2 text-sm font-light text-stone-300">
+                                        {p.brands.map((b, index) => (index ? ", " : "") + b.title)}
+                                    </p>
                                 </div>
                             </a>
                         ))

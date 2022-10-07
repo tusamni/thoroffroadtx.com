@@ -3,35 +3,25 @@
 import Layout from "@/layouts/Layout";
 
 // components
-import { Image } from "@astrojs/image/components";
-import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
+import Hero from "@/components/Hero";
 import Link from "@/components/buttons/Link";
-import Metadata from "@/components/images/Metadata";
 
-// props
-const { content, images, brands } = Astro.props;
+export async function getStaticPaths() {
+    const vehicles = await Astro.glob("../../data/parts/*.json");
+
+    return vehicles.map((p) => ({
+        params: { part: p.slug },
+        props: p,
+    }));
+}
+
+const { part } = Astro.params;
+const { title, heading, subheading, featured, brands, logo } = Astro.props;
 ---
 
 <Layout>
-    <!-- headline image -->
-    <div class="relative h-[600px]">
-        <Image
-            src={images.photo.src}
-            alt={images.photo.alt}
-            width={2000}
-            aspectRatio={images.photo.aspectRatio}
-            class="absolute object-cover h-full w-full object-left"
-        />
-
-        <!-- bg -->
-        <div class="inset-0 absolute bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-        <!-- headline metadata -->
-        <Metadata title={images.photo.title} description={images.photo.description} />
-    </div>
-
-    <Breadcrumbs path={Astro.url.pathname} />
+    <Hero image={featured} title={title} />
 
     <!-- summary -->
     <div class="bg-white py-40">
@@ -39,10 +29,8 @@ const { content, images, brands } = Astro.props;
             <div class="space-y-20">
                 <div class="space-y-52">
                     <div class="max-w-3xl space-y-8">
-                        <h1 class="text-stone-800">{content.subtitle}</h1>
-                        <p class="text-stone-600 text-xl leading-9">
-                            {content.description}
-                        </p>
+                        <h1 class="text-stone-800">Off-Road Parts</h1>
+                        <p class="text-stone-600 text-xl leading-9"></p>
                     </div>
                 </div>
                 <div class="space-y-8">

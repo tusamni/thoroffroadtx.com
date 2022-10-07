@@ -5,11 +5,8 @@ import Layout from "@/layouts/Layout";
 // components
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
+import Link from "@/components/buttons/Link";
 
-// functions
-import { getMakes } from "@/functions/Vehicles";
-
-const makes = await getMakes();
 const steps = [
     {
         title: "We Know the Brands",
@@ -31,24 +28,9 @@ const steps = [
             "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
     },
 ];
-const image = "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_041";
+const image = "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_002";
 ---
 
 <Layout>
-    <Hero image={image} title="Vehicles" />
-
-    <Container classes="py-24 space-y-12">
-        <h1 class="text-black">Our Process</h1>
-        <div class="space-y-16">
-            {
-                steps.map((s) => (
-                    <div class="max-w-lg space-y-4">
-                        <h3 class="text-black">{s.title}</h3>
-                        <hr class="w-20" />
-                        <p class="text-lg font-light text-neutral-800">{s.description}</p>
-                    </div>
-                ))
-            }
-        </div>
-    </Container>
+    <Hero image={image} title="Parts" />
 </Layout>

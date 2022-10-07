@@ -29,7 +29,7 @@ for (var i = 1; i < url.length; i++) {
         {
             crumbParts.map((crumb) =>
                 <li>
-                    <a class={path === crumb.link ? "font-medium" : "font-light"} href={path === crumb.link ? "#" : crumb.link}>
+                    <a href={crumb.link}>
                         <span>{crumb.text}</span>
                     </a>
                 </li>

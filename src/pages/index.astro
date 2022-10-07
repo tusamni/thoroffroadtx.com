@@ -6,21 +6,22 @@ import Layout from "@/layouts/Layout";
 import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
+import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Link from "@/components/buttons/Link";
-import Container from "@/components/Container";
+import Photo from "@/components/images/Photo";
 
 // functions
-import { getImage, getPublicPath } from "@/functions/Media";
+import { getPublicPath } from "@/functions/Media";
 
 // images
 const carli = {
     logo: getPublicPath("/images/brands/parts/color/carli-suspension.png"),
     recent: [
-        await getImage("vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_007"),
-        await getImage("vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_013"),
-        await getImage("vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_051"),
-        await getImage("vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_002"),
+        "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_007",
+        "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_013",
+        "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_051",
+        "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_002",
     ],
 };
 const jamey = {
@@ -28,21 +29,21 @@ const jamey = {
     signature: getPublicPath("/images/team/jamey/signature.png"),
 };
 const builds = [
-    await getImage("vehicles/ford/f-350/2204-2016-ford-f-350-white/2016-ford-f-350-white_015"),
-    await getImage("vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_005"),
-    await getImage("vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_004"),
-    await getImage("vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_019"),
-    await getImage("vehicles/ford/bronco/2112-2021-ford-bronco-badlands-oxford-white/2021-ford-bronco-badlands-oxford-white_001"),
-    await getImage("vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_002"),
-    await getImage("vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-trx-white_004"),
-    await getImage("vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_006"),
-    await getImage("vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_002"),
-    await getImage("vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_012"),
-    await getImage("vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_004"),
-    await getImage("vehicles/ram/2500/2109-2019-ram-2500-limited-white/2019-ram-2500-limited-white_004"),
-    await getImage("vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_042"),
-    await getImage("vehicles/lexus/gx/2112-2018-lexus-gx460-silver/2018-lexus-gx460-silver_002"),
-    await getImage("vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_001"),
+    "vehicles/ford/f-350/2204-2016-ford-f-350-white/2016-ford-f-350-white_015",
+    "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_005",
+    "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_004",
+    "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_019",
+    "vehicles/ford/bronco/2112-2021-ford-bronco-badlands-oxford-white/2021-ford-bronco-badlands-oxford-white_001",
+    "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_002",
+    "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-trx-white_004",
+    "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_006",
+    "vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_002",
+    "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_012",
+    "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_004",
+    "vehicles/ram/2500/2109-2019-ram-2500-limited-white/2019-ram-2500-limited-white_004",
+    "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_042",
+    "vehicles/lexus/gx/2112-2018-lexus-gx460-silver/2018-lexus-gx460-silver_002",
+    "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_001",
 ];
 
 // videos
@@ -112,13 +113,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     {
                         carli.recent.map((i) => (
-                            <Image
-                                src={i.src}
-                                width={500}
-                                height={500}
-                                alt={i.alt}
-                                class="h-18 w-full rounded-sm object-cover shadow-xl lg:h-[24rem]"
-                            />
+                            <Photo src={i} width={500} height={500} classes="h-18 w-full rounded-sm object-cover shadow-xl lg:h-[24rem]" />
                         ))
                     }
                 </div>
@@ -183,7 +178,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
             <Link text="See More Builds" href="/builds" classes="text-xl" />
         </Container>
 
-        <Gallery images={builds} selector="builds" />
+        <Gallery images={builds} />
     </div>
 </Layout>
 

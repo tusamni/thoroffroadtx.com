@@ -2,11 +2,24 @@
 // components
 import { Image } from "@astrojs/image/components";
 
+// functions
+import { getImage } from "@/functions/Media";
+
 // props
 export interface Props {
     images: any;
 }
 const { images } = Astro.props as Props;
+
+// array to hold the data
+const metadata = [];
+// async map to get image data
+await Promise.all(
+    images.map((i) => {
+        let imageData = getImage(i);
+        metadata.push(imageData);
+    })
+);
 ---
 
 <div x-data={`{imgModal: false, imgModalSrc: "", imgModalDesc: "", imgModalTitle: ""}`}>
@@ -37,16 +50,16 @@ const { images } = Astro.props as Props;
 
 <div x-data={`{}`} class="grid grid-cols-3 gap-6">
     {
-        images.map((i) => (
+        metadata.map((m) => (
             <a
                 class="relative h-[40rem] overflow-hidden"
-                x-on:click={`$dispatch('img-modal', { imgModalSrc: '${i.src}', imgModalDesc: '${i.description}', imgModalTitle: '${i.title}' })`}
+                x-on:click={`$dispatch('img-modal', { imgModalSrc: '${m.src}', imgModalDesc: '${m.description}', imgModalTitle: '${m.title}' })`}
             >
                 <Image
-                    src={i.src}
-                    alt={i.alt}
+                    src={m.src}
+                    alt={m.alt}
                     width={1000}
-                    aspectRatio={i.aspectRatio}
+                    aspectRatio={m.aspectRatio}
                     class="h-full w-full rounded-sm object-cover duration-300 hover:scale-105"
                 />
             </a>

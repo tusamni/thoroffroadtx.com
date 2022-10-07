@@ -18,7 +18,7 @@
         "@tailwindcss/line-clamp": "^0.4.2",
         "@types/alpinejs": "^3.7.0",
         "alpinejs": "^3.10.3",
-        "astro": "1.4.5",
+        "astro": "1.4.6",
         "astro-icon": "^0.7.3",
         "bigger-picture": "latest",
         "filehound": "^1.17.6",

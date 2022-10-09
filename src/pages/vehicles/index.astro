@@ -5,6 +5,8 @@ import Layout from "@/layouts/Layout";
 // components
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
+import Link from "@/components/buttons/Link";
+import Photo from "@/components/images/Photo";
 
 // functions
 import { getMakes } from "@/functions/Vehicles";
@@ -39,13 +41,40 @@ const image = "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_04
 
     <Container classes="py-24 space-y-12">
         <h1 class="text-black">Our Process</h1>
-        <div class="space-y-16">
+        <div class="grid grid-cols-2 gap-12">
             {
-                steps.map((s) => (
-                    <div class="max-w-lg space-y-4">
-                        <h3 class="text-black">{s.title}</h3>
-                        <hr class="w-20" />
-                        <p class="text-lg font-light text-neutral-800">{s.description}</p>
+                steps.map((s, count) => (
+                    <div class="flex flex-col space-y-4">
+                        <div class="flex flex-row gap-4">
+                            <div class="rounded-sm bg-red-500 p-3 text-xl text-white">{count + 1}</div>
+                            <h3 class="text-black">{s.title}</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-lg font-light text-neutral-800">{s.description}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </Container>
+
+    <Container classes="mb-24 space-y-12">
+        <div class="grid grid-cols-2 gap-12">
+            {
+                makes.map((m) => (
+                    <div class="flex flex-col gap-3">
+                        <a href={`/vehicles/${m.slug}`}>
+                            <div class="relative">
+                                <Photo src={m.featured} height={500} width={800} classes="rounded-sm shadow-xl grayscale-0" />
+                                <div class="absolute inset-0 h-full w-full bg-gradient-to-t from-stone-900 via-stone-900/10 to-transparent" />
+                                <div class="absolute inset-y-0 flex items-end p-8 text-stone-100">
+                                    <div class="flex w-3/4 flex-col">
+                                        <h3>{m.title}</h3>
+                                        <div>{m.description}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 ))
             }

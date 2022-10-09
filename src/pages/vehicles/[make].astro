@@ -49,19 +49,16 @@ const models = await getModels(make);
 
     <!-- model listing -->
     <div class="bg-stone-100 py-40 relative overflow-hidden">
-        <Icon name="tracks/tire-tracks_05" class="absolute -top-20 -left-20 w-[800px] text-stone-300/20" />
-        <Icon name="tracks/tire-tracks_03" class="absolute -bottom-20 -left-20 w-[800px] text-stone-300/20 rotate-90" />
-
-        <Container classes="relative space-y-24">
+        <Container classes="relative space-y-40">
             {
                 models.map((m) => (
                     <div>
                         <div>
-                            <div class="relative flex">
-                                <div class="flex min-w-fit items-center rounded-tl-sm bg-stone-200 px-8">
+                            <div class="relative mb-8 flex gap-12">
+                                <div class="flex min-w-fit items-start">
                                     <h2 class="text-stone-700">{m.title}</h2>
                                 </div>
-                                <div class="col-span-2 rounded-tr-sm bg-stone-200/90 p-8 text-lg text-stone-600">{m.description}</div>
+                                <div class="text-lg text-stone-600">{m.description}</div>
                             </div>
 
                             <Photo src={m.featured} width={1300} height={600} classes="col-span-3 h-[600px] rounded-sm object-cover shadow-2xl" />

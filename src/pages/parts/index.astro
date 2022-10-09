@@ -9,23 +9,19 @@ import Link from "@/components/buttons/Link";
 
 const steps = [
     {
-        title: "We Know the Brands",
-        description: "We love everything automotive and have decades of experience working on the top vehicle brands and platforms.",
+        title: "The Top Brands",
+        description:
+            "We partner with the world's most trusted parts manufacturers in the industry to create quality builds that our customers can depend on.",
     },
     {
-        title: "We Know the Parts",
+        title: "Test, Test, Test",
         description:
-            "We only work with top manufacturers and have done the research and testing required to perfectly match parts for our off-road vehicle builds.",
+            "We don't just install parts, we put them to the test to ensure that they perform exactly the way we designed to deliver the ultimate off-road experience.",
     },
     {
-        title: "Tell Us What You're Looking For",
+        title: "Targeted Performance",
         description:
-            "Our entire mission is to create purpose-built vehicles and we take the time to know you and the goals you have for your vehicle.",
-    },
-    {
-        title: "We'll Build Your Dream Vehicle",
-        description:
-            "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
+            "We help our customers find the right balance of style, performance, and budget to get the most out of their off-road vehicle build.",
     },
 ];
 const image = "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_002";
@@ -33,4 +29,23 @@ const image = "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-2
 
 <Layout>
     <Hero image={image} title="Parts" />
+
+    <Container classes="py-24 space-y-12">
+        <h1 class="text-black">Off-Road Parts</h1>
+        <div class="grid grid-cols-3 gap-12">
+            {
+                steps.map((s, count) => (
+                    <div class="flex flex-col space-y-4">
+                        <div class="flex flex-row gap-4">
+                            <div class="rounded-sm bg-red-500 p-3 text-xl text-white">{count + 1}</div>
+                            <h3 class="text-black">{s.title}</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-lg font-light text-neutral-800">{s.description}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </Container>
 </Layout>

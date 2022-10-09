@@ -30,7 +30,7 @@ const parts = await Astro.glob("../../../data/parts/*.json");
                     {
                         parts.map((p) => (
                             <a
-                                href={p.slug}
+                                href={`/parts/${p.slug}`}
                                 title={p.title}
                                 class="relative flex items-center rounded-sm border border-stone-600 p-2 md:px-4 md:py-3 lg:p-0"
                             >
@@ -48,6 +48,8 @@ const parts = await Astro.glob("../../../data/parts/*.json");
                         ))
                     }
                 </div>
+
+                <a href="/parts" class="flex justify-center text-lg text-stone-300 mt-8 italic underline w-fit">All Parts</a>
             </Container>
         </div>
     </div>

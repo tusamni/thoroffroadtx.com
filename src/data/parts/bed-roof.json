@@ -1,11 +1,11 @@
 {
     "slug": "bed-roof",
     "title": "Bed & Roof",
-    "description": "Expand the flexibility and cargo-carrying capability of your truck or adventure vehicle with the world's best bed liners, bed covers, roof racks, cargo boxes and more.",
     "heading": "Cargo Capacity",
-    "subheading": "Your off-road vehicle will get you deep into the wilderness, but it should also help you be prepared for just about any challenge. THOR can help you expand the flexibility and cargo-carrying capability of your truck or adventure vehicle with the world's best bed liners, bed covers, roof racks, cargo boxes and more.",
+    "descriptionShort": "Expand the flexibility and cargo-carrying capability of your truck or adventure vehicle with the world's best bed liners, bed covers, roof racks, cargo boxes and more.",
+    "descriptionLong": "Your off-road vehicle will get you deep into the wilderness, but it should also help you be prepared for just about any challenge. THOR can help you expand the flexibility and cargo-carrying capability of your truck or adventure vehicle with the world's best bed liners, bed covers, roof racks, cargo boxes and more.",
     "logo": "car-parts/door",
-    "featured": "vehicles/ford/f-350/2204-2016-ford-f-350-white/2016-ford-f-350-white_014",
+    "featured": "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_013",
     "brands": [
         {
             "title": "BedRug",

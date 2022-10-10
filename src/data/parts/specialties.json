@@ -1,9 +1,9 @@
 {
     "slug": "specialties",
     "title": "Specialties",
-    "description": "Most of us spend a lot of time in our vehicles so it's important to have the right equipment and features to deliver the most capability and the best driving experience. THOR can help you build an off-road vehicle that can do exactly what you want with the latest electronics, fuel tanks, gun racks, interior upgrades, UTV parts, & custom fabrications.",
     "heading": "Maximum Functionality",
-    "subheading": "Build an off-road vehicle that can do exactly what you want with the latest electronics, fuel tanks, gun racks, interior upgrades, UTV parts, & custom fabrications.",
+    "descriptionShort": "Build an off-road vehicle that can do exactly what you want with the latest electronics, fuel tanks, gun racks, interior upgrades, UTV parts, & custom fabrications.",
+    "descriptionLong": "Most of us spend a lot of time in our vehicles so it's important to have the right equipment and features to deliver the most capability and the best driving experience. THOR can help you build an off-road vehicle that can do exactly what you want with the latest electronics, fuel tanks, gun racks, interior upgrades, UTV parts, & custom fabrications.",
     "logo": "car-parts/pistons",
     "featured": "vehicles/chevy/colorado/2110-2020-chevy-colorado-red/2020-chevy-colorado-red_006",
     "brands": [

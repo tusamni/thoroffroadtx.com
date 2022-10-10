@@ -1,9 +1,9 @@
 {
     "slug": "performance",
     "title": "Performance",
-    "description": "There is nothing more exhilarating than punching the gas and feeling and hearing that engine roar in response. THOR can enhance your off-road experience with more power, better gas mileage, and stronger stopping performance with proven engine, fuel delivery, exhaust, and brake upgrades.",
     "heading": "Power & Control",
-    "subheading": "Enhance your off-road experience with more power, better gas mileage, and stronger stopping performance with proven engine, fuel delivery, exhaust, and brake upgrades.",
+    "descriptionShort": "Enhance your off-road experience with more power, better gas mileage, and stronger stopping performance with proven engine, fuel delivery, exhaust, and brake upgrades.",
+    "descriptionLong": "There is nothing more exhilarating than punching the gas and feeling and hearing that engine roar in response. THOR can enhance your off-road experience with more power, better gas mileage, and stronger stopping performance with proven engine, fuel delivery, exhaust, and brake upgrades.",
     "logo": "car-parts/tachometer",
     "featured": "vehicles/chevy/colorado/2110-2020-chevy-colorado-red/2020-chevy-colorado-red_006",
     "brands": [

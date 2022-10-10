@@ -3,10 +3,16 @@
 import Layout from "@/layouts/Layout";
 
 // components
+import { Icon } from "astro-icon";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import Link from "@/components/buttons/Link";
+import Photo from "@/components/images/Photo";
 
+// functions
+import { getParts } from "@/functions/Parts";
+
+const parts = await getParts();
 const steps = [
     {
         title: "The Top Brands",
@@ -30,20 +36,55 @@ const image = "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-2
 <Layout>
     <Hero image={image} title="Parts" />
 
-    <Container classes="py-24 space-y-12">
-        <h1 class="text-black">Off-Road Parts</h1>
-        <div class="grid grid-cols-3 gap-12">
+    <Container classes="my-24 space-y-24">
+        <div class="space-y-12">
+            <h1 class="text-black">Off-Road Parts</h1>
+            <div class="grid grid-cols-3 gap-12">
+                {
+                    steps.map((s, count) => (
+                        <div class="flex flex-col space-y-4">
+                            <div class="flex flex-row gap-4">
+                                <div class="rounded-sm bg-red-500 p-3 text-xl text-white">{count + 1}</div>
+                                <h3 class="text-black">{s.title}</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="text-lg font-light text-neutral-800">{s.description}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12">
             {
-                steps.map((s, count) => (
-                    <div class="flex flex-col space-y-4">
-                        <div class="flex flex-row gap-4">
-                            <div class="rounded-sm bg-red-500 p-3 text-xl text-white">{count + 1}</div>
-                            <h3 class="text-black">{s.title}</h3>
+                parts.map((m) => (
+                    <a href={`parts/${m.slug}`} class="group relative flex flex-col gap-3 overflow-hidden rounded-md shadow-xl">
+                        <Photo
+                            src={m.featured}
+                            width={1300}
+                            height={400}
+                            classes="absolute object-cover w-full h-full saturate-50 group-hover:saturate-100 transition duration-300 group-hover:scale-105"
+                        />
+                        <div class="absolute h-full w-full bg-gradient-to-r from-black/80 to-transparent" />
+
+                        <div class="relative flex max-w-md flex-col justify-center space-y-3 px-10 py-20 text-stone-100">
+                            <div class="space-y-3">
+                                <div class="flex gap-2">
+                                    <Icon name={`${m.logo}_outline`} class="w-10" />
+                                    <h3>{m.title}</h3>
+                                </div>
+                                <div>{m.descriptionShort}</div>
+                            </div>
+
+                            <div>
+                                <div class="line-clamp-1 text-sm font-light">
+                                    <span class="font-semibold">Brands:</span>
+                                    {m.brands.map((b, index) => (index ? ", " : "") + b.title)}
+                                </div>
+                            </div>
                         </div>
-                        <div class="space-y-4">
-                            <p class="text-lg font-light text-neutral-800">{s.description}</p>
-                        </div>
-                    </div>
+                    </a>
                 ))
             }
         </div>

@@ -1,11 +1,11 @@
 {
     "slug": "wheel-tire",
     "title": "Wheel & Tire",
-    "description": "All the power and performance of your truck won't do any good unless you can get traction to the ground. THOR can help you put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for your adventure.",
     "heading": "Power to the Ground",
-    "subheading": "Put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for the job.",
+    "descriptionShort": "Put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for the job.",
+    "descriptionLong": "All the power and performance of your truck won't do any good unless you can get traction to the ground. THOR can help you put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for your adventure.",
     "logo": "car-parts/wheel",
-    "featured": "vehicles/chevy/colorado/2110-2020-chevy-colorado-red/2020-chevy-colorado-red_006",
+    "featured": "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_016",
     "brands": [
         {
             "title": "BedRug",

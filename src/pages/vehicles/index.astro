@@ -39,43 +39,45 @@ const image = "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_04
 <Layout>
     <Hero image={image} title="Vehicles" />
 
-    <Container classes="py-24 space-y-12">
-        <h1 class="text-black">Our Process</h1>
-        <div class="grid grid-cols-2 gap-12">
-            {
-                steps.map((s, count) => (
-                    <div class="flex flex-col space-y-4">
-                        <div class="flex flex-row gap-4">
-                            <div class="rounded-sm bg-red-500 p-3 text-xl text-white">{count + 1}</div>
-                            <h3 class="text-black">{s.title}</h3>
+    <Container classes="my-24 space-y-24">
+        <div class="space-y-12">
+            <h1 class="text-black">Our Process</h1>
+            <div class="grid grid-cols-2 gap-12">
+                {
+                    steps.map((s, count) => (
+                        <div class="flex flex-col space-y-4">
+                            <div class="flex flex-row gap-4">
+                                <div class="rounded-sm bg-red-500 p-3 text-xl text-white">{count + 1}</div>
+                                <h3 class="text-black">{s.title}</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="text-lg font-light text-neutral-800">{s.description}</p>
+                            </div>
                         </div>
-                        <div class="space-y-4">
-                            <p class="text-lg font-light text-neutral-800">{s.description}</p>
-                        </div>
-                    </div>
-                ))
-            }
+                    ))
+                }
+            </div>
         </div>
-    </Container>
 
-    <Container classes="mb-24 space-y-12">
         <div class="grid grid-cols-2 gap-12">
             {
                 makes.map((m) => (
-                    <div class="flex flex-col gap-3">
-                        <a href={`/vehicles/${m.slug}`}>
-                            <div class="relative">
-                                <Photo src={m.featured} height={500} width={800} classes="rounded-sm shadow-xl grayscale-0" />
-                                <div class="absolute inset-0 h-full w-full bg-gradient-to-t from-stone-900 via-stone-900/10 to-transparent" />
-                                <div class="absolute inset-y-0 flex items-end p-8 text-stone-100">
-                                    <div class="flex w-3/4 flex-col">
-                                        <h3>{m.title}</h3>
-                                        <div>{m.description}</div>
-                                    </div>
-                                </div>
+                    <a href={`/vehicles/${m.slug}`} class="group relative h-full overflow-hidden rounded-md shadow-xl">
+                        <Photo
+                            src={m.featured}
+                            height={800}
+                            width={800}
+                            classes="rounded-sm shadow-xl absolute object-cover w-full h-full saturate-50 group-hover:saturate-100 group-hover:scale-105 transition duration-300"
+                        />
+                        <div class="absolute h-full w-full bg-gradient-to-tr from-black/80 to-transparent" />
+
+                        <div class="relative flex h-72 items-end justify-start p-10 text-stone-100">
+                            <div class="flex w-3/4 flex-col">
+                                <h3>{m.title}</h3>
+                                <div>{m.description}</div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 ))
             }
         </div>

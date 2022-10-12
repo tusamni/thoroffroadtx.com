@@ -1,22 +1,22 @@
 {
     "slug": "utv",
     "title": "UTV",
-    "description": "We work on the top brands of utility terrain vehicles (UTV) and side by sides.",
     "heading": "Get Outside",
-    "subheading": "Side by Side vehicles are the hardest working and smoothest riding side vehicles that you can get for off roading, ranch work, and hunting. We work on the top brands of utility terrain vehicles (UTV) and side-by-sides (SXS) including Polaris, Honda, Can Am, Kawasaki, and Yamaha.",
+    "descriptionShort": "We work on the top brands of utility terrain vehicles (UTV) and side by sides.",
+    "descriptionLong": "Side by Side vehicles are the hardest working and smoothest riding side vehicles that you can get for off roading, ranch work, and hunting. We work on the top brands of utility terrain vehicles (UTV) and side-by-sides (SXS) including Polaris, Honda, Can Am, Kawasaki, and Yamaha.",
     "logo": "brands/manufacturers/utv",
-    "featured": "vehicles/utv/can-am/defender/2111-2018-can-am-defender-red/2018-can-am-defender-red_002",
+    "featured": "vehicles/utv/can-am/defender/2111-2018-can-am-defender-red/2018-can-am-defender-red_002.jpg",
     "models": [
         {
             "slug": "can-am",
             "title": "Can-Am",
-            "featured": "vehicles/utv/can-am/defender/2111-2018-can-am-defender-red/2018-can-am-defender-red_002",
+            "featured": "vehicles/utv/can-am/defender/2111-2018-can-am-defender-red/2018-can-am-defender-red_002.jpg",
             "description": "Although Can Am is new to the SXS market, their innovation in design and performance is pushing the other manufacturers to catch up. We love making these awesome machines more capable than ever. Their plush suspension and roomy interior makes the Can Am a perfect platform for THOR to build on."
         },
         {
             "slug": "polaris",
             "title": "Polaris",
-            "featured": "vehicles/utv/can-am/defender/2111-2018-can-am-defender-red/2018-can-am-defender-red_002",
+            "featured": "vehicles/utv/can-am/defender/2111-2018-can-am-defender-red/2018-can-am-defender-red_002.jpg",
             "description": "Leading the market in SXS, Polaris has a platform to tackle any job. The Ranger has been the SXS that changed the way we move through terrain. With its ability to be transformed to handle so many different tasks, it is the best-selling SXS. THOR specializes in making your Polaris do the tasks you need, over any terrain with maximum comfort and reliability."
         }
     ]

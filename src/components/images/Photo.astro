@@ -18,4 +18,4 @@ const { src, picture = false, width, height, classes, ...attrs } = Astro.props a
 const image = getImage(src);
 ---
 
-<Image src={image.src} alt={image.alt} width={width} height={height} class={classes} />
+<Image src={image.src} alt={image.alt} width={width} height={height} class={classes} {...attrs} />

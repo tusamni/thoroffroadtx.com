@@ -5,11 +5,47 @@
     "descriptionShort": "Go where you want and get there fast, reliably, and in comfort with the perfect lift and suspension setup that your truck or adventure vehicle needs.",
     "descriptionLong": "Your off-road vehicle is only as capable as the suspension system will allow. THOR can get you where you want and get there fast, reliably, and in comfort with the perfect lift and suspension setup that your truck or adventure vehicle needs.",
     "logo": "car-parts/coilover",
-    "featured": "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_051",
+    "featured": "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_051.jpg",
     "brands": [
         {
-            "title": "BedRug",
-            "logo": "bedrug"
+            "title": "AEV Conversions",
+            "logo": "aev"
+        },
+        {
+            "title": "Air Lift",
+            "logo": "airlift"
+        },
+        {
+            "title": "ARB",
+            "logo": "arb"
+        },
+        {
+            "title": "Baja Kits",
+            "logo": "bajakits"
+        },
+        {
+            "title": "BDS Suspension",
+            "logo": "bdssuspension"
+        },
+        {
+            "title": "Bilstein Shocks",
+            "logo": "bilstein"
+        },
+        {
+            "title": "Carli Suspension",
+            "logo": "carlisuspension"
+        },
+        {
+            "title": "Dobinsons Spring & Suspension",
+            "logo": "dobinsons"
+        },
+        {
+            "title": "Fox Shocks",
+            "logo": "fox"
+        },
+        {
+            "title": "Icon Vehicle Dynamics",
+            "logo": "iconvehicledynamics"
         }
     ]
 }

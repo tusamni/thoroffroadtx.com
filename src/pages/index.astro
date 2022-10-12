@@ -11,44 +11,44 @@ import Gallery from "@/components/images/Gallery";
 import Link from "@/components/buttons/Link";
 import Photo from "@/components/images/Photo";
 
-// functions
-import { getImage, getPublicPath } from "@/functions/Media";
+// config
+import { imageConfig } from "@/src/config";
 
 // images
 const carli = {
-    logo: getPublicPath("/images/brands/parts/color/carli-suspension.png"),
+    logo: "brands/parts/color/carli-suspension.png",
     recent: [
-        "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_007",
-        "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_013",
-        "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_051",
-        "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_002",
+        "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_007.jpg",
+        "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_013.jpg",
+        "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_051.jpg",
+        "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_002.jpg",
     ],
 };
 const jamey = {
-    portrait: getPublicPath("/images/team/jamey/jamey-01.jpg"),
-    signature: getPublicPath("/images/team/jamey/signature.png"),
+    portrait: "team/jamey/jamey-01.jpg",
+    signature: "team/jamey/signature.png",
 };
 const builds = [
-    "vehicles/ford/f-350/2204-2016-ford-f-350-white/2016-ford-f-350-white_015",
-    "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_005",
-    "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_004",
-    "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_019",
-    "vehicles/ford/bronco/2112-2021-ford-bronco-badlands-oxford-white/2021-ford-bronco-badlands-oxford-white_001",
-    "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_002",
-    "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-trx-white_004",
-    "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_006",
-    "vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_002",
-    "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_012",
-    "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_004",
-    "vehicles/ram/2500/2109-2019-ram-2500-limited-white/2019-ram-2500-limited-white_004",
-    "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_042",
-    "vehicles/lexus/gx/2112-2018-lexus-gx460-silver/2018-lexus-gx460-silver_002",
-    "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_001",
+    "vehicles/ford/f-350/2204-2016-ford-f-350-white/2016-ford-f-350-white_015.jpg",
+    "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_005.jpg",
+    "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_004.jpg",
+    "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_019.jpg",
+    "vehicles/ford/bronco/2112-2021-ford-bronco-badlands-oxford-white/2021-ford-bronco-badlands-oxford-white_001.jpg",
+    "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_002.jpg",
+    "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-trx-white_004.jpg",
+    "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_006.jpg",
+    "vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_002.jpg",
+    "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_012.jpg",
+    "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_004.jpg",
+    "vehicles/ram/2500/2109-2019-ram-2500-limited-white/2019-ram-2500-limited-white_004.jpg",
+    "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_042.jpg",
+    "vehicles/lexus/gx/2112-2018-lexus-gx460-silver/2018-lexus-gx460-silver_002.jpg",
+    "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_001.jpg",
 ];
 
 // videos
-const roller = getPublicPath("/videos/homepage/roller_v2.mp4");
-const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
+const roller = `${imageConfig.cloudUrl}/videos/homepage/roller_v2.mp4`;
+const hero = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
 ---
 
 <Layout>
@@ -84,7 +84,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
         </Container>
 
         <!-- red gradient -->
-        <div class="bg-gradient-to-tl from-stone-900/90 via-stone-900/70 to-stone-900/50 absolute w-full h-full z-10"></div>
+        <div class="bg-gradient-to-tr from-red-200/60 via-red-500/30 to-transparent absolute w-full h-full z-10"></div>
 
         <!-- bg video -->
         <video autoplay muted loop class="absolute object-cover w-full h-full">
@@ -97,7 +97,7 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
         <div class="relative z-10 flex flex-col gap-8 space-y-8">
             <Container classes="space-y-8">
                 <div class="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-24">
-                    <Image src={carli.logo} alt="Carli Logo" width={287} height={116} />
+                    <Photo src={carli.logo} alt="Carli Logo" width={287} height={116} />
 
                     <div class="flex flex-col gap-4">
                         <h2 class="text-blue-900">Texas' Only Carli Stocking Dealer</h2>
@@ -108,19 +108,14 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
                     </div>
                 </div>
 
-                <div class="grid grid-flow-col grid-cols-2 lg:grid-cols-4 grid-row-8 gap-8">
-                    <div class="col-span-2">
-                        <Photo src={carli.recent[0]} width={750} height={500} classes="h-18 w-full rounded-md object-cover shadow-xl lg:h-[24rem]" />
-                        <p class="text-sm pt-2">{getImage(carli.recent[0]).title}</p>
-                    </div>
-                    <div class="col-span-2 row-span-4">
-                        <Photo src={carli.recent[0]} width={750} height={1000} classes="w-full rounded-md object-cover shadow-xl" />
-                        <p class="text-sm pt-2">{getImage(carli.recent[0]).title}</p>
-                    </div>
-                    <div class="col-span-2">
-                        <Photo src={carli.recent[0]} width={750} height={1000} classes="w-full rounded-md object-cover shadow-xl" />
-                        <p class="text-sm pt-2">{getImage(carli.recent[0]).title}</p>
-                    </div>
+                <div class="grid grid-cols-4 gap-8">
+                    {
+                        carli.recent.map((r) => (
+                            <div>
+                                <Photo src={r} width={750} height={1000} classes="w-full rounded-md object-cover shadow-xl" />
+                            </div>
+                        ))
+                    }
                 </div>
 
                 <div class="flex justify-center">
@@ -133,12 +128,12 @@ const hero = getPublicPath("/videos/homepage/thor-in-action.mp4");
     <!-- Jamey quote -->
     <div class="relative bg-tan-500 py-40 space-y-60 overflow-hidden">
         <Container classes="z-10 relative flex flex-col lg:flex-row gap-8 lg:gap-16">
-            <Image
+            <Photo
                 src={jamey.portrait}
                 height={1500}
                 width={1200}
                 alt="Jamey from THOR Off-Road"
-                class="w-full lg:w-1/2 object-cover object-[65%] shadow-2xl rounded-md"
+                classes="w-full lg:w-1/2 object-cover object-[65%] shadow-2xl rounded-md"
             />
 
             <div class="space-y-16 py-12">

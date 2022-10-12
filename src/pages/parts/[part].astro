@@ -5,7 +5,10 @@ import Layout from "@/layouts/Layout";
 // components
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
-import Link from "@/components/buttons/Link";
+import Photo from "@/components/images/Photo";
+
+// functions
+import { getImage } from "@/functions/Media";
 
 export async function getStaticPaths() {
     const vehicles = await Astro.glob("../../data/parts/*.json");
@@ -17,7 +20,7 @@ export async function getStaticPaths() {
 }
 
 const { part } = Astro.params;
-const { title, heading, subheading, featured, brands, logo } = Astro.props;
+const { title, heading, descriptionLong, featured, brands, logo } = Astro.props;
 ---
 
 <Layout>
@@ -27,22 +30,23 @@ const { title, heading, subheading, featured, brands, logo } = Astro.props;
     <div class="bg-white py-40">
         <Container>
             <div class="space-y-20">
-                <div class="space-y-52">
+                <div class="space-y-12">
                     <div class="max-w-3xl space-y-8">
-                        <h1 class="text-stone-800">Off-Road Parts</h1>
-                        <p class="text-stone-600 text-xl leading-9"></p>
+                        <h1 class="text-stone-800">{heading}</h1>
+                        <p class="text-stone-600 text-xl leading-9">{descriptionLong}</p>
                     </div>
-                </div>
-                <div class="space-y-8">
-                    <div class="flex gap-6 items-center overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white"></div>
-                        {
-                            brands
-                                .map((b) => <img src={`/src/assets/images/parts/brands/brands_${b.logo}.png`} alt={b.title} class="h-16 w-auto" />)
-                                .splice(0, 5)
-                        }
+                    <div class="space-y-4">
+                        <div class="flex gap-10 items-center overflow-hidden relative w-fit">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-white"></div>
+                            {
+                                brands
+                                    .map((b) => (
+                                        <img src={getImage(`brands/parts/grayscale/brands_${b.logo}.png`).src} alt={b.title} class="h-12 w-auto" />
+                                    ))
+                                    .splice(0, 5)
+                            }
+                        </div>
                     </div>
-                    <Link text="See All Our Bed & Roof Brands" href="#a" classes="text-base" />
                 </div>
             </div>
         </Container>

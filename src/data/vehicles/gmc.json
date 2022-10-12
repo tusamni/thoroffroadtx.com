@@ -1,34 +1,34 @@
 {
     "slug": "gmc",
     "title": "GMC",
-    "description": "GMC offers you capable, efficient and durable trucks backed by 100 years of proven performance.",
     "heading": "Tackle Any Task",
-    "subheading": "GMC offers you capable, efficient, durable, and professional vehicles backed by a 100 years of proven performance. With their bulletproof transmissions and unique styling and with the abundant supply of high-performance parts from companies like BDS Suspensions, Cognito, RPG Offroad and Baja Kits, THOR can help you build a serious off-road machine with the on-road comfort and towing capability that make these vehicles a dream to drive. ",
+    "descriptionShort": "GMC offers you capable, efficient and durable trucks backed by 100 years of proven performance.",
+    "descriptionLong": "GMC offers you capable, efficient, durable, and professional vehicles backed by a 100 years of proven performance. With their bulletproof transmissions and unique styling and with the abundant supply of high-performance parts from companies like BDS Suspensions, Cognito, RPG Offroad and Baja Kits, THOR can help you build a serious off-road machine with the on-road comfort and towing capability that make these vehicles a dream to drive. ",
     "logo": "brands/manufacturers/gmc",
-    "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001",
+    "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001.jpg",
     "models": [
         {
             "slug": "canyon",
             "title": "Canyon",
-            "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001",
+            "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001.jpg",
             "description": "The GMC Canyon may be a midsize truck but don't let that fool you - these vehicles are mighty and capable. THOR can outfit these trucks to do just about anything you want, including overlanding packages using trusted components from companies like Baja Design and AEV Conversions."
         },
         {
             "slug": "sierra-1500",
             "title": "Sierra 1500",
-            "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001",
+            "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001.jpg",
             "description": "GMC Sierra 1500 series trucks have been leading the way for generations. With tried-and-true power plants and great styling, THOR can help you build an exceptional off-road truck that can still get you to work on time. For off-road suspensions we use Baja Kits or RPG Offroad and for lift and leveling kits we look to BDS Suspensions to get your truck looking just right."
         },
         {
             "slug": "sierra-hd",
             "title": "Sierra HD",
-            "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001",
+            "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001.jpg",
             "description": "With their dependable drivetrain and exceptional towing capability, GMC 2500 and 3500 HD trucks are serious workhorses. THOR has partnered with some of the best IFS suspension companies like Congnito and BDS Suspensions to make sure your HD truck will give you the ultimate in functionality, comfort and performance on and off the road."
         },
         {
             "slug": "yukon",
             "title": "Yukon",
-            "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001",
+            "featured": "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_001.jpg",
             "description": "The GMC Yukon full-size SUV enables you to go anywhere and move you and your precious cargo in style and comfort. THOR can help you transform your pavement princess to be as capable off the pavement without compromising the style, performance and comfort that makes this SUV a joy to drive off road or up to the valet stand."
         }
     ]

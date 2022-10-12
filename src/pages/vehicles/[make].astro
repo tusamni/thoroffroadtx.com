@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { make } = Astro.params;
-const { title, heading, subheading, featured, logo } = Astro.props;
+const { title, heading, descriptionLong, featured, logo } = Astro.props;
 
 const models = await getModels(make);
 ---
@@ -40,7 +40,7 @@ const models = await getModels(make);
                 <div class="max-w-3xl space-y-8">
                     <h1 class="text-stone-800">{heading}</h1>
                     <p class="text-stone-600 text-xl leading-9">
-                        {subheading}
+                        {descriptionLong}
                     </p>
                 </div>
             </div>

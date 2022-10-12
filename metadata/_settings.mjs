@@ -1,9 +1,9 @@
-import * as fs from 'fs';
-import Filehound from 'filehound'
+import * as fs from "fs";
+import Filehound from "filehound";
 
 // set folders
-export const input = './_input/';
-export const output = './_output/'
+export const input = "./_input/";
+export const output = "./_output/";
 
 // set sizes and available formats
 export const maxDimension = 2500;
@@ -20,15 +20,12 @@ export function folderCheck() {
 }
 
 export function metadataCheck() {
-    const metafile = "_metadata.json";
-    const subdirectories = Filehound.create()
-        .path(input)
-        .directory()
-        .findSync();
-    
-    subdirectories.map(s => {
-        if (!fs.existsSync(`${s}/${metafile}`)) {            
+    const metafile = "metadata.json";
+    const subdirectories = Filehound.create().path(input).directory().findSync();
+
+    subdirectories.map((s) => {
+        if (!fs.existsSync(`${s}/${metafile}`)) {
             throw new Error("You're missing metafiles in one of the directories");
         }
-    })
+    });
 }

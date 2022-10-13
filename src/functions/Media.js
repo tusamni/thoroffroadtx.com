@@ -1,5 +1,6 @@
 import * as path from "path";
 import jsonFile from "jsonfile";
+import { S3, ListObjectsCommand } from "@aws-sdk/client-s3";
 
 // config
 import { imageConfig } from "@/src/config.ts";
@@ -33,3 +34,35 @@ export function getImage(image) {
         };
     }
 }
+
+// create an api connection to digitalocean spaces
+export const spacesClient = new S3({
+    endpoint: "https://nyc3.digitaloceanspaces.com",
+    region: "us-east-1",
+    credentials: {
+        accessKeyId: import.meta.env.SPACES_KEY,
+        secretAccessKey: import.meta.env.SPACES_SECRET,
+    },
+});
+
+// list all the objects in a container
+export const listFolders = async () => {
+    const settings = {
+        Bucket: "thoroffroad",
+        Prefix: "images",
+    };
+
+    try {
+        const data = await spacesClient.listObjectsV2(settings);
+
+        const objects = [];
+        data.Contents.map((obj) => {
+            objects.push(obj.Key);
+        });
+        //const folders = objects.filter((o) => !o.includes("."));
+
+        return objects;
+    } catch (err) {
+        console.log("Error", err);
+    }
+};

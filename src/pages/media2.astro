@@ -1,0 +1,20 @@
+---
+// modules
+
+// layouts
+import Layout from "@/layouts/Layout";
+
+// components
+import Container from "@/components/Container";
+
+// functions
+import { listFolders } from "@/functions/Media";
+
+const spacesFolders = await listFolders();
+---
+
+<Layout>
+    <Container>
+        {spacesFolders.map((f) => <p class="text-sm">{f}</p>)}
+    </Container>
+</Layout>

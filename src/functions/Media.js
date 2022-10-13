@@ -45,11 +45,11 @@ export const spacesClient = new S3({
     },
 });
 
-// list all the objects in a container
-export const listFolders = async () => {
+// list all the objects in a do spaces s3 container
+export const getImageDirs = async () => {
     const settings = {
         Bucket: "thoroffroad",
-        Prefix: "images",
+        Prefix: "images/",
     };
 
     try {
@@ -57,9 +57,59 @@ export const listFolders = async () => {
 
         const objects = [];
         data.Contents.map((obj) => {
-            objects.push(obj.Key);
+            const filename = path.parse(obj.Key).base; // get the full filename
+
+            let object = obj.Key;
+
+            object = object.replace(filename, ``); // remove the file from the path
+            object = object.replace(/\/+$/, ``); // remove the trailing slashes
+
+            objects.push(object);
         });
-        //const folders = objects.filter((o) => !o.includes("."));
+
+        // create a unique array
+        let unique = [...new Set(objects)];
+
+        // remove the unwanted directories
+        const removeDirs = ["", "images"]; // directories to remove
+        unique = unique.filter((val) => !removeDirs.includes(val));
+
+        // remove leading "images" from the path
+        unique = unique.map(function (e) {
+            return e.replace("images/", "");
+        });
+
+        return unique;
+    } catch (err) {
+        console.log("Error", err);
+    }
+};
+
+// list all the objects in a do spaces s3 container
+export const getAllImages = async () => {
+    const settings = {
+        Bucket: "thoroffroad",
+        Prefix: "images/",
+    };
+
+    try {
+        const data = await spacesClient.listObjectsV2(settings);
+
+        let objects = [];
+        data.Contents.map((obj) => {
+            const filename = path.parse(obj.Key).base; // get the full filename
+
+            let object = obj.Key;
+
+            objects.push(object);
+        });
+
+        // remove leading "images" from the path
+        objects = objects.map(function (e) {
+            return e.replace("images/", "");
+        });
+
+        objects = objects.filter((val) => val.includes(".jpg"));
 
         return objects;
     } catch (err) {

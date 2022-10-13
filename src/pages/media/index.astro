@@ -1,0 +1,46 @@
+---
+// layouts
+import Layout from "@/layouts/Layout";
+
+// components
+import { Icon } from "astro-icon";
+import Container from "@/components/Container";
+import Photo from "@/components/images/Photo";
+
+// config
+import { imageConfig } from "@/src/config";
+
+// functions
+import { getAllImages } from "@/functions/Media";
+
+let images = await getAllImages(); // get a listing of all unique objects (folders)
+---
+
+<Layout>
+    <Container>
+        <div class="grid grid-cols-6 gap-6">
+            {
+                images.map((i) => (
+                    <div class="flex flex-col">
+                        <Photo src={i} width={500} height={500} classes="shadow-xl" />
+                        <div class="mt-2 flex justify-between">
+                            <a href={`${imageConfig.cloudUrl}/images/${i}`} target="_blank">
+                                <Icon name="bi:zoom-in" class="w-3 text-stone-500" />
+                            </a>
+
+                            <a class="cursor-pointer" onclick={`copyToClipboard('${i}')`}>
+                                <Icon name="bi:clipboard" class="w-3 text-stone-500" />
+                            </a>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </Container>
+</Layout>
+
+<script define:vars={{ imageConfig }}>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+    }
+</script>

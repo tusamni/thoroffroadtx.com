@@ -22,6 +22,7 @@ await Promise.all(
 );
 ---
 
+<!-- modal -->
 <div x-data={`{imgModal: false, imgModalSrc: "", imgModalDesc: "", imgModalTitle: ""}`}>
     <template
         @img-modal.window={`imgModal = true; imgModalSrc = $event.detail.imgModalSrc; imgModalDesc = $event.detail.imgModalDesc; imgModalTitle = $event.detail.imgModalTitle;`}
@@ -35,10 +36,10 @@ await Promise.all(
             x-transition:leave="transition ease-in duration-300"
             x-transition:leave-start="opacity-100 transform scale-100"
             x-transition:leave-end="opacity-0 transform scale-90"
-            class="fixed z-50 inset-0 bg-black bg-opacity-75"
+            class="fixed z-50 inset-0 bg-black bg-opacity-90"
         >
             <figure class="flex flex-col gap-4 justify-center items-center w-full h-full p-20">
-                <img class="max-w-full max-h-full rounded-sm" x-bind:src={`imgModalSrc`} />
+                <img class="max-w-full max-h-full" x-bind:src={`imgModalSrc`} />
                 <figcaption class="flex flex-col gap-1 items-center">
                     <p x-text={"imgModalTitle"} class="font-semibold text-white text-center"></p>
                     <p x-text={"imgModalDesc"} class="font-light text-sm text-white text-center"></p>
@@ -48,11 +49,12 @@ await Promise.all(
     </template>
 </div>
 
+<!-- gallery grid -->
 <div x-data={`{}`} class="grid grid-cols-3 gap-6">
     {
         metadata.map((m) => (
             <a
-                class="relative h-[40rem] overflow-hidden"
+                class="relative h-[30rem] overflow-hidden"
                 x-on:click={`$dispatch('img-modal', { imgModalSrc: '${m.src}', imgModalDesc: '${m.description}', imgModalTitle: '${m.title}' })`}
             >
                 <Image
@@ -60,7 +62,7 @@ await Promise.all(
                     alt={m.alt}
                     width={1000}
                     aspectRatio={m.aspectRatio}
-                    class="h-full w-full rounded-sm object-cover duration-300 hover:scale-105"
+                    class="h-full w-full object-cover duration-300 hover:scale-105"
                 />
             </a>
         ))

@@ -47,7 +47,7 @@ const image = "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_04
                     steps.map((s, count) => (
                         <div class="flex flex-col space-y-4">
                             <div class="flex flex-row gap-4">
-                                <div class="rounded-sm bg-red-500 p-3 text-xl text-white">{count + 1}</div>
+                                <div class="bg-red-500 p-3 text-xl text-white">{count + 1}</div>
                                 <h3 class="text-black">{s.title}</h3>
                             </div>
                             <div class="space-y-4">
@@ -62,12 +62,12 @@ const image = "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_04
         <div class="grid grid-cols-2 gap-12">
             {
                 makes.map((m) => (
-                    <a href={`/vehicles/${m.slug}`} class="group relative h-full overflow-hidden rounded-md shadow-xl">
+                    <a href={`/vehicles/${m.slug}`} class="group relative h-full overflow-hidden shadow-xl">
                         <Photo
                             src={m.featured}
                             height={800}
                             width={800}
-                            classes="rounded-sm shadow-xl absolute object-cover w-full h-full saturate-50 group-hover:saturate-100 group-hover:scale-105 transition duration-300"
+                            classes="shadow-xl absolute object-cover w-full h-full saturate-50 group-hover:saturate-100 group-hover:scale-105 transition duration-300"
                         />
                         <div class="absolute h-full w-full bg-gradient-to-tr from-black/80 to-transparent" />
 

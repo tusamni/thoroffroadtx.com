@@ -6,6 +6,23 @@
     "descriptionLong": "All the power and performance of your truck won't do any good unless you can get traction to the ground. THOR can help you put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for your adventure.",
     "logo": "car-parts/wheel",
     "featured": "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_016.jpg",
+    "gallery": [
+        "vehicles/ford/f-250/2203-1997-ford-f-250-obs-red/1997-ford-f-250-obs-red_001.jpg",
+        "vehicles/ford/f-250/2204-2016-ford-f-250-white/2016-ford-f-250-white_007.jpg",
+        "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_006.jpg",
+        "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-at4-white_003.jpg",
+        "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-trx-white_005.jpg",
+        "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-trx-white_001.jpg",
+        "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_016.jpg",
+        "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_001.jpg",
+        "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_005.jpg",
+        "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_009.jpg",
+        "vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_024.jpg",
+        "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_003.jpg",
+        "vehicles/ford/bronco/2204-2021-ford-bronco-outer-banks-black/2021-ford-bronco-outer-banks-black_003.jpg",
+        "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_016.jpg",
+        "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_003.jpg"
+    ],
     "brands": [
         {
             "title": "American Force Wheels",

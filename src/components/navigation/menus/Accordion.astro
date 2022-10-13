@@ -12,7 +12,7 @@ const { name, target, url } = Astro.props as Props;
 
 <div x-data={`{ ${target} : false }`} class="space-y-4">
     <!-- heading -->
-    <div class="flex justify-between items-center rounded-sm" x-on:click={`${target} = !${target}`}>
+    <div class="flex justify-between items-center" x-on:click={`${target} = !${target}`}>
         <h4 class="text-3xl text-black">{name}</h4>
 
         <!-- minus plus -->

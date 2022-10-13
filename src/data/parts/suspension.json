@@ -6,6 +6,20 @@
     "descriptionLong": "Your off-road vehicle is only as capable as the suspension system will allow. THOR can get you where you want and get there fast, reliably, and in comfort with the perfect lift and suspension setup that your truck or adventure vehicle needs.",
     "logo": "car-parts/coilover",
     "featured": "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_051.jpg",
+    "gallery": [
+        "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_014.jpg",
+        "vehicles/ford/f-150/2109-2021-ford-f-150-lariat-ridge-runner-silver/2021-ford-f-150-lariat-ridge-runner-silver_009.jpg",
+        "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_007.jpg",
+        "vehicles/ford/f-250/2203-1997-ford-f-250-obs-red/1997-ford-f-250-obs-red_002.jpg",
+        "vehicles/ford/f-250/2204-2016-ford-f-250-white/2016-ford-f-250-white_005.jpg",
+        "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-trx-white_005.jpg",
+        "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_016.jpg",
+        "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_003.jpg",
+        "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_013.jpg",
+        "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_004.jpg",
+        "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_009.jpg",
+        "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_051.jpg"
+    ],
     "brands": [
         {
             "title": "AEV Conversions",

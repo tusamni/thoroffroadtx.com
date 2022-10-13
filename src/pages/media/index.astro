@@ -5,6 +5,7 @@ import Layout from "@/layouts/Layout";
 // components
 import { Icon } from "astro-icon";
 import Container from "@/components/Container";
+import Link from "@/components/buttons/Link";
 import Photo from "@/components/images/Photo";
 
 // config
@@ -17,8 +18,13 @@ let images = await getAllImages(); // get a listing of all unique objects (folde
 ---
 
 <Layout>
-    <Container>
-        <div class="grid grid-cols-6 gap-6">
+    <Container classes="my-24 space-y-8">
+        <div class="flex justify-between items-center">
+            <h1 class="text-black">Image Assets</h1>
+            <Link href="https://cloud.digitalocean.com/spaces/thoroffroad?i=a6c259&path=images%2F" text="Manage Images" />
+        </div>
+
+        <div class="grid grid-cols-8 gap-5">
             {
                 images.map((i) => (
                     <div class="flex flex-col">

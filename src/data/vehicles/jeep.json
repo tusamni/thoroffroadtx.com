@@ -5,18 +5,17 @@
     "descriptionShort": "For 80 years the iconic Jeep Brand has been indelibly linked to freedom, adventure, authenticity, and passion.",
     "descriptionLong": "Chevrolet and GMC offer you capable, efficient, durable, and professional vehicles backed by a 100 years of proven performance. With their bulletproof transmissions and unique styling and with the abundant supply of high-performance parts from companies like BDS Suspensions, Cognito, RPG Offroad and Baja Kits, THOR can help you build a serious off-road machine with the on-road comfort and towing capability that make these vehicles a dream to drive. ",
     "logo": "brands/manufacturers/jeep",
-    "featured": "vehicles/jeep/wrangler/2103-2014-jeep-wrangler-rubicon-gold/2014-jeep-wrangler-rubicon-gold_001.jpg",
+    "featured": "vehicles/jeep/wrangler/2105-2004-jeep-wrangler-unlimited-lj-black/2004-jeep-wrangler-unlimited-lj-black_003.jpg",
     "models": [
         {
             "slug": "gladiator",
             "title": "Gladiator",
-            "featured": "vehicles/jeep/wrangler/2103-2014-jeep-wrangler-rubicon-gold/2014-jeep-wrangler-rubicon-gold_001.jpg",
             "description": "For those that want a truck that can do it all, the Jeep Gladiator blends all of the utility and towing capacity of a truck with the serious off-road capability that Jeep is known for. No matter what you want your Gladiator to do, THOR can help you expand the capability and comfort of this vehicle."
         },
         {
             "slug": "wrangler",
             "title": "Wrangler",
-            "featured": "vehicles/jeep/wrangler/2103-2014-jeep-wrangler-rubicon-gold/2014-jeep-wrangler-rubicon-gold_001.jpg",
+            "featured": "vehicles/jeep/wrangler/2103-2014-jeep-wrangler-rubicon-gold/2014-jeep-wrangler-rubicon-gold_010.jpg",
             "description": "The Jeep Wrangler needs no introduction as it has been an American Icon for over 50 years. Navigating all of the equipment and parts that are available for the Jeep Wrangler can be a real challenge for owners, but THOR is ready to help you get your Jeep equipped just the way you want it with high quality parts and top-tier installation services."
         }
     ]

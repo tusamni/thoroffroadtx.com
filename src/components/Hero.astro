@@ -20,16 +20,16 @@ const { image, title } = Astro.props as Props;
     <Photo src={image} width={2000} height={1000} classes="absolute object-cover h-full w-full" />
 
     <!-- bg -->
-    <div class="inset-0 absolute bg-gradient-to-tr from-red-300/40 via-red-300/20 to-transparent"></div>
+    <div class="inset-0 absolute bg-gradient-to-t from-stone-800/90 via-transparent to-transparent"></div>
 
     <slot />
 </div>
 
-<div class="bg-tan-500">
+<div class="bg-stone-200">
     <Container>
         <div class="flex justify-between py-5 items-center">
             <!-- breadcrumbs -->
-            <div class="bg-stone-100">
+            <div>
                 <span class="text-stone-800 text-2xl uppercase italic font-extrabold tracking-tighter">{title}</span>
                 <div class="text-sm text-stone-500">
                     <Breadcrumbs path={Astro.url.pathname} />

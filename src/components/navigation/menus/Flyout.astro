@@ -10,11 +10,12 @@ import { business, social } from "@/src/config";
 
 // page data
 const vehicles = await Astro.glob("../../../data/vehicles/*.json");
+const parts = await Astro.glob("../../../data/parts/*.json");
 ---
 
-<div class="fixed top-[90px] inset-0 z-50 w-full overflow-y-scroll bg-tan-200" x-on:click.outside={"flyout = false"}>
+<div class="fixed top-[97px] inset-0 z-50 w-full overflow-y-scroll bg-stone-100 border-t border-stone-300" x-on:click.outside={"flyout = false"}>
     <Container>
-        <div class="py-12 space-y-12">
+        <div class="py-8 space-y-12">
             <!-- links -->
             <div class="space-y-4">
                 <!-- vehicles -->
@@ -24,26 +25,27 @@ const vehicles = await Astro.glob("../../../data/vehicles/*.json");
                             <div class="grid grid-cols-4 gap-2">
                                 <a href={`/vehicles/${v.slug}`} class="col-span-3 ml-3">
                                     <div class="font-medium">{v.title}</div>
-                                    <p class="text-xs font-light">{v.models.map((l, index) => (index ? ", " : "") + l.title)}</p>
+                                    <p class="font-stone-600 text-xs font-light">{v.models.map((l, index) => (index ? ", " : "") + l.title)}</p>
                                 </a>
                             </div>
                         ))
                     }
                 </Accordion>
 
-                <!-- parts -->
-                <!-- <Accordion name="Parts" target="partsAccordion">
+                <Accordion name="Parts" target="partsAccordion">
                     {
                         parts.map((p) => (
                             <div class="grid grid-cols-4 gap-2">
-                                <a href={p.url} class="col-span-3 ml-3">
-                                    <div class="font-medium">{p.name}</div>
-                                    <p class="text-xs font-light">{p.listing.map((l, index) => (index ? ", " : "") + l)}</p>
+                                <a href={p.slug} class="col-span-3 ml-3">
+                                    <div class="font-medium">{p.title}</div>
+                                    <p class="line-clamp-1 font-stone-600 text-xs font-light">
+                                        {p.brands.map((p, index) => (index ? ", " : "") + p.title)}
+                                    </p>
                                 </a>
                             </div>
                         ))
                     }
-                </Accordion> -->
+                </Accordion>
 
                 <!-- other links -->
                 <h4 class="text-3xl text-black">Gallery</h4>

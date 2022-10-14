@@ -1,6 +1,6 @@
 import * as path from "path";
-import jsonFile from "jsonfile";
-import { S3, ListObjectsCommand } from "@aws-sdk/client-s3";
+import * as fs from "fs";
+import { S3 } from "@aws-sdk/client-s3";
 
 // config
 import { imageConfig } from "@/src/config.ts";
@@ -18,7 +18,9 @@ export function getImage(image) {
     // try to find an associated metadata file
     // if error, simply return the image src
     try {
-        const metadata = jsonFile.readFileSync(metafile);
+        const rawData = fs.readFileSync(metafile);
+        const metadata = JSON.parse(rawData);
+
         return {
             width: metadata.width,
             height: metadata.height,

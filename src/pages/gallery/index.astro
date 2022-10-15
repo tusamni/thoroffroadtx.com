@@ -19,11 +19,8 @@ const makes = await getMakes();
         <div class="grid grid-flow-col gap-3">
             {
                 makes.map((m) => (
-                    <div class="relative flex flex-col gap-3 overflow-hidden shadow-xl">
-                        <Photo src={m.featured} width={300} height={300} classes="absolute object-cover w-full h-full rounded-sm" />
-                        <div class="absolute h-full w-full bg-gradient-to-r from-black/80 to-transparent" />
-
-                        <h4 class="relative flex justify-center py-6 text-stone-100">{m.title}</h4>
+                    <div class="relative flex flex-col gap-3 overflow-hidden border border-stone-300">
+                        <p class="relative flex justify-center py-3 text-lg font-semibold tracking-tight text-stone-600">{m.title}</p>
                     </div>
                 ))
             }

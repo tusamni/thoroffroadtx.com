@@ -35,15 +35,6 @@ const vehicles = await Astro.glob("../../../data/vehicles/*.json");
                                 title={m.title}
                                 class="relative flex items-center border border-stone-600 p-2 md:px-4 md:py-3 lg:p-0"
                             >
-                                <div class="hidden h-full w-24 items-center bg-stone-700 lg:flex">
-                                    <Photo
-                                        src={m.featured}
-                                        width={200}
-                                        height={200}
-                                        alt={m.title}
-                                        classes="object-cover w-full h-full grayscale-[50%]"
-                                    />
-                                </div>
                                 <div class="z-10 flex h-full w-full flex-col from-stone-700 to-stone-600 p-4 hover:bg-gradient-to-br">
                                     <div class="text-lg font-medium text-white group-hover:underline">{m.title}</div>
                                     <p class="line-clamp-1 text-sm font-light text-stone-300">

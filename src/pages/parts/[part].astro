@@ -56,7 +56,11 @@ const { brands, descriptionLong, featured, gallery, heading, title } = Astro.pro
                     <div class="space-y-12">
                         <h2 class="text-stone-700">Recent {title} Work</h2>
 
-                        <Gallery images={gallery} />
+                        <Gallery
+                            images={gallery}
+                            imageClasses="shadow-lg rounded-md hover:scale-[103%] transition duration-200"
+                            galleryClasses="grid grid-cols-3 gap-3"
+                        />
                     </div>
                 ) : (
                     ``

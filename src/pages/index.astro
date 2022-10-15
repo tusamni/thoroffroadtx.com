@@ -4,7 +4,6 @@ import Layout from "@/layouts/Layout";
 
 // components
 import { Icon } from "astro-icon";
-import { Image } from "@astrojs/image/components";
 import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
@@ -108,15 +107,13 @@ const hero = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                     </div>
                 </div>
 
-                <div class="grid grid-cols-4 gap-8">
-                    {
-                        carli.recent.map((r) => (
-                            <div>
-                                <Photo src={r} width={750} height={1000} classes="w-full object-cover shadow-xl" />
-                            </div>
-                        ))
-                    }
-                </div>
+                <Gallery
+                    images={carli.recent}
+                    galleryClasses="grid grid-cols-4 gap-3"
+                    imageClasses="shadow-lg rounded-sm hover:scale-[103%] transition duration-200"
+                    thumbnailWidth={600}
+                    thumbnailHeight={600}
+                />
 
                 <div class="flex justify-center">
                     <Link text="Get a Quote for Your Carli Install" href="/contact" classes="text-xl" />
@@ -164,12 +161,20 @@ const hero = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
     </div>
 
     <div class="space-y-16 bg-stone-100 pt-40 lg:pb-6">
-        <Container classes="flex flex-col lg:flex-row justify-between items-center">
-            <h2 class="text-gray-900">Recent Builds</h2>
-            <Link text="See More Builds" href="/builds" classes="text-xl" />
-        </Container>
+        <Container classes="space-y-12">
+            <div class="flex flex-col lg:flex-row justify-between items-center">
+                <h2 class="text-gray-900">Recent Builds</h2>
+                <Link text="See More Builds" href="/builds" classes="text-xl" />
+            </div>
 
-        <Gallery images={builds} />
+            <Gallery
+                images={builds}
+                galleryClasses="grid grid-cols-3 gap-3"
+                imageClasses="shadow-lg rounded-sm hover:scale-[103%] transition duration-200"
+                thumbnailWidth={600}
+                thumbnailHeight={600}
+            />
+        </Container>
     </div>
 </Layout>
 

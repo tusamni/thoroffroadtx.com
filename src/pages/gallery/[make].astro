@@ -17,4 +17,9 @@ export async function getStaticPaths() {
         props: m,
     }));
 }
+
+const { make } = Astro.params;
+const { title } = Astro.props;
 ---
+
+{title}

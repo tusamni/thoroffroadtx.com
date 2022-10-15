@@ -4,12 +4,38 @@ import Layout from "@/layouts/Layout";
 
 // components
 import Container from "@/components/Container";
-import Photo from "@/components/images/Photo";
+import Gallery from "@/components/images/Gallery";
 
 // functions
 import { getMakes } from "@/functions/Vehicles";
 
 const makes = await getMakes();
+const gallery = [
+    "shop/tires.jpg",
+    "team/shop/thoroffroad-01.jpg",
+    "team/shop/thoroffroad-08.jpg",
+    "vehicles/ford/bronco/2112-2021-ford-bronco-badlands-oxford-white/2021-ford-bronco-badlands-oxford-white_001.jpg",
+    "vehicles/ford/bronco/2112-2021-ford-bronco-badlands-oxford-white/2021-ford-bronco-badlands-oxford-white_015.jpg",
+    "vehicles/ford/bronco/2204-2021-ford-bronco-outer-banks-black/2021-ford-bronco-outer-banks-black_003.jpg",
+    "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_014.jpg",
+    "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-wild-track-antimatter-blue_020.jpg",
+    "vehicles/ford/f-150/2109-2021-ford-f-150-xlt-great-plains-silver/2021-ford-f-150-xlt-great-plains-silver_005.jpg",
+    "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-black/2021-ford-f-250-lariat-de-tremor-black_006.jpg",
+    "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_005.jpg",
+    "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_003.jpg",
+    "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_001.jpg",
+    "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-de-tremor-lithium-grey/2021-ford-f-250-lariat-de-tremor-lithium-grey_007.jpg",
+    "vehicles/ford/f-250/2203-1997-ford-f-250-obs-red/1997-ford-f-250-obs-red_001.jpg",
+    "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_006.jpg",
+    "vehicles/ford/f-350/2110-2021-ford-f-350-king-ranch-black/2021-ford-f-350-king-ranch-black_005.jpg",
+    "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-trx-white_006.jpg",
+    "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_006.jpg",
+    "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_039.jpg",
+    "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-limited-white_005.jpg",
+    "vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_012.jpg",
+    "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_004.jpg",
+    "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_011.jpg",
+];
 ---
 
 <Layout>
@@ -19,11 +45,21 @@ const makes = await getMakes();
         <div class="grid grid-flow-col gap-3">
             {
                 makes.map((m) => (
-                    <div class="relative flex flex-col gap-3 overflow-hidden border border-stone-300">
-                        <p class="relative flex justify-center py-3 text-lg font-semibold tracking-tight text-stone-600">{m.title}</p>
+                    <div class="relative flex flex-col gap-3 overflow-hidden rounded-sm border border-stone-300 hover:bg-stone-100">
+                        <a href={`/gallery/${m.slug}`} class="relative flex justify-center py-3 text-lg font-semibold tracking-tight text-stone-700">
+                            {m.title}
+                        </a>
                     </div>
                 ))
             }
+        </div>
+
+        <div>
+            <Gallery
+                images={gallery}
+                galleryClasses="grid grid-cols-4 gap-3"
+                imageClasses="rounded-sm shadow-lg hover:scale-[103%] transition duration-200"
+            />
         </div>
     </Container>
 </Layout>

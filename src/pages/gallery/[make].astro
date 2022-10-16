@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 const { make } = Astro.params;
-const { title } = Astro.props;
+const { title, slug } = Astro.props;
 ---
 
-{title}
+{slug}

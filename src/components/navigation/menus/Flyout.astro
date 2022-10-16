@@ -36,7 +36,7 @@ const parts = await Astro.glob("../../../data/parts/*.json");
                     {
                         parts.map((p) => (
                             <div class="grid grid-cols-4 gap-2">
-                                <a href={p.slug} class="col-span-3 ml-3">
+                                <a href={`/parts/${p.slug}`} class="col-span-3 ml-3">
                                     <div class="font-medium">{p.title}</div>
                                     <p class="line-clamp-1 font-stone-600 text-xs font-light">
                                         {p.brands.map((p, index) => (index ? ", " : "") + p.title)}
@@ -48,7 +48,9 @@ const parts = await Astro.glob("../../../data/parts/*.json");
                 </Accordion>
 
                 <!-- other links -->
-                <a href="/gallery" title="THOR Off-Road Gallery"><h4 class="text-3xl text-black">Gallery</h4></a>
+                <h4 class="text-3xl text-black">
+                    <a href="/gallery" title="THOR Off-Road Gallery">Gallery</a>
+                </h4>
                 <h4 class="text-3xl text-black">Social Feed</h4>
             </div>
 

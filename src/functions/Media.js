@@ -5,9 +5,7 @@ import { S3 } from "@aws-sdk/client-s3";
 // config
 import { imageConfig } from "@/src/config.ts";
 
-// get the public image url
-export function getPublicPath(file) {}
-
+// return array with image data
 export function getImage(image) {
     const dir = "./src/assets/images";
     const pathname = `${path.dirname(image)}/${path.parse(image).name}`;
@@ -31,6 +29,7 @@ export function getImage(image) {
             aspectRatio: metadata.width / metadata.height,
         };
     } catch (error) {
+        // no json file exists, so we don't have metadata for the image
         return {
             src: source,
         };

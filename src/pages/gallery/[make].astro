@@ -4,10 +4,11 @@ import Layout from "@/layouts/Layout";
 
 // components
 import Container from "@/components/Container";
-import Photo from "@/components/images/Photo";
+import Gallery from "@/components/images/Gallery";
 
 // functions
-import { getMakes } from "@/functions/Vehicles";
+import { getAllImages } from "@/functions/Media";
+import { getMakes, getModels } from "@/functions/Vehicles";
 
 export async function getStaticPaths() {
     const makes = await getMakes();
@@ -19,7 +20,21 @@ export async function getStaticPaths() {
 }
 
 const { make } = Astro.params;
-const { title, slug } = Astro.props;
+const { slug, title } = Astro.props;
+
+const allImages = await getAllImages();
+const filteredImages = allImages.filter((image) => image.includes(slug));
 ---
 
-{slug}
+<Layout>
+    <Container classes="my-24 space-y-8">
+        <h1 class="text-black">{title} Gallery</h1>
+        <div>
+            <Gallery
+                images={filteredImages}
+                galleryClasses="grid grid-cols-4 gap-3"
+                imageClasses="rounded-sm shadow-lg hover:scale-[103%] transition duration-200"
+            />
+        </div>
+    </Container>
+</Layout>

@@ -28,6 +28,7 @@ await Promise.all(
 ---
 
 <div x-data="gallery()" class={galleryClasses}>
+    <!-- thumbnail -->
     {
         metadata.map((i) => (
             <a x-on:click.prevent="open" href={i.src} data-title={i.title} data-description={i.description} class="overflow-hidden">
@@ -36,6 +37,7 @@ await Promise.all(
         ))
     }
 
+    <!-- modal -->
     <div
         style="display: none"
         x-show="isOpen()"
@@ -45,9 +47,9 @@ await Promise.all(
         x-transition:leave-end="opacity-0"
         x-on:click="close"
         x-on:keydown.window.escape="close"
-        class="z-50 fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center"
+        class="z-50 fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center"
     >
-        <figure class="flex flex-col gap-4 justify-center items-center w-full h-full p-20">
+        <figure class="flex flex-col gap-4 justify-center items-center w-full h-full p-8">
             <img
                 class="max-w-full max-h-full"
                 x-show="isOpen()"

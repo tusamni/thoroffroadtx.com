@@ -8,7 +8,7 @@ import Container from "@/components/Container";
 import { getImage, getPublicPath } from "@/functions/Media";
 ---
 
-<div class="relative py-40 bg-red-500 overflow-hidden">
+<div class="relative py-16 md:py-24 bg-red-500 overflow-hidden">
     <Icon name="tracks/tire-tracks_05" class="absolute top-0 md:bottom-0 right-0 text-red-700/10 w-[300px] lg:w-[1000px]" />
 
     <Container classes="relative z-10">
@@ -30,7 +30,7 @@ import { getImage, getPublicPath } from "@/functions/Media";
                                 type="text"
                                 name="name"
                                 id="name"
-                                class="font-light text-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                class="font-light text-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400 rounded-sm"
                                 required
                             />
                         </div>
@@ -41,7 +41,7 @@ import { getImage, getPublicPath } from "@/functions/Media";
                                 type="email"
                                 name="email"
                                 id="email"
-                                class="font-light text-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                class="font-light text-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400 rounded-sm"
                                 required
                             />
                         </div>
@@ -52,7 +52,7 @@ import { getImage, getPublicPath } from "@/functions/Media";
                                 type="tel"
                                 name="phone"
                                 id="phone"
-                                class="font-light text-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"
+                                class="font-light text-sm w-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400 rounded-sm"
                             />
                         </div>
                     </div>
@@ -63,12 +63,12 @@ import { getImage, getPublicPath } from "@/functions/Media";
                             <textarea
                                 name="message"
                                 id="message"
-                                class="font-light text-sm w-full h-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400"></textarea>
+                                class="font-light text-sm w-full h-full p-3 outline-0 border-0 focus:ring-4 focus:ring-red-400 rounded-sm"></textarea>
                         </div>
                     </div>
                 </div>
 
-                <Button text="Get Started!" theme="btn-secondary" classes="max-w-fit" type="submit" />
+                <Button text="Get Started!" theme="btn-secondary" classes="w-full sm:w-fit" type="submit" />
             </form>
         </div>
     </Container>

@@ -39,27 +39,25 @@ const gallery = [
 ---
 
 <Layout>
-    <Container classes="my-24 space-y-8">
+    <Container classes="my-16 md:my-24 space-y-8">
         <h1 class="text-black">Gallery</h1>
 
-        <div class="grid grid-flow-col gap-3">
-            {
-                makes.map((m) => (
-                    <div class="relative flex flex-col gap-3 overflow-hidden rounded-sm border border-stone-300 hover:bg-stone-100">
-                        <a href={`/gallery/${m.slug}`} class="relative flex justify-center py-3 text-lg font-semibold tracking-tight text-stone-700">
-                            {m.title}
-                        </a>
-                    </div>
-                ))
-            }
-        </div>
+        <div class="space-y-2 md:space-y-4">
+            <div class="flex flex-wrap gap-2 sm:gap-4">
+                {
+                    makes.map((m) => (
+                        <div class="flex min-w-fit flex-1 justify-center rounded-sm border border-stone-300 hover:bg-stone-100">
+                            <a href={`/gallery/${m.slug}`} class="flex justify-center p-3 text-lg font-semibold tracking-tight text-stone-700">
+                                {m.title}
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
 
-        <div>
-            <Gallery
-                images={gallery}
-                galleryClasses="grid grid-cols-4 gap-3"
-                imageClasses="rounded-sm shadow-lg hover:scale-[103%] transition duration-200"
-            />
+            <div>
+                <Gallery images={gallery} galleryClasses="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4" imageClasses="rounded-sm shadow-lg" />
+            </div>
         </div>
     </Container>
 </Layout>

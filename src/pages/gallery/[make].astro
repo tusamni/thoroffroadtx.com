@@ -5,10 +5,11 @@ import Layout from "@/layouts/Layout";
 // components
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
+import Link from "@/components/buttons/Link";
 
 // functions
 import { getAllImages } from "@/functions/Media";
-import { getMakes, getModels } from "@/functions/Vehicles";
+import { getMakes } from "@/functions/Vehicles";
 
 export async function getStaticPaths() {
     const makes = await getMakes();
@@ -27,14 +28,12 @@ const filteredImages = allImages.filter((image) => image.includes(slug));
 ---
 
 <Layout>
-    <Container classes="my-24 space-y-8">
-        <h1 class="text-black">{title} Gallery</h1>
-        <div>
-            <Gallery
-                images={filteredImages}
-                galleryClasses="grid grid-cols-4 gap-3"
-                imageClasses="rounded-sm shadow-lg hover:scale-[103%] transition duration-200"
-            />
+    <Container classes="my-16 md:my-24 space-y-8">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-8">
+            <h1 class="text-black">{title} Gallery</h1>
+            <Link href="/gallery" text="Back to the Gallery" />
         </div>
+
+        <Gallery images={filteredImages} galleryClasses="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4" imageClasses="rounded-sm shadow-lg" />
     </Container>
 </Layout>

@@ -51,20 +51,20 @@ const hero = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
 ---
 
 <Layout>
-    <div class="bg-stone-100 space-y-32 pb-8">
-        <div class="relative flex items-center justify-start py-24">
+    <div class="space-y-24 md:space-y-40 mb-16 md:mb-24">
+        <div class="relative flex items-center justify-start py-24 md:py-36">
             <Container>
                 <div class="relative z-20 w-full flex flex-col gap-10">
                     <div class="flex flex-col gap-4">
-                        <h1>Purpose-Built Vehicles</h1>
-                        <div class="text-lg md:text-2xl max-w-xl text-white">
+                        <h1 class="text-stone-100">Purpose-Built Vehicles</h1>
+                        <div class="text-lg md:text-2xl max-w-xl text-stone-200">
                             We are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers
                             dream about.
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <Button text="Get in Touch" href="/contact" classes="w-full sm:w-fit">
+                    <div class="flex flex-col sm:flex-row gap-4 md:gap-6 items-center">
+                        <Button text="Get in Touch" href="/contact" theme="btn-secondary" classes="w-full sm:w-fit">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-auto" viewBox="0 0 16 16">
                                 <path
                                     d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
@@ -72,13 +72,7 @@ const hero = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                             </svg>
                         </Button>
 
-                        <Button text="THOR in Action!" theme="btn-secondary" classes="w-full sm:w-fit">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-auto" viewBox="0 0 16 16">
-                                <path
-                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"
-                                ></path>
-                            </svg>
-                        </Button>
+                        <Link text="Watch THOR in Action!" classes="hero-video text-white flex justify-center text-lg" />
                     </div>
                 </div>
             </Container>
@@ -94,38 +88,36 @@ const hero = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                 src="vehicles/ford/f-250/2203-1997-ford-f-250-obs-red/1997-ford-f-250-obs-red_001.jpg"
                 height={1000}
                 width={1000}
-                classes="absolute object-cover h-full w-full object-left"
+                classes="md:hidden absolute object-cover h-full w-full object-left"
             />
         </div>
 
         <!-- featured Carli section -->
-        <div class="flex flex-col gap-8 space-y-8">
-            <Container classes="space-y-8">
-                <div class="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-24">
-                    <Photo src={carli.logo} alt="Carli Logo" width={287} height={116} classes="hidden sm:block" />
+        <Container classes="space-y-8">
+            <div class="flex flex-row items-center justify-between gap-12">
+                <Photo src={carli.logo} alt="Carli Logo" width={287} height={116} classes="hidden lg:block" />
 
-                    <div class="flex flex-col gap-4">
-                        <h2 class="text-blue-900">Texas' Only Carli Stocking Dealer</h2>
-                        <p class="text-lg text-blue-800">
-                            As <i>the only Carli Suspension Stocking Dealer in Texas</i>, nobody carries more Carli parts or knows the performance
-                            suspension options for your vehicle better than THOR Off-Road.
-                        </p>
-                    </div>
+                <div class="flex flex-col gap-4">
+                    <h2>Texas' Only Carli Stocking Dealer</h2>
+                    <p class="text-lg text-stone-700">
+                        As <i>the only Carli Suspension Stocking Dealer in Texas</i>, nobody carries more Carli parts or knows the performance
+                        suspension options for your vehicle better than THOR Off-Road.
+                    </p>
                 </div>
+            </div>
 
-                <Gallery
-                    images={carli.recent}
-                    galleryClasses="grid grid-cols-2 sm:grid-cols-4 gap-3"
-                    imageClasses="shadow-lg rounded-sm hover:scale-[103%] transition duration-200"
-                    thumbnailWidth={600}
-                    thumbnailHeight={600}
-                />
+            <Gallery
+                images={carli.recent}
+                galleryClasses="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4"
+                imageClasses="shadow-lg rounded-sm hover:scale-[103%] transition duration-200"
+                thumbnailWidth={600}
+                thumbnailHeight={600}
+            />
 
-                <div class="flex justify-center">
-                    <Link text="Get a Quote for Your Carli Install" href="/contact" classes="text-xl" />
-                </div>
-            </Container>
-        </div>
+            <div class="flex justify-center">
+                <Link text="Get a Quote for Your Carli Install" href="/contact" classes="text-xl" />
+            </div>
+        </Container>
 
         <!-- Jamey quote -->
         <div class="relative overflow-hidden">
@@ -154,7 +146,7 @@ const hero = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                         </p>
                     </div>
 
-                    <div class="space-y-4">
+                    <div class="space-y-2 flex flex-col items-center">
                         <Photo src={jamey.signature} width={394} height={98} alt="Jamey signature" class="w-52 sm:w-72" />
                         <p class="font-medium text-gray-400">Owner, THOR Off-Road</p>
                     </div>
@@ -166,15 +158,15 @@ const hero = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
         </div>
 
         <Container classes="space-y-12">
-            <div class="flex flex-col lg:flex-row justify-between items-center">
+            <div class="flex flex-col md:flex-row justify-between items-center">
                 <h2 class="text-gray-900">Recent Builds</h2>
-                <Link text="See More Builds" href="/builds" classes="text-xl" />
+                <Link text="See More Photos" href="/gallery" classes="text-xl" />
             </div>
 
             <Gallery
                 images={builds}
-                galleryClasses="grid grid-cols-1 sm:grid-cols-3 gap-8"
-                imageClasses="shadow-lg rounded-sm hover:scale-[103%] transition duration-200"
+                galleryClasses="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4"
+                imageClasses="shadow-lg rounded-sm"
                 thumbnailWidth={600}
                 thumbnailHeight={600}
             />

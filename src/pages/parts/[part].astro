@@ -28,44 +28,38 @@ const { brands, descriptionLong, featured, gallery, heading, title } = Astro.pro
     <Hero image={featured} title={title} />
 
     <!-- summary -->
-    <div class="bg-white py-40">
-        <Container classes="space-y-32">
-            <div class="space-y-20">
-                <div class="space-y-12">
-                    <div class="max-w-3xl space-y-8">
-                        <h1 class="text-stone-800">{heading}</h1>
-                        <p class="text-stone-600 text-xl leading-9">{descriptionLong}</p>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex gap-10 items-center overflow-hidden relative w-fit">
-                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-white"></div>
-                            {
-                                brands
-                                    .map((b) => (
-                                        <img src={getImage(`brands/parts/grayscale/brands_${b.logo}.png`).src} alt={b.title} class="h-12 w-auto" />
-                                    ))
-                                    .splice(0, 5)
-                            }
-                        </div>
-                    </div>
+    <Container classes="my-16 md:my-24 space-y-24 md:space-y-40">
+        <div class="space-y-12">
+            <div class="max-w-3xl space-y-8">
+                <h1 class="text-stone-800">{heading}</h1>
+                <p class="text-stone-600 text-xl leading-9">{descriptionLong}</p>
+            </div>
+            <div class="space-y-4">
+                <div class="flex gap-10 items-center overflow-hidden relative w-fit">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-white"></div>
+                    {
+                        brands
+                            .map((b) => <img src={getImage(`brands/parts/grayscale/brands_${b.logo}.png`).src} alt={b.title} class="h-12 w-auto" />)
+                            .splice(0, 5)
+                    }
                 </div>
             </div>
+        </div>
 
-            {
-                gallery ? (
-                    <div class="space-y-12">
-                        <h2 class="text-stone-700">Recent {title} Work</h2>
+        {
+            gallery ? (
+                <div class="space-y-12">
+                    <h2 class="text-stone-700">Recent {title} Work</h2>
 
-                        <Gallery
-                            images={gallery}
-                            imageClasses="shadow-lg rounded-md hover:scale-[103%] transition duration-200"
-                            galleryClasses="grid grid-cols-3 gap-3"
-                        />
-                    </div>
-                ) : (
-                    ``
-                )
-            }
-        </Container>
-    </div>
+                    <Gallery
+                        images={gallery}
+                        imageClasses="shadow-lg rounded-md hover:scale-[103%] transition duration-200"
+                        galleryClasses="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4"
+                    />
+                </div>
+            ) : (
+                ``
+            )
+        }
+    </Container>
 </Layout>

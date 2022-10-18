@@ -27,7 +27,7 @@ const { image, title } = Astro.props as Props;
 
 <div class="bg-stone-200">
     <Container>
-        <div class="flex flex-col-reverse order md:flex-row justify-between py-5 md:items-center gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 justify-between py-5 items-center gap-6">
             <!-- breadcrumbs -->
             <div>
                 <span class="text-stone-800 text-2xl uppercase italic font-extrabold tracking-tighter">{title}</span>
@@ -37,9 +37,11 @@ const { image, title } = Astro.props as Props;
             </div>
 
             <!-- metadata -->
-            <div class="flex flex-col md:text-right max-w-md">
-                <div class="text-stone-700">{getImage(image).title}</div>
-                <div class="text-stone-500 text-sm font-light line-clamp-1" title={getImage(image).description}>{getImage(image).description}</div>
+            <div class="hidden sm:flex flex-col items-end">
+                <div class="text-stone-700 line-clamp-1 text-right">{getImage(image).title}</div>
+                <div class="text-stone-500 text-sm font-light line-clamp-2 lg:max-w-md text-right" title={getImage(image).description}>
+                    {getImage(image).description}
+                </div>
             </div>
         </div>
     </Container>

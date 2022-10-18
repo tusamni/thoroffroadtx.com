@@ -39,15 +39,15 @@ const image = "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_04
 <Layout>
     <Hero image={image} title="Vehicles" />
 
-    <Container classes="my-24 space-y-24">
+    <Container classes="my-16 md:my-24 space-y-16 md:space-y-24">
         <div class="space-y-12">
             <h1 class="text-black">Our Process</h1>
-            <div class="grid grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {
                     steps.map((s, count) => (
                         <div class="flex flex-col space-y-4">
-                            <div class="flex flex-row gap-4">
-                                <div class="bg-red-500 p-3 text-xl text-white">{count + 1}</div>
+                            <div class="flex flex-row items-center gap-4 md:items-start">
+                                <div class="h-fit w-fit rounded-sm bg-red-500 p-3 text-xl text-white">{count + 1}</div>
                                 <h3 class="text-black">{s.title}</h3>
                             </div>
                             <div class="space-y-4">
@@ -59,7 +59,7 @@ const image = "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_04
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {
                 makes.map((m) => (
                     <a href={`/vehicles/${m.slug}`} class="group relative h-full overflow-hidden shadow-xl">
@@ -73,7 +73,7 @@ const image = "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_04
 
                         <div class="relative flex h-72 items-end justify-start p-10 text-stone-100">
                             <div class="flex w-3/4 flex-col">
-                                <h3>{m.title}</h3>
+                                <h3 class="text-stone-100">{m.title}</h3>
                                 <div>{m.descriptionShort}</div>
                             </div>
                         </div>

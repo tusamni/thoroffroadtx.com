@@ -29,11 +29,7 @@ const parts = await Astro.glob("../../../data/parts/*.json");
                 <div class="grid grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-4">
                     {
                         parts.map((p) => (
-                            <a
-                                href={`/parts/${p.slug}`}
-                                title={p.title}
-                                class="relative flex items-center border border-stone-600 p-2 md:px-4 md:py-3 lg:p-0"
-                            >
+                            <a href={`/parts/${p.slug}`} title={p.title} class="relative flex items-center border border-stone-600">
                                 <div class="hidden h-full w-12 items-center bg-stone-700 p-2 lg:flex">
                                     <Icon name={`${p.logo}_outline`} class="w-12 text-stone-300" />
                                 </div>

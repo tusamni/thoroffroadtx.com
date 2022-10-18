@@ -30,11 +30,7 @@ const vehicles = await Astro.glob("../../../data/vehicles/*.json");
                 <div class="grid grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-4">
                     {
                         vehicles.map((m) => (
-                            <a
-                                href={`/vehicles/${m.slug}`}
-                                title={m.title}
-                                class="relative flex items-center border border-stone-600 p-2 md:px-4 md:py-3 lg:p-0"
-                            >
+                            <a href={`/vehicles/${m.slug}`} title={m.title} class="relative flex items-center border border-stone-600">
                                 <div class="z-10 flex h-full w-full flex-col from-stone-700 to-stone-600 p-4 hover:bg-gradient-to-br">
                                     <div class="text-lg font-medium text-white group-hover:underline">{m.title}</div>
                                     <p class="line-clamp-1 text-sm font-light text-stone-300">

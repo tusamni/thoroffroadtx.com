@@ -6,6 +6,13 @@ import Container from "@/components/Container";
 
 // data
 import { business, logos } from "@/src/config";
+
+// functions
+import { getMakes } from "@/functions/Vehicles";
+import { getParts } from "@/functions/Parts";
+
+const makes = await getMakes();
+const parts = await getParts();
 ---
 
 <div class="bg-stone-800 relative overflow-hidden">
@@ -29,25 +36,30 @@ import { business, logos } from "@/src/config";
                 <div class="flex flex-col gap-3">
                     <h4 class="text-stone-100">Vehicles</h4>
                     <ul class="text-stone-200 font-light space-y-2">
-                        <li>Chevrolet & GMC</li>
-                        <li>Ford</li>
-                        <li>RAM</li>
-                        <li>Jeep</li>
-                        <li>Toyota & Lexus</li>
-                        <li>UTV's</li>
+                        {
+                            makes.map((m) => (
+                                <li>
+                                    <a href={`/vehicles/${m.slug}`} title={m.title}>
+                                        {m.title}
+                                    </a>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
 
                 <div class="flex flex-col gap-3">
                     <h4 class="text-stone-100">Parts</h4>
                     <ul class="text-stone-200 font-light space-y-2">
-                        <li>Bed & Roof</li>
-                        <li>Body & Bumper</li>
-                        <li>Lighting</li>
-                        <li>Performance</li>
-                        <li>Specialties</li>
-                        <li>Suspension</li>
-                        <li>Wheel & Tire</li>
+                        {
+                            parts.map((p) => (
+                                <li>
+                                    <a href={`/parts/${p.slug}`} title={p.title}>
+                                        {p.title}
+                                    </a>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
 
@@ -55,7 +67,7 @@ import { business, logos } from "@/src/config";
                     <h4 class="text-stone-100">Other</h4>
                     <ul class="text-stone-200 font-light space-y-2">
                         <li>Sitemap</li>
-                        <li>Privacy Policy</li>
+                        <li><a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
                         <li>Terms of Use</li>
                     </ul>
                 </div>

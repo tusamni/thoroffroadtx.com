@@ -109,7 +109,7 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
             </Container>
         </div>
 
-        <div class="space-y-24 md:space-y-40">
+        <div class="space-y-16 md:space-y-40">
             <!-- featured Carli section -->
             <div class="bg-gradient-to-br from-blue-100 to-blue-300 py-16 md:py-24">
                 <Container classes="space-y-8">
@@ -117,8 +117,8 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                         <Photo src={carli.logo} alt="Carli Logo" width={287} height={116} classes="hidden lg:block" />
 
                         <div class="flex flex-col gap-4">
-                            <h2 class="text-cyan-900">Texas' Only Carli Stocking Dealer</h2>
-                            <p class="text-lg text-stone-600">
+                            <div class="text-cyan-900 text-4xl font-bold tracking-tighter">Texas' Only Carli Stocking Dealer</div>
+                            <p class="text-lg text-cyan-800">
                                 As <i>the only Carli Suspension Stocking Dealer in Texas</i>, nobody carries more Carli parts or knows the performance
                                 suspension options for your vehicle better than THOR Off-Road.
                             </p>
@@ -141,7 +141,10 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
 
             <!-- Jamey quote -->
             <div class="relative overflow-hidden">
-                <Container classes="relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-16">
+                <Icon name="tracks/tire-tracks_01" class="absolute bottom-0 right-0 text-stone-200/30 w-[500px]" />
+                <Icon name="tracks/tire-tracks_01" class="absolute top-0 left-0 text-stone-200/30 w-[500px] rotate-180" />
+
+                <Container classes="relative flex flex-col lg:flex-row gap-8 lg:gap-16">
                     <Photo
                         src={jamey.portrait}
                         height={1500}
@@ -172,9 +175,6 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                         </div>
                     </div>
                 </Container>
-
-                <Icon name="tracks/tire-tracks_01" class="absolute bottom-0 right-0 text-stone-200/30 w-[500px]" />
-                <Icon name="tracks/tire-tracks_01" class="absolute top-0 left-0 text-stone-200/30 w-[500px] rotate-180" />
             </div>
 
             <Container classes="space-y-12">

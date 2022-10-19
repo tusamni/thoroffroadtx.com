@@ -34,7 +34,7 @@ const parts = await getParts();
 
             <div class="z-10 flex flex-col md:flex-row gap-10 md:gap-20">
                 <div class="flex flex-col gap-3">
-                    <h4 class="text-stone-100">Vehicles</h4>
+                    <div class="text-stone-100 text-2xl font-bold tracking-tighter">Vehicles</div>
                     <ul class="text-stone-200 font-light space-y-2">
                         {
                             makes.map((m) => (
@@ -49,7 +49,7 @@ const parts = await getParts();
                 </div>
 
                 <div class="flex flex-col gap-3">
-                    <h4 class="text-stone-100">Parts</h4>
+                    <div class="text-stone-100 text-2xl font-bold tracking-tighter">Parts</div>
                     <ul class="text-stone-200 font-light space-y-2">
                         {
                             parts.map((p) => (
@@ -64,7 +64,7 @@ const parts = await getParts();
                 </div>
 
                 <div class="flex flex-col gap-3">
-                    <h4 class="text-stone-100">Other</h4>
+                    <div class="text-stone-100 text-2xl font-bold tracking-tighter">Other</div>
                     <ul class="text-stone-200 font-light space-y-2">
                         <li>Sitemap</li>
                         <li><a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>

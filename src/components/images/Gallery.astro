@@ -31,7 +31,7 @@ await Promise.all(
     <!-- thumbnail -->
     {
         metadata.map((i) => (
-            <a x-on:click.prevent="open" href={i.src} data-title={i.title} data-description={i.description} data-alt={i.alt} class="overflow-hidden">
+            <a x-on:click.prevent="open" href={i.src} data-title={i.title} data-description={i.description} data-alt={i.alt}>
                 <Image src={i.src} alt={i.alt} height={thumbnailHeight} width={thumbnailWidth} class={imageClasses} />
             </a>
         ))

@@ -8,10 +8,10 @@ export interface Props {
     href: string;
     classes?: string;
 }
-const { text, href, classes = ["text-lg"] } = Astro.props as Props;
+const { text, href, classes = ["text-lg"], ...attrs } = Astro.props as Props;
 ---
 
-<a href={href} title={text} class:list={["inline-flex gap-2 font-medium underline underline-offset-4 decoration-1", classes]}>
+<a href={href} title={text} class:list={["inline-flex gap-2 font-medium underline underline-offset-4 decoration-1", classes]} {...attrs}>
     {text}
 
     <Icon name="bi:arrow-right" class="w-4" />

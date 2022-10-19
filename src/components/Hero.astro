@@ -17,7 +17,7 @@ const { image, title } = Astro.props as Props;
 
 <div class="relative min-h-[300px] md:min-h-[600px]">
     <!-- header image -->
-    <Photo src={image} width={2000} height={1000} classes="absolute object-cover h-full w-full" />
+    <Photo src={image} width={2000} height={1000} classes="absolute object-cover h-full w-full" loading="eager" />
 
     <!-- bg -->
     <div class="inset-0 absolute bg-gradient-to-t from-stone-800/90 via-transparent to-transparent"></div>

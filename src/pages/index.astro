@@ -47,6 +47,7 @@ const builds = [
 
 // videos
 const roller = `${imageConfig.cloudUrl}/videos/homepage/roller_v2.mp4`;
+const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
 ---
 
 <Layout>
@@ -94,20 +95,12 @@ const roller = `${imageConfig.cloudUrl}/videos/homepage/roller_v2.mp4`;
                                 x-transition:enter-start="opacity-0"
                                 x-transition:leave="transition ease-in-in duration-300"
                                 x-transition:leave-end="opacity-0"
-                                x-on:click="close"
                                 x-on:keydown.window.escape="close"
                                 class="z-50 fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center"
                             >
-                                <iframe
-                                    id="modalVideo"
-                                    class="w-full h-full max-w-[80%] max-h-[80%]"
-                                    width="560"
-                                    height="315"
-                                    src="https://www.youtube.com/embed/3yk13_c56DA?enablejsapi=1"
-                                    title="THOR Off-Road in Action"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
+                                <video autoplay muted controls class="w-full h-auto max-w-[80%]" id="modalVideo" x-on:click.outside="close">
+                                    <source src={action} type="video/mp4" />
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -217,7 +210,10 @@ const roller = `${imageConfig.cloudUrl}/videos/homepage/roller_v2.mp4`;
             close() {
                 this.show = false;
                 // stop playing video on hide
-                document.getElementById("modalVideo").contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', "*");
+                const video = document.querySelector("#modalVideo");
+
+                video.pause();
+                video.currentTime = 0;
             },
         };
     }

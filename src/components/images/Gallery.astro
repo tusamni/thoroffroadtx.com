@@ -13,7 +13,7 @@ export interface Props {
     thumbnailWidth?: number;
     thumbnailHeight?: number;
 }
-const { images, galleryClasses, imageClasses, thumbnailWidth = 500, thumbnailHeight = 500 } = Astro.props as Props;
+const { images, galleryClasses, imageClasses } = Astro.props as Props;
 
 // array to hold the data
 const metadata = [];
@@ -82,10 +82,10 @@ await Promise.all(
             },
 
             open($event) {
-                this.imageUrl = $event.target.parentNode.href;
-                this.imageTitle = $event.target.parentNode.dataset.title;
-                this.imageDescription = $event.target.parentNode.dataset.description;
-                this.imageAlt = $event.target.parentNode.dataset.alt;
+                this.imageUrl = $event.currentTarget.href;
+                this.imageTitle = $event.currentTarget.dataset.title;
+                this.imageDescription = $event.currentTarget.dataset.description;
+                this.imageAlt = $event.currentTarget.dataset.alt;
                 this.show = true;
             },
 

@@ -16,4 +16,4 @@ const { src, widths = [400, 800, 1600, 2000], sizes = "100vw", ...attrs } = Astr
 const image = await getImage(src);
 ---
 
-<Picture src={image.src} alt={image.alt} aspectRatio={image.aspectRatio} widths={widths} {...attrs} />
+<Picture src={image.src} alt={image.alt} formats={["jpeg", "webp"]} aspectRatio={image.aspectRatio} widths={widths} {...attrs} />

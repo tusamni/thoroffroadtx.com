@@ -113,7 +113,7 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
             <div class="bg-gradient-to-br from-blue-100 to-blue-300 py-16 md:py-24">
                 <Container classes="space-y-8">
                     <div class="flex flex-row items-center justify-between gap-12">
-                        <Photo src={carli.logo} alt="Carli Logo" sizes="100vw" class="hidden lg:block w-72" />
+                        <Photo src={carli.logo} alt="Carli Logo" sizes="100vw" class="hidden lg:block w-[400px]" />
 
                         <div class="flex flex-col gap-4">
                             <div class="text-cyan-900 text-4xl font-bold tracking-tighter">Texas' Only Carli Stocking Dealer</div>
@@ -127,9 +127,7 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                     <Gallery
                         images={carli.recent}
                         galleryClasses="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4"
-                        imageClasses="shadow-2xl rounded-sm"
-                        thumbnailWidth={600}
-                        thumbnailHeight={600}
+                        imageClasses="shadow-2xl rounded-sm object-cover w-full h-[400px]"
                     />
 
                     <div class="flex justify-center">
@@ -181,13 +179,11 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                     <Link text="See More Photos" href="/gallery" classes="text-xl" />
                 </div>
 
-                <!-- <Gallery
+                <Gallery
                     images={builds}
                     galleryClasses="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4"
-                    imageClasses="shadow-lg rounded-sm"
-                    thumbnailWidth={600}
-                    thumbnailHeight={600}
-                /> -->
+                    imageClasses="shadow-lg rounded-sm w-full h-[350px] object-cover"
+                />
             </Container>
         </div>
     </div>

@@ -34,6 +34,11 @@ const filteredImages = allImages.filter((image) => image.includes(slug));
             <Link href="/gallery" text="Back to the Gallery" />
         </div>
 
-        <Gallery images={filteredImages} galleryClasses="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4" imageClasses="rounded-sm shadow-lg" />
+        <Gallery
+            images={filteredImages}
+            galleryClasses="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4"
+            imageClasses="rounded-sm shadow-lg w-full object-cover h-[200px]"
+            sizes="(min-width:640px) 50vw, (min-width:768px) 25vw, 100vw"
+        />
     </Container>
 </Layout>

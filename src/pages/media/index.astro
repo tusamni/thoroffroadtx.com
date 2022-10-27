@@ -28,7 +28,8 @@ let images = await getAllImages(); // get a listing of all unique objects (folde
             {
                 images.map((i) => (
                     <div class="flex flex-col">
-                        <Photo src={i} width={500} height={500} classes="shadow-xl" />
+                        <Photo src={i} widths={[500]} sizes="400px" class="h-32 w-full object-cover shadow-xl" />
+
                         <div class="mt-2 flex justify-between">
                             <a href={`${imageConfig.cloudUrl}/images/${i}`} target="_blank">
                                 <Icon name="bi:zoom-in" class="w-3 text-stone-500" />

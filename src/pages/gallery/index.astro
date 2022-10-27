@@ -56,7 +56,12 @@ const gallery = [
             </div>
 
             <div>
-                <Gallery images={gallery} galleryClasses="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4" imageClasses="rounded-sm shadow-lg" />
+                <Gallery
+                    images={gallery}
+                    galleryClasses="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4"
+                    imageClasses="rounded-sm shadow-lg w-full h-full object-cover h-[200px]"
+                    sizes="(min-width:640px) 50vw, (min-width:768px) 25vw, 100vw"
+                />
             </div>
         </div>
     </Container>

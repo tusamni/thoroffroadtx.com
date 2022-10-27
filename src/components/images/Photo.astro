@@ -8,7 +8,7 @@ import { getImage } from "@/functions/Media";
 // props
 export interface Props {
     src: string;
-    widths?: Array<string>;
+    widths?: Array<number>;
     sizes?: string;
 }
 const { src, widths = [400, 800, 1600, 2000], sizes = "100vw", ...attrs } = Astro.props as Props;
@@ -16,4 +16,4 @@ const { src, widths = [400, 800, 1600, 2000], sizes = "100vw", ...attrs } = Astr
 const image = await getImage(src);
 ---
 
-<Picture src={image.src} alt={image.alt} formats={["jpeg", "webp"]} aspectRatio={image.aspectRatio} widths={widths} {...attrs} />
+<Picture src={image.src} alt={image.alt} aspectRatio={image.aspectRatio} formats={["webp"]} sizes={sizes} widths={widths} {...attrs} />

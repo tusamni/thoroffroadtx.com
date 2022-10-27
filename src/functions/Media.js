@@ -6,6 +6,11 @@ import imageSize from "probe-image-size";
 // config
 import { imageConfig } from "@/src/config.ts";
 
+// return the image with the cloduURL attached
+export function getImagePath(image) {
+    return `${imageConfig.cloudUrl}/images/${image}`;
+}
+
 // return array with image data
 export async function getImage(image) {
     const dir = "./src/assets/images";

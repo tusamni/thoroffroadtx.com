@@ -9,7 +9,7 @@ import Hero from "@/components/Hero";
 import Photo from "@/components/images/Photo";
 
 // functions
-import { getImage } from "@/functions/Media";
+import { getImagePath } from "@/functions/Media";
 
 export async function getStaticPaths() {
     const vehicles = await Astro.glob("../../data/parts/*.json");
@@ -39,8 +39,8 @@ const { brands, descriptionLong, featured, gallery, heading, title } = Astro.pro
                     <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-white"></div>
                     {
                         brands
-                            .map((b) => <img src={getImage(`brands/parts/grayscale/brands_${b.logo}.png`).src} alt={b.title} class="h-12 w-auto" />)
-                            .splice(0, 5)
+                            .map((b) => <img src={getImagePath(`brands/parts/grayscale/brands_${b.logo}.png`)} alt={b.title} class="h-12 w-auto" />)
+                            .slice(0, 5)
                     }
                 </div>
             </div>
@@ -53,8 +53,9 @@ const { brands, descriptionLong, featured, gallery, heading, title } = Astro.pro
 
                     <Gallery
                         images={gallery}
-                        imageClasses="shadow-lg rounded-md hover:scale-[103%] transition duration-200"
                         galleryClasses="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4"
+                        imageClasses="shadow-lg rounded-sm hover:scale-[103%] transition duration-200 object-cover w-full h-[250px]"
+                        sizes="(min-width:768px) 25vw, 50vw"
                     />
                 </div>
             ) : (

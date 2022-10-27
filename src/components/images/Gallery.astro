@@ -10,10 +10,9 @@ export interface Props {
     images: any;
     galleryClasses?: string;
     imageClasses?: string;
-    thumbnailWidth?: number;
-    thumbnailHeight?: number;
+    sizes?: string;
 }
-const { images, galleryClasses, imageClasses } = Astro.props as Props;
+const { images, galleryClasses, imageClasses, sizes = "100vw" } = Astro.props as Props;
 
 // array to hold the data
 const metadata = [];
@@ -31,7 +30,7 @@ await Promise.all(
     {
         metadata.map((i) => (
             <a x-on:click.prevent="open" href={i.src} data-title={i.title} data-description={i.description} data-alt={i.alt}>
-                <Photo src={i.src} alt={i.alt} class={imageClasses} />
+                <Photo src={i.src} alt={i.alt} sizes={sizes} class={imageClasses} />
             </a>
         ))
     }

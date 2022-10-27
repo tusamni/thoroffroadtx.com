@@ -13,11 +13,13 @@ export interface Props {
     title: string;
 }
 const { image, title } = Astro.props as Props;
+
+const header = await getImage(image);
 ---
 
 <div class="relative min-h-[300px] md:min-h-[600px]">
     <!-- header image -->
-    <Photo src={image} width={2000} height={1000} classes="absolute object-cover h-full w-full" loading="eager" />
+    <Photo src={image} class="absolute object-cover h-full w-full" loading="eager" />
 
     <!-- bg -->
     <div class="inset-0 absolute bg-gradient-to-t from-stone-800/90 via-transparent to-transparent"></div>
@@ -38,9 +40,9 @@ const { image, title } = Astro.props as Props;
 
             <!-- metadata -->
             <div class="hidden sm:flex flex-col items-end">
-                <div class="text-stone-700 line-clamp-1 text-right">{getImage(image).title}</div>
-                <div class="text-stone-500 text-sm font-light line-clamp-2 lg:max-w-md text-right" title={getImage(image).description}>
-                    {getImage(image).description}
+                <div class="text-stone-700 line-clamp-1 text-right">{header.title}</div>
+                <div class="text-stone-500 text-sm font-light line-clamp-2 lg:max-w-md text-right" title={header.description}>
+                    {header.description}
                 </div>
             </div>
         </div>

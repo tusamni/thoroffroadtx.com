@@ -57,12 +57,14 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
             <video autoplay muted loop class="hidden md:block absolute object-cover w-full h-full">
                 <source src={roller} type="video/mp4" />
             </video>
-            <!-- <Photo
-                src="vehicles/ford/f-250/2203-1997-ford-f-250-obs-red/1997-ford-f-250-obs-red_001.jpg"
-                sizes="100vw"
-                loading="eager"
-                class="md:hidden absolute object-cover h-full w-full object-left"
-            /> -->
+
+            <div class="md:hidden absolute h-full w-full">
+                <Photo
+                    src="vehicles/ford/f-250/2203-1997-ford-f-250-obs-red/1997-ford-f-250-obs-red_001.jpg"
+                    loading="eager"
+                    class="object-cover h-full w-full object-left"
+                />
+            </div>
 
             <div class="bg-gradient-to-tr from-stone-900/90 via-stone-800/70 to-stone-700/20 absolute w-full h-full"></div>
 
@@ -113,7 +115,9 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
             <div class="bg-gradient-to-br from-blue-100 to-blue-300 py-16 md:py-24">
                 <Container classes="space-y-8">
                     <div class="flex flex-row items-center justify-between gap-12">
-                        <Photo src={carli.logo} alt="Carli Logo" sizes="100vw" class="hidden lg:block w-[400px]" />
+                        <div class="hidden lg:block">
+                            <Photo src={carli.logo} alt="Carli Logo" sizes="100vw" class="hidden lg:block w-[400px]" />
+                        </div>
 
                         <div class="flex flex-col gap-4">
                             <div class="text-cyan-900 text-4xl font-bold tracking-tighter">Texas' Only Carli Stocking Dealer</div>
@@ -127,7 +131,8 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                     <Gallery
                         images={carli.recent}
                         galleryClasses="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4"
-                        imageClasses="shadow-2xl rounded-sm object-cover w-full h-[400px]"
+                        imageClasses="shadow-2xl rounded-sm object-cover w-full h-[250px] md:h-[400px]"
+                        sizes="(min-width:640px) 25vw, 50vw"
                     />
 
                     <div class="flex justify-center">
@@ -144,9 +149,9 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                 <Container classes="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
                     <Photo
                         src={jamey.portrait}
-                        sizes="100vw"
+                        sizes="(min-width:1024px) 50vw, 100vw"
                         alt="Jamey from THOR Off-Road"
-                        class="w-full object-cover object-[65%] shadow-2xl rounded-sm"
+                        class="w-full h-full object-cover object-[65%] shadow-2xl rounded-sm"
                     />
 
                     <div class="space-y-16">
@@ -166,7 +171,7 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                         </div>
 
                         <div class="space-y-2 flex flex-col items-center">
-                            <Photo src={jamey.signature} sizes="100vw" alt="Jamey signature" class="w-52 sm:w-72" />
+                            <Photo src={jamey.signature} sizes="300px" alt="Jamey signature" class="w-52 sm:w-72" />
                             <p class="font-medium text-gray-400">Owner, THOR Off-Road</p>
                         </div>
                     </div>
@@ -182,7 +187,8 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                 <Gallery
                     images={builds}
                     galleryClasses="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4"
-                    imageClasses="shadow-lg rounded-sm w-full h-[350px] object-cover"
+                    imageClasses="shadow-lg rounded-sm w-full h-[300px] sm:h-[200px] md:h-[350px] object-cover"
+                    sizes="(min-width:640px) 33vw, 100vw"
                 />
             </Container>
         </div>

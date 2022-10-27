@@ -57,13 +57,12 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
             <video autoplay muted loop class="hidden md:block absolute object-cover w-full h-full">
                 <source src={roller} type="video/mp4" />
             </video>
-            <Photo
+            <!-- <Photo
                 src="vehicles/ford/f-250/2203-1997-ford-f-250-obs-red/1997-ford-f-250-obs-red_001.jpg"
-                height={1000}
-                width={1000}
-                classes="md:hidden absolute object-cover h-full w-full object-left"
+                sizes="100vw"
                 loading="eager"
-            />
+                class="md:hidden absolute object-cover h-full w-full object-left"
+            /> -->
 
             <div class="bg-gradient-to-tr from-stone-900/90 via-stone-800/70 to-stone-700/20 absolute w-full h-full"></div>
 
@@ -114,7 +113,7 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
             <div class="bg-gradient-to-br from-blue-100 to-blue-300 py-16 md:py-24">
                 <Container classes="space-y-8">
                     <div class="flex flex-row items-center justify-between gap-12">
-                        <Photo src={carli.logo} alt="Carli Logo" width={287} height={116} classes="hidden lg:block" />
+                        <Photo src={carli.logo} alt="Carli Logo" sizes="100vw" class="hidden lg:block w-72" />
 
                         <div class="flex flex-col gap-4">
                             <div class="text-cyan-900 text-4xl font-bold tracking-tighter">Texas' Only Carli Stocking Dealer</div>
@@ -144,13 +143,12 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                 <Icon name="tracks/tire-tracks_01" class="absolute bottom-0 right-0 text-stone-200/30 w-[500px]" />
                 <Icon name="tracks/tire-tracks_01" class="absolute top-0 left-0 text-stone-200/30 w-[500px] rotate-180" />
 
-                <Container classes="relative flex flex-col lg:flex-row gap-8 lg:gap-16">
+                <Container classes="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
                     <Photo
                         src={jamey.portrait}
-                        height={1500}
-                        width={1200}
+                        sizes="100vw"
                         alt="Jamey from THOR Off-Road"
-                        classes="w-full lg:w-1/2 object-cover object-[65%] shadow-2xl rounded-sm"
+                        class="w-full object-cover object-[65%] shadow-2xl rounded-sm"
                     />
 
                     <div class="space-y-16">
@@ -170,7 +168,7 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                         </div>
 
                         <div class="space-y-2 flex flex-col items-center">
-                            <Photo src={jamey.signature} width={394} height={98} alt="Jamey signature" class="w-52 sm:w-72" />
+                            <Photo src={jamey.signature} sizes="100vw" alt="Jamey signature" class="w-52 sm:w-72" />
                             <p class="font-medium text-gray-400">Owner, THOR Off-Road</p>
                         </div>
                     </div>
@@ -183,13 +181,13 @@ const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
                     <Link text="See More Photos" href="/gallery" classes="text-xl" />
                 </div>
 
-                <Gallery
+                <!-- <Gallery
                     images={builds}
                     galleryClasses="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4"
                     imageClasses="shadow-lg rounded-sm"
                     thumbnailWidth={600}
                     thumbnailHeight={600}
-                />
+                /> -->
             </Container>
         </div>
     </div>

@@ -1,6 +1,5 @@
 ---
 // components
-import { Image } from "@astrojs/image/components";
 import Photo from "@/components/images/Photo";
 
 // functions
@@ -20,8 +19,8 @@ const { images, galleryClasses, imageClasses, thumbnailWidth = 500, thumbnailHei
 const metadata = [];
 // async map to get image data
 await Promise.all(
-    images.map((i) => {
-        let imageData = getImage(i);
+    images.map(async (i) => {
+        let imageData = await getImage(i);
         metadata.push(imageData);
     })
 );
@@ -32,7 +31,7 @@ await Promise.all(
     {
         metadata.map((i) => (
             <a x-on:click.prevent="open" href={i.src} data-title={i.title} data-description={i.description} data-alt={i.alt}>
-                <Image src={i.src} alt={i.alt} height={thumbnailHeight} width={thumbnailWidth} class={imageClasses} />
+                <Photo src={i.src} alt={i.alt} class={imageClasses} />
             </a>
         ))
     }

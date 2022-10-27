@@ -1,12 +1,13 @@
 import * as path from "path";
 import * as fs from "fs";
 import { S3 } from "@aws-sdk/client-s3";
+import imageSize from "probe-image-size";
 
 // config
 import { imageConfig } from "@/src/config.ts";
 
 // return array with image data
-export function getImage(image) {
+export async function getImage(image) {
     const dir = "./src/assets/images";
     const pathname = `${path.dirname(image)}/${path.parse(image).name}`;
     const extension = path.parse(image).ext;
@@ -30,8 +31,13 @@ export function getImage(image) {
         };
     } catch (error) {
         // no json file exists, so we don't have metadata for the image
+        const imgDimensions = await imageSize(source);
+
         return {
             src: source,
+            width: imgDimensions.width,
+            height: imgDimensions.height,
+            aspectRatio: imgDimensions.width / imgDimensions.height,
         };
     }
 }

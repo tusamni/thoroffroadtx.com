@@ -7,11 +7,19 @@ import Navigation from "@/components/navigation/Navigation";
 import Lead from "@/components/Lead";
 import Footer from "@/components/Footer";
 
+// config
+import { business } from "@/src/config";
+
 export interface Props {
-    title: string;
+    title?: string;
+    description?: string;
     contact?: boolean;
 }
-const { title, contact = true } = Astro.props;
+const {
+    title = "THOR Off-Road: Texas Premiere Off-Road Parts & Installation",
+    description = "THOR Off-Road is the top truck and off-road vehicle parts and installation outfitter in Texas - the Texas Carli Suspension HQ.",
+    contact = true,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -20,10 +28,11 @@ const { title, contact = true } = Astro.props;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-        <title>{title}</title>
+        <title>{title} | {business.name_long}</title>
     </head>
 
     <body>

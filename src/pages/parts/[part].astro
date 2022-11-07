@@ -6,7 +6,6 @@ import Layout from "@/layouts/Layout";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Hero from "@/components/Hero";
-import Photo from "@/components/images/Photo";
 
 // functions
 import { getImagePath } from "@/functions/Media";
@@ -21,10 +20,10 @@ export async function getStaticPaths() {
 }
 
 const { part } = Astro.params;
-const { brands, descriptionLong, featured, gallery, heading, title } = Astro.props;
+const { brands, descriptionLong, seoTitle, seoDescription, featured, gallery, heading, title } = Astro.props;
 ---
 
-<Layout>
+<Layout title={seoTitle} description={seoDescription}>
     <Hero image={featured} title={title} />
 
     <!-- summary -->

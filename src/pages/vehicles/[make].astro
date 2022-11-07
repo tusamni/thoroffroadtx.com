@@ -23,12 +23,12 @@ export async function getStaticPaths() {
 }
 
 const { make } = Astro.params;
-const { title, heading, descriptionLong, featured, logo } = Astro.props;
+const { title, heading, descriptionLong, seoTitle, seoDescription, featured, logo } = Astro.props;
 
 const models = await getModels(make);
 ---
 
-<Layout>
+<Layout title={seoTitle} description={seoDescription}>
     <Hero image={featured} title={title} />
 
     <!-- summary -->

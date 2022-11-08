@@ -38,10 +38,10 @@ import { business, logos } from "@/src/config";
                 </div>
 
                 <div class="md:hidden" x-data={"{ flyout: false }"}>
-                    <a x-on:click={"flyout = true"}>
+                    <div x-on:click={"flyout = true"} class="cursor-pointer">
                         <Icon name="bi:list" class="w-8 h-auto" x-show={"!flyout"} />
                         <Icon name="bi:x" class="w-8 h-auto" x-show={"flyout"} />
-                    </a>
+                    </div>
 
                     <div x-show={"flyout"}>
                         <Flyout />

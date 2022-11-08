@@ -24,19 +24,19 @@ for (var i = 1; i < url.length; i++) {
 }
 ---
 
-<nav>
-    <ol class="flex gap-1">
-        {
-            crumbParts.map((crumb) =>
-                <li>
-                    <a href={crumb.link}>
+<nav class="flex gap-1">
+    {
+        crumbParts.map((crumb) => (
+            <>
+                <div>
+                    <a href={crumb.link} title={crumb.text}>
                         <span>{crumb.text}</span>
                     </a>
-                </li>
+                </div>
                 <Icon name="bi:chevron-right" class="w-2" />
-            )
-        }
-    </ol>
+            </>
+        ))
+    }
 </nav>
 
 <style>

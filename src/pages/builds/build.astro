@@ -1,0 +1,90 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// components
+import Break from "../../components/Break.astro";
+import BuildSnippet from "../../components/builds/BuildSnippet.astro";
+import Button from "../../components/buttons/Button.astro";
+import Container from "../../components/Container.astro";
+import Section from "../../components/Section.astro";
+import Link from "../../components/buttons/Link.astro";
+import TireTracks01 from "../../components/vectors/tracks/TireTracks01.astro";
+
+// images
+import header01 from "../../assets/images/header01.jpg";
+import header02 from "....//assets/images/header02.jpg";
+import header03 from "../../assets/images/header03.jpg";
+import header04 from "../../assets/images/header04.jpg";
+
+// images
+import build01 from "../../assets/images/builds/build01.jpg";
+import build02 from "../../assets/images/builds/build02.jpg";
+import build03 from "../../assets/images/builds/build03.jpg";
+import build04 from "../../assets/images/builds/build04.jpg";
+---
+
+<Layout>
+    <div class="relative bg-gradient-to-r from-gray-900 to-gray-800">
+        <TireTracks01 classes="absolute top-0 right-0 w-[800px] text-gray-800/80" />
+
+        <div class="relative">
+            <img src={header03.src} class="object-cover w-full h-full absolute" />
+            <div class="w-full h-full bg-gradient-to-tr from-gray-900/90 via-gray-900/90 to-gray-500/90 absolute"></div>
+
+            <Section classes="relative">
+                <Container>
+                    <div class="mx-auto lg:mx-0">
+                        <h2 class="max-w-3xl mt-2 font-bold tracking-tight text-white text-5xl">2015 Dodge RAM 2500</h2>
+                        <p class="max-w-2xl mt-6 text-lg leading-9 text-gray-400">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+                    </div>
+                </Container>
+            </Section>
+        </div>
+
+        <Break />
+
+        <Section classes="relative z-10">
+            <Container>
+                <div class="grid grid-cols-1 gap-y-20 gap-x-16 xl:grid-cols-4">
+                    <div class="space-y-6">
+                        <div class="sticky top-48">
+                            <form action="#" method="post">
+                                <div class="grid grid-cols-1 gap-y-6 gap-x-8">
+                                    <div class="space-y-2 mb-6">
+                                        <div>
+                                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 bg-white/10 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6" placeholder="Search our builds..." />
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="email" class="block font-semibold leading-6 text-white">Vehicle Make</label>
+                                        <div>
+                                            <select name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 bg-white/10 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6">
+                                                <option class="text-black">All</option>
+                                                <option selected class="text-black">Ford</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="email" class="block font-semibold leading-6 text-white">Vehicle Model</label>
+                                        <div>
+                                            <select name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 bg-white/10 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6">
+                                                <option class="text-black">All</option>
+                                                <option class="text-black" selected>F-150</option>
+                                                <option class="text-black">Super-Duty</option>
+                                                <option class="text-black">Bronco</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-span-3 space-y-16"></div>
+                </div>
+            </Container>
+        </Section>
+    </div>
+</Layout>

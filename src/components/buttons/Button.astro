@@ -1,9 +1,9 @@
 ---
-const { text, theme } = Astro.props;
+const { text, theme = "primary" } = Astro.props;
 
 const themes = {
     primary: ["bg-gray-50", "border-gray-200", "hover:border-gray-300", "text-gray-800", "focus-visible:outline-gray-500"],
-    secondary: ["bg-yellow-300", "border-yellow-400", "hover:border-yellow-500", "text-yellow-900", "focus-visible:outline-amber-500"],
+    secondary: ["bg-amber-300", "border-amber-400", "hover:border-amber-500", "text-stone-700", "focus-visible:outline-amber-500"],
 };
 ---
 

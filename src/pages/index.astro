@@ -1,0 +1,196 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// components
+import Break from "../components/Break.astro";
+import Button from "../components/buttons/Button.astro";
+import Link from "../components/buttons/Link.astro";
+import PostSnippet from "../components/posts/PostSnippet.astro";
+import Testimonial from "../components/Testimonial.astro";
+
+// images
+import header01 from "../assets/images/header01.jpg";
+import header02 from "../assets/images/header02.jpg";
+import header03 from "../assets/images/header03.jpg";
+import header04 from "../assets/images/header04.jpg";
+
+import bds from "../assets/images/brands/bds.png";
+import method from "../assets/images/brands/method.png";
+import carli from "../assets/images/brands/carli.png";
+import add from "../assets/images/brands/add.png";
+import retrax from "../assets/images/brands/retrax.png";
+import raceline from "../assets/images/brands/raceline.png";
+import fox from "../assets/images/brands/fox.png";
+import blackrhino from "../assets/images/brands/black-rhino.png";
+import bajadesigns from "../assets/images/brands/baja-designs.png";
+
+import jamey from "../assets/images/jamey.jpg";
+
+import post from "../assets/images/post.jpg";
+
+// data
+const review = [
+    "<p>“THOR Off-Road did a fantastic job on my Stage 8 Icon install for 3rd Gen Tacoma. With all the shipping delays occurring, the parts came in much faster than anticipated and communication was on-point. Install was completed efficiently with everything tested, torqued, QC'd perfectly.</p><p>Highly recommend these guys for any off-road auto needs.”</p>",
+    "<p>Seamless transaction when I went to Thor, Personnel were extremely knowledgable and very friendly.</p>",
+    "<p>The team at Thor helped me get my Carli Suspension system completed and corrected after another shop used some incorrect parts and installation methods. They were very easy to communicate with and get a hold of and willing to answer any and all questions I had.</p>",
+    "<p>I was traveling across the country and had a major issue and included a brake line blowing and nobody in Austin could help me. I rolled in early here and even though they were super busy and these guys did an amazing job of taking care of me.</p>",
+    "<p>I knew I wanted a Carli suspension system when I bought my truck and was pleasantly surprised to find out I lived down the road from Texas' only Carli stocking dealer in THOR Off Road. It was immediately evident from the moment I walked in the shop that they were as excited to help design my upgrades as I was and that made the process so enjoyable.</p>",
+    "<p>Well-oiled machine. The guys at Thor do a great job from quoting, scheduling, completing the job on-time and on budget, and getting me out of there. This is the second time I've had work done to my truck. The first time was installing a Ranch Hand grill guard, this time a larger fuel tank.</p>",
+    "<p>The guys at Thor are top notch! They just installed my fully optioned Carli 3.25 Pintop on my Cummins and I can't be happier. They gained me as a lifetime costumer.</p>",
+    "<p>Thor recently installed a lift/level kit on my 2020 Jeep Gladiator. The work was top notch, done on time as promised, and at a reasonable price. Am very pleased and already working with them to perform upgrade suspension work on another 4x4!</p>",
+    "<p>THOR Off Road has the best staff I have ever encountered at an off road shop! They are all very professional, knowledgeable and polite.</p>",
+];
+---
+
+<Layout>
+    <!-- header images -->
+    <div class="grid grid-cols-4 grid-rows-1 h-[450px]">
+        <div class="units">
+            <img src={header01.src} class="object-cover w-full h-full" />
+            <img src={header01.src} class="object-cover w-full h-full" />
+        </div>
+
+        <div class="units">
+            <img src={header02.src} class="object-cover w-full h-full object-left-bottom" />
+            <img src={header02.src} class="object-cover w-full h-full object-left-bottom" />
+        </div>
+        <div class="units">
+            <img src={header03.src} class="object-cover w-full h-full object-left-bottom" />
+            <img src={header03.src} class="object-cover w-full h-full object-left-bottom" />
+        </div>
+        <div class="units">
+            <img src={header04.src} class="object-cover w-full h-full object-top" />
+            <img src={header04.src} class="object-cover w-full h-full object-top" />
+        </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-gray-900 to-gray-800">
+        <!-- brands -->
+        <div class="relative z-10 mx-auto container py-24 sm:py-32">
+            <div class="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
+                <div class="mx-auto w-full max-w-xl lg:mx-0">
+                    <h2 class="text-5xl font-bold tracking-tight text-white">THOR Off-Road partners with the best brands.</h2>
+                    <p class="mt-6 text-lg leading-8 text-gray-300">We've built partnerships with the best brand , nobody carries more Carli parts or knows the performance suspension options for your vehicle better than THOR Off-Road.</p>
+                    <div class="mt-8 flex items-center gap-x-6">
+                        <Button text="Build Your Dream Truck" theme="primary" />
+
+                        <Link text="See Our Work" />
+                    </div>
+                </div>
+                <div class="mx-auto grid w-full max-w-xl grid-cols-3 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
+                    <img src={bds.src} class="max-h-12 w-full object-contain object-center" />
+                    <img src={method.src} class="max-h-8 w-full object-contain object-center" />
+                    <img src={carli.src} class="max-h-16 w-full object-contain object-center" />
+                    <img src={add.src} class="max-h-12 w-full object-contain object-center" />
+                    <img src={retrax.src} class="max-h-10 w-full object-contain object-center" />
+                    <img src={raceline.src} class="max-h-8 w-full object-contain object-center" />
+                    <img src={fox.src} class="max-h-12 w-full object-contain object-center" />
+                    <img src={blackrhino.src} class="max-h-8 w-full object-contain object-center" />
+                    <img src={bajadesigns.src} class="max-h-12 w-full object-contain object-center" />
+                </div>
+            </div>
+        </div>
+
+        <Break />
+
+        <!-- the THOR difference -->
+        <div class="relative py-24 sm:py-32">
+            <img src="images/vectors/tire-track-01.svg" class="absolute bottom-0 right-0 w-[800px]" />
+
+            <div class="relative mx-auto container">
+                <div class="grid grid-cols-1 items-start gap-y-16 gap-x-24 sm:gap-y-24 lg:grid-cols-2">
+                    <div class="relative h-full w-full">
+                        <img src={jamey.src} class="absolute h-full w-full object-cover object-[50%,30%] shadow-2xl" alt="" />
+                    </div>
+
+                    <div class="py-24">
+                        <div class="text-base leading-7 text-gray-700">
+                            <h1 class="text-5xl font-bold tracking-tight text-white mt-6 lg:max-w-lg">The THOR Off-Road Difference.</h1>
+                            <div class="text-lg leading-8 text-gray-300">
+                                <p class="mt-8 text-xl leading-9">THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams. Come experience your own purpose-built vehicle.</p>
+                                <p class="mt-8 text-gray-400">
+                                    THOR is passionate about creating purpose-built vehicles for our customers, but we also thrive on building strong personal relationships that are based on competence and trust. We are experts in all things off-road and love to inspire and help our customers to build the truck or adventure vehicle that they have always wanted. We aren't satisfied until we hear
+                                    our customers say,
+                                    <em>“Wow, I can't believe that's my truck!”</em>
+                                </p>
+                                <div class="mt-12 flex flex-col gap-2">
+                                    <p class="font-cursive mt-12 text-4xl">Jamey Whitlock</p>
+                                    <p class="text-gray-400">Owner, THOR Off-Road</p>
+                                </div>
+                            </div>
+                        </div>
+                        <dl class="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
+                            <div>
+                                <dt class="text-sm font-semibold leading-6 text-gray-600">Founded</dt>
+                                <dd class="mt-2 text-3xl font-bold leading-10 tracking-tight text-white">2021</dd>
+                            </div>
+
+                            <div>
+                                <dt class="text-sm font-semibold leading-6 text-gray-600">Employees</dt>
+                                <dd class="mt-2 text-3xl font-bold leading-10 tracking-tight text-white">37</dd>
+                            </div>
+
+                            <div>
+                                <dt class="text-sm font-semibold leading-6 text-gray-600">Countries</dt>
+                                <dd class="mt-2 text-3xl font-bold leading-10 tracking-tight text-white">12</dd>
+                            </div>
+
+                            <div>
+                                <dt class="text-sm font-semibold leading-6 text-gray-600">Raised</dt>
+                                <dd class="mt-2 text-3xl font-bold leading-10 tracking-tight text-white">$25M</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <Break />
+
+        <!-- testimoinals -->
+        <div class="mx-auto container py-24 sm:py-32">
+            <div class="mx-auto max-w-xl text-center">
+                <h2 class="text-lg font-semibold leading-8 tracking-tight text-orange-200">Testimonials</h2>
+                <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">We're building our customer's dream vehicles.</p>
+            </div>
+
+            <div class="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+                <div class="sm:columns-2 lg:columns-3">
+                    {review.map((r) => <Testimonial review={r} />)}
+                </div>
+            </div>
+        </div>
+
+        <Break />
+
+        <!-- recent posts -->
+        <div class="mx-auto container py-24 sm:py-32">
+            <div class="grid grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:grid-cols-2">
+                <article class="space-y-6 w-full max-w-2xl lg:max-w-lg">
+                    <time datetime="2020-03-16" class="text-sm leading-6 text-gray-400">Mar 16, 2020</time>
+
+                    <img src={post.src} class="h-56 w-3/4 object-cover shadow-xl rounded-md" />
+
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Torsion Sway Bars: The What, Why & How</h2>
+                    <p class="text-lg leading-8 text-gray-400">When optioning a Carli suspension package on a Super Duty or Ram what are the benefits of running a Torsion Sway Bar over the factory sway bar and is it right for me? Let's dig right in and talk about what a Factory Sway Bar does.</p>
+
+                    <Link text="Continue Reading" />
+                </article>
+
+                <div class="w-full max-w-2xl pt-12 sm:pt-16 lg:max-w-none lg:pt-0 divide-y divide-gray-700">
+                    <PostSnippet />
+                    <PostSnippet />
+                    <PostSnippet />
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style type="text/css">
+    .units > :last-child {
+        transform: rotatex(180deg) translatey(0px);
+        mask-image: linear-gradient(transparent 80%, white 180%);
+        -webkit-mask-image: linear-gradient(transparent 80%, white 180%);
+    }
+</style>

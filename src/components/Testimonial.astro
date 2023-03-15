@@ -1,0 +1,24 @@
+---
+const { review } = Astro.props;
+
+import image from "../assets/images/testimonial.jpg";
+---
+
+<div class="pt-8 sm:inline-block sm:w-full sm:px-4">
+    <figure class="grid grid-cols-3 gap-6 rounded-md bg-gradient-to-tr from-gray-700/80 to-gray-600/80 p-8 text-sm leading-6">
+        <div class="relative w-full h-full">
+            <img src={image.src} class="absolute rounded-md h-1/2 w-full object-cover object-[30%,50%] bg-gray-50" alt="" />
+        </div>
+
+        <div class="col-span-2">
+            <blockquote class="text-gray-100 space-y-4" set:html={review} />
+
+            <figcaption class="mt-6 flex items-center gap-x-4">
+                <div>
+                    <div class="font-semibold text-gray-200">Chandler J.</div>
+                    <div class="text-gray-400">Dripping Springs, TX</div>
+                </div>
+            </figcaption>
+        </div>
+    </figure>
+</div>

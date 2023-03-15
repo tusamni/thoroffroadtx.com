@@ -1,0 +1,21 @@
+{
+    "name": "dev.thoroffroadtx.com",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/tailwind": "^3.1.1",
+        "@tailwindcss/forms": "^0.5.3",
+        "@tailwindcss/line-clamp": "^0.4.2",
+        "@tailwindcss/typography": "^0.5.9",
+        "astro": "^2.1.3",
+        "sass": "^1.58.3",
+        "tailwindcss": "^3.2.7"
+    }
+}

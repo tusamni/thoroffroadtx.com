@@ -1,0 +1,12 @@
+---
+const { text, theme } = Astro.props;
+
+const themes = {
+    primary: ["bg-gray-50", "border-gray-200", "hover:border-gray-300", "text-gray-800", "focus-visible:outline-gray-500"],
+    secondary: ["bg-yellow-300", "border-yellow-400", "hover:border-yellow-500", "text-yellow-900", "focus-visible:outline-amber-500"],
+};
+---
+
+<div class="-skew-x-12">
+    <a href="#" class:list={["transition-all border-r-8 hover:border-r-8 duration-200 -skew-x-12 rounded-sm py-3 px-5 font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2", themes[theme]]}>{text}</a>
+</div>

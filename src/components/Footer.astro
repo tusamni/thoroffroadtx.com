@@ -1,0 +1,76 @@
+---
+// components
+import { Icon } from "astro-icon";
+import Contact from "@/components/Contact";
+import Container from "@/components/Container";
+
+// content
+import { getCollection } from "astro:content";
+
+// data
+import { business, logos } from "@/src/config.mjs";
+
+const allVehicleMakes = await getCollection("vehicles");
+const allParts = await getCollection("parts");
+---
+
+<div class="relative overflow-hidden bg-stone-800">
+    <Icon name="tracks/vertical/vertical-track-03" class="absolute inset-0 text-stone-700/20 w-3/4 lg:w-[600px]" />
+
+    <Container classes="relative z-10 py-16 md:py-24">
+        <!-- logo -->
+        <img src={`${logos.light}.svg`} alt={business.name_long} width="208" height="65" class="mb-8 w-40 md:mb-12 md:w-52" />
+
+        <div class="flex flex-col justify-between gap-12 md:flex-row">
+            <div class="z-10 max-w-md space-y-10 font-light text-stone-200">
+                <p>
+                    Located in Dripping Springs, TX, {business.name_long} are experts in designing and building off-road vehicles that deliver the exact
+                    performance and style that our customers dream about.
+                </p>
+
+                <Contact classes="space-y-4 font-light" />
+            </div>
+
+            <div class="z-10 flex flex-col gap-10 md:flex-row md:gap-20">
+                <div class="flex flex-col gap-3">
+                    <div class="text-2xl font-bold tracking-tighter text-stone-100">Vehicles</div>
+                    <ul class="space-y-2 font-light text-stone-200">
+                        {
+                            allVehicleMakes.map((m) => (
+                                <li>
+                                    <a href={`/vehicles/${m.slug}`} title={m.data.title}>
+                                        {m.data.title}
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <div class="text-2xl font-bold tracking-tighter text-stone-100">Parts</div>
+                    <ul class="space-y-2 font-light text-stone-200">
+                        {
+                            allParts.map((p) => (
+                                <li>
+                                    <a href={`/parts/${p.slug}`} title={p.data.title}>
+                                        {p.data.title}
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <div class="text-2xl font-bold tracking-tighter text-stone-100">Other</div>
+                    <ul class="space-y-2 font-light text-stone-200">
+                        <li>Sitemap</li>
+                        <li><a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+                        <li><a href="/terms-of-use" title="Terms of Use">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </Container>
+</div>

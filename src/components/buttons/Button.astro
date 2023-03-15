@@ -1,0 +1,22 @@
+---
+// props
+export interface Props {
+    text: string;
+    href?: string;
+    theme?: string;
+    classes?: string;
+}
+const { text, href, theme = "btn-primary", classes, ...attrs } = Astro.props as Props;
+
+// base styles across buttons
+const styles = "flex gap-3 sm:skew-x-12";
+// if url defined, <a>, otherwise <button>
+const Type = href ? "a" : "button";
+---
+
+<div class:list={[theme, classes]}>
+    <Type href={href} title={text} class={styles} {...attrs}>
+        <slot />
+        {text}
+    </Type>
+</div>

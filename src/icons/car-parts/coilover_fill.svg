@@ -1,0 +1,15 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M59.375 1.95264H40.625C38.8937 1.95264 37.5 3.34642 37.5 5.07768C37.5 6.80894 38.8937 8.20273 40.625 8.20273H59.375C61.1063 8.20273 62.5 6.80894 62.5 5.07768C62.5 3.34642 61.1063 1.95264 59.375 1.95264Z" fill="currentColor"/>
+<path d="M59.375 44.1406H40.625C38.8937 44.1406 37.5 45.5341 37.5 47.2653C37.5 48.9966 38.8937 50.3907 40.625 50.3907H59.375C61.1063 50.3907 62.5 48.9966 62.5 47.2653C62.5 45.5341 61.1063 44.1406 59.375 44.1406Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M57.8125 52.7344V55.8594C57.8125 56.6882 57.4832 57.4829 56.8972 58.0689C56.3111 58.655 55.5163 58.9845 54.6875 58.9845H45.3125C44.4837 58.9845 43.6889 58.655 43.1028 58.0689C42.5168 57.4829 42.1875 56.6882 42.1875 55.8594V52.7344" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M42.1875 10.5469V16.9736L57.8125 13.6229V10.5469H42.1875Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M57.8125 16.8213L42.1875 20.1723V23.2239L57.8125 19.8732V16.8213Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M57.8125 23.0713L42.1875 26.422V29.4735L57.8125 26.1232V23.0713Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M57.8125 29.3208L42.1875 32.6718V35.7234L57.8125 32.3727V29.3208Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M57.8125 35.5713L42.1875 38.9223V41.7969H57.8125V35.5713Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M45.3125 61.3281V66.7968H54.6875V61.3281H45.3125Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M45.3125 69.9219V73.0469H54.6875V69.9219H45.3125Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M45.3125 76.1719V79.2969H54.6875V76.1719H45.3125Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M45.3125 82.4219V87.8905H54.6875V82.4219H45.3125Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M53.125 90.2344V98.047H46.875V90.2344" fill="currentColor"/>
+</svg>

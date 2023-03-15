@@ -1,0 +1,73 @@
+---
+// components
+import { Icon } from "astro-icon";
+import Button from "@/components/buttons/Button";
+import Container from "@/components/Container";
+---
+
+<div class="relative overflow-hidden bg-red-500 py-16 md:py-24">
+    <Icon name="tracks/tire-tracks_05" class="absolute top-0 md:bottom-0 right-0 text-red-700/10 w-[300px] lg:w-[1000px]" />
+
+    <Container classes="relative z-10">
+        <div class="flex flex-col gap-10">
+            <div class="max-w-2xl space-y-4">
+                <h2 class="text-white">Let's Create Your Dream Truck</h2>
+                <p class="text-lg font-light text-stone-100">
+                    If you are ready to get started on designing and building the perfect truck for you, so are we. Tell us a little about your truck
+                    build and give us your email and phone number and we will reach out to you quickly.
+                </p>
+            </div>
+
+            <form class="flex flex-col gap-6">
+                <div class="flex flex-col gap-6 lg:flex-row">
+                    <div class="flex w-full flex-col gap-6">
+                        <div class="flex flex-col gap-1">
+                            <label for="name" class="text-lg text-white">Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                class="w-full rounded-sm border-0 p-3 text-sm font-light outline-0 focus:ring-4 focus:ring-red-400"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <label for="email" class="text-lg text-white">E-mail</label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                class="w-full rounded-sm border-0 p-3 text-sm font-light outline-0 focus:ring-4 focus:ring-red-400"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <label for="phone" class="text-lg text-white">Phone</label>
+                            <input
+                                type="tel"
+                                name="phone"
+                                id="phone"
+                                class="w-full rounded-sm border-0 p-3 text-sm font-light outline-0 focus:ring-4 focus:ring-red-400"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex w-full flex-col gap-4">
+                        <div class="flex h-full flex-col gap-1">
+                            <label for="message" class="text-lg text-white">Message</label>
+                            <textarea
+                                name="message"
+                                id="message"
+                                class="h-full w-full rounded-sm border-0 p-3 text-sm font-light outline-0 focus:ring-4 focus:ring-red-400">
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <Button text="Get Started!" theme="btn-secondary" classes="w-full sm:w-fit" type="submit" />
+            </form>
+        </div>
+    </Container>
+</div>

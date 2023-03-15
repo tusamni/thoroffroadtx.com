@@ -1,0 +1,20 @@
+body, html {
+    @apply text-stone-700
+}
+
+h1, h2, h3, h4 {
+    @apply font-serif text-stone-900 uppercase;
+}
+
+h1, .h1 {
+    @apply font-extrabold text-7xl md:text-9xl;
+}
+h2, .h2 {
+    @apply font-extrabold text-6xl md:text-7xl;
+}
+h3, .h3 {
+    @apply font-bold text-4xl md:text-5xl;
+}
+h4, .h4 {
+    @apply font-bold text-3xl md:text-4xl;
+}

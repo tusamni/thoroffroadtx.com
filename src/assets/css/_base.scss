@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "buttons";
+@import "fonts";
+@import "gallery";
+@import "typography";
+
+// alpine.js hide on load
+[x-cloak] {
+    display: none !important;
+}

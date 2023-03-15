@@ -1,0 +1,242 @@
+---
+// layouts
+import Layout from "@/layouts/Layout";
+
+// components
+import { Icon } from "astro-icon";
+import Button from "@/components/buttons/Button";
+import Container from "@/components/Container";
+import Gallery from "@/components/images/Gallery";
+import Link from "@/components/buttons/Link";
+import Photo from "@/components/images/Photo";
+
+// functions
+import { getPublicPath } from "@/functions/Media";
+
+// config
+import { imageConfig } from "@/src/config.mjs";
+
+// images
+const carli = {
+    logo: "images/brands/parts/color/carli-suspension.png",
+    recent: [
+        "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-lithium-grey/2021-ford-f-250-lithium-grey_007",
+        "vehicles/ford/f-350/2110-2021-ford-f-350-king-ranch-black/2021-ford-f-350-black_012",
+        "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_051",
+        "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_002",
+    ],
+};
+const jamey = {
+    portrait: "images/team/jamey/jamey-01.jpg",
+    signature: "images/team/jamey/signature.png",
+};
+const builds = [
+    "vehicles/ford/f-250/2204-2016-ford-f-250-white/2016-ford-f-250-white_015",
+    "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_005",
+    "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-lithium-grey/2021-ford-f-250-lithium-grey_004",
+    "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-antimatter-blue_019",
+    "vehicles/ford/bronco/2112-2021-ford-bronco-badlands-oxford-white/2021-ford-bronco-oxford-white_001",
+    "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-white_002",
+    "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-white_004",
+    "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_006",
+    "vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_002",
+    "vehicles/toyota/tacoma/2204-2021-toyota-tacoma-silver/2021-toyota-tacoma-silver_012",
+    "vehicles/ram/2500/2207-2022-ram-2500-limited-white/2022-ram-2500-white_004",
+    "vehicles/ram/2500/2109-2019-ram-2500-limited-white/2019-ram-2500-white_004",
+    "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_042",
+    "vehicles/lexus/gx460/2112-2018-lexus-gx460-silver/2018-lexus-gx460-silver_002",
+    "vehicles/ram/2500/2205-2006-ram-2500-red/2006-ram-2500-red_001",
+];
+
+// videos
+const roller = "videos/homepage/roller_v2.mp4";
+const action = `${imageConfig.cloudUrl}/videos/homepage/thor-in-action.mp4`;
+---
+
+<Layout>
+    <div class="mb-16 md:mb-24">
+        <div class="relative flex items-center justify-start py-24 md:py-36">
+            <!-- desktop video -->
+            <video autoplay muted loop class="absolute hidden h-full w-full object-cover md:block">
+                <source src={getPublicPath(roller)} type="video/mp4" />
+            </video>
+
+            <!-- mobile image -->
+            <div class="absolute h-full w-full md:hidden">
+                <Photo
+                    src="vehicles/ford/f-250/2203-1997-ford-f-250-red/1997-ford-f-250-red_001"
+                    class="object-cover h-full w-full object-left"
+                    loading="eager"
+                />
+            </div>
+
+            <!-- gradient -->
+            <div class="absolute h-full w-full bg-gradient-to-tr from-stone-900/90 via-stone-800/70 to-stone-700/20"></div>
+
+            <Container>
+                <div class="relative flex w-full flex-col gap-10">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-stone-100">Purpose-Built Vehicles</h1>
+                        <div class="max-w-xl text-lg text-stone-200 md:text-2xl">
+                            We are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers
+                            dream about.
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-4 sm:flex-row md:gap-6">
+                        <Button text="Get in Touch" href="/contact" theme="btn-secondary" classes="w-full sm:w-fit">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-auto w-4" viewBox="0 0 16 16">
+                                <path
+                                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z">
+                                </path>
+                            </svg>
+                        </Button>
+
+                        <div x-data="videoModal()">
+                            <Link href="#" text="Watch THOR in Action!" classes="text-white flex justify-center text-lg" x-on:click="open" />
+                            <!-- modal -->
+                            <!-- <div
+                                style="display: none"
+                                x-show="isOpen()"
+                                x-transition:enter="transition ease-in-out duration-300"
+                                x-transition:enter-start="opacity-0"
+                                x-transition:leave="transition ease-in-in duration-300"
+                                x-transition:leave-end="opacity-0"
+                                x-on:keydown.window.escape="close"
+                                class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+                                <video autoplay muted controls class="h-auto w-full max-w-[80%]" id="modalVideo" x-on:click.outside="close">
+                                    <source src={action} type="video/mp4" />
+                                </video>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </div>
+
+        <div class="space-y-16 md:space-y-40">
+            <!-- featured Carli section -->
+            <div class="bg-gradient-to-br from-blue-100 to-blue-300 py-16 md:py-24">
+                <Container classes="space-y-8">
+                    <div class="flex flex-row items-center justify-between gap-12">
+                        <div class="hidden lg:block">
+                            <img
+                                src={getPublicPath(carli.logo)}
+                                width="287"
+                                height="116"
+                                alt="Carli Logo"
+                                sizes="100vw"
+                                class="hidden w-[400px] lg:block"
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-4">
+                            <div class="text-4xl font-bold tracking-tighter text-cyan-900">Texas' Only Carli Stocking Dealer</div>
+                            <p class="text-lg text-cyan-800">
+                                As <i>the only Carli Suspension Stocking Dealer in Texas</i>, nobody carries more Carli parts or knows the performance
+                                suspension options for your vehicle better than THOR Off-Road.
+                            </p>
+                        </div>
+                    </div>
+
+                    <Gallery element="carli" containerClass="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4">
+                        {
+                            carli.recent.map((r) => (
+                                <Photo
+                                    src={r}
+                                    class="h-[250px] w-full rounded-sm object-cover shadow-2xl md:h-[400px]"
+                                    sizes="(min-width:640px) 25vw, 50vw"
+                                />
+                            ))
+                        }
+                    </Gallery>
+
+                    <div class="flex justify-center">
+                        <Link text="Get a Quote for Your Carli Install" href="/contact" classes="text-xl" />
+                    </div>
+                </Container>
+            </div>
+
+            <!-- Jamey quote -->
+            <div class="relative overflow-hidden">
+                <Icon name="tracks/tire-tracks_01" class="absolute bottom-0 right-0 text-stone-200/30 w-[500px]" />
+                <Icon name="tracks/tire-tracks_01" class="absolute top-0 left-0 text-stone-200/30 w-[500px] rotate-180" />
+
+                <Container classes="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+                    <img
+                        src={getPublicPath(jamey.portrait)}
+                        sizes="(min-width:1024px) 50vw, 100vw"
+                        alt="Jamey from THOR Off-Road"
+                        class="h-full w-full rounded-sm object-cover object-[65%] shadow-2xl"
+                    />
+
+                    <div class="space-y-16">
+                        <div class="space-y-8">
+                            <h2 class="h1 text-gray-900">The THOR Difference</h2>
+                            <p class="text-xl font-medium leading-8 tracking-wide text-gray-600 md:text-2xl md:leading-9">
+                                THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical
+                                expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.
+                                Come experience your own purpose-built vehicle.
+                            </p>
+                            <p class="text-extralight text-lg leading-8 text-gray-500">
+                                THOR is passionate about creating purpose-built vehicles for our customers, but we also thrive on building strong
+                                personal relationships that are based on competence and trust. We are experts in all things off-road and love to
+                                inspire and help our customers to build the truck or adventure vehicle that they have always wanted. We aren't
+                                satisfied until we hear our customers say, “Wow, I can't believe that's my truck!”
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col items-center space-y-2">
+                            <img src={getPublicPath(jamey.signature)} sizes="300px" alt="Jamey signature" class="w-52 sm:w-72" />
+                            <p class="font-medium text-gray-400">Owner, THOR Off-Road</p>
+                        </div>
+                    </div>
+                </Container>
+            </div>
+
+            <Container classes="space-y-12">
+                <div class="flex flex-col items-center justify-between md:flex-row">
+                    <h2 class="text-gray-900">Recent Builds</h2>
+                    <Link text="See More Photos" href="/gallery" classes="text-xl" />
+                </div>
+
+                <Gallery element="builds">
+                    {
+                        builds.map((b) => (
+                            <Photo
+                                src={b}
+                                class="h-full w-full rounded-sm object-cover align-bottom shadow-lg"
+                                sizes="(min-width:640px) 33vw, 100vw"
+                            />
+                        ))
+                    }
+                </Gallery>
+            </Container>
+        </div>
+    </div>
+</Layout>
+
+<script is:inline>
+    function videoModal() {
+        return {
+            show: false,
+
+            isOpen() {
+                return this.show;
+            },
+
+            open($event) {
+                this.show = true;
+            },
+
+            close() {
+                this.show = false;
+                // stop playing video on hide
+                const video = document.querySelector("#modalVideo");
+
+                video.pause();
+                video.currentTime = 0;
+            },
+        };
+    }
+</script>

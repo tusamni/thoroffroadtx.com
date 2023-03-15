@@ -1,0 +1,27 @@
+---
+// data
+import { business, social } from "@/src/config.mjs";
+
+export interface Props {
+    classes?: string;
+}
+const { classes } = Astro.props as Props;
+
+const mapsUrl = social.find((s) => s.title === "Google Maps");
+---
+
+<div class:list={[classes]}>
+    <a href={mapsUrl.url} title="Google Maps" target="_blank" class="inline-flex">
+        <address>
+            {business.address.street_01}
+            {business.address.street_02}<br />
+            {business.address.city}, {business.address.state}<br />
+            {business.address.zip}
+        </address>
+    </a>
+    <div>
+        <a href={`tel:${business.phone}`} title={`Call ${business.name_long}`}>{business.phone}</a><br />
+        <a href={`mailto:${business.email}`} title={`Contact ${business.name_long}`}>{business.email}</a>
+    </div>
+    <div>{business.hours}</div>
+</div>

@@ -1,0 +1,59 @@
+---
+// layouts
+import Layout from "@/layouts/Layout";
+
+// components
+import Container from "@/components/Container";
+import Gallery from "@/components/images/Gallery";
+import Photo from "@/components/images/Photo";
+import Hero from "@/components/Hero";
+
+// content
+import { getCollection } from "astro:content";
+
+// functions
+import { getPublicPath } from "@/functions/Media";
+
+export async function getStaticPaths() {
+    const allParts = await getCollection("parts");
+
+    return allParts.map((entry) => ({
+        params: { part: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+---
+
+<Layout title={entry.data.seoTitle} description={entry.data.seoDescription}>
+    <Hero image={entry.data.featured} title={entry.data.title} />
+
+    <Container classes="my-16 md:my-24 space-y-24 md:space-y-40">
+        <div class="space-y-12">
+            <div class="max-w-3xl space-y-8">
+                <h1 class="text-stone-800">{entry.data.heading}</h1>
+                <p class="text-xl leading-9 text-stone-600">{entry.data.descriptionLong}</p>
+            </div>
+            <div class="space-y-4">
+                <div class="relative flex w-fit items-center gap-10 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-white"></div>
+                    {entry.data.brands.map((b) => <img src={getPublicPath(`images/brands/parts/grayscale/brands_${b.logo}.png`)} alt={b.title} class="h-12 w-auto" />).slice(0, 5)}
+                </div>
+            </div>
+        </div>
+
+        {
+            entry.data.gallery && (
+                <div class="space-y-12">
+                    <h2 class="text-stone-700">Recent {entry.data.title} Work</h2>
+                    <Gallery element="recent">
+                        {entry.data.gallery.map((e) => (
+                            <Photo src={e} class="h-full w-full rounded-sm object-cover shadow-lg transition duration-200 hover:scale-[103%]" sizes="(min-width:768px) 25vw, 50vw" />
+                        ))}
+                    </Gallery>
+                </div>
+            )
+        }
+    </Container>
+</Layout>

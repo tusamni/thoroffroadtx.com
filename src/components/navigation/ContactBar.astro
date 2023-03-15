@@ -1,0 +1,40 @@
+---
+// components
+import { Icon } from "astro-icon";
+import Container from "@/components/Container";
+
+// data
+import { business, social } from "@/src/config.mjs";
+---
+
+<div class="hidden bg-red-500 text-white md:block">
+    <Container>
+        <div class="flex items-center justify-between py-4">
+            <!-- contact icons -->
+            <div class="flex justify-start gap-6 text-sm">
+                <!-- phone -->
+                <a href={`tel:${business.phone}`} title={`${business.name_long} Phone`} class="flex items-center gap-2 font-extralight">
+                    <Icon name="bi:telephone" class="w-4 h-auto" />
+                    <div class="hidden md:block">{business.phone}</div>
+                </a>
+
+                <!-- email -->
+                <a href="/contact" title={`${business.name_long} Contact`} class="flex items-center gap-2 font-extralight">
+                    <Icon name="bi:envelope" class="w-4 h-auto" />
+                    <div class="hidden md:block">{business.email}</div>
+                </a>
+            </div>
+
+            <!-- social icons -->
+            <div class="flex gap-6">
+                {
+                    social.map((social) => (
+                        <a href={social.url} target="_blank" title={`${business.name_long} ${social.title}`}>
+                            <Icon name={social.icon} class="h-auto w-4" />
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </Container>
+</div>

@@ -4,8 +4,13 @@ import buildImage from "../../assets/images/header03.jpg";
 ---
 
 <li>
-    <a href="/builds/build">
-        <img class="aspect-[3/2] w-full rounded-md object-cover" src={buildImage.src} alt="" />
+    <a href="/builds/build" class="group">
+        <div class="relative overflow-hidden rounded-md">
+            <div class="transition group-hover:opacity-100 opacity-0 absolute w-full h-full bg-gradient-to-br from-transparent via-transparent to-gray-300 z-10"></div>
+            <span aria-hidden="true" class="text-white text-2xl absolute bottom-5 right-5 opacity-0 group-hover:opacity-100 transition z-10">&rarr;</span>
+
+            <img class="aspect-[3/2] w-full rounded-md object-cover" src={buildImage.src} alt="" />
+        </div>
 
         <h3 class="mt-6 text-lg font-semibold leading-8 text-white">2015 Dodge 2500</h3>
         <p class="text-base leading-7 text-gray-500">Dripping Springs, TX</p>

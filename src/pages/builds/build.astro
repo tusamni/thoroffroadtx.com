@@ -8,6 +8,7 @@ import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import Section from "../../components/Section.astro";
 import Link from "../../components/buttons/Link.astro";
+import Star from "../../components/vectors/icons/Star.astro";
 import TireTracks01 from "../../components/vectors/tracks/TireTracks01.astro";
 
 // images
@@ -28,16 +29,8 @@ import build09 from "../../assets/images/builds/build09.jpg";
 
         <Section classes="relative">
             <Container classes="space-y-24">
-                <div class="mx-auto lg:mx-0">
-                    <h2 class="max-w-3xl mt-2 font-extrabold tracking-tighter text-white text-5xl">2015 Dodge RAM 2500</h2>
-                    <p class="max-w-2xl mt-6 text-lg leading-9 text-gray-400">John had always loved the thrill of adventure and the adrenaline rush that came with it. He loved going off-road and exploring new places, but his current vehicle wasn't cutting it.</p>
-                </div>
-
-                <div class="grid grid-cols-3 gap-8">
-                    <img src={build04.src} class="object-cover w-full h-full rounded-md object-[0%,50%] shadow-2xl" />
-                    <img src={build08.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
-                    <img src={build03.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
-                </div>
+                <h2 class="mx-auto max-w-3xl mt-2 font-extrabold tracking-tighter text-white text-7xl">2015 Dodge RAM 2500</h2>
+                <img src={build04.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
             </Container>
         </Section>
 
@@ -45,27 +38,55 @@ import build09 from "../../assets/images/builds/build09.jpg";
 
         <Section classes="relative z-10">
             <Container>
-                <div class="grid grid-cols-1 gap-y-20 gap-x-16 xl:grid-cols-4">
-                    <div class="space-y-6">
-                        <h2 class="text-xl font-medium text-white">Goals</h2>
-                        <div class="mt-4 text-md leading-7 text-gray-400 space-y-4">
-                            <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
-                            <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
-                        </div>
+                <div class="grid grid-cols-1 gap-y-20 gap-x-24 xl:grid-cols-4">
+                    <div class="">
+                        <div class="sticky top-48 space-y-6">
+                            <h2 class="text-2xl font-medium text-white">Goals</h2>
+                            <div class="mt-4 text-lg leading-8 text-gray-300 space-y-4">
+                                <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
+                                <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+                            </div>
 
-                        <h2 class="text-xl font-medium text-white">Parts List</h2>
-                        <ul role="list" class="text-md leading-7 text-gray-400 list-inside list-disc">
-                            <li>Only the best materials</li>
-                            <li>Ethically and locally made</li>
-                            <li>Pre-washed and pre-shrunk</li>
-                            <li>Machine wash cold with similar colors</li>
-                        </ul>
+                            <h2 class="text-2xl font-medium text-white">Parts List</h2>
+                            <ul role="list" class="text-md leading-7 text-gray-300 list-inside list-disc">
+                                <li>Only the best materials</li>
+                                <li>Ethically and locally made</li>
+                                <li>Pre-washed and pre-shrunk</li>
+                                <li>Machine wash cold with similar colors</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="col-span-3">
                         <div class="space-y-4">
-                            <p class="text-lg font-medium text-gray-400">Words from the Owner:</p>
-                            <blockquote class="italic text-3xl leading-relaxed text-white">"Building my off-road truck with Tom and his team at the auto shop was an incredible experience. Their expertise and attention to detail made all the difference. I couldn't be happier with the finished product and can't wait to see where it takes me on my next adventure."</blockquote>
+                            <div class="space-y-20">
+                                <div class="grid grid-cols-3 gap-8">
+                                    <img src={build07.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                    <img src={build08.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                    <img src={build09.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                </div>
+
+                                <div class="space-y-8">
+                                    <blockquote class="col-span-3 italic text-3xl leading-relaxed text-white">"Building my off-road truck with Tom and his team at the auto shop was an incredible experience. Their expertise and attention to detail made all the difference. I couldn't be happier with the finished product and can't wait to see where it takes me on my next adventure."</blockquote>
+
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center">
+                                            <Star classes="w-7 text-yellow-400" />
+                                            <Star classes="w-7 text-yellow-400" />
+                                            <Star classes="w-7 text-yellow-400" />
+                                            <Star classes="w-7 text-yellow-400" />
+                                            <Star classes="w-7 text-yellow-400" />
+                                        </div>
+                                        <p class="text-white font-semibold text-2xl">Nick H.</p>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-3 gap-8">
+                                    <img src={build04.src} class="object-cover w-full h-full rounded-md object-[0%,50%] shadow-2xl" />
+                                    <img src={build08.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                    <img src={build03.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

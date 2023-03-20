@@ -11,3 +11,8 @@
         font-family: 'Inter var', sans-serif;
     }
 }
+
+// alpine.js hide on load
+[x-cloak] {
+    display: none !important;
+}

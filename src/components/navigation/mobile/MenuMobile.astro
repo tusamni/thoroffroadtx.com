@@ -1,36 +1,85 @@
-<!-- Mobile menu, show/hide based on menu open state. -->
-<div class="lg:hidden" role="dialog" aria-modal="true">
-    <!-- Background backdrop, show/hide based on slide-over state. -->
-    <div class="fixed inset-0 z-10"></div>
+---
+// content
+import { getCollection } from "astro:content";
 
-    <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-        <div class="flex items-center gap-x-6">
-            <a href="#" class="-m-1.5 p-1.5">
+// get parts data
+const allParts = await getCollection("parts");
+const allVehicles = await getCollection("vehicles");
+
+// images
+import logo from "../../../assets/images/logo-black.png";
+---
+
+<div class="lg:hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 z-10 bg-gray-900/90" x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0"></div>
+    <div
+        class="fixed inset-y-0 right-0 z-20 w-full overflow-y-auto bg-white px-6 py-8 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+        x-cloak
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0"
+        x-show="mobileMenu">
+        <div class="flex items-center justify-between">
+            <a href="/">
                 <span class="sr-only">Your Company</span>
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                <img src={logo.src} class="h-12 w-auto" alt="" />
             </a>
 
-            <a href="#" class="ml-auto rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</a>
-
-            <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+            <button type="button" class="rounded-md text-gray-700 cursor-pointer" x-on:click={`mobileMenu = false`}>
                 <span class="sr-only">Close menu</span>
-
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
-        <div class="mt-6 flow-root">
-            <div class="-my-6 divide-y divide-gray-500/10">
-                <div class="space-y-2 py-6">
-                    <a href="#" class="-mx-3 block rounded-md py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
-                    <a href="#" class="-mx-3 block rounded-md py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-                    <a href="#" class="-mx-3 block rounded-md py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-                    <a href="#" class="-mx-3 block rounded-md py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
-                </div>
 
-                <div class="py-6">
-                    <a href="#" class="-mx-3 block rounded-md py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+        <div class="flow-root">
+            <div class="divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                    <div class="-mx-3" x-data={`{ expandVehicles : false }`}>
+                        <button x-on:click={`expandVehicles = !expandVehicles`} type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50" aria-controls="disclosure-1" aria-expanded="false">
+                            Vehicles
+                            <svg class="h-5 w-5 flex-none transition" x-bind:class={`expandVehicles ? 'rotate-180' : ''`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <!-- 'Product' sub-menu, show/hide based on menu state. --->
+                        <div class="mt-2 space-y-2 transition" id="disclosure-1" x-show={`expandVehicles`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
+                            {
+                                allVehicles.map((m) => (
+                                    <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                        {m.data.title}
+                                    </a>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <div class="-mx-3" x-data={`{ expandParts : false }`}>
+                        <button x-on:click={`expandParts = !expandParts`} type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50" aria-controls="disclosure-2" aria-expanded="false">
+                            Parts
+                            <svg class="h-5 w-5 flex-none transition" x-bind:class={`expandParts ? 'rotate-180' : ''`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <!-- 'Product' sub-menu, show/hide based on menu state. --->
+                        <div class="mt-2 space-y-2 transition" id="disclosure-2" x-show={`expandParts`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
+                            {
+                                allParts.map((p) => (
+                                    <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                        {p.data.title}
+                                    </a>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <a href="/builds" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Builds</a>
+                </div>
+                <div class="py-6 flex justify-between">
+                    <a href="#" class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact Us</a>
+                    <a href="#" class="-mx-3 block rounded-lg py-2.5 px-3 text-sm sm:text-base leading-7 text-gray-900 hover:bg-gray-50">(512) 894-2790</a>
                 </div>
             </div>
         </div>

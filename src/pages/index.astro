@@ -28,6 +28,7 @@ import blackrhino from "../assets/images/brands/black-rhino.png";
 import bajadesigns from "../assets/images/brands/baja-designs.png";
 
 import jamey from "../assets/images/jamey.jpg";
+import headshot from "../assets/images/jamey02.jpg";
 
 import post from "../assets/images/post.jpg";
 
@@ -47,23 +48,23 @@ const review = [
 
 <Layout>
     <!-- header images -->
-    <div class="grid grid-cols-4 grid-rows-1 h-[450px]">
-        <div class="units">
-            <img src={header01.src} class="object-cover w-full h-full" />
-            <img src={header01.src} class="object-cover w-full h-full" />
+    <div class="grid grid-cols-2 lg:grid-cols-4 grid-rows-2 lg:grid-rows-1 h-[400px] md:h-[600px] lg:h-[500px]">
+        <div class="units order-1">
+            <img src={header01.src} class="object-cover w-full h-full object-[50%,80%] lg:object-center" />
+            <img src={header01.src} class="object-cover w-full h-full object-[50%,80%] lg:object-center hidden lg:block" />
         </div>
 
-        <div class="units">
-            <img src={header02.src} class="object-cover w-full h-full object-left-bottom" />
-            <img src={header02.src} class="object-cover w-full h-full object-left-bottom" />
+        <div class="units order-2">
+            <img src={header02.src} class="object-cover w-full h-full object-left-bottom lg:object-center" />
+            <img src={header02.src} class="object-cover w-full h-full object-left-bottom lg:object-center hidden lg:block" />
         </div>
-        <div class="units">
-            <img src={header03.src} class="object-cover w-full h-full object-left-bottom" />
-            <img src={header03.src} class="object-cover w-full h-full object-left-bottom" />
+        <div class="units order-4 lg:order-3">
+            <img src={header03.src} class="object-cover w-full h-full object-left lg:object-left-bottom" />
+            <img src={header03.src} class="object-cover w-full h-full object-left lg:object-left-bottom" />
         </div>
-        <div class="units">
-            <img src={header04.src} class="object-cover w-full h-full object-top" />
-            <img src={header04.src} class="object-cover w-full h-full object-top" />
+        <div class="units order-3 lg:order-4">
+            <img src={header04.src} class="object-cover w-full h-full object-top sm:object-[50%,20%] lg:object-center" />
+            <img src={header04.src} class="object-cover w-full h-full object-top lg:object-center" />
         </div>
     </div>
 
@@ -71,20 +72,22 @@ const review = [
         <!-- brands -->
         <Section classes="relative z-10">
             <Container>
-                <div class="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
-                    <div class="mx-auto w-full max-w-xl lg:mx-0">
-                        <h2 class="text-5xl font-bold tracking-tight text-white">THOR Off-Road partners with the best brands.</h2>
-                        <p class="mt-6 text-lg leading-8 text-gray-300">We've built partnerships with the best brand , nobody carries more Carli parts or knows the performance suspension options for your vehicle better than THOR Off-Road.</p>
-                        <div class="mt-8 flex items-center gap-x-6">
-                            <Button text="Build Your Dream Truck" theme="primary" />
+                <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+                    <div class="mx-auto max-w-xl lg:mx-0 space-y-8">
+                        <h1>THOR Off-Road partners with the best brands.</h1>
+                        <p class="text-lg leading-8 text-gray-300">We've built partnerships with the best brands, nobody carries more Carli parts or knows the performance suspension options for your vehicle better than THOR Off-Road.</p>
 
+                        <div class="flex flex-col gap-4 sm:flex-row items-center gap-x-6">
+                            <Button text="Build Your Dream Truck" theme="primary" />
                             <Link text="See Our Work" />
                         </div>
                     </div>
-                    <div class="mx-auto grid w-full max-w-xl grid-cols-3 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
-                        <img src={bds.src} class="max-h-12 w-full object-contain object-center" />
-                        <img src={method.src} class="max-h-8 w-full object-contain object-center" />
-                        <img src={carli.src} class="max-h-16 w-full object-contain object-center" />
+
+                    <!-- brand logos -->
+                    <div class="mx-auto grid max-w-xl items-center grid-cols-3 gap-12 lg:gap-8 lg:mx-0 lg:max-w-none">
+                        <img src={bds.src} class="max-h-12 w-full object-contain" />
+                        <img src={method.src} class="max-h-8 w-full object-contain" />
+                        <img src={carli.src} class="max-h-16 w-full object-contain" />
                         <img src={add.src} class="max-h-12 w-full object-contain object-center" />
                         <img src={retrax.src} class="max-h-10 w-full object-contain object-center" />
                         <img src={raceline.src} class="max-h-8 w-full object-contain object-center" />
@@ -103,14 +106,14 @@ const review = [
             <TireTracks01 classes="absolute bottom-0 right-0 w-[800px] text-gray-700/40" />
 
             <Container classes="relative">
-                <div class="grid grid-cols-1 items-start gap-y-16 gap-x-24 sm:gap-y-24 lg:grid-cols-2">
-                    <div class="relative h-full w-full">
-                        <img src={jamey.src} class="absolute h-full w-full object-cover object-[50%,30%] shadow-2xl" alt="" />
+                <div class="grid grid-cols-1 items-start gap-12 md:grid-cols-2">
+                    <div class="hidden md:block md:relative h-full w-full">
+                        <img src={jamey.src} class="md:absolute h-full w-full object-cover md:object-[60%,10%] lg:object-[50%,30%] shadow-2xl rounded-md" alt="" />
                     </div>
 
-                    <div class="py-24">
-                        <div class="text-base leading-7 text-gray-700">
-                            <h1 class="text-5xl font-bold tracking-tight text-white mt-6 lg:max-w-lg">The THOR Off-Road Difference.</h1>
+                    <div>
+                        <div class="text-base leading-7 text-gray-700 md:py-16 lg:py-32">
+                            <h2 class="lg:max-w-lg">The THOR Off-Road Difference.</h2>
                             <div class="text-lg leading-8 text-gray-300">
                                 <p class="mt-8 text-xl leading-9">THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams. Come experience your own purpose-built vehicle.</p>
                                 <p class="mt-8 text-gray-400">
@@ -118,33 +121,16 @@ const review = [
                                     our customers say,
                                     <em>“Wow, I can't believe that's my truck!”</em>
                                 </p>
-                                <div class="mt-12 flex flex-col gap-2">
-                                    <p class="font-cursive mt-12 text-4xl">Jamey Whitlock</p>
-                                    <p class="text-gray-400">Owner, THOR Off-Road</p>
+                                <div class="mt-16 flex flex-col gap-4">
+                                    <img src={headshot.src} class="md:hidden rounded-full w-16 h-auto border border-gray-600" />
+
+                                    <div class="flex flex-col gap-2">
+                                        <p class="font-cursive text-4xl">Jamey Whitlock</p>
+                                        <p class="text-gray-400">Owner, THOR Off-Road</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <dl class="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
-                            <div>
-                                <dt class="text-sm font-semibold leading-6 text-gray-600">Founded</dt>
-                                <dd class="mt-2 text-3xl font-bold leading-10 tracking-tight text-white">2021</dd>
-                            </div>
-
-                            <div>
-                                <dt class="text-sm font-semibold leading-6 text-gray-600">Employees</dt>
-                                <dd class="mt-2 text-3xl font-bold leading-10 tracking-tight text-white">37</dd>
-                            </div>
-
-                            <div>
-                                <dt class="text-sm font-semibold leading-6 text-gray-600">Countries</dt>
-                                <dd class="mt-2 text-3xl font-bold leading-10 tracking-tight text-white">12</dd>
-                            </div>
-
-                            <div>
-                                <dt class="text-sm font-semibold leading-6 text-gray-600">Raised</dt>
-                                <dd class="mt-2 text-3xl font-bold leading-10 tracking-tight text-white">$25M</dd>
-                            </div>
-                        </dl>
                     </div>
                 </div>
             </Container>
@@ -157,7 +143,7 @@ const review = [
             <Container>
                 <div class="mx-auto max-w-xl text-center">
                     <h2 class="text-lg font-semibold leading-8 tracking-tight text-orange-200">Testimonials</h2>
-                    <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">We're building our customer's dream vehicles.</p>
+                    <h2 class="mt-2">We're building our customer's dream vehicles.</h2>
                 </div>
 
                 <div class="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">

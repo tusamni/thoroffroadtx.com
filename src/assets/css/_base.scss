@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "typography";
+
 :root {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
     :root {
-        font-family: 'Inter var', sans-serif;
+        font-family: "Inter var", sans-serif;
     }
 }
 

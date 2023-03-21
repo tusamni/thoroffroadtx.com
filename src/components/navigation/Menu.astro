@@ -2,8 +2,9 @@
 // components
 import Button from "../buttons/Button.astro";
 import Container from "../Container.astro";
-import MenuVehicles from "./desktop/MenuVehicles.astro";
+import MenuMobile from "./mobile/MenuMobile.astro";
 import MenuParts from "./desktop/MenuParts.astro";
+import MenuVehicles from "./desktop/MenuVehicles.astro";
 
 // images
 import logo from "../../assets/images/logo-white.png";
@@ -12,7 +13,7 @@ import logo from "../../assets/images/logo-white.png";
 <header class="bg-red-600 relative">
     <Container>
         <nav class="flex items-center h-24 justify-between gap-x-6" aria-label="Global">
-            <div class="flex lg:flex-1 lg:gap-x-12">
+            <div class="flex lg:gap-x-6">
                 <a href="/">
                     <span class="sr-only">Your Company</span>
                     <img src={logo.src} class="h-12 w-auto" alt="" />
@@ -30,17 +31,17 @@ import logo from "../../assets/images/logo-white.png";
                 <Button text="Contact Us" theme="secondary" />
             </div>
 
-            <div class="flex lg:hidden">
-                <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+            <div class="flex lg:hidden" x-data={`{ mobileMenu : false }`}>
+                <button type="button" class="inline-flex items-center justify-center rounded-md text-gray-700 cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
 
-                    <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <svg class="h-8 w-8 text-white cursor-pointer" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
                     </svg>
                 </button>
+
+                <MenuMobile />
             </div>
         </nav>
     </Container>
-
-    <!-- mobile menu here -->
 </header>

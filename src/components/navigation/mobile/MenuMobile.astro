@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 // get parts data
 const allParts = await getCollection("parts");
 const allVehicles = await getCollection("vehicles");
+const allModels = await getCollection("models");
 
 // images
 import logo from "../../../assets/images/logo-black.png";
@@ -40,7 +41,7 @@ import logo from "../../../assets/images/logo-black.png";
             <div class="divide-y divide-gray-500/10">
                 <div class="space-y-2 py-6">
                     <div class="-mx-3" x-data={`{ expandVehicles : false }`}>
-                        <button x-on:click={`expandVehicles = !expandVehicles`} type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50" aria-controls="disclosure-1" aria-expanded="false">
+                        <button x-on:click={`expandVehicles = !expandVehicles`} type="button" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandVehicles ? 'bg-gradient-to-l from-gray-50 to-gray-200' : 'hover:bg-gray-50'`} aria-controls="disclosure-1" aria-expanded="false">
                             Vehicles
                             <svg class="h-5 w-5 flex-none transition" x-bind:class={`expandVehicles ? 'rotate-180' : ''`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
@@ -49,16 +50,24 @@ import logo from "../../../assets/images/logo-black.png";
                         <!-- 'Product' sub-menu, show/hide based on menu state. --->
                         <div class="mt-2 space-y-2 transition" id="disclosure-1" x-show={`expandVehicles`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
                             {
-                                allVehicles.map((m) => (
-                                    <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                                        {m.data.title}
+                                allVehicles.map((v) => (
+                                    <a href="#" class="block rounded-md py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-100">
+                                        {v.data.title}
+                                        <ul class="comma-list line-clamp-1 text-xs font-light text-stone-500">
+                                            {allModels.map((m) => {
+                                                if (m.slug.includes(v.slug)) {
+                                                    return <li>{m.data.title}</li>;
+                                                }
+                                            })}
+                                        </ul>
                                     </a>
                                 ))
                             }
                         </div>
                     </div>
+
                     <div class="-mx-3" x-data={`{ expandParts : false }`}>
-                        <button x-on:click={`expandParts = !expandParts`} type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50" aria-controls="disclosure-2" aria-expanded="false">
+                        <button x-on:click={`expandParts = !expandParts`} type="button" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandParts ? 'bg-gradient-to-l from-gray-50 to-gray-200' : 'hover:bg-gray-50'`} aria-controls="disclosure-2" aria-expanded="false">
                             Parts
                             <svg class="h-5 w-5 flex-none transition" x-bind:class={`expandParts ? 'rotate-180' : ''`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
@@ -68,20 +77,39 @@ import logo from "../../../assets/images/logo-black.png";
                         <div class="mt-2 space-y-2 transition" id="disclosure-2" x-show={`expandParts`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
                             {
                                 allParts.map((p) => (
-                                    <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                    <a href="#" class="block rounded-md py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-100">
                                         {p.data.title}
+                                        <ul class="comma-list line-clamp-1 text-xs font-light text-stone-500">
+                                            {p.data.brands.map((b) => (
+                                                <li>{b.title}</li>
+                                            ))}
+                                        </ul>
                                     </a>
                                 ))
                             }
                         </div>
                     </div>
-                    <a href="/builds" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Builds</a>
+                    <a href="#" class="-mx-3 flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50">Builds</a>
                 </div>
+
                 <div class="py-6 flex justify-between">
-                    <a href="#" class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact Us</a>
-                    <a href="#" class="-mx-3 block rounded-lg py-2.5 px-3 text-sm sm:text-base leading-7 text-gray-900 hover:bg-gray-50">(512) 894-2790</a>
+                    <a href="#" class="-mx-3 block rounded-md py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact Us</a>
+                    <a href="#" class="-mx-3 block rounded-md py-2.5 px-3 text-sm sm:text-base leading-7 text-gray-900 hover:bg-gray-50">(512) 894-2790</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .comma-list li {
+        @apply inline;
+    }
+    .comma-list li::after {
+        content: ", ";
+    }
+
+    .comma-list li:last-child::after {
+        content: "";
+    }
+</style>

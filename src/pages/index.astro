@@ -12,6 +12,9 @@ import PostSnippet from "../components/posts/PostSnippet.astro";
 import Testimonial from "../components/Testimonial.astro";
 import TireTracks01 from "../components/vectors/tracks/TireTracks01.astro";
 
+// functions
+import { isPortrait } from "../functions/Image.js";
+
 // images
 import header01 from "../assets/images/header01.jpg";
 import header02 from "../assets/images/header02.jpg";
@@ -160,18 +163,20 @@ const review = [
         <!-- recent builds -->
         <Section>
             <Container>
-                <div class="columns-2 lg:columns-3 space-y-4">
-                    <Image src={header01.src} width={header01.width} height={header01.height} class="rounded-md shadow-2xl aspect-square object-cover" alt="THOR Off-Road" />
-                    <Image src={header02.src} width={header02.width} height={header02.height} class="rounded-md shadow-2xl aspect-square object-cover" alt="THOR Off-Road" />
-                    <Image src={header03.src} width={header03.width} height={header03.height} class="rounded-md shadow-2xl aspect-square object-cover" alt="THOR Off-Road" />
-                    <Image src={header04.src} width={header04.width} height={header04.height} class="rounded-md shadow-2xl aspect-square object-cover" alt="THOR Off-Road" />
-                    <Image src={header01.src} width={header01.width} height={header01.height} class="rounded-md shadow-2xl aspect-square object-cover" alt="THOR Off-Road" />
-                    <Image src={header02.src} width={header02.width} height={header02.height} class="rounded-md shadow-2xl aspect-square object-cover" alt="THOR Off-Road" />
-                    <Image src={header03.src} width={header03.width} height={header03.height} class="rounded-md shadow-2xl aspect-square object-cover" alt="THOR Off-Road" />
-                    <Image src={header04.src} width={header04.width} height={header04.height} class="rounded-md shadow-2xl aspect-square object-cover" alt="THOR Off-Road" />
+                <div class="columns-1 sm:columns-2 md:columns-3 space-y-4">
+                    <Image src={header01.src} width={header01.width} height={header01.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header01)]} alt="THOR Off-Road" />
+                    <Image src={header02.src} width={header02.width} height={header02.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header02)]} alt="THOR Off-Road" />
+                    <Image src={header03.src} width={header03.width} height={header03.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header03)]} alt="THOR Off-Road" />
+                    <Image src={header04.src} width={header04.width} height={header04.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header04)]} alt="THOR Off-Road" />
+                    <Image src={header01.src} width={header01.width} height={header01.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header01)]} alt="THOR Off-Road" />
+                    <Image src={header02.src} width={header02.width} height={header02.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header02)]} alt="THOR Off-Road" />
+                    <Image src={header03.src} width={header03.width} height={header03.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header03)]} alt="THOR Off-Road" />
+                    <Image src={header04.src} width={header04.width} height={header04.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header04)]} alt="THOR Off-Road" />
                 </div>
             </Container>
         </Section>
+
+        <Break />
 
         <!-- recent posts -->
         <Section>

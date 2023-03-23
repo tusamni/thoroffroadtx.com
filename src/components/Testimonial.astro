@@ -7,7 +7,7 @@ import image from "../assets/images/testimonial.jpg";
 <div class="inline-block mb-8">
     <figure class="rounded-md bg-gradient-to-br from-gray-300 via-gray-300 to-gray-50 border border-gray-500 p-8">
         <div class="col-span-3 md:col-span-2 space-y-6">
-            <h6 class="text-gray-800 line-clamp-1">These guys did an amazing job of taking care of me&hellip;</h6>
+            <h6 class="text-gray-800 line-clamp-1" set:html={review} />
 
             <blockquote class="text-gray-800 space-y-4 text-sm leading-6" set:html={review} />
 

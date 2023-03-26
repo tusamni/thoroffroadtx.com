@@ -1,10 +1,6 @@
----
-const { text } = Astro.props;
----
-
 <div>
     <a href="#" class="group text-md font-semibold text-white">
-        {text}
+        <slot />
         <span aria-hidden="true" class="ml-0 group-hover:ml-1 transition-all">&rarr;</span>
     </a>
 </div>

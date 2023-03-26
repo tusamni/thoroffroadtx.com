@@ -4,6 +4,8 @@ import Button from "./buttons/Button.astro";
 import Container from "./Container.astro";
 import Section from "./Section.astro";
 import Map from "./vectors/icons/Map.astro";
+import Phone from "./vectors/icons/Phone.astro";
+import Envelope from "./vectors/icons/Envelope.astro";
 
 // images
 import truck from "../assets/images/header01.jpg";
@@ -54,31 +56,52 @@ import image from "../assets/images/header02.jpg";
                     </div>
                 </div>
 
-                <div class="col-span-2 flex flex-col">
-                    <div class="relative flex justify-between mb-8">
+                <div class="col-span-2 flex flex-col space-y-8">
+                    <div class="relative flex justify-between">
                         <div class="ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
-                            <div class="flex gap-4">
-                                <Map classes="w-8 text-white" />
-                                <div>
+                            <div class="space-y-2">
+                                <div class="flex gap-2">
+                                    <Map classes="h-5 w-5 text-white" />
                                     <p class="text-white font-semibold">Location</p>
-                                    <p class="text-gray-200">3996 US-290 Building B, Dripping Springs, TX 78620</p>
                                 </div>
+
+                                <p class="text-gray-200">3996 US-290 Building B, Dripping Springs, TX 78620</p>
                             </div>
                         </div>
 
-                        <div class="p-6 rounded-md ring-1 ring-inset ring-white/10 bg-white/5 space-y-2">
-                            <p class="text-white font-semibold">Phone</p>
-                            <p class="text-gray-200">(512) 894-2790</p>
+                        <div class="ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
+                            <div class="space-y-2">
+                                <div class="flex gap-2">
+                                    <Phone classes="h-5 w-5 text-white" />
+                                    <p class="text-white font-semibold">Phone</p>
+                                </div>
+
+                                <p class="text-gray-200">(512) 894-2790</p>
+                            </div>
                         </div>
 
-                        <div class="p-6 rounded-md ring-1 ring-inset ring-white/10 bg-white/5 space-y-2">
-                            <p class="text-white font-semibold">E-mail</p>
-                            <p class="text-gray-200">sales@thoroffroadtx.com</p>
+                        <div class="ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
+                            <div class="space-y-2">
+                                <div class="flex gap-2">
+                                    <Envelope classes="h-5 w-5 text-white" />
+                                    <p class="text-white font-semibold">Envelope</p>
+                                </div>
+
+                                <p class="text-gray-200">sales@thoroffroadtx.com</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="relative w-full h-full">
                         <img src={truck.src} class="absolute object-cover w-full h-full object-[50%,80%] rounded-md shadow-xl" />
+                    </div>
+
+                    <div class="ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold text-lg">2020 Ford F-250 Super-Duty</p>
+                        </div>
+
+                        <p class="text-gray-200">"Thor recently installed a lift/level kit on my 2020 Jeep Gladiator. The work was top notch, done on time as promised, and at a reasonable price. Am very pleased and already working with them to perform upgrade suspension work on another 4x4!"</p>
                     </div>
                 </div>
             </div>

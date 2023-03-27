@@ -19,13 +19,13 @@ const vehicles = ["Chevrolet", "Ford", "GMC", "Jeep", "Lexus", "RAM", "Toyota", 
 const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specialties", "Suspension", "Wheel & Tire"];
 ---
 
-<footer class="bg-gray-900 hidden lg:block">
+<footer class="bg-gray-900">
     <Container>
         <h2 class="sr-only">Footer</h2>
 
         <Section classes="space-y-12">
-            <div class="grid grid-cols-3 gap-24">
-                <div class="space-y-12">
+            <div class="grid grid-cols-2 xl:grid-cols-3 gap-24">
+                <div class="space-y-12 order-1 col-span-2 md:col-span-1">
                     <img src={logo.src} class="h-14" />
 
                     <p class="text-md leading-7 text-gray-300">Located in Dripping Springs, Texas, THOR Off-Road are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
@@ -46,7 +46,7 @@ const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specia
                     </div>
                 </div>
 
-                <div class="grid grid-cols-3 gap-6">
+                <div class="grid xl:col-span-1 grid-cols-3 gap-6 order-3 xl:order-2 col-span-2">
                     <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
                     <img src={header02.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
                     <img src={header03.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
@@ -55,8 +55,8 @@ const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specia
                     <img src={header02.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
                 </div>
 
-                <div>
-                    <div class="grid grid-cols-3">
+                <div class="order-2 xl:order-3 col-span-2 md:col-span-1">
+                    <div class="grid grid-cols-3 gap-2">
                         <div>
                             <h6>Vehicles</h6>
                             <ul role="list" class="mt-6 space-y-3">
@@ -107,9 +107,9 @@ const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specia
 
             <Break />
 
-            <div class="grid grid-cols-2 justify-between">
+            <div class="grid gap-y-2 md:grid-cols-2 md:justify-between">
                 <p class="text-sm leading-5 text-gray-400">&copy; THOR Off-Road. All rights reserved.</p>
-                <p class="text-sm leading-5 text-gray-400 justify-self-end">3996 US-290 Building B, Dripping Springs, TX 78620</p>
+                <p class="text-sm leading-5 text-gray-400 md:justify-self-end">3996 US-290 Building B, Dripping Springs, TX 78620</p>
             </div>
         </Section>
     </Container>

@@ -18,8 +18,8 @@ import image from "../assets/images/header02.jpg";
 
     <Container classes="relative z-10">
         <Section classes="space-y-12">
-            <div class="grid grid-cols-3 gap-16">
-                <div class="space-y-12 bg-gradient-to-br from-gray-300/90 via-gray-300/90 to-gray-50/90 border border-gray-500 p-8 rounded-md">
+            <div class="grid lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-2 space-y-12 bg-gradient-to-br from-gray-300/90 via-gray-300/90 to-gray-50/90 border border-gray-500 p-8 rounded-md">
                     <div class="space-y-4">
                         <p class="text-gray-600 tracking-tight text-xl">Ready?</p>
                         <h2 class="text-gray-800">Let's start building your dream vehicle.</h2>
@@ -56,20 +56,18 @@ import image from "../assets/images/header02.jpg";
                     </div>
                 </div>
 
-                <div class="col-span-2 flex flex-col space-y-8">
-                    <div class="relative flex justify-between">
-                        <div class="ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
-                            <div class="space-y-2">
-                                <div class="flex gap-2">
-                                    <Map classes="h-5 w-5 text-white" />
-                                    <p class="text-white font-semibold">Location</p>
-                                </div>
+                <div class="lg:col-span-3 flex flex-col space-y-8">
+                    <div class="relative flex flex-col xl:flex-row gap-8 file:justify-between">
+                        <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
+                            <Map classes="h-5 w-5 flex-none text-blue-500" />
 
-                                <p class="text-gray-200">3996 US-290 Building B, Dripping Springs, TX 78620</p>
+                            <div class="text-base leading-7">
+                                <h6>Visit Us</h6>
+                                <p class="mt-2 text-gray-300">3996 US-290 Building B, Dripping Springs, TX 78620</p>
                             </div>
                         </div>
 
-                        <div class="ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
+                        <!-- <div class="flex-none ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
                             <div class="space-y-2">
                                 <div class="flex gap-2">
                                     <Phone classes="h-5 w-5 text-white" />
@@ -78,7 +76,7 @@ import image from "../assets/images/header02.jpg";
 
                                 <p class="text-gray-200">(512) 894-2790</p>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
                             <div class="space-y-2">
@@ -92,11 +90,11 @@ import image from "../assets/images/header02.jpg";
                         </div>
                     </div>
 
-                    <div class="relative w-full h-full">
+                    <div class="hidden lg:block relative w-full h-full">
                         <img src={truck.src} class="absolute object-cover w-full h-full object-[50%,80%] rounded-md shadow-xl" />
                     </div>
 
-                    <div class="ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
+                    <div class="hidden lg:block ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
                         <div class="space-y-2">
                             <p class="text-white font-semibold text-lg">2020 Ford F-250 Super-Duty</p>
                         </div>

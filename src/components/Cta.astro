@@ -7,6 +7,9 @@ import Map from "./vectors/icons/Map.astro";
 import Phone from "./vectors/icons/Phone.astro";
 import Envelope from "./vectors/icons/Envelope.astro";
 
+// config
+import { Business } from "../config.js";
+
 // images
 import truck from "../assets/images/header01.jpg";
 import image from "../assets/images/header02.jpg";
@@ -15,7 +18,7 @@ import image from "../assets/images/header02.jpg";
 <div class="relative">
     <img src={image.src} class="object-cover w-full h-full absolute" />
     <div class="w-full h-full bg-gradient-to-tr from-gray-900/90 via-gray-900/90 to-gray-500/90 absolute backdrop-blur-sm"></div>
-
+    e
     <Container classes="relative z-10">
         <Section classes="space-y-12">
             <div class="grid lg:grid-cols-5 gap-8">
@@ -46,7 +49,7 @@ import image from "../assets/images/header02.jpg";
                             </div>
                             <div class="space-y-2">
                                 <label for="message" class="block font-semibold leading-6 text-gray-800">Message</label>
-                                <textarea name="message" id="message" rows="4" class="block w-full rounded-md border-0 py-2 px-3.5 text-gray-600 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6"></textarea>
+                                <textarea name="message" id="mssage" rows="4" class="block w-full rounded-md border-0 py-2 px-3.5 text-gray-600 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6"></textarea>
                             </div>
 
                             <div class="flex justify-end">
@@ -59,29 +62,29 @@ import image from "../assets/images/header02.jpg";
                 <div class="lg:col-span-3 flex flex-col space-y-8">
                     <div class="relative flex flex-col xl:flex-row gap-8 file:justify-between">
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
-                            <Map classes="h-5 w-5 flex-none text-blue-500" />
+                            <Map classes="h-5 w-5 flex-none text-white" />
 
                             <div class="text-base leading-7">
                                 <h6>Visit Us</h6>
-                                <p class="mt-2 text-gray-300 text-sm">3996 US-290 Building B, Dripping Springs, TX 78620</p>
+                                <p class="mt-2 text-gray-300 text-sm">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</p>
                             </div>
                         </div>
 
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
-                            <Phone classes="h-5 w-5 flex-none text-blue-500" />
+                            <Phone classes="h-5 w-5 flex-none text-white" />
 
                             <div class="text-base leading-7">
                                 <h6>Call Us</h6>
-                                <p class="mt-2 text-gray-300 text-sm">Reach out to us at (512) 894-2790</p>
+                                <p class="mt-2 text-gray-300 text-sm">Reach out to us at <a class="underline" href={`tel:${Business.phone}`}>{Business.phone}</a></p>
                             </div>
                         </div>
 
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
-                            <Envelope classes="h-5 w-5 flex-none text-blue-500" />
+                            <Envelope classes="h-5 w-5 flex-none text-white" />
 
                             <div class="text-base leading-7">
                                 <h6>Email Us</h6>
-                                <p class="mt-2 text-gray-300 text-sm">Shoot us an email anytime, sales@thoroffroadtx.com</p>
+                                <p class="mt-2 text-gray-300 text-sm">Shoot us an email anytime, <a class="underline" href={`mailto:${Business.email}`}>{Business.email}</a></p>
                             </div>
                         </div>
                     </div>
@@ -95,7 +98,7 @@ import image from "../assets/images/header02.jpg";
                             <p class="text-white font-semibold text-lg">2020 Ford F-250 Super-Duty</p>
                         </div>
 
-                        <p class="text-gray-200">"Thor recently installed a lift/level kit on my 2020 Jeep Gladiator. The work was top notch, done on time as promised, and at a reasonable price. Am very pleased and already working with them to perform upgrade suspension work on another 4x4!"</p>
+                        <p class="text-gray-200 font-light">"Thor recently installed a lift/level kit on my 2020 Jeep Gladiator. The work was top notch, done on time as promised, and at a reasonable price. Am very pleased and already working with them to perform upgrade suspension work on another 4x4!"</p>
                     </div>
                 </div>
             </div>

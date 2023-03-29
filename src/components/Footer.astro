@@ -1,12 +1,17 @@
 ---
 // components
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import Break from "./Break.astro";
 import Container from "./Container.astro";
 import Section from "./Section.astro";
-import SocialFacebook from "./vectors/social/SocialFacebook.astro";
-import SocialInstagram from "./vectors/social/SocialInstagram.astro";
-import SocialYouTube from "./vectors/social/SocialYouTube.astro";
-import SocialMaps from "./vectors/social/SocialMaps.astro";
+
+// config
+import { Social, Business } from "../config.js";
+
+// content
+const allParts = await getCollection("parts");
+const allVehicles = await getCollection("vehicles");
 
 // images
 import logo from "../assets/images/logo-white.png";
@@ -14,9 +19,6 @@ import header01 from "../assets/images/header01.jpg";
 import header02 from "../assets/images/header02.jpg";
 import header03 from "../assets/images/header03.jpg";
 import header04 from "../assets/images/header04.jpg";
-
-const vehicles = ["Chevrolet", "Ford", "GMC", "Jeep", "Lexus", "RAM", "Toyota", "UTV"];
-const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specialties", "Suspension", "Wheel & Tire"];
 ---
 
 <footer class="bg-gray-900">
@@ -26,26 +28,23 @@ const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specia
         <Section classes="space-y-12">
             <div class="grid grid-cols-2 xl:grid-cols-3 gap-24">
                 <div class="space-y-12 order-1 col-span-2 md:col-span-1">
-                    <img src={logo.src} class="h-14" />
+                    <Image src={logo.src} alt={Business.nameLong} width={1079} height={336} class="h-14 w-auto" />
 
-                    <p class="text-md leading-7 text-gray-300">Located in Dripping Springs, Texas, THOR Off-Road are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
+                    <p class="text-md leading-7 text-gray-300">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
 
+                    <!-- social -->
                     <div class="flex space-x-6">
-                        <a href="https://www.facebook.com/thoroffroadtx/" target="_blank" title="THOR Off-Road Facebook">
-                            <SocialFacebook classes="w-4 text-white" />
-                        </a>
-                        <a href="https://www.instagram.com/thor_offroad/" target="_blank" title="THOR Off-Road Instagram">
-                            <SocialInstagram classes="w-4 text-white" />
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCq4-u8q-XIz4_YyCrZC_y6w/featured" target="_blank" title="THOR Off-Road YouTube">
-                            <SocialYouTube classes="w-4 text-white" />
-                        </a>
-                        <a href="https://g.page/thoroffroadtx" target="_blank" title="THOR Off-Road Google Maps">
-                            <SocialMaps classes="w-4 text-white" />
-                        </a>
+                        {
+                            Social.map((s) => (
+                                <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
+                                    <svg viewBox="0 0 16 16" class="w-4 text-white" set:html={s.icon} />
+                                </a>
+                            ))
+                        }
                     </div>
                 </div>
 
+                <!-- images -->
                 <div class="grid xl:col-span-1 grid-cols-3 gap-6 order-3 xl:order-2 col-span-2">
                     <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
                     <img src={header02.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
@@ -55,16 +54,17 @@ const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specia
                     <img src={header02.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
                 </div>
 
+                <!-- navigation -->
                 <div class="order-2 xl:order-3 col-span-2 md:col-span-1">
                     <div class="grid grid-cols-3 gap-2">
                         <div>
                             <h6>Vehicles</h6>
                             <ul role="list" class="mt-6 space-y-3">
                                 {
-                                    vehicles.map((v) => (
+                                    allVehicles.map((v) => (
                                         <li>
-                                            <a href="#" class="text-sm leading-6 text-gray-400 hover:text-gray-900">
-                                                {v}
+                                            <a href={`/vehicles/${v.slug}`} title={v.data.title} class="text-sm leading-6 text-gray-400 hover:text-gray-200">
+                                                {v.data.title}
                                             </a>
                                         </li>
                                     ))
@@ -76,10 +76,10 @@ const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specia
                             <h6>Parts</h6>
                             <ul role="list" class="mt-6 space-y-3">
                                 {
-                                    parts.map((p) => (
+                                    allParts.map((p) => (
                                         <li>
-                                            <a href="#" class="text-sm leading-6 text-gray-400 hover:text-gray-900">
-                                                {p}
+                                            <a href={`/parts/${p.slug}`} title={p.data.title} class="text-sm leading-6 text-gray-400 hover:text-gray-200">
+                                                {p.data.title}
                                             </a>
                                         </li>
                                     ))
@@ -91,13 +91,13 @@ const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specia
                             <h6>Other</h6>
                             <ul role="list" class="mt-6 space-y-3">
                                 <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-400 hover:text-gray-900">Sitemap</a>
+                                    <a href="#" class="text-sm leading-6 text-gray-400 hover:text-gray-200">Sitemap</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-400 hover:text-gray-900">Privacy Policy</a>
+                                    <a href="#" class="text-sm leading-6 text-gray-400 hover:text-gray-200">Privacy Policy</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-400 hover:text-gray-900">Terms of Use</a>
+                                    <a href="#" class="text-sm leading-6 text-gray-400 hover:text-gray-200">Terms of Use</a>
                                 </li>
                             </ul>
                         </div>
@@ -108,8 +108,8 @@ const parts = ["Bed & Roof", "Body & Bumper", "Lighting", "Performance", "Specia
             <Break />
 
             <div class="grid gap-y-2 md:grid-cols-2 md:justify-between">
-                <p class="text-sm leading-5 text-gray-400">&copy; THOR Off-Road. All rights reserved.</p>
-                <p class="text-sm leading-5 text-gray-400 md:justify-self-end">3996 US-290 Building B, Dripping Springs, TX 78620</p>
+                <p class="text-sm leading-5 text-gray-400">&copy; {Business.nameLong}. All rights reserved.</p>
+                <p class="text-sm leading-5 text-gray-400 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</p>
             </div>
         </Section>
     </Container>

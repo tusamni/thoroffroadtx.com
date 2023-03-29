@@ -1,0 +1,11 @@
+.comma-list li {
+    @apply inline;
+}
+
+.comma-list li::after {
+    content: ", ";
+}
+
+.comma-list li:last-child::after {
+    content: "";
+}

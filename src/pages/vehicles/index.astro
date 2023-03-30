@@ -1,0 +1,119 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// components
+import Button from "../../components/buttons/Button.astro";
+import Container from "../../components/Container.astro";
+import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import Link from "../../components/buttons/Link.astro";
+import Section from "../../components/Section.astro";
+
+// content
+import { getCollection } from "astro:content";
+const allVehicles = await getCollection("vehicles");
+const allModels = await getCollection("models");
+
+// images
+import header01 from "../../assets/images/header01.jpg";
+
+// content
+const process = [
+    {
+        title: "We Know the Brands",
+        description: "We love everything automotive and have decades of experience working on the top vehicle brands and platforms.",
+    },
+    {
+        title: "We Know the Parts",
+        description: "We only work with top manufacturers and have done the research and testing required to perfectly match parts for our off-road vehicle builds.",
+    },
+    {
+        title: "What Are You Looking For?",
+        description: "Our entire mission is to create purpose-built vehicles and we take the time to know you and the goals you have for your vehicle.",
+    },
+    {
+        title: "We Build Your Dream Vehicle",
+        description: "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
+    },
+];
+---
+
+<Layout>
+    <HeadingBase>
+        <p slot="subheading">Our Process</p>
+        <h1 slot="heading">Texas' Top Truck Outfitter</h1>
+        <p slot="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+
+        <div slot="content">
+            <div class="mx-auto mt-16 grid grid-cols-6 gap-12 items-center">
+                <dl class="col-span-2 space-y-12">
+                    {
+                        process.map((p, i) => (
+                            <div class="space-y-2">
+                                <dt class="text-xl font-semibold leading-7 text-white flex gap-x-4 items-center">
+                                    <span class="px-3 py-1 rounded-md bg-gray-700 text-gray-200 ring-1 ring-gray-600">{i + 1}</span>
+                                    {p.title}
+                                </dt>
+                                <dd class="text-base leading-7 text-gray-300">
+                                    <p>{p.description}</p>
+                                </dd>
+                            </div>
+                        ))
+                    }
+                </dl>
+
+                <div class="relative w-full h-full col-span-4">
+                    <img src={header01.src} alt="Two each of gray, white, and black shirts laying flat." class="absolute w-full h-full object-cover object-[50%,80%] rounded-md" />
+                </div>
+            </div>
+        </div>
+    </HeadingBase>
+
+    <div class="z-10 relative bg-gray-900">
+        <Container>
+            <Section classes="grid grid-cols-2 gap-16">
+                {
+                    allVehicles.map((v) => (
+                        <div class="grid grid-cols-2 gap-12 hover:bg-gray-800 p-8">
+                            <div>
+                                <div class="max-w-lg space-y-4">
+                                    <h3>{v.data.title}</h3>
+                                    <p class="text-gray-200 text-lg">{v.data.descriptionShort}</p>
+
+                                    <div class="flex gap-1 text-gray-500">
+                                        <span>Models:</span>
+                                        <ul class="comma-list">
+                                            {allModels.map((m) => {
+                                                if (m.slug.includes(v.slug)) {
+                                                    return <li>{m.data.title}</li>;
+                                                }
+                                            })}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <Button text={`Build Your Dream ${v.data.title}`} theme="primary" />
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h5>Recent {v.data.title} Builds</h5>
+
+                                <div class="grid xl:col-span-1 grid-cols-3 gap-6 order-3 xl:order-2 col-span-2">
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                </div>
+
+                                <Link>All {v.data.title} Builds</Link>
+                            </div>
+                        </div>
+                    ))
+                }
+            </Section>
+        </Container>
+    </div>
+</Layout>

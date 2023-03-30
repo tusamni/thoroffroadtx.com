@@ -8,10 +8,6 @@ import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Link from "../../components/buttons/Link.astro";
 import Section from "../../components/Section.astro";
-import TireTracks01 from "../../components/vectors/tracks/TireTracks01.astro";
-
-// images
-import header from "../../assets/images/header03.jpg";
 
 // content
 const process = [
@@ -33,16 +29,19 @@ const process = [
 <Layout>
     <HeadingBase>
         <p slot="subheading">Our Philosophy</p>
-        Off-Road Parts
+        <h1 slot="heading">Off-Road Parts</h1>
         <p slot="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
 
         <div slot="content">
             <div class="mx-auto mt-16 max-w-2xl lg:max-w-none">
                 <dl class="grid max-w-xl grid-cols-1 gap-x-16 gap-y-16 lg:max-w-none lg:grid-cols-3">
                     {
-                        process.map((p) => (
+                        process.map((p, i) => (
                             <div class="space-y-4">
-                                <dt class="text-xl font-semibold leading-7 text-white">{p.title}</dt>
+                                <dt class="text-xl font-semibold leading-7 text-white flex gap-x-4 items-center">
+                                    <span class="px-3 py-1 rounded-md bg-gray-700 text-gray-200 ring-1 ring-gray-600">{i + 1}</span>
+                                    {p.title}
+                                </dt>
                                 <dd class="text-base leading-7 text-gray-300">
                                     <p>{p.description}</p>
                                 </dd>
@@ -53,4 +52,10 @@ const process = [
             </div>
         </div>
     </HeadingBase>
+
+    <div class="z-10 relative bg-gray-900">
+        <Section>
+            <Container>text</Container>
+        </Section>
+    </div>
 </Layout>

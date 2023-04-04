@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
 import Break from "../../components/Break.astro";
 import Button from "../../components/buttons/Button.astro";
@@ -74,55 +75,51 @@ const process = [
         </HeadingBase>
 
         <Container>
-            <Break />
-        </Container>
+            <Section classes="grid grid-cols-2 gap-12">
+                {
+                    allVehicles.map((v) => (
+                        <div class="border border-gray-700/80 hover:bg-gray-700/30 transition duration-300 grid grid-cols-2 gap-12 relative overflow-hidden rounded-md p-12">
+                            <div class="z-10 flex flex-col justify-between gap-12">
+                                <div class="space-y-4">
+                                    <h3>{v.data.title}</h3>
+                                    <p class="text-gray-200 text-lg">{v.data.descriptionShort}</p>
 
-        <div class="z-10 relative">
-            <Container>
-                <Section classes="grid grid-cols-2 gap-12">
-                    {
-                        allVehicles.map((v) => (
-                            <div class="grid grid-cols-2 bg-gradient-to-br from-gray-700 to-gray-800 hover:to-gray-700/80 gap-12 transition duration-300 p-8 border-gray-800 border rounded-md">
-                                <div class="flex flex-col justify-between gap-12">
-                                    <div class="space-y-4">
-                                        <h3>{v.data.title}</h3>
-                                        <p class="text-gray-200 text-lg">{v.data.descriptionShort}</p>
-
-                                        <ul class="comma-list text-gray-400">
-                                            {allModels.map((m) => {
-                                                if (m.slug.includes(v.slug)) {
-                                                    return <li>{m.data.title}</li>;
-                                                }
-                                            })}
-                                        </ul>
-                                    </div>
-
-                                    <div>
-                                        <Button text={`Build Your Dream ${v.data.title}`} theme="primary" />
-                                    </div>
+                                    <ul class="comma-list text-gray-400">
+                                        {allModels.map((m) => {
+                                            if (m.slug.includes(v.slug)) {
+                                                return <li>{m.data.title}</li>;
+                                            }
+                                        })}
+                                    </ul>
                                 </div>
 
-                                <div class="flex flex-col space-y-4 justify-between">
-                                    <h5 class="font-medium">Recent {v.data.title} Builds</h5>
-
-                                    <div class="grid grid-cols-3 gap-4">
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    </div>
-
-                                    <div class="place-self-end">
-                                        <Link>All {v.data.title} Builds</Link>
-                                    </div>
+                                <div>
+                                    <Button text={`Build Your Dream ${v.data.title}`} theme="primary" />
                                 </div>
                             </div>
-                        ))
-                    }
-                </Section>
-            </Container>
-        </div>
+
+                            <div class="z-10 flex flex-col space-y-4 justify-between">
+                                <h5 class="font-medium">Recent {v.data.title} Builds</h5>
+
+                                <div class="grid grid-cols-3 gap-4">
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                </div>
+
+                                <div class="place-self-end">
+                                    <Link>All {v.data.title} Builds</Link>
+                                </div>
+                            </div>
+
+                            <Icon name={`vehicles/${v.data.title}`} class="absolute -bottom-4 -right-16 text-gray-700/30 w-96" />
+                        </div>
+                    ))
+                }
+            </Section>
+        </Container>
     </Background>
 </Layout>

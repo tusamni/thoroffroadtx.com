@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 
 // components
+import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Break from "../components/Break.astro";
@@ -11,7 +12,6 @@ import Section from "../components/Section.astro";
 import Link from "../components/buttons/Link.astro";
 import PostSnippet from "../components/posts/PostSnippet.astro";
 import Testimonial from "../components/Testimonial.astro";
-import TireTracks01 from "../components/vectors/tracks/TireTracks01.astro";
 
 // config
 import { Business } from "../config";
@@ -101,7 +101,7 @@ import headshot from "../assets/images/jamey02.jpg";
 
         <!-- the THOR difference -->
         <Section classes="relative">
-            <TireTracks01 classes="absolute bottom-0 right-0 w-[800px] text-gray-700/10 sm:text-gray-700/20" />
+            <Icon name="tracks/TireTrack01" class="absolute bottom-0 right-0 w-[800px] text-gray-700/10 sm:text-gray-700/20" />
 
             <Container classes="relative">
                 <div class="grid grid-cols-1 items-start gap-12 md:grid-cols-2">

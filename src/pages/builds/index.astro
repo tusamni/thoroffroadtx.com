@@ -2,21 +2,23 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import Background from "../../components/content/Background.astro";
 import Break from "../../components/Break.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Section from "../../components/Section.astro";
-import TireTracks01 from "../../components/vectors/tracks/TireTracks01.astro";
 ---
 
 <Layout>
-    <HeadingBase>
-        THOR Builds
-        <p slot="subheading">Our recent work</p>
-        <p slot="description">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
-    </HeadingBase>
+    <Background>
+        <HeadingBase>
+            <h1 slot="heading">THOR Builds</h1>
+            <p slot="subheading">Our recent work</p>
+            <p slot="description">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+        </HeadingBase>
+    </Background>
 
     <div class="z-10 relative bg-gray-900">
         <Section>

@@ -2,6 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import Background from "../../components/content/Background.astro";
+import Break from "../../components/Break.astro";
 import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
@@ -38,81 +40,89 @@ const process = [
 ---
 
 <Layout>
-    <HeadingBase>
-        <p slot="subheading">Our Process</p>
-        <h1 slot="heading">Texas' Top<br />Truck Outfitter</h1>
-        <p slot="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+    <Background>
+        <HeadingBase>
+            <p slot="subheading">Our Process</p>
+            <h1 slot="heading">Texas' Top<br />Truck Outfitter</h1>
+            <p slot="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
 
-        <div slot="content">
-            <div class="mx-auto mt-16 grid grid-cols-6 gap-12 items-center">
-                <dl class="col-span-2 space-y-12">
+            <div slot="content">
+                <div class="mx-auto mt-16 grid grid-cols-6 gap-12 items-center">
+                    <dl class="col-span-2 space-y-12">
+                        {
+                            process.map((p, i) => (
+                                <div class="space-y-2">
+                                    <dt class="text-xl font-semibold leading-7 text-white flex gap-x-4 items-center">
+                                        <span class="px-3 py-1 rounded-md bg-gray-700 text-gray-200 ring-1 ring-gray-600">{i + 1}</span>
+                                        {p.title}
+                                    </dt>
+                                    <dd class="text-base leading-7 text-gray-300">
+                                        <p>{p.description}</p>
+                                    </dd>
+                                </div>
+                            ))
+                        }
+                    </dl>
+
+                    <div class="relative w-full h-full col-span-4">
+                        <img src={header01.src} alt="Two each of gray, white, and black shirts laying flat." class="absolute w-full h-full object-cover object-[50%,80%] rounded-md" />
+                    </div>
+                </div>
+            </div>
+
+            <Break />
+        </HeadingBase>
+
+        <Container>
+            <Break />
+        </Container>
+
+        <div class="z-10 relative">
+            <Container>
+                <Section classes="grid grid-cols-2 gap-12">
                     {
-                        process.map((p, i) => (
-                            <div class="space-y-2">
-                                <dt class="text-xl font-semibold leading-7 text-white flex gap-x-4 items-center">
-                                    <span class="px-3 py-1 rounded-md bg-gray-700 text-gray-200 ring-1 ring-gray-600">{i + 1}</span>
-                                    {p.title}
-                                </dt>
-                                <dd class="text-base leading-7 text-gray-300">
-                                    <p>{p.description}</p>
-                                </dd>
+                        allVehicles.map((v) => (
+                            <div class="grid grid-cols-2 bg-gradient-to-br from-gray-700 to-gray-800 hover:to-gray-700/80 gap-12 transition duration-300 p-8 border-gray-800 border rounded-md">
+                                <div class="flex flex-col justify-between gap-12">
+                                    <div class="space-y-4">
+                                        <h3>{v.data.title}</h3>
+                                        <p class="text-gray-200 text-lg">{v.data.descriptionShort}</p>
+
+                                        <ul class="comma-list text-gray-400">
+                                            {allModels.map((m) => {
+                                                if (m.slug.includes(v.slug)) {
+                                                    return <li>{m.data.title}</li>;
+                                                }
+                                            })}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <Button text={`Build Your Dream ${v.data.title}`} theme="primary" />
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col space-y-4 justify-between">
+                                    <h5 class="font-medium">Recent {v.data.title} Builds</h5>
+
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    </div>
+
+                                    <div class="place-self-end">
+                                        <Link>All {v.data.title} Builds</Link>
+                                    </div>
+                                </div>
                             </div>
                         ))
                     }
-                </dl>
-
-                <div class="relative w-full h-full col-span-4">
-                    <img src={header01.src} alt="Two each of gray, white, and black shirts laying flat." class="absolute w-full h-full object-cover object-[50%,80%] rounded-md" />
-                </div>
-            </div>
+                </Section>
+            </Container>
         </div>
-    </HeadingBase>
-
-    <div class="z-10 relative bg-gray-800">
-        <Container>
-            <Section classes="grid grid-cols-2 gap-12">
-                {
-                    allVehicles.map((v) => (
-                        <div class="grid grid-cols-2 bg-gradient-to-br from-gray-700 to-gray-800 hover:to-gray-700/80 gap-12 transition duration-300 p-8 border-gray-800 border rounded-md">
-                            <div class="flex flex-col justify-between gap-12">
-                                <div class="space-y-4">
-                                    <h3>{v.data.title}</h3>
-                                    <p class="text-gray-200 text-lg">{v.data.descriptionShort}</p>
-
-                                    <ul class="comma-list text-gray-400">
-                                        {allModels.map((m) => {
-                                            if (m.slug.includes(v.slug)) {
-                                                return <li>{m.data.title}</li>;
-                                            }
-                                        })}
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <Button text={`Build Your Dream ${v.data.title}`} theme="primary" />
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col space-y-4 justify-between">
-                                <h5 class="font-medium">Recent {v.data.title} Builds</h5>
-
-                                <div class="grid grid-cols-3 gap-4">
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                </div>
-
-                                <div class="place-self-end">
-                                    <Link>All {v.data.title} Builds</Link>
-                                </div>
-                            </div>
-                        </div>
-                    ))
-                }
-            </Section>
-        </Container>
-    </div>
+    </Background>
 </Layout>

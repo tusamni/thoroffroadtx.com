@@ -1,0 +1,14 @@
+---
+const { number, heading, content } = Astro.props;
+---
+
+<div class="space-y-4">
+    <div class="flex gap-3 items-center">
+        <span class="self-start px-3 py-1 rounded-md bg-gray-700 text-gray-200 ring-1 ring-gray-600 text-lg lg:text-2xl font-semibold">{number}</span>
+        <h5>{heading}</h5>
+    </div>
+
+    <div class="text-lg leading-7 text-gray-300">
+        <p>{content}</p>
+    </div>
+</div>

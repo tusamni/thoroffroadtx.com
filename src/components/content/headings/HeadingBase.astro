@@ -10,14 +10,14 @@ import Container from "../../Container.astro";
 
     <Section classes="relative z-10">
         <Container>
-            <div class="mx-auto max-w-2xl lg:mx-0">
+            <div class="max-w-2xl">
                 <div class="text-sm leading-7 text-gray-400 mb-2 uppercase">
                     <slot name="subheading" />
                 </div>
 
                 <slot name="heading" />
 
-                <div class="mt-6 text-lg leading-8 text-gray-300">
+                <div class="mt-6 md:text-lg leading-8 text-gray-300">
                     <slot name="description" />
                 </div>
             </div>

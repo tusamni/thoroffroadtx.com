@@ -10,6 +10,7 @@ import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Link from "../../components/buttons/Link.astro";
 import Section from "../../components/Section.astro";
+import Steps from "../../components/content/headings/Steps.astro";
 
 // content
 import { getCollection } from "astro:content";
@@ -48,37 +49,27 @@ const process = [
             <p slot="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
 
             <div slot="content">
-                <div class="mx-auto mt-16 grid grid-cols-6 gap-12 items-center">
-                    <dl class="col-span-2 space-y-12">
-                        {
-                            process.map((p, i) => (
-                                <div class="space-y-2">
-                                    <dt class="text-xl font-semibold leading-7 text-white flex gap-x-4 items-center">
-                                        <span class="px-3 py-1 rounded-md bg-gray-700 text-gray-200 ring-1 ring-gray-600">{i + 1}</span>
-                                        {p.title}
-                                    </dt>
-                                    <dd class="text-base leading-7 text-gray-300">
-                                        <p>{p.description}</p>
-                                    </dd>
-                                </div>
-                            ))
-                        }
-                    </dl>
+                <div class="mt-16 grid md:grid-cols-6 gap-12 items-center">
+                    <div class="order-2 md:order-1 col-span-6 md:col-span-3 lg:col-span-2 space-y-12">
+                        {process.map((p, i) => <Steps number={i + 1} heading={p.title} content={p.description} />)}
+                    </div>
 
-                    <div class="relative w-full h-full col-span-4">
+                    <div class="order-1 md:order-2 relative w-full h-72 md:h-full col-span-6 md:col-span-3 lg:col-span-4">
                         <img src={header01.src} alt="Two each of gray, white, and black shirts laying flat." class="absolute w-full h-full object-cover object-[50%,80%] rounded-md" />
                     </div>
                 </div>
             </div>
-
-            <Break />
         </HeadingBase>
 
         <Container>
-            <Section classes="grid grid-cols-2 gap-12">
+            <Break />
+        </Container>
+
+        <Container>
+            <Section classes="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {
                     allVehicles.map((v) => (
-                        <div class="border border-gray-700/80 hover:bg-gray-700/30 transition duration-300 grid grid-cols-2 gap-12 relative overflow-hidden rounded-md p-12">
+                        <div class="bg-gray-700/30 transition duration-300 grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-12 relative overflow-hidden rounded-md p-12">
                             <div class="z-10 flex flex-col justify-between gap-12">
                                 <div class="space-y-4">
                                     <h3>{v.data.title}</h3>
@@ -98,7 +89,7 @@ const process = [
                                 </div>
                             </div>
 
-                            <div class="z-10 flex flex-col space-y-4 justify-between">
+                            <div class="hidden z-10 md:flex lg:hidden xl:flex flex-col space-y-4 justify-between">
                                 <h5 class="font-medium">Recent {v.data.title} Builds</h5>
 
                                 <div class="grid grid-cols-3 gap-4">
@@ -115,7 +106,7 @@ const process = [
                                 </div>
                             </div>
 
-                            <Icon name={`vehicles/${v.data.title}`} class="absolute -bottom-4 -right-16 text-gray-700/30 w-96" />
+                            <Icon name={`vehicles/${v.data.title}`} class="absolute -bottom-4 -right-16 text-gray-700/70 w-96" />
                         </div>
                     ))
                 }

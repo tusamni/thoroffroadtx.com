@@ -2,12 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
-import Break from "../../components/Break.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Link from "../../components/buttons/Link.astro";
 import Section from "../../components/Section.astro";
+import Steps from "../../components/content/headings/Steps.astro";
 
 // content
 import { getCollection } from "astro:content";
@@ -41,81 +42,65 @@ const process = [
             <h1 slot="heading">Off-Road Parts</h1>
 
             <div slot="content">
-                <div class="mx-auto mt-16 max-w-2xl lg:max-w-none">
-                    <dl class="grid max-w-xl grid-cols-1 gap-x-16 gap-y-16 lg:max-w-none lg:grid-cols-3">
-                        {
-                            process.map((p, i) => (
-                                <div class="space-y-4">
-                                    <dt class="text-2xl font-semibold leading-7 text-white flex gap-x-4 items-center">
-                                        <span class="px-3 py-1 rounded-md bg-gray-700 text-gray-200 ring-1 ring-gray-600">{i + 1}</span>
-                                        {p.title}
-                                    </dt>
-                                    <dd class="text-lg leading-7 text-gray-300">
-                                        <p>{p.description}</p>
-                                    </dd>
-                                </div>
-                            ))
-                        }
-                    </dl>
+                <div class="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-3">
+                    {process.map((p, i) => <Steps number={i + 1} heading={p.title} content={p.description} />)}
                 </div>
             </div>
         </HeadingBase>
 
-        <div class="relative h-[800px]">
+        <div class="relative h-[50vh] lg:h-[800px]">
             <img src={build01.src} alt="work" class="object-cover object-[50%,60%] w-full h-full" />
         </div>
 
-        <Background>
-            <Container>
-                <Section>
-                    <div class="mx-auto flex max-w-2xl flex-col lg:mx-0 lg:max-w-none lg:flex-row gap-24">
-                        <div class="w-full lg:max-w-lg lg:flex-auto">
-                            <h2>We're always looking for awesome people.</h2>
-                            <p class="mt-6 text-xl leading-8 text-gray-300">Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu. Cras purus nibh cursus sit eu in id.</p>
-                        </div>
+        <Container>
+            <Section>
+                <div class="mx-auto flex max-w-2xl flex-col lg:mx-0 lg:max-w-none lg:flex-row gap-24">
+                    <div class="w-full lg:max-w-lg lg:flex-auto">
+                        <h2>We're always looking for awesome people.</h2>
+                        <p class="mt-6 text-xl leading-8 text-gray-300">Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu. Cras purus nibh cursus sit eu in id.</p>
+                    </div>
 
-                        <div class="w-full">
-                            {
-                                allParts.map((p) => (
-                                    <div class="py-12">
-                                        <div class="grid grid-cols-2 gap-8">
-                                            <div>
-                                                <div class="w-full h-full relative rounded-md">
-                                                    <img src={build02.src} alt="work" class="w-full h-full absolute object-cover" />
-                                                    <div class="absolute w-full h-full bg-gradient-to-bl from-transparent via-black/20 to-black/80" />
-                                                </div>
-
-                                                <div>
-                                                    <Link>{p.data.title}</Link>
-                                                </div>
+                    <div class="w-full">
+                        {
+                            allParts.map((p) => (
+                                <div class="py-12">
+                                    <div class="grid grid-cols-2 gap-8">
+                                        <div class="flex flex-col gap-4">
+                                            <div class="w-full h-full relative">
+                                                <img src={build02.src} alt="work" class="w-full h-full absolute object-cover rounded-md shadow-xl" />
                                             </div>
 
                                             <div>
-                                                <div class="w-full flex-none text-lg font-semibold tracking-tight text-gray-900">
-                                                    <a href="#" class="text-white text-2xl">
-                                                        {p.data.title}
-                                                        <span class="absolute inset-0" aria-hidden="true" />
-                                                    </a>
-                                                </div>
+                                                <Link>{p.data.title}</Link>
+                                            </div>
+                                        </div>
 
-                                                <div class="mt-2 w-full flex-none text-base leading-7 text-gray-400">{p.data.descriptionShort}</div>
-                                                <div>
-                                                    <div class="mt-4 text-base font-semibold leading-7 text-gray-200">Brands</div>
-                                                    <ul class="comma-list font-light text-gray-500 line-clamp-2">
-                                                        {p.data.brands.map((b) => (
-                                                            <li>{b.title}</li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
+                                        <div class="space-y-4">
+                                            <div class="text-lg font-semibold tracking-tight text-gray-900">
+                                                <a href="#" class="text-white text-2xl flex items-center gap-2">
+                                                    <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
+                                                    {p.data.title}
+                                                </a>
+                                            </div>
+
+                                            <div class="text-base leading-7 text-gray-400">{p.data.descriptionShort}</div>
+
+                                            <div>
+                                                <div class="mt-4 text-base font-semibold leading-7 text-gray-200">Brands</div>
+                                                <ul class="comma-list font-light text-gray-500 line-clamp-2">
+                                                    {p.data.brands.map((b) => (
+                                                        <li>{b.title}</li>
+                                                    ))}
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
-                                ))
-                            }
-                        </div>
+                                </div>
+                            ))
+                        }
                     </div>
-                </Section>
-            </Container>
-        </Background>
+                </div>
+            </Section>
+        </Container>
     </Background>
 </Layout>

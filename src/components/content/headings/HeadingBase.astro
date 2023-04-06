@@ -1,28 +1,25 @@
 ---
 // components
 import { Icon } from "astro-icon";
-import Section from "../../Section.astro";
 import Container from "../../Container.astro";
 ---
 
 <div class="relative">
     <Icon name="tracks/TireTrack01" class="absolute top-0 right-0 w-[1000px] fill-gray-700 text-gray-700/30" />
 
-    <Section classes="relative z-10">
-        <Container>
-            <div class="max-w-2xl">
-                <div class="text-sm leading-7 text-gray-400 mb-2 uppercase">
-                    <slot name="subheading" />
-                </div>
-
-                <slot name="heading" />
-
-                <div class="mt-6 md:text-lg leading-8 text-gray-300">
-                    <slot name="description" />
-                </div>
+    <Container classes="relative z-10">
+        <div class="max-w-2xl">
+            <div class="text-sm leading-7 text-gray-400 mb-2 uppercase">
+                <slot name="subheading" />
             </div>
 
-            <slot name="content" />
-        </Container>
-    </Section>
+            <slot name="heading" />
+
+            <div class="mt-6 md:text-lg leading-8 text-gray-300">
+                <slot name="description" />
+            </div>
+        </div>
+
+        <slot name="content" />
+    </Container>
 </div>

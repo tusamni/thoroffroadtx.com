@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 // components
 import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
+import Break from "../../components/Break.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Link from "../../components/buttons/Link.astro";
@@ -37,16 +38,26 @@ const process = [
 
 <Layout>
     <Background>
-        <HeadingBase>
-            <p slot="subheading">Our Philosophy</p>
-            <h1 slot="heading">Off-Road Parts</h1>
+        <Section>
+            <HeadingBase>
+                <p slot="subheading">Our Philosophy</p>
+                <h1 slot="heading">Off-Road Parts</h1>
+            </HeadingBase>
+        </Section>
 
-            <div slot="content">
-                <div class="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-3">
-                    {process.map((p, i) => <Steps number={i + 1} heading={p.title} content={p.description} />)}
-                </div>
+        <Container>
+            <Break />
+        </Container>
+
+        <Container>
+            <div class="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-3">
+                {process.map((p, i) => <Steps number={i + 1} heading={p.title} content={p.description} />)}
             </div>
-        </HeadingBase>
+        </Container>
+
+        <Container>
+            <Break />
+        </Container>
 
         <div class="relative h-[50vh] lg:h-[800px]">
             <img src={build01.src} alt="work" class="object-cover object-[50%,60%] w-full h-full" />

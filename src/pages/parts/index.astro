@@ -54,28 +54,28 @@ const process = [
 
         <Container>
             <Section>
-                <div class="mx-auto flex max-w-2xl flex-col lg:mx-0 lg:max-w-none lg:flex-row gap-24">
+                <div class="mx-auto flex max-w-2xl flex-col lg:mx-0 lg:max-w-none lg:flex-row gap-12 lg:gap-24">
                     <div class="w-full lg:max-w-lg lg:flex-auto">
                         <h2>We're always looking for awesome people.</h2>
                         <p class="mt-6 text-xl leading-8 text-gray-300">Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu. Cras purus nibh cursus sit eu in id.</p>
                     </div>
 
-                    <div class="w-full">
+                    <div class="w-full space-y-20">
                         {
                             allParts.map((p) => (
-                                <div class="py-12">
+                                <div>
                                     <div class="grid grid-cols-2 gap-8">
-                                        <div class="flex flex-col gap-4">
+                                        <div class="flex flex-col gap-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
                                             <div class="w-full h-full relative">
-                                                <img src={build02.src} alt="work" class="w-full h-full absolute object-cover rounded-md shadow-xl" />
+                                                <img src={build02.src} alt="work" class="w-full h-full sm:absolute lg:relative xl:absolute object-cover rounded-md shadow-xl" />
                                             </div>
 
-                                            <div>
+                                            <div class="hidden sm:block lg:hidden xl:block">
                                                 <Link>{p.data.title}</Link>
                                             </div>
                                         </div>
 
-                                        <div class="space-y-4">
+                                        <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
                                             <div class="text-lg font-semibold tracking-tight text-gray-900">
                                                 <a href="#" class="text-white text-2xl flex items-center gap-2">
                                                     <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
@@ -87,7 +87,7 @@ const process = [
 
                                             <div>
                                                 <div class="mt-4 text-base font-semibold leading-7 text-gray-200">Brands</div>
-                                                <ul class="comma-list font-light text-gray-500 line-clamp-2">
+                                                <ul class="comma-list font-light text-gray-500 line-clamp-2 text-sm md:text-base">
                                                     {p.data.brands.map((b) => (
                                                         <li>{b.title}</li>
                                                     ))}

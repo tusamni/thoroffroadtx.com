@@ -4,12 +4,12 @@ import Layout from "../../layouts/Layout.astro";
 // components
 import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
-import Break from "../../components/Break.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Link from "../../components/buttons/Link.astro";
 import Section from "../../components/Section.astro";
 import Steps from "../../components/content/headings/Steps.astro";
+import Surround from "../../components/content/Surround.astro";
 
 // content
 import { getCollection } from "astro:content";
@@ -39,79 +39,53 @@ const process = [
 <Layout>
     <Background>
         <Section>
-            <HeadingBase>
-                <p slot="subheading">Our Philosophy</p>
-                <h1 slot="heading">Off-Road Parts</h1>
-            </HeadingBase>
+            <HeadingBase heading="Off-Road Parts" subheading="Our Philosophy" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
+
+            <Container>
+                <div class="grid grid-cols-1 gap-16 lg:grid-cols-3">
+                    {process.map((p, i) => <Steps number={i + 1} heading={p.title} content={p.description} />)}
+                </div>
+            </Container>
         </Section>
-
-        <Container>
-            <Break />
-        </Container>
-
-        <Container>
-            <div class="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-3">
-                {process.map((p, i) => <Steps number={i + 1} heading={p.title} content={p.description} />)}
-            </div>
-        </Container>
-
-        <Container>
-            <Break />
-        </Container>
 
         <div class="relative h-[50vh] lg:h-[800px]">
             <img src={build01.src} alt="work" class="object-cover object-[50%,60%] w-full h-full" />
         </div>
 
-        <Container>
-            <Section>
-                <div class="mx-auto flex max-w-2xl flex-col lg:mx-0 lg:max-w-none lg:flex-row gap-12 lg:gap-24">
-                    <div class="w-full lg:max-w-lg lg:flex-auto">
-                        <h2>We're always looking for awesome people.</h2>
-                        <p class="mt-6 text-xl leading-8 text-gray-300">Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu. Cras purus nibh cursus sit eu in id.</p>
-                    </div>
-
-                    <div class="w-full space-y-20">
-                        {
-                            allParts.map((p) => (
-                                <div>
-                                    <div class="grid grid-cols-2 gap-8">
-                                        <div class="flex flex-col gap-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                                            <div class="w-full h-full relative">
-                                                <img src={build02.src} alt="work" class="w-full h-full sm:absolute lg:relative xl:absolute object-cover rounded-md shadow-xl" />
-                                            </div>
-
-                                            <div class="hidden sm:block lg:hidden xl:block">
-                                                <Link>{p.data.title}</Link>
-                                            </div>
-                                        </div>
-
-                                        <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                                            <div class="text-lg font-semibold tracking-tight text-gray-900">
-                                                <a href="#" class="text-white text-2xl flex items-center gap-2">
-                                                    <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
-                                                    {p.data.title}
-                                                </a>
-                                            </div>
-
-                                            <div class="text-base leading-7 text-gray-400">{p.data.descriptionShort}</div>
-
-                                            <div>
-                                                <div class="mt-4 text-base font-semibold leading-7 text-gray-200">Brands</div>
-                                                <ul class="comma-list font-light text-gray-500 line-clamp-2 text-sm md:text-base">
-                                                    {p.data.brands.map((b) => (
-                                                        <li>{b.title}</li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+        <Section>
+            <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {
+                    allParts.map((p) => (
+                        <Surround url="test" classes="space-y-8">
+                            <div class="flex flex-col gap-4 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
+                                <div class="w-full h-full relative">
+                                    <img src={build02.src} alt="work" class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" />
                                 </div>
-                            ))
-                        }
-                    </div>
-                </div>
-            </Section>
-        </Container>
+                            </div>
+
+                            <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1 px-4 pb-6 sm:p-0">
+                                <div class="text-lg font-semibold tracking-tight text-gray-900">
+                                    <a href="#" class="text-white text-2xl flex items-center gap-2">
+                                        <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
+                                        {p.data.title}
+                                    </a>
+                                </div>
+
+                                <div class="text-base leading-7 text-gray-400">{p.data.descriptionShort}</div>
+
+                                <div>
+                                    <div class="mt-4 text-base font-semibold leading-7 text-gray-200">Brands</div>
+                                    <ul class="comma-list font-light text-gray-500 line-clamp-2 text-sm md:text-base">
+                                        {p.data.brands.map((b) => (
+                                            <li>{b.title}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </Surround>
+                    ))
+                }
+            </Container>
+        </Section>
     </Background>
 </Layout>

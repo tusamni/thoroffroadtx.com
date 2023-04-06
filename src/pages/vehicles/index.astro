@@ -44,18 +44,8 @@ const process = [
 <Layout>
     <Background>
         <Section>
-            <HeadingBase>
-                <p slot="subheading">Our Process</p>
-                <h1 slot="heading">Texas' Top<br />Truck Outfitter</h1>
-                <p slot="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
-            </HeadingBase>
-        </Section>
+            <HeadingBase heading="Texas' Top<br />Truck Outfitter" subheading="Our Process" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
 
-        <Container>
-            <Break />
-        </Container>
-
-        <Section>
             <Container>
                 <div class="grid md:grid-cols-6 gap-12 items-center">
                     <div class="order-2 md:order-1 col-span-6 md:col-span-3 lg:col-span-2 space-y-12">
@@ -77,7 +67,7 @@ const process = [
             <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {
                     allVehicles.map((v) => (
-                        <div class="bg-gray-700/30 transition duration-300 grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-12 relative overflow-hidden rounded-md p-12">
+                        <div class="group bg-gray-700/30 grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-12 relative overflow-hidden rounded-md p-12">
                             <div class="z-10 flex flex-col justify-between gap-12">
                                 <div class="space-y-4">
                                     <h3>{v.data.title}</h3>
@@ -110,11 +100,11 @@ const process = [
                                 </div>
 
                                 <div class="place-self-end">
-                                    <Link>All {v.data.title} Builds</Link>
+                                    <Link url="">All {v.data.title} Builds</Link>
                                 </div>
                             </div>
 
-                            <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-gray-700/70 w-96" />
+                            <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-gray-700/70 w-80 group-hover:w-96 transition-all duration-500" />
                         </div>
                     ))
                 }

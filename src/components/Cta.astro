@@ -60,6 +60,10 @@ import image from "../assets/images/header02.jpg";
                 </div>
 
                 <div class="lg:col-span-3 flex flex-col space-y-8">
+                    <div class="hidden lg:block relative w-full h-full">
+                        <img src={truck.src} class="absolute object-cover w-full h-full object-[50%,80%] rounded-md shadow-xl" />
+                    </div>
+
                     <div class="relative flex flex-col xl:flex-row gap-8 file:justify-between">
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
                             <Map classes="h-5 w-5 flex-none text-white" />
@@ -89,17 +93,13 @@ import image from "../assets/images/header02.jpg";
                         </div>
                     </div>
 
-                    <div class="hidden lg:block relative w-full h-full">
-                        <img src={truck.src} class="absolute object-cover w-full h-full object-[50%,80%] rounded-md shadow-xl" />
-                    </div>
-
-                    <div class="hidden lg:block ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
+                    <!-- <div class="hidden lg:block ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
                         <div class="space-y-2">
                             <p class="text-white font-semibold text-lg">2020 Ford F-250 Super-Duty</p>
                         </div>
 
                         <p class="text-gray-200 font-light">"Thor recently installed a lift/level kit on my 2020 Jeep Gladiator. The work was top notch, done on time as promised, and at a reasonable price. Am very pleased and already working with them to perform upgrade suspension work on another 4x4!"</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </Section>

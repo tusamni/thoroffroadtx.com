@@ -1,5 +1,6 @@
 ---
 // components
+import { Icon } from "astro-icon";
 import Container from "../Container.astro";
 
 // config
@@ -24,7 +25,7 @@ import { Social } from "../../config.js";
                 {
                     Social.map((s) => (
                         <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`} class="p-3 hover:bg-gray-200 transition group">
-                            <svg viewBox="0 0 16 16" class="h-auto w-4 text-gray-800 group-hover:text-gray-900 transition" set:html={s.icon} />
+                            <Icon name={`social/${s.icon}`} class="h-auto w-4 text-gray-800 group-hover:text-gray-900 transition" />
                         </a>
                     ))
                 }

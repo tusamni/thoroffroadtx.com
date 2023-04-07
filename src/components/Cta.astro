@@ -1,5 +1,6 @@
 ---
 // components
+import { Icon } from "astro-icon";
 import Button from "./buttons/Button.astro";
 import Container from "./Container.astro";
 import Section from "./Section.astro";
@@ -53,7 +54,7 @@ import image from "../assets/images/header02.jpg";
                             </div>
 
                             <div class="flex justify-end">
-                                <Button theme="secondary" text="Let's Go!" />
+                                <Button url="#" theme="secondary">Let's Go</Button>
                             </div>
                         </form>
                     </div>
@@ -66,7 +67,7 @@ import image from "../assets/images/header02.jpg";
 
                     <div class="relative flex flex-col xl:flex-row gap-8 file:justify-between">
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
-                            <Map classes="h-5 w-5 flex-none text-white" />
+                            <Icon name="Map" class="h-5 w-5 flex-none text-white" />
 
                             <div class="text-base leading-7">
                                 <h6>Visit Us</h6>
@@ -75,7 +76,7 @@ import image from "../assets/images/header02.jpg";
                         </div>
 
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
-                            <Phone classes="h-5 w-5 flex-none text-white" />
+                            <Icon name="Phone" class="h-5 w-5 flex-none text-white" />
 
                             <div class="text-base leading-7">
                                 <h6>Call Us</h6>
@@ -84,7 +85,7 @@ import image from "../assets/images/header02.jpg";
                         </div>
 
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
-                            <Envelope classes="h-5 w-5 flex-none text-white" />
+                            <Icon name="Envelope" class="h-5 w-5 flex-none text-white" />
 
                             <div class="text-base leading-7">
                                 <h6>Email Us</h6>

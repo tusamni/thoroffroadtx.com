@@ -1,6 +1,7 @@
 ---
 // components
 import { getCollection } from "astro:content";
+import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import Break from "./Break.astro";
 import Container from "./Container.astro";
@@ -37,7 +38,7 @@ import header04 from "../assets/images/header04.jpg";
                         {
                             Social.map((s) => (
                                 <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
-                                    <svg viewBox="0 0 16 16" class="w-4 text-white" set:html={s.icon} />
+                                    <Icon name={`social/${s.icon}`} class="w-4 text-white" />
                                 </a>
                             ))
                         }

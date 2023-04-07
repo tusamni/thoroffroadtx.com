@@ -1,5 +1,9 @@
 ---
-const { text, theme = "primary" } = Astro.props;
+interface Props {
+    url: string;
+    theme?: string;
+}
+const { url, theme = "primary" } = Astro.props;
 
 const themes = {
     primary: ["bg-gray-50", "border-gray-200", "hover:border-gray-300", "text-gray-800", "focus-visible:outline-gray-500"],
@@ -7,4 +11,6 @@ const themes = {
 };
 ---
 
-<a href="#" class:list={["transition-all border-r-8 hover:border-r-8 duration-200 -skew-x-12 rounded-sm py-3 px-5 font-semibold shadow-lg inline-block", themes[theme]]}>{text}</a>
+<a href={url} class:list={["transition-all border-r-8 hover:border-r-8 duration-200 -skew-x-12 rounded-sm py-3 px-5 font-semibold shadow-lg inline-block", themes[theme]]}>
+    <slot />
+</a>

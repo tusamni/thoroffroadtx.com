@@ -1,6 +1,7 @@
 ---
 // components
 import { getCollection } from "astro:content";
+import { Icon } from "astro-icon";
 
 // content
 const allParts = await getCollection("parts");
@@ -31,9 +32,8 @@ import logo from "../../../assets/images/logo-black.png";
 
             <button type="button" class="rounded-md text-gray-700 cursor-pointer" x-on:click={`mobileMenu = false`}>
                 <span class="sr-only">Close menu</span>
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
+
+                <Icon name="Close" class="h-6 w-6" />
             </button>
         </div>
 
@@ -43,10 +43,9 @@ import logo from "../../../assets/images/logo-black.png";
                     <div class="-mx-3" x-data={`{ expandVehicles : false }`}>
                         <button x-on:click={`expandVehicles = !expandVehicles`} type="button" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandVehicles ? 'bg-gradient-to-l from-gray-50 to-gray-200' : 'hover:bg-gray-50'`} aria-controls="disclosure-1" aria-expanded="false">
                             Vehicles
-                            <svg class="h-5 w-5 flex-none transition" x-bind:class={`expandVehicles ? 'rotate-180' : ''`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
-                            </svg>
+                            <Icon name="Chevron" class="h-4 w-4 flex-none transition" x-bind:class={`expandVehicles ? 'rotate-180' : ''`} />
                         </button>
+
                         <!-- 'Product' sub-menu, show/hide based on menu state. --->
                         <div class="mt-2 space-y-2 transition" id="disclosure-1" x-show={`expandVehicles`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
                             {
@@ -69,10 +68,9 @@ import logo from "../../../assets/images/logo-black.png";
                     <div class="-mx-3" x-data={`{ expandParts : false }`}>
                         <button x-on:click={`expandParts = !expandParts`} type="button" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandParts ? 'bg-gradient-to-l from-gray-50 to-gray-200' : 'hover:bg-gray-50'`} aria-controls="disclosure-2" aria-expanded="false">
                             Parts
-                            <svg class="h-5 w-5 flex-none transition" x-bind:class={`expandParts ? 'rotate-180' : ''`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
-                            </svg>
+                            <Icon name="Chevron" class="h-4 w-4 flex-none transition" x-bind:class={`expandParts ? 'rotate-180' : ''`} />
                         </button>
+
                         <!-- 'Product' sub-menu, show/hide based on menu state. --->
                         <div class="mt-2 space-y-2 transition" id="disclosure-2" x-show={`expandParts`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
                             {
@@ -89,7 +87,9 @@ import logo from "../../../assets/images/logo-black.png";
                             }
                         </div>
                     </div>
-                    <a href="#" class="-mx-3 flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50">Builds</a>
+                    <div class="-mx-3">
+                        <a href="#" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50">Builds</a>
+                    </div>
                 </div>
 
                 <div class="py-6 flex justify-between">

@@ -1,5 +1,6 @@
 ---
 // components
+import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import Button from "../buttons/Button.astro";
 import Container from "../Container.astro";
@@ -18,30 +19,29 @@ import logo from "../../assets/images/logo-white.png";
     <Container>
         <nav class="flex items-center h-24 justify-between gap-x-6" aria-label="Global">
             <div class="flex lg:gap-x-6">
-                <a href="/">
+                <a href="/" title={Business.nameLong}>
                     <span class="sr-only">{Business.nameLong}</span>
+
                     <Image src={logo.src} width={1079} height={336} alt={Business.nameLong} class="h-12 w-auto" />
                 </a>
 
                 <div class="hidden lg:flex items-center">
                     <MenuVehicles />
                     <MenuParts />
-                    <a href="/builds" class="font-semibold leading-6 text-white transition px-4 py-3 hover:bg-red-500">Builds</a>
+                    <a href="/builds" title={`${Business.nameShort} Builds`} class="font-semibold leading-6 text-white transition px-4 py-3 hover:bg-red-500">Builds</a>
                 </div>
             </div>
 
             <div class="hidden lg:flex flex-1 items-center justify-end gap-x-4">
-                <Button text={Business.phone} theme="primary" />
-                <Button text="Contact Us" theme="secondary" />
+                <Button url="#">{Business.phone}</Button>
+                <Button url="#" theme="secondary">Contact Us</Button>
             </div>
 
             <div class="flex lg:hidden" x-data={`{ mobileMenu : false }`}>
                 <button type="button" class="inline-flex items-center justify-center rounded-md text-gray-700 cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
 
-                    <svg class="h-8 w-8 text-white cursor-pointer" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-                    </svg>
+                    <Icon name="Hamburger" class="h-8 w-8 text-white cursor-pointer" />
                 </button>
 
                 <MenuMobile />

@@ -4,9 +4,6 @@ import { Icon } from "astro-icon";
 import Button from "./buttons/Button.astro";
 import Container from "./Container.astro";
 import Section from "./Section.astro";
-import Map from "./vectors/icons/Map.astro";
-import Phone from "./vectors/icons/Phone.astro";
-import Envelope from "./vectors/icons/Envelope.astro";
 
 // config
 import { Business } from "../config.js";
@@ -19,7 +16,7 @@ import image from "../assets/images/header02.jpg";
 <div class="relative">
     <img src={image.src} class="object-cover w-full h-full absolute" />
     <div class="w-full h-full bg-gradient-to-tr from-gray-900/90 via-gray-900/90 to-gray-500/90 absolute backdrop-blur-sm"></div>
-    e
+
     <Container classes="relative z-10">
         <Section classes="space-y-12">
             <div class="grid lg:grid-cols-5 gap-8">
@@ -93,14 +90,6 @@ import image from "../assets/images/header02.jpg";
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="hidden lg:block ring-1 ring-inset ring-white/10 p-6 rounded-md bg-white/5 space-y-2">
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold text-lg">2020 Ford F-250 Super-Duty</p>
-                        </div>
-
-                        <p class="text-gray-200 font-light">"Thor recently installed a lift/level kit on my 2020 Jeep Gladiator. The work was top notch, done on time as promised, and at a reasonable price. Am very pleased and already working with them to perform upgrade suspension work on another 4x4!"</p>
-                    </div> -->
                 </div>
             </div>
         </Section>

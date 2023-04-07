@@ -29,6 +29,7 @@ const allParts = await getCollection("parts");
                 allParts.map((p) => (
                     <a href={`/parts/${p.slug}`} title={p.data.title} class="flex flex-col gap-x-4 text-sm font-semibold leading-6 text-gray-900 hover:bg-white px-6 py-4 transition">
                         {p.data.title}
+
                         <ul class="comma-list line-clamp-1 text-xs font-light text-stone-500">
                             {p.data.brands.map((b) => (
                                 <li>{b.title}</li>

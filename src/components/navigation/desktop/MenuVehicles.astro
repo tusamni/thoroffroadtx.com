@@ -30,6 +30,7 @@ const allModels = await getCollection("models");
                 allVehicles.map((v) => (
                     <a href={`/vehicles/${v.slug}`} title={v.data.title} class="flex flex-col gap-x-4 text-sm font-semibold leading-6 text-gray-900 hover:bg-white px-6 py-4 transition">
                         {v.data.title}
+
                         <ul class="comma-list line-clamp-1 text-xs font-light text-stone-500">
                             {allModels.map((m) => {
                                 if (m.slug.includes(v.slug)) {

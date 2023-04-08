@@ -83,7 +83,7 @@ const process = [
                                 </div>
 
                                 <div>
-                                    <Button url="#" theme="primary">
+                                    <Button url={`/vehicles/${v.slug}`} theme="primary">
                                         Build Your Dream {v.data.title}
                                     </Button>
                                 </div>
@@ -102,7 +102,7 @@ const process = [
                                 </div>
 
                                 <div class="place-self-end">
-                                    <Link url="">All {v.data.title} Builds</Link>
+                                    <Link url={`/builds/${v.slug}`}>All {v.data.title} Builds</Link>
                                 </div>
                             </div>
 

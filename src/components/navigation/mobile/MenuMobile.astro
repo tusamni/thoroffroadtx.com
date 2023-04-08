@@ -20,6 +20,7 @@ import logo from "../../../assets/images/logo-black.png";
     <!-- transparent background -->
     <div class="fixed inset-0 z-10 bg-gray-900/90" x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0"></div>
 
+    <!-- menu -->
     <div
         class="fixed inset-y-0 right-0 z-20 w-full overflow-y-auto bg-white px-6 py-8 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
         x-cloak
@@ -31,12 +32,14 @@ import logo from "../../../assets/images/logo-black.png";
         x-transition:leave-end="opacity-0"
         x-show="mobileMenu">
         <div class="flex items-center justify-between">
+            <!-- logo -->
             <a href="/">
                 <span class="sr-only">{Business.nameLong}</span>
 
                 <Image src={logo.src} width={1079} height={336} alt={Business.nameLong} class="h-12 w-auto" />
             </a>
 
+            <!-- close -->
             <button type="button" class="rounded-md text-gray-700 cursor-pointer" x-on:click={`mobileMenu = false`}>
                 <span class="sr-only">Close menu</span>
 
@@ -47,17 +50,27 @@ import logo from "../../../assets/images/logo-black.png";
         <div class="flow-root">
             <div class="divide-y divide-gray-500/10">
                 <div class="space-y-2 py-6">
-                    <div class="-mx-3" x-data={`{ expandVehicles : false }`}>
+                    <div class="-mx-3" x-data={`{ expandVehicles : true }`}>
                         <button x-on:click={`expandVehicles = !expandVehicles`} type="button" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandVehicles ? 'bg-gradient-to-l from-gray-50 to-gray-200' : 'hover:bg-gray-50'`} aria-controls="disclosure-1" aria-expanded="false">
                             Vehicles
                             <Icon name="Chevron" class="h-4 w-4 flex-none transition" x-bind:class={`expandVehicles ? 'rotate-180' : ''`} />
                         </button>
 
                         <!-- 'Product' sub-menu, show/hide based on menu state. --->
-                        <div class="mt-2 space-y-2 transition" id="disclosure-1" x-show={`expandVehicles`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
+                        <div
+                            class="mt-2 transition divide divide-gray-900"
+                            id="disclosure-1"
+                            x-show={`expandVehicles`}
+                            x-cloak
+                            x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-200"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0">
                             {
                                 allVehicles.map((v) => (
-                                    <a href="#" class="block rounded-md py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-100">
+                                    <a href={`/vehicles/${v.slug}`} class="block py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900">
                                         {v.data.title}
 
                                         <ul class="comma-list line-clamp-1 text-xs font-light text-stone-500">
@@ -102,8 +115,8 @@ import logo from "../../../assets/images/logo-black.png";
                 </div>
 
                 <div class="py-6 flex justify-between">
-                    <a href="#" class="-mx-3 block rounded-md py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact Us</a>
-                    <a href="#" class="-mx-3 block rounded-md py-2.5 px-3 text-sm sm:text-base leading-7 text-gray-900 hover:bg-gray-50">(512) 894-2790</a>
+                    <a href="/contact" class="-mx-3 block rounded-md py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact Us</a>
+                    <a href={`tel:${Business.phone}`} class="-mx-3 block rounded-md py-2.5 px-3 text-sm sm:text-base leading-7 text-gray-900 hover:bg-gray-50">{Business.phone}</a>
                 </div>
             </div>
         </div>

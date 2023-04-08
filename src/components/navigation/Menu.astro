@@ -19,12 +19,14 @@ import logo from "../../assets/images/logo-white.png";
     <Container>
         <nav class="flex items-center h-24 justify-between gap-x-6" aria-label="Global">
             <div class="flex lg:gap-x-6">
+                <!-- logo -->
                 <a href="/" title={Business.nameLong}>
                     <span class="sr-only">{Business.nameLong}</span>
 
                     <Image src={logo.src} width={1079} height={336} alt={Business.nameLong} class="h-12 w-auto" />
                 </a>
 
+                <!--- desktop menu -->
                 <div class="hidden lg:flex items-center">
                     <MenuVehicles />
                     <MenuParts />
@@ -32,11 +34,13 @@ import logo from "../../assets/images/logo-white.png";
                 </div>
             </div>
 
+            <!-- contact buttons -->
             <div class="hidden lg:flex flex-1 items-center justify-end gap-x-4">
-                <Button url="#">{Business.phone}</Button>
-                <Button url="#" theme="secondary">Contact Us</Button>
+                <Button url={`tel:${Business.phone}`}>{Business.phone}</Button>
+                <Button url="/contact" theme="secondary">Contact Us</Button>
             </div>
 
+            <!-- mobile trigger -->
             <div class="flex lg:hidden" x-data={`{ mobileMenu : false }`}>
                 <button type="button" class="inline-flex items-center justify-center rounded-md text-gray-700 cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
@@ -44,6 +48,7 @@ import logo from "../../assets/images/logo-white.png";
                     <Icon name="Hamburger" class="h-8 w-8 text-white cursor-pointer" />
                 </button>
 
+                <!-- mobile menu -->
                 <MenuMobile />
             </div>
         </nav>

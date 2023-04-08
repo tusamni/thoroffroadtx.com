@@ -56,33 +56,35 @@ const process = [
             <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {
                     allParts.map((p) => (
-                        <Surround url="test" classes="space-y-8">
-                            <div class="flex flex-col gap-4 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
-                                <div class="w-full h-full relative">
-                                    <img src={build02.src} alt="work" class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" />
-                                </div>
-                            </div>
-
-                            <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1 px-4 pb-6 sm:p-0">
-                                <div class="text-lg font-semibold tracking-tight text-gray-900">
-                                    <a href="#" class="text-white text-2xl flex items-center gap-2">
-                                        <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
-                                        {p.data.title}
-                                    </a>
+                        <div>
+                            <Surround url="test" classes="space-y-8">
+                                <div class="flex flex-col gap-4 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
+                                    <div class="w-full h-full relative">
+                                        <img src={build02.src} alt="work" class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" />
+                                    </div>
                                 </div>
 
-                                <div class="text-base leading-7 text-gray-400">{p.data.descriptionShort}</div>
+                                <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1 px-4 pb-6 sm:p-0">
+                                    <div class="text-lg font-semibold tracking-tight text-gray-900">
+                                        <div class="text-white text-2xl flex items-center gap-2">
+                                            <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
+                                            {p.data.title}
+                                        </div>
+                                    </div>
 
-                                <div>
-                                    <div class="mt-4 text-base font-semibold leading-7 text-gray-200">Brands</div>
-                                    <ul class="comma-list font-light text-gray-500 line-clamp-2 text-sm md:text-base">
-                                        {p.data.brands.map((b) => (
-                                            <li>{b.title}</li>
-                                        ))}
-                                    </ul>
+                                    <div class="text-base leading-7 text-gray-400">{p.data.descriptionShort}</div>
+
+                                    <div>
+                                        <div class="mt-4 text-base font-semibold leading-7 text-gray-200">Brands</div>
+                                        <ul class="comma-list font-light text-gray-500 line-clamp-2 text-sm md:text-base">
+                                            {p.data.brands.map((b) => (
+                                                <li>{b.title}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </Surround>
+                            </Surround>
+                        </div>
                     ))
                 }
             </Container>

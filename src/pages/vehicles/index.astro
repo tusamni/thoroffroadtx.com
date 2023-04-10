@@ -11,6 +11,7 @@ import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Link from "../../components/buttons/Link.astro";
 import Section from "../../components/Section.astro";
 import Steps from "../../components/content/headings/Steps.astro";
+import Surround from "../../components/content/Surround.astro";
 
 // content
 import { getCollection } from "astro:content";
@@ -67,47 +68,41 @@ const process = [
             <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {
                     allVehicles.map((v) => (
-                        <div class="group bg-gray-700/30 grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-12 relative overflow-hidden rounded-md p-12">
-                            <div class="z-10 flex flex-col justify-between gap-12">
-                                <div class="space-y-4">
-                                    <h3>{v.data.title}</h3>
-                                    <p class="text-gray-200 text-lg">{v.data.descriptionShort}</p>
+                        <>
+                            <Surround href={`/vehicles/${v.slug}`} title={v.data.title}>
+                                <div class="z-10 flex flex-col justify-between gap-12">
+                                    <div class="space-y-4">
+                                        <h3>{v.data.title}</h3>
+                                        <p class="text-gray-200 text-lg">{v.data.descriptionShort}</p>
 
-                                    <ul class="comma-list text-gray-400">
-                                        {allModels.map((m) => {
-                                            if (m.slug.includes(v.slug)) {
-                                                return <li>{m.data.title}</li>;
-                                            }
-                                        })}
-                                    </ul>
+                                        <ul class="comma-list text-gray-400">
+                                            {allModels.map((m) => {
+                                                if (m.slug.includes(v.slug)) {
+                                                    return <li>{m.data.title}</li>;
+                                                }
+                                            })}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <Button theme="primary">Build Your Dream {v.data.title}</Button>
+                                    </div>
                                 </div>
+                                <div class="hidden z-10 md:flex lg:hidden xl:flex flex-col space-y-4">
+                                    <h5 class="font-medium">Recent {v.data.title} Builds</h5>
 
-                                <div>
-                                    <Button url={`/vehicles/${v.slug}`} theme="primary">
-                                        Build Your Dream {v.data.title}
-                                    </Button>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="hidden z-10 md:flex lg:hidden xl:flex flex-col space-y-4 justify-between">
-                                <h5 class="font-medium">Recent {v.data.title} Builds</h5>
-
-                                <div class="grid grid-cols-3 gap-4">
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                </div>
-
-                                <div class="place-self-end">
-                                    <Link url={`/builds/${v.slug}`}>All {v.data.title} Builds</Link>
-                                </div>
-                            </div>
-
-                            <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-gray-700/70 w-80 group-hover:w-96 transition-all duration-500" />
-                        </div>
+                                <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-gray-700/70 w-80 group-hover:w-96 transition-all duration-500" />
+                            </Surround>
+                        </>
                     ))
                 }
             </Container>

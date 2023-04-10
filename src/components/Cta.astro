@@ -51,7 +51,7 @@ import image from "../assets/images/header02.jpg";
                             </div>
 
                             <div class="flex justify-end">
-                                <Button theme="secondary">Let's Go</Button>
+                                <Button button={true} theme="secondary">Let's Go</Button>
                             </div>
                         </form>
                     </div>
@@ -64,29 +64,37 @@ import image from "../assets/images/header02.jpg";
 
                     <div class="relative flex flex-col xl:flex-row gap-8 file:justify-between">
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
-                            <Icon name="Map" class="h-5 w-5 flex-none text-white" />
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <Icon name="Map" class="h-5 w-5 flex-none text-white" />
+                                    <h6>Visit Us</h6>
+                                </div>
 
-                            <div class="text-base leading-7">
-                                <h6>Visit Us</h6>
-                                <p class="mt-2 text-gray-300 text-sm">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</p>
+                                <div class="text-base leading-7">
+                                    <p class="mt-2 text-gray-300">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
-                            <Icon name="Phone" class="h-5 w-5 flex-none text-white" />
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <Icon name="Phone" class="h-5 w-5 flex-none text-white" />
+                                    <h6>Call Us</h6>
+                                </div>
 
-                            <div class="text-base leading-7">
-                                <h6>Call Us</h6>
-                                <p class="mt-2 text-gray-300 text-sm">Reach out to us at <a class="underline" href={`tel:${Business.phone}`}>{Business.phone}</a></p>
+                                <p class="mt-2 text-gray-300">Reach out to us at <a class="underline" href={`tel:${Business.phone}`}>{Business.phone}</a></p>
                             </div>
                         </div>
 
                         <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
-                            <Icon name="Envelope" class="h-5 w-5 flex-none text-white" />
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <Icon name="Envelope" class="h-5 w-5 flex-none text-white" />
+                                    <h6>Email Us</h6>
+                                </div>
 
-                            <div class="text-base leading-7">
-                                <h6>Email Us</h6>
-                                <p class="mt-2 text-gray-300 text-sm">Shoot us an email anytime, <a class="underline" href={`mailto:${Business.email}`}>{Business.email}</a></p>
+                                <p class="text-gray-300">Shoot us an email anytime, <a class="underline" href={`mailto:${Business.email}`}>{Business.email}</a></p>
                             </div>
                         </div>
                     </div>

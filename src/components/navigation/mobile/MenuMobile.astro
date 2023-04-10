@@ -50,8 +50,8 @@ import logo from "../../../assets/images/logo-black.png";
         <div class="flow-root">
             <div class="divide-y divide-gray-500/10">
                 <div class="space-y-2 py-6">
-                    <div class="-mx-3" x-data={`{ expandVehicles : true }`}>
-                        <button x-on:click={`expandVehicles = !expandVehicles`} type="button" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandVehicles ? 'bg-gradient-to-l from-gray-50 to-gray-200' : 'hover:bg-gray-50'`} aria-controls="disclosure-1" aria-expanded="false">
+                    <div class="-mx-3" x-data={`{ expandVehicles : false }`}>
+                        <button x-on:click={`expandVehicles = !expandVehicles`} type="button" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandVehicles && 'bg-gradient-to-l from-gray-50 to-gray-200'`} aria-controls="disclosure-1" aria-expanded="false">
                             Vehicles
                             <Icon name="Chevron" class="h-4 w-4 flex-none transition" x-bind:class={`expandVehicles ? 'rotate-180' : ''`} />
                         </button>
@@ -87,7 +87,7 @@ import logo from "../../../assets/images/logo-black.png";
                     </div>
 
                     <div class="-mx-3" x-data={`{ expandParts : false }`}>
-                        <button x-on:click={`expandParts = !expandParts`} type="button" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandParts ? 'bg-gradient-to-l from-gray-50 to-gray-200' : 'hover:bg-gray-50'`} aria-controls="disclosure-2" aria-expanded="false">
+                        <button x-on:click={`expandParts = !expandParts`} type="button" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandParts && 'bg-gradient-to-l from-gray-50 to-gray-200'`} aria-controls="disclosure-2" aria-expanded="false">
                             Parts
                             <Icon name="Chevron" class="h-4 w-4 flex-none transition" x-bind:class={`expandParts ? 'rotate-180' : ''`} />
                         </button>
@@ -96,7 +96,7 @@ import logo from "../../../assets/images/logo-black.png";
                         <div class="mt-2 space-y-2 transition" id="disclosure-2" x-show={`expandParts`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
                             {
                                 allParts.map((p) => (
-                                    <a href="#" class="block rounded-md py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-100">
+                                    <a href={`/parts/${p.slug}`} class="block rounded-md py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900">
                                         {p.data.title}
 
                                         <ul class="comma-list line-clamp-1 text-xs font-light text-stone-500">
@@ -110,13 +110,13 @@ import logo from "../../../assets/images/logo-black.png";
                         </div>
                     </div>
                     <div class="-mx-3">
-                        <a href="#" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50">Builds</a>
+                        <a href="/builds" class="flex w-full items-center justify-between rounded-md py-2 pl-3 pr-3.5 text-base font-semibold leading-7">Builds</a>
                     </div>
                 </div>
 
                 <div class="py-6 flex justify-between">
-                    <a href="/contact" class="-mx-3 block rounded-md py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact Us</a>
-                    <a href={`tel:${Business.phone}`} class="-mx-3 block rounded-md py-2.5 px-3 text-sm sm:text-base leading-7 text-gray-900 hover:bg-gray-50">{Business.phone}</a>
+                    <a href="/contact" class="-mx-3 block rounded-md py-2.5 px-3 text-base font-semibold leading-7 text-gray-900">Contact Us</a>
+                    <a href={`tel:${Business.phone}`} class="-mx-3 block rounded-md py-2.5 px-3 text-base leading-7 text-gray-900">{Business.phone}</a>
                 </div>
             </div>
         </div>

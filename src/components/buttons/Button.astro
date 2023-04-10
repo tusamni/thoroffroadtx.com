@@ -1,25 +1,19 @@
 ---
 interface Props {
-    url?: string;
+    href?: string;
     theme?: string;
 }
-const { url, theme = "primary" } = Astro.props;
-
-const themes = {
-    primary: ["bg-gray-50", "border-gray-200", "hover:border-gray-300", "text-gray-800", "focus-visible:outline-gray-500"],
-    secondary: ["bg-amber-300", "border-amber-400", "hover:border-amber-500", "text-stone-700", "focus-visible:outline-amber-500"],
-};
-const styles = "transition-all border-r-8 hover:border-r-8 duration-200 -skew-x-12 rounded-sm py-3 px-5 font-semibold shadow-lg inline-block";
+const { href, theme = "primary", ...attrs } = Astro.props;
 ---
 
 {
-    url ? (
-        <a href={url} class:list={[styles, themes[theme]]}>
+    href ? (
+        <a href={href} class:list={["button", `button-${theme}`]} {...attrs}>
             <slot />
         </a>
     ) : (
-        <button type="submit" class:list={["transition-all border-r-8 hover:border-r-8 duration-200 -skew-x-12 rounded-sm py-3 px-5 font-semibold shadow-lg inline-block", themes[theme]]}>
+        <div class:list={["button", `button-${theme}`]} {...attrs}>
             <slot />
-        </button>
+        </div>
     )
 }

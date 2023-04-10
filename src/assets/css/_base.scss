@@ -2,18 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "buttons";
 @import "typography";
 @import "navigation";
-
-:root {
-    font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-    :root {
-        font-family: "Inter var", sans-serif;
-    }
-}
 
 // alpine.js hide on load
 [x-cloak] {

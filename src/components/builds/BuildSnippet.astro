@@ -1,20 +1,19 @@
 ---
 // images
 import buildImage from "../../assets/images/header03.jpg";
+import Hover from "../images/Hover.astro";
+import Surround from "../content/Surround.astro";
 ---
 
-<li>
-    <a href="/builds/build" class="group space-y-4">
-        <div class="relative overflow-hidden rounded-md">
-            <div class="transition group-hover:opacity-100 opacity-0 absolute w-full h-full bg-gradient-to-br from-transparent via-transparent to-gray-300 z-10"></div>
-            <span aria-hidden="true" class="text-white text-2xl absolute bottom-5 right-5 opacity-0 group-hover:opacity-100 transition z-10">&rarr;</span>
+<Surround href="builds/build">
+    <div class="group">
+        <Hover>
+            <img class="aspect-[3/2] w-full rounded-t-md object-cover" src={buildImage.src} alt="" />
+        </Hover>
 
-            <img class="aspect-[3/2] w-full rounded-md object-cover" src={buildImage.src} alt="" />
-        </div>
-
-        <div>
+        <div class="p-6">
             <h5>2015 Dodge 2500</h5>
             <p class="text-base leading-7 text-gray-500">Dripping Springs, TX</p>
         </div>
-    </a>
-</li>
+    </div>
+</Surround>

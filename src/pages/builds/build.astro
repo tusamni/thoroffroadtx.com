@@ -2,12 +2,12 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
 import Break from "../../components/Break.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Section from "../../components/Section.astro";
-import Star from "../../components/vectors/icons/Star.astro";
 
 // images
 import build01 from "../../assets/images/builds/build01.jpg";
@@ -57,36 +57,36 @@ import build09 from "../../assets/images/builds/build09.jpg";
                     </div>
 
                     <div class="col-span-4">
-                        <div class="space-y-4">
-                            <div class="space-y-20">
-                                <img src={build04.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
-
-                                <div class="grid grid-cols-3 gap-8">
-                                    <img src={build07.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
-                                    <img src={build08.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
-                                    <img src={build09.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                        <div class="space-y-24">
+                            <div class="grid grid-cols-3 gap-8 w-full h-full">
+                                <div class="col-span-3">
+                                    <img src={build04.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
                                 </div>
 
-                                <div class="space-y-8">
-                                    <blockquote class="col-span-3 italic text-3xl leading-relaxed text-white">"Building my off-road truck with Tom and his team at the auto shop was an incredible experience. Their expertise and attention to detail made all the difference. I couldn't be happier with the finished product and can't wait to see where it takes me on my next adventure."</blockquote>
+                                <img src={build07.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                <img src={build08.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                <img src={build09.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                            </div>
 
-                                    <div class="flex justify-between items-center">
-                                        <div class="flex items-center">
-                                            <Star classes="w-7 text-yellow-400" />
-                                            <Star classes="w-7 text-yellow-400" />
-                                            <Star classes="w-7 text-yellow-400" />
-                                            <Star classes="w-7 text-yellow-400" />
-                                            <Star classes="w-7 text-yellow-400" />
-                                        </div>
-                                        <p class="text-white font-semibold text-2xl">Nick H.</p>
+                            <div class="space-y-8">
+                                <blockquote class="col-span-3 italic text-3xl leading-relaxed text-white">"Building my off-road truck with Tom and his team at the auto shop was an incredible experience. Their expertise and attention to detail made all the difference. I couldn't be happier with the finished product and can't wait to see where it takes me on my next adventure."</blockquote>
+
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center">
+                                        <Icon name="Star" class="w-7 text-yellow-400" />
+                                        <Icon name="Star" class="w-7 text-yellow-400" />
+                                        <Icon name="Star" class="w-7 text-yellow-400" />
+                                        <Icon name="Star" class="w-7 text-yellow-400" />
+                                        <Icon name="Star" class="w-7 text-yellow-400" />
                                     </div>
+                                    <p class="text-white font-semibold text-2xl">Nick H.</p>
                                 </div>
+                            </div>
 
-                                <div class="grid grid-cols-3 gap-8">
-                                    <img src={build04.src} class="object-cover w-full h-full rounded-md object-[0%,50%] shadow-2xl" />
-                                    <img src={build08.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
-                                    <img src={build03.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
-                                </div>
+                            <div class="grid grid-cols-3 gap-8">
+                                <img src={build04.src} class="object-cover w-full h-full rounded-md object-[0%,50%] shadow-2xl" />
+                                <img src={build08.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                <img src={build03.src} class="object-cover w-full h-full rounded-md shadow-2xl" />
                             </div>
                         </div>
                     </div>

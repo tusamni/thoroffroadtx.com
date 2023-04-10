@@ -13,10 +13,7 @@ import truck from "../assets/images/header01.jpg";
 import image from "../assets/images/header02.jpg";
 ---
 
-<div class="relative">
-    <img src={image.src} class="object-cover w-full h-full absolute" />
-    <div class="w-full h-full bg-gradient-to-tr from-gray-900/90 via-gray-900/90 to-gray-500/90 absolute backdrop-blur-sm"></div>
-
+<div class="relative bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-400 to-gray-800">
     <Container classes="relative z-10">
         <Section classes="space-y-12">
             <div class="grid lg:grid-cols-5 gap-8">
@@ -51,7 +48,7 @@ import image from "../assets/images/header02.jpg";
                             </div>
 
                             <div class="flex justify-end">
-                                <Button button={true} theme="secondary">Let's Go</Button>
+                                <button type="submit" class="button button-secondary">Let's Go</button>
                             </div>
                         </form>
                     </div>
@@ -63,7 +60,7 @@ import image from "../assets/images/header02.jpg";
                     </div>
 
                     <div class="relative flex flex-col xl:flex-row gap-8 file:justify-between">
-                        <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
+                        <div class="flex gap-x-4 rounded-md bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
                             <div class="space-y-1">
                                 <div class="flex items-center gap-2">
                                     <Icon name="Map" class="h-5 w-5 flex-none text-white" />
@@ -76,7 +73,7 @@ import image from "../assets/images/header02.jpg";
                             </div>
                         </div>
 
-                        <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
+                        <div class="flex gap-x-4 rounded-md bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
                             <div class="space-y-1">
                                 <div class="flex items-center gap-2">
                                     <Icon name="Phone" class="h-5 w-5 flex-none text-white" />
@@ -87,7 +84,7 @@ import image from "../assets/images/header02.jpg";
                             </div>
                         </div>
 
-                        <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
+                        <div class="flex gap-x-4 rounded-md bg-white/5 p-6 ring-1 ring-inset ring-white/10 items-start">
                             <div class="space-y-1">
                                 <div class="flex items-center gap-2">
                                     <Icon name="Envelope" class="h-5 w-5 flex-none text-white" />

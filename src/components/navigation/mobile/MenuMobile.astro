@@ -18,7 +18,7 @@ import logo from "../../../assets/images/logo-black.png";
 
 <div class="lg:hidden" role="dialog" aria-modal="true">
     <!-- transparent background -->
-    <div class="fixed inset-0 z-10 bg-gray-900/90" x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0"></div>
+    <div class="fixed inset-0 z-10 bg-gray-900/90" x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0"></div>
 
     <!-- menu -->
     <div
@@ -27,7 +27,7 @@ import logo from "../../../assets/images/logo-black.png";
         x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave="transition ease-in duration-100"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0"
         x-show="mobileMenu">
@@ -65,7 +65,7 @@ import logo from "../../../assets/images/logo-black.png";
                             x-transition:enter="transition ease-out duration-300"
                             x-transition:enter-start="opacity-0"
                             x-transition:enter-end="opacity-100 scale-100"
-                            x-transition:leave="transition ease-in duration-200"
+                            x-transition:leave="transition ease-in duration-100"
                             x-transition:leave-start="opacity-100 scale-100"
                             x-transition:leave-end="opacity-0">
                             {
@@ -93,7 +93,7 @@ import logo from "../../../assets/images/logo-black.png";
                         </button>
 
                         <!-- 'Product' sub-menu, show/hide based on menu state. --->
-                        <div class="mt-2 space-y-2 transition" id="disclosure-2" x-show={`expandParts`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
+                        <div class="mt-2 space-y-2 transition" id="disclosure-2" x-show={`expandParts`} x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0">
                             {
                                 allParts.map((p) => (
                                     <a href={`/parts/${p.slug}`} class="block rounded-md py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900">

@@ -9,11 +9,15 @@ const { href, theme = "primary", ...attrs } = Astro.props;
 {
     href ? (
         <a href={href} class:list={["button", `button-${theme}`]} {...attrs}>
-            <slot />
+            <span class="-skew-x-24">
+                <slot />
+            </span>
         </a>
     ) : (
         <div class:list={["button", `button-${theme}`]} {...attrs}>
-            <slot />
+            <div class="-skew-x-12">
+                <slot />
+            </div>
         </div>
     )
 }

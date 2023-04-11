@@ -7,11 +7,11 @@ import Container from "../Container.astro";
 import { Social } from "../../config.js";
 ---
 
-<div class="bg-gray-200">
+<div class="bg-neutral-200">
     <Container>
         <div class="flex items-center justify-between">
             <!-- notification -->
-            <div class="text-sm leading-6 text-gray-900">
+            <div class="text-sm leading-6 text-neutral-900">
                 <div class="flex gap-2">
                     <strong class="font-semibold">Carli 3.5 Pintop Sale</strong>
                     <span class="hidden md:block">&middot;</span>
@@ -24,8 +24,8 @@ import { Social } from "../../config.js";
             <div class="flex items-center">
                 {
                     Social.map((s) => (
-                        <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`} class="p-3 hover:bg-gray-200 transition group">
-                            <Icon name={`social/${s.icon}`} class="h-auto w-4 text-gray-800 group-hover:text-gray-900 transition" />
+                        <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`} class="p-3 hover:bg-neutral-200 transition group">
+                            <Icon name={`social/${s.icon}`} class="h-auto w-4 text-neutral-800 group-hover:text-neutral-900 transition" />
                         </a>
                     ))
                 }

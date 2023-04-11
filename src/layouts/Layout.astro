@@ -1,4 +1,11 @@
 ---
+// props
+interface Props {
+    includeCta?: boolean;
+}
+const { includeCta = true } = Astro.props;
+
+// styles
 import "../assets/css/_base.scss";
 
 // components
@@ -28,7 +35,7 @@ import Menu from "../components/navigation/Menu.astro";
 
         <slot />
 
-        <Cta />
+        {includeCta && <Cta />}
         <Footer />
     </body>
 </html>

@@ -9,17 +9,17 @@ import image from "../assets/images/testimonial.jpg";
 ---
 
 <div class="inline-block mb-8">
-    <figure class="rounded-md bg-gradient-to-br from-gray-300 via-gray-300 to-gray-50 border border-gray-500 p-8">
+    <figure class="rounded-md bg-gradient-to-br from-neutral-300 via-neutral-300 to-neutral-50 border border-neutral-500 p-8">
         <div class="col-span-3 md:col-span-2 space-y-6">
-            <h6 class="text-gray-800 line-clamp-1" set:html={content.data.title} />
+            <h6 class="text-neutral-800 line-clamp-1" set:html={content.data.title} />
 
-            <blockquote class="text-gray-800 space-y-4 text-sm leading-6" set:html={content.data.testimonial} />
+            <blockquote class="text-neutral-800 space-y-4 leading-6 text-sm" set:html={content.data.testimonial} />
 
             <figcaption class="mt-6 flex items-center gap-x-4">
-                <img src={image.src} class="w-auto h-16 sm:h-12 object-cover bg-gray-50 rounded-md" alt="" />
-                <div class="space-y-1">
-                    <div class="text-sm font-semibold text-gray-900">{content.data.name}</div>
-                    <div class="text-xs text-gray-600">Dripping Springs, TX</div>
+                <img src={image.src} class="w-auto h-16 sm:h-12 object-cover bg-neutral-50 rounded-md" alt="" />
+                <div class="space-y-0">
+                    <div class="font-semibold text-neutral-900">{content.data.name}</div>
+                    <div class="text-sm text-neutral-600">Dripping Springs, TX</div>
                 </div>
             </figcaption>
         </div>

@@ -54,7 +54,7 @@ const process = [
                     </div>
 
                     <div class="order-1 md:order-2 relative w-full h-72 md:h-full col-span-6 md:col-span-3 lg:col-span-4">
-                        <img src={header01.src} alt="Two each of gray, white, and black shirts laying flat." class="absolute w-full h-full object-cover object-[50%,80%] rounded-md" />
+                        <img src={header01.src} alt="Two each of neutral, white, and black shirts laying flat." class="absolute w-full h-full object-cover object-[50%,80%] rounded-md shadow-2xl" />
                     </div>
                 </div>
             </Container>
@@ -73,9 +73,9 @@ const process = [
                                 <div class="z-10 flex flex-col justify-between gap-12">
                                     <div class="space-y-4">
                                         <h3>{v.data.title}</h3>
-                                        <p class="text-gray-200 text-lg">{v.data.descriptionShort}</p>
+                                        <p class="text-neutral-200 text-lg">{v.data.descriptionShort}</p>
 
-                                        <ul class="comma-list text-gray-400">
+                                        <ul class="comma-list text-neutral-400">
                                             {allModels.map((m) => {
                                                 if (m.slug.includes(v.slug)) {
                                                     return <li>{m.data.title}</li>;
@@ -100,7 +100,7 @@ const process = [
                                         <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
                                     </div>
                                 </div>
-                                <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-gray-700/70 w-80 group-hover:w-96 transition-all duration-300" />
+                                <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-neutral-700/70 w-80 group-hover:w-96 transition-all duration-300" />
                             </Surround>
                         </>
                     ))

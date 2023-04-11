@@ -17,6 +17,7 @@ export const Business = {
         state: "TX",
         zip: "78620",
     },
+    hours: "Monday thorugh Friday, 8am to 5pm",
 };
 
 export const Social = [

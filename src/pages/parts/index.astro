@@ -46,46 +46,64 @@ const process = [
     <Background>
         <Section>
             <HeadingBase heading="Off-Road Parts" subheading="Our Philosophy" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
-        </Section>
 
-        <section class="flex flex-col gap-4 overflow-hidden">
-            <div class="">
-                <div class="flex gap-4 -translate-x-32">
-                    <img src={build01.src} class="object-cover h-72 rounded-md" />
-                    <img src={build05.src} class="object-cover h-72 rounded-md" />
-                    <img src={build03.src} class="object-cover h-72 rounded-md" />
-                    <img src={build04.src} class="object-cover h-72 rounded-md" />
-                    <img src={build05.src} class="object-cover h-72 rounded-md" />
-                    <img src={build01.src} class="object-cover h-72 rounded-md" />
-                    <img src={build05.src} class="object-cover h-72 rounded-md" />
-                    <img src={build03.src} class="object-cover h-72 rounded-md" />
-                </div>
-            </div>
-            <div class="">
-                <div class="flex gap-4 -translate-x-72">
-                    <img src={build01.src} class="object-cover h-72 rounded-md" />
-                    <img src={build05.src} class="object-cover h-72 rounded-md" />
-                    <img src={build03.src} class="object-cover h-72 rounded-md" />
-                    <img src={build04.src} class="object-cover h-72 rounded-md" />
-                    <img src={build05.src} class="object-cover h-72 rounded-md" />
-                    <img src={build01.src} class="object-cover h-72 rounded-md" />
-                    <img src={build05.src} class="object-cover h-72 rounded-md" />
-                    <img src={build03.src} class="object-cover h-72 rounded-md" />
-                </div>
-            </div>
-        </section>
-
-        <Section>
             <Container>
                 <div class="grid grid-cols-1 gap-16 lg:grid-cols-3">
                     {process.map((p, i) => <Steps number={i + 1} heading={p.title} content={p.description} />)}
                 </div>
             </Container>
+        </Section>
 
-            <Container>
-                <Break />
-            </Container>
+        <div class="gap-4 flex flex-col">
+            <section class="gap-4 relative flex overflow-hidden marquee">
+                <div class="flex-shrink-0 flex justify-around gap-4 min-w-full">
+                    <img src={build01.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build03.src} class="object-cover h-72 rounded-md" />
+                    <img src={build04.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build01.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build03.src} class="object-cover h-72 rounded-md" />
+                </div>
+                <div class="flex-shrink-0 flex justify-around gap-4 min-w-full">
+                    <img src={build01.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build03.src} class="object-cover h-72 rounded-md" />
+                    <img src={build04.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build01.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build03.src} class="object-cover h-72 rounded-md" />
+                </div>
+            </section>
 
+            <section class="gap-8 relative flex overflow-hidden marquee animate-reverse">
+                <div class="flex-shrink-0 flex justify-around gap-4 min-w-full">
+                    <img src={build01.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build03.src} class="object-cover h-72 rounded-md" />
+                    <img src={build04.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build01.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build03.src} class="object-cover h-72 rounded-md" />
+                </div>
+
+                <div class="flex-shrink-0 flex justify-around gap-4 min-w-full">
+                    <img src={build01.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build03.src} class="object-cover h-72 rounded-md" />
+                    <img src={build04.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build01.src} class="object-cover h-72 rounded-md" />
+                    <img src={build05.src} class="object-cover h-72 rounded-md" />
+                    <img src={build03.src} class="object-cover h-72 rounded-md" />
+                </div>
+            </section>
+        </div>
+
+        <Section classes="">
             <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {
                     allParts.map((p) => (
@@ -97,18 +115,18 @@ const process = [
                             </div>
 
                             <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                                <div class="text-lg font-semibold tracking-tight text-gray-900">
+                                <div class="text-lg font-semibold tracking-tight text-neutral-900">
                                     <div class="text-white text-2xl flex items-center gap-2">
                                         <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
                                         {p.data.title}
                                     </div>
                                 </div>
 
-                                <div class="text-base leading-7 text-gray-400">{p.data.descriptionShort}</div>
+                                <div class="text-base leading-7 text-neutral-400">{p.data.descriptionShort}</div>
 
                                 <div>
-                                    <div class="text-base font-semibold leading-7 text-gray-200">Brands</div>
-                                    <ul class="comma-list font-light text-gray-500 line-clamp-2 text-sm md:text-base">
+                                    <div class="text-base font-semibold leading-7 text-neutral-200">Brands</div>
+                                    <ul class="comma-list font-light text-neutral-500 line-clamp-2 text-sm md:text-base">
                                         {p.data.brands.map((b) => (
                                             <li>{b.title}</li>
                                         ))}
@@ -122,3 +140,22 @@ const process = [
         </Section>
     </Background>
 </Layout>
+
+<style>
+    @keyframes scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(-100% - 2rem));
+        }
+    }
+
+    /* Enable animation */
+    .marquee > div {
+        animation: scroll 180s linear infinite;
+    }
+    .animate-reverse > div {
+        animation-direction: reverse;
+    }
+</style>

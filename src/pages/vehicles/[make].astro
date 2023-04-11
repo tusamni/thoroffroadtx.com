@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// components
+import { Icon } from "astro-icon";
+
+// content
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+    const allVehicleMakes = await getCollection("vehicles");
+    return allVehicleMakes.map((entry) => ({
+        params: { make: entry.slug },
+        props: { entry },
+    }));
+}
+const { entry } = Astro.props;
+const allVehicleModels = await getCollection("models", ({ slug }) => {
+    return slug.includes(entry.slug);
+});
+
+// images
+import header01 from "../../assets/images/header03.jpg";
+---
+
+<Layout>
+    <img src={header01.src} alt="" />
+</Layout>

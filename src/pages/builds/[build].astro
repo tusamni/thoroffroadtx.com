@@ -1,0 +1,127 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// components
+import { Icon } from "astro-icon";
+import Background from "../../components/content/Background.astro";
+import Break from "../../components/Break.astro";
+import Container from "../../components/Container.astro";
+import Section from "../../components/Section.astro";
+
+// images
+import build01 from "../../assets/images/builds/build01.jpg";
+import build02 from "../../assets/images/builds/build02.jpg";
+import build03 from "../../assets/images/builds/build03.jpg";
+import build04 from "../../assets/images/builds/build04.jpg";
+import build05 from "../../assets/images/builds/build05.jpg";
+import build06 from "../../assets/images/builds/build06.jpg";
+import build07 from "../../assets/images/builds/build07.jpg";
+import build08 from "../../assets/images/builds/build08.jpg";
+import build09 from "../../assets/images/builds/build09.jpg";
+
+// images
+import { getBuildImage } from "../../functions/Image";
+import { Image } from "astro:assets";
+
+// content
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+    const allBuilds = await getCollection("builds");
+    return allBuilds.map((entry) => ({
+        params: { build: entry.slug },
+        props: { entry },
+    }));
+}
+const { entry } = Astro.props;
+---
+
+<Layout>
+    <Background>
+        <Section classes="relative z-10">
+            <Container>
+                <div class="grid grid-cols-1 gap-y-20 gap-x-24 xl:grid-cols-6">
+                    <!-- metadata -->
+                    <div class="col-span-2">
+                        <div class="sticky top-48 space-y-12">
+                            <div class="space-y-4">
+                                <p class="text-neutral-500">
+                                    <a href="/builds" title="Back to THOR Builds">&larr; Back to Builds</a>
+                                </p>
+                                <h1>{entry.data.year} {entry.data.make} {entry.data.model}</h1>
+
+                                {
+                                    entry.data.drive || entry.data.color ? (
+                                        <ul class="text-neutral-300 flex flex-row gap-4">
+                                            {entry.data.drive && <li>{entry.data.drive}</li>}
+                                            {entry.data.color && <li>{entry.data.color}</li>}
+                                        </ul>
+                                    ) : (
+                                        ``
+                                    )
+                                }
+                            </div>
+
+                            <Break />
+
+                            {
+                                entry.data.goals && (
+                                    <>
+                                        <h2 class="text-2xl font-medium text-white">Goals</h2>
+                                        <div class="mt-4 text-lg leading-8 text-neutral-300 space-y-4" set:html={entry.data.goals} />
+                                    </>
+                                )
+                            }
+
+                            {
+                                entry.data.parts && (
+                                    <>
+                                        <h2 class="text-2xl font-medium text-white">Parts List</h2>
+                                        <ul role="list" class="text-md leading-7 text-neutral-300 list-inside list-disc">
+                                            {entry.data.parts.map((p) => (
+                                                <li>{p}</li>
+                                            ))}
+                                        </ul>
+                                    </>
+                                )
+                            }
+                        </div>
+                    </div>
+
+                    <!-- content  -->
+                    <div class="col-span-4">
+                        <div class="space-y-24">
+                            <div class="grid grid-cols-3 gap-8 w-full h-full">
+                                <div class="col-span-3">
+                                    <Image src={getBuildImage(entry.data.id, `01`)} width={2000} height={2000} alt={entry.data.summary} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                </div>
+                            </div>
+
+                            {
+                                entry.data.testimonial && (
+                                    <div class="space-y-8">
+                                        <blockquote class="col-span-3 italic text-3xl leading-relaxed text-white">"{entry.data.testimonial.content}"</blockquote>
+
+                                        <div class="flex justify-between items-center">
+                                            <div class="flex items-center">
+                                                <Icon name="Star" class="w-7 text-yellow-400" />
+                                                <Icon name="Star" class="w-7 text-yellow-400" />
+                                                <Icon name="Star" class="w-7 text-yellow-400" />
+                                                <Icon name="Star" class="w-7 text-yellow-400" />
+                                                <Icon name="Star" class="w-7 text-yellow-400" />
+                                            </div>
+                                            <p class="text-white font-semibold text-2xl">{entry.data.name}</p>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                            <div class="columns-1 sm:columns-2 gap-6 space-y-6">
+                                {entry.data.images.slice(1).map((i) => <Image src={getBuildImage(entry.data.id, i)} width={1000} height={1000} alt={entry.data.summary} class="object-cover rounded-md shadow-2xl" />)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </Section>
+    </Background>
+</Layout>

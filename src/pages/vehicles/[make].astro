@@ -2,10 +2,15 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
-import { Icon } from "astro-icon";
+import Background from "../../components/content/Background.astro";
+import BuildSnippet from "../../components/builds/BuildSnippet.astro";
+import Container from "../../components/Container.astro";
+import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import Section from "../../components/Section.astro";
 
 // content
 import { getCollection } from "astro:content";
+
 export async function getStaticPaths() {
     const allVehicleMakes = await getCollection("vehicles");
     return allVehicleMakes.map((entry) => ({
@@ -14,14 +19,36 @@ export async function getStaticPaths() {
     }));
 }
 const { entry } = Astro.props;
+
 const allVehicleModels = await getCollection("models", ({ slug }) => {
     return slug.includes(entry.slug);
 });
+const allBuilds = await getCollection("builds", ({ data }) => {
+    return data.make.includes(entry.data.title);
+});
 
 // images
-import header01 from "../../assets/images/header03.jpg";
+import { Image } from "astro:assets";
 ---
 
 <Layout>
-    <img src={header01.src} alt="" />
+    <Background>
+        <Section>
+            <HeadingBase heading={entry.data.title} description={entry.data.descriptionLong} />
+        </Section>
+
+        <Section classes="bg-neutral-600">
+            <Container>
+                <div class="grid grid-cols-1 gap-12 xl:grid-cols-5">
+                    <div class="col-span-2">
+                        <h2>Recent {entry.data.title} Builds</h2>
+                    </div>
+
+                    <div class="col-span-3 grid grid-cols-3 gap-4">
+                        {allBuilds.map((b) => <BuildSnippet build={b} />)}
+                    </div>
+                </div>
+            </Container>
+        </Section>
+    </Background>
 </Layout>

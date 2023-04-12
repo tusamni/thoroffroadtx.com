@@ -1,25 +1,27 @@
 ---
 interface Props {
-    content: object;
+    content: any;
 }
 const { content } = Astro.props;
 
 // image
-import image from "../assets/images/testimonial.jpg";
+import { Image } from "astro:assets";
+import { getBuildImage } from "../functions/Image";
 ---
 
 <div class="inline-block mb-8">
     <figure class="rounded-md bg-gradient-to-br from-neutral-300 via-neutral-300 to-neutral-50 border border-neutral-500 p-8">
         <div class="col-span-3 md:col-span-2 space-y-6">
-            <h6 class="text-neutral-800 line-clamp-1" set:html={content.data.title} />
+            <h6 class="text-neutral-800 line-clamp-1" set:html={content.testimonial.highlight} />
 
-            <blockquote class="text-neutral-800 space-y-4 leading-6 text-sm" set:html={content.data.testimonial} />
+            <blockquote class="text-neutral-800 space-y-4 leading-6 text-sm" set:html={content.testimonial.content} />
 
             <figcaption class="mt-6 flex items-center gap-x-4">
-                <img src={image.src} class="w-auto h-16 sm:h-12 object-cover bg-neutral-50 rounded-md" alt="" />
+                <Image src={getBuildImage(content.id, `01`)} alt={`THOR Build for ${content.name}`} width={200} height={200} class="w-20 h-12 object-cover rounded-md" />
+
                 <div class="space-y-0">
-                    <div class="font-semibold text-neutral-900">{content.data.name}</div>
-                    <div class="text-sm text-neutral-600">Dripping Springs, TX</div>
+                    <div class="font-semibold text-neutral-900">{content.name}</div>
+                    <div class="text-sm text-neutral-600">{content.location.city}, {content.location.state}</div>
                 </div>
             </figcaption>
         </div>

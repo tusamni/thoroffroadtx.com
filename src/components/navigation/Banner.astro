@@ -24,8 +24,8 @@ import { Social } from "../../config.js";
             <div class="flex items-center">
                 {
                     Social.map((s) => (
-                        <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`} class="p-3 hover:bg-neutral-200 transition group">
-                            <Icon name={`social/${s.icon}`} class="h-auto w-4 text-neutral-800 group-hover:text-neutral-900 transition" />
+                        <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`} class="p-3 group hover:bg-neutral-300 transition ">
+                            <Icon name={`social/${s.icon}`} class="h-auto w-4 text-neutral-800 transition" />
                         </a>
                     ))
                 }

@@ -1,7 +1,6 @@
 ---
 // components
 import { Icon } from "astro-icon";
-import Background from "./content/Background.astro";
 import ContactForm from "./ContactForm.astro";
 import Container from "./Container.astro";
 import Section from "./Section.astro";
@@ -13,16 +12,15 @@ import { Business } from "../config.js";
 import truck from "../assets/images/header01.jpg";
 ---
 
-<Background theme="secondary">
+<div class="bg-neutral-400">
     <Container>
         <Section>
-            <div class="grid lg:grid-cols-5">
-                <div class="lg:col-span-2 space-y-12 bg-gradient-to-br from-neutral-300/90 via-neutral-300/90 to-neutral-50/90 p-8 rounded-l-md">
+            <div class="grid lg:grid-cols-5 gap-16">
+                <div class="lg:col-span-2 space-y-8 py-12 rounded-l-md">
                     <h2 class="text-neutral-800">Let's start building your dream vehicle.</h2>
 
-                    <div class="space-y-6 text-neutral-600 text-lg leading-8">
-                        <p>If you are ready to get started on designing and building the perfect truck, so are we.</p>
-                        <p>Tell us a little about your truck build and contact information and we will reach out to you as soon as possible.</p>
+                    <div class="text-neutral-700 leading-7">
+                        <p>If you are ready to get started on designing and building the perfect truck, so are we. Tell us a little about your truck build and contact information and we will reach out to you as soon as possible.</p>
                     </div>
 
                     <div class="w-full">
@@ -32,10 +30,10 @@ import truck from "../assets/images/header01.jpg";
 
                 <div class="lg:col-span-3 flex flex-col">
                     <div class="hidden lg:block relative w-full h-full">
-                        <img src={truck.src} class="absolute object-cover w-full h-full object-[50%,80%] rounded-r-md shadow-xl z-10" />
+                        <img src={truck.src} class="absolute object-cover w-full h-full object-[50%,80%] rounded-t-md shadow-xl z-10" />
                     </div>
 
-                    <div class="grid grid-cols-3 rounded-br-md bg-neutral-800 divide-x divide-neutral-700 border-b border-neutral-700 border-r">
+                    <div class="grid grid-cols-3 rounded-b-md bg-neutral-800 divide-x divide-neutral-700 border-b border-neutral-700 border-r">
                         <div class="space-y-2 p-6">
                             <div class="flex items-center gap-2">
                                 <Icon name="Map" class="h-5 w-5 flex-none text-white" />
@@ -65,4 +63,4 @@ import truck from "../assets/images/header01.jpg";
             </div>
         </Section>
     </Container>
-</Background>
+</div>

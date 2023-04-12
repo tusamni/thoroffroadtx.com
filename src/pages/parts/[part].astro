@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// components
+import Background from "../../components/content/Background.astro";
+import Container from "../../components/Container.astro";
+import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import Section from "../../components/Section.astro";
+
+// content
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+    const allParts = await getCollection("parts");
+    return allParts.map((entry) => ({
+        params: { part: entry.slug },
+        props: { entry },
+    }));
+}
+const { entry } = Astro.props;
+
+// images
+import { Image } from "astro:assets";
+---
+
+<Layout>
+    <Background>
+        <Section>
+            <HeadingBase heading={entry.data.title} description={entry.data.descriptionLong} />
+        </Section>
+    </Background>
+</Layout>

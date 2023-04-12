@@ -2,32 +2,83 @@
 import Layout from "../layouts/Layout.astro";
 
 // components
-import { Icon } from "astro-icon";
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
 import Background from "../components/content/Background.astro";
-import Break from "../components/Break.astro";
 import Button from "../components/buttons/Button.astro";
 import Container from "../components/Container.astro";
 import Section from "../components/Section.astro";
 import Link from "../components/buttons/Link.astro";
-import PostSnippet from "../components/posts/PostSnippet.astro";
 import Testimonial from "../components/Testimonial.astro";
 
 // config
 import { Business } from "../config";
 
 // content
-const allTestimonials = await getCollection("testimonials");
-
-// functions
-import { isPortrait } from "../functions/Image.js";
+import { getCollection } from "astro:content";
+const allBuilds = await getCollection("builds", ({ data }) => {
+    return data.testimonial;
+});
 
 // images
-import header01 from "../assets/images/header01.jpg";
-import header02 from "../assets/images/header02.jpg";
-import header03 from "../assets/images/header03.jpg";
-import header04 from "../assets/images/header04.jpg";
+import { Image } from "astro:assets";
+import { isPortrait, getImage } from "../functions/Image.js";
+
+// images
+const headers = [
+    {
+        src: "shop/2023-02-23/shop-shoot_01.jpg",
+        alt: "Ford Super Duty in Dripping Springs, TX",
+    },
+    {
+        src: "shop/2022-12-05/shop-shoot_15.jpg",
+        alt: "Truck outfitting in Austin, TX",
+    },
+    {
+        src: "builds/573883/573883_02.jpg",
+        alt: "Highly modified red Dodge RAM 2500HD",
+    },
+    {
+        src: "shop/2022-12-05/shop-shoot_14.jpg",
+        alt: "Installing aftermarket truck suspension",
+    },
+];
+const gallery = [
+    {
+        src: "vehicles/ford/bronco/2204-2021-ford-bronco-outer-banks-black/2021-ford-bronco-black_003.jpg",
+        alt: "Black Ford Bronco Outer Banks",
+    },
+    {
+        src: "vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_003.jpg",
+        alt: "2007 Toyota Land Cruiser",
+    },
+    {
+        src: "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-antimatter-blue_019.jpg",
+        alt: "Antimatter Blue Ford Bronco",
+    },
+    {
+        src: "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-lithium-grey/2021-ford-f-250-lithium-grey_002.jpg",
+        alt: "Lithium Grey F-250 Super Duty",
+    },
+    {
+        src: "vehicles/ford/f-250/2203-1997-ford-f-250-red/1997-ford-f-250-red_001.jpg",
+        alt: "1997 Red Ford F-250 Super Duty",
+    },
+    {
+        src: "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_007.jpg",
+        alt: "2022 Stone Grey F-250 Super Duty",
+    },
+    {
+        src: "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-white_005.jpg",
+        alt: "2021 White GMC 2500 HD",
+    },
+    {
+        src: "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-white_003.jpg",
+        alt: "Modified 2021 Dodge RAM TRX in White",
+    },
+    {
+        src: "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_021.jpg",
+        alt: "2016 Dodge RAM off-roading",
+    },
+];
 
 import bds from "../assets/images/brands/bds.png";
 import method from "../assets/images/brands/method.png";
@@ -38,30 +89,26 @@ import raceline from "../assets/images/brands/raceline.png";
 import fox from "../assets/images/brands/fox.png";
 import blackrhino from "../assets/images/brands/black-rhino.png";
 import bajadesigns from "../assets/images/brands/baja-designs.png";
-
-import jamey from "../assets/images/jamey.jpg";
-import headshot from "../assets/images/jamey02.jpg";
 ---
 
 <Layout>
     <!-- header images -->
     <div class="grid grid-cols-2 lg:grid-cols-4 grid-rows-2 lg:grid-rows-1 h-[400px] md:h-[600px] lg:h-[500px]">
         <div class="units order-1">
-            <Image src={header01.src} width={header01.width} height={header01.height} class="object-cover w-full h-full object-[50%,80%] lg:object-center" alt="THOR Off-Road" />
-            <Image src={header01.src} width={header01.width} height={header01.height} class="object-cover w-full h-full object-[50%,80%] lg:object-center hidden lg:block" alt="THOR Off-Road" />
+            <Image src={getImage(headers[0].src)} width={1000} height={1000} class="object-cover w-full h-full object-[50%,80%] lg:object-center" alt={headers[0].alt} />
+            <Image src={getImage(headers[0].src)} width={1000} height={1000} class="object-cover w-full h-full object-[50%,80%] lg:object-center hidden lg:block" alt={headers[0].alt} />
         </div>
-
         <div class="units order-2">
-            <img src={header02.src} class="object-cover w-full h-full object-left-bottom lg:object-center" />
-            <img src={header02.src} class="object-cover w-full h-full object-left-bottom lg:object-center hidden lg:block" />
+            <Image src={getImage(headers[1].src)} width={1000} height={1000} class="object-cover w-full h-full object-left-bottom lg:object-center" alt={headers[1].alt} />
+            <Image src={getImage(headers[1].src)} width={1000} height={1000} class="object-cover w-full h-full object-left-bottom lg:object-center hidden lg:block" alt={headers[1].alt} />
         </div>
         <div class="units order-4 lg:order-3">
-            <img src={header03.src} class="object-cover w-full h-full object-left lg:object-left-bottom" />
-            <img src={header03.src} class="object-cover w-full h-full object-left lg:object-left-bottom" />
+            <Image src={getImage(headers[2].src)} width={1000} height={1000} class="object-cover w-full h-full object-left lg:object-left-bottom" alt={headers[2].alt} />
+            <Image src={getImage(headers[2].src)} width={1000} height={1000} class="object-cover w-full h-full object-left lg:object-left-bottom" alt={headers[2].alt} />
         </div>
         <div class="units order-3 lg:order-4">
-            <img src={header04.src} class="object-cover w-full h-full object-top sm:object-[50%,20%] lg:object-center" />
-            <img src={header04.src} class="object-cover w-full h-full object-top lg:object-center" />
+            <Image src={getImage(headers[3].src)} width={1000} height={1000} class="object-cover w-full h-full object-top sm:object-[50%,20%] lg:object-center" alt={headers[3].alt} />
+            <Image src={getImage(headers[3].src)} width={1000} height={1000} class="object-cover w-full h-full object-top lg:object-center" alt={headers[3].alt} />
         </div>
     </div>
 
@@ -100,7 +147,7 @@ import headshot from "../assets/images/jamey02.jpg";
             <Container>
                 <div class="grid grid-cols-1 items-start gap-12 md:grid-cols-2">
                     <div class="hidden md:block md:relative h-full w-full">
-                        <img src={jamey.src} class="md:absolute h-full w-full object-cover md:object-[60%,10%] lg:object-[50%,30%] shadow-2xl rounded-md" alt="" />
+                        <Image src={getImage("team/jamey/jamey.jpg")} alt="Jamey Whitlock of THOR Off-Road" width={1407} height={2500} class="md:absolute h-full w-full object-cover md:object-[60%,10%] lg:object-[50%,30%] shadow-2xl rounded-md" />
                     </div>
 
                     <div>
@@ -114,7 +161,7 @@ import headshot from "../assets/images/jamey02.jpg";
                                     <em>“Wow, I can't believe that's my truck!”</em>
                                 </p>
                                 <div class="mt-16 flex flex-col gap-4">
-                                    <img src={headshot.src} class="md:hidden rounded-full w-16 h-auto border border-neutral-600" />
+                                    <Image src={getImage("team/jamey/jamey-headshot.jpg")} alt="Jamey Whitlock of THOR Off-Road" width={786} height={787} class="md:hidden rounded-full w-16 h-auto border border-neutral-600" />
 
                                     <div class="flex flex-col gap-2">
                                         <p class="font-cursive text-4xl">Jamey Whitlock</p>
@@ -137,7 +184,7 @@ import headshot from "../assets/images/jamey02.jpg";
 
                 <div class="mx-auto mt-16 flow-root sm:mt-20">
                     <div class="sm:columns-2 lg:columns-3 gap-8">
-                        {allTestimonials.map((t) => <Testimonial content={t} />)}
+                        {allBuilds.map((t) => <Testimonial content={t.data} />)}
                     </div>
                 </div>
             </Container>
@@ -151,14 +198,7 @@ import headshot from "../assets/images/jamey02.jpg";
                 </div>
 
                 <div class="columns-1 sm:columns-2 md:columns-3 space-y-4 mt-16 sm:mt-20">
-                    <Image src={header01.src} width={header01.width} height={header01.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header01)]} alt="THOR Off-Road" />
-                    <Image src={header02.src} width={header02.width} height={header02.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header02)]} alt="THOR Off-Road" />
-                    <Image src={header03.src} width={header03.width} height={header03.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header03)]} alt="THOR Off-Road" />
-                    <Image src={header04.src} width={header04.width} height={header04.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header04)]} alt="THOR Off-Road" />
-                    <Image src={header01.src} width={header01.width} height={header01.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header01)]} alt="THOR Off-Road" />
-                    <Image src={header02.src} width={header02.width} height={header02.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header02)]} alt="THOR Off-Road" />
-                    <Image src={header03.src} width={header03.width} height={header03.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header03)]} alt="THOR Off-Road" />
-                    <Image src={header04.src} width={header04.width} height={header04.height} class:list={["rounded-md shadow-2xl object-cover", isPortrait(header04)]} alt="THOR Off-Road" />
+                    {gallery.map((i) => <Image src={getImage(i.src)} width={1000} height={1000} class="rounded-md shadow-2xl object-cover" alt={i.alt} />)}
                 </div>
             </Container>
         </Section>

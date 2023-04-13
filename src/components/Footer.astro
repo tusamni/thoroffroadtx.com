@@ -1,8 +1,7 @@
 ---
 // components
-import { getCollection } from "astro:content";
+
 import { Icon } from "astro-icon";
-import { Image } from "astro:assets";
 import Break from "./Break.astro";
 import Container from "./Container.astro";
 import Section from "./Section.astro";
@@ -11,11 +10,40 @@ import Section from "./Section.astro";
 import { Social, Business } from "../config.js";
 
 // content
+import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
 const allVehicles = await getCollection("vehicles");
 
 // images
+import { Image } from "astro:assets";
+import { getImage } from "../functions/Image";
 import logo from "../assets/images/logo-white.png";
+const recent = [
+    {
+        src: "shop/2023-02-22/shop-shoot_03.jpg",
+        alt: "Truck being built at THOR Off Road",
+    },
+    {
+        src: "shop/2023-02-22/shop-shoot_20.jpg",
+        alt: "Truck being built at THOR Off Road",
+    },
+    {
+        src: "shop/2023-02-22/shop-shoot_23.jpg",
+        alt: "Truck being built at THOR Off Road",
+    },
+    {
+        src: "shop/2023-02-22/shop-shoot_38.jpg",
+        alt: "Truck being built at THOR Off Road",
+    },
+    {
+        src: "shop/2023-02-22/shop-shoot_15.jpg",
+        alt: "Truck being built at THOR Off Road",
+    },
+    {
+        src: "shop/2022-12-05/shop-shoot_41.jpg",
+        alt: "Truck being built at THOR Off Road",
+    },
+];
 import header01 from "../assets/images/header01.jpg";
 import header02 from "../assets/images/header02.jpg";
 import header03 from "../assets/images/header03.jpg";
@@ -47,12 +75,7 @@ import header04 from "../assets/images/header04.jpg";
 
                 <!-- images -->
                 <div class="grid xl:col-span-1 grid-cols-3 gap-6 order-3 xl:order-2 col-span-2">
-                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                    <img src={header02.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                    <img src={header03.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                    <img src={header04.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                    <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                    <img src={header02.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
+                    {recent.map((i) => <Image src={getImage(i.src)} alt={i.alt} width={250} height={250} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />)}
                 </div>
 
                 <!-- navigation -->

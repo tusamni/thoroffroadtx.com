@@ -4,11 +4,9 @@ import Layout from "../../layouts/Layout.astro";
 // components
 import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
-import Break from "../../components/Break.astro";
 import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
-import Link from "../../components/buttons/Link.astro";
 import Section from "../../components/Section.astro";
 import Steps from "../../components/content/headings/Steps.astro";
 import Surround from "../../components/content/Surround.astro";
@@ -96,7 +94,7 @@ const process = [
                                         <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
                                     </div>
                                 </div>
-                                <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-neutral-700/70 w-80 group-hover:w-96 transition-all duration-300" />
+                                <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-neutral-500/70 w-80 group-hover:w-96 transition-all duration-300" />
                             </Surround>
                         </>
                     ))

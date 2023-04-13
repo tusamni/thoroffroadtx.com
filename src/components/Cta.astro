@@ -33,30 +33,30 @@ import truck from "../assets/images/header01.jpg";
                         <img src={truck.src} class="absolute object-cover w-full h-full object-[50%,80%] rounded-t-md shadow-xl z-10" />
                     </div>
 
-                    <div class="grid grid-cols-3 rounded-b-md bg-neutral-800 divide-x divide-neutral-700 border-b border-neutral-700 border-r">
+                    <div class="grid grid-cols-3 rounded-b-md bg-neutral-200 divide-x divide-neutral-300">
                         <div class="space-y-2 p-6">
                             <div class="flex items-center gap-2">
-                                <Icon name="Map" class="h-5 w-5 flex-none text-white" />
-                                <h6>Visit Us</h6>
+                                <Icon name="Map" class="h-5 w-5 flex-none text-neutral-700" />
+                                <h6 class="text-neutral-700">Visit Us</h6>
                             </div>
 
-                            <p class="text-neutral-400 text-sm">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}. We're open {Business.hours}.</p>
+                            <p class="text-neutral-500 text-sm">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}. We're open {Business.hours}.</p>
                         </div>
 
                         <div class="space-y-2 p-6 max-w-">
                             <div class="flex items-center gap-2">
-                                <Icon name="Phone" class="h-5 w-5 flex-none text-white" />
-                                <h6>Call Us</h6>
+                                <Icon name="Phone" class="h-5 w-5 flex-none text-neutral-700" />
+                                <h6 class="text-neutral-700">Call Us</h6>
                             </div>
-                            <p class="text-neutral-400 text-sm">Please feel free to reach out to us anytime at <a class="underline text-neutral-300 whitespace-nowrap" href={`tel:${Business.phone}`}>{Business.phone}</a>.</p>
+                            <p class="text-neutral-500 text-sm">Please feel free to reach out to us anytime at <a class="hover:underline font-semibold text-neutral-600 whitespace-nowrap" href={`tel:${Business.phone}`}>{Business.phone}</a>.</p>
                         </div>
 
                         <div class="space-y-2 p-6">
                             <div class="flex items-center gap-2">
-                                <Icon name="Envelope" class="h-5 w-5 flex-none text-white" />
-                                <h6>Email Us</h6>
+                                <Icon name="Envelope" class="h-5 w-5 flex-none text-neutral-700" />
+                                <h6 class="text-neutral-700">Email Us</h6>
                             </div>
-                            <p class="text-neutral-400 text-sm">Shoot us an email anytime, <a class="underline text-neutral-300" href={`mailto:${Business.email}`}>{Business.email}</a>.</p>
+                            <p class="text-neutral-500 text-sm">Shoot us an email anytime, <a class="hover:underline text-neutral-600 font-semibold" href={`mailto:${Business.email}`}>{Business.email}</a>.</p>
                         </div>
                     </div>
                 </div>

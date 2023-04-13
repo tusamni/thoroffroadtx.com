@@ -7,7 +7,9 @@ import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import Hover from "../../components/images/Hover.astro";
 import Section from "../../components/Section.astro";
+import Surround from "../../components/content/Surround.astro";
 
 // config
 import { Business } from "../../config";
@@ -24,8 +26,8 @@ export async function getStaticPaths() {
 }
 const { entry } = Astro.props;
 
-const allVehicleModels = await getCollection("models", ({ slug }) => {
-    return slug.includes(entry.slug);
+const allVehicleModels = await getCollection("models", ({ slug, data }) => {
+    return slug.includes(entry.slug) && data.draft !== true;
 });
 const allBuilds = await getCollection("builds", ({ data }) => {
     return data.make.includes(entry.data.title);
@@ -53,7 +55,7 @@ import { getImage } from "../../functions/Image";
             <div class="grid grid-cols-1 gap-12 xl:grid-cols-5">
                 <div class="col-span-2 flex flex-col justify-between space-y-8">
                     <div class="space-y-6">
-                        <h2>Recent {entry.data.title} Builds</h2>
+                        <h3>Recent {entry.data.title} Builds</h3>
                         <p class="text-xl leading-8 text-neutral-400">We love showing off our work. We're proud of it and our customers love the finished product. <a href="/contact" title={`Contact ${Business.nameLong}`} class="hover:underline text-neutral-300">Let's start building your dream {entry.data.title}</a>!</p>
                     </div>
 
@@ -68,4 +70,30 @@ import { getImage } from "../../functions/Image";
             </div>
         </Container>
     </Section>
+
+    <Background>
+        <Section>
+            <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {
+                    allVehicleModels.map((m) => (
+                        <Surround href={`/vehicles/${m.slug}`} title={m.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
+                            <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
+                                <Hover classes="w-full h-full">
+                                    <Image src={getImage(m.data.featured)} alt={m.data.title} width={500} height={500} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" />
+                                </Hover>
+                            </div>
+
+                            <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
+                                <div class="text-lg font-semibold tracking-tight text-neutral-900">
+                                    <div class="text-white text-2xl flex items-center gap-2">{m.data.title}</div>
+                                </div>
+
+                                <div class="text-base leading-7 text-neutral-400">{m.data.description}</div>
+                            </div>
+                        </Surround>
+                    ))
+                }
+            </Container>
+        </Section>
+    </Background>
 </Layout>

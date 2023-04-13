@@ -6,12 +6,19 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    assets: true
-  },
-  integrations: [tailwind({
-    config: {
-      applyBaseStyles: false
-    }
-  }), alpinejs(), mdx()]
+    experimental: {
+        assets: true,
+    },
+    image: {
+        service: "astro/assets/services/sharp",
+    },
+    integrations: [
+        tailwind({
+            config: {
+                applyBaseStyles: false,
+            },
+        }),
+        alpinejs(),
+        mdx(),
+    ],
 });

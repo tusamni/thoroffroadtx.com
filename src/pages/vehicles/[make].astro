@@ -4,9 +4,13 @@ import Layout from "../../layouts/Layout.astro";
 // components
 import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
+import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Section from "../../components/Section.astro";
+
+// config
+import { Business } from "../../config";
 
 // content
 import { getCollection } from "astro:content";
@@ -29,26 +33,39 @@ const allBuilds = await getCollection("builds", ({ data }) => {
 
 // images
 import { Image } from "astro:assets";
+import { getImage } from "../../functions/Image";
 ---
 
 <Layout>
-    <Background>
-        <Section>
-            <HeadingBase heading={entry.data.title} description={entry.data.descriptionLong} />
-        </Section>
+    <div class="relative">
+        <Image src={getImage(entry.data.featured)} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={`RAM trucks built by ${Business.nameLong}`} />
+        <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-black via-black/70 to-black/40"></div>
 
-        <Section classes="bg-neutral-600">
-            <Container>
-                <div class="grid grid-cols-1 gap-12 xl:grid-cols-5">
-                    <div class="col-span-2">
+        <Section>
+            <div class="relative">
+                <HeadingBase heading={entry.data.title} description={entry.data.descriptionLong} />
+            </div>
+        </Section>
+    </div>
+
+    <Section classes="bg-neutral-600">
+        <Container>
+            <div class="grid grid-cols-1 gap-12 xl:grid-cols-5">
+                <div class="col-span-2 flex flex-col justify-between space-y-8">
+                    <div class="space-y-6">
                         <h2>Recent {entry.data.title} Builds</h2>
+                        <p class="text-xl leading-8 text-neutral-400">We love showing off our work. We're proud of it and our customers love the finished product. <a href="/contact" title={`Contact ${Business.nameLong}`} class="hover:underline text-neutral-300">Let's start building your dream {entry.data.title}</a>!</p>
                     </div>
 
-                    <div class="col-span-3 grid grid-cols-3 gap-4">
-                        {allBuilds.map((b) => <BuildSnippet build={b} />)}
+                    <div>
+                        <Button href="/builds">See Our {entry.data.title} Builds</Button>
                     </div>
                 </div>
-            </Container>
-        </Section>
-    </Background>
+
+                <div class="col-span-3 grid grid-cols-3 gap-4">
+                    {allBuilds.map((b) => <BuildSnippet build={b} />).slice(0, 3)}
+                </div>
+            </div>
+        </Container>
+    </Section>
 </Layout>

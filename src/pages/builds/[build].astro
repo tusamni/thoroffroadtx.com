@@ -20,7 +20,7 @@ import build08 from "../../assets/images/builds/build08.jpg";
 import build09 from "../../assets/images/builds/build09.jpg";
 
 // images
-import { getBuildImage } from "../../functions/Image";
+import { getBuildImage, getImage } from "../../functions/Image";
 import { Image } from "astro:assets";
 
 // content
@@ -117,6 +117,13 @@ const { entry } = Astro.props;
 
                             <div class="columns-1 sm:columns-2 gap-6 space-y-6">
                                 {entry.data.images.slice(1).map((i) => <Image src={getBuildImage(entry.data.id, i)} width={1000} height={1000} alt={entry.data.summary} class="object-cover rounded-md shadow-2xl" />)}
+                                {
+                                    entry.data.video && (
+                                        <video controls class="rounded-md shadow-2xl">
+                                            <source src={getImage(`builds/${entry.data.id}/${entry.data.id}.mp4`)} type="video/mp4" />
+                                        </video>
+                                    )
+                                }
                             </div>
                         </div>
                     </div>

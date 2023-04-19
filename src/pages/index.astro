@@ -20,7 +20,7 @@ const allBuilds = await getCollection("builds", ({ data }) => {
 
 // images
 import { Image } from "astro:assets";
-import { isPortrait, getImage } from "../functions/Image.js";
+import { getImage, getBuildImage } from "../functions/Image.js";
 
 // images
 const headers = [
@@ -39,44 +39,6 @@ const headers = [
     {
         src: "shop/2022-12-05/shop-shoot_14.jpg",
         alt: "Installing aftermarket truck suspension",
-    },
-];
-const gallery = [
-    {
-        src: "vehicles/ford/bronco/2204-2021-ford-bronco-outer-banks-black/2021-ford-bronco-black_003.jpg",
-        alt: "Black Ford Bronco Outer Banks",
-    },
-    {
-        src: "vehicles/toyota/land-cruiser/2111-2007-toyota-land-cruiser-black/2007-toyota-land-cruiser-black_003.jpg",
-        alt: "2007 Toyota Land Cruiser",
-    },
-    {
-        src: "vehicles/ford/bronco/2206-2021-ford-bronco-wild-track-antimatter-blue/2021-ford-bronco-antimatter-blue_019.jpg",
-        alt: "Antimatter Blue Ford Bronco",
-    },
-    {
-        src: "vehicles/ford/f-250/2110-2021-ford-f-250-lariat-lithium-grey/2021-ford-f-250-lithium-grey_002.jpg",
-        alt: "Lithium Grey F-250 Super Duty",
-    },
-    {
-        src: "vehicles/ford/f-250/2203-1997-ford-f-250-red/1997-ford-f-250-red_001.jpg",
-        alt: "1997 Red Ford F-250 Super Duty",
-    },
-    {
-        src: "vehicles/ford/f-250/2206-2022-ford-f-250-stone-grey/2022-ford-f-250-stone-grey_007.jpg",
-        alt: "2022 Stone Grey F-250 Super Duty",
-    },
-    {
-        src: "vehicles/gmc/2500/2203-2021-gmc-2500-at4-white/2021-gmc-2500-white_005.jpg",
-        alt: "2021 White GMC 2500 HD",
-    },
-    {
-        src: "vehicles/ram/1500/2100-2021-ram-1500-trx-white/2021-ram-1500-white_003.jpg",
-        alt: "Modified 2021 Dodge RAM TRX in White",
-    },
-    {
-        src: "vehicles/ram/2500/2103-2016-ram-2500-black/2016-ram-2500-black_021.jpg",
-        alt: "2016 Dodge RAM off-roading",
     },
 ];
 
@@ -184,7 +146,7 @@ import bajadesigns from "../assets/images/brands/baja-designs.png";
 
                 <div class="mx-auto mt-16 flow-root sm:mt-20">
                     <div class="sm:columns-2 lg:columns-3 gap-8">
-                        {allBuilds.map((t) => <Testimonial content={t.data} />)}
+                        {allBuilds.map((t) => <Testimonial content={t.data} />).slice(0, 9)}
                     </div>
                 </div>
             </Container>
@@ -197,8 +159,8 @@ import bajadesigns from "../assets/images/brands/baja-designs.png";
                     <Button href="/builds">See Our Builds</Button>
                 </div>
 
-                <div class="columns-1 sm:columns-2 md:columns-3 space-y-4 mt-16 sm:mt-20">
-                    {gallery.map((i) => <Image src={getImage(i.src)} width={1000} height={1000} class="rounded-md shadow-2xl object-cover" alt={i.alt} />)}
+                <div class="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 mt-16 sm:mt-20">
+                    {allBuilds.map((b) => <Image src={getBuildImage(b.data.id, `1`)} width={1000} height={1000} class="rounded-md shadow-2xl" alt={b.data.summary} />)}
                 </div>
             </Container>
         </Section>

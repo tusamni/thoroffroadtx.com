@@ -12,7 +12,7 @@ import { getBuildImage } from "../functions/Image";
 <div class="inline-block mb-8">
     <figure class="rounded-md bg-gradient-to-br from-neutral-300 via-neutral-300 to-neutral-50 border border-neutral-500 p-8">
         <div class="col-span-3 md:col-span-2 space-y-6">
-            <h6 class="text-neutral-800 line-clamp-1" set:html={content.testimonial.highlight} />
+            <h6 class="text-neutral-800 line-clamp-1" set:html={`"${content.testimonial.highlight}"`} />
 
             <blockquote class="text-neutral-800 space-y-4 leading-6 text-sm" set:html={content.testimonial.content} />
 

@@ -17,7 +17,7 @@ const allVehicles = await getCollection("vehicles");
 const allModels = await getCollection("models");
 
 // images
-import header01 from "../../assets/images/header01.jpg";
+import { getImage } from "../../functions/Image";
 
 // content
 const process = [
@@ -52,7 +52,7 @@ const process = [
                     </div>
 
                     <div class="order-1 md:order-2 relative w-full h-72 md:h-full col-span-6 md:col-span-3 lg:col-span-4">
-                        <img src={header01.src} alt="Two each of neutral, white, and black shirts laying flat." class="absolute w-full h-full object-cover object-[50%,80%] rounded-md shadow-2xl" />
+                        <img src={getImage(`shop/2023-02-23/shop-shoot_01.jpg`)} alt="Ford F-250 Modified by THOR Off Road" class="absolute w-full h-full object-cover object-[50%,80%] rounded-md shadow-2xl" />
                     </div>
                 </div>
             </Container>
@@ -82,18 +82,10 @@ const process = [
                                         <Button theme="primary">Build Your Dream {v.data.title}</Button>
                                     </div>
                                 </div>
-                                <div class="hidden z-10 md:flex lg:hidden xl:flex flex-col space-y-4">
-                                    <h5 class="font-medium">Recent {v.data.title} Builds</h5>
-
-                                    <div class="grid grid-cols-3 gap-4">
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                        <img src={header01.src} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
-                                    </div>
+                                <div class="hidden z-10 md:flex lg:hidden xl:flex">
+                                    <img src={getImage(v.data.featured)} alt={`${v.data.title} Featured Build`} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />
                                 </div>
+
                                 <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-neutral-500/70 w-80 group-hover:w-96 transition-all duration-300" />
                             </Surround>
                         </>

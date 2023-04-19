@@ -17,6 +17,7 @@ import { getCollection } from "astro:content";
 const allBuilds = await getCollection("builds", ({ data }) => {
     return data.testimonial;
 });
+const allBrands = await getCollection("brands");
 
 // images
 import { Image } from "astro:assets";
@@ -41,16 +42,6 @@ const headers = [
         alt: "Installing aftermarket truck suspension",
     },
 ];
-
-import bds from "../assets/images/brands/bds.png";
-import method from "../assets/images/brands/method.png";
-import carli from "../assets/images/brands/carli.png";
-import add from "../assets/images/brands/add.png";
-import retrax from "../assets/images/brands/retrax.png";
-import raceline from "../assets/images/brands/raceline.png";
-import fox from "../assets/images/brands/fox.png";
-import blackrhino from "../assets/images/brands/black-rhino.png";
-import bajadesigns from "../assets/images/brands/baja-designs.png";
 ---
 
 <Layout>
@@ -91,15 +82,7 @@ import bajadesigns from "../assets/images/brands/baja-designs.png";
 
                     <!-- brand logos -->
                     <div class="mx-auto grid max-w-xl items-center grid-cols-3 gap-12 lg:gap-8 lg:mx-0 lg:max-w-none">
-                        <img src={bds.src} class="max-h-12 w-full object-contain" />
-                        <img src={method.src} class="max-h-8 w-full object-contain" />
-                        <img src={carli.src} class="max-h-16 w-full object-contain" />
-                        <img src={add.src} class="max-h-12 w-full object-contain object-center" />
-                        <img src={retrax.src} class="max-h-10 w-full object-contain object-center" />
-                        <img src={raceline.src} class="max-h-8 w-full object-contain object-center" />
-                        <img src={fox.src} class="max-h-12 w-full object-contain object-center" />
-                        <img src={blackrhino.src} class="max-h-8 w-full object-contain object-center" />
-                        <img src={bajadesigns.src} class="max-h-12 w-full object-contain object-center" />
+                        {allBrands.map((b) => <img src={getImage(`brands/parts/${b.data.logo}.png`)} alt={b.data.title} class="h-12 w-2/3 object-contain" />)}
                     </div>
                 </div>
             </Container>

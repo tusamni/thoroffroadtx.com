@@ -17,7 +17,7 @@ import { getBuildImage } from "../functions/Image";
             <blockquote class="text-neutral-800 space-y-4 leading-6 text-sm" set:html={content.testimonial.content} />
 
             <figcaption class="mt-6 flex items-center gap-x-4">
-                <Image src={getBuildImage(content.id, `01`)} alt={`THOR Build for ${content.name}`} width={200} height={200} class="w-20 h-12 object-cover rounded-md" />
+                <Image src={getBuildImage(content.path, 1)} alt={`THOR Build for ${content.name}`} width={200} height={200} class="w-20 h-12 object-cover rounded-md" />
 
                 <div class="space-y-0">
                     <div class="font-semibold text-neutral-900">{content.name}</div>

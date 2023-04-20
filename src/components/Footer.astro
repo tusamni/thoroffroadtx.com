@@ -16,7 +16,7 @@ const allVehicles = await getCollection("vehicles");
 
 // images
 import { Image } from "astro:assets";
-import { getImage } from "../functions/Image";
+import { getMedia } from "../functions/Image";
 const recent = [
     {
         src: "shop/2023-02-22/shop-shoot_03.jpg",
@@ -52,7 +52,7 @@ const recent = [
 
             <div class="grid grid-cols-2 xl:grid-cols-3 gap-24 mb-24">
                 <div class="space-y-12 order-1 col-span-2 md:col-span-1">
-                    <Image src={getImage(`website/logos/logo-white.png`)} alt={Business.nameLong} width={1079} height={336} class="h-14 w-auto" />
+                    <Image src={getMedia(`website/logos/logo-white.png`)} alt={Business.nameLong} width={1079} height={336} class="h-14 w-auto" />
 
                     <p class="text-md leading-7 text-neutral-300">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
 
@@ -73,7 +73,7 @@ const recent = [
                     <h6>Instagram Photos</h6>
 
                     <div class="grid grid-cols-3 gap-6">
-                        {recent.map((i) => <Image src={getImage(i.src)} alt={i.alt} width={250} height={250} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />)}
+                        {recent.map((i) => <Image src={getMedia(i.src)} alt={i.alt} width={250} height={250} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" />)}
                     </div>
                 </div>
 

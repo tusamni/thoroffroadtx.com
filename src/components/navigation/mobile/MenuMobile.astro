@@ -13,7 +13,7 @@ const allModels = await getCollection("models");
 import { Business } from "../../../config.js";
 
 // images
-import { getImage } from "../../../functions/Image";
+import { getMedia } from "../../../functions/Image";
 ---
 
 <div class="lg:hidden" role="dialog" aria-modal="true">
@@ -36,7 +36,7 @@ import { getImage } from "../../../functions/Image";
             <a href="/">
                 <span class="sr-only">{Business.nameLong}</span>
 
-                <Image src={getImage(`website/logos/logo-black.png`)} width={1079} height={336} alt={Business.nameLong} class="h-12 w-auto" />
+                <Image src={getMedia(`website/logos/logo-black.png`)} width={1079} height={336} alt={Business.nameLong} class="h-12 w-auto" />
             </a>
 
             <!-- close -->

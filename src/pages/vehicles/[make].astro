@@ -35,12 +35,12 @@ const allBuilds = await getCollection("builds", ({ data }) => {
 
 // images
 import { Image } from "astro:assets";
-import { getImage } from "../../functions/Image";
+import { getMedia } from "../../functions/Image";
 ---
 
 <Layout>
     <div class="relative">
-        <Image src={getImage(entry.data.featured)} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={`RAM trucks built by ${Business.nameLong}`} />
+        <Image src={getMedia(entry.data.featured)} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={`RAM trucks built by ${Business.nameLong}`} />
         <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-black via-black/70 to-black/40"></div>
 
         <Section>
@@ -79,7 +79,7 @@ import { getImage } from "../../functions/Image";
                         <Surround href={`/vehicles/${m.slug}`} title={m.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
                             <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
                                 <Hover classes="w-full h-full">
-                                    <Image src={getImage(m.data.featured)} alt={m.data.title} width={500} height={500} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" />
+                                    <Image src={getMedia(m.data.featured)} alt={m.data.title} width={500} height={500} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" />
                                 </Hover>
                             </div>
 

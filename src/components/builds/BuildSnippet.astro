@@ -17,7 +17,7 @@ import { Image } from "astro:assets";
 <Surround href={`/builds/${build.slug}`} title={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`}>
     <div class="group">
         <Hover>
-            <Image src={getBuildImage(build.data.id, `01`)} width={350} height={250} alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2] group-hover:scale-105 transition duration-300" />
+            <Image src={getBuildImage(build.data.path, 1)} width={350} height={250} alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2] group-hover:scale-105 transition duration-300" />
         </Hover>
 
         <div class="p-6">

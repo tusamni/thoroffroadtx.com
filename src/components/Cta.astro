@@ -1,6 +1,5 @@
 ---
 // components
-import { Icon } from "astro-icon";
 import ContactForm from "./ContactForm.astro";
 import Container from "./Container.astro";
 import Section from "./Section.astro";
@@ -9,7 +8,7 @@ import Section from "./Section.astro";
 import { Business } from "../config.js";
 
 // images
-import { getImage } from "../functions/Image";
+import { getMedia } from "../functions/Image";
 ---
 
 <div class="bg-neutral-300">
@@ -30,13 +29,12 @@ import { getImage } from "../functions/Image";
 
                 <div class="lg:col-span-3 flex flex-col">
                     <div class="hidden lg:block relative w-full h-full">
-                        <img src={getImage(`team/shop/thoroffroad-01.jpg`)} class="absolute object-cover w-full h-full object-[50%,80%] rounded-t-md shadow-xl z-10" />
+                        <img src={getMedia(`team/shop/thoroffroad-01.jpg`)} class="absolute object-cover w-full h-full object-[50%,80%] rounded-t-md shadow-xl z-10" />
                     </div>
 
                     <div class="grid grid-cols-3 rounded-b-md bg-neutral-200 divide-x divide-neutral-300">
                         <div class="space-y-2 p-6">
                             <div class="flex items-center gap-2">
-                                <Icon name="Map" class="h-5 w-5 flex-none text-neutral-700" />
                                 <h6 class="text-neutral-700">Visit Us</h6>
                             </div>
 
@@ -45,7 +43,6 @@ import { getImage } from "../functions/Image";
 
                         <div class="space-y-2 p-6 max-w-">
                             <div class="flex items-center gap-2">
-                                <Icon name="Phone" class="h-5 w-5 flex-none text-neutral-700" />
                                 <h6 class="text-neutral-700">Call Us</h6>
                             </div>
                             <p class="text-neutral-500 text-sm">Please feel free to reach out to us anytime at <a class="hover:underline font-semibold text-neutral-600 whitespace-nowrap" href={`tel:${Business.phone}`}>{Business.phone}</a>.</p>
@@ -53,7 +50,6 @@ import { getImage } from "../functions/Image";
 
                         <div class="space-y-2 p-6">
                             <div class="flex items-center gap-2">
-                                <Icon name="Envelope" class="h-5 w-5 flex-none text-neutral-700" />
                                 <h6 class="text-neutral-700">Email Us</h6>
                             </div>
                             <p class="text-neutral-500 text-sm">Shoot us an email anytime, <a class="hover:underline text-neutral-600 font-semibold" href={`mailto:${Business.email}`}>{Business.email}</a>.</p>

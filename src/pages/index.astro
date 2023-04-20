@@ -21,7 +21,7 @@ const allBrands = await getCollection("brands");
 
 // images
 import { Image } from "astro:assets";
-import { getImage, getBuildImage } from "../functions/Image.js";
+import { getMedia, getBuildImage } from "../functions/Image.js";
 
 // images
 const headers = [
@@ -48,20 +48,20 @@ const headers = [
     <!-- header images -->
     <div class="grid grid-cols-2 lg:grid-cols-4 grid-rows-2 lg:grid-rows-1 h-[400px] md:h-[600px] lg:h-[500px]">
         <div class="units order-1">
-            <Image src={getImage(headers[0].src)} width={1000} height={1000} class="object-cover w-full h-full object-[50%,80%] lg:object-center" alt={headers[0].alt} />
-            <Image src={getImage(headers[0].src)} width={1000} height={1000} class="object-cover w-full h-full object-[50%,80%] lg:object-center hidden lg:block" alt={headers[0].alt} />
+            <Image src={getMedia(headers[0].src)} width={1000} height={1000} class="object-cover w-full h-full object-[50%,80%] lg:object-center" alt={headers[0].alt} />
+            <Image src={getMedia(headers[0].src)} width={1000} height={1000} class="object-cover w-full h-full object-[50%,80%] lg:object-center hidden lg:block" alt={headers[0].alt} />
         </div>
         <div class="units order-2">
-            <Image src={getImage(headers[1].src)} width={1000} height={1000} class="object-cover w-full h-full object-left-bottom lg:object-center" alt={headers[1].alt} />
-            <Image src={getImage(headers[1].src)} width={1000} height={1000} class="object-cover w-full h-full object-left-bottom lg:object-center hidden lg:block" alt={headers[1].alt} />
+            <Image src={getMedia(headers[1].src)} width={1000} height={1000} class="object-cover w-full h-full object-left-bottom lg:object-center" alt={headers[1].alt} />
+            <Image src={getMedia(headers[1].src)} width={1000} height={1000} class="object-cover w-full h-full object-left-bottom lg:object-center hidden lg:block" alt={headers[1].alt} />
         </div>
         <div class="units order-4 lg:order-3">
-            <Image src={getImage(headers[2].src)} width={1000} height={1000} class="object-cover w-full h-full object-left lg:object-left-bottom" alt={headers[2].alt} />
-            <Image src={getImage(headers[2].src)} width={1000} height={1000} class="object-cover w-full h-full object-left lg:object-left-bottom" alt={headers[2].alt} />
+            <Image src={getMedia(headers[2].src)} width={1000} height={1000} class="object-cover w-full h-full object-left lg:object-left-bottom" alt={headers[2].alt} />
+            <Image src={getMedia(headers[2].src)} width={1000} height={1000} class="object-cover w-full h-full object-left lg:object-left-bottom" alt={headers[2].alt} />
         </div>
         <div class="units order-3 lg:order-4">
-            <Image src={getImage(headers[3].src)} width={1000} height={1000} class="object-cover w-full h-full object-top sm:object-[50%,20%] lg:object-center" alt={headers[3].alt} />
-            <Image src={getImage(headers[3].src)} width={1000} height={1000} class="object-cover w-full h-full object-top lg:object-center" alt={headers[3].alt} />
+            <Image src={getMedia(headers[3].src)} width={1000} height={1000} class="object-cover w-full h-full object-top sm:object-[50%,20%] lg:object-center" alt={headers[3].alt} />
+            <Image src={getMedia(headers[3].src)} width={1000} height={1000} class="object-cover w-full h-full object-top lg:object-center" alt={headers[3].alt} />
         </div>
     </div>
 
@@ -82,7 +82,7 @@ const headers = [
 
                     <!-- brand logos -->
                     <div class="mx-auto grid max-w-xl items-center grid-cols-3 gap-12 lg:gap-8 lg:mx-0 lg:max-w-none">
-                        {allBrands.map((b) => <img src={getImage(`brands/parts/${b.data.logo}.png`)} alt={b.data.title} class="h-12 w-2/3 object-contain" />)}
+                        {allBrands.map((b) => <img src={getMedia(`brands/parts/${b.data.logo}.png`)} alt={b.data.title} class="h-12 w-2/3 object-contain" />)}
                     </div>
                 </div>
             </Container>
@@ -92,7 +92,7 @@ const headers = [
             <Container>
                 <div class="grid grid-cols-1 items-start gap-12 md:grid-cols-2">
                     <div class="hidden md:block md:relative h-full w-full">
-                        <Image src={getImage("team/jamey/jamey.jpg")} alt="Jamey Whitlock of THOR Off-Road" width={1407} height={2500} class="md:absolute h-full w-full object-cover md:object-[60%,10%] lg:object-[50%,30%] shadow-2xl rounded-md" />
+                        <Image src={getMedia("team/jamey/jamey.jpg")} alt="Jamey Whitlock of THOR Off-Road" width={1407} height={2500} class="md:absolute h-full w-full object-cover md:object-[60%,10%] lg:object-[50%,30%] shadow-2xl rounded-md" />
                     </div>
 
                     <div>
@@ -106,7 +106,7 @@ const headers = [
                                     <em>“Wow, I can't believe that's my truck!”</em>
                                 </p>
                                 <div class="mt-16 flex flex-col gap-4">
-                                    <Image src={getImage("team/jamey/jamey-headshot.jpg")} alt="Jamey Whitlock of THOR Off-Road" width={786} height={787} class="md:hidden rounded-full w-16 h-auto border border-neutral-600" />
+                                    <Image src={getMedia("team/jamey/jamey-headshot.jpg")} alt="Jamey Whitlock of THOR Off-Road" width={786} height={787} class="md:hidden rounded-full w-16 h-auto border border-neutral-600" />
 
                                     <div class="flex flex-col gap-2">
                                         <p class="font-cursive text-4xl">Jamey Whitlock</p>
@@ -143,7 +143,7 @@ const headers = [
                 </div>
 
                 <div class="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 mt-16 sm:mt-20">
-                    {allBuilds.map((b) => <Image src={getBuildImage(b.data.id, `1`)} width={1000} height={1000} class="rounded-md shadow-2xl" alt={b.data.summary} />)}
+                    {allBuilds.map((b) => <Image src={getBuildImage(b.data.path, 1)} width={1000} height={1000} class="rounded-md shadow-2xl" alt={b.data.summary} />)}
                 </div>
             </Container>
         </Section>

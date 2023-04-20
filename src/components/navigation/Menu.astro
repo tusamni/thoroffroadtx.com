@@ -12,7 +12,7 @@ import MenuVehicles from "./desktop/MenuVehicles.astro";
 import { Business } from "../../config.js";
 
 // images
-import { getImage } from "../../functions/Image";
+import { getMedia } from "../../functions/Image";
 ---
 
 <header class="bg-red-600 relative">
@@ -23,7 +23,7 @@ import { getImage } from "../../functions/Image";
                 <a href="/" title={Business.nameLong}>
                     <span class="sr-only">{Business.nameLong}</span>
 
-                    <Image src={getImage(`website/logos/logo-white.png`)} width={1079} height={336} alt={Business.nameLong} class="h-12 w-auto" />
+                    <Image src={getMedia(`website/logos/logo-white.png`)} width={1079} height={336} alt={Business.nameLong} class="h-12 w-auto" />
                 </a>
 
                 <!--- desktop menu -->

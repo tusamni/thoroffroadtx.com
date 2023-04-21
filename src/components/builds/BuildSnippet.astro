@@ -9,6 +9,9 @@ import Surround from "../content/Surround.astro";
 // config
 import { Business } from "../../config";
 
+// functions
+import { timeAgo } from "../../functions/DateTime";
+
 // images
 import { getBuildImage } from "../../functions/Image";
 import { Image } from "astro:assets";
@@ -22,7 +25,8 @@ import { Image } from "astro:assets";
 
         <div class="p-6">
             <h5>{build.data.year} {build.data.make} {build.data.model}</h5>
-            <p class="text-base leading-7 text-neutral-500">{build.data.location.city}, {build.data.location.state}</p>
+            <p class="text-base leading-7 text-neutral-400">{build.data.location.city}, {build.data.location.state}</p>
+            <p class="text-base leading-7 text-neutral-400">{timeAgo(build.data.date)}</p>
         </div>
     </div>
 </Surround>

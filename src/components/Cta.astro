@@ -2,13 +2,11 @@
 // components
 import ContactForm from "./ContactForm.astro";
 import Container from "./Container.astro";
+import Picture from "./images/Picture.astro";
 import Section from "./Section.astro";
 
 // config
 import { Business } from "../config.js";
-
-// images
-import { getMedia } from "../functions/Image";
 ---
 
 <div class="bg-neutral-300">
@@ -29,7 +27,7 @@ import { getMedia } from "../functions/Image";
 
                 <div class="lg:col-span-3 flex flex-col">
                     <div class="hidden lg:block relative w-full h-full">
-                        <img src={getMedia(`team/shop/thoroffroad-01.jpg`)} class="absolute object-cover w-full h-full object-[50%,80%] rounded-t-md shadow-xl z-10" />
+                        <Picture src="team/shop/thoroffroad-01.jpg" alt="Working at THOR Off-Road" class="absolute object-cover w-full h-full object-[50%,80%] rounded-t-md shadow-xl z-10" />
                     </div>
 
                     <div class="grid grid-cols-3 rounded-b-md bg-neutral-200 divide-x divide-neutral-300">

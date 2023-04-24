@@ -2,7 +2,7 @@
 // components
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon";
-import { Image } from "astro:assets";
+import Picture from "../../images/Picture.astro";
 
 // content
 const allParts = await getCollection("parts");
@@ -11,9 +11,6 @@ const allModels = await getCollection("models");
 
 // config
 import { Business } from "../../../config.js";
-
-// images
-import { getMedia } from "../../../functions/Image";
 ---
 
 <div class="lg:hidden" role="dialog" aria-modal="true">
@@ -36,7 +33,7 @@ import { getMedia } from "../../../functions/Image";
             <a href="/">
                 <span class="sr-only">{Business.nameLong}</span>
 
-                <Image src={getMedia(`website/logos/logo-black.png`)} width={1079} height={336} alt={Business.nameLong} class="h-12 w-auto" />
+                <Picture src="website/logos/logo-black.png" alt={Business.nameLong} class="h-12 w-auto" />
             </a>
 
             <!-- close -->

@@ -1,18 +1,15 @@
 ---
 // components
 import { Icon } from "astro-icon";
-import { Image } from "astro:assets";
 import Button from "../buttons/Button.astro";
 import Container from "../Container.astro";
 import MenuMobile from "./mobile/MenuMobile.astro";
 import MenuParts from "./desktop/MenuParts.astro";
 import MenuVehicles from "./desktop/MenuVehicles.astro";
+import Picture from "../images/Picture.astro";
 
 // config
 import { Business } from "../../config.js";
-
-// images
-import { getMedia } from "../../functions/Image";
 ---
 
 <header class="bg-red-600 relative">
@@ -23,7 +20,7 @@ import { getMedia } from "../../functions/Image";
                 <a href="/" title={Business.nameLong}>
                     <span class="sr-only">{Business.nameLong}</span>
 
-                    <Image src={getMedia(`website/logos/logo-white.png`)} width={1079} height={336} alt={Business.nameLong} class="h-12 w-auto" />
+                    <Picture src="website/logos/logo-white.png" alt={Business.nameLong} class="h-12 w-auto" />
                 </a>
 
                 <!--- desktop menu -->

@@ -4,8 +4,10 @@ interface Props {
 }
 const { content } = Astro.props;
 
+// components
+import Picture from "./images/Picture.astro";
+
 // image
-import { Image } from "astro:assets";
 import { getBuildImage } from "../functions/Image";
 ---
 
@@ -17,10 +19,10 @@ import { getBuildImage } from "../functions/Image";
             <blockquote class="text-neutral-800 space-y-4 leading-6 text-sm" set:html={content.testimonial.content} />
 
             <figcaption class="mt-6 flex items-center gap-x-4">
-                <Image src={getBuildImage(content.path, 1)} alt={`THOR Build for ${content.name}`} width={200} height={200} class="w-20 h-12 object-cover rounded-md" />
+                <Picture src={getBuildImage(content.path, 1)} alt={`THOR Build for ${content.name}`} sizes="100px" class="h-12 object-cover rounded-md aspect-square" />
 
                 <div class="space-y-0">
-                    <div class="font-semibold text-neutral-900">{content.name}</div>
+                    <div class="font-semibold text-neutral-900">{content.testimonial.name}</div>
                     <div class="text-sm text-neutral-600">{content.location.city}, {content.location.state}</div>
                 </div>
             </figcaption>

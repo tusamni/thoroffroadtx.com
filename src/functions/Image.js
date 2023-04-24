@@ -1,15 +1,8 @@
-// config
-import { Image } from "../config.js";
-
-export function getMedia(path) {
-    return `${Image.cloudUrl}/images/${path}`;
-}
-
 export function getBuildImage(path, number) {
     // add a single leading zero
     const filename = String(number).padStart(2, "0");
 
-    return `${Image.cloudUrl}/images/builds/${path}/${filename}.jpg`;
+    return `builds/${path}/${filename}.jpg`;
 }
 
 export function isPortrait(img) {

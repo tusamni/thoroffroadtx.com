@@ -2,9 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
-import Background from "../../components/content/Background.astro";
-import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
 // content
@@ -18,14 +17,19 @@ export async function getStaticPaths() {
 }
 const { entry } = Astro.props;
 
-// images
-import { Image } from "astro:assets";
+// config
+import { Business } from "../../config";
 ---
 
 <Layout>
-    <Background>
+    <div class="relative">
+        <Picture src={entry.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" alt={`${entry.data.title} truck parts for your vehicle`} />
+        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
+
         <Section>
-            <HeadingBase heading={entry.data.title} description={entry.data.descriptionLong} />
+            <div class="relative">
+                <HeadingBase heading={entry.data.title} description={entry.data.descriptionLong} />
+            </div>
         </Section>
-    </Background>
+    </div>
 </Layout>

@@ -4,29 +4,28 @@ const { build } = Astro.props;
 
 // components
 import Hover from "../images/Hover.astro";
+import Picture from "../images/Picture.astro";
 import Surround from "../content/Surround.astro";
 
 // config
 import { Business } from "../../config";
 
-// functions
-import { timeAgo } from "../../functions/DateTime";
-
 // images
 import { getBuildImage } from "../../functions/Image";
-import { Image } from "astro:assets";
 ---
 
 <Surround href={`/builds/${build.slug}`} title={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`}>
     <div class="group">
         <Hover>
-            <Image src={getBuildImage(build.data.path, 1)} width={350} height={250} alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2] group-hover:scale-105 transition duration-300" />
+            <Picture src={getBuildImage(build.data.path, 1)} sizes="400px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2] group-hover:scale-105 transition duration-300" />
         </Hover>
 
         <div class="p-6">
             <h5>{build.data.year} {build.data.make} {build.data.model}</h5>
-            <p class="text-base leading-7 text-neutral-400">{build.data.location.city}, {build.data.location.state}</p>
-            <p class="text-base leading-7 text-neutral-400">{timeAgo(build.data.date)}</p>
+
+            <div class="flex">
+                <p class="text-base leading-7 text-neutral-400">{build.data.trim}</p>
+            </div>
         </div>
     </div>
 </Surround>

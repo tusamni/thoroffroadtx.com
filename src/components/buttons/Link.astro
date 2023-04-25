@@ -4,7 +4,7 @@ interface Props {
     arrow?: boolean;
     size?: string;
 }
-const { arrow = false, size = "base", ...attrs } = Astro.props;
+const { arrow = false, size = "lg", ...attrs } = Astro.props;
 ---
 
 <a class:list={["group font-semibold text-white hover:cursor-pointer inline-block", size && `text-${size}`]} {...attrs}>

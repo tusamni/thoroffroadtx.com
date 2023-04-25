@@ -8,6 +8,7 @@ import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Hover from "../../components/images/Hover.astro";
+import Link from "../../components/buttons/Link.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 import Surround from "../../components/content/Surround.astro";
@@ -44,21 +45,6 @@ const allBuilds = await getCollection("builds", ({ data }) => {
             <div class="relative">
                 <HeadingBase heading={entry.data.title} description={entry.data.descriptionLong} />
             </div>
-        </Section>
-    </div>
-
-    <div class="bg-neutral-900">
-        <Section>
-            <Container>
-                <div class="grid grid-cols-2 items-center justify-between">
-                    <p class="text-neutral-400 text-xl">{entry.data.descriptionCta}</p>
-
-                    <div class="flex items-center gap-x-6 justify-self-end">
-                        <Button href="/contact" theme="primary">Contact Us</Button>
-                        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
-                    </div>
-                </div>
-            </Container>
         </Section>
     </div>
 </Layout>

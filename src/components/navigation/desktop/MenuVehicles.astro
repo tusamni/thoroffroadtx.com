@@ -28,10 +28,10 @@ const allModels = await getCollection("models");
         <div class="grid grid-cols-2">
             {
                 allVehicles.map((v) => (
-                    <a href={`/vehicles/${v.slug}`} title={v.data.title} class="flex flex-col gap-x-4 text-sm font-semibold leading-6 text-neutral-900 hover:bg-white px-6 py-4 transition">
+                    <a href={`/vehicles/${v.slug}`} title={v.data.title} class="flex flex-col gap-x-4 font-semibold leading-6 text-neutral-900 hover:bg-white px-6 py-4 transition">
                         {v.data.title}
 
-                        <ul class="comma-list line-clamp-1 text-xs font-light text-neutral-500">
+                        <ul class="comma-list line-clamp-1 text-sm text-neutral-500 font-normal">
                             {allModels.map((m) => {
                                 if (m.slug.includes(v.slug)) {
                                     return <li>{m.data.title}</li>;

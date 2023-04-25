@@ -10,7 +10,7 @@ import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
 // images
-import { getBuildImage } from "../../functions/Image";
+import { getBuildImage, getMedia } from "../../functions/Image";
 
 // content
 import { getCollection } from "astro:content";
@@ -109,7 +109,7 @@ const { entry } = Astro.props;
                                 {
                                     entry.data.video && (
                                         <video controls class="rounded-md shadow-2xl">
-                                            <source src={`builds/${entry.data.path}/${entry.data.video}.mp4`} type="video/mp4" />
+                                            <source src={getMedia(`/images/builds/${entry.data.path}/${entry.data.video}.mp4`)} type="video/mp4" />
                                         </video>
                                     )
                                 }

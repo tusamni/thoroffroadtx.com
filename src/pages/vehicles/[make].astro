@@ -8,7 +8,6 @@ import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Hover from "../../components/images/Hover.astro";
-import Link from "../../components/buttons/Link.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 import Surround from "../../components/content/Surround.astro";
@@ -47,31 +46,39 @@ const allBuilds = await getCollection("builds", ({ data }) => {
             </div>
         </Section>
     </div>
-</Layout>
 
-<Section classes="bg-neutral-600">
-    <Container>
-        <div class="grid grid-cols-1 gap-12 xl:grid-cols-5">
-            <div class="col-span-2 flex flex-col justify-between space-y-8">
-                <div class="space-y-6">
-                    <h3>Recent {entry.data.title} Builds</h3>
-                    <p class="text-xl leading-8 text-neutral-400">We love showing off our work. We're proud of it and our customers love the finished product. <a href="/contact" title={`Contact ${Business.nameLong}`} class="hover:underline text-neutral-300">Let's start building your dream {entry.data.title}</a>!</p>
-                </div>
+    {
+        allBuilds.length >= 3 && (
+            <Background>
+                <Section>
+                    <Container>
+                        <div class="grid grid-cols-1 gap-12 xl:grid-cols-5">
+                            <div class="col-span-2 flex flex-col space-y-8">
+                                <div class="space-y-6">
+                                    <h3>Recent {entry.data.title} Builds</h3>
+                                    <p class="text-xl leading-8 text-neutral-400">
+                                        We love showing off our work. We're proud of it and our customers love the finished product.{" "}
+                                        <a href="/contact" title={`Contact ${Business.nameLong}`} class="hover:underline text-neutral-300">
+                                            Let's start building your dream {entry.data.title}
+                                        </a>
+                                        !
+                                    </p>
+                                </div>
 
-                <div>
-                    <Button href="/builds">See Our {entry.data.title} Builds</Button>
-                </div>
-            </div>
+                                <div>
+                                    <Button href="/builds">See Our {entry.data.title} Builds</Button>
+                                </div>
+                            </div>
 
-            <div class="col-span-3 grid grid-cols-3 gap-4">
-                {allBuilds.map((b) => <BuildSnippet build={b} />).slice(0, 3)}
-            </div>
-        </div>
-    </Container>
-</Section>
+                            <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} />).slice(0, 3)}</div>
+                        </div>
+                    </Container>
+                </Section>
+            </Background>
+        )
+    }
 
-<Background>
-    <Section>
+    <Section classes="bg-neutral-600">
         <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {
                 allVehicleModels.map((m) => (
@@ -94,4 +101,4 @@ const allBuilds = await getCollection("builds", ({ data }) => {
             }
         </Container>
     </Section>
-</Background>
+</Layout>

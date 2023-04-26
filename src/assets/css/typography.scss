@@ -1,22 +1,27 @@
-h1 {
+h1, .prose h1 {
     @apply text-4xl md:text-6xl font-bold tracking-tighter text-white;
 }
-h2 {
+h2, .prose h2 {
     @apply text-4xl md:text-5xl font-bold tracking-tighter text-white;
 }
-h3 {
+h3, .prose h3 {
     @apply text-3xl md:text-4xl font-bold tracking-tighter text-white;
 }
-h4 {
+h4, .prose h4 {
     @apply text-2xl md:text-3xl font-bold tracking-tighter text-white;
 }
-h5 {
+h5, .prose h5 {
     @apply text-xl md:text-2xl font-semibold tracking-tighter text-white;
 }
-h6 {
+h6, .prose h6 {
     @apply text-lg md:text-xl font-medium tracking-tight text-white;
 }
 
-p {
-    @apply text-lg text-neutral-300 leading-8;
-}
+.prose {
+    p, ul {
+        @apply text-neutral-300
+    }
+    li {
+        @apply text-base;
+    }
+} 

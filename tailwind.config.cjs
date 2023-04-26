@@ -5,6 +5,7 @@ module.exports = {
         fontFamily: {
             cursive: ["Over the Rainbow", "cursive"],
         },
+
         extend: {},
     },
     plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography"), require("@tailwindcss/typography")],

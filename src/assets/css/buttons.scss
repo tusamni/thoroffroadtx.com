@@ -1,9 +1,9 @@
 .button {
-    @apply transition-all border-r-8 hover:border-r-8 duration-300 -skew-x-12 rounded-sm py-3 px-5 font-semibold shadow-lg inline-block;
+    @apply transition-all border-r-8 border-t-2 border-l-2 border-b-2 hover:border-r-8 duration-300 -skew-x-12 rounded-sm py-3 px-5 font-semibold shadow-lg inline-block;
 
     /* theme */
     &.button-primary {
-        @apply bg-neutral-50 border-neutral-200 hover:border-neutral-400 text-neutral-800 focus-visible:outline-neutral-500;
+        @apply bg-neutral-50 border-neutral-100 hover:border-neutral-300 text-neutral-800 focus-visible:outline-neutral-500;
     }
     &.button-secondary {
         @apply bg-amber-300 border-amber-400 hover:border-amber-500 text-neutral-700 focus-visible:outline-amber-500;

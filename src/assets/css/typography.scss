@@ -16,3 +16,7 @@ h5 {
 h6 {
     @apply text-lg md:text-xl font-medium tracking-tight text-white;
 }
+
+p {
+    @apply text-lg text-neutral-300 leading-8;
+}

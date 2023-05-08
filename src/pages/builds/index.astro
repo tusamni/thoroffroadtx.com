@@ -12,10 +12,7 @@ import Section from "../../components/Section.astro";
 import { getCollection } from "astro:content";
 const allBuilds = await getCollection("builds");
 const sortedBuilds = allBuilds.sort((a, b) => {
-    const first = new Date(a.data.date);
-    const last = new Date(b.data.date);
-
-    return last.getTime() - first.getTime();
+    return a - b;
 });
 
 // aggregate the metadata

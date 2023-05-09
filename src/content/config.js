@@ -30,7 +30,7 @@ const buildCollection = defineCollection({
 
         // meta
         date: z.date(),
-        goals: z.string(),
+        goals: z.string().optional(),
         parts: z.string().array().nonempty(),
 
         // images

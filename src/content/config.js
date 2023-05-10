@@ -4,37 +4,32 @@ const buildCollection = defineCollection({
     schema: z.object({
         // build
         id: z.number(),
-        path: z.string(),
-        summary: z.string(),
 
-        // vehcile meta
+        // vehicle
         year: z.number(),
         make: z.string(),
         model: z.union([z.string(), z.number()]),
         trim: z.string().optional().nullable(),
-        drive: z.enum(["4x4", "4x2"]),
         color: z.string().optional(),
+        drive: z.enum(["4x4", "4x2"]),
 
-        // owner meta
-        location: z.object({
-            city: z.string(),
-            state: z.string(),
-        }),
-        testimonial: z
-            .object({
-                name: z.string(),
-                highlight: z.string(),
-                content: z.string(),
-            })
-            .optional(),
+        // owner
+        city: z.string().optional(),
+        state: z.string().optional(),
+        owner: z.string().optional(),
+        highlight: z.string().optional(),
+        testimonial: z.string().optional(),
+        goals: z.string().optional(),
+        parts: z.string().transform((parts) => parts.split(",")),
 
         // meta
         date: z.date(),
-        goals: z.string().optional(),
-        parts: z.string().array().nonempty(),
+        path: z.string(),
+        summary: z.string(),
 
         // images
-        images: z.number().array(),
+        totalImages: z.number(),
+        featuredImage: z.number(),
         video: z.string().optional(),
     }),
 });

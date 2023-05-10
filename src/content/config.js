@@ -28,11 +28,12 @@ const buildCollection = defineCollection({
         summary: z.string(),
 
         // images
-        totalImages: z.number(),
+        totalImages: z.number().transform((total) => Array.from({ length: total - 0 }, (_, i) => 0 + 1 + i)), // turn the total images into a array of the filenames
         featuredImage: z.number(),
         video: z.string().optional(),
     }),
 });
+
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
     builds: buildCollection,

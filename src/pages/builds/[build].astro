@@ -22,8 +22,6 @@ export async function getStaticPaths() {
     }));
 }
 const { entry } = Astro.props;
-
-console.log(entry.data.parts);
 ---
 
 <Layout>
@@ -79,18 +77,18 @@ console.log(entry.data.parts);
                     </div>
 
                     <!-- content  -->
-                    <!-- <div class="col-span-4">
+                    <div class="col-span-4">
                         <div class="space-y-24">
                             <div class="grid grid-cols-3 gap-8 w-full h-full">
                                 <div class="col-span-3">
-                                    <Picture src={getBuildImage(entry.data.path, 1)} alt={entry.data.summary} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                    <Picture src={getBuildImage(entry.data.id, entry.data.featuredImage)} alt={entry.data.summary} class="object-cover w-full h-full rounded-md shadow-2xl" />
                                 </div>
                             </div>
 
                             {
                                 entry.data.testimonial && (
                                     <div class="space-y-8">
-                                        <blockquote class="col-span-3 italic text-3xl leading-relaxed text-white">"{entry.data.testimonial.content}"</blockquote>
+                                        <blockquote class="col-span-3 italic text-3xl leading-relaxed text-white">"{entry.data.testimonial}"</blockquote>
 
                                         <div class="flex justify-between items-center">
                                             <div class="flex items-center">
@@ -100,24 +98,24 @@ console.log(entry.data.parts);
                                                 <Icon name="Star" class="w-7 text-yellow-400" />
                                                 <Icon name="Star" class="w-7 text-yellow-400" />
                                             </div>
-                                            <p class="text-white font-semibold text-2xl">{entry.data.name}</p>
+                                            <p class="text-white font-semibold text-2xl">{entry.data.owner}</p>
                                         </div>
                                     </div>
                                 )
                             }
 
                             <div class="columns-1 sm:columns-2 gap-6 space-y-6">
-                                {entry.data.images.slice(1).map((i) => <Picture src={getBuildImage(entry.data.path, i)} alt={entry.data.summary} class="object-cover rounded-md shadow-2xl" />)}
+                                {entry.data.totalImages.slice(1).map((i) => <Picture src={getBuildImage(entry.data.id, i)} alt={entry.data.summary} class="object-cover rounded-md shadow-2xl" />)}
                                 {
                                     entry.data.video && (
                                         <video controls class="rounded-md shadow-2xl">
-                                            <source src={getMedia(`/images/builds/${entry.data.path}/${entry.data.video}.mp4`)} type="video/mp4" />
+                                            <source src={getMedia(`/images/builds/${entry.data.id}/${entry.data.video}.mp4`)} type="video/mp4" />
                                         </video>
                                     )
                                 }
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </Container>
         </Section>

@@ -10,10 +10,7 @@ import Section from "../../components/Section.astro";
 
 // content
 import { getCollection } from "astro:content";
-const allBuilds = await getCollection("builds");
-const sortedBuilds = allBuilds.sort((a, b) => {
-    return a - b;
-});
+const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 // aggregate the metadata
 const allMakes = [];
@@ -39,12 +36,6 @@ const uniqueModels = [...new Set(allModels)];
                     <div class="sticky top-48">
                         <form action="#" method="post">
                             <div class="grid grid-cols-1 gap-y-6 gap-x-8">
-                                <div class="space-y-2 mb-6">
-                                    <div>
-                                        <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-2 px-3.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6" placeholder="Search our builds..." />
-                                    </div>
-                                </div>
-
                                 <div class="space-y-2">
                                     <label for="email" class="block font-semibold leading-6 text-white">Vehicle Make</label>
                                     <div>
@@ -78,7 +69,7 @@ const uniqueModels = [...new Set(allModels)];
                 <!-- build listings -->
                 <div class="col-span-3 space-y-16">
                     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-3">
-                        {sortedBuilds.map((b) => <BuildSnippet build={b} sizes="350px" />)}
+                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" />)}
                     </div>
                 </div>
             </div>

@@ -1,0 +1,24 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// components
+import Background from "../../components/content/Background.astro";
+import Break from "../../components/Break.astro";
+import Container from "../../components/Container.astro";
+import Picture from "../../components/images/Picture.astro";
+import Section from "../../components/Section.astro";
+
+// images
+import { getBuildImage, getMedia } from "../../functions/Image";
+
+// content
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+    const allVehicleMakes = await getCollection("vehicles");
+    return allVehicleMakes.map((entry) => ({
+        params: { make: entry.slug },
+        props: { entry },
+    }));
+}
+const { entry } = Astro.props;
+---

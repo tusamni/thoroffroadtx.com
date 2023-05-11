@@ -144,7 +144,7 @@ const headers = [
                 </div>
 
                 <div class="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 mt-16 sm:mt-20">
-                    {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded-md shadow-2xl" alt={b.data.summary} />).slice(0, 15)}
+                    {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded-md shadow-2xl" sizes="600px" alt={b.data.summary} />).slice(0, 15)}
                 </div>
             </Container>
         </Section>

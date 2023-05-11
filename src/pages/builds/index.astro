@@ -78,7 +78,7 @@ const uniqueModels = [...new Set(allModels)];
                 <!-- build listings -->
                 <div class="col-span-3 space-y-16">
                     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-3">
-                        {sortedBuilds.map((b) => <BuildSnippet build={b} />)}
+                        {sortedBuilds.map((b) => <BuildSnippet build={b} sizes="350px" />)}
                     </div>
                 </div>
             </div>

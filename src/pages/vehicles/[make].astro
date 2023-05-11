@@ -85,7 +85,7 @@ const allBuilds = await getCollection("builds", ({ data }) => {
                     <Surround href={`/vehicles/${m.slug}`} title={m.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
                         <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
                             <Hover classes="w-full h-full">
-                                <Picture src={m.data.featured} alt={m.data.title} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" />
+                                <Picture src={m.data.featured} alt={m.data.title} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" sizes="400px" />
                             </Hover>
                         </div>
 

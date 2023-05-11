@@ -1,6 +1,11 @@
 ---
 // props
-const { build } = Astro.props;
+// props
+interface Props {
+    build: any;
+    sizes?: string;
+}
+const { build, sizes = "100vw" } = Astro.props;
 
 // components
 import Hover from "../images/Hover.astro";
@@ -17,7 +22,7 @@ import { getBuildImage } from "../../functions/Image";
 <Surround href={`/builds/${build.slug}`} title={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`}>
     <div class="group">
         <Hover>
-            <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2]" sizes="300px" />
+            <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2]" sizes={sizes} />
         </Hover>
 
         <div class="p-6">

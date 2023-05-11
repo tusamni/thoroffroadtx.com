@@ -15,9 +15,10 @@ import { Business } from "../config";
 
 // content
 import { getCollection } from "astro:content";
-const allBuilds = await getCollection("builds", ({ data }) => {
+const allTestimonials = await getCollection("builds", ({ data }) => {
     return data.testimonial;
 });
+const allBuilds = await getCollection("builds");
 const allBrands = await getCollection("brands");
 
 // images
@@ -34,7 +35,7 @@ const headers = [
         alt: "Truck outfitting in Austin, TX",
     },
     {
-        src: "builds/298562-2021-ram-2500-power-wagon/13.jpg",
+        src: "builds/298562/13.jpg",
         alt: "Highly modified Dodge RAM Power Wagon",
     },
     {
@@ -129,7 +130,7 @@ const headers = [
 
                 <div class="mx-auto mt-16 flow-root sm:mt-20">
                     <div class="sm:columns-2 lg:columns-3 gap-8">
-                        {allBuilds.map((t) => <Testimonial content={t.data} />).slice(0, 9)}
+                        {allTestimonials.map((t) => <Testimonial content={t.data} />).slice(0, 9)}
                     </div>
                 </div>
             </Container>
@@ -143,7 +144,7 @@ const headers = [
                 </div>
 
                 <div class="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 mt-16 sm:mt-20">
-                    {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded-md shadow-2xl" alt={b.data.summary} />)}
+                    {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded-md shadow-2xl" alt={b.data.summary} />).slice(0, 15)}
                 </div>
             </Container>
         </Section>

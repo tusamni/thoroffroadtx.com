@@ -66,7 +66,7 @@ const allBuilds = await getCollection("builds", ({ data }) => {
                                 </div>
 
                                 <div>
-                                    <Button href="/builds">See Our {entry.data.title} Builds</Button>
+                                    <Button href={`/builds/${entry.slug}`}>See Our {entry.data.title} Builds</Button>
                                 </div>
                             </div>
 

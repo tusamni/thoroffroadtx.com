@@ -4,7 +4,9 @@ import Layout from "../../layouts/Layout.astro";
 // components
 import Background from "../../components/content/Background.astro";
 import Break from "../../components/Break.astro";
+import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
+import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -21,4 +23,68 @@ export async function getStaticPaths() {
     }));
 }
 const { entry } = Astro.props;
+
+const allBuilds = await getCollection("builds", ({ slug }) => {
+    return slug.includes(entry.slug);
+});
+
+// aggregate the metadata
+const allMakes = await getCollection("vehicles");
+const allModels = await getCollection("models", ({ slug }) => {
+    return slug.includes(entry.slug);
+});
 ---
+
+<Layout>
+    <Background>
+        <Section>
+            <HeadingBase heading={`${entry.data.title} Builds`} subheading="Our recent work" description="Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua." />
+        </Section>
+    </Background>
+
+    <Section classes="bg-neutral-300">
+        <Container>
+            <div class="grid grid-cols-1 gap-12 xl:grid-cols-4">
+                <!-- filters -->
+                <div class="space-y-6">
+                    <div class="sticky top-48">
+                        <div class="space-y-8">
+                            <div class="space-y-4">
+                                <h6 class="text-neutral-800">Filter by Vehicle</h6>
+                                <div class="grid grid-cols-2 gap-3">
+                                    {
+                                        allMakes.map((m) => (
+                                            <a href={`/builds/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(entry.slug) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
+                                                {m.data.title}
+                                            </a>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h6 class="text-neutral-800">Filter by Model</h6>
+                                <div class="grid grid-cols-2 gap-3">
+                                    {
+                                        allModels.map((m) => (
+                                            <a href={`/builds/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(entry.slug) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
+                                                {m.data.title}
+                                            </a>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- build listings -->
+                <div class="col-span-3 space-y-16">
+                    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-3">
+                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" />)}
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </Section>
+</Layout>

@@ -1,6 +1,7 @@
 ---
 // components
 import Container from "../../Container.astro";
+import Pill from "../../buttons/Pill.astro";
 
 // props
 interface Props {
@@ -14,7 +15,7 @@ const { subheading, heading, description } = Astro.props;
 <div>
     <Container>
         <div class="max-w-2xl space-y-4">
-            {subheading && <div class="leading-7 text-neutral-300 font-semibold bg-neutral-500/20 inline p-2 rounded-md">{subheading}</div>}
+            {subheading && <Pill>{subheading}</Pill>}
 
             <h1 set:html={heading} />
 

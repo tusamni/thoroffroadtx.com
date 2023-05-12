@@ -16,29 +16,29 @@ import { getBuildImage, getMedia } from "../../functions/Image";
 // content
 import { getCollection } from "astro:content";
 export async function getStaticPaths() {
-    const allVehicleMakes = await getCollection("vehicles");
-    return allVehicleMakes.map((entry) => ({
-        params: { make: entry.slug },
-        props: { entry },
+    const allMakes = await getCollection("makes");
+    return allMakes.map((make) => ({
+        params: { make: make.slug },
+        props: { make },
     }));
 }
-const { entry } = Astro.props;
+const { make } = Astro.props;
 
 const allBuilds = await getCollection("builds", ({ slug }) => {
-    return slug.includes(entry.slug);
+    return slug.includes(make.slug);
 });
 
 // aggregate the metadata
-const allMakes = await getCollection("vehicles");
+const allMakes = await getCollection("makes");
 const allModels = await getCollection("models", ({ slug }) => {
-    return slug.includes(entry.slug);
+    return slug.includes(make.slug);
 });
 ---
 
 <Layout>
     <Background>
         <Section>
-            <HeadingBase heading={`${entry.data.title} Builds`} subheading="Our recent work" description="Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua." />
+            <HeadingBase heading={`${make.data.title} Builds`} subheading="Our recent work" description="Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua." />
         </Section>
     </Background>
 
@@ -54,7 +54,7 @@ const allModels = await getCollection("models", ({ slug }) => {
                                 <div class="grid grid-cols-2 gap-3">
                                     {
                                         allMakes.map((m) => (
-                                            <a href={`/builds/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(entry.slug) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
+                                            <a href={`/builds/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(make.slug) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
                                                 {m.data.title}
                                             </a>
                                         ))
@@ -67,7 +67,7 @@ const allModels = await getCollection("models", ({ slug }) => {
                                 <div class="grid grid-cols-2 gap-3">
                                     {
                                         allModels.map((m) => (
-                                            <a href={`/builds/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(entry.slug) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
+                                            <a href={`/builds/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(make.slug) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
                                                 {m.data.title}
                                             </a>
                                         ))

@@ -7,11 +7,11 @@ import { Icon } from "astro-icon";
 const allParts = await getCollection("parts");
 ---
 
-<div class="relative" x-data={`{ partsMega : false }`} x-on:mouseenter={`partsMega = true`} x-on:mouseover.away={`partsMega = false`} x-on:click={`partsMega = true`} x-cloak>
-    <a href="/parts" class="inline-flex items-center gap-x-2 first:font-semibold leading-6 text-white transition px-4 py-3" x-bind:class={`partsMega ? 'bg-red-500' : ''`}>
+<div class="relative" x-data={`{ partsMenu : false }`} x-on:mouseenter={`partsMenu = true`} x-on:mouseover.away={`partsMenu = false`} x-on:click={`partsMenu = true`} x-cloak>
+    <a href="/parts" class="inline-flex items-center gap-x-2 first:font-semibold leading-6 text-white transition px-4 py-3" x-bind:class={`partsMenu ? 'bg-red-500' : ''`}>
         <span>Parts</span>
 
-        <Icon name="Chevron" class="w-4 h-4 transition" x-bind:class={`partsMega ? 'rotate-180' : ''`} />
+        <Icon name="Chevron" class="w-4 h-4 transition" x-bind:class={`partsMenu ? 'rotate-180' : ''`} />
     </a>
 
     <div
@@ -22,7 +22,7 @@ const allParts = await getCollection("parts");
         x-transition:leave="transition ease-in duration-100"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0"
-        x-show="partsMega"
+        x-show="partsMenu"
         class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-300 shadow-lg ring-1 ring-neutral-900/5">
         <div class="grid grid-cols-2">
             {

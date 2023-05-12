@@ -16,19 +16,19 @@ import { getBuildImage, getMedia } from "../../../functions/Image";
 // content
 import { getCollection } from "astro:content";
 export async function getStaticPaths() {
-    const allVehicleModels = await getCollection("models");
-    return allVehicleModels.map((entry) => ({
-        params: { make: entry.data.make, model: entry.data.title },
-        props: { entry },
+    const allModels = await getCollection("models");
+    return allModels.map((model) => ({
+        params: { make: model.data.make, model: model.data.title },
+        props: { model },
     }));
 }
-const { entry } = Astro.props;
+const { model } = Astro.props;
 ---
 
 <Layout>
     <Background>
         <Section>
-            <HeadingBase heading={`${entry.data.title} Builds`} subheading="Our recent work" description="Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua." />
+            <HeadingBase heading={`${model.data.title} Builds`} subheading="Our recent work" description="Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua." />
         </Section>
     </Background>
 </Layout>

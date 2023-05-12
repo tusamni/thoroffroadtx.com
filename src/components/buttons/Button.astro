@@ -5,20 +5,27 @@ interface Props {
     size?: string;
 }
 const { href, theme = "primary", size = "lg", ...attrs } = Astro.props;
+
+// button theming
+const base = "transition-all duration-500 -skew-x-12 rounded-sm py-3 px-5 font-semibold shadow-lg inline-block";
+const themes = {
+    primary: ["bg-neutral-50 text-neutral-700 hover:bg-neutral-200 hover:text-black"],
+    secondary: ["bg-amber-300 text-neutral-700 hover:bg-amber-400 hover:text-black"],
+};
 ---
 
 {
     href ? (
-        <a href={href} class:list={["button", `button-${theme}`, `button-${size}`]} {...attrs}>
+        <a href={href} class:list={[base, themes[theme], `text-${size}`]} {...attrs}>
             <span class="-skew-x-24">
                 <slot />
             </span>
         </a>
     ) : (
-        <div class:list={["button", `button-${theme}`, `button-${size}`]} {...attrs}>
+        <button class:list={[base, themes[theme], `text-${size}`]} {...attrs}>
             <div class="-skew-x-12">
                 <slot />
             </div>
-        </div>
+        </button>
     )
 }

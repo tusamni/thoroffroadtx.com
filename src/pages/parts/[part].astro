@@ -10,12 +10,12 @@ import Section from "../../components/Section.astro";
 import { getCollection } from "astro:content";
 export async function getStaticPaths() {
     const allParts = await getCollection("parts");
-    return allParts.map((entry) => ({
-        params: { part: entry.slug },
-        props: { entry },
+    return allParts.map((part) => ({
+        params: { part: part.slug },
+        props: { part },
     }));
 }
-const { entry } = Astro.props;
+const { part } = Astro.props;
 
 // config
 import { Business } from "../../config";
@@ -23,12 +23,12 @@ import { Business } from "../../config";
 
 <Layout>
     <div class="relative">
-        <Picture src={entry.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" alt={`${entry.data.title} truck parts for your vehicle`} />
+        <Picture src={part.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" alt={`${part.data.title} truck parts for your vehicle`} />
         <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
 
         <Section>
             <div class="relative">
-                <HeadingBase heading={entry.data.title} description={entry.data.descriptionLong} />
+                <HeadingBase heading={part.data.title} description={part.data.descriptionLong} />
             </div>
         </Section>
     </div>

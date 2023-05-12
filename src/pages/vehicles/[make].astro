@@ -19,30 +19,30 @@ import { Business } from "../../config";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-    const allVehicleMakes = await getCollection("vehicles");
-    return allVehicleMakes.map((entry) => ({
-        params: { make: entry.slug },
-        props: { entry },
+    const allMakes = await getCollection("makes");
+    return allMakes.map((make) => ({
+        params: { make: make.slug },
+        props: { make },
     }));
 }
-const { entry } = Astro.props;
+const { make } = Astro.props;
 
-const allVehicleModels = await getCollection("models", ({ slug, data }) => {
-    return slug.includes(entry.slug) && data.draft !== true;
+const allModels = await getCollection("models", ({ slug, data }) => {
+    return slug.includes(make.slug) && data.draft !== true;
 });
 const allBuilds = await getCollection("builds", ({ data }) => {
-    return data.make.includes(entry.data.title);
+    return data.make.includes(make.data.title);
 });
 ---
 
 <Layout>
     <div class="relative">
-        <Picture src={entry.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
+        <Picture src={make.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
         <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
 
         <Section>
             <div class="relative">
-                <HeadingBase heading={entry.data.title} description={entry.data.descriptionLong} />
+                <HeadingBase heading={make.data.title} description={make.data.descriptionLong} />
             </div>
         </Section>
     </div>
@@ -55,18 +55,18 @@ const allBuilds = await getCollection("builds", ({ data }) => {
                         <div class="grid grid-cols-1 gap-12 xl:grid-cols-5">
                             <div class="col-span-2 flex flex-col space-y-8">
                                 <div class="space-y-6">
-                                    <h3>Recent {entry.data.title} Builds</h3>
+                                    <h3>Recent {make.data.title} Builds</h3>
                                     <p class="text-xl leading-8 text-neutral-400">
                                         We love showing off our work. We're proud of it and our customers love the finished product.{" "}
                                         <a href="/contact" title={`Contact ${Business.nameLong}`} class="hover:underline text-neutral-300">
-                                            Let's start building your dream {entry.data.title}
+                                            Let's start building your dream {make.data.title}
                                         </a>
                                         !
                                     </p>
                                 </div>
 
                                 <div>
-                                    <Button href={`/builds/${entry.slug}`}>See Our {entry.data.title} Builds</Button>
+                                    <Button href={`/builds/${make.slug}`}>See Our {make.data.title} Builds</Button>
                                 </div>
                             </div>
 
@@ -81,7 +81,7 @@ const allBuilds = await getCollection("builds", ({ data }) => {
     <Section classes="bg-neutral-600">
         <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {
-                allVehicleModels.map((m) => (
+                allModels.map((m) => (
                     <Surround href={`/vehicles/${m.slug}`} title={m.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
                         <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
                             <Hover classes="w-full h-full">

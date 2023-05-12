@@ -13,7 +13,7 @@ import { Social, Business } from "../config.js";
 // content
 import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
-const allVehicles = await getCollection("vehicles");
+const allMakes = await getCollection("makes");
 
 // images
 const recent = [
@@ -83,10 +83,10 @@ const recent = [
                             <h6>Vehicles</h6>
                             <ul role="list" class="space-y-2">
                                 {
-                                    allVehicles.map((v) => (
+                                    allMakes.map((m) => (
                                         <li>
-                                            <a href={`/vehicles/${v.slug}`} title={v.data.title} class="text-sm leading-6 text-neutral-400 hover:text-neutral-200">
-                                                {v.data.title}
+                                            <a href={`/vehicles/${m.slug}`} title={m.data.title} class="text-sm leading-6 text-neutral-400 hover:text-neutral-200">
+                                                {m.data.title}
                                             </a>
                                         </li>
                                     ))

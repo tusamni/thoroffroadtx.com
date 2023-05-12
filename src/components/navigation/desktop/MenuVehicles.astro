@@ -4,15 +4,15 @@ import { getCollection } from "astro:content";
 import { Icon } from "astro-icon";
 
 // get vehicle data
-const allVehicles = await getCollection("vehicles");
+const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 ---
 
-<div class="relative" x-data={`{ vehiclesMega : false }`} x-on:mouseenter={`vehiclesMega = true`} x-on:mouseover.away={`vehiclesMega = false`} x-on:click={`vehiclesMega = true`} x-cloak>
-    <a href="/vehicles" class="inline-flex items-center gap-x-2 first:font-semibold leading-6 text-white transition px-4 py-3" x-bind:class={`vehiclesMega ? 'bg-red-500' : ''`}>
+<div class="relative" x-data={`{ makesMenu : false }`} x-on:mouseenter={`makesMenu = true`} x-on:mouseover.away={`makesMenu = false`} x-on:click={`makesMenu = true`} x-cloak>
+    <a href="/vehicles" class="inline-flex items-center gap-x-2 first:font-semibold leading-6 text-white transition px-4 py-3" x-bind:class={`makesMenu ? 'bg-red-500' : ''`}>
         <span>Vehicles</span>
 
-        <Icon name="Chevron" class="w-4 h-4 transition" x-bind:class={`vehiclesMega ? 'rotate-180' : ''`} />
+        <Icon name="Chevron" class="w-4 h-4 transition" x-bind:class={`makesMenu ? 'rotate-180' : ''`} />
     </a>
 
     <div
@@ -23,18 +23,18 @@ const allModels = await getCollection("models");
         x-transition:leave="transition ease-in duration-100"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0"
-        x-show="vehiclesMega"
+        x-show="makesMenu"
         class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-300 shadow-lg ring-1 ring-neutral-900/5">
         <div class="grid grid-cols-2">
             {
-                allVehicles.map((v) => (
-                    <a href={`/vehicles/${v.slug}`} title={v.data.title} class="flex flex-col gap-x-4 font-semibold leading-6 text-neutral-900 hover:bg-white px-6 py-4 transition">
-                        {v.data.title}
+                allMakes.map((m) => (
+                    <a href={`/vehicles/${m.slug}`} title={m.data.title} class="flex flex-col gap-x-4 font-semibold leading-6 text-neutral-900 hover:bg-white px-6 py-4 transition">
+                        {m.data.title}
 
                         <ul class="comma-list line-clamp-1 text-sm text-neutral-500 font-normal">
-                            {allModels.map((m) => {
-                                if (m.slug.includes(v.slug)) {
-                                    return <li>{m.data.title}</li>;
+                            {allModels.map((i) => {
+                                if (i.slug.includes(m.slug)) {
+                                    return <li>{i.data.title}</li>;
                                 }
                             })}
                         </ul>

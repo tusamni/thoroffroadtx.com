@@ -13,7 +13,7 @@ import Section from "../../components/Section.astro";
 // content
 import { getCollection } from "astro:content";
 const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const allMakes = await getCollection("vehicles");
+const allMakes = await getCollection("makes");
 ---
 
 <Layout>

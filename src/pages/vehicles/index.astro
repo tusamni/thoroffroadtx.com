@@ -14,7 +14,7 @@ import Surround from "../../components/content/Surround.astro";
 
 // content
 import { getCollection } from "astro:content";
-const allVehicles = await getCollection("vehicles");
+const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 
 // content
@@ -59,7 +59,7 @@ const process = [
         <Section classes="bg-neutral-600">
             <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {
-                    allVehicles.map((v) => (
+                    allMakes.map((v) => (
                         <>
                             <Surround href={`/vehicles/${v.slug}`} title={v.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
                                 <div class="z-10 flex flex-col justify-between gap-12">

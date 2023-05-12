@@ -6,7 +6,7 @@ import Picture from "../../images/Picture.astro";
 
 // content
 const allParts = await getCollection("parts");
-const allVehicles = await getCollection("vehicles");
+const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 
 // config
@@ -66,14 +66,14 @@ import { Business } from "../../../config.js";
                             x-transition:leave-start="opacity-100 scale-100"
                             x-transition:leave-end="opacity-0">
                             {
-                                allVehicles.map((v) => (
-                                    <a href={`/vehicles/${v.slug}`} class="block py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-neutral-900">
-                                        {v.data.title}
+                                allMakes.map((m) => (
+                                    <a href={`/vehicles/${m.slug}`} class="block py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-neutral-900">
+                                        {m.data.title}
 
                                         <ul class="comma-list line-clamp-1 text-xs font-light text-neutral-500">
-                                            {allModels.map((m) => {
-                                                if (m.slug.includes(v.slug)) {
-                                                    return <li>{m.data.title}</li>;
+                                            {allModels.map((i) => {
+                                                if (i.slug.includes(m.slug)) {
+                                                    return <li>{i.data.title}</li>;
                                                 }
                                             })}
                                         </ul>

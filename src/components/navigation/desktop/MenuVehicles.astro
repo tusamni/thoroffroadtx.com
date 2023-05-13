@@ -33,7 +33,7 @@ const allModels = await getCollection("models");
 
                         <ul class="comma-list line-clamp-1 text-sm text-neutral-500 font-normal">
                             {allModels.map((i) => {
-                                if (i.slug.includes(m.slug)) {
+                                if (i.data.make.toLowerCase().includes(m.slug)) {
                                     return <li>{i.data.title}</li>;
                                 }
                             })}

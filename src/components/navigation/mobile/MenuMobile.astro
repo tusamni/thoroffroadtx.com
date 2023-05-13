@@ -72,7 +72,7 @@ import { Business } from "../../../config.js";
 
                                         <ul class="comma-list line-clamp-1 text-xs font-light text-neutral-500">
                                             {allModels.map((i) => {
-                                                if (i.slug.includes(m.slug)) {
+                                                if (i.data.make.toLowerCase().includes(m.slug)) {
                                                     return <li>{i.data.title}</li>;
                                                 }
                                             })}

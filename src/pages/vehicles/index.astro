@@ -69,7 +69,7 @@ const process = [
 
                                         <ul class="comma-list text-neutral-400">
                                             {allModels.map((m) => {
-                                                if (m.slug.includes(v.slug)) {
+                                                if (m.data.make.toLowerCase().includes(v.slug)) {
                                                     return <li>{m.data.title}</li>;
                                                 }
                                             })}

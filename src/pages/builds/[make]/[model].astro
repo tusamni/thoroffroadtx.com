@@ -18,7 +18,7 @@ import { getCollection } from "astro:content";
 export async function getStaticPaths() {
     const allModels = await getCollection("models");
     return allModels.map((model) => ({
-        params: { make: model.data.make, model: model.data.title },
+        params: { make: model.data.make.toLowerCase(), model: model.data.slug },
         props: { model },
     }));
 }

@@ -27,8 +27,8 @@ export async function getStaticPaths() {
 }
 const { make } = Astro.props;
 
-const allModels = await getCollection("models", ({ slug, data }) => {
-    return slug.includes(make.slug) && data.draft !== true;
+const allModels = await getCollection("models", ({ data }) => {
+    return data.make.toLowerCase().includes(make.slug) && data.draft !== true;
 });
 const allBuilds = await getCollection("builds", ({ data }) => {
     return data.make.includes(make.data.title);

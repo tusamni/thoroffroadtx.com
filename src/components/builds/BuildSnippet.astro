@@ -19,17 +19,13 @@ import { Business } from "../../config";
 import { getBuildImage } from "../../functions/Image";
 ---
 
-<Surround href={`/builds/${build.slug}`} title={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`}>
-    <div class="group">
-        <Hover>
-            <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2]" sizes={sizes} />
-        </Hover>
+<a href={`/builds/${build.slug}`} title={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`}>
+    <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2] rounded-t-md" sizes={sizes} />
 
-        <div class="p-6">
-            <h5>{build.data.year} {build.data.make} {build.data.model}</h5>
-            <div class="flex">
-                <p class="text-base leading-7 text-neutral-400">{build.data.trim}</p>
-            </div>
+    <div class="p-4 rounded-b-md">
+        <h5 class="text-neutral-800 font-semibold">{build.data.year} {build.data.make} {build.data.model}</h5>
+        <div class="flex">
+            <p class="text-base leading-7 text-neutral-400">{build.data.trim}</p>
         </div>
     </div>
-</Surround>
+</a>

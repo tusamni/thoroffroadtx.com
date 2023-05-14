@@ -4,8 +4,10 @@ import { getCollection } from "astro:content";
 import { Icon } from "astro-icon";
 
 // get vehicle data
-const allMakes = await getCollection("makes");
-const allModels = await getCollection("models");
+const allMakes = await getCollection("makes", ({ data }) => {
+    return !data.draft;
+});
+const allMoels = await getCollection("models");
 ---
 
 <div class="relative" x-data={`{ makesMenu : false }`} x-on:mouseenter={`makesMenu = true`} x-on:mouseover.away={`makesMenu = false`} x-on:click={`makesMenu = true`} x-cloak>

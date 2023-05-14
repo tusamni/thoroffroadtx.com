@@ -20,12 +20,13 @@ export async function getStaticPaths() {
 const { model } = Astro.props;
 
 const allBuilds = await getCollection("builds", ({ slug }) => {
-    return slug.includes(model.data.make);
+    return slug.includes(model.slug);
 });
 
 // aggregate the metadata
+const allMakes = await getCollection("makes");
 const allModels = await getCollection("models", ({ data }) => {
-    return data.make.toLowerCase().includes(data.make.slug);
+    return data.make.includes(model.data.make);
 });
 ---
 
@@ -47,8 +48,8 @@ const allModels = await getCollection("models", ({ data }) => {
                                 <h6 class="text-neutral-800">Filter by Vehicle</h6>
                                 <div class="grid grid-cols-2 gap-3">
                                     {
-                                        allModels.map((m) => (
-                                            <a href={`/builds/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(make.slug) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
+                                        allMakes.map((m) => (
+                                            <a href={`/builds/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(model.data.make) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
                                                 {m.data.title}
                                             </a>
                                         ))
@@ -61,7 +62,7 @@ const allModels = await getCollection("models", ({ data }) => {
                                 <div class="grid grid-cols-2 gap-3">
                                     {
                                         allModels.map((m) => (
-                                            <a href={`/builds/${make.slug}/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(make.slug) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
+                                            <a href={`/builds/${model.data.make}/${m.slug}`} class:list={["text-md w-full text-sm block hover:bg-neutral-300 transition duration-300 rounded-md p-3 text-neutral-700 font-medium hover:text-neutral-800", m.slug.includes(model.slug) ? `bg-neutral-200` : `bg-neutral-50`]} role="menuitem" tabindex="-1" id="menu-item-0">
                                                 {m.data.title}
                                             </a>
                                         ))

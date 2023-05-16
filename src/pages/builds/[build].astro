@@ -7,6 +7,7 @@ import Background from "../../components/content/Background.astro";
 import Break from "../../components/Break.astro";
 import Container from "../../components/Container.astro";
 import Picture from "../../components/images/Picture.astro";
+import Pill from "../../components/buttons/Pill.astro";
 import Section from "../../components/Section.astro";
 
 // images
@@ -40,23 +41,22 @@ const { build } = Astro.props;
 
                                 {
                                     build.data.drive || build.data.color ? (
-                                        <ul class="text-neutral-300 flex flex-row gap-4">
-                                            {build.data.drive && <li>{build.data.drive}</li>}
-                                            {build.data.color && <li>{build.data.color}</li>}
-                                        </ul>
+                                        <div class="text-neutral-300 flex flex-row gap-4">
+                                            {build.data.trim && <Pill>{build.data.trim}</Pill>}
+                                            {build.data.drive && <Pill>{build.data.drive}</Pill>}
+                                            {build.data.color && <Pill>{build.data.color}</Pill>}
+                                        </div>
                                     ) : (
                                         ``
                                     )
                                 }
                             </div>
 
-                            <Break />
-
                             {
                                 build.data.goals && (
                                     <>
                                         <h2 class="text-2xl font-medium text-white">Goals</h2>
-                                        <div class="mt-4 text-lg leading-8 text-neutral-300 space-y-4" set:html={build.data.goals} />
+                                        <div class="mt-4 text-base leading-8 text-neutral-300 space-y-4" set:html={build.data.goals} />
                                     </>
                                 )
                             }

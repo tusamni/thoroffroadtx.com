@@ -19,14 +19,16 @@ import { timeAgo } from "../../functions/DateTime.js";
 import { getBuildImage } from "../../functions/Image";
 ---
 
-<a href={`/builds/${build.slug}`} title={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`}>
-    <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2] rounded-md" sizes={sizes} />
+<a href={`/builds/${build.slug}`} title={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="group overflow-hidden rounded-md">
+    <div class="overflow-hidden rounded-md">
+        <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2] rounded-md group-hover:scale-[105%] transition-all duration-300" sizes={sizes} />
+    </div>
 
     <div class="p-4 rounded-md bg-white -mt-6 relative w-5/6 mx-auto">
-        <h5 class="text-neutral-800 font-semibold">{build.data.year} {build.data.make} {build.data.model}</h5>
+        <h6 class="text-neutral-800 font-semibold">{build.data.year} {build.data.make} {build.data.model}</h6>
         <div class="flex justify-between">
-            <p class="text-base leading-7 text-neutral-400">{build.data.trim}</p>
-            <p class="text-base leading-7 text-neutral-400">{timeAgo(build.data.date)}</p>
+            <p class="text-sm leading-7 text-neutral-400">{build.data.trim}</p>
+            <p class="text-sm leading-7 text-neutral-400">{timeAgo(build.data.date)}</p>
         </div>
     </div>
 </a>

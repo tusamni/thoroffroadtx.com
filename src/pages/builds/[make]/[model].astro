@@ -2,10 +2,10 @@
 import Layout from "../../../layouts/Layout.astro";
 
 // components
-import Background from "../../../components/content/Background.astro";
 import BuildSnippet from "../../../components/builds/BuildSnippet.astro";
 import Container from "../../../components/Container.astro";
 import HeadingBase from "../../../components/content/headings/HeadingBase.astro";
+import Picture from "../../../components/images/Picture.astro";
 import Section from "../../../components/Section.astro";
 
 // content
@@ -31,11 +31,16 @@ const allModels = await getCollection("models", ({ data }) => {
 ---
 
 <Layout>
-    <Background>
+    <div class="relative">
+        <Picture src={model.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
+        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
+
         <Section>
-            <HeadingBase heading={`${model.data.title} Builds`} subheading="Our recent work" description="Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua." />
+            <div class="relative">
+                <HeadingBase heading={`${model.data.make} ${model.data.title} Builds`} />
+            </div>
         </Section>
-    </Background>
+    </div>
 
     <Section classes="bg-neutral-300">
         <Container>

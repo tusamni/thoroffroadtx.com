@@ -2,6 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import { Icon } from "astro-icon";
+import Background from "../../components/content/Background.astro";
+import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
@@ -16,9 +19,7 @@ export async function getStaticPaths() {
     }));
 }
 const { part } = Astro.props;
-
-// config
-import { Business } from "../../config";
+const parts = [];
 ---
 
 <Layout>
@@ -32,4 +33,31 @@ import { Business } from "../../config";
             </div>
         </Section>
     </div>
+
+    <Background theme="secondary">
+        <Section>
+            <Container>
+                <div class="grid grid-cols-3 gap-12">
+                    <div class="space-y-10">
+                        <h2 class="text-neutral-900 font-semibold" set:html={part.data.contentTitle} />
+                        <div class="leading-8 tracking-tight text-gray-700 space-y-6 text-lg" set:html={part.data.contentSidebar} />
+                    </div>
+                    <div class="col-span-2 grid text-gray-600 grid-cols-3 gap-2">
+                        {
+                            part.data.contentParts.map((p) => (
+                                <div class="relative">
+                                    <Icon name="CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-500 self-start" />
+
+                                    <div class="ml-9 flex flex-col gap-2">
+                                        <p class="font-semibold text-gray-900">{p.title}</p>
+                                        <p>{p.description}</p>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </Container>
+        </Section>
+    </Background>
 </Layout>

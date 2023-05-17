@@ -3,17 +3,16 @@
 interface Props {
     theme?: string;
 }
-const { theme = "primary" } = Astro.props;
+const { theme = "primary", ...attrs } = Astro.props;
+
+// background theming
+const base = "bg-gradient-to-r";
+const themes = {
+    primary: ["from-neutral-900 to-neutral-700"],
+    secondary: ["from-neutral-300 to-white"],
+};
 ---
 
-{
-    theme == "primary" ? (
-        <div class="bg-gradient-to-r from-neutral-900 to-neutral-700">
-            <slot />
-        </div>
-    ) : (
-        <div class="bg-gradient-to-bl from-neutral-600 to-neutral-900">
-            <slot />
-        </div>
-    )
-}
+<div class:list={[base, themes[theme]]}>
+    <slot />
+</div>

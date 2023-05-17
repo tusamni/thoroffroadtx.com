@@ -1,3 +1,18 @@
-<div class="text-neutral-300 font-semibold bg-neutral-500/20 inline p-2 rounded-md">
+---
+interface Props {
+    theme?: string;
+    size?: string;
+}
+const { theme = "primary", size = "base", ...attrs } = Astro.props;
+
+// pill theming
+const base = "font-semibold inline p-2 rounded-md";
+const themes = {
+    primary: ["text-neutral-300 bg-neutral-500/20"],
+    secondary: ["text-neutral-100 bg-neutral-500"],
+};
+---
+
+<div class:list={[base, themes[theme], `text-${size}`]} {...attrs}>
     <slot />
 </div>

@@ -40,25 +40,29 @@ const process = [
     <Background>
         <Section>
             <HeadingBase heading="Off-Road Parts" subheading="Our Philosophy" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
+        </Section>
+    </Background>
 
+    <Background theme="secondary">
+        <Section classes="overflow-hidden">
             <Container>
                 <div class="grid grid-cols-1 gap-16 lg:grid-cols-3">
                     {process.map((p, i) => <Steps number={i + 1} heading={p.title} content={p.description} />)}
                 </div>
             </Container>
 
-            <section class="flex flex-col overflow-hidden gap-6">
-                <div class="flex justify-around min-w-full tranneutral-x-24 gap-6">
-                    {parts01.map((p) => <Picture src={p} alt="THOR Off-Road Parts" class="object-cover h-72 w-full rounded-md shadow-lg" sizes="500px" />)}
+            <div class="flex flex-col gap-6">
+                <div class="flex justify-around min-w-full translate-x-24 gap-6">
+                    {parts01.map((p) => <Picture src={p} alt="THOR Off-Road Parts" class="object-cover h-72 w-full rounded-md shadow-2xl" sizes="500px" />)}
                 </div>
 
-                <div class="flex justify-around min-w-full -tranneutral-x-24 gap-6">
-                    {parts02.map((p) => <Picture src={p} alt="THOR Off-Road Parts" class="object-cover h-72 w-full rounded-md" sizes="500px" />)}
+                <div class="flex justify-around min-w-full -translate-x-24 gap-6">
+                    {parts02.map((p) => <Picture src={p} alt="THOR Off-Road Parts" class="object-cover h-72 w-full rounded-md shadow-2xl" sizes="500px" />)}
                 </div>
-            </section>
+            </div>
         </Section>
 
-        <Section classes="bg-neutral-600">
+        <Section>
             <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {
                     allParts.map((p) => (
@@ -70,18 +74,18 @@ const process = [
                             </div>
 
                             <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                                <div class="text-lg font-semibold tracking-tight text-neutral-900">
-                                    <div class="text-white text-2xl flex items-center gap-2">
+                                <div class="text-lg font-semibold tracking-tight">
+                                    <div class="text-neutral-900 text-2xl flex items-center gap-2">
                                         <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
                                         {p.data.title}
                                     </div>
                                 </div>
 
-                                <div class="text-base leading-7 text-neutral-400">{p.data.descriptionShort}</div>
+                                <div class="text-base leading-7 text-neutral-600">{p.data.descriptionShort}</div>
 
                                 <div>
-                                    <div class="text-base font-semibold leading-7 text-neutral-200">Brands</div>
-                                    <ul class="comma-list font-light text-neutral-400 line-clamp-2 text-sm md:text-base">
+                                    <div class="text-base font-semibold leading-7 text-neutral-800">Brands</div>
+                                    <ul class="comma-list font-light text-neutral-600 line-clamp-2 text-sm md:text-base">
                                         {p.data.brands.map((b) => (
                                             <li>{b.title}</li>
                                         ))}
@@ -99,11 +103,11 @@ const process = [
                     </div>
 
                     <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                        <div class="text-lg font-semibold tracking-tight text-neutral-900">
-                            <div class="text-white text-2xl flex items-center gap-2">Don't see what you're looking for?</div>
+                        <div class="text-lg font-semibold tracking-tight">
+                            <div class="text-neutral-900 text-2xl flex items-center gap-2">Don't see what you're looking for?</div>
                         </div>
 
-                        <div class="text-base leading-7 text-neutral-400">If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.</div>
+                        <div class="text-base leading-7 text-neutral-600">If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.</div>
                     </div>
                 </Surround>
             </Container>

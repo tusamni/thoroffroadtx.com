@@ -4,9 +4,9 @@ import Layout from "../../layouts/Layout.astro";
 // components
 import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
-import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import Hover from "../../components/images/Hover.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 import Steps from "../../components/content/headings/Steps.astro";
@@ -42,7 +42,11 @@ const process = [
     <Background>
         <Section>
             <HeadingBase heading="Texas' Top<br />Truck Outfitter" subheading="Our Process" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
+        </Section>
+    </Background>
 
+    <Background theme="secondary">
+        <Section>
             <Container>
                 <div class="grid md:grid-cols-6 gap-12 items-center">
                     <div class="order-2 md:order-1 col-span-6 md:col-span-3 lg:col-span-2 space-y-12">
@@ -56,37 +60,36 @@ const process = [
             </Container>
         </Section>
 
-        <Section classes="bg-neutral-600">
+        <Section>
             <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {
                     allMakes.map((v) => (
-                        <>
-                            <Surround href={`/vehicles/${v.slug}`} title={v.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
-                                <div class="z-10 flex flex-col justify-between gap-12">
-                                    <div class="space-y-4">
-                                        <h3>{v.data.title}</h3>
-                                        <p class="text-neutral-200 text-lg">{v.data.descriptionShort}</p>
-
-                                        <ul class="comma-list text-neutral-400">
-                                            {allModels.map((m) => {
-                                                if (m.data.make.toLowerCase().includes(v.slug)) {
-                                                    return <li>{m.data.title}</li>;
-                                                }
-                                            })}
-                                        </ul>
-                                    </div>
-
-                                    <div>
-                                        <Button theme="primary">Build Your Dream {v.data.title}</Button>
-                                    </div>
+                        <Surround href={`/vehicles/${v.slug}`} title={v.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
+                            <div class="z-10 flex flex-col justify-between gap-12">
+                                <div class="space-y-6">
+                                    <h3 class="text-neutral-900">{v.data.title}</h3>
+                                    <p class="text-neutral-600 text-lg">{v.data.descriptionShort}</p>
                                 </div>
-                                <div class="hidden z-10 md:flex lg:hidden xl:flex">
+
+                                <div>
+                                    <div class="text-base font-semibold leading-7 text-neutral-800">Brands</div>
+                                    <ul class="comma-list text-sm text-neutral-600">
+                                        {allModels.map((m) => {
+                                            if (m.data.make.toLowerCase().includes(v.slug)) {
+                                                return <li>{m.data.title}</li>;
+                                            }
+                                        })}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="hidden z-10 md:flex lg:hidden xl:flex">
+                                <Hover>
                                     <Picture src={v.data.featured} alt={`${v.data.title} Featured Build`} class="object-cover w-full h-full rounded-md shadow-xl aspect-square" sizes="350px" />
-                                </div>
+                                </Hover>
+                            </div>
 
-                                <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-neutral-500/70 w-[20rem] group-hover:w-[22rem] transition-all duration-300" />
-                            </Surround>
-                        </>
+                            <Icon name={`vehicles/${v.data.logo}`} class="absolute -bottom-4 -right-16 text-neutral-400/20 w-[20rem] group-hover:text-neutral-500/30 transition-all duration-300" />
+                        </Surround>
                     ))
                 }
             </Container>

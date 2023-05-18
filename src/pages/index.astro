@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 
 // components
+import { Icon } from "astro-icon";
 import Background from "../components/content/Background.astro";
 import Button from "../components/buttons/Button.astro";
 import Container from "../components/Container.astro";
@@ -20,7 +21,9 @@ const allTestimonials = await getCollection("builds", ({ data }) => {
     return data.testimonial;
 });
 const allBuilds = await getCollection("builds");
-const allBrands = await getCollection("brands");
+const allBrands = await getCollection("brands", ({ data }) => {
+    return data.logo;
+});
 
 // images
 import { getBuildImage } from "../functions/Image.js";
@@ -84,7 +87,7 @@ const headers = [
 
                     <!-- brand logos -->
                     <div class="mx-auto grid max-w-xl items-center grid-cols-3 gap-12 lg:gap-8 lg:mx-0 lg:max-w-none">
-                        {allBrands.map((b) => <Picture src={`brands/parts/${b.data.logo}.png`} alt={b.data.title} class="h-12 w-2/3 object-contain" />)}
+                        {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-12 w-2/3 object-contain" />)}
                     </div>
                 </div>
             </Container>

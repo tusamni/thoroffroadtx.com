@@ -19,7 +19,11 @@ export async function getStaticPaths() {
     }));
 }
 const { part } = Astro.props;
-const parts = [];
+
+// get brands
+const allBrands = await getCollection("brands", ({ data }) => {
+    return data.parts.includes(part.slug) && data.logo;
+});
 ---
 
 <Layout>
@@ -34,30 +38,46 @@ const parts = [];
         </Section>
     </div>
 
-    <Background theme="secondary">
+    {
+        part.data.contentSidebar && part.data.contentParts ? (
+            <Background theme="secondary">
+                <Section>
+                    <Container>
+                        <div class="grid grid-cols-3 gap-12">
+                            <div class="space-y-10">
+                                <h2 class="text-neutral-900 font-semibold">
+                                    <span class="italic font-bold">THE</span> {part.data.title} Experts
+                                </h2>
+                                <div class="leading-8 tracking-tight text-gray-700 space-y-6 text-lg" set:html={part.data.contentSidebar} />
+                            </div>
+                            <div class="col-span-2 grid text-gray-600 grid-cols-3 gap-2">
+                                {part.data.contentParts.map((p) => (
+                                    <div class="relative">
+                                        <Icon name="CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-500 self-start" />
+
+                                        <div class="ml-9 flex flex-col gap-2">
+                                            <p class="font-semibold text-gray-900">{p.title}</p>
+                                            <p>{p.description}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </Container>
+                </Section>
+            </Background>
+        ) : (
+            ``
+        )
+    }
+
+    <div class="bg-gradient-to-tr from-gray-700 to-gray-900">
         <Section>
             <Container>
-                <div class="grid grid-cols-3 gap-12">
-                    <div class="space-y-10">
-                        <h2 class="text-neutral-900 font-semibold"><span class="italic font-bold">THE</span> {part.data.title} Experts</h2>
-                        <div class="leading-8 tracking-tight text-gray-700 space-y-6 text-lg" set:html={part.data.contentSidebar} />
-                    </div>
-                    <div class="col-span-2 grid text-gray-600 grid-cols-3 gap-2">
-                        {
-                            part.data.contentParts.map((p) => (
-                                <div class="relative">
-                                    <Icon name="CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-500 self-start" />
-
-                                    <div class="ml-9 flex flex-col gap-2">
-                                        <p class="font-semibold text-gray-900">{p.title}</p>
-                                        <p>{p.description}</p>
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </div>
+                <div class="mx-auto grid items-center grid-cols-5 gap-16">
+                    {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-12 w-2/3 object-contain" />)}
                 </div>
             </Container>
         </Section>
-    </Background>
+    </div>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 
 // components
 import { Icon } from "astro-icon";
+import Background from "../../components/content/Background.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Picture from "../../components/images/Picture.astro";
@@ -36,7 +37,7 @@ const { build } = Astro.props;
         </Section>
     </div>
 
-    <div class="bg-neutral-300">
+    <Background theme="secondary">
         <Section classes="relative z-10">
             <Container>
                 <div class="grid grid-cols-1 gap-y-20 gap-x-24 xl:grid-cols-6">
@@ -44,10 +45,6 @@ const { build } = Astro.props;
                     <div class="col-span-2">
                         <div class="space-y-12">
                             <div class="space-y-4">
-                                <p class="text-neutral-600">
-                                    <a href="/builds" title="Back to THOR Builds">&larr; Back to Builds</a>
-                                </p>
-
                                 {
                                     build.data.trim || build.data.drive || build.data.color ? (
                                         <div class="text-neutral-300 flex flex-row gap-4">
@@ -64,8 +61,8 @@ const { build } = Astro.props;
                             {
                                 build.data.goals && (
                                     <>
-                                        <h2 class="text-2xl font-medium text-neutral-900">Goals</h2>
-                                        <div class="mt-4 text-base leading-7 text-neutral-700 space-y-4" set:html={build.data.goals} />
+                                        <h2 class="h3">Goals</h2>
+                                        <div class="mt-4 text-lg leading-8 tracking-tight text-neutral-700 space-y-4" set:html={build.data.goals} />
                                     </>
                                 )
                             }
@@ -73,7 +70,7 @@ const { build } = Astro.props;
                             {
                                 build.data.parts && (
                                     <>
-                                        <h2 class="text-2xl font-medium text-neutral-900">Parts List</h2>
+                                        <h2 class="h3">Parts List</h2>
                                         <ul role="list" class="text-sm leading-7 text-neutral-700 list-inside list-none">
                                             {build.data.parts.map((p) => (
                                                 <li>{p}</li>
@@ -128,5 +125,5 @@ const { build } = Astro.props;
                 </div>
             </Container>
         </Section>
-    </div>
+    </Background>
 </Layout>

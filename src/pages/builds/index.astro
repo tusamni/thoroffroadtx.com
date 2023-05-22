@@ -48,13 +48,6 @@ const allParts = await getCollection("parts");
                                     {allMakes.map((m) => <Filter href={`/builds/${m.slug}`}>{m.data.title}</Filter>)}
                                 </div>
                             </div>
-
-                            <div class="space-y-4">
-                                <h6 class="text-neutral-800">Filter by Parts</h6>
-                                <div class="grid grid-cols-2 gap-3">
-                                    {allParts.map((p) => <Filter href={`/builds/${p.slug}`}>{p.data.title}</Filter>)}
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

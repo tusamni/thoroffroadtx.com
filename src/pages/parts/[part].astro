@@ -74,7 +74,7 @@ const allBrands = await getCollection("brands", ({ data }) => {
     <div class="bg-gradient-to-tr from-gray-700 to-gray-900">
         <Section>
             <Container>
-                <div class="mx-auto grid items-center grid-cols-5 gap-16">
+                <div class="mx-auto flex flex-row gap-16">
                     {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-12 w-2/3 object-contain" />)}
                 </div>
             </Container>

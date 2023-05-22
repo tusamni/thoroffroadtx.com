@@ -20,7 +20,8 @@ const buildCollection = defineCollection({
         highlight: z.string().optional(),
         testimonial: z.string().optional(),
         goals: z.string().optional(),
-        parts: z.string().transform((parts) => parts.split(",")),
+        parts: z.string().transform((part) => part.split(", ")),
+        categories: z.string().transform((category) => category.split(", ")),
 
         // meta
         date: z.date(),

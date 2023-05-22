@@ -12,34 +12,31 @@ import Section from "../../../components/Section.astro";
 // content
 import { getCollection } from "astro:content";
 export async function getStaticPaths() {
-    const allMakes = await getCollection("makes");
-    return allMakes.map((make) => ({
-        params: { make: make.slug },
-        props: { make },
+    const allParts = await getCollection("parts");
+    return allParts.map((part) => ({
+        params: { part: part.slug },
+        props: { part },
     }));
 }
-const { make } = Astro.props;
+const { part } = Astro.props;
 
-const allBuilds = await getCollection("builds", ({ slug }) => {
-    return slug.includes(make.slug);
+const allBuilds = await getCollection("builds", ({ data }) => {
+    return data.categories.includes(part.slug);
 });
 
 // aggregate the metadata
-const allMakes = await getCollection("makes");
-const allModels = await getCollection("models", ({ data }) => {
-    return data.make.toLowerCase().includes(make.slug);
-});
 const allParts = await getCollection("parts");
+const allMakes = await getCollection("makes");
 ---
 
 <Layout>
     <div class="relative">
-        <Picture src={make.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
+        <Picture src={part.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
         <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
 
         <Section>
             <div class="relative">
-                <HeadingBase heading={`${make.data.title} Builds`} />
+                <HeadingBase heading={`${part.data.title} Builds`} />
             </div>
         </Section>
     </div>
@@ -54,33 +51,20 @@ const allParts = await getCollection("parts");
                             <div class="space-y-4">
                                 <h6 class="text-neutral-800">Filter by Parts</h6>
                                 <div class="grid grid-cols-2 gap-3">
-                                    {allParts.map((p) => <Filter href={`/builds/${p.slug}`}>{p.data.title}</Filter>)}
+                                    {
+                                        allParts.map((p) => (
+                                            <Filter href={`/builds/${p.slug}`} current={p.slug.includes(part.slug) ? true : false}>
+                                                {p.data.title}
+                                            </Filter>
+                                        ))
+                                    }
                                 </div>
                             </div>
 
                             <div class="space-y-4">
                                 <h6 class="text-neutral-800">Filter by Vehicle</h6>
                                 <div class="grid grid-cols-2 gap-3">
-                                    {
-                                        allMakes.map((m) => (
-                                            <Filter href={`/builds/${m.slug}`} current={m.slug.includes(make.slug) ? true : false}>
-                                                {m.data.title}
-                                            </Filter>
-                                        ))
-                                    }
-                                </div>
-                            </div>
-
-                            <div class="space-y-4">
-                                <h6 class="text-neutral-800">Filter by Model</h6>
-                                <div class="grid grid-cols-2 gap-3">
-                                    {
-                                        allModels.map((m) => (
-                                            <Filter href={`/builds/${make.slug}/${m.slug}`} current={m.slug.includes(make.slug) ? true : false}>
-                                                {m.data.title}
-                                            </Filter>
-                                        ))
-                                    }
+                                    {allMakes.map((m) => <Filter href={`/builds/${m.slug}`}>{m.data.title}</Filter>)}
                                 </div>
                             </div>
                         </div>

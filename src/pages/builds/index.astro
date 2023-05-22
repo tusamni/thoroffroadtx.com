@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 // components
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
+import Filter from "../../components/builds/Filter.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
@@ -12,6 +13,7 @@ import Section from "../../components/Section.astro";
 import { getCollection } from "astro:content";
 const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const allMakes = await getCollection("makes");
+const allParts = await getCollection("parts");
 ---
 
 <Layout>
@@ -34,15 +36,23 @@ const allMakes = await getCollection("makes");
                     <div class="sticky top-48">
                         <div class="space-y-8">
                             <div class="space-y-4">
+                                <h6 class="text-neutral-800">Filter by Parts</h6>
+                                <div class="grid grid-cols-2 gap-3">
+                                    {allParts.map((p) => <Filter href={`/builds/${p.slug}`}>{p.data.title}</Filter>)}
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
                                 <h6 class="text-neutral-900">Filter by Vehicle</h6>
                                 <div class="grid grid-cols-2 gap-3">
-                                    {
-                                        allMakes.map((m) => (
-                                            <a href={`/builds/${m.slug}`} class="w-full text-sm hover:bg-neutral-100 transition duration-300 rounded-md p-3 bg-neutral-200 text-neutral-700 font-medium hover:text-neutral-800" role="menuitem" tabindex="-1" id="menu-item-0">
-                                                {m.data.title}
-                                            </a>
-                                        ))
-                                    }
+                                    {allMakes.map((m) => <Filter href={`/builds/${m.slug}`}>{m.data.title}</Filter>)}
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h6 class="text-neutral-800">Filter by Parts</h6>
+                                <div class="grid grid-cols-2 gap-3">
+                                    {allParts.map((p) => <Filter href={`/builds/${p.slug}`}>{p.data.title}</Filter>)}
                                 </div>
                             </div>
                         </div>

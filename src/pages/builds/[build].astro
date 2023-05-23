@@ -6,6 +6,7 @@ import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
 import Picture from "../../components/images/Picture.astro";
 import Pill from "../../components/buttons/Pill.astro";
 import Section from "../../components/Section.astro";
@@ -26,16 +27,10 @@ const { build } = Astro.props;
 ---
 
 <Layout>
-    <div class="relative">
-        <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
-
-        <Section>
-            <div class="relative">
-                <HeadingBase heading={`${build.data.year} ${build.data.make} ${build.data.model}`} subheading="Custom THOR Off-Road Build" />
-            </div>
-        </Section>
-    </div>
+    <ImageOverlay>
+        <Picture slot="image" src={getBuildImage(build.data.id, build.data.featuredImage)} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
+        <HeadingBase heading={`${build.data.year} ${build.data.make} ${build.data.model}`} subheading="Custom THOR Off-Road Build" />
+    </ImageOverlay>
 
     <Background theme="secondary">
         <Section classes="relative z-10">

@@ -47,15 +47,15 @@ const allBuilds = await getCollection("builds", ({ data }) => {
         </Section>
     </div>
 
-    {
-        allBuilds.length >= 3 && (
-            <Background>
+    <Background theme="secondary">
+        {
+            allBuilds.length >= 3 && (
                 <Section>
                     <Container>
                         <div class="grid grid-cols-1 gap-12 xl:grid-cols-5">
-                            <div class="col-span-2 flex flex-col space-y-8">
+                            <div class="col-span-2 flex flex-col space-y-8 justify-between">
                                 <div class="space-y-6">
-                                    <h3>Recent {make.data.title} Builds</h3>
+                                    <h3 class="text-white">Recent {make.data.title} Builds</h3>
                                     <p class="text-xl leading-8 text-neutral-400">
                                         We love showing off our work. We're proud of it and our customers love the finished product.{" "}
                                         <a href="/contact" title={`Contact ${Business.nameLong}`} class="hover:underline text-neutral-300">
@@ -65,40 +65,38 @@ const allBuilds = await getCollection("builds", ({ data }) => {
                                     </p>
                                 </div>
 
-                                <div>
-                                    <Button href={`/builds/${make.slug}`}>See Our {make.data.title} Builds</Button>
-                                </div>
+                                <Button href={`/builds/${make.slug}`}>See Our {make.data.title} Builds</Button>
                             </div>
 
                             <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="300px" />).slice(0, 3)}</div>
                         </div>
                     </Container>
                 </Section>
-            </Background>
-        )
-    }
+            )
+        }
 
-    <Section classes="bg-neutral-600">
-        <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {
-                allModels.map((m) => (
-                    <Surround href={`/vehicles/${m.slug}`} title={m.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
-                        <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
-                            <Hover classes="w-full h-full">
-                                <Picture src={m.data.featured} alt={m.data.title} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" sizes="400px" />
-                            </Hover>
-                        </div>
-
-                        <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                            <div class="text-lg font-semibold tracking-tight text-neutral-900">
-                                <div class="text-white text-2xl flex items-center gap-2">{m.data.title}</div>
+        <Section>
+            <Container classes="grid grid-cols-1 lg:grid-cols-2">
+                {
+                    allModels.map((m) => (
+                        <Surround hover={true} href={`/vehicles/${m.slug}`} title={m.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
+                            <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
+                                <Hover class="w-full h-full">
+                                    <Picture src={m.data.featured} alt={m.data.title} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" sizes="400px" />
+                                </Hover>
                             </div>
 
-                            <div class="text-base leading-7 text-neutral-400">{m.data.description}</div>
-                        </div>
-                    </Surround>
-                ))
-            }
-        </Container>
-    </Section>
+                            <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
+                                <div class="text-lg font-semibold tracking-tight text-neutral-900">
+                                    <h3>{m.data.title}</h3>
+                                </div>
+
+                                <div class="text-neutral-600 text-base tracking-normal">{m.data.description}</div>
+                            </div>
+                        </Surround>
+                    ))
+                }
+            </Container>
+        </Section>
+    </Background>
 </Layout>

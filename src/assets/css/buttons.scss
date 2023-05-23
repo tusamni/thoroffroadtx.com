@@ -1,0 +1,31 @@
+.button {
+    @apply transition-all duration-500 font-medium rounded shadow flex max-w-fit items-center justify-between h-12;
+
+    &.button-primary {
+        @apply bg-white text-neutral-900;
+
+        .button-icon {
+            @apply bg-neutral-50 border-neutral-300;
+        }
+        .button-text {
+            @apply bg-neutral-200
+        }
+    }
+    &.button-secondary {
+        @apply bg-white rounded;
+        
+        .button-icon {
+            @apply bg-amber-500/70 border-transparent text-amber-600;
+        }
+        .button-text { 
+            @apply bg-amber-500 text-white
+        }
+    }
+    
+    .button-icon {
+        @apply h-full px-3 flex justify-center items-center border-r rounded-l;
+    }
+    .button-text {
+        @apply transition-all duration-500 px-4 h-full flex justify-center items-center;
+    }
+}

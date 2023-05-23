@@ -7,9 +7,10 @@ import Background from "../../components/content/Background.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Hover from "../../components/images/Hover.astro";
+import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
-import Steps from "../../components/content/headings/Steps.astro";
+import Steps from "../../components/content/Steps.astro";
 import Surround from "../../components/content/Surround.astro";
 
 // content
@@ -37,82 +38,81 @@ const process = [
 ---
 
 <Layout>
-    <div class="relative">
-        <Picture src="shop/parts.jpg" class="absolute inset-0 w-full h-full object-cover saturate-50" alt="truck parts for your vehicle" />
-        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
+    <ImageOverlay>
+        <Picture slot="image" src="builds/748248/18.jpg" class="absolute inset-0 w-full h-full object-cover saturate-50" alt="truck parts for your vehicle" />
 
-        <Section>
-            <div class="relative">
-                <HeadingBase heading="Off-Road Parts" subheading="Our Philosophy" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
-            </div>
-        </Section>
-    </div>
+        <div class="space-y-24">
+            <HeadingBase heading="Off-Road Parts" subheading="Our Philosophy" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
 
-    <Background theme="secondary">
-        <Section classes="overflow-hidden">
             <Container>
                 <div class="grid grid-cols-1 gap-16 lg:grid-cols-3">
-                    {process.map((p, i) => <Steps number={i + 1} heading={p.title} content={p.description} />)}
+                    {process.map((p, i) => <Steps darkTheme={true} number={i + 1} heading={p.title} content={p.description} />)}
                 </div>
             </Container>
+        </div>
+    </ImageOverlay>
 
-            <div class="flex flex-col gap-6">
-                <div class="flex justify-around min-w-full translate-x-24 gap-6">
-                    {parts01.map((p) => <Picture src={p} alt="THOR Off-Road Parts" class="object-cover h-72 w-full rounded-md" sizes="500px" />)}
-                </div>
-
-                <div class="flex justify-around min-w-full -translate-x-24 gap-6">
-                    {parts02.map((p) => <Picture src={p} alt="THOR Off-Road Parts" class="object-cover h-72 w-full rounded-md" sizes="500px" />)}
-                </div>
+    <Background theme="secondary">
+        <!-- <div class="flex flex-col">
+            <div class="flex justify-around min-w-full translate-x-24">
+                {parts01.map((p) => <Picture src={p} alt="THOR Off-Road Parts" class="object-cover h-72 w-full" sizes="500px" />)}
             </div>
 
-            <Container classes="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {
-                    allParts.map((p) => (
-                        <Surround href={`/parts/${p.slug}`} title={p.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
-                            <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
-                                <Hover classes="w-full h-full">
-                                    <Picture src={p.data.featured} alt={p.data.title} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" sizes="300px" />
-                                </Hover>
-                            </div>
+            <div class="flex justify-around min-w-full -translate-x-24">
+                {parts02.map((p) => <Picture src={p} alt="THOR Off-Road Parts" class="object-cover h-72 w-full" sizes="500px" />)}
+            </div>
+        </div> -->
 
-                            <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                                <div class="text-lg font-semibold tracking-tight">
-                                    <div class="text-neutral-900 text-2xl flex items-center gap-2">
-                                        <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
-                                        {p.data.title}
+        <Section>
+            <Container>
+                <div class="grid grid-cols-1 lg:grid-cols-2 border-b border-l border-neutral-400">
+                    {
+                        allParts.map((p) => (
+                            <Surround hover={true} href={`/parts/${p.slug}`} title={p.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12 border-t border-r border-neutral-400">
+                                <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
+                                    <Hover>
+                                        <Picture src={p.data.featured} alt={p.data.title} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" sizes="300px" />
+                                    </Hover>
+                                </div>
+
+                                <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
+                                    <div class="text-lg font-semibold tracking-tight">
+                                        <div class="text-neutral-900 text-2xl flex items-center gap-2">
+                                            <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
+                                            {p.data.title}
+                                        </div>
+                                    </div>
+
+                                    <div class="text-base leading-7 text-neutral-600">{p.data.descriptionShort}</div>
+
+                                    <div>
+                                        <div class="text-base font-semibold leading-7 text-neutral-800">Brands</div>
+                                        <ul class="comma-list font-light text-neutral-600 line-clamp-2 text-sm md:text-base">
+                                            {p.data.brands.map((b) => (
+                                                <li>{b.title}</li>
+                                            ))}
+                                        </ul>
                                     </div>
                                 </div>
-
-                                <div class="text-base leading-7 text-neutral-600">{p.data.descriptionShort}</div>
-
-                                <div>
-                                    <div class="text-base font-semibold leading-7 text-neutral-800">Brands</div>
-                                    <ul class="comma-list font-light text-neutral-600 line-clamp-2 text-sm md:text-base">
-                                        {p.data.brands.map((b) => (
-                                            <li>{b.title}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </Surround>
-                    ))
-                }
-                <Surround href="/contact" title="Contact THOR Off-Road" classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12">
-                    <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
-                        <Hover classes="w-full h-full">
-                            <Picture src="shop/2022-12-05/shop-shoot_15.jpg" alt="Custom truck outfitting" class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" sizes="300px" />
-                        </Hover>
-                    </div>
-
-                    <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                        <div class="text-lg font-semibold tracking-tight">
-                            <div class="text-neutral-900 text-2xl flex items-center gap-2">Don't see what you're looking for?</div>
+                            </Surround>
+                        ))
+                    }
+                    <Surround hover={true} href="/contact" title="Contact THOR Off-Road" classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12 border-t border-r border-neutral-400">
+                        <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
+                            <Hover class="w-full h-full">
+                                <Picture src="shop/2022-12-05/shop-shoot_15.jpg" alt="Custom truck outfitting" class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" sizes="300px" />
+                            </Hover>
                         </div>
 
-                        <div class="text-base leading-7 text-neutral-600">If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.</div>
-                    </div>
-                </Surround>
+                        <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
+                            <div class="text-lg font-semibold tracking-tight">
+                                <div class="text-neutral-900 text-2xl flex items-center gap-2">Don't see what you're looking for?</div>
+                            </div>
+
+                            <div class="text-base leading-7 text-neutral-600">If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.</div>
+                        </div>
+                    </Surround>
+                </div>
             </Container>
         </Section>
     </Background>

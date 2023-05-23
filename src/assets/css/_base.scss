@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "buttons";
 @import "typography";
 @import "navigation";
 
@@ -12,4 +13,12 @@
 
 html {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+::-moz-selection {
+    background: #ffd9b4;
+}
+
+::selection {
+    background: #ffd9b4;
 }

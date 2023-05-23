@@ -6,6 +6,8 @@ import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
 import Filter from "../../components/builds/Filter.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
+import ListingGrid from "../../components/builds/ListingGrid.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -17,16 +19,10 @@ const allParts = await getCollection("parts");
 ---
 
 <Layout>
-    <div class="relative">
-        <Picture src="team/shop/thoroffroad-02.jpg" class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
-
-        <Section>
-            <div class="relative">
-                <HeadingBase heading="THOR Builds" subheading="Our recent work" description="Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua." />
-            </div>
-        </Section>
-    </div>
+    <ImageOverlay>
+        <Picture slot="image" src="team/shop/thoroffroad-02.jpg" class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
+        <HeadingBase heading="THOR Builds" subheading="Our recent work" description="Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua." />
+    </ImageOverlay>
 
     <Section classes="bg-neutral-300">
         <Container>
@@ -53,11 +49,9 @@ const allParts = await getCollection("parts");
                 </div>
 
                 <!-- build listings -->
-                <div class="col-span-3 space-y-16">
-                    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-3">
-                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" />)}
-                    </div>
-                </div>
+                <ListingGrid>
+                    {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" />)}
+                </ListingGrid>
             </div>
         </Container>
     </Section>

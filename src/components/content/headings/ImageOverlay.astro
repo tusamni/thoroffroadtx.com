@@ -1,0 +1,15 @@
+---
+// components
+import Section from "../../Section.astro";
+---
+
+<div class="relative">
+    <slot name="image" />
+    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-neutral-900 via-neutral-900/90 to-neutral-900/70"></div>
+
+    <Section>
+        <div class="relative">
+            <slot />
+        </div>
+    </Section>
+</div>

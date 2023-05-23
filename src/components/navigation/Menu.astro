@@ -32,9 +32,9 @@ import { Business } from "../../config.js";
             </div>
 
             <!-- contact buttons -->
-            <div class="hidden lg:flex flex-1 items-center justify-end">
-                <Button href={`tel:${Business.phone}`}>{Business.phone}</Button>
-                <Button theme="secondary" href="/contact">Contact Us</Button>
+            <div class="hidden lg:flex flex-1 items-center justify-end gap-3">
+                <Button href={`tel:${Business.phone}`} icon="Phone">{Business.phone}</Button>
+                <Button href="/contact" icon="Envelope" theme="secondary">Contact Us</Button>
             </div>
 
             <!-- mobile trigger -->

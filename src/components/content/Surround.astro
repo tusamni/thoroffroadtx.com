@@ -6,12 +6,12 @@ interface Props {
     hover: boolean;
 }
 const { href, classes, hover = false } = Astro.props;
-const styles = "group bg-gradient-to-tl from-neutral-300 to-neutral-200 grid gap-6 md:gap-12 relative rounded-md overflow-hidden";
+const styles = "group grid gap-6 md:gap-12 relative overflow-hidden";
 ---
 
 {
     href ? (
-        <a href={href} class:list={[styles, classes, hover && `hover:bg-neutral-700/50 transition duration-300`]}>
+        <a href={href} class:list={[styles, classes, hover && `hover:bg-neutral-300/50 transition duration-300`]}>
             <slot />
         </a>
     ) : (

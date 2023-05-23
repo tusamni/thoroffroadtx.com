@@ -1,4 +1,9 @@
 ---
+interface Props {
+    includeContact?: boolean;
+}
+const { includeContact = false } = Astro.props;
+
 // components
 import { Icon } from "astro-icon";
 import ContactForm from "./ContactForm.astro";
@@ -12,12 +17,12 @@ import { Business } from "../config.js";
 
 <div class="relative">
     <Picture src="shop/tires.jpg" alt="Working at THOR Off-Road" class="absolute object-cover w-full h-full" sizes="2000px" />
-    <div class="absolute w-full h-full bg-gray-700/90 backdrop-blur-md"></div>
+    <div class="absolute w-full h-full bg-neutral-800/90 backdrop-blur-sm"></div>
 
     <Container classes="relative z-10">
         <Section classes="space-y-12">
-            <div class="grid lg:grid-cols-5">
-                <div class="lg:col-span-2 space-y-12 px-12 py-16 rounded-l-md">
+            <div class="grid lg:grid-cols-5 gap-16">
+                <div class="lg:col-span-2 space-y-12 py-16 rounded-l-md">
                     <h2 class="text-white">Let's start building your dream vehicle.</h2>
 
                     <div class="space-y-4 text-neutral-200 text-base leading-7">
@@ -31,35 +36,58 @@ import { Business } from "../config.js";
 
                 <div class="lg:col-span-3 flex flex-col">
                     <div class="hidden lg:block relative w-full h-full">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6896.848235522606!2d-98.0203109!3d30.196440400000014!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1663191464594!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full rounded-tr-md border-0"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6896.848235522606!2d-98.0203109!3d30.196440400000014!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1663191464594!5m2!1sen!2sus"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class:list={["w-full h-full border-0", includeContact ? `rounded-t-md` : `rounded-md`]}>
+                        </iframe>
                     </div>
 
-                    <div class="grid grid-cols-3 rounded-br-md bg-gray-800 divide-x divide-neutral-700 border-b border-neutral-700 border-r">
-                        <div class="space-y-2 p-6">
-                            <div class="flex items-center gap-2">
-                                <Icon name="Map" class="h-5 w-5 flex-none text-white" />
-                                <h6 class="text-white">Visit Us</h6>
-                            </div>
+                    {
+                        includeContact && (
+                            <div class="grid grid-cols-3 rounded-b-md bg-neutral-200 divide-x divide-neutral-300 border-b border-neutral-700 border-r">
+                                <div class="space-y-2 p-6">
+                                    <div class="flex items-center gap-2">
+                                        <Icon name="Map" class="h-5 w-5 flex-none" />
+                                        <div class="font-semibold text-lg">Visit Us</div>
+                                    </div>
 
-                            <p class="text-neutral-400 text-sm">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}. We're open {Business.hours}.</p>
-                        </div>
+                                    <p class="text-neutral-600 text-sm">
+                                        {Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}. We're open {Business.hours}.
+                                    </p>
+                                </div>
 
-                        <div class="space-y-2 p-6 max-w-">
-                            <div class="flex items-center gap-2">
-                                <Icon name="Phone" class="h-5 w-5 flex-none text-white" />
-                                <h6 class="text-white">Call Us</h6>
-                            </div>
-                            <p class="text-neutral-400 text-sm">Please feel free to reach out to us anytime at <a class="underline text-neutral-300 whitespace-nowrap" href={`tel:${Business.phone}`}>{Business.phone}</a>.</p>
-                        </div>
+                                <div class="space-y-2 p-6 max-w-">
+                                    <div class="flex items-center gap-2">
+                                        <Icon name="Phone" class="h-5 w-5 flex-none" />
+                                        <div class="font-semibold text-lg">Call Us</div>
+                                    </div>
+                                    <p class="text-neutral-600 text-sm">
+                                        Please feel free to reach out to us anytime at{" "}
+                                        <a class="underline text-neutral-800 whitespace-nowrap" href={`tel:${Business.phone}`}>
+                                            {Business.phone}
+                                        </a>
+                                        .
+                                    </p>
+                                </div>
 
-                        <div class="space-y-2 p-6">
-                            <div class="flex items-center gap-2">
-                                <Icon name="Envelope" class="h-5 w-5 flex-none text-white" />
-                                <h6 class="text-white">Email Us</h6>
+                                <div class="space-y-2 p-6">
+                                    <div class="flex items-center gap-2">
+                                        <Icon name="Envelope" class="h-5 w-5 flex-none" />
+                                        <div class="font-semibold text-lg">Email Us</div>
+                                    </div>
+                                    <p class="text-neutral-600 text-sm">
+                                        Shoot us an email anytime,{" "}
+                                        <a class="underline text-neutral-800" href={`mailto:${Business.email}`}>
+                                            {Business.email}
+                                        </a>
+                                        .
+                                    </p>
+                                </div>
                             </div>
-                            <p class="text-neutral-400 text-sm">Shoot us an email anytime, <a class="underline text-neutral-300" href={`mailto:${Business.email}`}>{Business.email}</a>.</p>
-                        </div>
-                    </div>
+                        )
+                    }
                 </div>
             </div>
         </Section>

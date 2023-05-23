@@ -5,9 +5,9 @@ import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
-import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -32,16 +32,11 @@ const allBuilds = await getCollection("builds", ({ data }) => {
 ---
 
 <Layout>
-    <div class="relative">
-        <Picture src={part.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" alt={`${part.data.title} truck parts for your vehicle`} />
-        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
+    <ImageOverlay>
+        <Picture slot="image" src={part.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" alt={`${part.data.title} truck parts for your vehicle`} />
 
-        <Section>
-            <div class="relative">
-                <HeadingBase heading={part.data.title} description={part.data.descriptionLong} />
-            </div>
-        </Section>
-    </div>
+        <HeadingBase heading={part.data.title} description={part.data.descriptionLong} />
+    </ImageOverlay>
 
     {
         part.data.contentSidebar && part.data.contentParts ? (
@@ -88,7 +83,7 @@ const allBuilds = await getCollection("builds", ({ data }) => {
         )
     }
 
-    <div class="bg-gradient-to-tr from-gray-700 to-gray-900">
+    <Background theme="tertiary">
         <Section>
             <Container>
                 <div class="flex flex-wrap justify-center flex-row gap-x-24 gap-y-28">
@@ -96,5 +91,5 @@ const allBuilds = await getCollection("builds", ({ data }) => {
                 </div>
             </Container>
         </Section>
-    </div>
+    </Background>
 </Layout>

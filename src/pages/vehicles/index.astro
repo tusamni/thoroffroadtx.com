@@ -87,6 +87,21 @@ const process = [
                             </Surround>
                         ))
                     }
+
+                    <Surround hover={true} href="/contact" classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12 border-t border-r border-neutral-400">
+                        <div class="z-10">
+                            <div class="space-y-6">
+                                <h3>Don't See Your Vehicle?</h3>
+                                <p class="text-neutral-600 text-lg">We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?</p>
+                            </div>
+                        </div>
+
+                        <div class="hidden z-10 md:flex lg:hidden xl:flex">
+                            <Hover>
+                                <Picture src="vehicles/2021-11-26/utv_01.jpg" class="object-cover w-full h-full rounded-md shadow-xl aspect-square" sizes="350px" />
+                            </Hover>
+                        </div>
+                    </Surround>
                 </div>
             </Container>
         </Section>

@@ -1,10 +1,15 @@
 ---
+// props
 const { ...attrs } = Astro.props;
+
+// components
+import { Icon } from "astro-icon";
 ---
 
-<div class:list={["relative overflow-hidden w-full h-full"]}>
+<div class:list={["relative overflow-hidden w-full h-full"]} {...attrs}>
     <div class="transition duration-500 group-hover:opacity-100 opacity-0 absolute w-full h-full bg-gradient-to-br from-transparent via-neutral-600/10 to-neutral-800 z-10 rounded"></div>
-    <span aria-hidden="true" class="text-white text-2xl absolute bottom-5 right-5 translate-x-10 group-hover:-translate-x-2 transition z-10">&rarr;</span>
+    <Icon name="ArrowRightCircleSolid" class="text-white w-7 h-auto text-2xl absolute bottom-5 right-5 translate-x-14 group-hover:-translate-x-2 transition z-10" />
+    <!-- <span aria-hidden="true" class="text-white text-2xl absolute bottom-5 right-5 translate-x-10 group-hover:-translate-x-2 transition z-10">&rarr;</span> -->
 
     <slot />
 </div>

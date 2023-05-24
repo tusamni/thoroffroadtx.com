@@ -31,6 +31,7 @@ const buildCollection = defineCollection({
         // images
         totalImages: z.number().transform((total) => Array.from({ length: total - 0 }, (_, i) => 0 + 1 + i)), // turn the total images into a array of the filenames
         featuredImage: z.number(),
+        homepageFeatured: z.boolean().optional(),
         video: z.string().optional(),
     }),
 });

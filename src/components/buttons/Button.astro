@@ -5,8 +5,9 @@ interface Props {
     theme?: string;
     size?: string;
     icon?: string;
+    classes?: string;
 }
-const { href, theme = "primary", size = "base", icon, ...attrs } = Astro.props;
+const { href, theme = "primary", size = "base", icon, classes, ...attrs } = Astro.props;
 
 // components
 import { Icon } from "astro-icon";
@@ -14,7 +15,7 @@ import { Icon } from "astro-icon";
 
 {
     href ? (
-        <a href={href} class:list={[`button button-${theme} text-${size} group`]} {...attrs}>
+        <a href={href} class:list={[`button button-${theme} text-${size} group`, classes]} {...attrs}>
             {icon && (
                 <div class="button-icon">
                     <Icon name={icon} class="h-2/5 w-auto" />

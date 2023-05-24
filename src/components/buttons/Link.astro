@@ -3,11 +3,12 @@
 interface Props {
     arrow?: boolean;
     size?: string;
+    classes?: string;
 }
-const { arrow = false, size = "lg", ...attrs } = Astro.props;
+const { arrow = false, size = "lg", classes, ...attrs } = Astro.props;
 ---
 
-<a class:list={["group font-semibold text-white hover:cursor-pointer inline-block", size && `text-${size}`]} {...attrs}>
+<a class:list={["group font-semibold hover:cursor-pointer inline-block", size && `text-${size}`, classes]} {...attrs}>
     <slot />
 
     {

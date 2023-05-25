@@ -21,7 +21,7 @@ import { Business } from "../config.js";
 
     <Container classes="relative">
         <Section>
-            <div class="grid lg:grid-cols-5 lg:gap-16 md:max-w-xl md:mx-auto lg:max-w-none lg:mx-0">
+            <div class="grid lg:grid-cols-5 lg:gap-16 sm:max-w-xl mx-auto lg:max-w-none lg:mx-0">
                 <div class="lg:col-span-2 space-y-6 md:space-y-12 lg:py-16 rounded-l-md">
                     <h2 class="text-white">Let's start building your dream vehicle.</h2>
 
@@ -34,7 +34,7 @@ import { Business } from "../config.js";
                     </div>
                 </div>
 
-                <div class="lg:col-span-3 flex flex-col">
+                <div class="lg:col-span-3 flex flex-col mt-16 lg:mt-0">
                     <div class="hidden lg:block relative w-full h-full">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6896.848235522606!2d-98.0203109!3d30.196440400000014!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1663191464594!5m2!1sen!2sus"
@@ -46,7 +46,7 @@ import { Business } from "../config.js";
 
                     {
                         includeContact && (
-                            <div class="grid grid-cols-3 rounded-b-md bg-neutral-200 divide-x divide-neutral-300 border-b border-neutral-700 border-r">
+                            <div class="grid lg:grid-flow-col lg:grid-cols-3 rounded-md lg:rounded-t-none bg-neutral-200 divide-y lg:divide-x lg:divide-y-0 divide-neutral-300 border-b border-neutral-700 border-r">
                                 <div class="space-y-2 p-6">
                                     <div class="flex items-center gap-2">
                                         <Icon name="Map" class="h-5 w-5 flex-none" />

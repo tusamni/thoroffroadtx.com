@@ -14,7 +14,7 @@ const { number, heading, content, darkTheme = false } = Astro.props;
         <h5 class={darkTheme ? `text-neutral-200` : `text-neutral-900`}>{heading}</h5>
     </div>
 
-    <div class:list={["md:text-lg leading-7", darkTheme ? `text-neutral-400` : `text-neutral-600`]}>
+    <div class:list={["md:text-lg leading-7 sm:max-w-md lg:max-w-none", darkTheme ? `text-neutral-400` : `text-neutral-600`]}>
         <p>{content}</p>
     </div>
 </div>

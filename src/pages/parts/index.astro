@@ -35,6 +35,11 @@ const process = [
         description: "We help our customers find the right balance of style, performance, and budget to get the most out of their off-road vehicle build.",
     },
 ];
+const partsFill = {
+    title: "Don't see what you're looking for?",
+    descriptionShort: "If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.",
+    featured: "shop/2022-12-05/shop-shoot_15.jpg",
+};
 ---
 
 <Layout>
@@ -65,53 +70,17 @@ const process = [
 
         <Section>
             <Container>
-                <div class="grid grid-cols-1 lg:grid-cols-2 border-b border-l border-neutral-400">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     {
                         allParts.map((p) => (
-                            <Surround hover={true} href={`/parts/${p.slug}`} title={p.data.title} classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12 border-t border-r border-neutral-400">
-                                <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
-                                    <Hover>
-                                        <Picture src={p.data.featured} alt={p.data.title} class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" sizes="300px" />
-                                    </Hover>
-                                </div>
-
-                                <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                                    <div class="text-lg font-semibold tracking-tight">
-                                        <div class="text-neutral-900 text-2xl flex items-center gap-2">
-                                            <Icon name={`parts/${p.data.logo}Outline`} class="w-auto h-7" />
-                                            {p.data.title}
-                                        </div>
-                                    </div>
-
-                                    <div class="text-base leading-7 text-neutral-600">{p.data.descriptionShort}</div>
-
-                                    <div>
-                                        <div class="text-base font-semibold leading-7 text-neutral-800">Brands</div>
-                                        <ul class="comma-list font-light text-neutral-600 line-clamp-2 text-sm md:text-base">
-                                            {p.data.brands.map((b) => (
-                                                <li>{b.title}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
+                            <Surround href={`/parts/${p.slug}`} content={p.data} subtitle="Brands" title={p.data.title}>
+                                {p.data.brands.map((b) => (
+                                    <li>{b.title}</li>
+                                ))}
                             </Surround>
                         ))
                     }
-                    <Surround hover={true} href="/contact" title="Contact THOR Off-Road" classes="md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 p-6 md:p-12 border-t border-r border-neutral-400">
-                        <div class="flex flex-col gap-6 col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1">
-                            <Hover class="w-full h-full">
-                                <Picture src="shop/2022-12-05/shop-shoot_15.jpg" alt="Custom truck outfitting" class="w-full h-full md:absolute lg:relative xl:absolute object-cover rounded-t-md sm:rounded-md shadow-xl" sizes="300px" />
-                            </Hover>
-                        </div>
-
-                        <div class="space-y-4 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
-                            <div class="text-lg font-semibold tracking-tight">
-                                <div class="text-neutral-900 text-2xl flex items-center gap-2">Don't see what you're looking for?</div>
-                            </div>
-
-                            <div class="text-base leading-7 text-neutral-600">If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.</div>
-                        </div>
-                    </Surround>
+                    <Surround href="/contact" content={partsFill} title="Contact THOR Off-Road" />
                 </div>
             </Container>
         </Section>

@@ -82,7 +82,7 @@ const { build } = Astro.props;
                         <div class={build.data.testimonial ? `space-y-24` : `space-y-6`}>
                             <div class="grid grid-cols-3 gap-8 w-full h-full">
                                 <div class="col-span-3">
-                                    <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} alt={build.data.summary} class="object-cover w-full h-full rounded-md shadow-2xl" />
+                                    <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} alt={build.data.summary} class="object-cover w-full h-full rounded shadow-2xl" />
                                 </div>
                             </div>
 
@@ -106,10 +106,10 @@ const { build } = Astro.props;
                             }
 
                             <div class="columns-1 sm:columns-2 gap-6 space-y-6">
-                                {build.data.totalImages.slice(1).map((i) => <Picture src={getBuildImage(build.data.id, i)} alt={build.data.summary} class="object-cover rounded-md shadow-2xl" />)}
+                                {build.data.totalImages.slice(1).map((i) => <Picture src={getBuildImage(build.data.id, i)} alt={build.data.summary} class="object-cover rounded shadow-2xl" />)}
                                 {
                                     build.data.video && (
-                                        <video controls class="rounded-md shadow-2xl">
+                                        <video controls class="rounded shadow-2xl">
                                             <source src={getMedia(`/images/builds/${build.data.id}/${build.data.video}.mp4`)} type="video/mp4" />
                                         </video>
                                     )

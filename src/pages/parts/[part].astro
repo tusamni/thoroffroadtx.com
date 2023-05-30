@@ -58,11 +58,11 @@ const allBuilds = await getCollection("builds", ({ data }) => {
                                     <div class="grid grid-cols-3 text-gray-600 h-fit gap-y-16 gap-x-2">
                                         {part.data.contentParts.map((p) => (
                                             <div class="relative">
-                                                <Icon name="CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-400 self-start" />
+                                                <Icon name="CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-500 self-start" />
 
                                                 <div class="ml-9 flex flex-col gap-2">
                                                     <p class="font-semibold text-gray-900">{p.title}</p>
-                                                    <p>{p.description}</p>
+                                                    <p>Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -72,6 +72,11 @@ const allBuilds = await getCollection("builds", ({ data }) => {
                                 <div class="space-y-12">
                                     <h3 class="text-neutral-900">Recent {part.data.title} Builds</h3>
                                     <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, 9)}</div>
+                                    <div class="flex flex-wrap justify-center flex-row gap-x-24 gap-y-12 bg-white rounded p-16">
+                                        {allBrands.map((b) => (
+                                            <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-10 text-neutral-700" />
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -82,15 +87,4 @@ const allBuilds = await getCollection("builds", ({ data }) => {
             ``
         )
     }
-
-    <Background>
-        >
-        <Section>
-            <Container>
-                <div class="flex flex-wrap justify-center flex-row gap-x-24 gap-y-28">
-                    {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-10" />)}
-                </div>
-            </Container>
-        </Section>
-    </Background>
 </Layout>

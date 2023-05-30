@@ -4,9 +4,7 @@ import { getCollection } from "astro:content";
 import { Icon } from "astro-icon";
 
 // get vehicle data
-const allMakes = await getCollection("makes", ({ data }) => {
-    return !data.draft;
-});
+const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 ---
 

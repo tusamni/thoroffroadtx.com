@@ -5,6 +5,7 @@ import { Icon } from "astro-icon";
 
 // content
 const allParts = await getCollection("parts");
+const allBrands = await getCollection("brands");
 ---
 
 <div class="relative" x-data={`{ partsMenu : false }`} x-on:mouseenter={`partsMenu = true`} x-on:mouseover.away={`partsMenu = false`} x-on:click={`partsMenu = true`} x-cloak>
@@ -31,9 +32,11 @@ const allParts = await getCollection("parts");
                         {p.data.title}
 
                         <ul class="comma-list line-clamp-1 text-sm text-neutral-500 font-normal">
-                            {p.data.brands.map((b) => (
-                                <li>{b.title}</li>
-                            ))}
+                            {allBrands.map((b) => {
+                                if (b.data.parts.includes(p.slug)) {
+                                    return <li>{b.data.title}</li>;
+                                }
+                            })}
                         </ul>
                     </a>
                 ))

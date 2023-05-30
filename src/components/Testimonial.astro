@@ -12,14 +12,14 @@ import { getBuildImage } from "../functions/Image";
 ---
 
 <div class="inline-block mb-8">
-    <figure class="rounded-md bg-gradient-to-br from-neutral-300 via-neutral-300 to-neutral-50 border border-neutral-500 p-8">
+    <figure class="rounded bg-gradient-to-br from-neutral-300 via-neutral-300 to-neutral-50 border border-neutral-500 p-8">
         <div class="col-span-3 md:col-span-2 space-y-6">
             <h6 class="text-neutral-800 line-clamp-1" set:html={`"${content.highlight}"`} />
 
             <blockquote class="text-neutral-800 space-y-4 leading-6 text-sm" set:html={content.testimonial} />
 
             <figcaption class="mt-6 flex items-center gap-x-4">
-                <Picture src={getBuildImage(content.id, content.featuredImage)} alt={`THOR Build for ${content.owner}`} sizes="100px" class="h-12 object-cover rounded-md aspect-square" sizes="200px" />
+                <Picture src={getBuildImage(content.id, content.featuredImage)} alt={`THOR Build for ${content.owner}`} sizes="100px" class="h-12 object-cover rounded aspect-square" sizes="200px" />
 
                 <div class="space-y-0">
                     <div class="font-semibold text-neutral-900">{content.owner}</div>

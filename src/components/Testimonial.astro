@@ -5,6 +5,7 @@ interface Props {
 const { content } = Astro.props;
 
 // components
+import { Icon } from "astro-icon";
 import Picture from "./images/Picture.astro";
 
 // image
@@ -12,18 +13,27 @@ import { getBuildImage } from "../functions/Image";
 ---
 
 <div class="inline-block mb-8">
-    <figure class="rounded bg-gradient-to-br from-neutral-300 via-neutral-300 to-neutral-50 border border-neutral-500 p-8">
+    <figure class="rounded bg-white shadow-2xl p-8">
         <div class="col-span-3 md:col-span-2 space-y-6">
-            <h6 class="text-neutral-800 line-clamp-1" set:html={`"${content.highlight}"`} />
+            <div class="flex flex-col justify-center gap-2">
+                <div class="flex gap-1 justify-center">
+                    <Icon name="Star" class="text-yellow-500 h-5" />
+                    <Icon name="Star" class="text-yellow-500 h-5" />
+                    <Icon name="Star" class="text-yellow-500 h-5" />
+                    <Icon name="Star" class="text-yellow-500 h-5" />
+                    <Icon name="Star" class="text-yellow-500 h-5" />
+                </div>
+                <h6 class="text-neutral-800 line-clamp-1 italic text-center" set:html={`"${content.highlight}"`} />
+            </div>
 
             <blockquote class="text-neutral-800 space-y-4 leading-6 text-sm" set:html={content.testimonial} />
 
             <figcaption class="mt-6 flex items-center gap-x-4">
-                <Picture src={getBuildImage(content.id, content.featuredImage)} alt={`THOR Build for ${content.owner}`} sizes="100px" class="h-12 object-cover rounded aspect-square" sizes="200px" />
+                <!-- <Picture src={getBuildImage(content.id, content.featuredImage)} alt={`THOR Build for ${content.owner}`} sizes="100px" class="h-12 object-cover rounded aspect-square" sizes="200px" /> -->
 
                 <div class="space-y-0">
-                    <div class="font-semibold text-neutral-900">{content.owner}</div>
-                    <div class="text-sm text-neutral-600">{content.city}, {content.state}</div>
+                    <div class="font-semibold text-neutral-900">{content.name}</div>
+                    <!-- <div class="text-sm text-neutral-600">{content.city}, {content.state}</div> -->
                 </div>
             </figcaption>
         </div>

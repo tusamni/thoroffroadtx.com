@@ -15,10 +15,10 @@
         @apply bg-white rounded;
         
         .button-icon {
-            @apply bg-amber-500/50 border-transparent;
+            @apply bg-sky-600/75 border-sky-700/70 text-neutral-100;
         }
         .button-text { 
-            @apply bg-amber-500/80
+            @apply bg-sky-600/90 text-neutral-100
         }
     }
     &.button-tertiary {

@@ -17,9 +17,7 @@ import { Business } from "../config";
 
 // content
 import { getCollection } from "astro:content";
-const allTestimonials = await getCollection("builds", ({ data }) => {
-    return data.testimonial;
-});
+const allTestimonials = await getCollection("testimonials");
 const allBuilds = await getCollection("builds", ({ data }) => {
     return data.homepageFeatured;
 });
@@ -147,7 +145,7 @@ const headers = [
                 <div class="grid grid-cols-4 space-y-12 sm:space-y-0 sm:items-center sm:gap-16">
                     <h2 class="max-w-xl sm:max-w-none col-span-4 sm:col-span-2 order-1 text-center sm:text-start">We love showing off our customer's trucks.</h2>
                     <Button theme="tertiary" icon="ArrowRightCircleSolid" href="/builds" classes="order-3 sm:order-2 col-span-4 sm:col-span-2 justify-self-center sm:justify-self-end">See Our Builds</Button>
-                    <div class="col-span-4 columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 order-2 sm:order-3">
+                    <div class="col-span-4 columns-1 sm:columns-2 md:columns-3 gap-8 space-y-8 order-2 sm:order-3">
                         {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded shadow-2xl" sizes="600px" alt={b.data.summary} />).slice(0, 15)}
                     </div>
                 </div>

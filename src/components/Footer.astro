@@ -54,14 +54,14 @@ const recent = [
                     <div class="space-y-12 max-w-lg">
                         <Picture src="website/logos/logo-white.png" alt={Business.nameLong} class="h-14 w-auto" />
 
-                        <p class="text-md leading-7 text-neutral-300">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
+                        <p class="text-md leading-7 text-stone-300">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
 
                         <!-- social -->
                         <div class="flex space-x-6">
                             {
                                 Social.map((s) => (
                                     <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
-                                        <Icon name={`social/${s.icon}`} class="w-4 text-white" />
+                                        <Icon name={s.icon} class="w-4 text-white" />
                                     </a>
                                 ))
                             }
@@ -78,7 +78,7 @@ const recent = [
                                     {
                                         allMakes.map((m) => (
                                             <li>
-                                                <a href={`/vehicles/${m.slug}`} title={m.data.title} class="text-sm leading-6 text-neutral-200">
+                                                <a href={`/vehicles/${m.slug}`} title={m.data.title} class="text-sm leading-6 text-stone-200">
                                                     {m.data.title}
                                                 </a>
                                             </li>
@@ -94,7 +94,7 @@ const recent = [
                                     {
                                         allParts.map((p) => (
                                             <li>
-                                                <a href={`/parts/${p.slug}`} title={p.data.title} class="text-sm leading-6 text-neutral-200">
+                                                <a href={`/parts/${p.slug}`} title={p.data.title} class="text-sm leading-6 text-stone-200">
                                                     {p.data.title}
                                                 </a>
                                             </li>
@@ -108,13 +108,13 @@ const recent = [
                                 <hr class="w-1/2 border-gray-600" />
                                 <ul role="list" class="space-y-2">
                                     <li>
-                                        <a href="#" class="text-sm leading-6 text-neutral-200">Sitemap</a>
+                                        <a href="#" class="text-sm leading-6 text-stone-200">Sitemap</a>
                                     </li>
                                     <li>
-                                        <a href="/privacy-policy" class="text-sm leading-6 text-neutral-200">Privacy Policy</a>
+                                        <a href="/privacy-policy" class="text-sm leading-6 text-stone-200">Privacy Policy</a>
                                     </li>
                                     <li>
-                                        <a href="/terms-of-use" class="text-sm leading-6 text-neutral-200">Terms of Use</a>
+                                        <a href="/terms-of-use" class="text-sm leading-6 text-stone-200">Terms of Use</a>
                                     </li>
                                 </ul>
                             </div>

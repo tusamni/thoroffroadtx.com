@@ -27,25 +27,21 @@ const { build } = Astro.props;
 ---
 
 <Layout>
-    <ImageOverlay>
-        <Picture slot="image" src={getBuildImage(build.data.id, build.data.featuredImage)} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <HeadingBase heading={`${build.data.year} ${build.data.make} ${build.data.model}`} subheading="Custom THOR Off-Road Build" />
-    </ImageOverlay>
-
     <Background theme="secondary">
         <Section classes="relative z-10">
             <Container>
-                <div class="grid grid-cols-1 gap-y-20 gap-x-24 xl:grid-cols-6">
+                <div class="grid grid-cols-1 gap-12 lg:grid-cols-6">
                     <!-- metadata -->
-                    <div class="col-span-2">
+                    <div class="lg:col-span-3 xl:col-span-2">
                         <div class="space-y-12">
+                            <h1>{`${build.data.year} ${build.data.make} ${build.data.model}`}</h1>
                             <div class="space-y-4">
                                 {
                                     build.data.trim || build.data.drive || build.data.color ? (
-                                        <div class="text-neutral-300 flex flex-row gap-4">
-                                            {build.data.trim && <Pill theme="secondary">{build.data.trim}</Pill>}
-                                            {build.data.drive && <Pill theme="secondary">{build.data.drive}</Pill>}
-                                            {build.data.color && <Pill theme="secondary">{build.data.color}</Pill>}
+                                        <div class="text-stone-300 flex flex-row gap-4">
+                                            {build.data.trim && <Pill>{build.data.trim}</Pill>}
+                                            {build.data.drive && <Pill>{build.data.drive}</Pill>}
+                                            {build.data.color && <Pill>{build.data.color}</Pill>}
                                         </div>
                                     ) : (
                                         ``
@@ -57,7 +53,7 @@ const { build } = Astro.props;
                                 build.data.goals && (
                                     <>
                                         <h2 class="h3">Goals</h2>
-                                        <div class="mt-4 text-lg leading-8 tracking-tight text-neutral-700 space-y-4" set:html={build.data.goals} />
+                                        <div class="mt-4 text-lg leading-8 tracking-tight text-stone-700 space-y-4" set:html={build.data.goals} />
                                     </>
                                 )
                             }
@@ -66,7 +62,7 @@ const { build } = Astro.props;
                                 build.data.parts && (
                                     <>
                                         <h2 class="h3">Parts List</h2>
-                                        <ul role="list" class="text-sm leading-7 text-neutral-700 list-inside list-none">
+                                        <ul role="list" class="text-sm leading-7 text-stone-700 list-inside list-none">
                                             {build.data.parts.map((p) => (
                                                 <li>{p}</li>
                                             ))}
@@ -78,7 +74,7 @@ const { build } = Astro.props;
                     </div>
 
                     <!-- content  -->
-                    <div class="col-span-4">
+                    <div class="lg:col-span-3 xl:col-span-4">
                         <div class={build.data.testimonial ? `space-y-24` : `space-y-6`}>
                             <div class="grid grid-cols-3 gap-8 w-full h-full">
                                 <div class="col-span-3">
@@ -93,11 +89,11 @@ const { build } = Astro.props;
 
                                         <div class="flex justify-between items-center">
                                             <div class="flex items-center">
-                                                <Icon name="Star" class="w-7 text-yellow-400" />
-                                                <Icon name="Star" class="w-7 text-yellow-400" />
-                                                <Icon name="Star" class="w-7 text-yellow-400" />
-                                                <Icon name="Star" class="w-7 text-yellow-400" />
-                                                <Icon name="Star" class="w-7 text-yellow-400" />
+                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
+                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
+                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
+                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
+                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
                                             </div>
                                             <p class="text-white font-semibold text-2xl">{build.data.owner}</p>
                                         </div>
@@ -105,7 +101,7 @@ const { build } = Astro.props;
                                 )
                             }
 
-                            <div class="columns-1 sm:columns-2 gap-6 space-y-6">
+                            <div class="columns-1 md:columns-2 gap-6 space-y-6">
                                 {build.data.totalImages.slice(1).map((i) => <Picture src={getBuildImage(build.data.id, i)} alt={build.data.summary} class="object-cover rounded shadow-2xl" />)}
                                 {
                                     build.data.video && (

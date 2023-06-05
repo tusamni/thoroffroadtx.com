@@ -8,64 +8,65 @@ const { includeContact = false } = Astro.props;
 import { Icon } from "astro-icon";
 import ContactForm from "./ContactForm.astro";
 import Container from "./Container.astro";
-import Picture from "./images/Picture.astro";
 import Section from "./Section.astro";
 
 // config
 import { Business } from "../config.js";
 ---
 
-<div class="relative">
-    <Picture src="shop/tires.jpg" alt="Working at THOR Off-Road" class="absolute object-cover w-full h-full" sizes="2000px" />
-    <div class="absolute w-full h-full bg-neutral-800/90 backdrop-blur-sm"></div>
-
+<div class="relative bg-stone-300">
     <Container classes="relative">
         <Section>
-            <div class="grid lg:grid-cols-5 lg:gap-16 sm:max-w-xl mx-auto lg:max-w-none lg:mx-0">
-                <div class="lg:col-span-2 space-y-6 md:space-y-12 lg:py-16 rounded-l-md">
-                    <h2 class="text-white">Let's start building your dream vehicle.</h2>
+            <div class="grid lg:grid-cols-5 lg:gap-16">
+                <h2 class="col-span-2">Let's start building your dream vehicle.</h2>
+                <div class="col-span-3"></div>
 
-                    <div class="space-y-4 text-neutral-200 text-base leading-7">
+                <div class="lg:col-span-2">
+                    <div class="text-stone-600 text-lg leading-7 tracking-tight space-y-6">
                         <p>If you are ready to get started on designing and building the perfect truck, so are we. Tell us a little about your truck build and contact information and we will reach out to you as soon as possible.</p>
-                    </div>
 
-                    <div class="w-full">
-                        <ContactForm />
+                        <div class="space-y-8">
+                            <div class="flex gap-x-4 items-start">
+                                <Icon name="hero/Map" class="w-5 h-auto" />
+                                <div class="text-base">{Business.phone}</div>
+                            </div>
+                            <div class="flex gap-x-4 items-start">
+                                <Icon name="Envelope" class="w-5 h-auto" />
+                                <div class="text-base">{Business.email}</div>
+                            </div>
+                            <div class="flex gap-x-4 items-start">
+                                <Icon name="hero/Map" class="w-6 h-auto" />
+                                <div class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="lg:col-span-3 flex flex-col mt-16 lg:mt-0">
-                    <div class="hidden lg:block relative w-full h-full">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6896.848235522606!2d-98.0203109!3d30.196440400000014!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1663191464594!5m2!1sen!2sus"
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            class:list={["w-full h-full border-0", includeContact ? `rounded-t` : `rounded`]}>
-                        </iframe>
-                    </div>
+                    <ContactForm />
 
                     {
                         includeContact && (
-                            <div class="grid lg:grid-flow-col lg:grid-cols-3 rounded lg:rounded-t-none bg-neutral-200 divide-y lg:divide-x lg:divide-y-0 divide-neutral-300 border-b border-neutral-700 border-r">
+                            <div class="grid lg:grid-flow-col lg:grid-cols-3 rounded lg:rounded-t-none bg-stone-200 divide-y lg:divide-x lg:divide-y-0 divide-stone-300 border-b border-stone-700 border-r">
                                 <div class="space-y-2 p-6">
                                     <div class="flex items-center gap-2">
-                                        <Icon name="Map" class="h-5 w-5 flex-none" />
+                                        <Icon name="hero/Map" class="h-5 w-5 flex-none" />
                                         <div class="font-semibold text-lg">Visit Us</div>
                                     </div>
 
-                                    <p class="text-neutral-600 text-sm">
+                                    <p class="text-stone-600 text-sm">
                                         {Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}. We're open {Business.hours}.
                                     </p>
                                 </div>
 
                                 <div class="space-y-2 p-6 max-w-">
                                     <div class="flex items-center gap-2">
-                                        <Icon name="Phone" class="h-5 w-5 flex-none" />
+                                        <Icon name="hero/Phone" class="h-5 w-5 flex-none" />
                                         <div class="font-semibold text-lg">Call Us</div>
                                     </div>
-                                    <p class="text-neutral-600 text-sm">
+                                    <p class="text-stone-600 text-sm">
                                         Please feel free to reach out to us anytime at{" "}
-                                        <a class="underline text-neutral-800 whitespace-nowrap" href={`tel:${Business.phone}`}>
+                                        <a class="underline text-stone-800 whitespace-nowrap" href={`tel:${Business.phone}`}>
                                             {Business.phone}
                                         </a>
                                         .
@@ -77,9 +78,9 @@ import { Business } from "../config.js";
                                         <Icon name="Envelope" class="h-5 w-5 flex-none" />
                                         <div class="font-semibold text-lg">Email Us</div>
                                     </div>
-                                    <p class="text-neutral-600 text-sm">
+                                    <p class="text-stone-600 text-sm">
                                         Shoot us an email anytime,{" "}
-                                        <a class="underline text-neutral-800" href={`mailto:${Business.email}`}>
+                                        <a class="underline text-stone-800" href={`mailto:${Business.email}`}>
                                             {Business.email}
                                         </a>
                                         .

@@ -34,13 +34,13 @@ import { Business } from "../../config.js";
 
             <!-- contact buttons -->
             <div class="hidden lg:flex flex-1 items-center justify-end gap-3">
-                <Button href={`tel:${Business.phone}`} icon="Phone">{Business.phone}</Button>
+                <Button href={`tel:${Business.phone}`} icon="hero/Phone">{Business.phone}</Button>
                 <Button href="/contact" icon="Envelope" theme="secondary">Contact Us</Button>
             </div>
 
             <!-- mobile trigger -->
             <div class="flex lg:hidden" x-data={`{ mobileMenu : false }`}>
-                <button type="button" class="inline-flex items-center justify-center rounded text-neutral-700 cursor-pointer" x-on:click={`mobileMenu = true`}>
+                <button type="button" class="inline-flex items-center justify-center rounded text-stone-700 cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
 
                     <Icon name="Hamburger" class="h-8 w-8 text-white cursor-pointer" />

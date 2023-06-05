@@ -2,34 +2,34 @@
     @apply transition-all duration-500 font-medium rounded shadow flex min-w-fit items-center justify-between h-12;
 
     &.button-primary {
-        @apply bg-white text-neutral-900;
+        @apply text-stone-900;
 
         .button-icon {
-            @apply bg-neutral-50 border-neutral-300;
+            @apply bg-stone-50 border-r border-stone-300;
         }
         .button-text {
-            @apply bg-neutral-200
+            @apply bg-stone-50
         }
     }
     &.button-secondary {
-        @apply bg-white rounded;
+        @apply rounded;
         
         .button-icon {
-            @apply bg-sky-600/75 border-sky-700/70 text-neutral-100;
+            @apply bg-amber-400 text-stone-900 border-r border-amber-300;
         }
         .button-text { 
-            @apply bg-sky-600/90 text-neutral-100
+            @apply bg-gradient-to-r from-amber-400 to-amber-300 text-amber-950
         }
     }
     &.button-tertiary {
         @apply bg-white rounded;
         
             .button-icon {
-                @apply bg-neutral-50 border-neutral-300;
+                @apply bg-stone-50 border-stone-300;
             }
         
             .button-text {
-                @apply bg-neutral-50;
+                @apply bg-stone-50;
             }
     }
     

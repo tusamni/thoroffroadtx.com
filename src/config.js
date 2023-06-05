@@ -22,22 +22,22 @@ export const Business = {
 export const Social = [
     {
         title: "Facebook",
-        icon: "Facebook",
+        icon: "social/Facebook",
         url: "https://www.facebook.com/thoroffroadtx/",
     },
     {
         title: "Instagram",
-        icon: "Instagram",
-        url: "https://www.instagram.com/thor_offroad/",
+        icon: "social/Instagram",
+        url: "https://www.instagram.com/thoroffroadtx/",
     },
     {
         title: "YouTube",
-        icon: "YouTube",
+        icon: "social/YouTube",
         url: "https://www.youtube.com/channel/UCq4-u8q-XIz4_YyCrZC_y6w/featured",
     },
     {
         title: "Google Maps",
-        icon: "GoogleMaps",
+        icon: "hero/MapFill",
         url: "https://g.page/thoroffroadtx",
     },
 ];

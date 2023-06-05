@@ -24,14 +24,14 @@ const allBrands = await getCollection("brands");
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0"
         x-show="partsMenu"
-        class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-300 shadow-lg ring-1 ring-neutral-900/5">
+        class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-stone-100 via-stone-200 to-stone-300 shadow-lg ring-1 ring-stone-900/5">
         <div class="grid grid-cols-2">
             {
                 allParts.map((p) => (
-                    <a href={`/parts/${p.slug}`} title={p.data.title} class="flex flex-col gap-x-4 text-base font-semibold leading-6 text-neutral-900 hover:bg-white px-6 py-4 transition">
+                    <a href={`/parts/${p.slug}`} title={p.data.title} class="flex flex-col gap-x-4 text-base font-semibold leading-6 text-stone-900 hover:bg-white px-6 py-4 transition">
                         {p.data.title}
 
-                        <ul class="comma-list line-clamp-1 text-sm text-neutral-500 font-normal">
+                        <ul class="comma-list line-clamp-1 text-sm text-stone-500 font-normal">
                             {allBrands.map((b) => {
                                 if (b.data.parts.includes(p.slug)) {
                                     return <li>{b.data.title}</li>;

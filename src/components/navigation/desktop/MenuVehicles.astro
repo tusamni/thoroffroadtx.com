@@ -24,14 +24,14 @@ const allModels = await getCollection("models");
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0"
         x-show="makesMenu"
-        class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-300 shadow-lg ring-1 ring-neutral-900/5">
+        class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-stone-100 via-stone-200 to-stone-300 shadow-lg ring-1 ring-stone-900/5">
         <div class="grid grid-cols-2">
             {
                 allMakes.map((m) => (
-                    <a href={`/vehicles/${m.slug}`} title={m.data.title} class="flex flex-col gap-x-4 font-semibold leading-6 text-neutral-900 hover:bg-white px-6 py-4 transition">
+                    <a href={`/vehicles/${m.slug}`} title={m.data.title} class="flex flex-col gap-x-4 font-semibold leading-6 text-stone-900 hover:bg-white px-6 py-4 transition">
                         {m.data.title}
 
-                        <ul class="comma-list line-clamp-1 text-sm text-neutral-500 font-normal">
+                        <ul class="comma-list line-clamp-1 text-sm text-stone-500 font-normal">
                             {allModels.map((i) => {
                                 if (i.data.make.toLowerCase().includes(m.slug)) {
                                     return <li>{i.data.title}</li>;

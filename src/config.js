@@ -37,7 +37,7 @@ export const Social = [
     },
     {
         title: "Google Maps",
-        icon: "hero/MapFill",
+        icon: "hero/Map",
         url: "https://g.page/thoroffroadtx",
     },
 ];

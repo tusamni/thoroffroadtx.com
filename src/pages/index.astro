@@ -79,14 +79,14 @@ const headers = [
                     <p class="text-xl leading-8 text-stone-600">We've built partnerships with the best brands, nobody carries more Carli parts or knows the performance suspension options for your vehicle better than {Business.nameLong}.</p>
 
                     <div class="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start items-center gap-x-6">
-                        <Button icon="Cog" theme="secondary" href="/contact">Build Your Dream Truck</Button>
-                        <Button icon="ArrowRightCircleSolid" theme="tertiary" href="/builds">See Our Builds</Button>
+                        <Button icon="hero/WrenchScrewdriverFill" theme="secondary" href="/contact">Build Your Dream Truck</Button>
+                        <Button icon="hero/ArrowRightCircleFill" theme="tertiary" href="/builds">See Our Builds</Button>
                     </div>
                 </div>
 
                 <!-- brand logos -->
-                <div class="mx-auto grid max-w-xl items-center grid-cols-3 gap-6 md:gap-12 lg:gap-8 lg:mx-0 lg:max-w-none">
-                    {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-12 w-2/3 object-contain text-stone-800 place-self-center" />).slice(0, 15)}
+                <div class="mx-auto grid max-w-xl items-center grid-cols-3 gap-6 md:gap-12 lg:mx-0 lg:max-w-none">
+                    {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-12 w-1/2 object-contain text-stone-800 place-self-center" />).slice(0, 15)}
                 </div>
             </div>
         </Container>
@@ -144,7 +144,7 @@ const headers = [
             <Container>
                 <div class="grid grid-cols-4 space-y-12 sm:space-y-0 sm:items-center sm:gap-16">
                     <h2 class="max-w-xl sm:max-w-none col-span-4 sm:col-span-2 order-1 text-center sm:text-start">We love showing off our customer's trucks.</h2>
-                    <Button theme="tertiary" icon="ArrowRightCircleSolid" href="/builds" classes="order-3 sm:order-2 col-span-4 sm:col-span-2 justify-self-center sm:justify-self-end">See Our Builds</Button>
+                    <Button theme="tertiary" icon="hero/ArrowRightCircleFill" href="/builds" classes="order-3 sm:order-2 col-span-4 sm:col-span-2 justify-self-center sm:justify-self-end">See Our Builds</Button>
                     <div class="col-span-4 columns-1 sm:columns-2 md:columns-3 gap-8 space-y-8 order-2 sm:order-3">
                         {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded shadow-2xl" sizes="600px" alt={b.data.summary} />).slice(0, 15)}
                     </div>

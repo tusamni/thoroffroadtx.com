@@ -15,10 +15,10 @@
         @apply rounded;
         
         .button-icon {
-            @apply bg-amber-400 text-stone-900 border-r border-amber-300;
+            @apply bg-amber-300 text-stone-900 border-r border-amber-400;
         }
         .button-text { 
-            @apply bg-gradient-to-r from-amber-400 to-amber-300 text-amber-950
+            @apply bg-gradient-to-l from-amber-400 to-amber-300 text-amber-950
         }
     }
     &.button-tertiary {

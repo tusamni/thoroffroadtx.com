@@ -41,7 +41,7 @@ import { Business } from "../../../config.js";
             <button type="button" class="rounded text-stone-700 cursor-pointer" x-on:click={`mobileMenu = false`}>
                 <span class="sr-only">Close menu</span>
 
-                <Icon name="Close" class="h-6 w-6" />
+                <Icon name="hero/X" class="h-6 w-6" />
             </button>
         </div>
 
@@ -51,7 +51,7 @@ import { Business } from "../../../config.js";
                     <div class="-mx-3" x-data={`{ expandVehicles : false }`}>
                         <button x-on:click={`expandVehicles = !expandVehicles`} type="button" class="flex w-full items-center justify-between rounded py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandVehicles && 'bg-gradient-to-l from-stone-50 to-stone-200'`} aria-controls="disclosure-1" aria-expanded="false">
                             Vehicles
-                            <Icon name="Chevron" class="h-4 w-4 flex-none transition" x-bind:class={`expandVehicles ? 'rotate-180' : ''`} />
+                            <Icon name="hero/ChevronUp" class="h-4 w-4 flex-none transition" x-bind:class={`expandVehicles ? 'rotate-180' : ''`} />
                         </button>
 
                         <!-- 'Product' sub-menu, show/hide based on menu state. --->
@@ -87,7 +87,7 @@ import { Business } from "../../../config.js";
                     <div class="-mx-3" x-data={`{ expandParts : false }`}>
                         <button x-on:click={`expandParts = !expandParts`} type="button" class="flex w-full items-center justify-between rounded py-2 pl-3 pr-3.5 text-base font-semibold leading-7" x-bind:class={`expandParts && 'bg-gradient-to-l from-stone-50 to-stone-200'`} aria-controls="disclosure-2" aria-expanded="false">
                             Parts
-                            <Icon name="Chevron" class="h-4 w-4 flex-none transition" x-bind:class={`expandParts ? 'rotate-180' : ''`} />
+                            <Icon name="hero/ChevronUp" class="h-4 w-4 flex-none transition" x-bind:class={`expandParts ? 'rotate-180' : ''`} />
                         </button>
 
                         <!-- 'Product' sub-menu, show/hide based on menu state. --->

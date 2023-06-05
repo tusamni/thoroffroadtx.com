@@ -34,8 +34,8 @@ import { Business } from "../../config.js";
 
             <!-- contact buttons -->
             <div class="hidden lg:flex flex-1 items-center justify-end gap-3">
-                <Button href={`tel:${Business.phone}`} icon="hero/Phone">{Business.phone}</Button>
-                <Button href="/contact" icon="Envelope" theme="secondary">Contact Us</Button>
+                <Button href={`tel:${Business.phone}`}>{Business.phone}</Button>
+                <Button href="/contact" theme="secondary">Contact Us</Button>
             </div>
 
             <!-- mobile trigger -->
@@ -43,7 +43,7 @@ import { Business } from "../../config.js";
                 <button type="button" class="inline-flex items-center justify-center rounded text-stone-700 cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
 
-                    <Icon name="Hamburger" class="h-8 w-8 text-white cursor-pointer" />
+                    <Icon name="hero/Hamburger" class="h-8 w-8 text-white cursor-pointer" />
                 </button>
 
                 <!-- mobile menu -->

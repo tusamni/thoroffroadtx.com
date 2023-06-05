@@ -1,9 +1,4 @@
 ---
-interface Props {
-    includeContact?: boolean;
-}
-const { includeContact = false } = Astro.props;
-
 // components
 import { Icon } from "astro-icon";
 import ContactForm from "./ContactForm.astro";
@@ -17,25 +12,25 @@ import { Business } from "../config.js";
 <div class="relative bg-stone-300">
     <Container classes="relative">
         <Section>
-            <div class="grid lg:grid-cols-5 lg:gap-16">
-                <h2 class="col-span-2">Let's start building your dream vehicle.</h2>
-                <div class="col-span-3"></div>
+            <div class="grid md:grid-cols-5 lg:gap-16">
+                <h2 class="md:col-span-2">Let's start building your dream vehicle.</h2>
+                <div class="md:col-span-3"></div>
 
-                <div class="lg:col-span-2">
+                <div class="md:col-span-2">
                     <div class="text-stone-600 text-lg leading-7 tracking-tight space-y-6">
                         <p>If you are ready to get started on designing and building the perfect truck, so are we. Tell us a little about your truck build and contact information and we will reach out to you as soon as possible.</p>
 
                         <div class="space-y-8">
                             <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Map" class="w-5 h-auto" />
+                                <Icon name="hero/Phone" class="w-4 h-auto" />
                                 <div class="text-base">{Business.phone}</div>
                             </div>
                             <div class="flex gap-x-4 items-start">
-                                <Icon name="Envelope" class="w-5 h-auto" />
+                                <Icon name="hero/Envelope" class="w-4 h-auto" />
                                 <div class="text-base">{Business.email}</div>
                             </div>
                             <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Map" class="w-6 h-auto" />
+                                <Icon name="hero/Map" class="w-4 h-auto" />
                                 <div class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</div>
                             </div>
                         </div>
@@ -44,51 +39,6 @@ import { Business } from "../config.js";
 
                 <div class="lg:col-span-3 flex flex-col mt-16 lg:mt-0">
                     <ContactForm />
-
-                    {
-                        includeContact && (
-                            <div class="grid lg:grid-flow-col lg:grid-cols-3 rounded lg:rounded-t-none bg-stone-200 divide-y lg:divide-x lg:divide-y-0 divide-stone-300 border-b border-stone-700 border-r">
-                                <div class="space-y-2 p-6">
-                                    <div class="flex items-center gap-2">
-                                        <Icon name="hero/Map" class="h-5 w-5 flex-none" />
-                                        <div class="font-semibold text-lg">Visit Us</div>
-                                    </div>
-
-                                    <p class="text-stone-600 text-sm">
-                                        {Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}. We're open {Business.hours}.
-                                    </p>
-                                </div>
-
-                                <div class="space-y-2 p-6 max-w-">
-                                    <div class="flex items-center gap-2">
-                                        <Icon name="hero/Phone" class="h-5 w-5 flex-none" />
-                                        <div class="font-semibold text-lg">Call Us</div>
-                                    </div>
-                                    <p class="text-stone-600 text-sm">
-                                        Please feel free to reach out to us anytime at{" "}
-                                        <a class="underline text-stone-800 whitespace-nowrap" href={`tel:${Business.phone}`}>
-                                            {Business.phone}
-                                        </a>
-                                        .
-                                    </p>
-                                </div>
-
-                                <div class="space-y-2 p-6">
-                                    <div class="flex items-center gap-2">
-                                        <Icon name="Envelope" class="h-5 w-5 flex-none" />
-                                        <div class="font-semibold text-lg">Email Us</div>
-                                    </div>
-                                    <p class="text-stone-600 text-sm">
-                                        Shoot us an email anytime,{" "}
-                                        <a class="underline text-stone-800" href={`mailto:${Business.email}`}>
-                                            {Business.email}
-                                        </a>
-                                        .
-                                    </p>
-                                </div>
-                            </div>
-                        )
-                    }
                 </div>
             </div>
         </Section>

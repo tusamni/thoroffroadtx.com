@@ -14,8 +14,8 @@ const { subheading, heading, description } = Astro.props;
 
 <div>
     <Container>
-        <div class="max-w-2xl space-y-4">
-            {subheading && <Pill theme="secondary">{subheading}</Pill>}
+        <div class="max-w-2xl space-y-8">
+            {subheading && <Pill>{subheading}</Pill>}
 
             <h1 class="text-white" set:html={heading} />
 

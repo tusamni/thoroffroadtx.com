@@ -12,7 +12,7 @@ const allBrands = await getCollection("brands");
     <a href="/parts" class="inline-flex items-center gap-x-2 first:font-semibold leading-6 text-white transition px-4 py-3" x-bind:class={`partsMenu ? 'bg-red-500' : ''`}>
         <span>Parts</span>
 
-        <Icon name="hero/ChevronUp" class="w-4 h-4 transition" x-bind:class={`partsMenu ? 'rotate-180' : ''`} />
+        <Icon name="hero/ChevronDown" class="w-4 h-4 transition" x-bind:class={`partsMenu ? 'rotate-180' : ''`} />
     </a>
 
     <div

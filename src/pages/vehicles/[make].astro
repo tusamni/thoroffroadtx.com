@@ -2,22 +2,16 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
-import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
-import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
+import Feature from "../../components/content/Feature.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
-import Hover from "../../components/images/Hover.astro";
+import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
-import Surround from "../../components/content/Surround.astro";
-
-// config
-import { Business } from "../../config";
 
 // content
 import { getCollection } from "astro:content";
-
 export async function getStaticPaths() {
     const allMakes = await getCollection("makes");
     return allMakes.map((make) => ({
@@ -30,57 +24,60 @@ const { make } = Astro.props;
 const allModels = await getCollection("models", ({ data }) => {
     return data.make.toLowerCase().includes(make.slug) && data.draft !== true;
 });
-const allBuilds = await getCollection("builds", ({ data }) => {
-    return data.make.includes(make.data.title);
-});
+const allBuilds = (
+    await getCollection("builds", ({ data }) => {
+        return data.make.includes(make.data.title);
+    })
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// functions
+import { closestNumber } from "../../functions/Misc";
+const buildCount = closestNumber(allBuilds.length, 9);
+console.log(buildCount);
 ---
 
 <Layout>
-    <div class="relative">
-        <Picture src={make.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
+    <ImageOverlay>
+        <Picture slot="image" src={make.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
+        <HeadingBase heading={make.data.title} description={make.data.descriptionLong} />
+    </ImageOverlay>
 
-        <Section>
-            <div class="relative">
-                <HeadingBase heading={make.data.title} description={make.data.descriptionLong} />
-            </div>
-        </Section>
-    </div>
-
-    <Section classes="bg-stone-300">
-        {
-            allBuilds.length >= 3 && (
-                <Container>
-                    <div class="relative grid grid-cols-1 gap-12 xl:grid-cols-5">
-                        <div class="col-span-2 flex flex-col space-y-8 justify-between">
-                            <div class="space-y-6">
-                                <h3 class="text-stone-900">Recent {make.data.title} Builds</h3>
-                                <p class="text-xl leading-8 text-stone-400">
-                                    We love showing off our work. We're proud of it and our customers love the finished product.{" "}
-                                    <a href="/contact" title={`Contact ${Business.nameLong}`} class="hover:underline text-stone-300">
-                                        Let's start building your dream {make.data.title}
-                                    </a>
-                                    !
-                                </p>
-                            </div>
-
-                            <Button href={`/builds/${make.slug}`}>See Our {make.data.title} Builds</Button>
-                        </div>
-
-                        <div class="relative col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="300px" />).slice(0, 3)}</div>
+    <Section classes="bg-stone-200">
+        <Container>
+            <div class="flex">
+                <div class="w-1/3 flex-none sticky top-44 h-full space-y-12 bg-white px-8 py-12 rounded-l">
+                    <div class="space-y-12">
+                        <h2>Our Process</h2>
+                        <div class="space-y-6 text-stone-700" set:html={make.data.descriptionLong} />
                     </div>
-                </Container>
-            )
-        }
-    </Section>
-
-    <Background theme="secondary">
-        <Section>
-            <Container>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    {allModels.map((m) => <Surround href={`/vehicles/${m.slug}`} content={m.data} title={m.data.title} />)}
                 </div>
-            </Container>
-        </Section>
-    </Background>
+
+                <div class="space-y-32 bg-white px-8 py-12 rounded-r">
+                    <div class="grid grid-cols-2 gap-8">
+                        {
+                            allModels.map((m) => (
+                                <Feature href={`/builds/${m.data.make.toLowerCase()}/${m.slug}`} classes="aspect-square">
+                                    <Picture src={m.data.featured} class="absolute inset-0 -z-10 h-full w-full object-cover" sizes="500px" slot="picture" />
+
+                                    <div class="flex flex-wrap items-center gap-y-3 text-gray-300">
+                                        <h3 class="text-2xl font-semibold leading-6 text-white">{m.data.title}</h3>
+                                        <div set:html={m.data.descriptionShort} />
+                                    </div>
+                                </Feature>
+                            ))
+                        }
+                    </div>
+
+                    {
+                        allBuilds.length >= 3 && (
+                            <div class="space-y-12">
+                                <h3 class="text-stone-900">Recent {make.data.title} Builds</h3>
+                                <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, buildCount)}</div>
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+        </Container>
+    </Section>
 </Layout>

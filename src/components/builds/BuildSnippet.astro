@@ -7,6 +7,7 @@ interface Props {
 const { build, sizes = "100vw" } = Astro.props;
 
 // components
+import Feature from "../content/Feature.astro";
 import Hover from "../images/Hover.astro";
 import Picture from "../images/Picture.astro";
 
@@ -19,7 +20,16 @@ import { timeAgo } from "../../functions/DateTime.js";
 import { getBuildImage } from "../../functions/Image";
 ---
 
-<a href={`/builds/${build.slug}`} title={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="group overflow-hidden rounded">
+<Feature href={`/builds/${build.slug}`} classes="pt-40">
+    <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="absolute inset-0 -z-10 h-full w-full object-cover" sizes="500px" slot="picture" />
+
+    <div class="flex flex-wrap items-center gap-y-3 text-gray-300">
+        <h3 class="text-xl font-semibold leading-6 text-white">{build.data.year} {build.data.make} {build.data.model}</h3>
+        <div class="text-base">{build.data.summary}</div>
+    </div>
+</Feature>
+
+<!-- <a href={`/builds/${build.slug}`} title={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="group overflow-hidden rounded">
     <div class="rounded">
         <Hover>
             <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover aspect-[3/2] rounded w-full h-full" />
@@ -33,4 +43,4 @@ import { getBuildImage } from "../../functions/Image";
             <p class="text-sm leading-7 text-stone-400">{timeAgo(build.data.date)}</p>
         </div>
     </div>
-</a>
+</a> -->

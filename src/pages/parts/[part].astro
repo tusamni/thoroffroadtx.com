@@ -3,9 +3,9 @@ import Layout from "../../layouts/Layout.astro";
 
 // components
 import { Icon } from "astro-icon";
-import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
+import Feature from "../../components/content/Feature.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
 import Picture from "../../components/images/Picture.astro";
@@ -26,9 +26,11 @@ const { part } = Astro.props;
 const allBrands = await getCollection("brands", ({ data }) => {
     return data.parts.includes(part.slug) && data.logo;
 });
-const allBuilds = await getCollection("builds", ({ data }) => {
-    return data.categories.includes(part.slug);
-});
+const allBuilds = (
+    await getCollection("builds", ({ data }) => {
+        return data.categories.includes(part.slug);
+    })
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout>
@@ -40,49 +42,50 @@ const allBuilds = await getCollection("builds", ({ data }) => {
 
     {
         part.data.contentSidebar && part.data.contentParts ? (
-            <Background theme="secondary">
-                <Section>
-                    <Container>
-                        <div class="flex gap-12">
-                            <div class="space-y-10 w-1/4 flex-none sticky top-44 h-full">
-                                <h2 class="text-stone-900">
+            <Section classes="bg-stone-200">
+                <Container>
+                    <div class="flex">
+                        <div class="w-1/3 flex-none h-full space-y-12 bg-white px-8 py-12 rounded-l">
+                            <div class="space-y-12">
+                                <h2>
                                     We're <span class="italic">the</span> {part.data.title} Experts
                                 </h2>
                                 <div class="leading-8 tracking-tight text-stone-700 space-y-6 text-lg" set:html={part.data.contentSidebar} />
                             </div>
+                        </div>
 
-                            <div class="space-y-32">
-                                <div class="space-y-12">
-                                    <h3 class="text-stone-900">{part.data.title} Upgrades</h3>
+                        <div class="space-y-32 bg-white px-8 py-12 rounded-r">
+                            <div class="space-y-12">
+                                <h3 class="text-stone-900">{part.data.title} Upgrades</h3>
 
-                                    <div class="grid grid-cols-3 text-gray-600 h-fit gap-y-16 gap-x-2">
-                                        {part.data.contentParts.map((p) => (
-                                            <div class="relative">
-                                                <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-500 self-start" />
+                                <div class="grid grid-cols-3 text-gray-600 h-fit gap-y-16 gap-x-2">
+                                    {part.data.contentParts.map((p) => (
+                                        <div class="relative">
+                                            <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-500 self-start" />
 
-                                                <div class="ml-9 flex flex-col gap-2">
-                                                    <p class="font-semibold text-gray-900">{p.title}</p>
-                                                    <p>Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.</p>
-                                                </div>
+                                            <div class="ml-9 flex flex-col gap-2">
+                                                <p class="font-semibold text-gray-900">{p.title}</p>
+                                                <p class="line-clamp-2">Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.</p>
                                             </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <div class="space-y-12">
-                                    <h3 class="text-stone-900">Recent {part.data.title} Builds</h3>
-                                    <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, 9)}</div>
-                                    <div class="flex flex-wrap justify-center flex-row gap-x-24 gap-y-12 bg-white rounded p-16">
-                                        {allBrands.map((b) => (
-                                            <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-10 text-stone-700" />
-                                        ))}
-                                    </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
+
+                            <div class="flex flex-wrap justify-center flex-row gap-x-20 gap-y-16 bg-white rounded p-8">
+                                {allBrands.map((b) => (
+                                    <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 text-stone-700" />
+                                ))}
+                            </div>
+
+                            <div class="space-y-12">
+                                <h3 class="text-stone-900">Recent {part.data.title} Builds</h3>
+                                <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, 9)}</div>
+                            </div>
                         </div>
-                    </Container>
-                </Section>
-            </Background>
+                    </div>
+                </Container>
+            </Section>
         ) : (
             ``
         )

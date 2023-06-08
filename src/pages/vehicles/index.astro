@@ -2,8 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
-import { Icon } from "astro-icon";
-import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
 import Feature from "../../components/content/Feature.astro";
@@ -11,15 +9,11 @@ import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
-import Surround from "../../components/content/Surround.astro";
 
 // content
 import { getCollection } from "astro:content";
 const allMakes = await getCollection("makes");
-const allModels = await getCollection("models");
-const allBuilds = await getCollection("builds");
-
-// content
+const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const process = [
     {
         title: "We Know the Brands",
@@ -48,16 +42,13 @@ const vehicleFill = {
 <Layout>
     <ImageOverlay>
         <Picture slot="image" src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford F-250 Modified by THOR Off Road" class="absolute w-full h-full object-cover object-[50%,70%]" sizes="800px" />
-
-        <div class="space-y-24">
-            <HeadingBase heading="Texas' Top<br />Truck Outfitter" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
-        </div>
+        <HeadingBase heading="Texas' Top<br />Truck Outfitter" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
     </ImageOverlay>
 
     <Section classes="bg-stone-200">
         <Container>
-            <div class="flex gap-8">
-                <div class="w-1/3 flex-none sticky top-44 h-full space-y-12 bg-white px-8 py-12 rounded">
+            <div class="flex">
+                <div class="w-1/3 flex-none h-full space-y-12 bg-white px-8 py-12 rounded-l">
                     <div class="space-y-12">
                         <h2>Our Process</h2>
                         <div class="space-y-12">
@@ -65,7 +56,7 @@ const vehicleFill = {
                                 process.map((p) => (
                                     <div class="space-y-2">
                                         <p class="font-semibold text-2xl">{p.title}</p>
-                                        <p class="text-lg text-stone-700">{p.description}</p>
+                                        <p class="text-base text-stone-700">{p.description}</p>
                                     </div>
                                 ))
                             }
@@ -73,7 +64,7 @@ const vehicleFill = {
                     </div>
                 </div>
 
-                <div class="space-y-32">
+                <div class="space-y-32 bg-white px-8 py-12 rounded-r">
                     <div class="grid grid-cols-2 gap-8">
                         {
                             allMakes.map((v) => (

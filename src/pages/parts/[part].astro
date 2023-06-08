@@ -52,15 +52,6 @@ const allBuilds = (
                                 </h2>
                                 <div class="leading-8 tracking-tight text-stone-700 space-y-6" set:html={part.data.contentSidebar} />
                             </div>
-
-                            <div class="space-y-12">
-                                <h6>{part.data.title} Brands</h6>
-                                <div class="flex flex-wrap flex-row gap-x-8 gap-y-8 bg-white rounded">
-                                    {allBrands.map((b) => (
-                                        <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-5 text-stone-500" />
-                                    ))}
-                                </div>
-                            </div>
                         </div>
 
                         <div class="space-y-32 bg-white px-8 py-12 rounded-r">
@@ -74,11 +65,17 @@ const allBuilds = (
 
                                             <div class="ml-9 flex flex-col gap-2">
                                                 <p class="font-semibold text-gray-900">{p.title}</p>
-                                                <p class="line-clamp-2">Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.</p>
+                                                <p class="text-sm">{p.description ? `${p.description}` : `Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.`}</p>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
+                            </div>
+
+                            <div class="flex flex-wrap flex-row justify-center gap-12 p-6">
+                                {allBrands.map((b) => (
+                                    <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 text-stone-900" />
+                                ))}
                             </div>
 
                             <div class="space-y-12">

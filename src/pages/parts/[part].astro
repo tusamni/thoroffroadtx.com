@@ -50,7 +50,16 @@ const allBuilds = (
                                 <h2>
                                     We're <span class="italic">the</span> {part.data.title} Experts
                                 </h2>
-                                <div class="leading-8 tracking-tight text-stone-700 space-y-6 text-lg" set:html={part.data.contentSidebar} />
+                                <div class="leading-8 tracking-tight text-stone-700 space-y-6" set:html={part.data.contentSidebar} />
+                            </div>
+
+                            <div class="space-y-12">
+                                <h6>{part.data.title} Brands</h6>
+                                <div class="flex flex-wrap flex-row gap-x-8 gap-y-8 bg-white rounded">
+                                    {allBrands.map((b) => (
+                                        <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-5 text-stone-500" />
+                                    ))}
+                                </div>
                             </div>
                         </div>
 
@@ -70,12 +79,6 @@ const allBuilds = (
                                         </div>
                                     ))}
                                 </div>
-                            </div>
-
-                            <div class="flex flex-wrap justify-center flex-row gap-x-20 gap-y-16 bg-white rounded p-8">
-                                {allBrands.map((b) => (
-                                    <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 text-stone-700" />
-                                ))}
                             </div>
 
                             <div class="space-y-12">

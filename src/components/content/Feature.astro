@@ -7,11 +7,16 @@ interface Props {
 const { href, classes, ...attrs } = Astro.props;
 ---
 
-<a href={href} class:list={["relative isolate flex flex-col justify-end overflow-hidden rounded px-8 pb-8 group", classes]} {...attrs}>
+<a href={href} class:list={["relative isolate flex flex-col justify-end overflow-hidden rounded px-6 pb-6 group", classes]} {...attrs}>
     <slot name="picture" />
 
-    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-stone-900 via-stone-900/10 to-transparent group-hover:opacity-0 duration-300"></div>
-    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-stone-900 via-stone-500/10 group-hover:opacity-100 duration-500"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-stone-900 via-transparent duration-500"></div>
 
     <slot />
 </a>
+
+<style type="text/css">
+    :global(img) {
+        @apply group-hover:scale-105 transition duration-300;
+    }
+</style>

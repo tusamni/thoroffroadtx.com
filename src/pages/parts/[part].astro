@@ -8,6 +8,7 @@ import Container from "../../components/Container.astro";
 import Feature from "../../components/content/Feature.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
+import Link from "../../components/buttons/Link.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -63,26 +64,31 @@ const allBuilds = (
                                         <div class="relative">
                                             <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-500 self-start" />
 
-                                            <div x-data={`{ parts${i} : false }`} class="ml-9 flex flex-col gap-2">
+                                            <div x-data={`{ parts${i} : false }`} x-on:click={`parts${i} = !parts${i}`} class="ml-9 flex flex-col gap-2 cursor-pointer">
                                                 <p class="font-semibold text-stone-900">{p.title}</p>
                                                 <p x-bind:class={`parts${i} ? 'line-clamp-none' : 'line-clamp-2'`} class="text-sm">
                                                     {p.description ? `${p.description}` : `Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.`}
                                                 </p>
-                                                <button class="w-fit text-sm font-medium text-stone-900 cursor-pointer" x-on:click={`parts${i} = !parts${i}`} x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
+                                                <div class="w-fit text-sm font-medium text-stone-900" x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
 
-                            <div class="flex flex-wrap flex-row justify-center gap-x-12 gap-y-16 p-6">
+                            <div class="flex flex-wrap flex-row justify-center gap-16 p-6">
                                 {allBrands.map((b) => (
-                                    <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-12 text-stone-800" />
+                                    <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-10 text-stone-800" />
                                 ))}
                             </div>
 
                             <div class="space-y-12">
-                                <h3 class="text-stone-900">Recent {part.data.title} Builds</h3>
+                                <div class="flex justify-between items-center">
+                                    <h3 class="text-stone-900">Recent {part.data.title} Builds</h3>
+                                    <Link href="/builds" arrow={true}>
+                                        See All Builds
+                                    </Link>
+                                </div>
                                 <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, 9)}</div>
                             </div>
                         </div>

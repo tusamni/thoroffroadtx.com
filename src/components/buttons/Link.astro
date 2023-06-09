@@ -11,11 +11,5 @@ const { arrow = false, size = "lg", classes, ...attrs } = Astro.props;
 <a class:list={["group font-semibold hover:cursor-pointer inline-block", size && `text-${size}`, classes]} {...attrs}>
     <slot />
 
-    {
-        arrow && (
-            <span aria-hidden="true" class="ml-1 group-hover:ml-2 transition-all">
-                &rarr;
-            </span>
-        )
-    }
+    {arrow && <span>&rarr;</span>}
 </a>

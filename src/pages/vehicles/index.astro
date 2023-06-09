@@ -8,6 +8,7 @@ import Container from "../../components/Container.astro";
 import Feature from "../../components/content/Feature.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
+import Link from "../../components/buttons/Link.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -90,9 +91,9 @@ const vehicleFill = {
                     </div>
 
                     <div class="space-y-12">
-                        <div class="flex justify-between">
+                        <div class="flex justify-between items-center">
                             <h3 class="text-stone-900">Recent THOR Builds</h3>
-                            <Button href="/builds" icon="hero/WrenchScrewdriver">See All Builds</Button>
+                            <Link href="/builds" arrow={true}>See All Builds</Link>
                         </div>
 
                         <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, 9)}</div>

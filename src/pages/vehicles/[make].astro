@@ -8,6 +8,7 @@ import Container from "../../components/Container.astro";
 import Feature from "../../components/content/Feature.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
+import Link from "../../components/buttons/Link.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -72,11 +73,11 @@ console.log(buildCount);
                     {
                         allBuilds.length >= 3 && (
                             <div class="space-y-12">
-                                <div class="flex justify-between">
+                                <div class="flex justify-between items-center">
                                     <h3 class="text-stone-900">Recent {make.data.title} Builds</h3>
-                                    <Button href="/builds" icon="hero/WrenchScrewdriver">
-                                        All {make.data.title} Builds
-                                    </Button>
+                                    <Link href="/builds" arrow={true}>
+                                        See All Builds
+                                    </Link>
                                 </div>
 
                                 <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, buildCount)}</div>

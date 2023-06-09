@@ -68,7 +68,7 @@ const allBuilds = (
                                                 <p x-bind:class={`parts${i} ? 'line-clamp-none' : 'line-clamp-2'`} class="text-sm">
                                                     {p.description ? `${p.description}` : `Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.`}
                                                 </p>
-                                                <a class="text-sm font-medium text-stone-900" x-on:click={`parts${i} = !parts${i}`} x-text={`parts${i} ? "Read More &   plus;" : "Read Less"`} />
+                                                <button class="w-fit text-sm font-medium text-stone-900 cursor-pointer" x-on:click={`parts${i} = !parts${i}`} x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
                                             </div>
                                         </div>
                                     ))}

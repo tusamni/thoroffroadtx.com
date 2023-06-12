@@ -1,8 +1,6 @@
 ---
 // components
 import { Icon } from "astro-icon";
-import Background from "../components/content/Background.astro";
-import Break from "./Break.astro";
 import Container from "./Container.astro";
 import Picture from "./images/Picture.astro";
 import Section from "./Section.astro";
@@ -44,7 +42,7 @@ const recent = [
 ];
 ---
 
-<Background>
+<div class="bg-gray-800">
     <footer>
         <Section>
             <Container>
@@ -55,6 +53,22 @@ const recent = [
                         <Picture src="website/logos/logo-white.png" alt={Business.nameLong} class="h-14 w-auto" />
 
                         <p class="text-md leading-7 text-stone-300">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
+
+                        <!-- contact -->
+                        <div class="space-y-4 text-stone-300">
+                            <div class="flex gap-x-4 items-start">
+                                <Icon name="hero/Phone" class="w-4 h-auto" />
+                                <div class="text-base">{Business.phone}</div>
+                            </div>
+                            <div class="flex gap-x-4 items-start">
+                                <Icon name="hero/Envelope" class="w-4 h-auto" />
+                                <div class="text-base">{Business.email}</div>
+                            </div>
+                            <div class="flex gap-x-4 items-start">
+                                <Icon name="hero/Map" class="w-4 h-auto" />
+                                <div class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</div>
+                            </div>
+                        </div>
 
                         <!-- social -->
                         <div class="flex space-x-6">
@@ -129,4 +143,4 @@ const recent = [
             </Container>
         </Section>
     </footer>
-</Background>
+</div>

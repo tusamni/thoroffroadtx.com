@@ -9,6 +9,9 @@ interface Props {
 }
 const { src, alt, sizes = "100vw", ...attrs } = Astro.props;
 
+// functions
+import { getMedia } from "../../functions/Image";
+
 const fullPath = `${Image.cloudUrl}/images/${src}`;
 const sources = Image.imageSizes.map((w) => {
     return `${fullPath}?width=${w} ${w}w`;
@@ -17,4 +20,4 @@ const sources = Image.imageSizes.map((w) => {
 const srcset = sources.join(", ");
 ---
 
-<img srcset={srcset} src={src} sizes={sizes} alt={alt} {...attrs} />
+<img srcset={srcset} src={getMedia(`images/${src}`)} sizes={sizes} alt={alt} {...attrs} data-img={getMedia(`images/${src}`)} data-alt={alt} />

@@ -10,7 +10,7 @@ const { href, classes, ...attrs } = Astro.props;
 <a href={href} class:list={["relative isolate flex flex-col justify-end overflow-hidden rounded px-6 pb-6 group", classes]} {...attrs}>
     <slot name="picture" />
 
-    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-stone-900 via-transparent duration-500"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-stone-800/70 via-transparent duration-500"></div>
 
     <slot />
 </a>

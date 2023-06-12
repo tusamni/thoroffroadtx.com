@@ -7,29 +7,24 @@ interface Props {
 const { build, sizes = "100vw" } = Astro.props;
 
 // components
-import Link from "../buttons/Link.astro";
-import Feature from "../content/Feature.astro";
 import Picture from "../images/Picture.astro";
 
 // config
 import { Business } from "../../config";
 
-// functions
-import { timeAgo } from "../../functions/DateTime";
-
 // images
 import { getBuildImage } from "../../functions/Image";
 ---
 
-<div>
-    <Feature href={`/builds/${build.slug}`} classes="pt-48">
-        <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="absolute inset-0 -z-10 h-full w-full object-cover" sizes="500px" slot="picture" />
-    </Feature>
+<a href={`/builds/${build.slug}`}>
+    <div class="pt-48 relative">
+        <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="inset-0 absolute h-full w-full object-cover" sizes="500px" slot="picture" />
+    </div>
 
     <div class="flex flex-wrap items-center gap-y-3 text-stone-500 p-4 bg-stone-100 rounded-b">
         <h3 class="text-lg font-semibold">{build.data.year} {build.data.make} {build.data.model}</h3>
         <ul class="text-xs line-clamp-2 comma-list">{build.data.parts.map((p) => <li>{p}</li>)}</ul>
 
-        <Link size="sm" arrow={true} classes="text-stone-800">View Build Details</Link>
+        <p class="text-stone-800 font-medium">View Build Details</p>
     </div>
-</div>
+</a>

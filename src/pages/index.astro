@@ -3,11 +3,10 @@ import Layout from "../layouts/Layout.astro";
 
 // components
 import { Icon } from "astro-icon";
-import Background from "../components/content/Background.astro";
 import Button from "../components/buttons/Button.astro";
 import Container from "../components/Container.astro";
+import Gallery from "../components/images/Gallery.astro";
 import Section from "../components/Section.astro";
-import Link from "../components/buttons/Link.astro";
 import Picture from "../components/images/Picture.astro";
 import Pill from "../components/buttons/Pill.astro";
 import Testimonial from "../components/Testimonial.astro";
@@ -53,8 +52,8 @@ const headers = [
     <!-- header images -->
     <div class="grid grid-cols-2 lg:grid-cols-4 grid-rows-2 lg:grid-rows-1 h-[400px] md:h-[600px] lg:h-[500px]">
         <div class="units order-1">
-            <Picture src={headers[0].src} class="object-cover w-full h-full object-[50%,80%] lg:object-center" alt={headers[0].alt} />
-            <Picture src={headers[0].src} class="object-cover w-full h-full object-[50%,80%] lg:object-center hidden lg:block" alt={headers[0].alt} />
+            <Picture src={headers[0].src} class="object-cover w-full h-full object-[50%,85%]" alt={headers[0].alt} />
+            <Picture src={headers[0].src} class="object-cover w-full h-full object-[50%,85%] hidden lg:block" alt={headers[0].alt} />
         </div>
         <div class="units order-2">
             <Picture src={headers[1].src} class="object-cover w-full h-full object-left-bottom lg:object-center" alt={headers[1].alt} />
@@ -71,7 +70,7 @@ const headers = [
     </div>
 
     <!-- brands -->
-    <Section classes="bg-stone-200">
+    <Section classes="bg-stone-100">
         <Container classes="relative z-10">
             <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
                 <div class="mx-auto max-w-xl lg:mx-0 space-y-8">
@@ -92,7 +91,7 @@ const headers = [
         </Container>
     </Section>
 
-    <Background theme="secondary">
+    <div class="bg-stone-200">
         <Section>
             <Container>
                 <div class="grid grid-cols-1 items-start gap-16 md:grid-cols-2">
@@ -145,13 +144,14 @@ const headers = [
                 <div class="grid grid-cols-4 space-y-12 sm:space-y-0 sm:items-center sm:gap-16">
                     <h2 class="max-w-xl sm:max-w-none col-span-4 sm:col-span-2 order-1 text-center sm:text-start">We love showing off our customer's trucks.</h2>
                     <Button theme="tertiary" icon="hero/ArrowRightCircleFill" href="/builds" classes="order-3 sm:order-2 col-span-4 sm:col-span-2 justify-self-center sm:justify-self-end">See Our Builds</Button>
-                    <div class="col-span-4 columns-1 sm:columns-2 md:columns-3 gap-8 space-y-8 order-2 sm:order-3">
+
+                    <Gallery classes="col-span-4 columns-1 sm:columns-2 md:columns-3 gap-8 space-y-8 order-2 sm:order-3">
                         {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded shadow-2xl" sizes="600px" alt={b.data.summary} />).slice(0, 15)}
-                    </div>
+                    </Gallery>
                 </div>
             </Container>
         </Section>
-    </Background>
+    </div>
 </Layout>
 
 <style>

@@ -1,43 +1,36 @@
 ---
 // components
-import { Icon } from "astro-icon";
 import ContactForm from "./ContactForm.astro";
 import Container from "./Container.astro";
+import Picture from "./images/Picture.astro";
 import Section from "./Section.astro";
-
-// config
-import { Business } from "../config.js";
 ---
 
-<div class="relative bg-stone-300">
+<div class="relative bg-gray-800">
     <Container classes="relative">
         <Section>
-            <div class="grid md:grid-cols-5 gap-16">
-                <div class="md:col-span-2 space-y-10">
-                    <h2>Let's start building your dream vehicle.</h2>
+            <div class="grid md:grid-cols-5 gap-8 bg-gray-700 rounded p-8">
+                <div class="flex flex-col mt-16 lg:mt-0 space-y-8 col-span-2 p-6">
+                    <h2 class="text-white">Let's start building your dream vehicle.</h2>
 
-                    <div class="text-stone-600 text-lg leading-7 tracking-tight space-y-6">
+                    <div class="text-stone-300 text-lg tracking-tight space-y-6">
                         <p>If you are ready to get started on designing and building the perfect truck, so are we. Tell us a little about your truck build and contact information and we will reach out to you as soon as possible.</p>
-
-                        <div class="space-y-4">
-                            <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Phone" class="w-4 h-auto" />
-                                <div class="text-base">{Business.phone}</div>
-                            </div>
-                            <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Envelope" class="w-4 h-auto" />
-                                <div class="text-base">{Business.email}</div>
-                            </div>
-                            <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Map" class="w-4 h-auto" />
-                                <div class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</div>
-                            </div>
-                        </div>
                     </div>
+
+                    <ContactForm />
                 </div>
 
-                <div class="lg:col-span-3 flex flex-col mt-16 lg:mt-0">
-                    <ContactForm />
+                <div class="grid grid-cols-2 col-span-3 gap-8 h-full">
+                    <div class="relative w-full h-full">
+                        <Picture src="shop/2022-12-05/shop-shoot_17.jpg" class="absolute object-cover object-[50%,0%] rounded w-full h-full" />
+                    </div>
+
+                    <div class="relative w-full h-full">
+                        <Picture src="shop/2022-12-05/shop-shoot_44.jpg" class="absolute object-cover rounded w-full h-full" />
+                    </div>
+                    <div class="col-span-2 relative w-full h-full">
+                        <Picture src="shop/2022-12-05/shop-shoot_16.jpg" class="absolute object-cover rounded col-span-2 w-full h-full" />
+                    </div>
                 </div>
             </div>
         </Section>

@@ -1,0 +1,11 @@
+---
+// props
+interface Props {
+    color?: string;
+}
+const { color = "bg-stone-400" } = Astro.props;
+---
+
+<div class={color} style="background-image: url(/images/asphalt.png); background-repeat: repeat;">
+    <slot />
+</div>

@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
 import Feature from "../../components/content/Feature.astro";
@@ -44,43 +45,48 @@ console.log(buildCount);
         <HeadingBase heading={make.data.title} description={make.data.descriptionLong} />
     </ImageOverlay>
 
-    <Section>
-        <Container>
-            <FlexColumn>
-                <div slot="left" class="space-y-12">
-                    <h2>We Know {make.data.title}</h2>
-                    <div class="space-y-6 text-stone-700" set:html={make.data.descriptionPush} />
-                </div>
+    <Background>
+        <Section>
+            <Container>
+                <FlexColumn>
+                    <div slot="left" class="space-y-12">
+                        <h2>We Know {make.data.title}</h2>
+                        <div class="space-y-6 text-stone-700" set:html={make.data.descriptionPush} />
+                    </div>
 
-                <div class="grid grid-cols-2 gap-8">
+                    <div class="grid grid-cols-2 gap-8">
+                        {
+                            allModels.map((m) => (
+                                <Feature href={`/builds/${m.data.make.toLowerCase()}/${m.slug}`} classes="aspect-square">
+                                    <Picture src={m.data.featured} class="absolute inset-0 -z-10 h-full w-full object-cover" sizes="500px" slot="picture" />
+
+                                    <div class="flex flex-wrap items-center gap-y-3 text-gray-300">
+                                        <h3 class="text-2xl font-semibold leading-6 text-white">{m.data.title}</h3>
+                                        <div set:html={m.data.descriptionShort} />
+                                    </div>
+                                </Feature>
+                            ))
+                        }
+                    </div>
+                </FlexColumn>
+
+                <div class="bg-white p-8 pt-32">
                     {
-                        allModels.map((m) => (
-                            <Feature href={`/builds/${m.data.make.toLowerCase()}/${m.slug}`} classes="aspect-square">
-                                <Picture src={m.data.featured} class="absolute inset-0 -z-10 h-full w-full object-cover" sizes="500px" slot="picture" />
-
-                                <div class="flex flex-wrap items-center gap-y-3 text-gray-300">
-                                    <h3 class="text-2xl font-semibold leading-6 text-white">{m.data.title}</h3>
-                                    <div set:html={m.data.descriptionShort} />
+                        allBuilds.length >= 3 && (
+                            <div class="space-y-12">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="text-stone-900">Recent {make.data.title} Builds</h3>
+                                    <Link href="/builds" arrow={true}>
+                                        See All Builds
+                                    </Link>
                                 </div>
-                            </Feature>
-                        ))
+
+                                <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, buildCount)}</div>
+                            </div>
+                        )
                     }
                 </div>
-                {
-                    allBuilds.length >= 3 && (
-                        <div class="space-y-12">
-                            <div class="flex justify-between items-center">
-                                <h3 class="text-stone-900">Recent {make.data.title} Builds</h3>
-                                <Link href="/builds" arrow={true}>
-                                    See All Builds
-                                </Link>
-                            </div>
-
-                            <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, buildCount)}</div>
-                        </div>
-                    )
-                }
-            </FlexColumn>
-        </Container>
-    </Section>
+            </Container>
+        </Section>
+    </Background>
 </Layout>

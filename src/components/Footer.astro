@@ -1,8 +1,10 @@
 ---
 // components
 import { Icon } from "astro-icon";
+import BuildSnippet from "./builds/BuildSnippet.astro";
 import Container from "./Container.astro";
 import Cta from "./Cta.astro";
+import Link from "./buttons/Link.astro";
 import Picture from "./images/Picture.astro";
 import Section from "./Section.astro";
 
@@ -13,133 +15,121 @@ import { Social, Business } from "../config.js";
 import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
 const allMakes = await getCollection("makes");
-
-// images
-const recent = [
-    {
-        src: "shop/2023-02-22/shop-shoot_03.jpg",
-        alt: "Truck being built at THOR Off Road",
-    },
-    {
-        src: "shop/2023-02-22/shop-shoot_20.jpg",
-        alt: "Truck being built at THOR Off Road",
-    },
-    {
-        src: "shop/2023-02-22/shop-shoot_23.jpg",
-        alt: "Truck being built at THOR Off Road",
-    },
-    {
-        src: "shop/2023-02-22/shop-shoot_38.jpg",
-        alt: "Truck being built at THOR Off Road",
-    },
-    {
-        src: "shop/2023-02-22/shop-shoot_15.jpg",
-        alt: "Truck being built at THOR Off Road",
-    },
-    {
-        src: "shop/2022-12-05/shop-shoot_41.jpg",
-        alt: "Truck being built at THOR Off Road",
-    },
-];
+const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Section classes="bg-gray-800">
-    <Cta />
-
-    <Container>
-        <footer>
-            <div class="flex lg:flex-row flex-col lg:justify-between gap-24 mb-24">
-                <div class="space-y-12 max-w-lg">
-                    <Picture src="website/logos/logo-white.png" alt={Business.nameLong} class="h-14 w-auto" />
-
-                    <p class="text-md leading-7 text-stone-300">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
-
-                    <!-- contact -->
-                    <div class="space-y-4 text-stone-300">
-                        <div class="flex gap-x-4 items-start">
-                            <Icon name="hero/Phone" class="w-4 h-auto" />
-                            <div class="text-base">{Business.phone}</div>
+<div class="bg-gray-800">
+    <Section>
+        <Container>
+            <div class="space-y-32">
+                <div class="space-y-12">
+                    <div class="space-y-12">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-white">Recent THOR Builds</h3>
+                            <Link classes="text-white" href="/builds" arrow={true}>See All Builds</Link>
                         </div>
-                        <div class="flex gap-x-4 items-start">
-                            <Icon name="hero/Envelope" class="w-4 h-auto" />
-                            <div class="text-base">{Business.email}</div>
-                        </div>
-                        <div class="flex gap-x-4 items-start">
-                            <Icon name="hero/Map" class="w-4 h-auto" />
-                            <div class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</div>
-                        </div>
-                    </div>
 
-                    <!-- social -->
-                    <div class="flex space-x-6">
-                        {
-                            Social.map((s) => (
-                                <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
-                                    <Icon name={s.icon} class="w-4 text-white" />
-                                </a>
-                            ))
-                        }
+                        <div class="col-span-3 grid grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, 4)}</div>
                     </div>
                 </div>
 
-                <!-- navigation -->
-                <div class="min-w-fit">
-                    <div class="grid grid-cols-3 gap-12">
-                        <div class="space-y-6">
-                            <h6 class="text-white">Vehicles</h6>
-                            <hr class="w-1/2 border-gray-600" />
-                            <ul role="list" class="space-y-2">
+                <Cta />
+
+                <footer>
+                    <div class="flex lg:flex-row flex-col lg:justify-between gap-24 mb-24">
+                        <div class="space-y-12 max-w-lg">
+                            <Picture src="website/logos/logo-white.png" alt={Business.nameLong} class="h-14 w-auto" />
+
+                            <p class="text-md leading-7 text-stone-300">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
+
+                            <!-- contact -->
+                            <div class="space-y-4 text-stone-300">
+                                <div class="flex gap-x-4 items-start">
+                                    <Icon name="hero/Phone" class="w-4 h-auto" />
+                                    <div class="text-base">{Business.phone}</div>
+                                </div>
+                                <div class="flex gap-x-4 items-start">
+                                    <Icon name="hero/Envelope" class="w-4 h-auto" />
+                                    <div class="text-base">{Business.email}</div>
+                                </div>
+                                <div class="flex gap-x-4 items-start">
+                                    <Icon name="hero/Map" class="w-4 h-auto" />
+                                    <div class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</div>
+                                </div>
+                            </div>
+
+                            <!-- social -->
+                            <div class="flex space-x-6">
                                 {
-                                    allMakes.map((m) => (
-                                        <li>
-                                            <a href={`/vehicles/${m.slug}`} title={m.data.title} class="text-sm leading-6 text-stone-200">
-                                                {m.data.title}
-                                            </a>
-                                        </li>
+                                    Social.map((s) => (
+                                        <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
+                                            <Icon name={s.icon} class="w-4 text-white" />
+                                        </a>
                                     ))
                                 }
-                            </ul>
+                            </div>
                         </div>
 
-                        <div class="space-y-6">
-                            <h6 class="text-white">Parts</h6>
-                            <hr class="w-1/2 border-gray-600" />
-                            <ul role="list" class="space-y-2">
-                                {
-                                    allParts.map((p) => (
+                        <!-- navigation -->
+                        <div class="min-w-fit">
+                            <div class="grid grid-cols-3 gap-12">
+                                <div class="space-y-6">
+                                    <h6 class="text-white">Vehicles</h6>
+                                    <hr class="w-1/2 border-gray-600" />
+                                    <ul role="list" class="space-y-2">
+                                        {
+                                            allMakes.map((m) => (
+                                                <li>
+                                                    <a href={`/vehicles/${m.slug}`} title={m.data.title} class="text-sm leading-6 text-stone-200">
+                                                        {m.data.title}
+                                                    </a>
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+                                </div>
+
+                                <div class="space-y-6">
+                                    <h6 class="text-white">Parts</h6>
+                                    <hr class="w-1/2 border-gray-600" />
+                                    <ul role="list" class="space-y-2">
+                                        {
+                                            allParts.map((p) => (
+                                                <li>
+                                                    <a href={`/parts/${p.slug}`} title={p.data.title} class="text-sm leading-6 text-stone-200">
+                                                        {p.data.title}
+                                                    </a>
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+                                </div>
+
+                                <div class="space-y-6">
+                                    <h6 class="text-white">Other</h6>
+                                    <hr class="w-1/2 border-gray-600" />
+                                    <ul role="list" class="space-y-2">
                                         <li>
-                                            <a href={`/parts/${p.slug}`} title={p.data.title} class="text-sm leading-6 text-stone-200">
-                                                {p.data.title}
-                                            </a>
+                                            <a href="#" class="text-sm leading-6 text-stone-200">Sitemap</a>
                                         </li>
-                                    ))
-                                }
-                            </ul>
-                        </div>
-
-                        <div class="space-y-6">
-                            <h6 class="text-white">Other</h6>
-                            <hr class="w-1/2 border-gray-600" />
-                            <ul role="list" class="space-y-2">
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-stone-200">Sitemap</a>
-                                </li>
-                                <li>
-                                    <a href="/privacy-policy" class="text-sm leading-6 text-stone-200">Privacy Policy</a>
-                                </li>
-                                <li>
-                                    <a href="/terms-of-use" class="text-sm leading-6 text-stone-200">Terms of Use</a>
-                                </li>
-                            </ul>
+                                        <li>
+                                            <a href="/privacy-policy" class="text-sm leading-6 text-stone-200">Privacy Policy</a>
+                                        </li>
+                                        <li>
+                                            <a href="/terms-of-use" class="text-sm leading-6 text-stone-200">Terms of Use</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="grid gap-y-2 md:grid-cols-2 md:justify-between">
-                <p class="text-sm leading-5 text-gray-300">&copy; {Business.nameLong}. All rights reserved.</p>
-                <p class="text-sm leading-5 text-gray-300 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</p>
+                    <div class="grid gap-y-2 md:grid-cols-2 md:justify-between">
+                        <p class="text-sm leading-5 text-gray-300">&copy; {Business.nameLong}. All rights reserved.</p>
+                        <p class="text-sm leading-5 text-gray-300 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</p>
+                    </div>
+                </footer>
             </div>
-        </footer>
-    </Container>
-</Section>
+        </Container>
+    </Section>
+</div>

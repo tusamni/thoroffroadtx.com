@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
 import Feature from "../../components/content/Feature.astro";
@@ -15,6 +16,7 @@ import Section from "../../components/Section.astro";
 // content
 import { getCollection } from "astro:content";
 const allMakes = await getCollection("makes");
+const allModels = await getCollection("models");
 const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const process = [
     {
@@ -47,57 +49,64 @@ const vehicleFill = {
         <HeadingBase heading="Texas' Top<br />Truck Outfitter" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
     </ImageOverlay>
 
-    <Section>
-        <Container>
-            <FlexColumn float={true}>
-                <div slot="left" class="space-y-12">
-                    <h2>Our Process</h2>
-                    <div class="space-y-12">
+    <Background>
+        <Section>
+            <Container>
+                <FlexColumn float={true}>
+                    <div slot="left" class="space-y-12">
+                        <h2>Our Process</h2>
+                        <div class="space-y-12">
+                            {
+                                process.map((p) => (
+                                    <div class="space-y-2">
+                                        <p class="font-semibold text-2xl">{p.title}</p>
+                                        <p class="text-base text-stone-700">{p.description}</p>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
                         {
-                            process.map((p) => (
-                                <div class="space-y-2">
-                                    <p class="font-semibold text-2xl">{p.title}</p>
-                                    <p class="text-base text-stone-700">{p.description}</p>
-                                </div>
+                            allMakes.map((v) => (
+                                <a href={`/vehicles/${v.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow group">
+                                    <div class="w-full h-full relative col-span-2">
+                                        <Picture src={v.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
+                                    </div>
+
+                                    <div class="flex flex-col justify-center p-8 gap-y-3 col-span-3">
+                                        <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
+                                        <div class="leading-6 text-stone-500">{v.data.descriptionShort}</div>
+                                        <div class="space-y-1">
+                                            Models
+                                            <ul class="comma-list line-clamp-1 text-sm text-stone-500 font-normal">
+                                                {allModels.map((i) => {
+                                                    if (i.data.make.toLowerCase().includes(v.slug)) {
+                                                        return <li>{i.data.title}</li>;
+                                                    }
+                                                })}
+                                            </ul>
+                                        </div>
+                                        <p class="font-medium text-blue-500 group-hover:underline">See More &gt;</p>
+                                    </div>
+                                </a>
                             ))
                         }
+                        <a href="/contact" class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow group">
+                            <div class="w-full h-full relative col-span-2">
+                                <Picture src={vehicleFill.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
+                            </div>
+
+                            <div class="flex flex-col justify-center p-8 gap-y-3 col-span-3">
+                                <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
+                                <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
+                                <p class="font-medium text-blue-500 group-hover:underline">Contact Us &gt;</p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-8">
-                    {
-                        allMakes.map((v) => (
-                            <Feature href={`/vehicles/${v.slug}`} classes="aspect-square pt-80 sm:pt-48 lg:pt-80">
-                                <Picture src={v.data.featured} class="absolute inset-0 -z-10 h-full w-full object-cover" sizes="500px" slot="picture" />
-
-                                <div class="flex flex-wrap items-center gap-y-3 text-gray-300">
-                                    <h3 class="text-2xl font-semibold leading-6 text-white">{v.data.title}</h3>
-                                    <div class="leading-6 text-stone-300 line-clamp-2">{v.data.descriptionShort}</div>
-                                </div>
-                            </Feature>
-                        ))
-                    }
-                    <Feature href="/contact" classes="aspect-square pt-80 sm:pt-48 lg:pt-80">
-                        <Picture src={vehicleFill.featured} class="absolute inset-0 -z-10 h-full w-full object-cover" sizes="500px" slot="picture" />
-
-                        <div class="flex flex-wrap items-center gap-y-3 text-gray-300">
-                            <h3 class="text-2xl font-semibold leading-6 text-white">{vehicleFill.title}</h3>
-                            <div class="leading-6 text-stone-300 line-clamp-2">{vehicleFill.descriptionShort}</div>
-                        </div>
-                    </Feature>
-                </div>
-            </FlexColumn>
-
-            <div class="bg-white p-8 pt-32">
-                <div class="space-y-12">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-stone-900">Recent THOR Builds</h3>
-                        <Link href="/builds" arrow={true}>See All Builds</Link>
-                    </div>
-
-                    <div class="col-span-3 grid grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, 8)}</div>
-                </div>
-            </div>
-        </Container>
-    </Section>
+                </FlexColumn>
+            </Container>
+        </Section>
+    </Background>
 </Layout>

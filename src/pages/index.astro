@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 // components
 import { Icon } from "astro-icon";
+import Background from "../components/content/Background.astro";
 import Button from "../components/buttons/Button.astro";
 import Container from "../components/Container.astro";
 import Gallery from "../components/images/Gallery.astro";
@@ -69,7 +70,7 @@ const headers = [
         </div>
     </div>
 
-    <div class="bg-stone-200">
+    <Background>
         <!-- brands -->
         <Section>
             <Container classes="relative z-10">
@@ -151,7 +152,7 @@ const headers = [
                 </div>
             </Container>
         </Section>
-    </div>
+    </Background>
 </Layout>
 
 <style>

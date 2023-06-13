@@ -2,6 +2,7 @@
 // components
 import { Icon } from "astro-icon";
 import Container from "./Container.astro";
+import Cta from "./Cta.astro";
 import Picture from "./images/Picture.astro";
 import Section from "./Section.astro";
 
@@ -42,105 +43,103 @@ const recent = [
 ];
 ---
 
-<div class="bg-gray-800">
-    <footer>
-        <Section>
-            <Container>
-                <h2 class="sr-only">Footer</h2>
+<Section classes="bg-gray-800">
+    <Cta />
 
-                <div class="flex lg:flex-row flex-col lg:justify-between gap-24 mb-24">
-                    <div class="space-y-12 max-w-lg">
-                        <Picture src="website/logos/logo-white.png" alt={Business.nameLong} class="h-14 w-auto" />
+    <Container>
+        <footer>
+            <div class="flex lg:flex-row flex-col lg:justify-between gap-24 mb-24">
+                <div class="space-y-12 max-w-lg">
+                    <Picture src="website/logos/logo-white.png" alt={Business.nameLong} class="h-14 w-auto" />
 
-                        <p class="text-md leading-7 text-stone-300">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
+                    <p class="text-md leading-7 text-stone-300">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
 
-                        <!-- contact -->
-                        <div class="space-y-4 text-stone-300">
-                            <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Phone" class="w-4 h-auto" />
-                                <div class="text-base">{Business.phone}</div>
-                            </div>
-                            <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Envelope" class="w-4 h-auto" />
-                                <div class="text-base">{Business.email}</div>
-                            </div>
-                            <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Map" class="w-4 h-auto" />
-                                <div class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</div>
-                            </div>
+                    <!-- contact -->
+                    <div class="space-y-4 text-stone-300">
+                        <div class="flex gap-x-4 items-start">
+                            <Icon name="hero/Phone" class="w-4 h-auto" />
+                            <div class="text-base">{Business.phone}</div>
                         </div>
-
-                        <!-- social -->
-                        <div class="flex space-x-6">
-                            {
-                                Social.map((s) => (
-                                    <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
-                                        <Icon name={s.icon} class="w-4 text-white" />
-                                    </a>
-                                ))
-                            }
+                        <div class="flex gap-x-4 items-start">
+                            <Icon name="hero/Envelope" class="w-4 h-auto" />
+                            <div class="text-base">{Business.email}</div>
+                        </div>
+                        <div class="flex gap-x-4 items-start">
+                            <Icon name="hero/Map" class="w-4 h-auto" />
+                            <div class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</div>
                         </div>
                     </div>
 
-                    <!-- navigation -->
-                    <div class="min-w-fit">
-                        <div class="grid grid-cols-3 gap-12">
-                            <div class="space-y-6">
-                                <h6 class="text-white">Vehicles</h6>
-                                <hr class="w-1/2 border-gray-600" />
-                                <ul role="list" class="space-y-2">
-                                    {
-                                        allMakes.map((m) => (
-                                            <li>
-                                                <a href={`/vehicles/${m.slug}`} title={m.data.title} class="text-sm leading-6 text-stone-200">
-                                                    {m.data.title}
-                                                </a>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
-                            </div>
-
-                            <div class="space-y-6">
-                                <h6 class="text-white">Parts</h6>
-                                <hr class="w-1/2 border-gray-600" />
-                                <ul role="list" class="space-y-2">
-                                    {
-                                        allParts.map((p) => (
-                                            <li>
-                                                <a href={`/parts/${p.slug}`} title={p.data.title} class="text-sm leading-6 text-stone-200">
-                                                    {p.data.title}
-                                                </a>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
-                            </div>
-
-                            <div class="space-y-6">
-                                <h6 class="text-white">Other</h6>
-                                <hr class="w-1/2 border-gray-600" />
-                                <ul role="list" class="space-y-2">
-                                    <li>
-                                        <a href="#" class="text-sm leading-6 text-stone-200">Sitemap</a>
-                                    </li>
-                                    <li>
-                                        <a href="/privacy-policy" class="text-sm leading-6 text-stone-200">Privacy Policy</a>
-                                    </li>
-                                    <li>
-                                        <a href="/terms-of-use" class="text-sm leading-6 text-stone-200">Terms of Use</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <!-- social -->
+                    <div class="flex space-x-6">
+                        {
+                            Social.map((s) => (
+                                <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
+                                    <Icon name={s.icon} class="w-4 text-white" />
+                                </a>
+                            ))
+                        }
                     </div>
                 </div>
 
-                <div class="grid gap-y-2 md:grid-cols-2 md:justify-between">
-                    <p class="text-sm leading-5 text-gray-300">&copy; {Business.nameLong}. All rights reserved.</p>
-                    <p class="text-sm leading-5 text-gray-300 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</p>
+                <!-- navigation -->
+                <div class="min-w-fit">
+                    <div class="grid grid-cols-3 gap-12">
+                        <div class="space-y-6">
+                            <h6 class="text-white">Vehicles</h6>
+                            <hr class="w-1/2 border-gray-600" />
+                            <ul role="list" class="space-y-2">
+                                {
+                                    allMakes.map((m) => (
+                                        <li>
+                                            <a href={`/vehicles/${m.slug}`} title={m.data.title} class="text-sm leading-6 text-stone-200">
+                                                {m.data.title}
+                                            </a>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6">
+                            <h6 class="text-white">Parts</h6>
+                            <hr class="w-1/2 border-gray-600" />
+                            <ul role="list" class="space-y-2">
+                                {
+                                    allParts.map((p) => (
+                                        <li>
+                                            <a href={`/parts/${p.slug}`} title={p.data.title} class="text-sm leading-6 text-stone-200">
+                                                {p.data.title}
+                                            </a>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6">
+                            <h6 class="text-white">Other</h6>
+                            <hr class="w-1/2 border-gray-600" />
+                            <ul role="list" class="space-y-2">
+                                <li>
+                                    <a href="#" class="text-sm leading-6 text-stone-200">Sitemap</a>
+                                </li>
+                                <li>
+                                    <a href="/privacy-policy" class="text-sm leading-6 text-stone-200">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="/terms-of-use" class="text-sm leading-6 text-stone-200">Terms of Use</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </Container>
-        </Section>
-    </footer>
-</div>
+            </div>
+
+            <div class="grid gap-y-2 md:grid-cols-2 md:justify-between">
+                <p class="text-sm leading-5 text-gray-300">&copy; {Business.nameLong}. All rights reserved.</p>
+                <p class="text-sm leading-5 text-gray-300 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</p>
+            </div>
+        </footer>
+    </Container>
+</Section>

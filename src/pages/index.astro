@@ -69,29 +69,29 @@ const headers = [
         </div>
     </div>
 
-    <!-- brands -->
-    <Section classes="bg-stone-100">
-        <Container classes="relative z-10">
-            <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-                <div class="mx-auto max-w-xl lg:mx-0 space-y-8">
-                    <h1>{Business.nameLong} partners with the best.</h1>
-                    <p class="text-xl leading-8 text-stone-600">We've built partnerships with the best brands, nobody carries more Carli parts or knows the performance suspension options for your vehicle better than {Business.nameLong}.</p>
+    <div class="bg-stone-200">
+        <!-- brands -->
+        <Section>
+            <Container classes="relative z-10">
+                <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+                    <div class="mx-auto max-w-xl lg:mx-0 space-y-8">
+                        <h1>{Business.nameLong} partners with the best.</h1>
+                        <p class="text-xl leading-8 text-stone-600">We've built partnerships with the best brands, nobody carries more Carli parts or knows the performance suspension options for your vehicle better than {Business.nameLong}.</p>
 
-                    <div class="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start items-center gap-x-6">
-                        <Button icon="hero/WrenchScrewdriverFill" theme="secondary" href="/contact">Build Your Dream Truck</Button>
-                        <Button icon="hero/ArrowRightCircleFill" theme="tertiary" href="/builds">See Our Builds</Button>
+                        <div class="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start items-center gap-x-6">
+                            <Button icon="hero/WrenchScrewdriverFill" theme="secondary" href="/contact">Build Your Dream Truck</Button>
+                            <Button icon="hero/ArrowRightCircleFill" theme="tertiary" href="/builds">See Our Builds</Button>
+                        </div>
+                    </div>
+
+                    <!-- brand logos -->
+                    <div class="mx-auto grid max-w-xl items-center grid-cols-3 gap-6 md:gap-12 lg:mx-0 lg:max-w-none">
+                        {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-12 w-1/2 object-contain text-stone-800 place-self-center" />).slice(0, 15)}
                     </div>
                 </div>
+            </Container>
+        </Section>
 
-                <!-- brand logos -->
-                <div class="mx-auto grid max-w-xl items-center grid-cols-3 gap-6 md:gap-12 lg:mx-0 lg:max-w-none">
-                    {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-12 w-1/2 object-contain text-stone-800 place-self-center" />).slice(0, 15)}
-                </div>
-            </div>
-        </Container>
-    </Section>
-
-    <div class="bg-stone-200">
         <Section>
             <Container>
                 <div class="grid grid-cols-1 items-start gap-16 md:grid-cols-2">

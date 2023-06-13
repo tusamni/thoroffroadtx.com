@@ -1,0 +1,17 @@
+---
+// props
+interface Props {
+    float?: boolean;
+}
+const { float = false, ...attrs } = Astro.props;
+---
+
+<div class="flex" {...attrs}>
+    <div class:list={["w-1/3 flex-none h-full space-y-12 bg-white p-8 rounded-l", float && "sticky top-44"]}>
+        <slot name="left" />
+    </div>
+
+    <div class:list={["space-y-32 bg-white px-8 py-12 rounded-r", !float && `rounded-bl`]}>
+        <slot />
+    </div>
+</div>

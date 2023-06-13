@@ -3,7 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 
 // components
 import { Icon } from "astro-icon";
-import Background from "../../components/content/Background.astro";
 import Container from "../../components/Container.astro";
 import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
@@ -27,94 +26,92 @@ const { build } = Astro.props;
 ---
 
 <Layout>
-    <Background theme="secondary">
-        <Section classes="relative z-10">
-            <Container>
-                <div class="grid grid-cols-1 gap-12 lg:grid-cols-6">
-                    <!-- metadata -->
-                    <div class="lg:col-span-3 xl:col-span-2">
-                        <div class="space-y-12">
-                            <h1>{`${build.data.year} ${build.data.make} ${build.data.model}`}</h1>
-                            <div class="space-y-4">
-                                {
-                                    build.data.trim || build.data.drive || build.data.color ? (
-                                        <div class="text-stone-300 flex flex-row gap-4">
-                                            {build.data.trim && <Pill>{build.data.trim}</Pill>}
-                                            {build.data.drive && <Pill>{build.data.drive}</Pill>}
-                                            {build.data.color && <Pill>{build.data.color}</Pill>}
-                                        </div>
-                                    ) : (
-                                        ``
-                                    )
-                                }
-                            </div>
-
+    <Section classes="relative z-10">
+        <Container>
+            <div class="grid grid-cols-1 gap-12 lg:grid-cols-6">
+                <!-- metadata -->
+                <div class="lg:col-span-3 xl:col-span-2">
+                    <div class="space-y-12">
+                        <h1>{`${build.data.year} ${build.data.make} ${build.data.model}`}</h1>
+                        <div class="space-y-4">
                             {
-                                build.data.goals && (
-                                    <>
-                                        <h2 class="h3">Goals</h2>
-                                        <div class="mt-4 text-lg leading-8 tracking-tight text-stone-700 space-y-4" set:html={build.data.goals} />
-                                    </>
-                                )
-                            }
-
-                            {
-                                build.data.parts && (
-                                    <>
-                                        <h2 class="h3">Parts List</h2>
-                                        <ul role="list" class="text-sm leading-7 text-stone-700 list-inside list-none">
-                                            {build.data.parts.map((p) => (
-                                                <li>{p}</li>
-                                            ))}
-                                        </ul>
-                                    </>
+                                build.data.trim || build.data.drive || build.data.color ? (
+                                    <div class="text-stone-300 flex flex-row gap-4">
+                                        {build.data.trim && <Pill>{build.data.trim}</Pill>}
+                                        {build.data.drive && <Pill>{build.data.drive}</Pill>}
+                                        {build.data.color && <Pill>{build.data.color}</Pill>}
+                                    </div>
+                                ) : (
+                                    ``
                                 )
                             }
                         </div>
+
+                        {
+                            build.data.goals && (
+                                <>
+                                    <h2 class="h3">Goals</h2>
+                                    <div class="mt-4 text-lg leading-8 tracking-tight text-stone-700 space-y-4" set:html={build.data.goals} />
+                                </>
+                            )
+                        }
+
+                        {
+                            build.data.parts && (
+                                <>
+                                    <h2 class="h3">Parts List</h2>
+                                    <ul role="list" class="text-sm leading-7 text-stone-700 list-inside list-none">
+                                        {build.data.parts.map((p) => (
+                                            <li>{p}</li>
+                                        ))}
+                                    </ul>
+                                </>
+                            )
+                        }
                     </div>
+                </div>
 
-                    <!-- content  -->
-                    <div class="lg:col-span-3 xl:col-span-4">
-                        <div class={build.data.testimonial ? `space-y-24` : `space-y-6`}>
-                            <div class="grid grid-cols-3 gap-8 w-full h-full">
-                                <div class="col-span-3">
-                                    <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} alt={build.data.summary} class="object-cover w-full h-full rounded shadow-2xl" />
-                                </div>
+                <!-- content  -->
+                <div class="lg:col-span-3 xl:col-span-4">
+                    <div class={build.data.testimonial ? `space-y-24` : `space-y-6`}>
+                        <div class="grid grid-cols-3 gap-8 w-full h-full">
+                            <div class="col-span-3">
+                                <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} alt={build.data.summary} class="object-cover w-full h-full rounded shadow-2xl" />
                             </div>
+                        </div>
 
-                            {
-                                build.data.testimonial && (
-                                    <div class="space-y-8">
-                                        <blockquote class="col-span-3 italic text-3xl leading-relaxed text-white">"{build.data.testimonial}"</blockquote>
+                        {
+                            build.data.testimonial && (
+                                <div class="space-y-8">
+                                    <blockquote class="col-span-3 italic text-3xl leading-relaxed text-white">"{build.data.testimonial}"</blockquote>
 
-                                        <div class="flex justify-between items-center">
-                                            <div class="flex items-center">
-                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                                <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                            </div>
-                                            <p class="text-white font-semibold text-2xl">{build.data.owner}</p>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center">
+                                            <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
+                                            <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
+                                            <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
+                                            <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
+                                            <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
                                         </div>
+                                        <p class="text-white font-semibold text-2xl">{build.data.owner}</p>
                                     </div>
+                                </div>
+                            )
+                        }
+
+                        <div class="columns-1 md:columns-2 gap-6 space-y-6">
+                            {build.data.totalImages.slice(1).map((i) => <Picture src={getBuildImage(build.data.id, i)} alt={build.data.summary} class="object-cover rounded shadow-2xl" />)}
+                            {
+                                build.data.video && (
+                                    <video controls class="rounded shadow-2xl">
+                                        <source src={getMedia(`/images/builds/${build.data.id}/${build.data.video}.mp4`)} type="video/mp4" />
+                                    </video>
                                 )
                             }
-
-                            <div class="columns-1 md:columns-2 gap-6 space-y-6">
-                                {build.data.totalImages.slice(1).map((i) => <Picture src={getBuildImage(build.data.id, i)} alt={build.data.summary} class="object-cover rounded shadow-2xl" />)}
-                                {
-                                    build.data.video && (
-                                        <video controls class="rounded shadow-2xl">
-                                            <source src={getMedia(`/images/builds/${build.data.id}/${build.data.video}.mp4`)} type="video/mp4" />
-                                        </video>
-                                    )
-                                }
-                            </div>
                         </div>
                     </div>
                 </div>
-            </Container>
-        </Section>
-    </Background>
+            </div>
+        </Container>
+    </Section>
 </Layout>

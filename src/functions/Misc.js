@@ -1,5 +1,5 @@
-export function closestNumber(input, limit) {
-    const rounded = Math.floor(input / 3) * 3;
+export function closestNumber(input, divide, limit) {
+    const rounded = Math.floor(input / divide) * divide;
 
     if (rounded > limit) {
         return limit;

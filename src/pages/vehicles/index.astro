@@ -72,14 +72,16 @@ const vehicleFill = {
                         {
                             allMakes.map((v) => (
                                 <a href={`/vehicles/${v.slug}`} class="bg-white rounded shadow group flex flex-col">
-                                    <div class="w-full bg-blue-100 flex justify-center items-center py-8 rounded-t">
-                                        <Icon name={`makes/${v.data.title}`} class="h-8 text-blue-500" />
+                                    <div class="w-full bg-blue-100 flex items-center p-8 rounded-t">
+                                        <Icon name={`makes/${v.data.title}`} class="h-6 text-blue-500" />
                                     </div>
+
+                                    <Picture src={v.data.featured} class="h-52 object-cover" sizes="350px" />
 
                                     <div class="space-y-6 p-6">
                                         <div class="leading-6 text-stone-500">{v.data.descriptionShort}</div>
                                         <div class="space-y-1">
-                                            Models
+                                            <span class="font-medium">Models</span>
                                             <ul class="comma-list line-clamp-1 text-sm text-stone-500 font-normal">
                                                 {allModels.map((i) => {
                                                     if (i.data.make.toLowerCase().includes(v.slug)) {

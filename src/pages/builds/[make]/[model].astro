@@ -2,10 +2,13 @@
 import Layout from "../../../layouts/Layout.astro";
 
 // components
+import Background from "../../../components/content/Background.astro";
 import BuildSnippet from "../../../components/builds/BuildSnippet.astro";
 import Container from "../../../components/Container.astro";
 import Filter from "../../../components/builds/BuildFilter.astro";
+import FlexColumn from "../../../components/content/FlexColumn.astro";
 import HeadingBase from "../../../components/content/headings/HeadingBase.astro";
+import ImageOverlay from "../../../components/content/headings/ImageOverlay.astro";
 import ListingGrid from "../../../components/builds/BuildListing.astro";
 import Picture from "../../../components/images/Picture.astro";
 import Section from "../../../components/Section.astro";
@@ -34,65 +37,55 @@ const allParts = await getCollection("parts");
 ---
 
 <Layout>
-    <div class="relative">
-        <Picture src={model.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-black/80 to-black/50"></div>
+    <ImageOverlay>
+        <Picture slot="image" src={model.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
+        <HeadingBase heading={`${model.data.make} ${model.data.title} Builds`} description={model.data.descriptionShort} />
+    </ImageOverlay>
 
+    <Background>
         <Section>
-            <div class="relative">
-                <HeadingBase heading={`${model.data.make} ${model.data.title} Builds`} />
-            </div>
-        </Section>
-    </div>
-
-    <Section classes="bg-stone-300">
-        <Container>
-            <div class="grid grid-cols-1 gap-12 xl:grid-cols-4">
-                <!-- filters -->
-                <div class="space-y-6 col-span-3 xl:col-span-1 order-2 xl:order-1">
-                    <div class="sticky top-48">
-                        <div class="space-y-8">
-                            <div class="space-y-4">
-                                <h6 class="text-stone-800">Filter by Parts</h6>
-                                <div class="grid grid-cols-2 gap-3">
-                                    {allParts.map((p) => <Filter href={`/builds/${p.slug}`}>{p.data.title}</Filter>)}
-                                </div>
+            <Container>
+                <FlexColumn float={true}>
+                    <div slot="left" class="space-y-12">
+                        <div class="space-y-4">
+                            <h6 class="text-stone-800">Filter by Parts</h6>
+                            <div class="grid grid-cols-2 gap-3">
+                                {allParts.map((p) => <Filter href={`/builds/${p.slug}`}>{p.data.title}</Filter>)}
                             </div>
+                        </div>
 
-                            <div class="space-y-4">
-                                <h6 class="text-stone-800">Filter by Vehicle</h6>
-                                <div class="grid grid-cols-3 xl:grid-cols-2 gap-3">
-                                    {
-                                        allMakes.map((m) => (
-                                            <Filter href={`/builds/${m.slug}`} current={m.slug.includes(model.data.make.toLowerCase()) ? true : false}>
-                                                {m.data.title}
-                                            </Filter>
-                                        ))
-                                    }
-                                </div>
+                        <div class="space-y-4">
+                            <h6 class="text-stone-800">Filter by Vehicle</h6>
+                            <div class="grid grid-cols-3 xl:grid-cols-2 gap-3">
+                                {
+                                    allMakes.map((m) => (
+                                        <Filter href={`/builds/${m.slug}`} current={m.slug.includes(model.data.make.toLowerCase()) ? true : false}>
+                                            {m.data.title}
+                                        </Filter>
+                                    ))
+                                }
                             </div>
+                        </div>
 
-                            <div class="space-y-4">
-                                <h6 class="text-stone-800">Filter by Model</h6>
-                                <div class="grid grid-cols-3 xl:grid-cols-2 gap-3">
-                                    {
-                                        allModels.map((m) => (
-                                            <Filter href={`${m.slug}`} current={m.slug.includes(model.slug) ? true : false}>
-                                                {m.data.title}
-                                            </Filter>
-                                        ))
-                                    }
-                                </div>
+                        <div class="space-y-4">
+                            <h6 class="text-stone-800">Filter by Model</h6>
+                            <div class="grid grid-cols-3 xl:grid-cols-2 gap-3">
+                                {
+                                    allModels.map((m) => (
+                                        <Filter href={`${m.slug}`} current={m.slug.includes(model.slug) ? true : false}>
+                                            {m.data.title}
+                                        </Filter>
+                                    ))
+                                }
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- build listings -->
-                <ListingGrid>
-                    {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" />)}
-                </ListingGrid>
-            </div>
-        </Container>
-    </Section>
+                    <ListingGrid>
+                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" />)}
+                    </ListingGrid>
+                </FlexColumn>
+            </Container>
+        </Section>
+    </Background>
 </Layout>

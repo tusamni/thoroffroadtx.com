@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
@@ -67,16 +68,15 @@ const vehicleFill = {
                         </div>
                     </div>
 
-                    <div class="space-y-8">
+                    <div class="grid grid-cols-2 gap-8">
                         {
                             allMakes.map((v) => (
-                                <a href={`/vehicles/${v.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow group">
-                                    <div class="w-full h-full relative col-span-2">
-                                        <Picture src={v.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
+                                <a href={`/vehicles/${v.slug}`} class="bg-white rounded shadow group flex flex-col">
+                                    <div class="w-full bg-blue-100 flex justify-center items-center py-8 rounded-t">
+                                        <Icon name={`makes/${v.data.title}`} class="h-8 text-blue-500" />
                                     </div>
 
-                                    <div class="flex flex-col justify-center p-8 gap-y-3 col-span-3">
-                                        <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
+                                    <div class="space-y-6 p-6">
                                         <div class="leading-6 text-stone-500">{v.data.descriptionShort}</div>
                                         <div class="space-y-1">
                                             Models
@@ -93,12 +93,8 @@ const vehicleFill = {
                                 </a>
                             ))
                         }
-                        <a href="/contact" class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow group">
-                            <div class="w-full h-full relative col-span-2">
-                                <Picture src={vehicleFill.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
-                            </div>
-
-                            <div class="flex flex-col justify-center p-8 gap-y-3 col-span-3">
+                        <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center">
+                            <div class="space-y-4">
                                 <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
                                 <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
                                 <p class="font-medium text-blue-500 group-hover:underline">Contact Us &gt;</p>

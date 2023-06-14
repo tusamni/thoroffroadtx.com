@@ -2,12 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
-import Feature from "../../components/content/Feature.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
-import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import ImageOverlay from "../../components/content/headings/ImageOverlay.astro";
 import Link from "../../components/buttons/Link.astro";
 import Picture from "../../components/images/Picture.astro";
@@ -35,14 +34,17 @@ const allBuilds = (
 
 // functions
 import { closestNumber } from "../../functions/Misc";
-const buildCount = closestNumber(allBuilds.length, 9);
-console.log(buildCount);
+const buildCount = closestNumber(allBuilds.length, 8);
 ---
 
 <Layout>
     <ImageOverlay>
         <Picture slot="image" src={make.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <HeadingBase heading={make.data.title} description={make.data.descriptionLong} />
+        <Container>
+            <div class="flex justify-center items-center">
+                <Icon name={`makes/${make.data.title}`} class="h-16 text-white" />
+            </div>
+        </Container>
     </ImageOverlay>
 
     <Background>
@@ -50,27 +52,44 @@ console.log(buildCount);
             <Container>
                 <FlexColumn>
                     <div slot="left" class="space-y-12">
-                        <h2>We Know {make.data.title}</h2>
-                        <div class="space-y-6 text-stone-700" set:html={make.data.descriptionPush} />
+                        <h2>
+                            We're <span class="italic">the</span>
+                            {make.data.title} Experts
+                        </h2>
+                        <div class="leading-8 tracking-tight text-stone-700 space-y-6">
+                            <p set:html={make.data.descriptionLong} />
+                            <p set:html={make.data.descriptionPush} />
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-8">
+                    <div class="space-y-8">
                         {
                             allModels.map((m) => (
-                                <Feature href={`/builds/${m.data.make.toLowerCase()}/${m.slug}`} classes="aspect-square">
-                                    <Picture src={m.data.featured} class="absolute inset-0 -z-10 h-full w-full object-cover" sizes="500px" slot="picture" />
-
-                                    <div class="flex flex-wrap items-center gap-y-3 text-gray-300">
-                                        <h3 class="text-2xl font-semibold leading-6 text-white">{m.data.title}</h3>
-                                        <div set:html={m.data.descriptionShort} />
+                                <div class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow">
+                                    <div class="w-full h-full relative col-span-2">
+                                        <Picture src={m.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
                                     </div>
-                                </Feature>
+
+                                    <div class="flex flex-col justify-center p-8 gap-y-3 col-span-3">
+                                        <h3 class="text-2xl font-semibold leading-6">{m.data.title}</h3>
+                                        <div class="leading-6 text-stone-500 space-y-4" set:html={m.data.descriptionLong} />
+                                        <div class="flex justify-between">
+                                            <a href="/contact" class="font-medium text-blue-500 hover:underline">
+                                                Customize Your {m.data.title} &gt;
+                                            </a>
+
+                                            <a href={`/builds/${m.data.make.toLowerCase()}/${m.slug}`} class="hover:underline">
+                                                See Builds
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             ))
                         }
                     </div>
                 </FlexColumn>
 
-                <div class="bg-white p-8 pt-32">
+                <div class="bg-white p-8 rounded shadow mt-8">
                     {
                         allBuilds.length >= 3 && (
                             <div class="space-y-12">
@@ -81,7 +100,7 @@ console.log(buildCount);
                                     </Link>
                                 </div>
 
-                                <div class="col-span-3 grid grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, buildCount)}</div>
+                                <div class="col-span-3 grid grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, buildCount)}</div>
                             </div>
                         )
                     }

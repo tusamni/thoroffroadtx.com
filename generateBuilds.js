@@ -42,7 +42,6 @@ async function buildImages() {
                 if (err) {
                     console.error(err);
                 } else {
-                    //console.log(`Created new image: ${localMdx}`);
                 }
             });
         });

@@ -12,9 +12,7 @@ export default defineConfig({
     site: "https://thoroffroadtx.com",
     integrations: [
         tailwind({
-            config: {
-                applyBaseStyles: false,
-            },
+            applyBaseStyles: false,
         }),
         alpinejs(),
         mdx(),

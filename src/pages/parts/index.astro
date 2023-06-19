@@ -70,7 +70,7 @@ const partsFill = {
                     <div class="space-y-8">
                         {
                             allParts.map((p) => (
-                                <a href={`/parts/${p.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow group">
+                                <a href={`/parts/${p.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow-2xl group">
                                     <div class="w-full h-full relative col-span-2">
                                         <Picture src={p.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
                                     </div>
@@ -93,12 +93,8 @@ const partsFill = {
                                 </a>
                             ))
                         }
-                        <a href="/contact" class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow group">
-                            <div class="w-full h-full relative col-span-2">
-                                <Picture src={partsFill.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
-                            </div>
-
-                            <div class="flex flex-col justify-center p-8 gap-y-3 col-span-3">
+                        <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center">
+                            <div class="space-y-4">
                                 <h3 class="text-2xl font-semibold leading-6">{partsFill.title}</h3>
                                 <div class="leading-6 text-stone-500">{partsFill.descriptionShort}</div>
                                 <p class="font-medium text-blue-500 group-hover:underline">Contact Us &gt;</p>

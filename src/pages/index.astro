@@ -70,8 +70,7 @@ const headers = [
         </div>
     </div>
 
-    <Background>
-        <!-- brands -->
+    <div class="bg-stone-100">
         <Section>
             <Container classes="relative z-10">
                 <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
@@ -91,17 +90,19 @@ const headers = [
                     </div>
                 </div>
             </Container>
-        </Section>
 
-        <Section>
             <Container>
-                <div class="grid grid-cols-1 items-start gap-16 md:grid-cols-2">
+                <hr class="h-px my-8 bg-stone-200 border-" />
+            </Container>
+
+            <Container>
+                <div class="grid grid-cols-1 items-start md:grid-cols-2 gap-16">
                     <div class="hidden md:block md:relative h-full w-full">
-                        <Picture src="team/jamey/jamey.jpg" alt="Jamey Whitlock of THOR Off-Road" class="md:absolute h-full w-full object-cover md:object-[60%,10%] lg:object-[50%,30%] shadow-2xl rounded" />
+                        <Picture src="team/jamey/jamey.jpg" alt="Jamey Whitlock of THOR Off-Road" class="md:absolute h-full w-full object-cover md:object-[60%,10%] lg:object-[50%,30%] shadow rounded" />
                     </div>
 
-                    <div>
-                        <div class="text-base leading-7 text-stone-700 md:py-16 lg:py-32">
+                    <div class="py-32">
+                        <div class="text-base leading-7 text-stone-700">
                             <h2 class="lg:max-w-lg">The {Business.nameLong} Difference.</h2>
                             <div class="text-lg leading-8 text-stone-700">
                                 <p class="mt-8 text-lg sm:text-xl leading-8 sm:leading-9">{Business.nameShort} is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams. Come experience your own purpose-built vehicle.</p>
@@ -124,7 +125,9 @@ const headers = [
                 </div>
             </Container>
         </Section>
+    </div>
 
+    <Background color="bg-stone-200" opacity={0.6}>
         <Section>
             <Container>
                 <div class="mx-auto max-w-xl text-center space-y-6">
@@ -147,19 +150,19 @@ const headers = [
                     <Button theme="tertiary" icon="hero/ArrowRightCircleFill" href="/builds" classes="order-3 sm:order-2 col-span-4 sm:col-span-2 justify-self-center sm:justify-self-end">See Our Builds</Button>
 
                     <Gallery classes="col-span-4 columns-1 sm:columns-2 md:columns-3 gap-8 space-y-8 order-2 sm:order-3">
-                        {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded shadow-2xl" sizes="600px" alt={b.data.summary} />).slice(0, 15)}
+                        {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded shadow" sizes="600px" alt={b.data.summary} />).slice(0, 15)}
                     </Gallery>
                 </div>
             </Container>
         </Section>
     </Background>
-</Layout>
 
-<style>
-    /* image reflection */
-    .units > :last-child {
-        transform: rotatex(180deg) translate(0px);
-        mask-image: linear-gradient(transparent 80%, white 180%);
-        -webkit-mask-image: linear-gradient(transparent 80%, white 180%);
-    }
-</style>
+    <style>
+        /* image reflection */
+        .units > :last-child {
+            transform: rotatex(180deg) translate(0px);
+            mask-image: linear-gradient(transparent 80%, white 180%);
+            -webkit-mask-image: linear-gradient(transparent 80%, white 180%);
+        }
+    </style>
+</Layout>

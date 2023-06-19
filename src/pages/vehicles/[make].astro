@@ -73,12 +73,12 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
                                     <div class="flex flex-col justify-center p-8 gap-y-3 col-span-3">
                                         <h3 class="text-2xl font-semibold leading-6">{m.data.title}</h3>
                                         <div class="leading-6 text-stone-500 space-y-4" set:html={m.data.descriptionLong} />
-                                        <div class="flex justify-between">
-                                            <a href="/contact" class="font-medium text-blue-500 hover:underline">
+                                        <div class="flex justify-between items-center mt-2">
+                                            <a href="/contact" class="font-medium bg-blue-500 text-white rounded px-3 py-2 group-hover:bg-blue-400 transition duration-300 w-fit button button-secondary">
                                                 Customize Your {m.data.title} &gt;
                                             </a>
 
-                                            <a href={`/builds/${m.data.make.toLowerCase()}/${m.slug}`} class="hover:underline">
+                                            <a href={`/builds/${m.data.make.toLowerCase()}/${m.slug}`} class="hover:underline font-medium">
                                                 See Builds
                                             </a>
                                         </div>

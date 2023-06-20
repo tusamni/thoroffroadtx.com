@@ -3,8 +3,9 @@
 interface Props {
     build: any;
     sizes?: string;
+    classes?: string;
 }
-const { build, sizes = "100vw" } = Astro.props;
+const { build, sizes = "100vw", classes } = Astro.props;
 
 // components
 import Picture from "../images/Picture.astro";
@@ -16,12 +17,12 @@ import { Business } from "../../config";
 import { getBuildImage } from "../../functions/Image";
 ---
 
-<a href={`/builds/${build.slug}`}>
+<a href={`/builds/${build.slug}`} class={classes}>
     <div class="pt-48 relative">
         <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="inset-0 absolute h-full w-full object-cover rounded-t" sizes="500px" slot="picture" />
     </div>
 
-    <div class="flex flex-wrap items-center gap-y-3 text-stone-500 p-6 bg-white rounded-b">
+    <div class="flex flex-wrap items-center gap-y-3 text-stone-500 p-6 rounded-b">
         <h3 class="text-lg font-semibold line-clamp-1">{build.data.year} {build.data.make} {build.data.model}</h3>
         <ul class="text-xs line-clamp-2 comma-list">{build.data.parts.map((p) => <li>{p}</li>)}</ul>
     </div>

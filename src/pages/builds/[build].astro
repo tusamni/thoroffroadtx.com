@@ -7,7 +7,6 @@ import Background from "../../components/content/Background.astro";
 import Container from "../../components/Container.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
 import Picture from "../../components/images/Picture.astro";
-import Pill from "../../components/buttons/Pill.astro";
 import Section from "../../components/Section.astro";
 
 // images
@@ -29,82 +28,79 @@ const { build } = Astro.props;
     <Background>
         <Section classes="relative z-10">
             <Container>
-                <div class="flex gap-8 mb-8">
-                    <div>
-                        <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} alt={build.data.summary} class="object-cover w-full h-full rounded shadow-2xl" />
+                <FlexColumn float={false}>
+                    <div slot="left" class="flex flex-col h-full gap-8">
+                        <div class="bg-white p-8 shadow rounded space-y-12">
+                            <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+                            {
+                                build.data.goals && (
+                                    <div>
+                                        <p class="font-semibold text-2xl">Goals</p>
+                                        <div class="mt-4 text-lg leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
+                                    </div>
+                                )
+                            }
+
+                            {
+                                build.data.parts && (
+                                    <div class="space-y-4">
+                                        <p class="font-semibold text-2xl">Parts List</p>
+                                        <ul class="space-y-1 text-base">
+                                            {build.data.parts.map((p) => (
+                                                <li>{p}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )
+                            }
+
+                            {
+                                build.data.testimonial && (
+                                    <div class="space-y-8">
+                                        <div class="flex justify-between items-center">
+                                            <p class="font-semibold text-2xl">Testimonial</p>
+
+                                            <div class="flex items-center">
+                                                <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                                <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                                <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                                <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                                <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                            </div>
+                                        </div>
+
+                                        <blockquote class="italic text-lg leading-8 text-stone-700">"{build.data.testimonial}"</blockquote>
+                                    </div>
+                                )
+                            }
+
+                            {
+                                build.data.video && (
+                                    <div class="w-fit py-3 px-4 bg-blue-400 flex gap-3 rounded shadow">
+                                        <Icon name="hero/PlayCircleFill" class="text-white h-6" />
+                                        <p class="text-white font-medium ">Watch the Build Video</p>
+                                    </div>
+                                )
+                            }
+                        </div>
+
+                        <div class="bg-white p-8 shadow rounded">Go back to builds</div>
                     </div>
 
-                    <!-- metadata -->
-                    <div class="bg-white rounded shadow p-8 min-h-[500px] min-w-[450px]">
-                        <div class:list={["space-y-12", !build.data.goals && `flex flex-col w-full h-full justify-center items-center`]}>
-                            <h1 class:list={[!build.data.goals && `text-center`]}>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+                    <div class="space-y-8">
+                        <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} alt={build.data.summary} class="object-cover w-full h-full rounded shadow" />
 
-                            <div class="grid grid-cols-3">
-                                {
-                                    build.data.goals && (
-                                        <div>
-                                            <h2 class="h3">Goals</h2>
-                                            <div class="mt-4 text-lg leading-8 tracking-tight text-stone-700 space-y-4" set:html={build.data.goals} />
-                                        </div>
-                                    )
-                                }
-                                {
-                                    build.data.parts && (
-                                        <div class="space-y-12">
-                                            <h2 class="h3">Parts List</h2>
-                                            <ul class="space-y-1 text-sm">
-                                                {build.data.parts.map((p) => (
-                                                    <li>{p}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )
-                                }
-                            </div>
+                        <div class="flex flex-wrap gap-8">
+                            {
+                                build.data.totalImages.slice(1).map((i) => (
+                                    <div class="h-[200px] grow">
+                                        <Picture src={getBuildImage(build.data.id, i)} alt={build.data.summary} class="max-h-full min-w-full object-cover rounded shadow" />
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
-                </div>
-
-                <!-- content  -->
-                <!-- <div class={build.data.testimonial ? `space-y-24` : `space-y-6`}>
-                    {
-                        build.data.testimonial && (
-                            <div class="space-y-8">
-                                <blockquote class="col-span-3 italic text-3xl leading-relaxed text-white">"{build.data.testimonial}"</blockquote>
-
-                                <div class="flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                        <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                        <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                        <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                        <Icon name="hero/StarFill" class="w-7 text-yellow-400" />
-                                    </div>
-                                    <p class="text-white font-semibold text-2xl">{build.data.owner}</p>
-                                </div>
-                            </div>
-                        )
-                    }
-                </div> -->
-
-                <div class="space-y-8">
-                    <div class="flex flex-wrap gap-8">
-                        {
-                            build.data.totalImages.slice(1).map((i) => (
-                                <div class="relative h-[375px] grow">
-                                    <Picture src={getBuildImage(build.data.id, i)} alt={build.data.summary} class="w-full h-full object-cover rounded shadow aspect-square" />
-                                </div>
-                            ))
-                        }
-                        <!-- {
-                        build.data.video && (
-                            <video controls class="rounded shadow-2xl">
-                                <source src={getMedia(`/images/builds/${build.data.id}/${build.data.video}.mp4`)} type="video/mp4" />
-                            </video>
-                        )
-                    } -->
-                    </div>
-                </div>
+                </FlexColumn>
             </Container>
         </Section>
     </Background>

@@ -82,12 +82,10 @@ const allBuilds = (
                                 </div>
                             </div>
                         </FlexColumn>
-                    </Container>
 
-                    <Container>
-                        <div class="bg-white shadow-2xl px-8 py-12 rounded space-y-8">
+                        <div class="bg-white shadow px-8 py-12 rounded space-y-8 mt-8">
                             <h3>{part.data.title} Builds</h3>
-                            <div class="col-span-3 grid grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" />).slice(0, 8)}</div>
+                            <div class="col-span-3 grid grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, 8)}</div>
                         </div>
                     </Container>
                 </Section>

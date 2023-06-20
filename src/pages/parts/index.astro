@@ -70,7 +70,7 @@ const partsFill = {
                     <div class="space-y-8">
                         {
                             allParts.map((p) => (
-                                <a href={`/parts/${p.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow-2xl group">
+                                <a href={`/parts/${p.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow group">
                                     <div class="w-full h-full relative col-span-2">
                                         <Picture src={p.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
                                     </div>

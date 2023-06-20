@@ -7,7 +7,7 @@ const { float = false, ...attrs } = Astro.props;
 ---
 
 <div class="flex gap-8" {...attrs}>
-    <div class:list={["w-1/3 flex-none h-full space-y-12 bg-white p-8 rounded shadow", float && "sticky top-32"]}>
+    <div class:list={["w-1/3 flex-none", float && "sticky top-32"]}>
         <slot name="left" />
     </div>
 

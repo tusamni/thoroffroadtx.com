@@ -82,7 +82,7 @@ const allParts = await getCollection("parts");
                     </div>
 
                     <ListingGrid>
-                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" />)}
+                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" classes="shadow rounded bg-white" />)}
                     </ListingGrid>
                 </FlexColumn>
             </Container>

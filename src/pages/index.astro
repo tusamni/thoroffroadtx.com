@@ -101,7 +101,7 @@ const headers = [
                         <Picture src="team/jamey/jamey.jpg" alt="Jamey Whitlock of THOR Off-Road" class="md:absolute h-full w-full object-cover md:object-[60%,10%] lg:object-[50%,30%] shadow rounded-l" />
                     </div>
 
-                    <div class="py-60 px-12 rounded-r">
+                    <div class="py-8 md:py-60 px-12 rounded-r">
                         <div class="text-base leading-7 text-stone-700">
                             <h2 class="lg:max-w-lg">The {Business.nameLong} Difference.</h2>
                             <div class="text-lg leading-8 text-stone-700">
@@ -127,40 +127,38 @@ const headers = [
         </Section>
 
         <Section>
-            <Container>
+            <Container classes="space-y-16">
                 <div class="mx-auto max-w-xl text-center space-y-6">
                     <Pill theme="secondary">Testimonials</Pill>
                     <h2>We're building our customer's dream vehicles.</h2>
                 </div>
 
-                <div class="mx-auto mt-16 flow-root sm:mt-20">
-                    <div class="sm:columns-2 lg:columns-3 gap-8">
-                        {allTestimonials.map((t) => <Testimonial content={t.data} />).slice(0, 9)}
-                    </div>
+                <div class="sm:columns-2 lg:columns-3 gap-8">
+                    {allTestimonials.map((t) => <Testimonial content={t.data} />).slice(0, 9)}
                 </div>
             </Container>
         </Section>
 
         <Section>
-            <Container>
-                <div class="grid grid-cols-4 space-y-12 sm:space-y-0 sm:items-center sm:gap-16">
-                    <h2 class="max-w-xl sm:max-w-none col-span-4 sm:col-span-2 order-1 text-center sm:text-start">We love showing off our customer's trucks.</h2>
-                    <Button theme="tertiary" icon="hero/ArrowRightCircleFill" href="/builds" classes="order-3 sm:order-2 col-span-4 sm:col-span-2 justify-self-center sm:justify-self-end">See Our Builds</Button>
-
-                    <Gallery classes="col-span-4 columns-1 sm:columns-2 md:columns-3 gap-8 space-y-8 order-2 sm:order-3">
-                        {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded shadow" sizes="600px" alt={b.data.summary} />).slice(0, 15)}
-                    </Gallery>
+            <Container classes="space-y-16">
+                <div class="mx-auto max-w-xl text-center space-y-6">
+                    <Pill theme="secondary">Builds</Pill>
+                    <h2>We love showing off our customer's trucks.</h2>
                 </div>
+
+                <Gallery classes="sm:columns-2 lg:columns-3 gap-8 space-y-8">
+                    {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded shadow" sizes="600px" alt={b.data.summary} />).slice(0, 15)}
+                </Gallery>
             </Container>
         </Section>
     </Background>
-
-    <style>
-        /* image reflection */
-        .units > :last-child {
-            transform: rotatex(180deg) translate(0px);
-            mask-image: linear-gradient(transparent 80%, white 180%);
-            -webkit-mask-image: linear-gradient(transparent 80%, white 180%);
-        }
-    </style>
 </Layout>
+
+<style>
+    /* image reflection */
+    .units > :last-child {
+        transform: rotatex(180deg) translate(0px);
+        mask-image: linear-gradient(transparent 80%, white 180%);
+        -webkit-mask-image: linear-gradient(transparent 80%, white 180%);
+    }
+</style>

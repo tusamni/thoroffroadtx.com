@@ -59,33 +59,34 @@ const allBuilds = (
                                 <div class="space-y-12 p-8">
                                     <h3 class="text-stone-900">{part.data.title} Upgrades</h3>
 
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-gray-600 h-fit gap-y-8 sm:gap-y-16 gap-x-2">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-gray-600 h-fit gap-y-8 sm:gap-y-16 md:gap-x-8">
                                         {part.data.contentParts.map((p, i) => (
                                             <div class="relative">
                                                 <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-500 self-start" />
 
                                                 <div x-data={`{ parts${i} : false }`} x-on:click={`parts${i} = !parts${i}`} class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
                                                     <p class="font-semibold text-stone-900">{p.title}</p>
-                                                    <p x-bind:class={`parts${i} ? 'line-clamp-none' : 'sm:line-clamp-2'`} class="text-sm">
+                                                    <p x-bind:class={`parts${i} ? 'line-clamp-none' : 'md:line-clamp-2'`} class="text-sm">
                                                         {p.description ? `${p.description}` : `Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.`}
                                                     </p>
-                                                    <div class="hidden sm:block w-fit text-sm font-medium text-stone-900" x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
+                                                    <div class="hidden md:block w-fit text-sm font-medium text-stone-900" x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
-                                    <div class="flex flex-wrap flex-row justify-center gap-y-16 gap-x-12 px-12 py-20 bg-blue-100 rounded-b">
-                                        {allBrands.map((b) => (
-                                            <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-6 sm:h-10 text-blue-300" />
-                                        ))}
-                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap flex-row justify-center gap-y-16 gap-x-12 px-12 py-20 bg-blue-100 rounded-b">
+                                    {allBrands.map((b) => (
+                                        <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-6 sm:h-10 text-blue-300" />
+                                    ))}
                                 </div>
                             </div>
                         </FlexColumn>
 
                         <div class="bg-white shadow px-8 py-12 rounded space-y-8 mt-8">
                             <h3>{part.data.title} Builds</h3>
-                            <div class="col-span-3 grid grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, 8)}</div>
+                            <div class="col-span-3 grid grid-cols-2 lg:grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, 8)}</div>
                         </div>
                     </Container>
                 </Section>

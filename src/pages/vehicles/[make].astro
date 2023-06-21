@@ -42,7 +42,7 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
         <Picture slot="image" src={make.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
         <Container>
             <div class="flex justify-center items-center">
-                <Icon name={`makes/${make.data.title}`} class="h-16 text-white" />
+                <Icon name={`makes/${make.data.title}`} class="h-16 text-white w-1/2 max-w-xs" />
             </div>
         </Container>
     </ImageOverlay>
@@ -66,14 +66,14 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
                         {
                             allModels.map((m) => (
                                 <div class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow">
-                                    <a href="/contact" class="w-full h-full relative col-span-2">
+                                    <a href="/contact" class="w-full h-72 sm:h-full relative col-span-5 sm:col-span-2">
                                         <Picture src={m.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
                                     </a>
 
-                                    <div class="flex flex-col justify-center p-8 gap-y-3 col-span-3">
+                                    <div class="flex flex-col justify-center p-8 gap-y-3 col-span-5 sm:col-span-3">
                                         <h3 class="text-2xl font-semibold leading-6">{m.data.title}</h3>
                                         <div class="leading-6 text-stone-500 space-y-4" set:html={m.data.descriptionLong} />
-                                        <div class="flex justify-between items-center mt-2">
+                                        <div class="flex flex-col sm:flex-row justify-between items-center mt-2 gap-y-4">
                                             <a href="/contact" class="font-medium bg-blue-500 text-white rounded px-3 py-2 group-hover:bg-blue-400 transition duration-300 w-fit button button-secondary">
                                                 Customize Your {m.data.title}
                                             </a>
@@ -93,7 +93,7 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
                     allBuilds.length >= 4 && (
                         <div class="bg-white shadow px-8 py-12 rounded space-y-8 mt-8">
                             <h3>{make.data.title} Builds</h3>
-                            <div class="col-span-3 grid grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, buildCount)}</div>
+                            <div class="col-span-3 grid grid-cols-2 lg:grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, buildCount)}</div>
                         </div>
                     )
                 }

@@ -17,6 +17,7 @@ export const Business = {
         zip: "78620",
     },
     hours: "Monday thorugh Friday, 8am to 5pm",
+    mapUrl: "https://g.page/thoroffroadtx",
 };
 
 export const Social = [
@@ -38,6 +39,6 @@ export const Social = [
     {
         title: "Google Maps",
         icon: "hero/Map",
-        url: "https://g.page/thoroffroadtx",
+        url: Business.mapUrl,
     },
 ];

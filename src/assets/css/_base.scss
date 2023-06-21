@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "biggerPicture";
 @import "buttons";
 @import "typography";
 @import "navigation";
@@ -21,3 +22,8 @@ html {
 ::selection {
     background: #ffedd5;
 }
+
+.bp-cap {
+    @apply leading-7 tracking-tight px-6 py-4 text-base text-stone-300 rounded;
+}
+.bp-img img { @apply rounded shadow; }

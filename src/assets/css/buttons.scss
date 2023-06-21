@@ -11,26 +11,13 @@
             @apply bg-stone-50
         }
     }
-    &.button-secondary {
-        @apply rounded;
-        
+    &.button-secondary {        
         .button-icon {
             @apply bg-blue-400 text-blue-50 border-r border-blue-500;
         }
         .button-text { 
             @apply bg-gradient-to-l from-blue-500 to-blue-400 text-blue-50
         }
-    }
-    &.button-tertiary {
-        @apply bg-white rounded;
-        
-            .button-icon {
-                @apply bg-stone-50 border-stone-300;
-            }
-        
-            .button-text {
-                @apply bg-stone-50;
-            }
     }
     
     .button-icon {

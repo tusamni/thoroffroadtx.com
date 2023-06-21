@@ -47,8 +47,8 @@ const allBuilds = (
             <Background>
                 <Section>
                     <Container>
-                        <FlexColumn float={true}>
-                            <div slot="left" class="space-y-12">
+                        <FlexColumn>
+                            <div slot="left" class="space-y-12 bg-white p-8 rounded shadow h-full">
                                 <h2>
                                     We're <span class="italic">the</span> {part.data.title} Experts
                                 </h2>
@@ -59,24 +59,24 @@ const allBuilds = (
                                 <div class="space-y-12 p-8">
                                     <h3 class="text-stone-900">{part.data.title} Upgrades</h3>
 
-                                    <div class="grid grid-cols-3 text-gray-600 h-fit gap-y-16 gap-x-2">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-gray-600 h-fit gap-y-8 sm:gap-y-16 gap-x-2">
                                         {part.data.contentParts.map((p, i) => (
                                             <div class="relative">
                                                 <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 text-amber-500 self-start" />
 
-                                                <div x-data={`{ parts${i} : false }`} x-on:click={`parts${i} = !parts${i}`} class="ml-9 flex flex-col gap-2 cursor-pointer">
+                                                <div x-data={`{ parts${i} : false }`} x-on:click={`parts${i} = !parts${i}`} class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
                                                     <p class="font-semibold text-stone-900">{p.title}</p>
-                                                    <p x-bind:class={`parts${i} ? 'line-clamp-none' : 'line-clamp-2'`} class="text-sm">
+                                                    <p x-bind:class={`parts${i} ? 'line-clamp-none' : 'sm:line-clamp-2'`} class="text-sm">
                                                         {p.description ? `${p.description}` : `Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.`}
                                                     </p>
-                                                    <div class="w-fit text-sm font-medium text-stone-900" x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
+                                                    <div class="hidden sm:block w-fit text-sm font-medium text-stone-900" x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
                                     <div class="flex flex-wrap flex-row justify-center gap-y-16 gap-x-12 px-12 py-20 bg-blue-100 rounded-b">
                                         {allBrands.map((b) => (
-                                            <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-10 text-blue-300" />
+                                            <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-6 sm:h-10 text-blue-300" />
                                         ))}
                                     </div>
                                 </div>

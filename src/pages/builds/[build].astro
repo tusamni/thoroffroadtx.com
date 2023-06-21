@@ -4,8 +4,10 @@ import Layout from "../../layouts/Layout.astro";
 // components
 import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
+import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
+import Gallery from "../../components/images/Gallery.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -36,7 +38,7 @@ const { build } = Astro.props;
                                 build.data.goals && (
                                     <div>
                                         <p class="font-semibold text-2xl">Goals</p>
-                                        <div class="mt-4 text-lg leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
+                                        <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
                                     </div>
                                 )
                             }
@@ -45,7 +47,7 @@ const { build } = Astro.props;
                                 build.data.parts && (
                                     <div class="space-y-4">
                                         <p class="font-semibold text-2xl">Parts List</p>
-                                        <ul class="space-y-1 text-base">
+                                        <ul class="space-y-1 text-base tracking-tight">
                                             {build.data.parts.map((p) => (
                                                 <li>{p}</li>
                                             ))}
@@ -69,37 +71,46 @@ const { build } = Astro.props;
                                             </div>
                                         </div>
 
-                                        <blockquote class="italic text-lg leading-8 text-stone-700">"{build.data.testimonial}"</blockquote>
+                                        <blockquote class="italic text-lg leading-8 tracking-tight text-stone-700">"{build.data.testimonial}"</blockquote>
                                     </div>
                                 )
                             }
 
                             {
                                 build.data.video && (
-                                    <div class="w-fit py-3 px-4 bg-blue-400 flex gap-3 rounded shadow">
-                                        <Icon name="hero/PlayCircleFill" class="text-white h-6" />
-                                        <p class="text-white font-medium ">Watch the Build Video</p>
-                                    </div>
+                                    <>
+                                        <hr />
+                                        <a href="#" class="w-fit flex gap-3">
+                                            <Icon name="hero/PlayCircle" class="text-stone-700 h-6" />
+                                            <span class="text-stone-800 font-medium">Watch the Build Video</span>
+                                        </a>
+                                    </>
                                 )
                             }
                         </div>
 
-                        <div class="bg-white p-8 shadow rounded">Go back to builds</div>
-                    </div>
-
-                    <div class="space-y-8">
-                        <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} alt={build.data.summary} class="object-cover w-full h-full rounded shadow" />
-
-                        <div class="flex flex-wrap gap-8">
-                            {
-                                build.data.totalImages.slice(1).map((i) => (
-                                    <div class="h-[200px] grow">
-                                        <Picture src={getBuildImage(build.data.id, i)} alt={build.data.summary} class="max-h-full min-w-full object-cover rounded shadow" />
-                                    </div>
-                                ))
-                            }
+                        <div class="hidden lg:block bg-blue-50 p-8 shadow rounded space-y-4">
+                            <p class="font-semibold text-2xl">Start Your Build</p>
+                            <p class="text-stone-700 tracking-tight leading-7"><a href="/contact" class="font-semibold">Ready to build your dream vehicle</a>? THOR Off-Road can help you design and build your {build.data.make} to meet your wildest dreams.</p>
+                            <Button theme="secondary">Let's Get Started</Button>
                         </div>
                     </div>
+
+                    <Gallery>
+                        <div class="space-y-8">
+                            <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} alt={build.data.summary} class="object-cover w-full h-full rounded shadow" />
+
+                            <div class="flex flex-wrap gap-8">
+                                {
+                                    build.data.totalImages.slice(1).map((i) => (
+                                        <div class="h-[200px] grow">
+                                            <Picture src={getBuildImage(build.data.id, i)} alt={build.data.summary} class="max-h-full min-w-full object-cover rounded shadow" />
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </Gallery>
                 </FlexColumn>
             </Container>
         </Section>

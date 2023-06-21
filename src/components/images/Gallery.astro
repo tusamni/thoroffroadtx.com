@@ -17,7 +17,7 @@ const { element = "gallery", classes } = Astro.props;
     });
 
     // open (will be a child of the target element above)
-    let imageLinks = document.querySelectorAll(`.${element} > img`);
+    let imageLinks = document.querySelectorAll(`.${element} img`);
     // add click listener to open BiggerPicture
     for (let link of imageLinks) {
         link.addEventListener("click", openGallery);
@@ -32,3 +32,9 @@ const { element = "gallery", classes } = Astro.props;
         });
     }
 </script>
+
+<style>
+    div :global(img) {
+        cursor: pointer;
+    }
+</style>

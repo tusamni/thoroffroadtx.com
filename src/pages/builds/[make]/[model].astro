@@ -17,7 +17,9 @@ import Section from "../../../components/Section.astro";
 // content
 import { getCollection } from "astro:content";
 export async function getStaticPaths() {
-    const allModels = await getCollection("models");
+    const allModels = await getCollection("models", ({ data }) => {
+        return data.draft !== true;
+    });
     return allModels.map((model) => ({
         params: { make: model.data.make.toLowerCase(), model: model.data.slug },
         props: { model },
@@ -26,7 +28,9 @@ export async function getStaticPaths() {
 const { model } = Astro.props;
 
 const allBuilds = await getCollection("builds", ({ slug, data }) => {
-    return slug.includes(Astro.params.model) && slug.includes(Astro.params.make);
+    return (
+        slug.includes(Astro.params.model) && slug.includes(Astro.params.make)
+    );
 });
 
 // aggregate the metadata
@@ -39,23 +43,49 @@ const allParts = await getCollection("parts");
 
 <Layout>
     <ImageOverlay>
-        <Picture slot="image" src={model.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <HeadingBase heading={`${model.data.make} ${model.data.title} Builds`} description={model.data.descriptionShort} />
+        <Picture
+            slot="image"
+            src={model.data.featured}
+            class="absolute inset-0 w-full h-full object-cover saturate-50"
+            width={2000}
+            height={2000}
+            alt={``}
+        />
+        <HeadingBase
+            heading={`${model.data.make} ${model.data.title} Builds`}
+            description={model.data.descriptionShort}
+        />
     </ImageOverlay>
 
     <Background>
         <Section>
             <Container>
                 <FlexColumn float={true}>
-                    <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 bg-white p-8 shadow rounded space-y-6 sm:space-y-0 lg:space-y-6">
+                    <div
+                        slot="left"
+                        class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 bg-white p-8 shadow rounded space-y-6 sm:space-y-0 lg:space-y-6">
                         <BuildFilterListing heading="Filter by Parts">
-                            {allParts.map((p) => <BuildFilter href={`/builds/${p.slug}`}>{p.data.title}</BuildFilter>)}
+                            {
+                                allParts.map((p) => (
+                                    <BuildFilter href={`/builds/${p.slug}`}>
+                                        {p.data.title}
+                                    </BuildFilter>
+                                ))
+                            }
                         </BuildFilterListing>
 
                         <BuildFilterListing heading="Filter by Vehicle">
                             {
                                 allMakes.map((m) => (
-                                    <BuildFilter href={`/builds/${m.slug}`} current={m.slug.includes(model.data.make.toLowerCase()) ? true : false}>
+                                    <BuildFilter
+                                        href={`/builds/${m.slug}`}
+                                        current={
+                                            m.slug.includes(
+                                                model.data.make.toLowerCase()
+                                            )
+                                                ? true
+                                                : false
+                                        }>
                                         {m.data.title}
                                     </BuildFilter>
                                 ))
@@ -65,7 +95,13 @@ const allParts = await getCollection("parts");
                         <BuildFilterListing heading="Filter by Model">
                             {
                                 allModels.map((m) => (
-                                    <BuildFilter href={`${m.slug}`} current={m.slug.includes(model.slug) ? true : false}>
+                                    <BuildFilter
+                                        href={`${m.slug}`}
+                                        current={
+                                            m.slug.includes(model.slug)
+                                                ? true
+                                                : false
+                                        }>
                                         {m.data.title}
                                     </BuildFilter>
                                 ))
@@ -77,16 +113,27 @@ const allParts = await getCollection("parts");
                         allBuilds.length > 0 ? (
                             <ListingGrid>
                                 {allBuilds.map((b) => (
-                                    <BuildSnippet build={b} sizes="350px" classes="shadow rounded bg-white" />
+                                    <BuildSnippet
+                                        build={b}
+                                        sizes="350px"
+                                        classes="shadow rounded bg-white"
+                                    />
                                 ))}
                             </ListingGrid>
                         ) : (
                             <div class="bg-white rounded shadow w-full p-8 space-y-6">
                                 <h3>We Need Your {model.data.title}!</h3>
                                 <p class="text-lg tracking-tight leading-8">
-                                    We've only begun showcasing our completed builds recently and we haven't had a chance to feature any {model.data.title}'s yet. We'd love to show you what's possible at THOR Off-Road.{" "}
-                                    <a href="/contact" class="underline decoration-1 underline-offset-2 font-semibold">
-                                        Let's get in touch and build your dream vehicle
+                                    We've only begun showcasing our completed
+                                    builds recently and we haven't had a chance
+                                    to feature any {model.data.title}'s yet.
+                                    We'd love to show you what's possible at
+                                    THOR Off-Road.{" "}
+                                    <a
+                                        href="/contact"
+                                        class="underline decoration-1 underline-offset-2 font-semibold">
+                                        Let's get in touch and build your dream
+                                        vehicle
                                     </a>
                                     .
                                 </p>

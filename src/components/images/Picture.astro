@@ -18,6 +18,8 @@ const sources = Image.imageSizes.map((w) => {
     return `${fullPath}?width=${w} ${w}w`;
 });
 
+console.log(src);
+
 const srcset = sources.join(", ");
 const dimensions = await imageSize(getMedia(`images/${src}`));
 ---

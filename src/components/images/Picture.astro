@@ -1,6 +1,5 @@
 ---
 import { Image } from "../../config";
-import urlExist from "url-exist";
 import imageSize from "probe-image-size";
 
 // props
@@ -20,10 +19,7 @@ const sources = Image.imageSizes.map((w) => {
 });
 
 const srcset = sources.join(", ");
-// const dimensions = await imageSize(fullPath);
-if ((await urlExist(fullPath)) == false) {
-    console.log(`Error: ${fullPath}`);
-}
+const dimensions = await imageSize(fullPath);
 ---
 
 <img
@@ -34,4 +30,6 @@ if ((await urlExist(fullPath)) == false) {
     {...attrs}
     data-img={getMedia(`images/${src}`)}
     data-caption={alt}
+    data-width={dimensions.width}
+    data-height={dimensions.height}
 />

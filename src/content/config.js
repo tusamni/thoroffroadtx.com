@@ -25,7 +25,11 @@ const buildCollection = defineCollection({
         path: z.string(),
         summary: z.string(),
         // images
-        totalImages: z.number().transform((total) => Array.from({ length: total - 0 }, (_, i) => 0 + 1 + i)), // turn the total images into a array of the filenames
+        totalImages: z
+            .number()
+            .transform((total) =>
+                Array.from({ length: total - 0 }, (_, i) => 0 + 1 + i)
+            ), // turn the total images into a array of the filenames
         featuredImage: z.number(),
         homepageFeatured: z.boolean().optional(),
         video: z.string().optional(),
@@ -40,7 +44,14 @@ const partsCollection = defineCollection({
         descriptionShort: z.string(),
         descriptionLong: z.string(),
         contentSidebar: z.string().optional(),
-        contentParts: z.array(z.object({ title: z.string(), description: z.string().nullable() })).optional(),
+        contentParts: z
+            .array(
+                z.object({
+                    title: z.string(),
+                    description: z.string().nullable(),
+                })
+            )
+            .optional(),
         seoTitle: z.string(),
         seoDescription: z.string(),
         logo: z.string(),

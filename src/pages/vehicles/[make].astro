@@ -93,7 +93,7 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
                     allBuilds.length >= 4 && (
                         <div class="bg-white shadow px-8 py-12 rounded space-y-8 mt-8">
                             <h3>{make.data.title} Builds</h3>
-                            <div class="col-span-3 grid grid-cols-2 lg:grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, buildCount)}</div>
+                            <div class="col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, buildCount)}</div>
                         </div>
                     )
                 }

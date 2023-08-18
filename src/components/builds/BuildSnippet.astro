@@ -17,10 +17,8 @@ import { Business } from "../../config";
 import { getBuildImage } from "../../functions/Image";
 ---
 
-<a href={`/builds/${build.slug}`} class:list={[classes, "rounded"]}>
-    <div class="pt-48 relative">
-        <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="inset-0 absolute h-full w-full object-cover rounded-t" sizes="500px" slot="picture" />
-    </div>
+<a href={`/builds/${build.slug}`} class:list={[classes, "rounded-sm"]}>
+    <Picture src={getBuildImage(build.data.id, build.data.featuredImage)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover h-52 rounded-t-sm w-full" slot="picture" />
 
     <div class="flex flex-wrap items-center gap-y-3 text-stone-500 p-6 rounded-b">
         <h3 class="text-lg font-semibold line-clamp-1">{build.data.year} {build.data.make} {build.data.model}</h3>

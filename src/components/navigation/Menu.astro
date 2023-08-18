@@ -12,15 +12,14 @@ import Picture from "../images/Picture.astro";
 import { Business } from "../../config.js";
 ---
 
-<header class="bg-red-600 relative">
+<header class="bg-white relative">
     <Container>
         <nav class="flex items-center py-4 md:py-6 justify-between gap-x-6" aria-label="Global">
             <div class="flex lg:gap-x-6 items-center">
                 <!-- logo -->
                 <a href="/" title={Business.nameLong}>
                     <span class="sr-only">{Business.nameLong}</span>
-
-                    <Picture src="website/logos/logo-white.png" alt={Business.nameLong} class="w-32 h-auto" />
+                    <Picture src="website/logos/logo-black.png" alt={Business.nameLong} class="h-10 w-auto" />
                 </a>
 
                 <!--- desktop menu -->
@@ -28,13 +27,13 @@ import { Business } from "../../config.js";
                     <MenuVehicles />
                     <MenuParts />
 
-                    <a href="/builds" title={`${Business.nameShort} Builds`} class="font-semibold leading-6 text-white transition px-4 py-3 hover:bg-red-500">Builds</a>
+                    <a href="/builds" title={`${Business.nameShort} Builds`} class="font-semibold leading-6 text-stone-800 transition px-4 py-3">Builds</a>
                 </div>
             </div>
 
             <!-- contact buttons -->
-            <div class="hidden lg:flex flex-1 items-center justify-end gap-3">
-                <Button href={`tel:${Business.phone}`} icon="hero/DevicePhoneMobile">{Business.phone}</Button>
+            <div class="hidden lg:flex flex-1 items-center justify-end gap-6">
+                <Button class="font-semibold text-base text-stone-800" href={`tel:${Business.phone}`} theme="primary">{Business.phone}</Button>
                 <Button href="/contact" theme="secondary" icon="hero/Envelope">Contact Us</Button>
             </div>
 

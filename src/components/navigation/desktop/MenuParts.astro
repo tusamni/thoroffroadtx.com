@@ -9,7 +9,7 @@ const allBrands = await getCollection("brands");
 ---
 
 <div class="relative" x-data={`{ partsMenu : false }`} x-on:mouseenter={`partsMenu = true`} x-on:mouseover.away={`partsMenu = false`} x-on:click={`partsMenu = true`} x-cloak>
-    <a href="/parts" class="inline-flex items-center gap-x-2 first:font-semibold leading-6 text-white transition px-4 py-3" x-bind:class={`partsMenu ? 'bg-red-500' : ''`}>
+    <a href="/parts" class="inline-flex items-center gap-x-2 first:font-semibold leading-6 text-stone-800 transition px-4 py-3">
         <span>Parts</span>
 
         <Icon name="hero/ChevronDown" class="w-4 h-4 transition" x-bind:class={`partsMenu ? 'rotate-180' : ''`} />
@@ -24,7 +24,7 @@ const allBrands = await getCollection("brands");
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0"
         x-show="partsMenu"
-        class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-stone-100 via-stone-200 to-stone-300 shadow-lg ring-1 ring-stone-900/5">
+        class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-stone-100 via-stone-200 to-stone-300 shadow-lg ring-1 ring-stone-900/5 rounded-sm">
         <div class="grid grid-cols-2">
             {
                 allParts.map((p) => (

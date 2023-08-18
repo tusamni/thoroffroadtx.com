@@ -14,12 +14,12 @@ const { subheading, heading, description } = Astro.props;
 
 <div>
     <Container>
-        <div class="max-w-2xl space-y-8">
+        <div class="bg-white max-w-3xl space-y-8 py-10 px-14 rounded-sm relative">
             {subheading && <Pill>{subheading}</Pill>}
 
-            <h1 class="text-white" set:html={heading} />
+            <h1 set:html={heading} />
 
-            {description && <div class="space-y-4 text-lg md:text-xl text-stone-400 !leading-8" set:html={description} />}
+            {description && <div class="space-y-4 text-lg md:text-xl text-stone-600 !leading-8" set:html={description} />}
         </div>
 
         <slot />

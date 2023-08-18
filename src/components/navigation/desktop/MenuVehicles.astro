@@ -9,7 +9,7 @@ const allModels = await getCollection("models");
 ---
 
 <div class="relative" x-data={`{ makesMenu : false }`} x-on:mouseenter={`makesMenu = true`} x-on:mouseover.away={`makesMenu = false`} x-on:click={`makesMenu = true`} x-cloak>
-    <a href="/vehicles" class="inline-flex items-center gap-x-2 first:font-semibold leading-6 text-white transition px-4 py-3" x-bind:class={`makesMenu ? 'bg-red-500' : ''`}>
+    <a href="/vehicles" class="inline-flex items-center gap-x-2 first:font-semibold leading-6 text-stone-800 transition px-4 py-3">
         <span>Vehicles</span>
 
         <Icon name="hero/ChevronDown" class="w-4 h-4 transition" x-bind:class={`makesMenu ? 'rotate-180' : ''`} />
@@ -24,7 +24,7 @@ const allModels = await getCollection("models");
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0"
         x-show="makesMenu"
-        class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-stone-100 via-stone-200 to-stone-300 shadow-lg ring-1 ring-stone-900/5">
+        class="w-[40em] absolute top-0 mt-12 z-10 bg-gradient-to-r from-stone-100 via-stone-200 to-stone-300 shadow-lg ring-1 ring-stone-900/5 rounded-sm">
         <div class="grid grid-cols-2">
             {
                 allMakes.map((m) => (

@@ -43,60 +43,75 @@ const headers = [
         alt: "Highly modified Dodge RAM Power Wagon",
     },
     {
-        src: "shop/2022-03-09/shop-shoot_01.jpg",
-        alt: "A collection of Fox truck struts",
+        src: "shop/2022-12-05/shop-shoot_06.jpg",
+        alt: "Wheels and tires ready for installation",
+    },
+    {
+        src: "builds/266375/02.jpg",
+        alt: "Baja Designs lighting installed on a Ford Bronco",
     },
 ];
 ---
 
 <Layout>
-    <!-- header images -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 grid-rows-2 lg:grid-rows-1 h-[400px] md:h-[600px] lg:h-[500px]">
-        <div class="units order-1">
-            <Picture src={headers[0].src} class="object-cover w-full h-full object-[50%,85%]" alt={headers[0].alt} />
-            <Picture src={headers[0].src} class="object-cover w-full h-full object-[50%,85%] hidden lg:block" alt={headers[0].alt} />
-        </div>
-        <div class="units order-2">
-            <Picture src={headers[1].src} class="object-cover w-full h-full object-left-bottom lg:object-center" alt={headers[1].alt} />
-            <Picture src={headers[1].src} class="object-cover w-full h-full object-left-bottom lg:object-center hidden lg:block" alt={headers[1].alt} />
-        </div>
-        <div class="units order-4 lg:order-3">
-            <Picture src={headers[2].src} class="object-cover w-full h-full object-left lg:object-center" alt={headers[2].alt} />
-            <Picture src={headers[2].src} class="object-cover w-full h-full object-left lg:object-center" alt={headers[2].alt} />
-        </div>
-        <div class="units order-3 lg:order-4">
-            <Picture src={headers[3].src} class="object-cover w-full h-full object-top sm:object-[50%,20%] lg:object-center" alt={headers[3].alt} />
-            <Picture src={headers[3].src} class="object-cover w-full h-full object-top lg:object-center" alt={headers[3].alt} />
-        </div>
-    </div>
+    <div class="bg-white relative">
+        <Picture src="shop/2022-03-09/shop-shoot_01.jpg" alt="Fox shocks during install" class="absolute object-cover w-full h-full" alt={headers[3].alt} />
 
-    <Background color="bg-stone-200" opacity={0.6}>
         <Section>
             <Container classes="relative z-10">
-                <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-                    <div class="mx-auto max-w-xl lg:mx-0 space-y-8">
-                        <h1>
-                            {Business.nameLong} partners with the best.
-                        </h1>
-                        <p class="text-xl leading-8">
-                            We've built partnerships with the best brands, nobody carries more Carli parts or knows the performance suspension options for your vehicle better than {Business.nameLong}.
-                        </p>
+                <div class="bg-white max-w-3xl space-y-8 py-10 px-14 rounded-sm">
+                    <h1>
+                        {Business.nameLong} partners with the best.
+                    </h1>
+                    <p class="text-xl leading-8">
+                        We've built partnerships with the best brands, nobody carries more Carli parts or knows the performance suspension options for your vehicle better than {Business.nameLong}.
+                    </p>
 
-                        <div class="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start items-center gap-x-6">
-                            <Button icon="hero/WrenchScrewdriverFill" theme="secondary" href="/contact">Build Your Dream Truck</Button>
-                            <Button icon="hero/ArrowRightCircleFill" href="/builds">See Our Builds</Button>
-                        </div>
-                    </div>
-
-                    <!-- brand logos -->
-                    <div class="mx-auto grid max-w-xl items-center grid-cols-3 gap-6 md:gap-12 lg:mx-0 lg:max-w-none">
-                        {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-12 w-1/2 object-contain text-stone-900 place-self-center" />).slice(0, 15)}
+                    <div class="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start items-center gap-x-6">
+                        <Button icon="hero/WrenchScrewdriverFill" theme="secondary" href="/contact">Build Your Dream Truck</Button>
+                        <Button icon="hero/ArrowRightCircleFill" href="/builds">See Our Builds</Button>
                     </div>
                 </div>
             </Container>
         </Section>
+    </div>
 
+    <Background>
         <Section>
+            <Container>
+                <!-- brand logos -->
+                <div class="mx-auto grid grid-cols-4 gap-6 md:gap-12">
+                    {
+                        allBrands
+                            .map((b) => (
+                                <div class="bg-stone-50 p-6 flex justify-center rounded-sm shadow-sm">
+                                    <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-16 w-1/2 object-contain text-stone-900 place-self-center" />
+                                </div>
+                            ))
+                            .slice(0, 12)
+                    }
+                </div>
+            </Container>
+
+            <Container>
+                <!-- header images -->
+                <div class="grid grid-cols-12 grid-rows-2 gap-10 h-[1000px]">
+                    <div class="col-span-6 row-span-2">
+                        <Picture src={headers[0].src} class="object-cover w-full h-full rounded-sm shadow-lg" alt={headers[0].alt} />
+                    </div>
+                    <div class="col-span-3 row-span-1">
+                        <Picture src={headers[2].src} class="object-cover w-full h-full rounded-sm shadow-lg" alt={headers[2].alt} />
+                    </div>
+                    <div class="col-span-3 row-span-1">
+                        <Picture src={headers[3].src} class="object-cover w-full h-full rounded-sm shadow-lg" alt={headers[3].alt} />
+                    </div>
+                    <div class="row-start-2 col-start-7 col-span-6">
+                        <Picture src={headers[4].src} class="object-cover w-full h-full rounded-sm shadow-lg" alt={headers[3].alt} />
+                    </div>
+                </div>
+            </Container>
+
+            <!--
             <Container>
                 <div class="grid grid-cols-1 items-start md:grid-cols-2 bg-white shadow rounded">
                     <div class="hidden md:block md:relative h-full w-full">
@@ -133,41 +148,32 @@ const headers = [
                     </div>
                 </div>
             </Container>
-        </Section>
+            -->
 
-        <Section>
             <Container classes="space-y-16">
-                <div class="mx-auto max-w-xl text-center space-y-6">
-                    <Pill theme="secondary">Testimonials</Pill>
-                    <h2>We're building our customer's dream vehicles.</h2>
-                </div>
+                <h2 class="mx-auto max-w-xl">We're building our customer's dream vehicles.</h2>
 
-                <div class="sm:columns-2 lg:columns-3 gap-8">
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-sm">
                     {allTestimonials.map((t) => <Testimonial content={t.data} />).slice(0, 9)}
                 </div>
             </Container>
-        </Section>
 
-        <Section>
-            <Container classes="space-y-16">
-                <div class="mx-auto max-w-xl text-center space-y-6">
-                    <Pill theme="secondary">Builds</Pill>
-                    <h2>We love showing off our customer's trucks.</h2>
-                </div>
-
-                <Gallery classes="sm:columns-2 lg:columns-3 gap-8 space-y-8">
-                    {allBuilds.map((b) => <Picture src={getBuildImage(b.data.id, b.data.featuredImage)} class="rounded shadow" sizes="600px" alt={b.data.summary} />).slice(0, 15)}
+            <Container>
+                <Gallery classes="flex flex-col gap-12">
+                    <div class="grid grid-cols-12 grid-rows-2 gap-12 h-[1000px]">
+                        <Picture src={getBuildImage(108058, 3)} class="w-full h-full object-cover rounded-sm shadow-lg col-span-6 row-span-2" sizes="1000px" />
+                        <Picture src={getBuildImage(276780, 6)} class="w-full h-full object-cover rounded-sm shadow-lg col-span-3 row-span-1" sizes="1000px" />
+                        <Picture src={getBuildImage(695527, 7)} class="w-full h-full object-cover rounded-sm shadow-lg col-span-3 row-span-1" sizes="1000px" />
+                        <Picture src={getBuildImage(791924, 7)} class="w-full h-full object-cover rounded-sm shadow-lg col-span-6 col-start-7" sizes="1000px" />
+                    </div>
+                    <div class="grid grid-cols-12 grid-rows-2 gap-12 h-[1000px]">
+                        <Picture src={getBuildImage(328593, 8)} class="w-full h-full object-cover rounded-sm shadow-lg col-span-3" sizes="1000px" />
+                        <Picture src={getBuildImage(405642, 5)} class="w-full h-full object-cover rounded-sm shadow-lg col-span-3" sizes="1000px" />
+                        <Picture src={getBuildImage(965777, 5)} class="w-full h-full object-cover rounded-sm shadow-lg col-span-6 row-span-2" sizes="1000px" />
+                        <Picture src={getBuildImage(405642, 2)} class="w-full h-full object-cover rounded-sm shadow-lg col-span-6 row-start-2" sizes="1000px" />
+                    </div>
                 </Gallery>
             </Container>
         </Section>
     </Background>
 </Layout>
-
-<style>
-    /* image reflection */
-    .units > :last-child {
-        transform: rotatex(180deg) translate(0px);
-        mask-image: linear-gradient(transparent 80%, white 180%);
-        -webkit-mask-image: linear-gradient(transparent 80%, white 180%);
-    }
-</style>

@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
+import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import Feature from "../../components/content/Feature.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
@@ -18,7 +19,6 @@ import Section from "../../components/Section.astro";
 import { getCollection } from "astro:content";
 const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
-const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const process = [
     {
         title: "We Know the Brands",
@@ -33,7 +33,7 @@ const process = [
         description: "Our entire mission is to create purpose-built vehicles and we take the time to know you and the goals you have for your vehicle.",
     },
     {
-        title: "We Build It",
+        title: "Let's Build It!",
         description: "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
     },
 ];
@@ -45,66 +45,113 @@ const vehicleFill = {
 ---
 
 <Layout>
-    <ImageOverlay>
-        <Picture slot="image" src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford F-250 Modified by THOR Off Road" class="absolute w-full h-full object-cover object-[50%,70%]" sizes="800px" />
-        <HeadingBase heading="Texas' Top<br />Truck Outfitter" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
-    </ImageOverlay>
-
     <Background>
-        <Section>
-            <Container>
-                <FlexColumn>
-                    <div slot="left" class="space-y-12 bg-white p-8 rounded shadow">
-                        <h2>Our Process</h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:grid-cols-1">
-                            {
-                                process.map((p, i) => (
-                                    <div class="space-y-2">
-                                        <p class="font-semibold text-2xl">
-                                            {i + 1}. {p.title}
-                                        </p>
-                                        <p class="text-base text-stone-700">{p.description}</p>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </div>
+        <div class="grid grid-cols-2 bg-white">
+            <Picture slot="image" src="team/shop/thoroffroad-04.jpg" class="w-full h-full object-cover aspect-square" sizes="1600px" />
 
-                    <div class="space-y-8">
-                        {
-                            allMakes.map((v) => (
-                                <a href={`/vehicles/${v.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow group">
-                                    <div class="w-full h-72 sm:h-full relative col-span-5 sm:col-span-2">
-                                        <Picture src={v.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
-                                    </div>
+            <div class="space-y-16 px-12 py-24 self-center max-w-3xl">
+                <div class="space-y-8">
+                    <h1>Texas' Top<br />Truck Outfitter</h1>
+                    <p class="text-xl text-stone-700 leading-9 tracking-tight">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
+                </div>
 
-                                    <div class="flex flex-col justify-center p-8 gap-y-3 col-span-5 sm:col-span-3">
-                                        <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
-                                        <div class="leading-6 text-stone-500">{v.data.descriptionShort}</div>
-                                        <div class="space-y-1">
-                                            Brands
-                                            <ul class="comma-list text-sm text-stone-500 font-normal">
-                                                {allModels.map((i) => {
-                                                    if (i.data.make.toLowerCase().includes(v.slug)) {
-                                                        return <li>{i.data.title}</li>;
-                                                    }
-                                                })}
-                                            </ul>
-                                        </div>
-                                        <div class="font-medium bg-blue-500 text-white rounded px-3 py-2 group-hover:bg-blue-400 transition duration-300 w-fit mt-2 button button-secondary">See More</div>
-                                    </div>
-                                </a>
-                            ))
-                        }
-                        <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center">
-                            <div class="space-y-4">
-                                <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
-                                <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
-                                <p class="font-medium text-blue-500 group-hover:underline">Contact Us &gt;</p>
+                <div class="mt-36 grid grid-cols-2 gap-8">
+                    {
+                        process.map((f, i) => (
+                            <div class="flex gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-amber-500 flex-none mt-1">
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+
+                                <div class="space-y-2">
+                                    <h3 class="text-xl">{f.title}</h3>
+                                    <div set:html={f.description} class="text-neutral-800" />
+                                </div>
                             </div>
-                        </a>
-                    </div>
-                </FlexColumn>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+
+        <Section>
+            <Container classes="space-y-16">
+                <h2 class="mx-auto max-w-xl text-center">We're building our customer's dream vehicles.</h2>
+                <!-- <div class="grid grid-cols-2 gap-12">
+                    {
+                        allMakes.map((v) => (
+                            <a href={`/vehicles/${v.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded-sm shadow-sm group">
+                                <div class="w-full h-72 sm:h-full relative col-span-5 sm:col-span-2">
+                                    <Picture src={v.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l-sm" sizes="500px" slot="picture" />
+                                </div>
+
+                                <div class="flex flex-col justify-center p-8 gap-y-3 col-span-5 sm:col-span-3">
+                                    <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
+                                    <div class="leading-6 text-stone-500">{v.data.descriptionShort}</div>
+                                    <div class="space-y-1">
+                                        Brands
+                                        <ul class="comma-list text-sm text-stone-500 font-normal">
+                                            {allModels.map((i) => {
+                                                if (i.data.make.toLowerCase().includes(v.slug)) {
+                                                    return <li>{i.data.title}</li>;
+                                                }
+                                            })}
+                                        </ul>
+                                    </div>
+
+                                    <Button theme="primary">See More</Button>
+                                </div>
+                            </a>
+                        ))
+                    }
+                    <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
+                            <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
+                            <p class="font-medium text-blue-500 group-hover:underline">Contact Us &gt;</p>
+                        </div>
+                    </a>
+                </div> -->
+
+                <div class="grid grid-cols-2 gap-12">
+                    {
+                        allMakes.map((v) => (
+                            <a href={`/vehicles/${v.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded-sm shadow-sm group">
+                                <div class="w-full h-72 sm:h-full relative col-span-5 sm:col-span-2">
+                                    <Picture src={v.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l-sm" sizes="500px" slot="picture" />
+                                </div>
+
+                                <div class="flex flex-col justify-center p-8 gap-y-3 col-span-5 sm:col-span-3">
+                                    <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
+                                    <div class="leading-6 text-stone-500">{v.data.descriptionShort}</div>
+                                    <div class="space-y-1">
+                                        Brands
+                                        <ul class="comma-list text-sm text-stone-500 font-normal">
+                                            {allModels.map((i) => {
+                                                if (i.data.make.toLowerCase().includes(v.slug)) {
+                                                    return <li>{i.data.title}</li>;
+                                                }
+                                            })}
+                                        </ul>
+                                    </div>
+
+                                    <Button theme="primary">See More</Button>
+                                </div>
+                            </a>
+                        ))
+                    }
+                    <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
+                            <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
+                            <p class="font-medium text-blue-500 group-hover:underline">Contact Us &gt;</p>
+                        </div>
+                    </a>
+                </div>
             </Container>
         </Section>
     </Background>

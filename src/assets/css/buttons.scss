@@ -1,14 +1,14 @@
 .button {
-    @apply transition-all duration-500 font-medium rounded shadow flex min-w-fit items-center justify-between h-12;
+    @apply transition-all duration-500 font-medium rounded-sm shadow flex min-w-fit items-center justify-between h-12;
 
     &.button-primary {
-        @apply text-stone-900;
+        @apply text-stone-900 border-stone-700 border;
 
         .button-icon {
-            @apply bg-stone-50 border-r border-stone-300;
+            @apply bg-white border-r border-stone-700;
         }
         .button-text {
-            @apply bg-stone-50
+            @apply bg-white
         }
     }
     &.button-secondary {        
@@ -21,7 +21,7 @@
     }
     
     .button-icon {
-        @apply h-full px-3 flex justify-center items-center border-r rounded-l;
+        @apply h-full px-3 flex justify-center items-center border-r rounded-l-sm;
     }
     .button-text {
         @apply transition-all duration-500 px-4 h-full flex justify-center items-center;

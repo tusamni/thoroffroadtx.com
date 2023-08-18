@@ -25,11 +25,7 @@ const buildCollection = defineCollection({
         path: z.string(),
         summary: z.string(),
         // images
-        totalImages: z
-            .number()
-            .transform((total) =>
-                Array.from({ length: total - 0 }, (_, i) => 0 + 1 + i)
-            ), // turn the total images into a array of the filenames
+        totalImages: z.number().transform((total) => Array.from({ length: total - 0 }, (_, i) => 0 + 1 + i)), // turn the total images into a array of the filenames
         featuredImage: z.number(),
         homepageFeatured: z.boolean().optional(),
         video: z.string().optional(),
@@ -59,8 +55,17 @@ const partsCollection = defineCollection({
     }),
 });
 
+const testimonialsCollection = defineCollection({
+    schema: z.object({
+        name: z.string(),
+        highlight: z.string(),
+        testimonial: z.string(),
+    }),
+});
+
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
     builds: buildCollection,
     parts: partsCollection,
+    testimonials: testimonialsCollection,
 };

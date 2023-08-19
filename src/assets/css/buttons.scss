@@ -1,5 +1,5 @@
 .button {
-    @apply transition-all duration-500 font-medium rounded-sm shadow-sm flex min-w-fit items-center justify-between h-12;
+    @apply transition-all duration-500 font-medium rounded-sm shadow-sm flex w-fit items-center justify-between h-12;
 
     &.button-primary {
         @apply text-stone-900 border-stone-700 border;

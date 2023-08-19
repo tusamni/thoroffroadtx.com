@@ -18,9 +18,6 @@ import { Business } from "../config";
 // content
 import { getCollection } from "astro:content";
 const allTestimonials = await getCollection("testimonials");
-const allBuilds = await getCollection("builds", ({ data }) => {
-    return data.homepageFeatured;
-});
 const allBrands = await getCollection("brands", ({ data }) => {
     return data.featured == true;
 });
@@ -143,13 +140,13 @@ const headers = [
                 <article class="row-span-2 space-y-4 pr-16">
                     <time datetime="2020-03-16" class="text-sm leading-6 text-stone-600">Mar 16, 2020</time>
                     <h2 class="h3">We're incredibly proud to announce we have secured $75m in Series B</h2>
-                    <p class="text-lg leading-8 text-stone-600">Libero neque aenean tincidunt nec consequat tempor. Viverra odio id velit adipiscing id. Nisi vestibulum orci eget bibendum dictum. Velit viverra posuere vulputate volutpat nunc. Nunc netus sit faucibus.</p>
+                    <p class="text-lg leading-8 text-stone-600 line-clamp-4">Libero neque aenean tincidunt nec consequat tempor. Viverra odio id velit adipiscing id. Nisi vestibulum orci eget bibendum dictum. Velit viverra posuere vulputate volutpat nunc. Nunc netus sit faucibus.</p>
                     <div class="">
                         <Button href="/" theme="primary">Keep Reading</Button>
                     </div>
                 </article>
 
-                <div class="col-span-2 row-span-2 grid grid-rows-2 grid-cols-2 gap-y-2 gap-x-16 pl-16">
+                <div class="col-span-2 row-span-2 grid grid-rows-2 grid-cols-2 gap-8 pl-16">
                     <article>
                         <div class="group relative max-w-xl">
                             <time datetime="2020-03-16" class="block text-sm leading-6 text-gray-600">Mar 10, 2020</time>

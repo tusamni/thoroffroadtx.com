@@ -79,16 +79,20 @@ const vehicleFill = {
 
     <Section>
         <Container classes="space-y-16">
-            <h2 class="mx-auto max-w-xl text-center">We're building our customer's dream vehicles.</h2>
-            <!-- <div class="grid grid-cols-2 gap-12">
+            <h2>We're building our<br />customer's dream vehicles.</h2>
+
+            <FlexColumn>
+                <div slot="left"></div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-sm border border-stone-300">
                     {
                         allMakes.map((v) => (
-                            <a href={`/vehicles/${v.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded-sm shadow-sm group">
-                                <div class="w-full h-72 sm:h-full relative col-span-5 sm:col-span-2">
+                            <a href={`/vehicles/${v.slug}`} class="group bg-white relative">
+                                <div class="absolute w-full h-full">
                                     <Picture src={v.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l-sm" sizes="500px" slot="picture" />
                                 </div>
 
-                                <div class="flex flex-col justify-center p-8 gap-y-3 col-span-5 sm:col-span-3">
+                                <div class="flex flex-col p-8 gap-y-3 relative bg-white group-hover:bg-white/90 h-full transition duration-500">
                                     <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
                                     <div class="leading-6 text-stone-500">{v.data.descriptionShort}</div>
                                     <div class="space-y-1">
@@ -107,50 +111,15 @@ const vehicleFill = {
                             </a>
                         ))
                     }
-                    <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center">
+                    <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center col-span-2">
                         <div class="space-y-4">
                             <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
                             <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
                             <p class="font-medium text-blue-500 group-hover:underline">Contact Us &gt;</p>
                         </div>
                     </a>
-                </div> -->
-
-            <div class="grid grid-cols-2 gap-12">
-                {
-                    allMakes.map((v) => (
-                        <a href={`/vehicles/${v.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded-sm shadow-sm group">
-                            <div class="w-full h-72 sm:h-full relative col-span-5 sm:col-span-2">
-                                <Picture src={v.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l-sm" sizes="500px" slot="picture" />
-                            </div>
-
-                            <div class="flex flex-col justify-center p-8 gap-y-3 col-span-5 sm:col-span-3">
-                                <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
-                                <div class="leading-6 text-stone-500">{v.data.descriptionShort}</div>
-                                <div class="space-y-1">
-                                    Brands
-                                    <ul class="comma-list text-sm text-stone-500 font-normal">
-                                        {allModels.map((i) => {
-                                            if (i.data.make.toLowerCase().includes(v.slug)) {
-                                                return <li>{i.data.title}</li>;
-                                            }
-                                        })}
-                                    </ul>
-                                </div>
-
-                                <Button theme="primary">See More</Button>
-                            </div>
-                        </a>
-                    ))
-                }
-                <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center">
-                    <div class="space-y-4">
-                        <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
-                        <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
-                        <p class="font-medium text-blue-500 group-hover:underline">Contact Us &gt;</p>
-                    </div>
-                </a>
-            </div>
+                </div>
+            </FlexColumn>
         </Container>
     </Section>
 </Layout>

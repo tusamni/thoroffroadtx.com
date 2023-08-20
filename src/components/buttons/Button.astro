@@ -27,7 +27,7 @@ import { Icon } from "astro-icon";
             </div>
         </a>
     ) : (
-        <button class:list={[`button button-${theme} text-${size} group`]} {...attrs}>
+        <button class:list={[`button button-${theme} text-${size} group`, classes]} {...attrs}>
             {icon && (
                 <div class="button-icon">
                     <Icon name={icon} class="h-2/5 w-auto" />

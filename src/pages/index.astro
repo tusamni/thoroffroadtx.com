@@ -29,14 +29,6 @@ import { getBuildImage } from "../functions/Image.js";
 // images
 const headers = [
     {
-        src: "shop/2023-02-23/shop-shoot_01.jpg",
-        alt: "Ford Super Duty in Dripping Springs, TX",
-    },
-    {
-        src: "shop/2022-12-05/shop-shoot_15.jpg",
-        alt: "Truck outfitting in Austin, TX",
-    },
-    {
         src: "builds/298562/13.jpg",
         alt: "Highly modified Dodge RAM Power Wagon",
     },
@@ -82,16 +74,16 @@ const headers = [
 
         <div class="grid grid-cols-12 grid-rows-2 gap-10 h-[1000px]">
             <div class="col-span-6 row-span-2">
-                <Picture src={headers[0].src} class="object-cover w-full h-full rounded-sm" alt={headers[0].alt} />
+                <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford Super Duty in Dripping Springs, TX" class="object-cover w-full h-full rounded-sm" />
             </div>
             <div class="col-span-3 row-span-1">
-                <Picture src={headers[2].src} class="object-cover w-full h-full rounded-sm" alt={headers[2].alt} />
+                <Picture src={getBuildImage(298562, 13)} class="object-cover w-full h-full rounded-sm" />
             </div>
             <div class="col-span-3 row-span-1">
                 <Picture src={getBuildImage(405642, 5)} class="object-cover w-full h-full rounded-sm" />
             </div>
             <div class="row-start-2 col-start-7 col-span-6">
-                <Picture src={headers[4].src} class="object-cover w-full h-full rounded-sm" alt={headers[3].alt} />
+                <Picture src={getBuildImage(266375, 2)} class="object-cover w-full h-full rounded-sm" />
             </div>
         </div>
 

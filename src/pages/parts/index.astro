@@ -43,11 +43,37 @@ const partsFill = {
 ---
 
 <Layout>
-    <ImageOverlay>
-        <Picture slot="image" src="builds/748248/18.jpg" class="absolute inset-0 w-full h-full object-cover saturate-50" alt="truck parts for your vehicle" />
+    <div class="grid grid-cols-2 bg-white">
+        <Picture src="builds/748248/18.jpg" class="w-full h-full object-cover aspect-square" sizes="1600px" />
 
-        <HeadingBase heading="Off-Road Parts" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione." />
-    </ImageOverlay>
+        <div class="space-y-16 px-12 py-24 self-center max-w-3xl">
+            <div class="space-y-8">
+                <h1>Off-Road Parts<br />and Installation</h1>
+                <p class="text-xl text-stone-700 leading-9 tracking-tight">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
+            </div>
+
+            <div class="mt-36 flex flex-col gap-8 w-3/4">
+                {
+                    process.map((f, i) => (
+                        <div class="flex gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-amber-500 flex-none mt-1">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+
+                            <div class="space-y-2">
+                                <h3 class="text-xl">{f.title}</h3>
+                                <div set:html={f.description} class="text-neutral-800 text-base leading-7" />
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
 
     <Background>
         <Section>

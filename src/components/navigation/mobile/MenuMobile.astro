@@ -1,11 +1,11 @@
 ---
 // components
-import { getCollection } from "astro:content";
 import { Icon } from "astro-icon";
-import Button from "../../buttons/Button.astro";
-import Picture from "../../images/Picture.astro";
+import Button from "@/components/buttons/Button";
+import Picture from "@/components/images/Picture";
 
 // content
+import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
 const allBrands = await getCollection("brands");
 const allMakes = await getCollection("makes");

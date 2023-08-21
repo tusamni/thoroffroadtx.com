@@ -1,27 +1,16 @@
 ---
 // components
-import Container from "../../Container.astro";
-import Pill from "../../buttons/Pill.astro";
-
-// props
-interface Props {
-    subheading?: string;
-    heading: string;
-    description?: string;
-}
-const { subheading, heading, description } = Astro.props;
+import Container from "@/components/Container";
 ---
 
-<div>
-    <Container>
-        <div class="bg-white max-w-3xl space-y-8 py-10 px-14 rounded-sm relative">
-            {subheading && <Pill>{subheading}</Pill>}
+<Container classes="relative">
+    <div class="bg-white max-w-3xl space-y-8 py-10 px-14 rounded-sm relative">
+        <slot name="heading" />
 
-            <h1 set:html={heading} />
-
-            {description && <div class="space-y-4 text-lg md:text-xl text-stone-600 !leading-8" set:html={description} />}
+        <div class="space-y-4 text-xl leading-8">
+            <slot name="description" />
         </div>
 
         <slot />
-    </Container>
-</div>
+    </div>
+</Container>

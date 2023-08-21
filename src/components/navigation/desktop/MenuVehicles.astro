@@ -1,9 +1,9 @@
 ---
 // content
-import { getCollection } from "astro:content";
 import { Icon } from "astro-icon";
 
 // get vehicle data
+import { getCollection } from "astro:content";
 const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 ---

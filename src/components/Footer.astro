@@ -1,13 +1,11 @@
 ---
 // components
 import { Icon } from "astro-icon";
-import BuildSnippet from "./builds/BuildSnippet.astro";
-import Button from "./buttons/Button.astro";
-import Container from "./Container.astro";
-import Cta from "./Cta.astro";
-import Link from "./buttons/Link.astro";
-import Picture from "./images/Picture.astro";
-import Section from "./Section.astro";
+import BuildSnippet from "@/components/builds/BuildSnippet";
+import Button from "@/components/buttons/Button";
+import Container from "@/components/Container";
+import Cta from "@/components/Cta";
+import Section from "@/components/Section";
 
 // config
 import { Social, Business } from "../config.js";
@@ -24,12 +22,9 @@ const allBuilds = (
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<div class="relative">
-    <Picture src="shop/2022-04-11/shop-shoot_01.jpg" class="absolute object-cover w-full h-full" />
-    <Container classes="relative py-32">
-        <Cta />
-    </Container>
-</div>
+<Container>
+    <Cta />
+</Container>
 
 <Section>
     <Container>

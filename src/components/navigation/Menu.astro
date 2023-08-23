@@ -6,7 +6,6 @@ import Container from "@/components/Container";
 import MenuMobile from "@/components/navigation/mobile/MenuMobile";
 import MenuParts from "@/components/navigation/desktop/MenuParts";
 import MenuVehicles from "@/components/navigation/desktop/MenuVehicles";
-import Picture from "@/components/images/Picture";
 
 // config
 import { Business } from "../../config.js";
@@ -14,35 +13,42 @@ import { Business } from "../../config.js";
 
 <header class="bg-white relative">
     <Container>
-        <nav class="flex items-center py-4 md:py-6 justify-between gap-x-6" aria-label="Global">
-            <div class="flex lg:gap-x-6 items-center">
+        <nav class="flex items-center py-4 md:py-6 justify-between gap-x-4 lg:gap-x-6" aria-label="Global">
+            <div class="flex gap-x-8 items-center">
                 <!-- logo -->
                 <a href="/" title={Business.nameLong}>
                     <span class="sr-only">{Business.nameLong}</span>
-                    <Picture src="website/logos/logo-black.png" alt={Business.nameLong} class="h-10 w-auto" />
+
+                    <Icon name="logo" class="h-8 w-auto" />
                 </a>
 
                 <!--- desktop menu -->
-                <div class="hidden lg:flex items-center">
+                <div class="hidden md:flex items-center md:gap-8">
                     <MenuVehicles />
                     <MenuParts />
 
-                    <a href="/builds" title={`${Business.nameShort} Builds`} class="font-semibold leading-6 text-stone-800 transition px-4 py-3">Builds</a>
+                    <a href="/builds" title={`${Business.nameShort} Builds`} class="nav-item">Builds</a>
                 </div>
             </div>
 
             <!-- contact buttons -->
-            <div class="hidden lg:flex flex-1 items-center justify-end gap-6">
-                <Button class="font-semibold text-base text-stone-800" href={`tel:${Business.phone}`} theme="primary">{Business.phone}</Button>
-                <Button href="/contact" theme="secondary" icon="hero/Envelope">Contact Us</Button>
+            <div class="flex flex-1 items-center justify-end gap-x-4 lg:gap-x-6">
+                <a href="/contact" title="Contact Us" class="sm:hidden font-semibold">Contact Us</a>
+
+                <div class="hidden sm:block">
+                    <Button href={`tel:${Business.phone}`} theme="primary">{Business.phone}</Button>
+                </div>
+                <div class="hidden sm:block">
+                    <Button href="/contact" theme="secondary">Contact Us</Button>
+                </div>
             </div>
 
             <!-- mobile trigger -->
-            <div class="flex lg:hidden" x-data={`{ mobileMenu : false }`}>
+            <div class="flex md:hidden" x-data={`{ mobileMenu : false }`}>
                 <button type="button" class="inline-flex items-center justify-center rounded text-stone-700 cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
 
-                    <Icon name="hero/Hamburger" class="h-8 w-8 text-white cursor-pointer" />
+                    <Icon name="hero/Hamburger" class="h-8 w-8 cursor-pointer" />
                 </button>
 
                 <!-- mobile menu -->

@@ -1,3 +1,11 @@
+.nav-item {
+    @apply inline-flex items-center gap-x-2 font-semibold leading-6 text-stone-800;
+
+    svg { 
+        @apply md:hidden lg:block;
+    }
+}
+
 .comma-list li {
     @apply inline;
 }

@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 // components
 import { Icon } from "astro-icon";
+import Background from "@/components/content/Background";
 import Button from "../components/buttons/Button.astro";
 import Container from "../components/Container.astro";
 import Gallery from "../components/images/Gallery.astro";
@@ -56,57 +57,59 @@ const headers = [
         </HeadingBase>
     </ImageOverlay>
 
-    <Section>
-        <Container>
-            <!-- brand logos -->
-            <div class="mx-auto grid grid-cols-4 gap-6 md:gap-12">
-                {
-                    allBrands
-                        .map((b) => (
-                            <div class="bg-stone-100 p-6 flex justify-center rounded-sm">
-                                <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-16 w-1/2 object-contain text-stone-900 place-self-center" />
-                            </div>
-                        ))
-                        .slice(0, 12)
-                }
-            </div>
-        </Container>
-
-        <div class="grid grid-cols-12 grid-rows-2 gap-10 h-[1000px]">
-            <div class="col-span-6 row-span-2">
-                <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford Super Duty in Dripping Springs, TX" class="object-cover w-full h-full rounded-sm" />
-            </div>
-            <div class="col-span-3 row-span-1">
-                <Picture src={getBuildImage(298562, 13)} class="object-cover w-full h-full rounded-sm" />
-            </div>
-            <div class="col-span-3 row-span-1">
-                <Picture src={getBuildImage(405642, 5)} class="object-cover w-full h-full rounded-sm" />
-            </div>
-            <div class="row-start-2 col-start-7 col-span-6">
-                <Picture src={getBuildImage(266375, 2)} class="object-cover w-full h-full rounded-sm" />
-            </div>
-        </div>
-
+    <Background>
         <Section>
-            <Container classes="space-y-16">
-                <div class="flex justify-between items-center">
-                    <h2 class="">We're building our <br /> customer's dream vehicles.</h2>
-                    <Button href="/builds" theme="primary">See All Builds</Button>
-                </div>
-
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-sm border border-stone-300">
-                    {allTestimonials.map((t) => <Testimonial content={t.data} />).slice(0, 9)}
+            <Container>
+                <!-- brand logos -->
+                <div class="mx-auto grid grid-cols-4 gap-6 md:gap-12">
+                    {
+                        allBrands
+                            .map((b) => (
+                                <div class="bg-stone-50 p-6 flex justify-center rounded-sm">
+                                    <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-16 w-1/2 object-contain text-stone-900 place-self-center" />
+                                </div>
+                            ))
+                            .slice(0, 12)
+                    }
                 </div>
             </Container>
         </Section>
+    </Background>
 
-        <Gallery classes="flex flex-col gap-12">
-            <div class="grid grid-cols-12 grid-rows-2 gap-12 h-[1000px]">
-                <Picture src={getBuildImage(108058, 3)} class="w-full h-full object-cover rounded-sm col-span-6 row-span-2" sizes="1000px" />
-                <Picture src={getBuildImage(276780, 6)} class="w-full h-full object-cover rounded-sm col-span-3 row-span-1" sizes="1000px" />
-                <Picture src={getBuildImage(695527, 7)} class="w-full h-full object-cover rounded-sm col-span-3 row-span-1" sizes="1000px" />
-                <Picture src={getBuildImage(791924, 7)} class="w-full h-full object-cover rounded-sm col-span-6 col-start-7" sizes="1000px" />
+    <div class="grid grid-cols-12 grid-rows-2 h-[1000px]">
+        <div class="col-span-6 row-span-2">
+            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford Super Duty in Dripping Springs, TX" class="object-cover w-full h-full rounded-sm" />
+        </div>
+        <div class="col-span-3 row-span-1">
+            <Picture src={getBuildImage(298562, 13)} class="object-cover w-full h-full rounded-sm" />
+        </div>
+        <div class="col-span-3 row-span-1">
+            <Picture src={getBuildImage(405642, 5)} class="object-cover w-full h-full rounded-sm" />
+        </div>
+        <div class="row-start-2 col-start-7 col-span-6">
+            <Picture src={getBuildImage(266375, 2)} class="object-cover w-full h-full rounded-sm" />
+        </div>
+    </div>
+
+    <Section>
+        <Container classes="space-y-16">
+            <div class="flex justify-between items-center">
+                <h2 class="">We're building our <br /> customer's dream vehicles.</h2>
+                <Button href="/builds" theme="primary">See All Builds</Button>
             </div>
-        </Gallery>
+
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-sm border border-stone-300">
+                {allTestimonials.map((t) => <Testimonial content={t.data} />).slice(0, 9)}
+            </div>
+        </Container>
     </Section>
+
+    <Gallery classes="flex flex-col gap-12">
+        <div class="grid grid-cols-12 grid-rows-2 h-[1000px]">
+            <Picture src={getBuildImage(108058, 3)} class="w-full h-full object-cover rounded-sm col-span-6 row-span-2" sizes="1000px" />
+            <Picture src={getBuildImage(276780, 6)} class="w-full h-full object-cover rounded-sm col-span-3 row-span-1" sizes="1000px" />
+            <Picture src={getBuildImage(453172, 2)} class="w-full h-full object-cover rounded-sm col-span-3 row-span-1" sizes="1000px" />
+            <Picture src={getBuildImage(791924, 7)} class="w-full h-full object-cover rounded-sm col-span-6 col-start-7" sizes="1000px" />
+        </div>
+    </Gallery>
 </Layout>

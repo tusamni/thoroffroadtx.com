@@ -35,10 +35,10 @@ const allMakes = await getCollection("makes");
 ---
 
 <Layout>
-    <ImageOverlay>
-        <Picture slot="image" src={part.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <HeadingBase heading={`${part.data.title} Builds`} description={part.data.descriptionShort} />
-    </ImageOverlay>
+    <HeadingBase src={part.data.featured}>
+        <h1 slot="heading">{part.data.title} Builds</h1>
+        <div slot="description">{part.data.descriptionShort}</div>
+    </HeadingBase>
 
     <Background>
         <Section>

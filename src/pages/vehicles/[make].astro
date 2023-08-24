@@ -7,8 +7,7 @@ import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
-import ImageOverlay from "../../components/content/headings/HeadingBase.astro";
-import Link from "../../components/buttons/Link.astro";
+import HeadingBase from "../../components/content/headings/HeadingBase.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -38,14 +37,9 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
 ---
 
 <Layout>
-    <ImageOverlay>
-        <Picture slot="image" src={make.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <Container>
-            <div class="flex justify-center items-center">
-                <Icon name={`makes/${make.data.title}`} class="h-16 text-white w-1/2 max-w-xs" />
-            </div>
-        </Container>
-    </ImageOverlay>
+    <HeadingBase src={make.data.featured}>
+        <h1 slot="heading">{make.data.title}</h1>
+    </HeadingBase>
 
     <Background>
         <Section>

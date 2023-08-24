@@ -38,10 +38,10 @@ const allParts = await getCollection("parts");
 ---
 
 <Layout>
-    <ImageOverlay>
-        <Picture slot="image" src={make.data.featured} class="absolute inset-0 w-full h-full object-cover saturate-50" width={2000} height={2000} alt={``} />
-        <HeadingBase heading={`${make.data.title} Builds`} description={make.data.descriptionShort} />
-    </ImageOverlay>
+    <HeadingBase src={make.data.featured}>
+        <h1 slot="heading">{make.data.title} Builds</h1>
+        <div slot="description">{make.data.descriptionShort}</div>
+    </HeadingBase>
 
     <Background>
         <Section>

@@ -2,14 +2,25 @@
 // props
 interface Props {
     arrow?: boolean;
-    size?: string;
     classes?: string;
+    href?: string;
+    size?: string;
 }
-const { arrow = false, size = "lg", classes, ...attrs } = Astro.props;
+const { arrow = false, classes, href, size = "lg", ...attrs } = Astro.props;
 ---
 
-<a class:list={["group font-semibold hover:cursor-pointer inline-block", size && `text-${size}`, classes]} {...attrs}>
-    <slot />
+{
+    href ? (
+        <a class:list={["group font-semibold hover:cursor-pointer inline-block", size && `text-${size}`, classes]} href={href} {...attrs}>
+            <slot />
 
-    {arrow && <span>&rarr;</span>}
-</a>
+            {arrow && <span>&rarr;</span>}
+        </a>
+    ) : (
+        <div class:list={["group font-semibold hover:cursor-pointer inline-block", size && `text-${size}`, classes]} {...attrs}>
+            <slot />
+
+            {arrow && <span>&rarr;</span>}
+        </div>
+    )
+}

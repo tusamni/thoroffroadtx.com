@@ -7,6 +7,7 @@ import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
+import Link from "@/components/buttons/Link";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -37,6 +38,9 @@ const vehicleFill = {
     descriptionShort: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
     featured: "vehicles/2021-11-26/utv_01.jpg",
 };
+
+// functions
+import { getBuildImage } from "@/functions/Image";
 ---
 
 <Layout>
@@ -50,7 +54,7 @@ const vehicleFill = {
             {
                 process.map((f, i) => (
                     <div class="flex gap-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-blue-500 flex-none mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 flex-none mt-1">
                             <path
                                 fill-rule="evenodd"
                                 d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
@@ -73,14 +77,16 @@ const vehicleFill = {
             <h2>We're building our<br />customer's dream vehicles.</h2>
 
             <FlexColumn>
-                <div slot="left"></div>
+                <div slot="left">
+                    <Picture src={getBuildImage(276780, 1)} class="object-cover w-full h-full rounded-sm" />
+                </div>
 
                 <div class="max-w-7xl grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-sm border border-stone-300">
                     {
                         allMakes.map((v) => (
                             <a href={`/vehicles/${v.slug}`} class="group bg-white relative overflow-hidden">
                                 <div class="absolute w-full h-full">
-                                    <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "opacity-0 group-hover:opacity-100 transition duration-300 absolute w-2/3 h-auto -rotate-12 -bottom-6 right-0"]} />
+                                    <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "opacity-0 group-hover:opacity-100 transition duration-300 absolute w-2/3 h-auto -rotate-12 left-1/2 top-full -mt-20"]} />
                                 </div>
 
                                 <div class="flex flex-col p-8 gap-y-3 relative h-full transition duration-300">
@@ -105,12 +111,10 @@ const vehicleFill = {
                             </a>
                         ))
                     }
-                    <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center col-span-2">
+                    <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col col-span-2 group">
                         <div class="space-y-4">
                             <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
                             <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
-
-                            <p class="font-medium text-blue-600 group-hover:underline">Contact Us &gt;</p>
                         </div>
                     </a>
                 </div>

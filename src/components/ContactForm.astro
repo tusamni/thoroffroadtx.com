@@ -5,23 +5,23 @@ import Button from "@/components/buttons/Button";
 <form class="space-y-6" action="#" method="post">
     <div class="space-y-2">
         <label for="name" class="block font-semibold leading-6 text-stone-700">Name</label>
-        <input type="text" name="name" id="name" autocomplete="name" class="block w-full rounded border-0 py-2 px-3.5 text-stone-600 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6" required />
+        <input type="text" name="name" id="name" autocomplete="name" required />
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="space-y-2">
             <label for="email" class="block font-semibold leading-6 text-stone-700">Email</label>
-            <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded border-0 py-2 px-3.5 text-stone-600 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6" required />
+            <input type="email" name="email" id="email" autocomplete="email" required />
         </div>
         <div class="space-y-2">
             <label for="phone-number" class="block font-semibold leading-6 text-stone-700">Phone number</label>
-            <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded border-0 py-2 px-3.5 text-stone-600 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6" />
+            <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" />
         </div>
     </div>
 
     <div class="space-y-2">
         <label for="message" class="block font-semibold leading-6 text-stone-700">Message</label>
-        <textarea name="message" id="mssage" rows="4" class="block w-full rounded border-0 py-2 px-3.5 text-stone-600 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6"></textarea>
+        <textarea name="message" id="mssage" rows="4" class="block w-full rounded-sm border-0 py-2 px-3.5 text-stone-600 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6"></textarea>
     </div>
 
     <input type="hidden" name="formSource" value={Astro.url.pathname} />

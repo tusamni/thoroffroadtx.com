@@ -26,15 +26,15 @@ const allBuilds = (
 <Background>
     <Section>
         <Container>
-            <div class="grid grid-cols-1 md:grid-cols-2 md:gap-24 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 md:gap-24">
                 <Cta />
 
                 <div class="space-y-12">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between">
                         <h3>Featured Builds</h3>
                     </div>
 
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="rounded-sm bg-white" />).slice(0, 6)}</div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" description={false} classes="rounded-sm bg-white" />).slice(0, 6)}</div>
                 </div>
             </div>
         </Container>

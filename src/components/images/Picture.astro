@@ -1,5 +1,5 @@
 ---
-import { Image } from "../../config";
+import { ImageConfig } from "../../config";
 import imageSize from "probe-image-size";
 
 // props
@@ -13,8 +13,8 @@ const { src, alt, sizes = "100vw", ...attrs } = Astro.props;
 // functions
 import { getMedia } from "../../functions/Image";
 
-const fullPath = `${Image.cloudUrl}/images/${src}`;
-const sources = Image.imageSizes.map((w) => {
+const fullPath = `${ImageConfig.cloudUrl}/images/${src}`;
+const sources = ImageConfig.imageSizes.map((w) => {
     return `${fullPath}?width=${w} ${w}w`;
 });
 
@@ -22,14 +22,4 @@ const srcset = sources.join(", ");
 const dimensions = await imageSize(fullPath);
 ---
 
-<img
-    srcset={srcset}
-    src={getMedia(`images/${src}`)}
-    sizes={sizes}
-    alt={alt}
-    {...attrs}
-    data-img={getMedia(`images/${src}`)}
-    data-caption={alt}
-    data-width={dimensions.width}
-    data-height={dimensions.height}
-/>
+<img srcset={srcset} src={getMedia(`images/${src}`)} sizes={sizes} alt={alt} {...attrs} data-img={getMedia(`images/${src}`)} data-caption={alt} data-width={dimensions.width} data-height={dimensions.height} />

@@ -5,9 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import Button from "../../components/buttons/Button.astro";
 import Container from "../../components/Container.astro";
-import FlexColumn from "../../components/content/FlexColumn.astro";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
-import Link from "@/components/buttons/Link";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -36,7 +34,6 @@ const process = [
 const vehicleFill = {
     title: "Don't See Your Vehicle?",
     descriptionShort: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
-    featured: "vehicles/2021-11-26/utv_01.jpg",
 };
 
 // functions
@@ -44,7 +41,9 @@ import { getBuildImage } from "@/functions/Image";
 ---
 
 <Layout>
-    <HeadingSplit src="team/shop/thoroffroad-04.jpg">
+    <HeadingSplit>
+        <Picture src="team/shop/thoroffroad-04.jpg" alt="Outfitting a truck in Austin, TX" slot="background" sizes="50vw" />
+
         <div class="space-y-8">
             <h1>Texas' Top<br />Truck Outfitter</h1>
             <p class="text-xl text-stone-700 leading-9 tracking-tight">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
@@ -76,22 +75,18 @@ import { getBuildImage } from "@/functions/Image";
         <Container classes="space-y-16">
             <h2>We're building our<br />customer's dream vehicles.</h2>
 
-            <FlexColumn>
-                <div slot="left">
-                    <Picture src={getBuildImage(276780, 1)} class="object-cover w-full h-full rounded-sm" />
-                </div>
-
-                <div class="max-w-7xl grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-sm border border-stone-300">
+            <div class="grid grid-cols-6">
+                <div class="col-span-4 grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-r-sm border border-stone-300">
                     {
                         allMakes.map((v) => (
                             <a href={`/vehicles/${v.slug}`} class="group bg-white relative overflow-hidden">
                                 <div class="absolute w-full h-full">
-                                    <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "opacity-0 group-hover:opacity-100 transition duration-300 absolute w-2/3 h-auto -rotate-12 left-1/2 top-full -mt-20"]} />
+                                    <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "transition-all duration-300 absolute w-2/3 h-auto left-1/2 top-full -mt-10 group-hover:-mt-20"]} />
                                 </div>
 
                                 <div class="flex flex-col p-8 gap-y-3 relative h-full transition duration-300">
                                     <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
-                                    <div class="leading-6 text-stone-500">{v.data.descriptionShort}</div>
+                                    <div class="leading-6">{v.data.descriptionShort}</div>
 
                                     <div class="space-y-1">
                                         Brands
@@ -111,14 +106,18 @@ import { getBuildImage } from "@/functions/Image";
                             </a>
                         ))
                     }
-                    <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col col-span-2 group">
+                    <a href="/contact" class="bg-white p-8 flex flex-col col-span-2 group">
                         <div class="space-y-4">
                             <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
                             <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
                         </div>
                     </a>
                 </div>
-            </FlexColumn>
+
+                <div class="col-span-2">
+                    <Picture src={getBuildImage(850633, 5)} class="object-cover h-full w-full rounded-l-sm" />
+                </div>
+            </div>
         </Container>
     </Section>
 </Layout>

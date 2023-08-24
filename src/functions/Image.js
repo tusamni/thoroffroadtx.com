@@ -1,7 +1,7 @@
-import { Image } from "../config";
+import { ImageConfig } from "../config";
 
 export function getMedia(path) {
-    return `${Image.cloudUrl}/${path}`;
+    return `${ImageConfig.cloudUrl}/${path}`;
 }
 
 export function getBuildImage(path, number) {

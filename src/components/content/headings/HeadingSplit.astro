@@ -1,20 +1,13 @@
----
-// components
-import Container from "@/components/Container";
-import Picture from "@/components/images/Picture";
-import Section from "@/components/Section";
-
-// props
-interface Props {
-    src?: string;
-}
-const { src } = Astro.props;
----
-
 <div class="grid grid-cols-2 bg-white">
-    <Picture slot="image" src={src} class="w-full h-full object-cover aspect-square" sizes="1600px" />
+    <slot name="background" />
 
     <div class="space-y-16 px-16 py-24 self-center max-w-3xl">
         <slot />
     </div>
 </div>
+
+<style>
+    div :global(img) {
+        @apply w-full h-full object-cover aspect-square;
+    }
+</style>

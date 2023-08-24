@@ -33,7 +33,7 @@ import { Business } from "../../config.js";
 
             <!-- contact buttons -->
             <div class="flex flex-1 items-center justify-end gap-x-4 lg:gap-x-6">
-                <a href="/contact" title="Contact Us" class="sm:hidden font-semibold">Contact Us</a>
+                <Button href="/contact" theme="primary" classes="sm:hidden">Contact Us</Button>
 
                 <div class="hidden sm:block">
                     <Button href={`tel:${Business.phone}`} theme="primary">{Business.phone}</Button>

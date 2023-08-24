@@ -1,18 +1,11 @@
 ---
 // components
 import Container from "@/components/Container";
-import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
-
-// props
-interface Props {
-    src?: string;
-}
-const { src } = Astro.props;
 ---
 
-<div class="relative">
-    {src && <Picture src={src} class="sm:absolute object-cover w-full h-[25vh] sm:h-full" />}
+<div class="relative headingBg">
+    <slot name="background" />
 
     <Section>
         <Container classes="relative">
@@ -28,3 +21,9 @@ const { src } = Astro.props;
         </Container>
     </Section>
 </div>
+
+<style>
+    div :global(img) {
+        @apply sm:absolute object-cover w-full h-[25vh] sm:h-full;
+    }
+</style>

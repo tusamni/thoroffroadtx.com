@@ -2,9 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
-import Background from "../../components/content/Background.astro";
+import Button from "@/components/buttons/Button";
 import Container from "../../components/Container.astro";
-import FlexColumn from "../../components/content/FlexColumn.astro";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
@@ -15,7 +14,6 @@ const allParts = await getCollection("parts");
 const allBrands = await getCollection("brands");
 const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// content
 const process = [
     {
         title: "The Top Brands",
@@ -33,12 +31,15 @@ const process = [
 const partsFill = {
     title: "Don't see what you're looking for?",
     descriptionShort: "If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.",
-    featured: "shop/2022-12-05/shop-shoot_15.jpg",
 };
+
+// functions
+import { getBuildImage } from "@/functions/Image";
 ---
 
 <Layout>
-    <HeadingSplit src="team/shop/thoroffroad-01.jpg">
+    <HeadingSplit>
+        <Picture src="team/shop/thoroffroad-01.jpg" alt="Installing truck modifications in Austin, TX" slot="background" sizes="50vw" />
         <div class="space-y-8">
             <h1>Off-Road Parts<br />and Installation</h1>
             <p class="text-xl text-stone-700 leading-9 tracking-tight">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
@@ -66,60 +67,43 @@ const partsFill = {
         </div>
     </HeadingSplit>
 
-    <Background>
-        <Section>
-            <Container>
-                <FlexColumn>
-                    <div slot="left" class="space-y-12 bg-white p-8 rounded shadow">
-                        <h2>Our Process</h2>
-                        <div class="space-y-12">
-                            {
-                                process.map((p) => (
-                                    <div class="space-y-2">
-                                        <p class="font-semibold text-2xl">{p.title}</p>
-                                        <p class="text-base text-stone-700">{p.description}</p>
-                                    </div>
-                                ))
-                            }
+    <Section>
+        <Container classes="space-y-16">
+            <h2>We're building our<br />customer's dream vehicles.</h2>
+
+            <div class="grid grid-cols-4">
+                <div class="col-span-3 grid grid-cols-3 gap-[1px] bg-stone-300 rounded-r-sm border border-stone-300">
+                    {
+                        allParts.map((p) => (
+                            <a href={`/parts/${p.slug}`} class="bg-white group flex flex-col p-8 gap-y-5 justify-between">
+                                <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
+                                <div class="leading-6 text-stone-500">{p.data.descriptionShort}</div>
+                                <div class="space-y-1">
+                                    Brands
+                                    <ul class="comma-list text-sm text-stone-500 font-normal line-clamp-3">
+                                        {allBrands.map((b) => {
+                                            if (b.data.parts.includes(p.slug)) {
+                                                return <li>{b.data.title}</li>;
+                                            }
+                                        })}
+                                    </ul>
+                                </div>
+                                <Button theme="primary">See More</Button>
+                            </a>
+                        ))
+                    }
+                    <a href="/contact" class="bg-white p-8 flex flex-col">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold leading-6">{partsFill.title}</h3>
+                            <div class="leading-6 text-stone-500">{partsFill.descriptionShort}</div>
                         </div>
-                    </div>
+                    </a>
+                </div>
 
-                    <div class="space-y-8">
-                        {
-                            allParts.map((p) => (
-                                <a href={`/parts/${p.slug}`} class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow group">
-                                    <div class="w-full h-72 sm:h-full relative col-span-5 sm:col-span-2">
-                                        <Picture src={p.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
-                                    </div>
-
-                                    <div class="flex flex-col justify-center p-8 gap-y-3 col-span-5 sm:col-span-3">
-                                        <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
-                                        <div class="leading-6 text-stone-500">{p.data.descriptionShort}</div>
-                                        <div class="space-y-1">
-                                            Brands
-                                            <ul class="comma-list text-sm text-stone-500 font-normal">
-                                                {allBrands.map((b) => {
-                                                    if (b.data.parts.includes(p.slug)) {
-                                                        return <li>{b.data.title}</li>;
-                                                    }
-                                                })}
-                                            </ul>
-                                        </div>
-                                        <div class="font-medium bg-blue-500 text-white rounded px-3 py-2 group-hover:bg-blue-400 transition duration-300 w-fit mt-2 button button-secondary">See More</div>
-                                    </div>
-                                </a>
-                            ))
-                        }
-                        <a href="/contact" class="bg-white rounded shadow p-8 flex flex-col justify-center items-center">
-                            <div class="space-y-4">
-                                <h3 class="text-2xl font-semibold leading-6">{partsFill.title}</h3>
-                                <div class="leading-6 text-stone-500">{partsFill.descriptionShort}</div>
-                                <p class="font-medium text-blue-500 group-hover:underline">Contact Us &gt;</p>
-                            </div>
-                        </a>
-                    </div>
-                </FlexColumn>
-            </Container>
-        </Section>
-    </Background>
+                <div>
+                    <Picture src={getBuildImage(777233, 2)} class="object-cover h-full w-full rounded-l-sm object-left" />
+                </div>
+            </div>
+        </Container>
+    </Section>
 </Layout>

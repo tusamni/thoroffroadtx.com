@@ -1,16 +1,30 @@
 ---
 // components
 import Container from "@/components/Container";
+import Picture from "@/components/images/Picture";
+import Section from "@/components/Section";
+
+// props
+interface Props {
+    src?: string;
+}
+const { src } = Astro.props;
 ---
 
-<Container classes="relative">
-    <div class="bg-white max-w-3xl space-y-8 sm:py-10 sm:px-14 rounded-sm relative">
-        <slot name="heading" />
+<div class="relative">
+    {src && <Picture src={src} class="sm:absolute object-cover w-full h-[25vh] sm:h-full" />}
 
-        <div class="space-y-4 text-xl leading-8">
-            <slot name="description" />
-        </div>
+    <Section>
+        <Container classes="relative">
+            <div class="bg-white max-w-3xl space-y-8 sm:py-10 sm:px-14 rounded-sm relative">
+                <slot name="heading" />
 
-        <slot />
-    </div>
-</Container>
+                <div class="space-y-4 text-xl leading-8">
+                    <slot name="description" />
+                </div>
+
+                <slot />
+            </div>
+        </Container>
+    </Section>
+</div>

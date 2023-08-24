@@ -8,9 +8,7 @@ import Button from "../components/buttons/Button.astro";
 import Container from "../components/Container.astro";
 import Gallery from "../components/images/Gallery.astro";
 import HeadingBase from "@/components/content/headings/HeadingBase";
-import ImageOverlay from "@/components/content/headings/ImageOverlay";
 import Picture from "../components/images/Picture.astro";
-import PostSnippet from "@/components/posts/PostSnippet";
 import Section from "../components/Section.astro";
 import Testimonial from "../components/Testimonial.astro";
 
@@ -29,17 +27,15 @@ import { getBuildImage } from "../functions/Image.js";
 ---
 
 <Layout>
-    <ImageOverlay src="shop/2022-03-09/shop-shoot_01.jpg">
-        <HeadingBase>
-            <h1 slot="heading">{Business.nameLong} partners with the best.</h1>
-            <div slot="description">We've built partnerships with the best brands, nobody carries more Carli parts or knows the performance suspension options for your vehicle better than {Business.nameLong}.</div>
+    <HeadingBase src="shop/2022-03-09/shop-shoot_01.jpg">
+        <h1 slot="heading">{Business.nameLong} partners with the best.</h1>
+        <div slot="description">We've built partnerships with the best brands, nobody carries more Carli parts or knows the performance suspension options for your vehicle better than {Business.nameLong}.</div>
 
-            <div class="flex flex-col gap-4 sm:flex-row">
-                <Button icon="hero/WrenchScrewdriverFill" theme="secondary" href="/contact">Build Your Dream Truck</Button>
-                <Button icon="hero/ArrowRightCircleFill" href="/builds">See Our Builds</Button>
-            </div>
-        </HeadingBase>
-    </ImageOverlay>
+        <div class="flex flex-col gap-4 sm:flex-row">
+            <Button icon="hero/WrenchScrewdriverFill" theme="secondary" href="/contact">Build Your Dream Truck</Button>
+            <Button icon="hero/ArrowRightCircleFill" href="/builds">See Our Builds</Button>
+        </div>
+    </HeadingBase>
 
     <Background>
         <Section>

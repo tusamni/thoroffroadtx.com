@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
+import Icon from "astro-icon";
 import Button from "@/components/buttons/Button";
 import Container from "../../components/Container.astro";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
@@ -75,20 +76,26 @@ import { getBuildImage } from "@/functions/Image";
                 <div class="col-span-3 grid grid-cols-3 gap-[1px] bg-stone-300 rounded-r-sm border border-stone-300">
                     {
                         allParts.map((p) => (
-                            <a href={`/parts/${p.slug}`} class="bg-white group flex flex-col p-8 gap-y-5 justify-between">
-                                <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
-                                <div class="leading-6 text-stone-500">{p.data.descriptionShort}</div>
-                                <div class="space-y-1">
-                                    Brands
-                                    <ul class="comma-list text-sm text-stone-500 font-normal line-clamp-3">
-                                        {allBrands.map((b) => {
-                                            if (b.data.parts.includes(p.slug)) {
-                                                return <li>{b.data.title}</li>;
-                                            }
-                                        })}
-                                    </ul>
+                            <a href={`/parts/${p.slug}`} class="bg-white group flex flex-col p-8 justify-between relative overflow-hidden">
+                                <div class="absolute w-full h-full">
+                                    <Icon name={`parts/${p.data.logo}Fill`} class="transition-all duration-300 absolute w-2/3 h-auto bottom-0 right-0 text-stone-50" />
                                 </div>
-                                <Button theme="primary">See More</Button>
+
+                                <div class="space-y-5 relative">
+                                    <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
+                                    <div class="leading-6 text-stone-500">{p.data.descriptionShort}</div>
+                                    <div class="space-y-1">
+                                        Brands
+                                        <ul class="comma-list text-sm text-stone-500 font-normal line-clamp-3">
+                                            {allBrands.map((b) => {
+                                                if (b.data.parts.includes(p.slug)) {
+                                                    return <li>{b.data.title}</li>;
+                                                }
+                                            })}
+                                        </ul>
+                                    </div>
+                                    <Button theme="primary">See More</Button>
+                                </div>
                             </a>
                         ))
                     }

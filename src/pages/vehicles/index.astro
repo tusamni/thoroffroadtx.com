@@ -76,12 +76,12 @@ import { getBuildImage } from "@/functions/Image";
             <h2>We're building our<br />customer's dream vehicles.</h2>
 
             <div class="grid grid-cols-6">
-                <div class="col-span-4 grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-r-sm border border-stone-300">
+                <div class="col-span-4 grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-l-sm border border-stone-300">
                     {
                         allMakes.map((v) => (
                             <a href={`/vehicles/${v.slug}`} class="group bg-white relative overflow-hidden">
                                 <div class="absolute w-full h-full">
-                                    <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "transition-all duration-300 absolute w-2/3 h-auto left-1/2 top-full -mt-10 group-hover:-mt-20"]} />
+                                    <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "transition-all duration-300 absolute w-2/3 h-auto left-1/2 top-full -rotate-12 -mt-10 group-hover:-mt-20"]} />
                                 </div>
 
                                 <div class="flex flex-col p-8 gap-y-3 relative h-full transition duration-300">
@@ -115,7 +115,7 @@ import { getBuildImage } from "@/functions/Image";
                 </div>
 
                 <div class="col-span-2">
-                    <Picture src={getBuildImage(850633, 5)} class="object-cover h-full w-full rounded-l-sm" />
+                    <Picture src={getBuildImage(850633, 5)} class="object-cover h-full w-full rounded-r-sm" />
                 </div>
             </div>
         </Container>

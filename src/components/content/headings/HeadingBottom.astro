@@ -1,0 +1,29 @@
+---
+// components
+import Container from "@/components/Container";
+import Section from "@/components/Section";
+---
+
+<div class="relative headingBg">
+    <slot name="background" />
+
+    <div class="flex pt-72">
+        <Container classes="relative">
+            <div class="bg-white max-w-3xl space-y-8 sm:py-12 sm:px-14 rounded-sm relative">
+                <slot name="heading" />
+
+                <div class="space-y-4 text-xl leading-8">
+                    <slot name="description" />
+                </div>
+
+                <slot />
+            </div>
+        </Container>
+    </div>
+</div>
+
+<style>
+    div :global(img) {
+        @apply sm:absolute object-cover w-full h-[25vh] sm:h-full;
+    }
+</style>

@@ -22,4 +22,4 @@ const srcset = sources.join(", ");
 const dimensions = await imageSize(fullPath);
 ---
 
-<img srcset={srcset} src={getMedia(`images/${src}`)} sizes={sizes} alt={alt} {...attrs} data-img={getMedia(`images/${src}`)} data-caption={alt} data-width={dimensions.width} data-height={dimensions.height} />
+<img srcset={srcset} src={getMedia(`images/${src}`)} sizes={sizes} alt={alt} {...attrs} data-img={getMedia(`images/${src}`)} data-caption={alt} />

@@ -2,12 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
-import { Icon } from "astro-icon";
-import Background from "../../components/content/Background.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
+import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
+import Button from "@/components/buttons/Button";
 import Container from "../../components/Container.astro";
-import FlexColumn from "../../components/content/FlexColumn.astro";
-import HeadingBase from "../../components/content/headings/HeadingBase.astro";
+import HeadingSplit from "@/components/content/headings/HeadingSplit";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -31,67 +30,65 @@ const allBuilds = (
     })
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
+const vehicleFill = {
+    title: "Don't See Your Vehicle?",
+    descriptionShort: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
+};
+
 // functions
+import { getBuildImage } from "@/functions/Image";
 import { closestNumber } from "../../functions/Misc";
 const buildCount = closestNumber(allBuilds.length, 4, 8);
 ---
 
 <Layout>
-    <HeadingBase src={make.data.featured}>
-        <h1 slot="heading">{make.data.title}</h1>
-    </HeadingBase>
+    <HeadingSplit>
+        <Picture src={make.data.featured} alt=`${make.data.title} Outfitting in Austin, TX` slot="background" sizes="50vw" />
 
-    <Background>
-        <Section>
-            <Container>
-                <FlexColumn>
-                    <div slot="left" class="space-y-12 p-8 bg-white rounded shadow h-full">
-                        <h2>
-                            We're <span class="italic">the</span>
-                            {make.data.title} Experts
-                        </h2>
-                        <div class="leading-8 tracking-tight text-stone-700 space-y-6">
-                            <p set:html={make.data.descriptionLong} />
-                            <p set:html={make.data.descriptionPush} />
-                        </div>
-                    </div>
+        <div class="space-y-8">
+            <h1>We're <i>the</i>&nbsp;{make.data.title} Experts</h1>
+            <div set:html={make.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight" />
+            <div set:html={make.data.descriptionPush} class="text-xl text-stone-700 leading-9 tracking-tight" />
+        </div>
+    </HeadingSplit>
 
-                    <div class="space-y-8">
-                        {
-                            allModels.map((m) => (
-                                <div class="grid grid-cols-5 min-h-[250px] bg-white rounded shadow">
-                                    <a href="/contact" class="w-full h-72 sm:h-full relative col-span-5 sm:col-span-2">
-                                        <Picture src={m.data.featured} class="absolute h-full w-full object-cover col-span-2 rounded-l" sizes="500px" slot="picture" />
-                                    </a>
-
-                                    <div class="flex flex-col justify-center p-8 gap-y-3 col-span-5 sm:col-span-3">
+    <Section>
+        <Container>
+            <div class="grid grid-cols-6 gap-8">
+                <div class="col-span-4 grid grid-cols-2 gap-[1px] bg-stone-300 rounded-r-sm border border-stone-300">
+                    {
+                        allModels.map((m) => (
+                            <div class="bg-white group flex flex-col justify-between">
+                                <div class="h-full p-8 flex flex-col gap-8 justify-between">
+                                    <div class="space-y-5">
                                         <h3 class="text-2xl font-semibold leading-6">{m.data.title}</h3>
-                                        <div class="leading-6 text-stone-500 space-y-4" set:html={m.data.descriptionLong} />
-                                        <div class="flex flex-col sm:flex-row justify-between items-center mt-2 gap-y-4">
-                                            <a href="/contact" class="font-medium bg-blue-500 text-white rounded px-3 py-2 group-hover:bg-blue-400 transition duration-300 w-fit button button-secondary">
-                                                Customize Your {m.data.title}
-                                            </a>
-
-                                            <a href={`/builds/${m.data.make.toLowerCase()}/${m.slug}`} class="hover:underline font-medium">
-                                                See Builds
-                                            </a>
-                                        </div>
+                                        <div class="leading-6 text-stone-500 space-y-8" set:html={m.data.descriptionLong} />
                                     </div>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </FlexColumn>
 
-                {
-                    allBuilds.length >= 4 && (
-                        <div class="bg-white shadow px-8 py-12 rounded space-y-8 mt-8">
-                            <h3>{make.data.title} Builds</h3>
-                            <div class="col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, buildCount)}</div>
-                        </div>
-                    )
-                }
-            </Container>
-        </Section>
-    </Background>
+                                    <Button theme="primary">Build Your {m.data.title}</Button>
+                                </div>
+                            </div>
+                        ))
+                    }
+
+                    {allModels.length % 2 !== 0 && <div class="bg-white w-full h-full" />}
+                </div>
+
+                <div class="col-span-2">
+                    <Picture src={make.data.featuredAlt} class="object-cover h-full w-full rounded-r-sm" />
+                </div>
+            </div>
+        </Container>
+    </Section>
+
+    {
+        allBuilds.length >= 4 && (
+            <Section>
+                <Container classes="space-y-16">
+                    <h2 class="text-center">Recent {make.data.title} Builds</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, buildCount)}</div>
+                </Container>
+            </Section>
+        )
+    }
 </Layout>

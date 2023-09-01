@@ -52,6 +52,7 @@ const partsCollection = defineCollection({
         seoDescription: z.string(),
         logo: z.string(),
         featured: z.string(),
+        featuredAlt: z.string(),
     }),
 });
 

@@ -1,5 +1,7 @@
 <div class="grid grid-cols-2 bg-white">
-    <slot name="background" />
+    <div class="relative">
+        <slot name="background" />
+    </div>
 
     <div class="space-y-16 px-16 py-24 self-center max-w-3xl">
         <slot />
@@ -8,6 +10,6 @@
 
 <style>
     div :global(img) {
-        @apply w-full h-full object-cover aspect-square;
+        @apply absolute inset-0 w-full h-full object-cover;
     }
 </style>

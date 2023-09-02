@@ -3,10 +3,10 @@ import Layout from "../../layouts/Layout.astro";
 
 // components
 import { Icon } from "astro-icon";
+import Background from "@/components/content/Background";
 import BuildSnippet from "../../components/builds/BuildSnippetAlt.astro";
 import Container from "../../components/Container.astro";
-import FlexColumn from "../../components/content/FlexColumn.astro";
-import HeadingBottom from "@/components/content/headings/HeadingBottom";
+import HeadingSplit from "@/components/content/headings/HeadingSplit";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
 
@@ -33,22 +33,20 @@ const allBuilds = (
 ---
 
 <Layout>
-    <HeadingBottom>
-        <Picture src={part.data.featured} alt={part.data.title} slot="background" />
+    <HeadingSplit>
+        <Picture src={part.data.featured} alt=`${part.data.title} Outfitting in Austin, TX` slot="background" sizes="50vw" />
 
-        <h1 slot="heading">We're <i>the</i>&nbsp;{part.data.title} Experts</h1>
-        <div slot="description" class="space-y-6" set:html={part.data.descriptionLong} />
-    </HeadingBottom>
+        <div class="space-y-8">
+            <h1>We're <i>the</i>&nbsp;{part.data.title} Experts</h1>
+            <div set:html={part.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight" />
+        </div>
+    </HeadingSplit>
 
     {
         part.data.contentSidebar && part.data.contentParts && (
             <Section>
                 <Container>
                     <div class="grid grid-cols-6 gap-12">
-                        <div class="col-span-2">
-                            <Picture src={part.data.featuredAlt} class="object-cover h-full w-full rounded-r-sm" />
-                        </div>
-
                         <div class="col-span-4">
                             <div class="space-y-8 py-12">
                                 <h2>{part.data.title} Upgrades</h2>
@@ -70,6 +68,10 @@ const allBuilds = (
                                     </div>
                                 ))}
                             </div>
+                        </div>
+
+                        <div class="col-span-2">
+                            <Picture src={part.data.featuredAlt} class="object-cover h-full w-full rounded-r-sm" />
                         </div>
                     </div>
                 </Container>

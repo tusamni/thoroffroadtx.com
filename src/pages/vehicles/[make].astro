@@ -74,8 +74,8 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
                     {allModels.length % 2 !== 0 && <div class="bg-white w-full h-full" />}
                 </div>
 
-                <div class="col-span-2">
-                    <Picture src={make.data.featuredAlt} class="object-cover h-full w-full rounded-r-sm" />
+                <div class="col-span-2 relative">
+                    <Picture src={make.data.featuredAlt} class="absolute object-cover h-full w-full rounded-r-sm" />
                 </div>
             </div>
         </Container>

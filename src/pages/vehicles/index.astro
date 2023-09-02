@@ -42,7 +42,7 @@ import { getBuildImage } from "@/functions/Image";
 
 <Layout>
     <HeadingSplit>
-        <Picture src="team/shop/thoroffroad-04.jpg" alt="Outfitting a truck in Austin, TX" slot="background" sizes="50vw" />
+        <Picture src="shop/2022-12-05/shop-shoot_15.jpg" alt="Outfitting a truck in Austin, TX" slot="background" sizes="50vw" />
 
         <div class="space-y-8">
             <h1>Texas' Top<br />Truck Outfitter</h1>
@@ -84,24 +84,28 @@ import { getBuildImage } from "@/functions/Image";
                                     <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "transition-all duration-300 absolute w-2/3 h-auto left-1/2 top-full -rotate-12 -mt-10 group-hover:-mt-20"]} />
                                 </div>
 
-                                <div class="flex flex-col p-8 gap-y-3 relative h-full transition duration-300">
-                                    <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
-                                    <div class="leading-6">{v.data.descriptionShort}</div>
+                                <div class="flex flex-col p-8 relative h-full transition duration-300">
+                                    <div class="h-full flex flex-col gap-8 justify-between">
+                                        <div class="space-y-5">
+                                            <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
+                                            <div class="leading-6">{v.data.descriptionShort}</div>
 
-                                    <div class="space-y-1">
-                                        Brands
-                                        <ul class="comma-list text-xs text-stone-500 font-normal">
-                                            {allModels.map((i) => {
-                                                if (i.data.make.toLowerCase().includes(v.slug)) {
-                                                    return <li>{i.data.title}</li>;
-                                                }
-                                            })}
-                                        </ul>
+                                            <div class="space-y-1">
+                                                Brands
+                                                <ul class="comma-list text-xs text-stone-500 font-normal">
+                                                    {allModels.map((i) => {
+                                                        if (i.data.make.toLowerCase().includes(v.slug)) {
+                                                            return <li>{i.data.title}</li>;
+                                                        }
+                                                    })}
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <Button theme="primary" classes="mt-3">
+                                            See More
+                                        </Button>
                                     </div>
-
-                                    <Button theme="primary" classes="mt-3">
-                                        See More
-                                    </Button>
                                 </div>
                             </a>
                         ))

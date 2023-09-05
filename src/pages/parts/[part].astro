@@ -30,17 +30,38 @@ const allBuilds = (
         return data.categories.includes(part.slug);
     })
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+import { closestNumber } from "../../functions/Misc";
+const buildCount = closestNumber(allBrands.length, 4, 8);
 ---
 
 <Layout>
-    <HeadingSplit>
-        <Picture src={part.data.featured} alt=`${part.data.title} Outfitting in Austin, TX` slot="background" sizes="50vw" />
+    <Background>
+        <div class="space-y-20 py-20">
+            <HeadingSplit>
+                <Picture src={part.data.featured} alt=`${part.data.title} Outfitting in Austin, TX` slot="background" sizes="50vw" class="rounded-r-lg" />
 
-        <div class="space-y-8">
-            <h1>We're <i>the</i>&nbsp;{part.data.title} Experts</h1>
-            <div set:html={part.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight" />
+                <div class="space-y-8">
+                    <h1>We're <i>the</i>&nbsp;{part.data.title} Experts</h1>
+                    <div set:html={part.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight space-y-8" />
+                </div>
+            </HeadingSplit>
+
+            <Container>
+                <div class="mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-12">
+                    {
+                        allBrands
+                            .map((b) => (
+                                <div class="bg-stone-50 p-6 flex justify-center rounded-sm">
+                                    <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 lg:h-16 w-full lg:w-1/2 object-contain text-stone-900 place-self-center" />
+                                </div>
+                            ))
+                            .slice(0, buildCount)
+                    }
+                </div>
+            </Container>
         </div>
-    </HeadingSplit>
+    </Background>
 
     {
         part.data.contentSidebar && part.data.contentParts && (
@@ -78,22 +99,6 @@ const allBuilds = (
             </Section>
         )
     }
-
-    <Section>
-        <Container>
-            <div class="mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-12">
-                {
-                    allBrands
-                        .map((b) => (
-                            <div class="bg-stone-50 p-6 flex justify-center rounded-sm">
-                                <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 lg:h-16 w-full lg:w-1/2 object-contain text-stone-900 place-self-center" />
-                            </div>
-                        ))
-                        .slice(0, 12)
-                }
-            </div>
-        </Container>
-    </Section>
 
     {
         allBuilds.length >= 4 && (

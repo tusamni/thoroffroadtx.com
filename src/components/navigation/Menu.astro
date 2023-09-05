@@ -23,7 +23,7 @@ import { Business } from "../../config.js";
                 </a>
 
                 <!--- desktop menu -->
-                <div class="hidden md:flex items-center md:gap-8">
+                <div class="hidden md:flex items-center md:gap-6 lg:gap-8">
                     <MenuVehicles />
                     <MenuParts />
 
@@ -35,11 +35,11 @@ import { Business } from "../../config.js";
             <div class="flex flex-1 items-center justify-end gap-x-4 lg:gap-x-6">
                 <Button href="/contact" theme="primary" classes="sm:hidden">Contact Us</Button>
 
-                <div class="hidden sm:block">
+                <div class="hidden md:block">
                     <Button href={`tel:${Business.phone}`} theme="primary">{Business.phone}</Button>
                 </div>
                 <div class="hidden sm:block">
-                    <Button href="/contact" theme="secondary">Contact Us</Button>
+                    <Button icon="hero/EnvelopeFill" href="/contact" theme="secondary">Contact Us</Button>
                 </div>
             </div>
 

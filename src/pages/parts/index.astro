@@ -33,14 +33,11 @@ const partsFill = {
     title: "Don't see what you're looking for?",
     descriptionShort: "If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.",
 };
-
-// functions
-import { getBuildImage } from "@/functions/Image";
 ---
 
 <Layout>
     <HeadingSplit>
-        <Picture src="shop/2022-12-05/shop-shoot_14.jpg" alt="Installing truck modifications in Austin, TX" slot="background" sizes="50vw" />
+        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Installing truck modifications in Austin, TX" slot="background" sizes="50vw" class="object-bottom" />
         <div class="space-y-8">
             <h1>Off-Road Parts<br />and Installation</h1>
             <p class="text-xl text-stone-700 leading-9 tracking-tight">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
@@ -72,8 +69,8 @@ import { getBuildImage } from "@/functions/Image";
         <Container classes="space-y-16">
             <h2>We're building our<br />customer's dream vehicles.</h2>
 
-            <div class="grid grid-cols-4 gap-8">
-                <div class="col-span-3 grid grid-cols-3 gap-[1px] bg-stone-300 rounded-r-sm border border-stone-300">
+            <div class="grid grid-cols-6 gap-8">
+                <div class="col-span-4 grid grid-cols-3 gap-[1px] bg-stone-300 rounded-r-sm border border-stone-300">
                     {
                         allParts.map((p) => (
                             <a href={`/parts/${p.slug}`} class="bg-white group flex flex-col justify-between relative overflow-hidden">
@@ -110,8 +107,8 @@ import { getBuildImage } from "@/functions/Image";
                     </a>
                 </div>
 
-                <div>
-                    <Picture src={getBuildImage(777233, 2)} class="object-cover h-full w-full rounded-l-sm object-left" />
+                <div class="col-span-2">
+                    <Picture src="builds/295031/15.jpg" class="object-cover h-full w-full rounded-l-sm object-left" />
                 </div>
             </div>
         </Container>

@@ -8,8 +8,7 @@ import BuildFilterListing from "../../components/builds/BuildFilterListing.astro
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import Container from "../../components/Container.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
-import HeadingBase from "../../components/content/headings/HeadingBase.astro";
-import ImageOverlay from "../../components/content/headings/HeadingBase.astro";
+import HeadingSplit from "@/components/content/headings/HeadingSplit";
 import ListingGrid from "../../components/builds/BuildListing.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
@@ -22,6 +21,19 @@ const allParts = await getCollection("parts");
 ---
 
 <Layout>
+    <Background>
+        <div class="space-y-20 py-20">
+            <HeadingSplit>
+                <Picture src="shop/2022-12-05/shop-shoot_15.jpg" alt=`Truck Outfitting in Austin, TX` slot="background" sizes="50vw" class="rounded-r-lg" />
+
+                <div class="space-y-8">
+                    <h1>THOR Off-Road Builds</h1>
+                    <div class="text-xl text-stone-700 leading-9 tracking-tight space-y-8">We love showing off our work. Want your vehicle featured here? Give us a shout.</div>
+                </div>
+            </HeadingSplit>
+        </div>
+    </Background>
+
     <Background>
         <Section>
             <Container>

@@ -81,10 +81,10 @@ const buildCount = closestNumber(allBrands.length, 4, 8);
 
                                         <div x-data={`{ parts${i} : false }`} x-on:click={`parts${i} = !parts${i}`} class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
                                             <p class="font-semibold text-stone-900">{p.title}</p>
-                                            <p x-bind:class={`parts${i} ? 'line-clamp-none' : 'md:line-clamp-2'`} class="text-sm">
+                                            <p x-bind:class={`parts${i} ? 'line-clamp-none' : 'md:line-clamp-3'`} class="text-sm">
                                                 {p.description ? `${p.description}` : `Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.`}
                                             </p>
-                                            <div class="hidden md:block w-fit text-sm font-medium text-stone-900" x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
+                                            <div class="hidden w-fit text-sm font-medium text-stone-900" x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
                                         </div>
                                     </div>
                                 ))}

@@ -2,15 +2,16 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
-import Background from "../../components/content/Background.astro";
+import Background from "@/components/content/Background";
 import BuildFilter from "../../components/builds/BuildFilter.astro";
 import BuildFilterListing from "../../components/builds/BuildFilterListing.astro";
 import BuildSnippet from "../../components/builds/BuildSnippet.astro";
+import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
 import Container from "../../components/Container.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
-import HeadingSplit from "@/components/content/headings/HeadingSplit";
+import HeadingBase from "@/components/content/headings/HeadingBase";
 import ListingGrid from "../../components/builds/BuildListing.astro";
-import Picture from "../../components/images/Picture.astro";
+import Picture from "@/components/images/Picture";
 import Section from "../../components/Section.astro";
 
 // content
@@ -22,25 +23,23 @@ const allParts = await getCollection("parts");
 
 <Layout>
     <Background>
-        <div class="space-y-20 py-20">
-            <HeadingSplit>
-                <Picture src="shop/2022-12-05/shop-shoot_15.jpg" alt=`Truck Outfitting in Austin, TX` slot="background" sizes="50vw" class="rounded-r-lg" />
-
-                <div class="space-y-8">
-                    <h1>THOR Off-Road Builds</h1>
-                    <div class="text-xl text-stone-700 leading-9 tracking-tight space-y-8">We love showing off our work. Want your vehicle featured here? Give us a shout.</div>
-                </div>
-            </HeadingSplit>
-        </div>
-    </Background>
-
-    <Background>
-        <Section>
+        <Section small={true}>
             <Container>
-                <FlexColumn float={true}>
-                    <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 bg-white p-8 rounded-sm space-y-6 sm:space-y-0 lg:space-y-6">
+                <h1 class="mb-16">THOR Off-Road Builds</h1>
+
+                <FlexColumn float={true} reverse={true}>
+                    <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 space-y-6 sm:space-y-0 lg:space-y-6">
                         <BuildFilterListing heading="Filter by Parts">
-                            {allParts.map((p) => <BuildFilter href={`/builds/${p.slug}`}>{p.data.title}</BuildFilter>)}
+                            {
+                                allParts.map((p) => (
+                                    <BuildFilter href={`/builds/${p.slug}`}>
+                                        <div class="space-y-2">
+                                            <div class="text-base">{p.data.title}</div>
+                                            <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
+                                        </div>
+                                    </BuildFilter>
+                                ))
+                            }
                         </BuildFilterListing>
 
                         <BuildFilterListing heading="Filter by Vehicle">
@@ -49,7 +48,7 @@ const allParts = await getCollection("parts");
                     </div>
 
                     <ListingGrid>
-                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" classes="rounded-sm bg-white" />)}
+                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" classes="shadow rounded bg-white" />)}
                     </ListingGrid>
                 </FlexColumn>
             </Container>

@@ -9,7 +9,7 @@ const { heading } = Astro.props;
 <div class="space-y-4">
     <h6 class="text-stone-800">{heading}</h6>
 
-    <div class="flex flex-wrap sm:grid sm:grid-cols-2 gap-3">
+    <div class="col-span-4 grid grid-cols-2 gap-4">
         <slot />
     </div>
 </div>

@@ -1,10 +1,11 @@
 ---
 interface Props {
+    small?: boolean;
     classes?: string;
 }
-const { classes } = Astro.props;
+const { small = false, classes } = Astro.props;
 ---
 
-<div class:list={["py-16 sm:py-24 lg:py-44 space-y-16 sm:space-y-24 lg:space-y-44", classes]}>
+<div class:list={["space-y-16 sm:space-y-24 lg:space-y-44", small ? `py-8 sm:py-12 lg:py-20` : `py-16 sm:py-24 lg:py-44`, classes]}>
     <slot />
 </div>

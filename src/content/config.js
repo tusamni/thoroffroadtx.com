@@ -4,6 +4,11 @@ const buildCollection = defineCollection({
     schema: z.object({
         // build
         id: z.number(),
+        date: z.date(),
+        path: z.string(),
+        summary: z.string(),
+        categories: z.string().transform((category) => category.split(", ")),
+
         // vehicle
         year: z.number(),
         make: z.string(),
@@ -11,23 +16,18 @@ const buildCollection = defineCollection({
         trim: z.string().optional().nullable(),
         color: z.string().optional(),
         drive: z.enum(["4x4", "4x2"]),
-        // owner
-        city: z.string().optional(),
-        state: z.string().optional(),
-        owner: z.string().optional(),
-        highlight: z.string().optional(),
+        parts: z.string().transform((part) => part.split(", ")),
+
+        // details
         testimonial: z.string().optional(),
         goals: z.string().optional(),
-        parts: z.string().transform((part) => part.split(", ")),
-        categories: z.string().transform((category) => category.split(", ")),
-        // meta
-        date: z.date(),
-        path: z.string(),
-        summary: z.string(),
+
         // images
-        totalImages: z.number().transform((total) => Array.from({ length: total - 0 }, (_, i) => 0 + 1 + i)), // turn the total images into a array of the filenames
-        featuredImage: z.number(),
-        homepageFeatured: z.boolean().optional(),
+        images: z.object({
+            total: z.number(),
+            snippet: z.number().default(1),
+            banner: z.number().default(1),
+        }),
         video: z.string().optional(),
     }),
 });

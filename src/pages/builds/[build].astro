@@ -6,6 +6,7 @@ import { Icon } from "astro-icon";
 import Container from "../../components/Container.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
+import HeadingBottom from "@/components/content/headings/HeadingBottom";
 import Gallery from "../../components/images/Gallery.astro";
 import Picture from "../../components/images/Picture.astro";
 import Section from "../../components/Section.astro";
@@ -30,17 +31,19 @@ import { timeAgo } from "@/functions/DateTime";
 ---
 
 <Layout>
-    <div class="space-y-3 flex flex-col justify-center items-center py-20">
-        <div class="flex flex-row text-stone-500 gap-6 text-sm uppercase">
-            <div>Color: {build.data.color}</div>
-            <div>Drive: {build.data.drive}</div>
-            <div>Completed: {timeAgo(build.data.date)}</div>
+    <HeadingBottom>
+        <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt={`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`} sizes="100vw" class="h-[80vh] object-cover w-full" slot="background" />
+
+        <div class="space-y-3 flex flex-col">
+            <div class="flex flex-row text-stone-500 gap-6 text-sm uppercase">
+                <div>Color: {build.data.color}</div>
+                <div>Drive: {build.data.drive}</div>
+                <div>Completed: {timeAgo(build.data.date)}</div>
+            </div>
+
+            <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
         </div>
-
-        <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
-    </div>
-
-    <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt={`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`} sizes="100vw" class="h-[80vh] object-cover w-full" />
+    </HeadingBottom>
 
     <Section>
         <Container>

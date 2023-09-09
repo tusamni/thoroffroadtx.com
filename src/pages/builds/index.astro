@@ -54,15 +54,23 @@ const featuredBuild = allBuilds.filter(function (build) {
                         </p>
                     </div>
 
-                    <div class="space-y-8">
+                    <div class="space-y-16">
                         <div class="space-y-8">
                             <Pill>Featured Build</Pill>
                             <BuildSnippetAlt build={featuredBuild} sizes="50vw" description={true} classes="rounded h-[35em]" />
                         </div>
 
-                        <ListingGrid>
-                            {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="300px" classes="h-[25em]" />)}
-                        </ListingGrid>
+                        <div class="space-y-8">
+                            <div class="flex justify-between items-end">
+                                <Pill>All Builds</Pill>
+
+                                <div class="text-sm">Showing {allBuilds.length} Builds</div>
+                            </div>
+
+                            <ListingGrid>
+                                {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="300px" classes="h-[20em]" />)}
+                            </ListingGrid>
+                        </div>
                     </div>
                 </div>
             </FlexColumn>

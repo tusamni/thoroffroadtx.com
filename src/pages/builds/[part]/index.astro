@@ -2,15 +2,13 @@
 import Layout from "../../../layouts/Layout.astro";
 
 // components
-import Background from "../../../components/content/Background.astro";
 import BuildFilter from "../../../components/builds/BuildFilter.astro";
 import BuildFilterListing from "../../../components/builds/BuildFilterListing.astro";
 import BuildSnippet from "../../../components/builds/BuildSnippet.astro";
+import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
 import Container from "../../../components/Container.astro";
 import FlexColumn from "../../../components/content/FlexColumn.astro";
-import HeadingBase from "../../../components/content/headings/HeadingBase.astro";
 import ListingGrid from "../../../components/builds/BuildListing.astro";
-import Picture from "@/components/images/Picture";
 import Section from "../../../components/Section.astro";
 
 // content
@@ -34,53 +32,36 @@ const allMakes = await getCollection("makes");
 ---
 
 <Layout>
-    <Background>
-        <Section small={true}>
-            <Container>
-                <h1 class="mb-16">{part.data.title} Builds</h1>
+    <Section small={true}>
+        <Container>
+            <FlexColumn float={true} reverse={true}>
+                <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 space-y-6 sm:space-y-0 lg:space-y-6">
+                    <BuildFilterListing heading="Filter by Parts">
+                        {
+                            allParts.map((p) => (
+                                <BuildFilter href={`/builds/${p.slug}`} current={p.slug.includes(part.slug) ? true : false}>
+                                    <div class="space-y-2">
+                                        <div class="text-base">{p.data.title}</div>
+                                        <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
+                                    </div>
+                                </BuildFilter>
+                            ))
+                        }
+                    </BuildFilterListing>
 
-                <FlexColumn float={true} reverse={true}>
-                    <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 space-y-6 sm:space-y-0 lg:space-y-6">
-                        <BuildFilterListing heading="Filter by Parts">
-                            {
-                                allParts.map((p) => (
-                                    <BuildFilter href={`/builds/${p.slug}`} current={p.slug.includes(part.slug) ? true : false}>
-                                        <div class="space-y-2">
-                                            <div class="text-base">{p.data.title}</div>
-                                            <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
-                                        </div>
-                                    </BuildFilter>
-                                ))
-                            }
-                        </BuildFilterListing>
+                    <BuildFilterListing heading="Filter by Vehicle">
+                        {allMakes.map((m) => <BuildFilter href={`/builds/${m.slug}`}>{m.data.title}</BuildFilter>)}
+                    </BuildFilterListing>
+                </div>
 
-                        <BuildFilterListing heading="Filter by Vehicle">
-                            {allMakes.map((m) => <BuildFilter href={`/builds/${m.slug}`}>{m.data.title}</BuildFilter>)}
-                        </BuildFilterListing>
-                    </div>
+                <div class="space-y-16">
+                    <h1>{part.data.title} Builds</h1>
 
-                    {
-                        allBuilds.length > 0 ? (
-                            <ListingGrid>
-                                {allBuilds.map((b) => (
-                                    <BuildSnippet build={b} sizes="350px" classes="bg-white border border-stone-300" />
-                                ))}
-                            </ListingGrid>
-                        ) : (
-                            <div class="bg-white rounded shadow w-full p-8 space-y-6">
-                                <h3>We Need Your {part.data.title} Build!</h3>
-                                <p class="text-lg tracking-tight leading-8">
-                                    We've only begun showcasing our completed builds recently and we haven't had a chance to feature any {part.data.title} builds yet. We'd love to show you what's possible at THOR Off-Road.{" "}
-                                    <a href="/contact" class="underline decoration-1 underline-offset-2 font-semibold">
-                                        Let's get in touch and build your dream vehicle
-                                    </a>
-                                    .
-                                </p>
-                            </div>
-                        )
-                    }
-                </FlexColumn>
-            </Container>
-        </Section>
-    </Background>
+                    <ListingGrid>
+                        {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="350px" classes="h-[25em]" />)}
+                    </ListingGrid>
+                </div>
+            </FlexColumn>
+        </Container>
+    </Section>
 </Layout>

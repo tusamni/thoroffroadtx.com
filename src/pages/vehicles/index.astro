@@ -42,7 +42,7 @@ import { getBuildImage } from "@/functions/Image";
 
 <Layout>
     <HeadingSplit>
-        <Picture src="builds/561954/02.jpg" alt="Outfitting a truck in Austin, TX" slot="background" sizes="50vw" />
+        <Picture src="builds/561954/02.jpg" alt="Outfitting a truck in Austin, TX" slot="background" sizes="50vw" class="rounded-r-lg" />
 
         <div class="space-y-8">
             <h1>Texas' Top<br />Truck Outfitter</h1>
@@ -76,10 +76,10 @@ import { getBuildImage } from "@/functions/Image";
             <h2>We're building our<br />customer's dream vehicles.</h2>
 
             <div class="grid grid-cols-6 gap-8">
-                <div class="col-span-4 grid grid-cols-2 lg:grid-cols-3 gap-[1px] bg-stone-300 rounded-l-sm border border-stone-300">
+                <div class="col-span-4 grid grid-cols-2 lg:grid-cols-3 gap-8">
                     {
                         allMakes.map((v) => (
-                            <a href={`/vehicles/${v.slug}`} class="group bg-white relative overflow-hidden">
+                            <a href={`/vehicles/${v.slug}`} class="group relative overflow-hidden rounded-lg border border-stone-300">
                                 <div class="absolute w-full h-full">
                                     <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "transition-all duration-300 absolute w-2/3 h-auto left-1/2 top-full -rotate-12 -mt-10 group-hover:-mt-20"]} />
                                 </div>
@@ -110,7 +110,7 @@ import { getBuildImage } from "@/functions/Image";
                             </a>
                         ))
                     }
-                    <a href="/contact" class="bg-white p-8 flex flex-col col-span-2 group">
+                    <a href="/contact" class="p-8 flex flex-col col-span-2 group rounded-lg border border-stone-300">
                         <div class="space-y-4">
                             <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
                             <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
@@ -119,7 +119,7 @@ import { getBuildImage } from "@/functions/Image";
                 </div>
 
                 <div class="col-span-2">
-                    <Picture src={getBuildImage(850633, 5)} class="object-cover h-full w-full rounded-r-sm" />
+                    <Picture src={getBuildImage(850633, 5)} class="object-cover h-full w-full rounded-lg" />
                 </div>
             </div>
         </Container>

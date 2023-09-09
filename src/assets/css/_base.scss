@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "biggerPicture";
 @import "buttons";
 @import "forms";
 @import "images";
@@ -20,11 +19,6 @@
 ::selection {
     background: #ffedd5;
 }
-
-.bp-cap {
-    @apply leading-7 tracking-tight px-6 py-4 text-base text-stone-300 rounded-sm;
-}
-.bp-img img { @apply rounded-sm shadow; }
 
 .buildSidebar > * {
     @apply py-8;

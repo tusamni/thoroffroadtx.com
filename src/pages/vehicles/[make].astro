@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
-import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
 import Button from "@/components/buttons/Button";
 import Container from "../../components/Container.astro";
@@ -30,20 +29,14 @@ const allBuilds = (
     })
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-const vehicleFill = {
-    title: "Don't See Your Vehicle?",
-    descriptionShort: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
-};
-
 // functions
-import { getBuildImage } from "@/functions/Image";
 import { closestNumber } from "../../functions/Misc";
 const buildCount = closestNumber(allBuilds.length, 4, 8);
 ---
 
 <Layout>
     <HeadingSplit>
-        <Picture src={make.data.featured} alt=`${make.data.title} Outfitting in Austin, TX` slot="background" sizes="50vw" />
+        <Picture src={make.data.featured} alt=`${make.data.title} Outfitting in Austin, TX` slot="background" sizes="50vw" class="rounded-r-lg" />
 
         <div class="space-y-8">
             <h1>We're <i>the</i>&nbsp;{make.data.title} Experts</h1>
@@ -55,10 +48,10 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
     <Section>
         <Container>
             <div class="grid grid-cols-6 gap-8">
-                <div class="col-span-4 grid grid-cols-2 gap-[1px] bg-stone-300 rounded-r-sm border border-stone-300">
+                <div class="col-span-4 grid grid-cols-2 gap-8">
                     {
                         allModels.map((m) => (
-                            <div class="bg-white group flex flex-col justify-between">
+                            <div class="group flex flex-col justify-between border border-stone-300 rounded-lg">
                                 <div class="h-full p-8 flex flex-col gap-8 justify-between">
                                     <div class="space-y-5">
                                         <h3 class="text-2xl font-semibold leading-6">{m.data.title}</h3>
@@ -75,7 +68,7 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
                 </div>
 
                 <div class="col-span-2 relative">
-                    <Picture src={make.data.featuredAlt} class="absolute object-cover h-full w-full rounded-r-sm" />
+                    <Picture src={make.data.featuredAlt} class="absolute object-cover h-full w-full rounded-lg" />
                 </div>
             </div>
         </Container>

@@ -37,7 +37,8 @@ const partsFill = {
 
 <Layout>
     <HeadingSplit>
-        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Installing truck modifications in Austin, TX" slot="background" sizes="50vw" class="object-bottom" />
+        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Installing truck modifications in Austin, TX" slot="background" sizes="50vw" class="object-bottom rounded-r-lg" />
+
         <div class="space-y-8">
             <h1>Off-Road Parts<br />and Installation</h1>
             <p class="text-xl text-stone-700 leading-9 tracking-tight">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
@@ -70,10 +71,10 @@ const partsFill = {
             <h2>We're building our<br />customer's dream vehicles.</h2>
 
             <div class="grid grid-cols-6 gap-8">
-                <div class="col-span-4 grid grid-cols-3 gap-[1px] bg-stone-300 rounded-r-sm border border-stone-300">
+                <div class="col-span-4 grid grid-cols-3 gap-8">
                     {
                         allParts.map((p) => (
-                            <a href={`/parts/${p.slug}`} class="bg-white group flex flex-col justify-between relative overflow-hidden">
+                            <a href={`/parts/${p.slug}`} class="group flex flex-col justify-between relative overflow-hidden border border-stone-300 rounded-lg">
                                 <Picture src={p.data.featured} alt={p.data.title} class="absolute w-full h-full object-cover" />
                                 <div class="absolute w-full h-full bg-gradient-to-br from-white via-white/90 to-white/50" />
                                 <div class="absolute w-full h-full bg-white group-hover:opacity-0 transition-all" />
@@ -82,9 +83,10 @@ const partsFill = {
                                     <div class="space-y-5">
                                         <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
                                         <div class="leading-6 text-stone-500">{p.data.descriptionShort}</div>
+
                                         <div class="space-y-1">
                                             Brands
-                                            <ul class="comma-list text-sm text-stone-500 font-normal line-clamp-3">
+                                            <ul class="comma-list text-xs text-stone-500 font-normal line-clamp-2">
                                                 {allBrands.map((b) => {
                                                     if (b.data.parts.includes(p.slug)) {
                                                         return <li>{b.data.title}</li>;
@@ -99,7 +101,7 @@ const partsFill = {
                             </a>
                         ))
                     }
-                    <a href="/contact" class="bg-white p-8 flex flex-col">
+                    <a href="/contact" class="p-8 flex flex-col rounded-lg border border-stone-300">
                         <div class="space-y-4">
                             <h3 class="text-2xl font-semibold leading-6">{partsFill.title}</h3>
                             <div class="leading-6 text-stone-500">{partsFill.descriptionShort}</div>

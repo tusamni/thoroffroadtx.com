@@ -8,7 +8,7 @@ const { content } = Astro.props;
 import { Icon } from "astro-icon";
 ---
 
-<div class="bg-white p-8">
+<div class="bg-white p-8 rounded-lg">
     <div class="col-span-3 md:col-span-2 space-y-6">
         <div>
             <h6 class="text-stone-800 line-clamp-1 italic font-medium" set:html={`"${content.highlight}"`} />

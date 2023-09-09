@@ -6,6 +6,6 @@ interface Props {
 const { current = false, ...attrs } = Astro.props;
 ---
 
-<a class:list={["text-sm p-3 rounded-sm  hover:bg-stone-100 border", current ? `bg-stone-50 border-stone-500` : `bg-white border-stone-300`]} {...attrs}>
+<a class:list={["text-sm p-3 rounded-lg hover:bg-stone-50 border", current ? `bg-stone-50 border-stone-500` : `bg-white border-stone-300`]} {...attrs}>
     <slot />
 </a>

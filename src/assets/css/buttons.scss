@@ -12,13 +12,13 @@
         }
     }
     &.button-secondary {
-        @apply border border-red-500;
+        @apply border border-blue-500;
 
         .button-icon {
-            @apply bg-red-400 text-white border-r border-red-400;
+            @apply bg-blue-400 text-white border-r border-blue-400;
         }
         .button-text { 
-            @apply bg-red-500 text-white;
+            @apply bg-blue-500 text-white;
         }
     }
     

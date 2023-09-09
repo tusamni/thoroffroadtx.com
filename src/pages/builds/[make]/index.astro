@@ -6,9 +6,9 @@ import Background from "../../../components/content/Background.astro";
 import BuildFilter from "../../../components/builds/BuildFilter.astro";
 import BuildFilterListing from "../../../components/builds/BuildFilterListing.astro";
 import BuildSnippet from "../../../components/builds/BuildSnippet.astro";
+import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
 import Container from "../../../components/Container.astro";
 import FlexColumn from "../../../components/content/FlexColumn.astro";
-import HeadingBase from "../../../components/content/headings/HeadingBase.astro";
 import ListingGrid from "../../../components/builds/BuildListing.astro";
 import Section from "../../../components/Section.astro";
 
@@ -36,52 +36,52 @@ const allParts = await getCollection("parts");
 ---
 
 <Layout>
-    <Background>
-        <Section small={true}>
-            <Container>
-                <h1 class="mb-16">{make.data.title} Builds</h1>
+    <Section small={true}>
+        <Container>
+            <FlexColumn float={true} reverse={true}>
+                <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 space-y-6 sm:space-y-0 lg:space-y-6">
+                    <BuildFilterListing heading="Filter by Parts">
+                        {
+                            allParts.map((p) => (
+                                <BuildFilter href={`/builds/${p.slug}`}>
+                                    <div class="space-y-2">
+                                        <div class="text-base">{p.data.title}</div>
+                                        <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
+                                    </div>
+                                </BuildFilter>
+                            ))
+                        }
+                    </BuildFilterListing>
 
-                <FlexColumn float={true} reverse={true}>
-                    <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 space-y-6 sm:space-y-0 lg:space-y-6">
-                        <BuildFilterListing heading="Filter by Parts">
-                            {
-                                allParts.map((p) => (
-                                    <BuildFilter href={`/builds/${p.slug}`}>
-                                        <div class="space-y-2">
-                                            <div class="text-base">{p.data.title}</div>
-                                            <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
-                                        </div>
-                                    </BuildFilter>
-                                ))
-                            }
-                        </BuildFilterListing>
+                    <BuildFilterListing heading="Filter by Vehicle">
+                        {
+                            allMakes.map((m) => (
+                                <BuildFilter href={`/builds/${m.slug}`} current={m.slug.includes(make.slug) ? true : false}>
+                                    {m.data.title}
+                                </BuildFilter>
+                            ))
+                        }
+                    </BuildFilterListing>
 
-                        <BuildFilterListing heading="Filter by Vehicle">
-                            {
-                                allMakes.map((m) => (
-                                    <BuildFilter href={`/builds/${m.slug}`} current={m.slug.includes(make.slug) ? true : false}>
-                                        {m.data.title}
-                                    </BuildFilter>
-                                ))
-                            }
-                        </BuildFilterListing>
+                    <BuildFilterListing heading="Filter by Model">
+                        {
+                            allModels.map((m) => (
+                                <BuildFilter href={`/builds/${make.slug}/${m.slug}`} current={m.slug.includes(make.slug) ? true : false}>
+                                    {m.data.title}
+                                </BuildFilter>
+                            ))
+                        }
+                    </BuildFilterListing>
+                </div>
 
-                        <BuildFilterListing heading="Filter by Model">
-                            {
-                                allModels.map((m) => (
-                                    <BuildFilter href={`/builds/${make.slug}/${m.slug}`} current={m.slug.includes(make.slug) ? true : false}>
-                                        {m.data.title}
-                                    </BuildFilter>
-                                ))
-                            }
-                        </BuildFilterListing>
-                    </div>
+                <div class="space-y-16">
+                    <h1>{make.data.title} Builds</h1>
 
                     <ListingGrid>
-                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" classes="shadow rounded bg-white" />)}
+                        {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="350px" classes="h-[25em]" />)}
                     </ListingGrid>
-                </FlexColumn>
-            </Container>
-        </Section>
-    </Background>
+                </div>
+            </FlexColumn>
+        </Container>
+    </Section>
 </Layout>

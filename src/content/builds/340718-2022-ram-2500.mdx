@@ -5,10 +5,11 @@ path: 340718-2022-ram-2500
 summary: 2022 RAM 2500 Laramie in Red with AEV Dual Sport 3" Suspension Kit, AEV
     Front Modular Bumper, AEV High Mark Fenders, AEV Katla 17x9" Wheels, 40" Tires
 categories: suspension, wheel-tire, body-bumper
+featured: true
 
 year: 2022
 make: RAM
-model: "2500"
+model: 2500
 trim: Laramie
 color: Red
 drive: 4x4
@@ -30,3 +31,16 @@ images:
     snippet: 1
     banner: 1
 ---
+
+import Gallery from "@/components/images/Gallery";
+import Picture from "@/components/images/Picture";
+import { getBuildImage } from "@/functions/Image";
+
+<Gallery>
+    <div class="grid grid-cols-12 gap-8">
+        <Picture src={getBuildImage(frontmatter.id, 1)} class="w-full h-full object-cover row-full" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 2)} class="w-full h-full object-cover row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 3)} class="w-full h-full object-cover row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 4)} class="w-full h-full object-cover row-full" sizes="100vw" />
+    </div>
+</Gallery>

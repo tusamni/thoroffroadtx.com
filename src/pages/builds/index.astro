@@ -2,16 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 
 // components
-import Background from "@/components/content/Background";
 import BuildFilter from "../../components/builds/BuildFilter.astro";
 import BuildFilterListing from "../../components/builds/BuildFilterListing.astro";
-import BuildSnippet from "../../components/builds/BuildSnippet.astro";
 import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
 import Container from "../../components/Container.astro";
 import FlexColumn from "../../components/content/FlexColumn.astro";
-import HeadingSplit from "@/components/content/headings/HeadingSplit";
 import ListingGrid from "../../components/builds/BuildListing.astro";
-import Picture from "@/components/images/Picture";
+import Pill from "@/components/buttons/Pill";
 import Section from "../../components/Section.astro";
 
 // content
@@ -19,20 +16,14 @@ import { getCollection } from "astro:content";
 const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const allMakes = await getCollection("makes");
 const allParts = await getCollection("parts");
+
+const featuredBuild = allBuilds.filter(function (build) {
+    return build.data.featured == true;
+})[0];
 ---
 
 <Layout>
-    <HeadingSplit>
-        <Picture src="builds/100052/06.jpg" slot="background" sizes="100vw" class="rounded-r-lg" />
-
-        <div class="space-y-8">
-            <h1>THOR Off-Road Builds</h1>
-            <p class="text-xl text-stone-700 leading-9 tracking-tight">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
-            <p class="text-xl text-stone-700 leading-9 tracking-tight">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
-        </div>
-    </HeadingSplit>
-
-    <Section small={false}>
+    <Section>
         <Container>
             <FlexColumn float={true} reverse={false}>
                 <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 space-y-6 sm:space-y-0 lg:space-y-6">
@@ -54,10 +45,26 @@ const allParts = await getCollection("parts");
                     </BuildFilterListing>
                 </div>
 
-                <h2>Featured Build</h2>
-                <ListingGrid>
-                    {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="300px" description={true} classes="rounded bg-white h-[16em]" />)}
-                </ListingGrid>
+                <div class="space-y-16">
+                    <div class="space-y-8">
+                        <h1>THOR Off-Road Builds</h1>
+                        <p class="text-xl text-stone-700 leading-9 tracking-tight">
+                            276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics. 276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of
+                            icons, graphics.
+                        </p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="space-y-4">
+                            <Pill>Featured Build</Pill>
+                            <BuildSnippetAlt build={featuredBuild} sizes="50vw" description={true} classes="rounded h-[35em]" />
+                        </div>
+
+                        <ListingGrid>
+                            {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="300px" description={false} classes="rounded bg-white h-[22em]" />)}
+                        </ListingGrid>
+                    </div>
+                </div>
             </FlexColumn>
         </Container>
     </Section>

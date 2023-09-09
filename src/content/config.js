@@ -8,6 +8,7 @@ const buildCollection = defineCollection({
         path: z.string(),
         summary: z.string(),
         categories: z.string().transform((category) => category.split(", ")),
+        featured: z.boolean().optional(),
 
         // vehicle
         year: z.number(),

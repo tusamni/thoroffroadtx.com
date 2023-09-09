@@ -30,23 +30,17 @@ import { timeAgo } from "@/functions/DateTime";
 ---
 
 <Layout>
-    <HeadingSplit>
-        <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt={`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`} slot="background" sizes="100vw" class="rounded-r-lg" />
-
-        <div class="space-y-8">
-            <div class="space-y-3">
-                <div class="flex flex-row text-stone-500 gap-6 text-sm uppercase">
-                    <div>Color: {build.data.color}</div>
-                    <div>Drive: {build.data.drive}</div>
-                    <div>Completed: {timeAgo(build.data.date)}</div>
-                </div>
-
-                <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
-            </div>
-
-            <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
+    <div class="space-y-3 flex flex-col justify-center items-center py-20">
+        <div class="flex flex-row text-stone-500 gap-6 text-sm uppercase">
+            <div>Color: {build.data.color}</div>
+            <div>Drive: {build.data.drive}</div>
+            <div>Completed: {timeAgo(build.data.date)}</div>
         </div>
-    </HeadingSplit>
+
+        <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+    </div>
+
+    <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt={`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`} sizes="100vw" class="h-[80vh] object-cover w-full" />
 
     <Section>
         <Container>
@@ -103,6 +97,8 @@ import { timeAgo } from "@/functions/DateTime";
 
                 <Gallery>
                     <div class="space-y-8">
+                        <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
+
                         <div class="flex flex-wrap gap-8">
                             <Content />
                         </div>

@@ -31,27 +31,16 @@ import { timeAgo } from "@/functions/DateTime";
 ---
 
 <Layout>
-    <HeadingBottom>
-        <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt={`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`} sizes="100vw" class="h-[80vh] object-cover w-full" slot="background" />
-
-        <div class="space-y-3 flex flex-col">
-            <div class="flex flex-row text-stone-500 gap-6 text-sm uppercase">
-                <div>Color: {build.data.color}</div>
-                <div>Drive: {build.data.drive}</div>
-                <div>Completed: {timeAgo(build.data.date)}</div>
-            </div>
-
-            <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
-        </div>
-    </HeadingBottom>
-
     <Section>
         <Container>
             <FlexColumn float={true} reverse={false}>
                 <div slot="left" class="flex flex-col gap-8">
                     <div class="h-full divide-y divide-stone-200 buildSidebar">
-                        <div>
-                            <a class="font-semibold" href="/builds">&lt; Back to Builds</a>
+                        <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+
+                        <div class="space-y-4">
+                            <p class="font-semibold text-2xl">Parts List</p>
+                            <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
                         </div>
 
                         {
@@ -100,7 +89,17 @@ import { timeAgo } from "@/functions/DateTime";
 
                 <Gallery>
                     <div class="space-y-8">
-                        <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
+                        <div class="flex justify-between text-stone-500 text-sm uppercase">
+                            <div class="flex flex-row gap-6">
+                                <div>Color: {build.data.color}</div>
+                                <div>Drive: {build.data.drive}</div>
+                                <div>Completed: {timeAgo(build.data.date)}</div>
+                            </div>
+
+                            <div>
+                                <a href="/builds">&lt; Back to Builds</a>
+                            </div>
+                        </div>
 
                         <div class="flex flex-wrap gap-8">
                             <Content />

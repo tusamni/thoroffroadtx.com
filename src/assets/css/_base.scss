@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import "buttons";
+@import "builds";
 @import "forms";
 @import "images";
 @import "typography";
@@ -18,10 +19,6 @@
 }
 ::selection {
     background: #ffedd5;
-}
-
-.buildSidebar > * {
-    @apply py-8;
 }
 
 @font-face {

@@ -24,3 +24,15 @@ images:
     snippet: 1
     banner: 1
 ---
+
+import Gallery from "@/components/images/Gallery";
+import Picture from "@/components/images/Picture";
+
+<Gallery>
+    <div class="grid grid-cols-12">
+        <Image src={frontmatter.gallery[1]} class="w-full h-full object-cover row-full" sizes="100vw" />
+        <Image src={frontmatter.gallery[2]} class="w-full h-full object-cover" sizes="50vw" />
+        <Image src={frontmatter.gallery[3]} class="w-full h-full object-cover" sizes="50vw" />
+        <Image src={frontmatter.gallery[9]} class="w-full h-full object-cover row-full" sizes="50vw" />
+    </div>
+</Gallery>

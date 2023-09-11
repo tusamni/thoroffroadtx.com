@@ -38,10 +38,14 @@ import { timeAgo } from "@/functions/DateTime";
                     <div class="h-full divide-y divide-stone-200 buildSidebar">
                         <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
 
-                        <div class="space-y-4">
-                            <p class="font-semibold text-2xl">Parts List</p>
-                            <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
-                        </div>
+                        {
+                            build.data.goals && (
+                                <div class="space-y-4">
+                                    <p class="font-semibold text-2xl">Build Goals</p>
+                                    <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
+                                </div>
+                            )
+                        }
 
                         {
                             build.data.parts && (

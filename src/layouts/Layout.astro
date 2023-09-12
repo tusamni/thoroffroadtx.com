@@ -16,7 +16,7 @@ import Menu from "../components/navigation/Menu.astro";
 
         <link rel="sitemap" href="/sitemap-index.xml" />
 
-        <script is:inline src="https://cdn.jsdelivr.net/npm/bigger-picture@1.1.6/dist/bigger-picture.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bigger-picture@1.1.6/dist/bigger-picture.min.js"></script>
     </head>
 
     <body>
@@ -31,3 +31,27 @@ import Menu from "../components/navigation/Menu.astro";
         <Footer />
     </body>
 </html>
+
+<script>
+    import BiggerPicture from "bigger-picture";
+
+    let bp = BiggerPicture({
+        target: document.body,
+    });
+
+    // open (will be a child of the target element above)
+    let imageLinks = document.querySelectorAll(`.gallery img`);
+    // add click listener to open BiggerPicture
+    for (let link of imageLinks) {
+        link.addEventListener("click", openGallery);
+    }
+    // function to open BiggerPicture
+    function openGallery(e) {
+        e.preventDefault();
+        bp.open({
+            items: imageLinks,
+            el: e.currentTarget,
+            scale: 0.8,
+        });
+    }
+</script>

@@ -20,12 +20,12 @@ import { getBuildImage } from "../../functions/Image";
         <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} class="w-full h-full object-cover group-hover:scale-105 duration-500 transition rounded-lg" sizes={sizes} />
     </div>
 
-    <div class="bg-white absolute bottom-0 left-0 z-10 space-y-1 px-3 @lg:px-4 py-4 @lg:py-6 w-10/12 @lg:w-1/2 rounded-tr-lg">
+    <div class="bg-white absolute bottom-0 left-0 z-10 space-y-1 @md:space-y-2 px-3 @md:px-5 py-4 @md:py-6 w-10/12 @lg:w-1/2 rounded-tr-lg">
         <h4 class="text-lg @md:text-3xl line-clamp-1">{build.data.year}&nbsp;{build.data.make}&nbsp;{build.data.model}</h4>
 
         {
             description && (
-                <ul class="text-xs @lg:text-base line-clamp-2 comma-list">
+                <ul class="text-xs @md:text-base line-clamp-2 comma-list">
                     {build.data.parts.map((p) => (
                         <li>{p}</li>
                     ))}

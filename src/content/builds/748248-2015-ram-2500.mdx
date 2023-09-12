@@ -25,3 +25,43 @@ images:
     snippet: 1
     banner: 1
 ---
+
+import Gallery from "@/components/images/Gallery";
+import Picture from "@/components/images/Picture";
+import { getBuildImage } from "@/functions/Image";
+
+<Gallery>
+    <div class="grid grid-cols-12 gap-8">
+        <Picture src={getBuildImage(frontmatter.id, 1)} class="row-full" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 2)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 3)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 4)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 5)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 6)} class="row-full" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 7)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 8)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 9)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 10)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 12)} class="row-full" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 13)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 14)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 15)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 16)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 17)} class="row-full" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 18)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 22)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 23)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 24)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 25)} class="row-full" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 26)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 27)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 28)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 29)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 30)} class="row-full" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 31)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 32)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 33)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 34)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 35)} class="row-full" sizes="100vw" />
+    </div>
+</Gallery>

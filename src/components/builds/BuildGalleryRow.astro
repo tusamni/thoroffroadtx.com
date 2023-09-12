@@ -1,0 +1,32 @@
+---
+// props
+interface Props {
+    id: number;
+    image: number;
+    columns?: number;
+}
+const { id, image, columns = 1 } = Astro.props;
+
+import Picture from "@/components/images/Picture";
+import { getBuildImage } from "@/functions/Image";
+
+const settings = [
+    {
+        columns: 1,
+        class: "row-full",
+        sizes: "50vw",
+    },
+    {
+        columns: 2,
+        class: "row-half",
+        sizes: "50vw",
+    },
+    {
+        columns: 3,
+        class: "row-third",
+        sizes: "50vw",
+    },
+];
+---
+
+<Picture src={getBuildImage(id, image)} class={settings[columns - 1].class} sizes={settings[columns].sizes} />

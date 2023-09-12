@@ -13,7 +13,7 @@
 }
 
 .row-full, .row-half, .row-third {
-    @apply object-cover w-full h-full;
+    @apply object-cover w-full h-full rounded-lg;
 }
 .row-full {
     @apply col-span-12;

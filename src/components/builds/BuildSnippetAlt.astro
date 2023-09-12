@@ -17,7 +17,7 @@ import { getBuildImage } from "../../functions/Image";
 
 <a href={`/builds/${build.slug}`} class:list={["@container group relative flex items-center justify-center overflow-hidden", classes]}>
     <div class="absolute w-full h-full">
-        <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} class="w-full h-full object-cover group-hover:scale-105 group-hover:rotate-1 duration-500 transition rounded-lg" loading="eager" sizes="100vw" />
+        <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} class="w-full h-full object-cover group-hover:scale-105 duration-500 transition rounded-lg" sizes={sizes} />
     </div>
 
     <div class="bg-white absolute bottom-0 left-0 z-10 space-y-1 px-3 @lg:px-4 py-4 @lg:py-6 w-10/12 @lg:w-1/2 rounded-tr-lg">

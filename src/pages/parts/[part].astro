@@ -75,16 +75,13 @@ const buildCount = closestNumber(allBrands.length, 4, 8);
                             </div>
 
                             <div class="mt-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-gray-600 h-fit gap-y-8 sm:gap-y-16 md:gap-x-8">
-                                {part.data.contentParts.map((p, i) => (
+                                {part.data.contentParts.map((p) => (
                                     <div class="relative">
                                         <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 self-start" />
 
-                                        <div x-data={`{ parts${i} : false }`} x-on:click={`parts${i} = !parts${i}`} class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
+                                        <div class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
                                             <p class="font-semibold text-stone-900">{p.title}</p>
-                                            <p x-bind:class={`parts${i} ? 'line-clamp-none' : 'md:line-clamp-3'`} class="text-sm">
-                                                {p.description ? `${p.description}` : `Etiam eget consectetur neque, ac interdum dolor. Mauris non tincidunt nisi.`}
-                                            </p>
-                                            <div class="hidden w-fit text-sm font-medium text-stone-900" x-html={`parts${i} ? "Read Less &ndash;" : "Read More &plus;"`} />
+                                            <p class="text-sm">{p.description}</p>
                                         </div>
                                     </div>
                                 ))}

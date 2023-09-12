@@ -79,7 +79,7 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
             <Section>
                 <Container classes="space-y-16">
                     <h2 class="text-center">Recent {make.data.title} Builds</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="400px" classes="bg-stone-100 rounded" />).slice(0, buildCount)}</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="400px" classes="h-[32em]" />).slice(0, buildCount)}</div>
                 </Container>
             </Section>
         )

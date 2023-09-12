@@ -19,3 +19,18 @@ images:
     banner: 1
 video: video
 ---
+
+import Gallery from "@/components/images/Gallery";
+import Picture from "@/components/images/Picture";
+import { getBuildImage } from "@/functions/Image";
+
+<Gallery>
+    <div class="grid grid-cols-12 gap-8">
+        <Picture src={getBuildImage(frontmatter.id, 1)} class="row-full" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 2)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 3)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 4)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 5)} class="row-half" sizes="100vw" />
+        <Picture src={getBuildImage(frontmatter.id, 6)} class="row-full" sizes="100vw" />
+    </div>
+</Gallery>

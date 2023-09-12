@@ -11,3 +11,18 @@
         @apply pt-8
     }
 }
+
+.row-full, .row-half, .row-third {
+    @apply object-cover w-full h-full;
+}
+.row-full {
+    @apply col-span-12;
+}
+
+.row-half {
+    @apply col-span-6 aspect-square;
+}
+
+.row-third {
+    @apply col-span-4 aspect-square;
+}

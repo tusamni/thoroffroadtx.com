@@ -32,36 +32,73 @@ import { getBuildImage } from "@/functions/Image";
 
 <Gallery>
     <div class="grid grid-cols-12 gap-8">
-        <Picture src={getBuildImage(frontmatter.id, 1)} class="row-full" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 2)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 3)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 4)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 5)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 6)} class="row-full" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 7)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 8)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 9)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 10)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 12)} class="row-full" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 13)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 14)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 15)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 16)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 17)} class="row-full" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 18)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 22)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 23)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 24)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 25)} class="row-full" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 26)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 27)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 28)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 29)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 30)} class="row-full" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 31)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 32)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 33)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 34)} class="row-half" sizes="100vw" />
-        <Picture src={getBuildImage(frontmatter.id, 35)} class="row-full" sizes="100vw" />
+        <BuildGalleryRow id={frontmatter.id} image="1" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="2" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="3" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="4" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="5" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="6" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="7" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="8" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="9" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="10" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="11" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="12" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="13" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="14" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="15" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="16" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="17" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="18" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="19" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="20" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="21" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="22" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="23" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="24" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="25" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="26" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="27" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="28" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="29" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="30" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="31" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="32" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="33" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="34" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="35" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="36" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="37" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="38" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="39" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="40" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="41" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="42" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="43" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="44" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="45" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="46" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="47" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="48" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="49" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="50" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="51" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="52" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="53" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="54" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="55" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="56" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="57" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="58" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="59" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="60" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="61" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="62" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="63" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="64" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="65" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="66" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="67" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="68" columns="1" />
     </div>
 </Gallery>

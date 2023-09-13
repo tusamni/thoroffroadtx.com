@@ -1,4 +1,7 @@
 ---
+import Picture from "@/components/images/Picture";
+import { getBuildImage } from "@/functions/Image";
+
 // props
 interface Props {
     id: number;
@@ -6,9 +9,6 @@ interface Props {
     columns?: number;
 }
 const { id, image, columns = 1 } = Astro.props;
-
-import Picture from "@/components/images/Picture";
-import { getBuildImage } from "@/functions/Image";
 
 const settings = [
     {

@@ -1,4 +1,4 @@
-import { ImageConfig } from "../config";
+import { ImageConfig } from "@/config";
 
 export function getMedia(path) {
     return `${ImageConfig.cloudUrl}/${path}`;

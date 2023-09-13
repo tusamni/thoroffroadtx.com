@@ -7,7 +7,7 @@ import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
 
 // config
-import { Social, Business } from "../config.js";
+import { Social, Business } from "@/config";
 
 // functions
 import { getBuildImage } from "@/functions/Image";
@@ -20,7 +20,7 @@ const allMakes = await getCollection("makes");
 ---
 
 <div class="relative">
-    <Picture src={getBuildImage(748248, 9)} class="absolute w-full h-full object-cover" />
+    <Picture src={getBuildImage(748248, 9)} class="absolute w-full h-full object-cover" sizes="100vw" />
     <div class="bg-stone-800/80 absolute w-full h-full"></div>
 
     <Section classes="relative">

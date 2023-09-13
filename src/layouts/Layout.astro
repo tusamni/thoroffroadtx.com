@@ -3,9 +3,18 @@
 import "../assets/css/_base.scss";
 
 // components
-import Banner from "../components/navigation/Banner.astro";
-import Footer from "../components/Footer.astro";
-import Menu from "../components/navigation/Menu.astro";
+import Banner from "@/components/navigation/Banner";
+import Footer from "@/components/Footer";
+import Menu from "@/components/navigation/Menu";
+
+// config
+import { Business } from "@/config";
+
+export interface Props {
+    title?: string;
+    description?: string;
+}
+const { title = "THOR Off-Road: Texas Premiere Off-Road Parts & Installation", description = "THOR Off-Road is the top truck and off-road vehicle parts and installation outfitter in Texas - the Texas Carli Suspension HQ." } = Astro.props;
 ---
 
 <!doctype html>
@@ -13,6 +22,10 @@ import Menu from "../components/navigation/Menu.astro";
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+
+        <title>{title} | {Business.name_long}</title>
 
         <link rel="sitemap" href="/sitemap-index.xml" />
 

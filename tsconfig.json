@@ -9,6 +9,9 @@
             "@/components/*": [
                 "src/components/*.astro"
             ],
+            "@/config": [
+                "src/config.js"
+            ],
             "@/layouts/*": [
                 "src/layouts/*.astro"
             ],

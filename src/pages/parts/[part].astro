@@ -32,7 +32,7 @@ const allBuilds = (
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 import { closestNumber } from "../../functions/Misc";
-const buildCount = closestNumber(allBrands.length, 4, 8);
+const buildCount = closestNumber(allBrands.length, 3, 6);
 ---
 
 <Layout>
@@ -102,7 +102,7 @@ const buildCount = closestNumber(allBrands.length, 4, 8);
             <Section>
                 <Container classes="space-y-16">
                     <h2 class="text-center">Recent {part.data.title} Builds</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="h-[32em]" />).slice(0, 8)}</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="h-[32em]" />).slice(0, 6)}</div>
                 </Container>
             </Section>
         )

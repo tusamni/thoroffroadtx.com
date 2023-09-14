@@ -1,13 +1,15 @@
 ---
 import Layout from "@/layouts/Layout";
 
-// components
+// imports
+import { closestNumber } from "@/functions/Misc";
+
 import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
 import Button from "@/components/buttons/Button";
-import Container from "../../components/Container.astro";
+import Container from "@/components/Container";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
-import Picture from "../../components/images/Picture.astro";
-import Section from "../../components/Section.astro";
+import Picture from "@/components/images/Picture";
+import Section from "@/components/Section";
 
 // content
 import { getCollection } from "astro:content";
@@ -29,14 +31,12 @@ const allBuilds = (
     })
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// functions
-import { closestNumber } from "../../functions/Misc";
 const buildCount = closestNumber(allBuilds.length, 3, 6);
 ---
 
 <Layout>
     <HeadingSplit>
-        <Picture src={make.data.featured} alt=`${make.data.title} Outfitting in Austin, TX` slot="background" sizes="50vw" class="rounded-r-lg" />
+        <Picture src={make.data.featured} alt=`${make.data.title} Outfitting in Austin, TX` slot="background" sizes="50vw" />
 
         <div class="space-y-8">
             <h1>We're <i>the</i>&nbsp;{make.data.title} Experts</h1>

@@ -1,4 +1,7 @@
 ---
+// imports
+import { Icon } from "astro-icon";
+
 // props
 interface Props {
     href?: string;
@@ -8,9 +11,6 @@ interface Props {
     classes?: string;
 }
 const { href, theme = "primary", size = "base", icon, classes, ...attrs } = Astro.props;
-
-// components
-import { Icon } from "astro-icon";
 ---
 
 {
@@ -22,7 +22,7 @@ import { Icon } from "astro-icon";
                 </div>
             )}
 
-            <div class:list={["button-text", icon ? `rounded-r-sm` : `rounded-sm`]}>
+            <div class:list={["button-text", icon ? `rounded-r-sm` : ``]}>
                 <slot />
             </div>
         </a>

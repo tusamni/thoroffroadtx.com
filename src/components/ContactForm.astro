@@ -1,32 +1,38 @@
 ---
-import Button from "@/components/buttons/Button";
+import { Icon } from "astro-icon";
 ---
 
 <form class="space-y-6" action="#" method="post">
     <div class="space-y-2">
-        <label for="name" class="block font-semibold leading-6 text-stone-200">Name</label>
+        <label for="name" class="block font-semibold leading-6">Name</label>
         <input type="text" name="name" id="name" autocomplete="name" required />
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="space-y-2">
-            <label for="email" class="block font-semibold leading-6 text-stone-200">Email</label>
+            <label for="email" class="block font-semibold leading-6">Email</label>
             <input type="email" name="email" id="email" autocomplete="email" required />
         </div>
         <div class="space-y-2">
-            <label for="phone-number" class="block font-semibold leading-6 text-stone-200">Phone number</label>
+            <label for="phone-number" class="block font-semibold leading-6">Phone number</label>
             <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" />
         </div>
     </div>
 
     <div class="space-y-2">
-        <label for="message" class="block font-semibold leading-6 text-stone-200">Message</label>
+        <label for="message" class="block font-semibold leading-6">Message</label>
         <textarea name="message" id="message" rows="4"></textarea>
     </div>
 
     <input type="hidden" name="formSource" value={Astro.url.pathname} />
 
     <div class="flex justify-end">
-        <Button theme="secondary" icon="hero/Envelope">Let's Go</Button>
+        <button type="submit" class="button button-secondary">
+            <div class="button-icon">
+                <Icon name="hero/EnvelopeFill" class="h-2/5 w-auto" />
+            </div>
+
+            <div class="button-text">Let's Go!</div>
+        </button>
     </div>
 </form>

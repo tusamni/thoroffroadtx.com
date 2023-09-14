@@ -1,29 +1,37 @@
 .button {
-    @apply transition-all duration-500 font-medium rounded-sm shadow-sm flex w-fit items-center justify-between h-12;
+    @apply transition-all duration-500 font-medium flex w-full sm:w-fit items-center justify-start h-12;
 
     &.button-primary {
-        @apply text-stone-900 border-stone-700 border;
+        @apply text-stone-900 border border-stone-300;
 
         .button-icon {
-            @apply bg-white border-r border-stone-700;
+            @apply bg-white border-r;
         }
         .button-text {
-            @apply bg-white
+            @apply bg-white;
         }
     }
-    &.button-secondary {
+    &.button-secondary {        
         .button-icon {
-            @apply bg-blue-500 text-white border-r border-blue-400;
+            @apply bg-gradient-to-b from-green-400 to-green-500 text-stone-50 border-green-300 border-r;
         }
         .button-text { 
-            @apply bg-blue-600 text-white;
+            @apply bg-gradient-to-b from-green-400 to-green-500 text-stone-50;
         }
+    }
+    &.button-ghost {
+        @apply text-white border border-white;
+
+        .button-icon {
+            @apply bg-white/40 border-r border-white;
+        }
+        .button-text { @apply bg-gradient-to-r from-white/40 to-white/30; }
     }
     
     .button-icon {
-        @apply h-full px-3 flex justify-center items-center border-r rounded-l-sm;
+        @apply h-full px-3 flex justify-center items-center;
     }
     .button-text {
-        @apply transition-all duration-500 px-4 h-full flex justify-center items-center;
+        @apply px-4 h-full w-full flex justify-start items-center;
     }
 }

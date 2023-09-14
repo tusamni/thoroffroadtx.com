@@ -16,7 +16,7 @@ export const Business = {
         state: "TX",
         zip: "78620",
     },
-    hours: "Monday thorugh Friday, 8am to 5pm",
+    hours: "Monday through Friday, 8am to 5pm",
     mapUrl: "https://g.page/thoroffroadtx",
 };
 

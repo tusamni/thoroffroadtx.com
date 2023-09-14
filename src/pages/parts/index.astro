@@ -1,19 +1,17 @@
 ---
 import Layout from "@/layouts/Layout";
 
-// components
-import Icon from "astro-icon";
+// imports
 import Button from "@/components/buttons/Button";
-import Container from "../../components/Container.astro";
+import Container from "@/components/Container";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
-import Picture from "../../components/images/Picture.astro";
-import Section from "../../components/Section.astro";
+import Picture from "@/components/images/Picture";
+import Section from "@/components/Section";
 
 // content
 import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
 const allBrands = await getCollection("brands");
-const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const process = [
     {
@@ -37,7 +35,7 @@ const partsFill = {
 
 <Layout>
     <HeadingSplit>
-        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Installing truck modifications in Austin, TX" slot="background" sizes="50vw" class="object-bottom rounded-r-lg" />
+        <Picture src="builds/453172/03.jpg" alt="Installing truck modifications in Austin, TX" slot="background" sizes="50vw" />
 
         <div class="space-y-8">
             <h1>Off-Road Parts<br />and Installation</h1>
@@ -70,15 +68,11 @@ const partsFill = {
         <Container classes="space-y-16">
             <h2>We're building our<br />customer's dream vehicles.</h2>
 
-            <div class="grid grid-cols-6 gap-8">
-                <div class="col-span-4 grid grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-6 gap-8">
+                <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                     {
                         allParts.map((p) => (
-                            <a href={`/parts/${p.slug}`} class="group flex flex-col justify-between relative overflow-hidden border border-stone-300 rounded-lg">
-                                <Picture src={p.data.featured} alt={p.data.title} class="absolute w-full h-full object-cover" />
-                                <div class="absolute w-full h-full bg-gradient-to-br from-white via-white/90 to-white/50" />
-                                <div class="absolute w-full h-full bg-white group-hover:opacity-0 transition-all" />
-
+                            <a href={`/parts/${p.slug}`} class="flex flex-col justify-between border border-stone-300 rounded-lg">
                                 <div class="h-full flex flex-col justify-between p-8 relative gap-8">
                                     <div class="space-y-5">
                                         <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
@@ -109,8 +103,8 @@ const partsFill = {
                     </a>
                 </div>
 
-                <div class="col-span-2">
-                    <Picture src="builds/295031/15.jpg" class="object-cover h-full w-full rounded-l-sm object-left" />
+                <div class="hidden lg:block lg:col-span-2">
+                    <Picture src="builds/977725/07.jpg" class="object-cover h-full w-full rounded-lg object-left" />
                 </div>
             </div>
         </Container>

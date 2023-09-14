@@ -7,7 +7,7 @@ interface Props {
 const { float = false, reverse = false, ...attrs } = Astro.props;
 ---
 
-<div class:list={["flex flex-col lg:flex-row gap-16", reverse && `lg:flex-row-reverse`]} {...attrs}>
+<div class:list={["flex flex-col lg:flex-row gap-16", reverse && `flex-col-reverse lg:flex-row-reverse`]} {...attrs}>
     <div class:list={["w-full lg:w-1/3 lg:h-full flex-none", float && "lg:sticky lg:top-32"]}>
         <slot name="left" />
     </div>

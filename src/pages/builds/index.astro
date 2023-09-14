@@ -1,15 +1,15 @@
 ---
 import Layout from "@/layouts/Layout";
 
-// components
-import BuildFilter from "../../components/builds/BuildFilter.astro";
-import BuildFilterListing from "../../components/builds/BuildFilterListing.astro";
+// imports
+import BuildFilter from "@/components/builds/BuildFilter";
+import BuildFilterListing from "@/components/builds/BuildFilterListing";
 import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
-import Container from "../../components/Container.astro";
-import FlexColumn from "../../components/content/FlexColumn.astro";
-import ListingGrid from "../../components/builds/BuildListing.astro";
+import Container from "@/components/Container";
+import FlexColumn from "@/components/content/FlexColumn";
+import ListingGrid from "@/components/builds/BuildListing";
 import Pill from "@/components/buttons/Pill";
-import Section from "../../components/Section.astro";
+import Section from "@/components/Section";
 
 // content
 import { getCollection } from "astro:content";
@@ -32,7 +32,7 @@ const featuredBuild = allBuilds.filter(function (build) {
                             allParts.map((p) => (
                                 <BuildFilter href={`/builds/${p.slug}`}>
                                     <div class="space-y-2">
-                                        <div class="text-base">{p.data.title}</div>
+                                        <div class="text-base line-clamp-1">{p.data.title}</div>
                                         <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
                                     </div>
                                 </BuildFilter>

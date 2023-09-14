@@ -4,7 +4,7 @@ interface Props {
     color?: string;
     opacity?: number;
 }
-const { color = "bg-stone-100", opacity = 0.4 } = Astro.props;
+const { color = "bg-stone-50", opacity = 0.4 } = Astro.props;
 ---
 
 <div class:list={["foreground", color]}>

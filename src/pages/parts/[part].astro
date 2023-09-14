@@ -1,14 +1,16 @@
 ---
 import Layout from "@/layouts/Layout";
 
-// components
+// imports
+import { closestNumber } from "@/functions/Misc";
 import { Icon } from "astro-icon";
+
 import Background from "@/components/content/Background";
-import BuildSnippet from "../../components/builds/BuildSnippetAlt.astro";
-import Container from "../../components/Container.astro";
+import BuildSnippet from "@/components/builds/BuildSnippetAlt";
+import Container from "@/components/Container";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
-import Picture from "../../components/images/Picture.astro";
-import Section from "../../components/Section.astro";
+import Picture from "@/components/images/Picture";
+import Section from "@/components/Section";
 
 // content
 import { getCollection } from "astro:content";
@@ -31,7 +33,6 @@ const allBuilds = (
     })
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-import { closestNumber } from "../../functions/Misc";
 const buildCount = closestNumber(allBrands.length, 3, 6);
 ---
 

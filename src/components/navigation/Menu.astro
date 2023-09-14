@@ -1,17 +1,16 @@
 ---
-// components
+// imports
+import { Business } from "@/config";
 import { Icon } from "astro-icon";
+
 import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
 import MenuMobile from "@/components/navigation/mobile/MenuMobile";
 import MenuParts from "@/components/navigation/desktop/MenuParts";
 import MenuVehicles from "@/components/navigation/desktop/MenuVehicles";
-
-// config
-import { Business } from "@/config";
 ---
 
-<header class="bg-white relative">
+<header class="bg-gradient-to-b from-red-600 to-red-700 relative">
     <Container>
         <nav class="flex items-center py-4 md:py-6 justify-between gap-x-4 lg:gap-x-6" aria-label="Global">
             <div class="flex gap-x-8 items-center">
@@ -19,7 +18,7 @@ import { Business } from "@/config";
                 <a href="/" title={Business.nameLong}>
                     <span class="sr-only">{Business.nameLong}</span>
 
-                    <Icon name="logo" class="h-8 lg:h-10 w-auto" />
+                    <Icon name="logo" class="h-8 lg:h-10 w-auto text-white" />
                 </a>
 
                 <!--- desktop menu -->
@@ -28,18 +27,28 @@ import { Business } from "@/config";
                     <MenuParts />
 
                     <a href="/builds" title={`${Business.nameShort} Builds`} class="nav-item">Builds</a>
+                    <a href="/about" title={`About ${Business.nameLong}`} class="nav-item">About</a>
                 </div>
             </div>
 
             <!-- contact buttons -->
-            <div class="flex flex-1 items-center justify-end gap-x-4 lg:gap-x-6">
-                <Button href="/contact" theme="primary" classes="sm:hidden">Contact Us</Button>
-
-                <div class="hidden md:block">
-                    <Button href={`tel:${Business.phone}`} theme="primary">{Business.phone}</Button>
+            <div class="flex flex-1 items-center justify-end md:gap-0 lg:gap-x-6">
+                <div>
+                    <a href={`tel:${Business.phone}`} class="button button-ghost">
+                        <div class="button-text text-xs sm:text-sm lg:text-base">
+                            <span class="hidden sm:block">{Business.phone}</span>
+                            <span class="sm:hidden">Call</span>
+                        </div>
+                    </a>
                 </div>
-                <div class="hidden sm:block">
-                    <Button icon="hero/EnvelopeFill" href="/contact" theme="secondary">Contact Us</Button>
+
+                <div>
+                    <a href="/contact" class="button button-primary sm:text-sm md:text-base !border-0">
+                        <div class="button-text text-sm lg:text-base">
+                            <span class="hidden sm:block">Contact Us</span>
+                            <span class="sm:hidden">Email</span>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -48,7 +57,7 @@ import { Business } from "@/config";
                 <button type="button" class="inline-flex items-center justify-center rounded text-stone-700 cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
 
-                    <Icon name="hero/Hamburger" class="h-8 w-8 cursor-pointer" />
+                    <Icon name="hero/Hamburger" class="h-8 w-8 cursor-pointer text-white" />
                 </button>
 
                 <!-- mobile menu -->

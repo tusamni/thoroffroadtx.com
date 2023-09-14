@@ -1,18 +1,16 @@
 ---
 import Layout from "@/layouts/Layout";
 
-// components
+// imports
+import { getBuildImage } from "@/functions/Image";
 import { Icon } from "astro-icon";
-import Container from "../../components/Container.astro";
-import FlexColumn from "../../components/content/FlexColumn.astro";
-import HeadingSplit from "@/components/content/headings/HeadingSplit";
-import HeadingBottom from "@/components/content/headings/HeadingBottom";
-import Gallery from "../../components/images/Gallery.astro";
-import Picture from "../../components/images/Picture.astro";
-import Section from "../../components/Section.astro";
+import { timeAgo } from "@/functions/DateTime";
 
-// images
-import { getBuildImage } from "../../functions/Image";
+import Container from "@/components/Container";
+import FlexColumn from "@/components/content/FlexColumn";
+import Gallery from "@/components/images/Gallery";
+import Picture from "@/components/images/Picture";
+import Section from "@/components/Section";
 
 // content
 import { getCollection } from "astro:content";
@@ -25,12 +23,11 @@ export async function getStaticPaths() {
 }
 const { build } = Astro.props;
 const { Content } = await build.render();
-
-// functions
-import { timeAgo } from "@/functions/DateTime";
 ---
 
 <Layout>
+    <Picture src={getBuildImage(build.data.id, 1)} alt="FOX Shocks waiting to be installed" loading="eager" class="w-full h-[30vh] object-cover lg:hidden" />
+
     <Section>
         <Container>
             <FlexColumn float={true} reverse={false}>
@@ -95,17 +92,23 @@ import { timeAgo } from "@/functions/DateTime";
                     <div class="space-y-8">
                         <div class="flex justify-between text-stone-500 text-sm uppercase">
                             <div class="flex flex-row gap-6">
-                                <div>Color: {build.data.color}</div>
-                                <div>Drive: {build.data.drive}</div>
-                                <div>Completed: {timeAgo(build.data.date)}</div>
-                            </div>
+                                <div class="flex flex-col sm:flex-row"><span>Color:</span><span>{build.data.color}</span></div>
+                                <div class="flex flex-col sm:flex-row">
+                                    <span>Drive:</span>
+                                    <span>{build.data.drive}</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row">
+                                    <span>Completed:</span>
+                                    <span>{timeAgo(build.data.date)}</span>
+                                </div>
 
-                            <div>
-                                <a href="/builds">&lt; Back to Builds</a>
+                                <div class="hidden lg:block">
+                                    <a href="/builds">&lt; Back to Builds</a>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex flex-wrap gap-8">
+                        <div>
                             <Content />
                         </div>
                     </div>

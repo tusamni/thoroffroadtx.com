@@ -1,15 +1,22 @@
-<div class="grid grid-cols-2">
+---
+// imports
+import Container from "@/components/Container";
+---
+
+<div class="grid lg:grid-cols-2">
     <div class="relative">
         <slot name="background" />
     </div>
 
-    <div class="space-y-16 px-16 py-24 self-center max-w-3xl">
-        <slot />
-    </div>
+    <Container>
+        <div class="space-y-16 lg:pl-8 pt-16 lg:py-24 lg:self-center lg:max-w-3xl">
+            <slot />
+        </div>
+    </Container>
 </div>
 
 <style>
     div :global(img) {
-        @apply absolute inset-0 w-full h-full object-cover;
+        @apply lg:absolute w-full h-full max-h-[15em] md:max-h-[25em] lg:max-h-none object-cover lg:rounded-br-lg shadow-2xl;
     }
 </style>

@@ -1,15 +1,19 @@
 ---
-// components
+// imports
 import Container from "@/components/Container";
 ---
 
-<div class="relative headingBg">
+<div class="relative">
     <slot name="background" />
 
-    <div class="h-[25em] flex items-end">
-        <Container classes="relative">
-            <div class="place-self-end w-fit bg-white space-y-8 sm:py-12 sm:px-14 rounded-t-lg relative">
+    <div class="relative pt-16 lg:pt-80">
+        <Container>
+            <div class="bg-white max-w-3xl space-y-8 md:p-14 rounded-t-lg">
                 <slot name="heading" />
+
+                <div class="space-y-4 text-xl leading-8">
+                    <slot name="description" />
+                </div>
 
                 <slot />
             </div>
@@ -19,6 +23,6 @@ import Container from "@/components/Container";
 
 <style>
     div :global(img) {
-        @apply sm:absolute object-cover w-full sm:h-full;
+        @apply lg:absolute w-full h-full object-cover;
     }
 </style>

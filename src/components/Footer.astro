@@ -1,16 +1,13 @@
 ---
-// components
+// imports
 import { Icon } from "astro-icon";
-import Container from "@/components/Container";
-import Cta from "@/components/Cta";
-import Picture from "@/components/images/Picture";
-import Section from "@/components/Section";
-
-// config
 import { Social, Business } from "@/config";
 
-// functions
-import { getBuildImage } from "@/functions/Image";
+import Container from "@/components/Container";
+import Cta from "@/components/Cta";
+import HeadingBase from "@/components/content/headings/HeadingBase";
+import Picture from "@/components/images/Picture";
+import Section from "@/components/Section";
 
 // content
 import { getCollection } from "astro:content";
@@ -19,127 +16,123 @@ const allParts = await getCollection("parts");
 const allMakes = await getCollection("makes");
 ---
 
-<div class="relative">
-    <Picture src={getBuildImage(748248, 9)} class="absolute w-full h-full object-cover" sizes="100vw" />
-    <div class="bg-stone-800/80 absolute w-full h-full"></div>
+<HeadingBase>
+    <Picture src="shop/2022-03-09/shop-shoot_01.jpg" alt="FOX Shocks waiting to be installed" slot="background" loading="eager" class="absolute object-cover w-full h-[25em] sm:h-full" />
 
-    <Section classes="relative">
-        <Container>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div class="py-16">
-                    <Cta />
+    <Cta />
+</HeadingBase>
+
+{
+    !Astro.url.pathname.includes("about") && (
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.4307137009937!2d-98.0231541877444!3d30.196252074742556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b46992512c29d%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1694229765516!5m2!1sen!2sus"
+            title="Map showing THOR-Off Road's store location in Dripping Springs"
+            class="w-full h-[40em]"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    )
+}
+
+<Section classes="bg-stone-100">
+    <Container>
+        <footer>
+            <div class="flex lg:flex-row flex-col lg:justify-between gap-24">
+                <div class="space-y-12 max-w-lg">
+                    <Icon name="logo" class="h-14 w-auto" />
+
+                    <p class="text-md leading-7">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
+
+                    <!-- contact -->
+                    <div class="space-y-4">
+                        <div class="flex gap-x-4 items-start">
+                            <Icon name="hero/Phone" class="w-4 h-auto" />
+                            <a href={`tel:${Business.phone}`} class="text-base">{Business.phone}</a>
+                        </div>
+                        <div class="flex gap-x-4 items-start">
+                            <Icon name="hero/Envelope" class="w-4 h-auto" />
+                            <a href={`mailto:${Business.email}`} class="text-base">{Business.email}</a>
+                        </div>
+                        <div class="flex gap-x-4 items-start">
+                            <Icon name="hero/Map" class="w-4 h-auto" />
+                            <a href={Business.mapUrl} class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</a>
+                        </div>
+                    </div>
+
+                    <!-- social -->
+                    <div class="flex space-x-6">
+                        {
+                            Social.map((s) => (
+                                <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
+                                    <Icon name={s.icon} class="w-4" />
+                                </a>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <!-- navigation -->
+                <div class="min-w-fit">
+                    <div class="grid grid-cols-3 gap-12">
+                        <div class="space-y-6">
+                            <div class="font-semibold">Vehicles</div>
+                            <hr class="w-1/2 border-stone-400" />
+                            <ul role="list" class="space-y-2">
+                                {
+                                    allMakes.map((m) => (
+                                        <li>
+                                            <a href={`/vehicles/${m.slug}`} title={m.data.title} class="text-sm leading-6">
+                                                {m.data.title}
+                                            </a>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="font-semibold">Parts</div>
+                            <hr class="w-1/2 border-stone-400" />
+                            <ul role="list" class="space-y-2">
+                                {
+                                    allParts.map((p) => (
+                                        <li>
+                                            <a href={`/parts/${p.slug}`} title={p.data.title} class="text-sm leading-6">
+                                                {p.data.title}
+                                            </a>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="font-semibold">Other</div>
+                            <hr class="w-1/2 border-stone-400" />
+                            <ul role="list" class="space-y-2">
+                                <li>
+                                    <a href="#" class="text-sm leading-6">Sitemap</a>
+                                </li>
+                                <li>
+                                    <a href=" privacy-policy" class="text-sm leading-6">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="/terms-of-use" class="text-sm leading-6">Terms of Use</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </Container>
-    </Section>
-</div>
+        </footer>
+    </Container>
+</Section>
 
-<iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.4307137009937!2d-98.0231541877444!3d30.196252074742556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b46992512c29d%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1694229765516!5m2!1sen!2sus"
-    title="Map showing THOR-Off Road's store location in Dripping Springs"
-    class="w-full h-[40em]"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-
-<div class="bg-stone-300">
-    <Section>
-        <Container>
-            <footer>
-                <div class="flex lg:flex-row flex-col lg:justify-between gap-24 mb-24">
-                    <div class="space-y-12 max-w-lg">
-                        <Icon name="logo" class="h-14 w-auto" />
-
-                        <p class="text-md leading-7">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
-
-                        <!-- contact -->
-                        <div class="space-y-4">
-                            <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Phone" class="w-4 h-auto" />
-                                <a href={`tel:${Business.phone}`} class="text-base">{Business.phone}</a>
-                            </div>
-                            <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Envelope" class="w-4 h-auto" />
-                                <a href={`mailto:${Business.email}`} class="text-base">{Business.email}</a>
-                            </div>
-                            <div class="flex gap-x-4 items-start">
-                                <Icon name="hero/Map" class="w-4 h-auto" />
-                                <a href={Business.mapUrl} class="text-base">{Business.address.street01} {Business.address.street02}<br />{Business.address.city}, {Business.address.state}</a>
-                            </div>
-                        </div>
-
-                        <!-- social -->
-                        <div class="flex space-x-6">
-                            {
-                                Social.map((s) => (
-                                    <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
-                                        <Icon name={s.icon} class="w-4" />
-                                    </a>
-                                ))
-                            }
-                        </div>
-                    </div>
-
-                    <!-- navigation -->
-                    <div class="min-w-fit">
-                        <div class="grid grid-cols-3 gap-12">
-                            <div class="space-y-6">
-                                <div class="font-semibold">Vehicles</div>
-                                <hr class="w-1/2 border-stone-400" />
-                                <ul role="list" class="space-y-2">
-                                    {
-                                        allMakes.map((m) => (
-                                            <li>
-                                                <a href={`/vehicles/${m.slug}`} title={m.data.title} class="text-sm leading-6">
-                                                    {m.data.title}
-                                                </a>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
-                            </div>
-
-                            <div class="space-y-6">
-                                <div class="font-semibold">Parts</div>
-                                <hr class="w-1/2 border-stone-400" />
-                                <ul role="list" class="space-y-2">
-                                    {
-                                        allParts.map((p) => (
-                                            <li>
-                                                <a href={`/parts/${p.slug}`} title={p.data.title} class="text-sm leading-6">
-                                                    {p.data.title}
-                                                </a>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
-                            </div>
-
-                            <div class="space-y-6">
-                                <div class="font-semibold">Other</div>
-                                <hr class="w-1/2 border-stone-400" />
-                                <ul role="list" class="space-y-2">
-                                    <li>
-                                        <a href="#" class="text-sm leading-6">Sitemap</a>
-                                    </li>
-                                    <li>
-                                        <a href=" privacy-policy" class="text-sm leading-6">Privacy Policy</a>
-                                    </li>
-                                    <li>
-                                        <a href="/terms-of-use" class="text-sm leading-6">Terms of Use</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid gap-y-2 md:grid-cols-2 md:justify-between">
-                    <p class="text-sm leading-5">&copy; {Business.nameLong}. All rights reserved.</p>
-                    <a href={Business.mapUrl} class="text-sm leading-5 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</a>
-                </div>
-            </footer>
-        </Container>
-    </Section>
+<div class="bg-gradient-to-r from-stone-800 to-stone-900 py-6">
+    <Container>
+        <div class="grid gap-y-2 md:grid-cols-2 md:justify-between text-stone-50">
+            <p class="text-sm leading-5">&copy; {Business.nameLong}. All rights reserved.</p>
+            <a href={Business.mapUrl} class="text-sm leading-5 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</a>
+        </div>
+    </Container>
 </div>

@@ -2,14 +2,15 @@
 import Layout from "@/layouts/Layout";
 
 // imports
+import { getBuildImage } from "@/functions/Image";
 import { Icon } from "astro-icon";
-import Button from "../components/buttons/Button.astro";
-import Container from "../components/Container.astro";
-import Gallery from "../components/images/Gallery.astro";
+
+import Container from "@/components/Container";
+import Gallery from "@/components/images/Gallery";
 import HeadingBottom from "@/components/content/headings/HeadingBottom";
-import Picture from "../components/images/Picture.astro";
-import Section from "../components/Section.astro";
-import Testimonial from "../components/Testimonial.astro";
+import Picture from "@/components/images/Picture";
+import Section from "@/components/Section";
+import Testimonial from "@/components/Testimonial";
 
 // config
 import { Business } from "@/config";
@@ -20,9 +21,6 @@ const allTestimonials = await getCollection("testimonials");
 const allBrands = await getCollection("brands", ({ data }) => {
     return data.featured == true;
 });
-
-// images
-import { getBuildImage } from "../functions/Image.js";
 ---
 
 <Layout>

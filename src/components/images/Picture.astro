@@ -1,5 +1,6 @@
 ---
 // imports
+import { getMedia } from "@/functions/Image";
 import { ImageConfig } from "@/config";
 
 import imageSize from "probe-image-size";
@@ -14,9 +15,7 @@ interface Props {
 }
 const { src, alt, sizes = "100vw", quality = 75, loading = "lazy", ...attrs } = Astro.props;
 
-// functions
-import { getMedia } from "../../functions/Image";
-
+// content
 const fullPath = `${ImageConfig.cloudUrl}/images/${src}`;
 const sources = ImageConfig.imageSizes.map((w) => {
     return `${fullPath}?width=${w}&quality=${quality} ${w}w`;

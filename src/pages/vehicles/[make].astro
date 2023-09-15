@@ -5,7 +5,6 @@ import Layout from "@/layouts/Layout";
 import { closestNumber } from "@/functions/Misc";
 
 import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
-import Button from "@/components/buttons/Button";
 import Container from "@/components/Container";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
 import Picture from "@/components/images/Picture";
@@ -58,7 +57,9 @@ const buildCount = closestNumber(allBuilds.length, 3, 6);
                                         <div class="leading-6 text-stone-500 space-y-8" set:html={m.data.descriptionLong} />
                                     </div>
 
-                                    <Button theme="primary">Build Your {m.data.title}</Button>
+                                    <button type="submit" class="button button-primary">
+                                        <div class="button-text">Build Your {m.data.title}</div>
+                                    </button>
                                 </div>
                             </div>
                         ))

@@ -29,7 +29,13 @@ const buildCollection = defineCollection({
             snippet: z.number().default(1),
             banner: z.number().default(1),
         }),
-        video: z.string().optional(),
+        video: z
+            .object({
+                filename: z.string(),
+                width: z.number(),
+                height: z.number(),
+            })
+            .optional(),
     }),
 });
 

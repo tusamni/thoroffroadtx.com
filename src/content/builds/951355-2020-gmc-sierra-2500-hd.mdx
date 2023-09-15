@@ -20,14 +20,17 @@ images:
     total: 5
     snippet: 1
     banner: 1
-video: video
+video:
+    filename: video
+    width: 720
+    height: 1280
 ---
 
 import BuildGalleryRow from "@/components/builds/BuildGalleryRow";
 import Gallery from "@/components/images/Gallery";
 
 <Gallery>
-    <div class="grid grid-cols-12 gap-8">
+    <div class="grid grid-cols-12 gap-4 md:gap-8">
         <BuildGalleryRow id={frontmatter.id} image="1" columns="1" />
         <BuildGalleryRow id={frontmatter.id} image="2" columns="1" />
         <BuildGalleryRow id={frontmatter.id} image="3" columns="1" />

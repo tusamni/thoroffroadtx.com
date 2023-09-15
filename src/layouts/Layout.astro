@@ -53,10 +53,16 @@ const { title = "THOR Off-Road: Texas Premiere Off-Road Parts & Installation", d
 
     // open (will be a child of the target element above)
     let imageLinks = document.querySelectorAll(`.gallery img`);
+    let videoLinks = document.querySelectorAll(`.video`);
+
     // add click listener to open BiggerPicture
     for (let link of imageLinks) {
         link.addEventListener("click", openGallery);
     }
+    for (let video of videoLinks) {
+        video.addEventListener("click", openVideo);
+    }
+
     // function to open BiggerPicture
     function openGallery(e) {
         e.preventDefault();
@@ -64,6 +70,13 @@ const { title = "THOR Off-Road: Texas Premiere Off-Road Parts & Installation", d
             items: imageLinks,
             el: e.currentTarget,
             scale: 0.8,
+        });
+    }
+    function openVideo(e) {
+        e.preventDefault();
+        bp.open({
+            items: e.currentTarget,
+            el: e.currentTarget,
         });
     }
 </script>

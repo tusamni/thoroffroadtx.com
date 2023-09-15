@@ -30,12 +30,3 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     @apply text-stone-900
 }
 
-.prose {
-    p,
-    ul {
-        @apply text-stone-300;
-    }
-    li {
-        @apply text-base;
-    }
-}

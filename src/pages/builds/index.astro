@@ -68,7 +68,7 @@ const featuredBuild = allBuilds.filter(function (build) {
                             </div>
 
                             <ListingGrid>
-                                {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="650px" classes="h-[25em]" />)}
+                                {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, 100vw" classes="h-[25em]" />)}
                             </ListingGrid>
                         </div>
                     </div>

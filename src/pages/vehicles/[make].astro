@@ -35,7 +35,7 @@ const buildCount = closestNumber(allBuilds.length, 3, 6);
 
 <Layout>
     <HeadingSplit>
-        <Picture src={make.data.featured} alt=`${make.data.title} Outfitting in Austin, TX` slot="background" sizes="50vw" />
+        <Picture src={make.data.featured} alt=`${make.data.title} Outfitting in Austin, TX` slot="background" loading="eager" sizes="50vw" />
 
         <div class="space-y-8">
             <h1>We're <i>the</i>&nbsp;{make.data.title} Experts</h1>

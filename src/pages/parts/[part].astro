@@ -37,18 +37,24 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
 ---
 
 <Layout>
-    <HeadingSplit>
-        <Picture src={part.data.featured} alt=`${part.data.title} Outfitting in Austin, TX` slot="background" loading="eager" sizes="50vw" class="rounded-br-lg" />
+    <Background>
+        <HeadingSplit>
+            <Picture src={part.data.featured} alt=`${part.data.title} Outfitting in Austin, TX` slot="background" loading="eager" sizes="50vw" class="rounded-br-lg" />
 
-        <div class="space-y-8">
-            <h1>We're <i>the</i>&nbsp;{part.data.title} Experts</h1>
-            <div set:html={part.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight space-y-8" />
-        </div>
-    </HeadingSplit>
+            <div class="space-y-8">
+                <h1>We're <i>the</i>&nbsp;{part.data.title} Experts</h1>
+                <div set:html={part.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight space-y-8" />
+                <a href="/contact" class="button button-secondary">
+                    <div class="button-icon">
+                        <Icon name="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
+                    </div>
+                    <div class="button-text">Upgrade Your {part.data.title}</div>
+                </a>
+            </div>
+        </HeadingSplit>
 
-    <Section small={true}>
-        <Background>
-            <Container classes="py-24">
+        <Section>
+            <Container>
                 <div class:list={[`brands flex flex-wrap justify-center w-full`, remainder]}>
                     {
                         allBrands.map((b) => (
@@ -59,8 +65,8 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
                     }
                 </div>
             </Container>
-        </Background>
-    </Section>
+        </Section>
+    </Background>
 
     {
         part.data.contentSidebar && part.data.contentParts && (
@@ -74,16 +80,19 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
                             </div>
 
                             <div class="mt-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-gray-600 h-fit gap-y-8 sm:gap-y-16 md:gap-x-8">
-                                {part.data.contentParts.map((p) => (
-                                    <div class="relative">
-                                        <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 self-start" />
+                                {part.data.contentParts.map(
+                                    (p) =>
+                                        p.description && (
+                                            <div class="relative">
+                                                <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 self-start" />
 
-                                        <div class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
-                                            <p class="font-semibold text-stone-900">{p.title}</p>
-                                            <p class="text-sm">{p.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                                                <div class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
+                                                    <p class="font-semibold text-stone-900">{p.title}</p>
+                                                    <p class="text-sm">{p.description}</p>
+                                                </div>
+                                            </div>
+                                        )
+                                )}
                             </div>
                         </div>
 

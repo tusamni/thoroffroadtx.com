@@ -1,0 +1,33 @@
+---
+id: 648828
+date: 2023-06-05
+path: 648828-2020-ford-f-150
+summary: test
+categories: suspension
+
+year: 2020
+make: Ford
+model: F-150
+trim: Platinum
+color: White
+drive: 4x4
+parts: test
+
+images:
+    total: 5
+    snippet: 1
+    banner: 1
+---
+
+import BuildGalleryRow from "@/components/builds/BuildGalleryRow";
+import Gallery from "@/components/images/Gallery";
+
+<Gallery>
+    <div class="grid grid-cols-12 gap-4 md:gap-8">
+        <BuildGalleryRow id={frontmatter.id} image="1" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="2" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="3" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="4" columns="1" />
+        <BuildGalleryRow id={frontmatter.id} image="5" columns="1" />
+    </div>
+</Gallery>

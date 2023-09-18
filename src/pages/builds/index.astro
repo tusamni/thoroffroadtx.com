@@ -2,9 +2,14 @@
 import Layout from "@/layouts/Layout";
 
 // imports
+import { timeAgo } from "@/functions/DateTime";
+import { getBuildImage } from "@/functions/Image";
+
+import Background from "@/components/content/Background";
 import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
 import ListingGrid from "@/components/builds/BuildListing";
+import Picture from "@/components/images/Picture";
 import Pill from "@/components/buttons/Pill";
 import Section from "@/components/Section";
 
@@ -30,47 +35,67 @@ const featuredBuild = allBuilds.filter(function (build) {
             </div>
         </Container>
 
-        <Container>
-            <div class="space-y-8">
+        <div class="space-y-12">
+            <Container>
                 <Pill theme="secondary">Featured Build</Pill>
-                <div>
-                    <BuildSnippet build={featuredBuild} featured={true} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, 100vw" height="h-[50em]" />
+            </Container>
+
+            <Picture src={getBuildImage(featuredBuild.data.id, 1)} class="h-[65em] w-full object-cover object-[100%,80%]" />
+
+            <Container>
+                <div class="flex justify-between gap-12">
+                    <div>
+                        <div class="space-y-4">
+                            <div class="text-5xl font-bold tracking-tighter">{featuredBuild.data.year}&nbsp;{featuredBuild.data.make}&nbsp;{featuredBuild.data.model}</div>
+                            <div>{timeAgo(featuredBuild.data.date)}</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div set:html={featuredBuild.data.goals} class="text-lg line-clamp-4 tracking-tight leading-8" />
+
+                        <div class="button button-primary">
+                            <div class="button-text">Keep Reading</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </Container>
+            </Container>
+        </div>
     </Section>
 
-    <Section small={true}>
-        <Container>
-            <div class="space-y-8">
-                <div class="flex flex-row justify-between items-center py-6">
-                    <div>Showing {allBuilds.length} Builds</div>
-
-                    <form class="flex flex-row items-center gap-4">
-                        <p class="font-semibold">Filters:</p>
-
-                        <div class="space-y-2">
-                            <select name="filterParts" id="filterParts" class="w-36">
-                                Parts
-                                {allParts.map((p) => <option value={`/builds/${p.slug}`}>{p.data.title}</option>)}
-                            </select>
-                        </div>
-
-                        <div class="space-y-2">
-                            <select name="filterMakes" id="filterMakes" class="w-36">
-                                Vehicle
-                                {allMakes.map((m) => <option value={`/builds/${m.slug}`}>{m.data.title}</option>)}
-                            </select>
-                        </div>
-                    </form>
-                </div>
-
+    <Background>
+        <Section small={true}>
+            <Container>
                 <div class="space-y-8">
-                    <ListingGrid>
-                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, 100vw" />)}
-                    </ListingGrid>
+                    <div class="flex flex-row justify-between items-center py-6">
+                        <div>Showing {allBuilds.length} Builds</div>
+
+                        <form class="flex flex-row items-center gap-4">
+                            <p class="font-semibold">Filters:</p>
+
+                            <div class="space-y-2">
+                                <select name="filterParts" id="filterParts" class="w-36">
+                                    Parts
+                                    {allParts.map((p) => <option value={`/builds/${p.slug}`}>{p.data.title}</option>)}
+                                </select>
+                            </div>
+
+                            <div class="space-y-2">
+                                <select name="filterMakes" id="filterMakes" class="w-36">
+                                    Vehicle
+                                    {allMakes.map((m) => <option value={`/builds/${m.slug}`}>{m.data.title}</option>)}
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="space-y-8">
+                        <ListingGrid>
+                            {allBuilds.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, 100vw" />)}
+                        </ListingGrid>
+                    </div>
                 </div>
-            </div>
-        </Container>
-    </Section>
+            </Container>
+        </Section>
+    </Background>
 </Layout>

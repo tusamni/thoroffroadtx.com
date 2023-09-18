@@ -2,9 +2,10 @@
 import Layout from "@/layouts/Layout";
 
 // imports
+import Icon from "astro-icon";
 import { closestNumber } from "@/functions/Misc";
 
-import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
+import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
 import Picture from "@/components/images/Picture";
@@ -41,6 +42,12 @@ const buildCount = closestNumber(allBuilds.length, 3, 6);
             <h1>We're <i>the</i>&nbsp;{make.data.title} Experts</h1>
             <div set:html={make.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight" />
             <div set:html={make.data.descriptionPush} class="text-xl text-stone-700 leading-9 tracking-tight" />
+            <a href="/contact" class="button button-secondary">
+                <div class="button-icon">
+                    <Icon name="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
+                </div>
+                <div class="button-text">Upgrade Your {make.data.title}</div>
+            </a>
         </div>
     </HeadingSplit>
 
@@ -80,7 +87,7 @@ const buildCount = closestNumber(allBuilds.length, 3, 6);
             <Section>
                 <Container classes="space-y-16">
                     <h2 class="text-center">Recent {make.data.title} Builds</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="800px" classes="h-[28em]" />).slice(0, buildCount)}</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="800px" classes="h-[28em]" />).slice(0, buildCount)}</div>
                 </Container>
             </Section>
         )

@@ -2,32 +2,45 @@
 // imports
 import { Business } from "@/config";
 import { getBuildImage } from "@/functions/Image";
+import { timeAgo } from "@/functions/DateTime";
 
 import Picture from "@/components/images/Picture";
 
 // props
 interface Props {
     build: any;
+    featured: boolean;
+    height: string;
     sizes?: string;
     description?: boolean;
     classes?: string;
 }
-const { build, sizes = "100vw", description = true, classes } = Astro.props;
+const { build, featured = false, height = "h-[25em]", sizes = "100vw", description = true, classes } = Astro.props;
 ---
 
-<a href={`/builds/${build.slug}`} class:list={[classes, "rounded-sm"]}>
-    <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} sizes="500px" alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class="object-cover h-52 rounded-t-sm w-full" slot="picture" />
+<a href={`/builds/${build.slug}`} class:list={["space-y-4", classes]}>
+    <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} sizes={sizes} alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class:list={["object-cover rounded-lg w-full", height]} slot="picture" />
 
-    <div class="space-y-2 p-4">
-        <h3 class="text-lg font-semibold line-clamp-1">{build.data.year}&nbsp;{build.data.make}&nbsp;{build.data.model}</h3>
-        {
-            description && (
-                <ul class="text-xs line-clamp-2 comma-list">
-                    {build.data.parts.map((p) => (
-                        <li>{p}</li>
-                    ))}
-                </ul>
-            )
-        }
+    <div class="space-y-4">
+        <div class="flex justify-between items-center">
+            <div class:list={["font-semibold line-clamp-1 tracking-tight", featured ? `text-2xl` : `text-xl`]}>{build.data.year}&nbsp;{build.data.make}&nbsp;{build.data.model}</div>
+            <div class="text-sm text-stone-600">{timeAgo(build.data.date)}</div>
+        </div>
+
+        <div class="flex justify-between items-center gap-8">
+            {
+                description && (
+                    <ul class="line-clamp-2 comma-list tracking-tight">
+                        {build.data.parts.map((p) => (
+                            <li>{p}</li>
+                        ))}
+                    </ul>
+                )
+            }
+
+            <div class="button button-primary">
+                <div class="button-text">Details</div>
+            </div>
+        </div>
     </div>
 </a>

@@ -2,11 +2,8 @@
 import Layout from "@/layouts/Layout";
 
 // imports
-import BuildFilter from "@/components/builds/BuildFilter";
-import BuildFilterListing from "@/components/builds/BuildFilterListing";
-import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
+import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
-import FlexColumn from "@/components/content/FlexColumn";
 import ListingGrid from "@/components/builds/BuildListing";
 import Pill from "@/components/buttons/Pill";
 import Section from "@/components/Section";
@@ -25,55 +22,55 @@ const featuredBuild = allBuilds.filter(function (build) {
 <Layout>
     <Section small={true}>
         <Container>
-            <FlexColumn reverse={true}>
-                <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 space-y-6 sm:space-y-0 lg:space-y-6">
-                    <BuildFilterListing heading="Filter by Parts">
-                        {
-                            allParts.map((p) => (
-                                <BuildFilter href={`/builds/${p.slug}`}>
-                                    <div class="space-y-2">
-                                        <div class="text-base line-clamp-1">{p.data.title}</div>
-                                        <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
-                                    </div>
-                                </BuildFilter>
-                            ))
-                        }
-                    </BuildFilterListing>
-
-                    <BuildFilterListing heading="Filter by Vehicle">
-                        {allMakes.map((m) => <BuildFilter href={`/builds/${m.slug}`}>{m.data.title}</BuildFilter>)}
-                    </BuildFilterListing>
+            <div class="space-y-8">
+                <div class="space-y-8 max-w-3xl">
+                    <h1>THOR Off-Road Builds</h1>
+                    <p class="space-y-4 text-xl leading-8">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
                 </div>
+            </div>
+        </Container>
 
-                <div class="space-y-16">
-                    <div class="space-y-8">
-                        <h1>THOR Off-Road Builds</h1>
-                        <p class="text-xl text-stone-700 leading-9 tracking-tight">
-                            276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics. 276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of
-                            icons, graphics.
-                        </p>
-                    </div>
+        <Container>
+            <div class="space-y-8">
+                <Pill theme="secondary">Featured Build</Pill>
+                <div>
+                    <BuildSnippet build={featuredBuild} featured={true} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, 100vw" height="h-[50em]" />
+                </div>
+            </div>
+        </Container>
+    </Section>
 
-                    <div class="space-y-16">
-                        <div class="space-y-8">
-                            <Pill>Featured Build</Pill>
-                            <BuildSnippetAlt build={featuredBuild} sizes="50vw" description={true} classes="rounded h-[35em]" />
+    <Section small={true}>
+        <Container>
+            <div class="space-y-8">
+                <div class="flex flex-row justify-between items-center py-6">
+                    <div>Showing {allBuilds.length} Builds</div>
+
+                    <form class="flex flex-row items-center gap-4">
+                        <p class="font-semibold">Filters:</p>
+
+                        <div class="space-y-2">
+                            <select name="filterParts" id="filterParts" class="w-36">
+                                Parts
+                                {allParts.map((p) => <option value={`/builds/${p.slug}`}>{p.data.title}</option>)}
+                            </select>
                         </div>
 
-                        <div class="space-y-8">
-                            <div class="flex justify-between items-end">
-                                <Pill>All Builds</Pill>
-
-                                <div class="text-sm">Showing {allBuilds.length} Builds</div>
-                            </div>
-
-                            <ListingGrid>
-                                {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, 100vw" classes="h-[25em]" />)}
-                            </ListingGrid>
+                        <div class="space-y-2">
+                            <select name="filterMakes" id="filterMakes" class="w-36">
+                                Vehicle
+                                {allMakes.map((m) => <option value={`/builds/${m.slug}`}>{m.data.title}</option>)}
+                            </select>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </FlexColumn>
+
+                <div class="space-y-8">
+                    <ListingGrid>
+                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, 100vw" />)}
+                    </ListingGrid>
+                </div>
+            </div>
         </Container>
     </Section>
 </Layout>

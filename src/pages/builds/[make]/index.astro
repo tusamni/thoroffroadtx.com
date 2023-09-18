@@ -4,7 +4,7 @@ import Layout from "@/layouts/Layout";
 // imports
 import BuildFilter from "@/components/builds/BuildFilter";
 import BuildFilterListing from "@/components/builds/BuildFilterListing";
-import BuildSnippetAlt from "@/components/builds/BuildSnippetAlt";
+import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
 import FlexColumn from "@/components/content/FlexColumn";
 import ListingGrid from "@/components/builds/BuildListing";
@@ -76,7 +76,7 @@ const allParts = await getCollection("parts");
                     <h1>{make.data.title} Builds</h1>
 
                     <ListingGrid>
-                        {allBuilds.map((b) => <BuildSnippetAlt build={b} sizes="350px" classes="h-[25em]" />)}
+                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" classes="h-[25em]" />)}
                     </ListingGrid>
                 </div>
             </FlexColumn>

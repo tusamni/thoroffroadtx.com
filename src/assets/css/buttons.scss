@@ -1,29 +1,35 @@
 .button {
     @apply transition-all duration-500 font-medium flex w-full sm:w-fit items-center justify-start h-12;
 
+    &.button-reverse {
+        @apply flex-row-reverse;
+    }
+
     &.button-primary {
-        @apply text-stone-900 border border-stone-300;
+        @apply text-stone-900 border border-stone-300 divide-stone-300 divide-x;
 
         .button-icon {
-            @apply bg-white border-r;
+            @apply bg-white;
         }
         .button-text {
             @apply bg-white;
         }
     }
-    &.button-secondary {        
+    &.button-secondary {
+        @apply divide-green-300 divide-x;
+
         .button-icon {
-            @apply bg-gradient-to-b from-green-400 to-green-500 text-stone-50 border-green-300 border-r;
+            @apply bg-gradient-to-b from-green-400 to-green-500 text-stone-50;
         }
         .button-text { 
             @apply bg-gradient-to-b from-green-400 to-green-500 text-stone-50;
         }
     }
     &.button-ghost {
-        @apply text-white border border-white;
+        @apply text-white border border-white divide-white divide-x;
 
         .button-icon {
-            @apply bg-white/40 border-r border-white;
+            @apply bg-white/40;
         }
         .button-text { @apply bg-gradient-to-r from-white/40 to-white/30; }
     }

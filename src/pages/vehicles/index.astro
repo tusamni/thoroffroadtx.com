@@ -32,14 +32,14 @@ const process = [
     },
 ];
 const vehicleFill = {
-    title: "Don't See Your Vehicle?",
+    title: "We Do It All!",
     descriptionShort: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
 };
 ---
 
 <Layout>
     <HeadingSplit>
-        <Picture src="builds/561954/02.jpg" alt="Outfitting a truck in Austin, TX" slot="background" loading="eager" sizes="50vw" />
+        <Picture src="builds/300038/50.jpg" alt="Outfitting a truck in Austin, TX" slot="background" loading="eager" sizes="50vw" />
 
         <div class="space-y-8">
             <h1>Texas' Top<br />Truck Outfitter</h1>
@@ -107,16 +107,20 @@ const vehicleFill = {
                             </a>
                         ))
                     }
-                    <a href="/contact" class="flex flex-col p-8 relative rounded-lg border border-stone-300">
-                        <div class="space-y-4">
+                    <a href="/contact" class="flex flex-col p-8 relative rounded-lg border border-stone-300 justify-between gap-8">
+                        <div class="space-y-5">
                             <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
-                            <div class="leading-6 text-stone-500">{vehicleFill.descriptionShort}</div>
+                            <div class="leading-6">{vehicleFill.descriptionShort}</div>
+                        </div>
+
+                        <div class="button button-primary">
+                            <div class="button-text">See More</div>
                         </div>
                     </a>
                 </div>
 
                 <div class="hidden lg:block lg:col-span-2">
-                    <Picture src="builds/108058/06.jpg" class="object-cover h-full w-full rounded-lg" />
+                    <Picture src="builds/300038/19.jpg" class="object-cover h-full w-full rounded-lg" />
                 </div>
             </div>
         </Container>

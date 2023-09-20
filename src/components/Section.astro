@@ -6,6 +6,6 @@ interface Props {
 const { small = false, classes } = Astro.props;
 ---
 
-<div class:list={["space-y-16 sm:space-y-24 lg:space-y-44", small ? `py-16 sm:py-20` : `py-16 sm:py-24 lg:py-40`, classes]}>
+<div class:list={[small ? `py-16 sm:py-20 space-y-12 sm:space-y-16 lg:space-y-32` : `py-16 sm:py-24 lg:py-40 "space-y-16 sm:space-y-24 lg:space-y-44"`, classes]}>
     <slot />
 </div>

@@ -48,16 +48,16 @@ const allBrands = await getCollection("brands", ({ data }) => {
     </HeadingBottom>
 
     <Section>
-        <Container classes="space-y-12">
+        <Container classes="space-y-8">
             <div class="space-y-16">
                 <h2 class="lg:text-center">{Business.nameLong} partners<br />with the best brands.</h2>
 
                 <!-- brand logos -->
-                <div class="mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-12">
+                <div class="mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
                     {
                         allBrands
                             .map((b) => (
-                                <div class="bg-stone-100 p-6 flex justify-center rounded-lg shadow-md">
+                                <div class="bg-stone-100 p-6 flex justify-center rounded-sm">
                                     <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 lg:h-16 w-full lg:w-1/2 object-contain text-stone-900 place-self-center" />
                                 </div>
                             ))
@@ -67,19 +67,19 @@ const allBrands = await getCollection("brands", ({ data }) => {
             </div>
 
             <Gallery>
-                <div class="space-y-12">
-                    <div class="grid grid-cols-12 grid-rows-1 md:grid-rows-2 md:h-[1000px] gap-6 md:gap-12">
-                        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford Super Duty in Dripping Springs, TX" class="object-cover w-full h-full col-span-12 md:col-span-6 md:row-span-2 object-bottom rounded-lg shadow-2xl" sizes="(min-width: 768px) 50vw, 100vw" />
-                        <Picture src={getBuildImage(298562, 13)} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1 rounded-lg shadow-md" sizes="(min-width: 768px) 25vw, 100vw" />
-                        <Picture src={getBuildImage(405642, 5)} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1 rounded-lg shadow-md" sizes="(min-width: 768px) 25vw, 100vw" />
-                        <Picture src={getBuildImage(266375, 2)} class="object-cover w-full h-full col-span-12 md:row-start-2 md:col-start-7 md:col-span-6 rounded-lg shadow-md" sizes="(min-width: 768px) 50vw, 100vw" />
+                <div class="space-y-8">
+                    <div class="grid grid-cols-12 grid-rows-1 md:grid-rows-2 md:h-[1000px] gap-6 md:gap-8">
+                        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford Super Duty in Dripping Springs, TX" class="object-cover w-full h-full col-span-12 md:col-span-6 md:row-span-2 object-bottom rounded-sm" sizes="(min-width: 768px) 50vw, 100vw" />
+                        <Picture src={getBuildImage(298562, 13)} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1 rounded-sm" sizes="(min-width: 768px) 25vw, 100vw" />
+                        <Picture src={getBuildImage(405642, 5)} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1 rounded-sm" sizes="(min-width: 768px) 25vw, 100vw" />
+                        <Picture src={getBuildImage(266375, 2)} class="object-cover w-full h-full col-span-12 md:row-start-2 md:col-start-7 md:col-span-6 rounded-sm" sizes="(min-width: 768px) 50vw, 100vw" />
                     </div>
 
-                    <div class="grid grid-cols-12 grid-rows-1 md:grid-rows-2 md:h-[1000px] gap-6 md:gap-12">
-                        <Picture src={getBuildImage(108058, 3)} class="object-cover w-full h-full col-span-12 md:col-span-6 md:row-span-2 rounded-lg shadow-2xl" sizes="(min-width: 768px) 50vw, 100vw" />
-                        <Picture src={getBuildImage(276780, 6)} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1 rounded-lg shadow-2xl" sizes="(min-width: 768px) 25vw, 100vw" />
-                        <Picture src={getBuildImage(453172, 2)} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1 rounded-lg shadow-2xl" sizes="(min-width: 768px) 25vw, 100vw" />
-                        <Picture src={getBuildImage(791924, 7)} class="object-cover w-full h-full col-span-12 md:row-start-2 md:col-start-7 md:col-span-6 rounded-lg shadow-2xl" sizes="(min-width: 768px) 50vw, 100vw" />
+                    <div class="grid grid-cols-12 grid-rows-1 md:grid-rows-2 md:h-[1000px] gap-6 md:gap-8">
+                        <Picture src={getBuildImage(108058, 3)} class="object-cover w-full h-full col-span-12 md:col-span-6 md:row-span-2 rounded-sm" sizes="(min-width: 768px) 50vw, 100vw" />
+                        <Picture src={getBuildImage(276780, 6)} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1 rounded-sm" sizes="(min-width: 768px) 25vw, 100vw" />
+                        <Picture src={getBuildImage(453172, 2)} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1 rounded-sm" sizes="(min-width: 768px) 25vw, 100vw" />
+                        <Picture src={getBuildImage(791924, 7)} class="object-cover w-full h-full col-span-12 md:row-start-2 md:col-start-7 md:col-span-6 rounded-sm" sizes="(min-width: 768px) 50vw, 100vw" />
                     </div>
                 </div>
             </Gallery>

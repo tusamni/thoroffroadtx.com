@@ -58,8 +58,13 @@ const partsCollection = defineCollection({
         seoTitle: z.string(),
         seoDescription: z.string(),
         logo: z.string(),
-        featured: z.string(),
-        featuredAlt: z.string(),
+        featured: z.object({
+            id: z.string(),
+            image: z.object({
+                heading: z.number(),
+                aside: z.number(),
+            }),
+        }),
     }),
 });
 

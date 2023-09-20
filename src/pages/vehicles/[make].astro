@@ -2,17 +2,18 @@
 import Layout from "@/layouts/Layout";
 
 // imports
-import Icon from "astro-icon";
 import { closestNumber } from "@/functions/Misc";
+import { getBuildImage } from "@/functions/Image";
+import { Icon } from "astro-icon";
 
+import Background from "@/components/content/Background";
 import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
-import HeadingSplit from "@/components/content/headings/HeadingSplit";
 import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
 
 // content
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 export async function getStaticPaths() {
     const allMakes = await getCollection("makes");
     return allMakes.map((make) => ({
@@ -30,66 +31,71 @@ const allBuilds = (
         return data.make.includes(make.data.title);
     })
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const featuredBuild = await getEntry("builds", make.data.featured.id);
 
-const buildCount = closestNumber(allBuilds.length, 3, 6);
+const buildCount = closestNumber(allBuilds.length, 3, 3);
 ---
 
 <Layout>
-    <HeadingSplit>
-        <Picture src={make.data.featured} alt=`${make.data.title} Outfitting in Austin, TX` slot="background" loading="eager" sizes="50vw" />
-
-        <div class="space-y-8">
-            <h1>We're <i>the</i>&nbsp;{make.data.title} Experts</h1>
-            <div set:html={make.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight" />
-            <div set:html={make.data.descriptionPush} class="text-xl text-stone-700 leading-9 tracking-tight" />
-            <a href="/contact" class="button button-secondary">
-                <div class="button-icon">
-                    <Icon name="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
-                </div>
-                <div class="button-text">Upgrade Your {make.data.title}</div>
-            </a>
+    <div class="space-y-8 bg-gradient-to-l from-orange-50 to-orange-200 md:pb-8">
+        <div class="relative h-[25em] md:h-[35em]">
+            <Picture src={getBuildImage(featuredBuild.data.id, make.data.featured.image.heading)} alt=`${make.data.title} Outfitting in Austin, TX` loading="eager" class="w-full h-full object-cover absolute" />
         </div>
-    </HeadingSplit>
 
-    <Section>
-        <Container>
-            <div class="grid grid-cols-6 gap-8">
-                <div class="col-span-4 grid grid-cols-2 gap-8">
-                    {
-                        allModels.map((m) => (
-                            <div class="group flex flex-col justify-between border border-stone-300 rounded-lg">
-                                <div class="h-full p-8 flex flex-col gap-8 justify-between">
-                                    <div class="space-y-5">
-                                        <h3 class="text-2xl font-semibold leading-6">{m.data.title}</h3>
-                                        <div class="leading-6 text-stone-500 space-y-8" set:html={m.data.descriptionLong} />
+        <div class="hidden md:grid md:grid-cols-4 h-72 gap-8 px-8">
+            {
+                make.data.featured.image.gallery.map((p) => (
+                    <div class="relative">
+                        <Picture src={getBuildImage(featuredBuild.data.id, p)} alt={`${make.data.title} Outfitting in Austin, TX`} loading="eager" class="w-full h-full object-cover absolute rounded-sm " />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <Container>
+        <div class="relative overflow-hidden">
+            <Icon name={`makes/${make.data.logo}Icon`} class:list={[make.data.logoColor, "absolute w-1/3 h-auto right-0 -rotate-12 -mt-12"]} />
+
+            <div class="space-y-40 pt-32 pb-60">
+                <div class="space-y-20">
+                    <div class="relative space-y-6 max-w-4xl">
+                        <h1>We're <i>the</i>&nbsp;{make.data.title} Experts</h1>
+
+                        <div set:html={make.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight" />
+                        <div set:html={make.data.descriptionPush} class="text-xl text-stone-700 leading-9 tracking-tight" />
+                    </div>
+
+                    <div class="relative grid grid-cols-3 gap-8">
+                        {
+                            allModels.map((m) => (
+                                <div class="group flex flex-col justify-between border border-stone-300 rounded-sm bg-white">
+                                    <div class="h-full p-8 flex flex-col gap-8 justify-between">
+                                        <div class="space-y-5">
+                                            <h3 class="text-2xl font-semibold leading-6">{m.data.title}</h3>
+                                            <div class="leading-6 text-stone-500 space-y-8" set:html={m.data.descriptionLong} />
+                                        </div>
+
+                                        <button type="submit" class="button button-primary">
+                                            <div class="button-text">Build Your {m.data.title}</div>
+                                        </button>
                                     </div>
-
-                                    <button type="submit" class="button button-primary">
-                                        <div class="button-text">Build Your {m.data.title}</div>
-                                    </button>
                                 </div>
-                            </div>
-                        ))
-                    }
-
-                    {allModels.length % 2 !== 0 && <div class="bg-white w-full h-full" />}
+                            ))
+                        }
+                    </div>
                 </div>
 
-                <div class="col-span-2 relative">
-                    <Picture src={make.data.featuredAlt} class="absolute object-cover h-full w-full rounded-lg" />
-                </div>
+                {
+                    allBuilds.length >= 3 && (
+                        <div class="space-y-16">
+                            <h2 class="text-center">Recent {make.data.title} Builds</h2>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">{allBuilds.map((b) => <BuildSnippet build={b} sizes="800px" pad={false} classes="h-[28em]" />).slice(0, buildCount)}</div>
+                        </div>
+                    )
+                }
             </div>
-        </Container>
-    </Section>
-
-    {
-        allBuilds.length >= 4 && (
-            <Section>
-                <Container classes="space-y-16">
-                    <h2 class="text-center">Recent {make.data.title} Builds</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="800px" classes="h-[28em]" />).slice(0, buildCount)}</div>
-                </Container>
-            </Section>
-        )
-    }
+        </div>
+    </Container>
 </Layout>

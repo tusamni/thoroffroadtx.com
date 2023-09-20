@@ -3,17 +3,17 @@ import Layout from "@/layouts/Layout";
 
 // imports
 import { closestNumber } from "@/functions/Misc";
+import { getBuildImage } from "@/functions/Image";
 import { Icon } from "astro-icon";
 
 import Background from "@/components/content/Background";
 import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
-import HeadingSplit from "@/components/content/headings/HeadingSplit";
 import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
 
 // content
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 export async function getStaticPaths() {
     const allParts = await getCollection("parts");
     return allParts.map((part) => ({
@@ -32,27 +32,84 @@ const allBuilds = (
         return data.categories.includes(part.slug);
     })
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const featuredBuild = await getEntry("builds", part.data.featured.id);
 
 let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
 ---
 
 <Layout>
-    <Background>
-        <HeadingSplit>
-            <Picture src={part.data.featured} alt=`${part.data.title} Outfitting in Austin, TX` slot="background" loading="eager" sizes="50vw" class="rounded-br-lg" />
+    <div class="relative h-[25em] md:h-[35em]">
+        <Picture src={getBuildImage(featuredBuild.data.id, part.data.featured.image.heading)} alt=`${part.data.title} Outfitting in Austin, TX` loading="eager" class="w-full h-full object-cover absolute" />
 
-            <div class="space-y-8">
+        <div class="relative h-full">
+            <Container classes="h-full">
+                <div class="flex h-full justify-end items-end">
+                    <div class="bg-white lg:max-w-xl space-y-4 lg:py-6 lg:px-8 rounded-t-sm">
+                        <div class="text-2xl tracking-tighter font-medium">{`${featuredBuild.data.year} ${featuredBuild.data.make} ${featuredBuild.data.model}`}</div>
+
+                        <ul class="line-clamp-2 comma-list tracking-tight text-sm">
+                            {featuredBuild.data.parts.map((p) => <li>{p}</li>)}
+                        </ul>
+                    </div>
+                </div>
+            </Container>
+        </div>
+    </div>
+
+    <Section>
+        <Container classes="space-y-16">
+            <div class="space-y-6 max-w-4xl">
                 <h1>We're <i>the</i>&nbsp;{part.data.title} Experts</h1>
                 <div set:html={part.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight space-y-8" />
-                <a href="/contact" class="button button-secondary">
-                    <div class="button-icon">
-                        <Icon name="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
-                    </div>
-                    <div class="button-text">Upgrade Your {part.data.title}</div>
-                </a>
-            </div>
-        </HeadingSplit>
 
+                <div class="flex gap-4">
+                    <a href="/contact" class="button button-secondary">
+                        <div class="button-icon">
+                            <Icon name="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
+                        </div>
+                        <div class="button-text">Upgrade Your {part.data.title}</div>
+                    </a>
+
+                    <a href={`/builds/${part.slug}`} class="button button-primary">
+                        <div class="button-text">{part.data.title} Builds</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 grid-rows-2 h-[40em] gap-8">
+                <Picture src={getBuildImage(featuredBuild.data.id, part.data.featured.image.aside)} class="row-span-2 object-cover h-full w-full rounded-sm" />
+                <Picture src={getBuildImage(featuredBuild.data.id, part.data.featured.image.aside)} class="object-cover h-full w-full rounded-sm" />
+                <Picture src={getBuildImage(featuredBuild.data.id, part.data.featured.image.aside)} class="object-cover h-full w-full rounded-sm" />
+            </div>
+
+            <div class="grid grid-cols-2">
+                <div class="space-y-6 max-w-5xl">
+                    <h2>{part.data.title} Upgrades</h2>
+                    <div class="leading-8 tracking-tight text-stone-700 text-lg space-y-6" set:html={part.data.contentSidebar} />
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-gray-600 h-fit gap-y-8 sm:gap-y-16 md:gap-x-8">
+                    {
+                        part.data.contentParts.map(
+                            (p) =>
+                                p.description && (
+                                    <div class="relative">
+                                        <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 self-start" />
+
+                                        <div class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
+                                            <p class="font-semibold text-stone-900">{p.title}</p>
+                                            <p class="text-sm">{p.description}</p>
+                                        </div>
+                                    </div>
+                                )
+                        )
+                    }
+                </div>
+            </div>
+        </Container>
+    </Section>
+
+    <Background>
         <Section>
             <Container>
                 <div class:list={[`brands flex flex-wrap justify-center w-full`, remainder]}>
@@ -67,43 +124,6 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
             </Container>
         </Section>
     </Background>
-
-    {
-        part.data.contentSidebar && part.data.contentParts && (
-            <Section>
-                <Container>
-                    <div class="grid grid-cols-6 gap-12">
-                        <div class="col-span-4">
-                            <div class="space-y-8 py-12">
-                                <h2>{part.data.title} Upgrades</h2>
-                                <div class="leading-8 tracking-tight text-stone-700 text-lg space-y-6" set:html={part.data.contentSidebar} />
-                            </div>
-
-                            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-gray-600 h-fit gap-y-8 sm:gap-y-16 md:gap-x-8">
-                                {part.data.contentParts.map(
-                                    (p) =>
-                                        p.description && (
-                                            <div class="relative">
-                                                <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 self-start" />
-
-                                                <div class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
-                                                    <p class="font-semibold text-stone-900">{p.title}</p>
-                                                    <p class="text-sm">{p.description}</p>
-                                                </div>
-                                            </div>
-                                        )
-                                )}
-                            </div>
-                        </div>
-
-                        <div class="col-span-2">
-                            <Picture src={part.data.featuredAlt} class="object-cover h-full w-full rounded-lg" />
-                        </div>
-                    </div>
-                </Container>
-            </Section>
-        )
-    }
 
     {
         allBuilds.length >= 4 && (

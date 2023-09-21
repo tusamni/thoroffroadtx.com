@@ -26,12 +26,14 @@
         }
     }
     &.button-ghost {
-        @apply text-white border border-white divide-white divide-x;
+        @apply border divide-x;
 
-        .button-icon {
-            @apply bg-white/40;
+        &.button-inverse {
+            @apply text-black border-black divide-black;
         }
-        .button-text { @apply bg-gradient-to-r from-white/40 to-white/30; }
+        &:not(.button-inverse) {
+            @apply text-white border-white divide-white;
+        }
     }
     
     .button-icon {

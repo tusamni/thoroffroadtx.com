@@ -75,10 +75,10 @@ const allParts = await getCollection("parts");
                 </div>
 
                 <div class="space-y-16">
-                    <h1>{model.data.make}&nbsp;{model.data.title} Builds</h1>
+                    <h1>{model.data.title} Builds</h1>
 
-                    <ListingGrid>
-                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" classes="h-[25em]" />)}
+                    <ListingGrid columns="grid-cols-2">
+                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 350px, 100vw" height="h-[15em]" />)}
                     </ListingGrid>
                 </div>
             </FlexColumn>

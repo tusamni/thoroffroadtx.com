@@ -2,6 +2,8 @@
 import Layout from "@/layouts/Layout";
 
 // imports
+import { Icon } from "astro-icon";
+
 import BuildFilter from "@/components/builds/BuildFilter";
 import BuildFilterListing from "@/components/builds/BuildFilterListing";
 import BuildSnippet from "@/components/builds/BuildSnippet";
@@ -12,18 +14,21 @@ import Section from "@/components/Section";
 
 // content
 import { getCollection } from "astro:content";
-export async function getStaticPaths() {
+export async function getStaticPaths({ paginate }) {
     const allMakes = await getCollection("makes");
-    return allMakes.map((make) => ({
-        params: { make: make.slug },
-        props: { make },
-    }));
-}
-const { make } = Astro.props;
+    const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-const allBuilds = await getCollection("builds", ({ slug }) => {
-    return slug.includes(make.slug);
-});
+    return allMakes.flatMap((make) => {
+        const filteredBuilds = allBuilds.filter((build) => build.data.make.toLowerCase().includes(make.slug));
+
+        return paginate(filteredBuilds, {
+            params: { make: make.slug },
+            props: { make },
+            pageSize: 6,
+        });
+    });
+}
+const { page, make } = Astro.props;
 
 // aggregate the metadata
 const allMakes = await getCollection("makes");
@@ -75,9 +80,27 @@ const allParts = await getCollection("parts");
                 <div class="space-y-16">
                     <h1>{make.data.title} Builds</h1>
 
-                    <ListingGrid>
-                        {allBuilds.map((b) => <BuildSnippet build={b} sizes="350px" classes="h-[25em]" />)}
+                    <ListingGrid columns="grid-cols-2">
+                        {page.data.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 350px, 100vw" height="h-[15em]" />)}
                     </ListingGrid>
+
+                    <div class="flex flex-row justify-between items-center gap-4">
+                        <div>
+                            Page {page.currentPage} of {page.lastPage}
+                        </div>
+
+                        <div class="flex gap-4">
+                            <a href={page.url.prev} class="button button-primary">
+                                <div class="button-icon"><Icon name="hero/ChevronLeft" class="text-black w-5 h-5" /></div>
+                                <div class="button-text">Previous</div>
+                            </a>
+
+                            <a href={page.url.next} class="button button-primary">
+                                <div class="button-text">Next</div>
+                                <div class="button-icon"><Icon name="hero/ChevronRight" class="text-black w-5 h-5" /></div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </FlexColumn>
         </Container>

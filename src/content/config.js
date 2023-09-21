@@ -62,7 +62,7 @@ const partsCollection = defineCollection({
             id: z.string(),
             image: z.object({
                 heading: z.number(),
-                aside: z.number(),
+                gallery: z.array(z.number()),
             }),
         }),
     }),

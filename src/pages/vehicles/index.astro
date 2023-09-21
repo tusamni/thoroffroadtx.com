@@ -39,7 +39,7 @@ const vehicleFill = {
 
 <Layout>
     <HeadingSplit>
-        <Picture src="builds/300038/50.jpg" alt="Outfitting a truck in Austin, TX" slot="background" loading="eager" sizes="50vw" />
+        <Picture src="builds/850633/06.jpg" alt="Outfitting a truck in Austin, TX" slot="background" loading="eager" sizes="50vw" />
 
         <div class="space-y-8">
             <h1>Texas' Top<br />Truck Outfitter</h1>
@@ -72,56 +72,50 @@ const vehicleFill = {
         <Container classes="space-y-16">
             <h2>We're building our<br />customer's dream vehicles.</h2>
 
-            <div class="grid grid-cols-1 lg:grid-cols-6 gap-8">
-                <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-                    {
-                        allMakes.map((v) => (
-                            <a href={`/vehicles/${v.slug}`} class="group relative overflow-hidden rounded-sm border border-stone-300">
-                                <div class="absolute w-full h-full">
-                                    <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "transition-all duration-300 hidden sm:block absolute w-2/3 h-auto left-1/2 top-full -rotate-12 -mt-20 sm:-mt-10 group-hover:-mt-20"]} />
-                                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+                {
+                    allMakes.map((v) => (
+                        <a href={`/vehicles/${v.slug}`} class="group relative overflow-hidden rounded-sm border border-stone-300">
+                            <div class="absolute w-full h-full">
+                                <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "transition-all duration-300 hidden sm:block absolute w-2/3 h-auto left-1/2 top-full -rotate-12 -mt-20 sm:-mt-10 group-hover:-mt-20"]} />
+                            </div>
 
-                                <div class="flex flex-col p-8 relative h-full w-full transition duration-300">
-                                    <div class="h-full flex flex-col gap-8 justify-between">
-                                        <div class="space-y-5">
-                                            <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
-                                            <div class="leading-6">{v.data.descriptionShort}</div>
+                            <div class="flex flex-col p-8 relative h-full w-full transition duration-300">
+                                <div class="h-full flex flex-col gap-8 justify-between">
+                                    <div class="space-y-5">
+                                        <h3 class="text-2xl font-semibold leading-6">{v.data.title}</h3>
+                                        <div class="leading-6">{v.data.descriptionShort}</div>
 
-                                            <div class="space-y-1">
-                                                Brands
-                                                <ul class="comma-list text-xs text-stone-500 font-normal">
-                                                    {allModels.map((i) => {
-                                                        if (i.data.make.toLowerCase().includes(v.slug)) {
-                                                            return <li>{i.data.title}</li>;
-                                                        }
-                                                    })}
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="button button-primary">
-                                            <div class="button-text">See More</div>
+                                        <div class="space-y-1">
+                                            Brands
+                                            <ul class="comma-list text-xs text-stone-500 font-normal">
+                                                {allModels.map((i) => {
+                                                    if (i.data.make.toLowerCase().includes(v.slug)) {
+                                                        return <li>{i.data.title}</li>;
+                                                    }
+                                                })}
+                                            </ul>
                                         </div>
                                     </div>
+
+                                    <div class="button button-primary">
+                                        <div class="button-text">See More</div>
+                                    </div>
                                 </div>
-                            </a>
-                        ))
-                    }
-                    <a href="/contact" class="flex flex-col p-8 relative rounded-sm border border-stone-300 justify-between gap-8">
-                        <div class="space-y-5">
-                            <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
-                            <div class="leading-6">{vehicleFill.descriptionShort}</div>
-                        </div>
+                            </div>
+                        </a>
+                    ))
+                }
+                <a href="/contact" class="flex flex-col p-8 relative rounded-sm border border-stone-300 justify-between gap-8">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
+                        <div class="leading-6">{vehicleFill.descriptionShort}</div>
+                    </div>
 
-                        <div class="button button-primary">
-                            <div class="button-text">Contact Us</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="hidden lg:block lg:col-span-2">
-                    <Picture src="builds/300038/19.jpg" class="object-cover h-full w-full rounded-sm" />
-                </div>
+                    <div class="button button-primary">
+                        <div class="button-text">Contact Us</div>
+                    </div>
+                </a>
             </div>
         </Container>
     </Section>

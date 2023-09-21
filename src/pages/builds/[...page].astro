@@ -3,10 +3,8 @@ import Layout from "@/layouts/Layout";
 
 // imports
 import { Icon } from "astro-icon";
-import { timeAgo } from "@/functions/DateTime";
 import { getBuildImage } from "@/functions/Image";
 
-import Background from "@/components/content/Background";
 import BuildFilter from "@/components/builds/BuildFilter";
 import BuildFilterListing from "@/components/builds/BuildFilterListing";
 import BuildSnippet from "@/components/builds/BuildSnippet";
@@ -14,7 +12,6 @@ import Container from "@/components/Container";
 import HeadingBottom from "@/components/content/headings/HeadingBottom";
 import ListingGrid from "@/components/builds/BuildListing";
 import Picture from "@/components/images/Picture";
-import Pill from "@/components/buttons/Pill";
 import Section from "@/components/Section";
 
 // content
@@ -28,13 +25,6 @@ export async function getStaticPaths({ paginate }) {
     return paginate(allBuilds, { pageSize: 12 });
 }
 const { page } = Astro.props;
-
-const featuredBuilds = (
-    await getCollection("builds", ({ data }) => {
-        return data.featured == true;
-    })
-).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const featuredBuild = featuredBuilds[0];
 ---
 
 <Layout>
@@ -42,10 +32,10 @@ const featuredBuild = featuredBuilds[0];
         <Picture src={getBuildImage(215615, 12)} slot="background" class="w-full h-[25vh] sm:h-full" />
 
         <h1 slot="heading">THOR Off-Road Builds</h1>
-        <p slot="description">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
+        <p slot="description" class="space-y-4 text-xl leading-8">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
     </HeadingBottom>
 
-    <Section>
+    <Section small={true}>
         <Container classes="space-y-16">
             <div class="flex flex-row justify-between items-center gap-4">
                 <div>
@@ -84,41 +74,39 @@ const featuredBuild = featuredBuilds[0];
         </Container>
     </Section>
 
-    <div id="filter">
-        <Background color="bg-stone-200" opacity={0.7}>
-            <Section>
-                <Container classes="space-y-12">
-                    <div>
-                        <div class="grid grid-cols-2 gap-16">
-                            <BuildFilterListing heading="Filter by Parts">
-                                {
-                                    allParts.map((p) => (
-                                        <BuildFilter href={`/builds/${p.slug}`}>
-                                            <div class="space-y-2">
-                                                <div class="text-base line-clamp-1">{p.data.title}</div>
-                                                <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
-                                            </div>
-                                        </BuildFilter>
-                                    ))
-                                }
-                            </BuildFilterListing>
+    <div id="filter" class="bg-gradient-to-br from-stone-100 via-stone-100 to-stone-50">
+        <Section small={true}>
+            <Container classes="space-y-12">
+                <div>
+                    <div class="grid grid-cols-2 gap-16">
+                        <BuildFilterListing heading="Filter by Parts">
+                            {
+                                allParts.map((p) => (
+                                    <BuildFilter href={`/builds/${p.slug}`}>
+                                        <div class="space-y-2">
+                                            <div class="text-base line-clamp-1">{p.data.title}</div>
+                                            <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
+                                        </div>
+                                    </BuildFilter>
+                                ))
+                            }
+                        </BuildFilterListing>
 
-                            <BuildFilterListing heading="Filter by Vehicle">
-                                {
-                                    allMakes.map((m) => (
-                                        <BuildFilter href={`/builds/${m.slug}`}>
-                                            <div class="space-y-2">
-                                                <div class="text-base line-clamp-1">{m.data.title}</div>
-                                                <div class="text-xs line-clamp-2 text-stone-600">{m.data.descriptionShort}</div>
-                                            </div>
-                                        </BuildFilter>
-                                    ))
-                                }
-                            </BuildFilterListing>
-                        </div>
+                        <BuildFilterListing heading="Filter by Vehicle">
+                            {
+                                allMakes.map((m) => (
+                                    <BuildFilter href={`/builds/${m.slug}`}>
+                                        <div class="space-y-2">
+                                            <div class="text-base line-clamp-1">{m.data.title}</div>
+                                            <div class="text-xs line-clamp-2 text-stone-600">{m.data.descriptionShort}</div>
+                                        </div>
+                                    </BuildFilter>
+                                ))
+                            }
+                        </BuildFilterListing>
                     </div>
-                </Container>
-            </Section>
-        </Background>
+                </div>
+            </Container>
+        </Section>
     </div>
 </Layout>

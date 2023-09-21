@@ -3,17 +3,13 @@ import Layout from "@/layouts/Layout";
 
 // imports
 import { Icon } from "astro-icon";
-import { timeAgo } from "@/functions/DateTime";
-import { getBuildImage } from "@/functions/Image";
 
-import Background from "@/components/content/Background";
 import BuildFilter from "@/components/builds/BuildFilter";
 import BuildFilterListing from "@/components/builds/BuildFilterListing";
 import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
+import FlexColumn from "@/components/content/FlexColumn";
 import ListingGrid from "@/components/builds/BuildListing";
-import Picture from "@/components/images/Picture";
-import Pill from "@/components/buttons/Pill";
 import Section from "@/components/Section";
 
 // content
@@ -28,15 +24,11 @@ export async function getStaticPaths({ paginate }) {
         return paginate(filteredBuilds, {
             params: { part: part.slug },
             props: { part },
-            pageSize: 12,
+            pageSize: 6,
         });
     });
 }
 const { page, part } = Astro.props;
-
-// const allBuilds = await getCollection("builds", ({ data }) => {
-//     return data.categories.includes(part.slug);
-// });
 
 // aggregate the metadata
 const allParts = await getCollection("parts");
@@ -46,54 +38,14 @@ const allMakes = await getCollection("makes");
 <Layout>
     <Section small={true}>
         <Container>
-            <div class="space-y-8">
-                <div class="space-y-8 max-w-3xl">
-                    <h1>{part.data.title} Builds</h1>
-                </div>
-            </div>
-        </Container>
-    </Section>
-
-    <Background color="bg-stone-200" opacity={1}>
-        <Section>
-            <Container>
-                <ListingGrid>
-                    {page.data.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 350px, 100vw" height="h-[15em]" />)}
-                </ListingGrid>
-            </Container>
-        </Section>
-    </Background>
-
-    <Section>
-        <Container classes="space-y-12">
-            <div class="flex flex-row justify-between items-center gap-4">
-                <div>
-                    <strong>Page {page.currentPage}</strong> of {page.lastPage}
-                </div>
-
-                <div class="flex gap-4">
-                    <a href={page.url.prev} class="button button-primary">
-                        <div class="button-icon"><Icon name="hero/ChevronLeft" class="text-black w-5 h-5" /></div>
-                        <div class="button-text">Previous</div>
-                    </a>
-
-                    <a href={page.url.next} class="button button-primary">
-                        <div class="button-text">Next</div>
-                        <div class="button-icon"><Icon name="hero/ChevronRight" class="text-black w-5 h-5" /></div>
-                    </a>
-                </div>
-            </div>
-
-            <hr />
-
-            <div>
-                <div class="grid grid-cols-2 gap-16">
+            <FlexColumn reverse={true}>
+                <div slot="left" class="grid sm:grid-cols-2 lg:grid-cols-1 h-full gap-8 space-y-6 sm:space-y-0 lg:space-y-6">
                     <BuildFilterListing heading="Filter by Parts">
                         {
                             allParts.map((p) => (
-                                <BuildFilter href={`/builds/${p.slug}`}>
+                                <BuildFilter href={`/builds/${p.slug}`} current={p.slug.includes(part.slug) ? true : false}>
                                     <div class="space-y-2">
-                                        <div class="text-base line-clamp-1">{p.data.title}</div>
+                                        <div class="text-base">{p.data.title}</div>
                                         <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
                                     </div>
                                 </BuildFilter>
@@ -102,19 +54,36 @@ const allMakes = await getCollection("makes");
                     </BuildFilterListing>
 
                     <BuildFilterListing heading="Filter by Vehicle">
-                        {
-                            allMakes.map((m) => (
-                                <BuildFilter href={`/builds/${m.slug}`}>
-                                    <div class="space-y-2">
-                                        <div class="text-base line-clamp-1">{m.data.title}</div>
-                                        <div class="text-xs line-clamp-2 text-stone-600">{m.data.descriptionShort}</div>
-                                    </div>
-                                </BuildFilter>
-                            ))
-                        }
+                        {allMakes.map((m) => <BuildFilter href={`/builds/${m.slug}`}>{m.data.title}</BuildFilter>)}
                     </BuildFilterListing>
                 </div>
-            </div>
+
+                <div class="space-y-16">
+                    <h1>{part.data.title} Builds</h1>
+
+                    <ListingGrid columns="grid-cols-2">
+                        {page.data.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 350px, 100vw" height="h-[15em]" />)}
+                    </ListingGrid>
+
+                    <div class="flex flex-row justify-between items-center gap-4">
+                        <div>
+                            Page {page.currentPage} of {page.lastPage}
+                        </div>
+
+                        <div class="flex gap-4">
+                            <a href={page.url.prev} class="button button-primary">
+                                <div class="button-icon"><Icon name="hero/ChevronLeft" class="text-black w-5 h-5" /></div>
+                                <div class="button-text">Previous</div>
+                            </a>
+
+                            <a href={page.url.next} class="button button-primary">
+                                <div class="button-text">Next</div>
+                                <div class="button-icon"><Icon name="hero/ChevronRight" class="text-black w-5 h-5" /></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </FlexColumn>
         </Container>
     </Section>
 </Layout>

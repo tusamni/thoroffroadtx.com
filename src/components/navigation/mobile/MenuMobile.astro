@@ -37,17 +37,18 @@ const allModels = await getCollection("models");
         x-transition:leave="transition ease-in duration-100"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0"
+        0
         x-show="mobileMenu">
         <div class="flex items-center justify-between">
             <!-- logo -->
-            <a href="/">
+            <a href="/" title={Business.nameLong}>
                 <span class="sr-only">{Business.nameLong}</span>
 
-                <Picture src="website/logos/logo-black.png" alt={Business.nameLong} class="h-12 w-auto" />
+                <Icon name="logo" class="h-8 lg:h-10 w-auto text-black" />
             </a>
 
             <!-- close -->
-            <button type="button" class="text-stone-700 cursor-pointer" x-on:click={`mobileMenu = false`}>
+            <button type="button" class="text-stone-70 cursor-pointer" x-on:click={`mobileMenu = false`}>
                 <span class="sr-only">Close menu</span>
 
                 <Icon name="hero/X" class="h-6 w-6" />
@@ -135,6 +136,9 @@ const allModels = await getCollection("models");
                     </div>
                     <div class="-mx-3">
                         <a href="/builds" class="flex w-full items-center justify-between py-2 pl-3 pr-3.5 text-lg font-semibold leading-7">Builds</a>
+                    </div>
+                    <div class="-mx-3">
+                        <a href="/about" class="flex w-full items-center justify-between py-2 pl-3 pr-3.5 text-lg font-semibold leading-7">About</a>
                     </div>
                 </div>
 

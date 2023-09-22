@@ -33,18 +33,19 @@ const allBuilds = (
     })
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const featuredBuild = await getEntry("builds", part.data.featured.id);
+const buildCount = closestNumber(allBuilds.length, 4, 8);
 
 let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
 ---
 
 <Layout>
-    <div class="relative h-[25em] md:h-[35em]">
+    <div class="relative h-[35vh] md:h-[35em]">
         <Picture src={getBuildImage(featuredBuild.data.id, part.data.featured.image.heading)} alt=`${part.data.title} Outfitting in Austin, TX` loading="eager" class="w-full h-full object-cover absolute" />
     </div>
 
-    <div class="bg-gradient-to-l from-orange-50 to-orange-200 p-4">
+    <div class="bg-gradient-to-l from-orange-50 sm:to-orange-200 to-orange-100 py-4">
         <Container>
-            <div class="flex justify-between items-center">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 sm:gap-6">
                 <div class="max-w-xl">
                     <div class="font-medium">
                         {`${featuredBuild.data.year} ${featuredBuild.data.make} ${featuredBuild.data.model}`}
@@ -55,9 +56,7 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
                     </ul>
                 </div>
 
-                <a href={`/builds/${featuredBuild.slug}`} class="button button-ghost button-inverse">
-                    <div class="button-text">View Build</div>
-                </a>
+                <div><a href={`/builds/${featuredBuild.slug}`} class="text-sm sm:text-base hover:underline font-medium whitespace-nowrap">View Build</a></div>
             </div>
         </Container>
     </div>
@@ -72,11 +71,11 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
 
         <Container large={true}>
             <div class="text-xl font-semibold mb-6 text-center">Featured {part.data.title} Build</div>
-            <div class="grid grid-cols-2 md:grid-cols-4 h-[35vh] md:h-72 gap-4 md:gap-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 h-[50vh] md:h-72 gap-4 md:gap-8">
                 {
                     part.data.featured.image.gallery.map((p) => (
                         <div class="relative">
-                            <Picture src={getBuildImage(featuredBuild.data.id, p)} alt={`${part.data.title} Outfitting in Austin, TX`} loading="eager" class="w-full h-full object-cover absolute rounded-sm" />
+                            <Picture src={getBuildImage(featuredBuild.data.id, p)} alt={`${part.data.title} Outfitting in Austin, TX`} class="w-full h-full object-cover absolute rounded-sm" sizes="(min-height: 768px) 25vw, 50vw" />
                         </div>
                     ))
                 }
@@ -123,10 +122,15 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
         </Container>
 
         {
-            allBuilds.length >= 4 && (
-                <Container classes="space-y-16">
-                    <h2 class="text-center">Recent {part.data.title} Builds</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">{allBuilds.map((b) => <BuildSnippet build={b} sizes="400px" classes="h-[32em]" />).slice(0, 6)}</div>
+            allBuilds.length >= 3 && (
+                <Container>
+                    <div class="space-y-16">
+                        <h2 class="text-center">Recent {part.data.title} Builds</h2>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12">
+                            {allBuilds.map((b) => <BuildSnippet build={b} sizes="(min-width: 350px), (min-width: 768px) 500px, (min-width: 1024px) 600px, (min-width: 1280px) 300px, 100vw" pad={false} height="h-72" />).slice(0, buildCount)}
+                        </div>
+                    </div>
                 </Container>
             )
         }

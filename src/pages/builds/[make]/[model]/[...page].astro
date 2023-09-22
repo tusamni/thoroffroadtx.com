@@ -18,32 +18,36 @@ import Section from "@/components/Section";
 // content
 import { getCollection } from "astro:content";
 export async function getStaticPaths({ paginate }) {
-    const allParts = await getCollection("parts");
+    const allModels = await getCollection("models");
     const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-    return allParts.flatMap((part) => {
-        const filteredBuilds = allBuilds.filter((build) => build.data.categories.includes(part.slug));
+    return allModels.flatMap((model) => {
+        const filteredBuilds = allBuilds.filter((build) => build.data.make == model.data.make && build.data.model == model.data.title);
 
         return paginate(filteredBuilds, {
-            params: { part: part.slug },
-            props: { part },
+            params: { make: model.data.make.toLowerCase(), model: model.data.slug },
+            props: { model },
             pageSize: 8,
         });
     });
 }
-const { page, part } = Astro.props;
+const { page, model } = Astro.props;
 
 // aggregate the metadata
-const allParts = await getCollection("parts");
 const allMakes = await getCollection("makes");
+const allModels = await getCollection("models", ({ data, slug }) => {
+    return data.draft !== true && data.make.includes(model.data.make);
+});
+const allParts = await getCollection("parts");
+
+console.log(Astro.params);
 ---
 
 <Layout>
     <HeadingBottom>
         <Picture src={getBuildImage(215615, 12)} slot="background" class="w-full h-[25vh] sm:h-full" />
 
-        <h1 slot="heading">{part.data.title} Builds</h1>
-        <p slot="description" class="space-y-4 text-xl leading-8">{part.data.descriptionShort}</p>
+        <h1 slot="heading">{model.data.title} Builds</h1>
     </HeadingBottom>
 
     <Section small={true}>
@@ -77,9 +81,9 @@ const allMakes = await getCollection("makes");
                         <BuildFilterListing heading="Filter by Parts">
                             {
                                 allParts.map((p) => (
-                                    <BuildFilter href={`/builds/${p.slug}`} current={Astro.url.pathname.includes(p.slug) ? true : false}>
+                                    <BuildFilter href={`/builds/${p.slug}`}>
                                         <div class="space-y-2">
-                                            <div class="text-base line-clamp-1">{p.data.title}</div>
+                                            <div class="text-base">{p.data.title}</div>
                                             <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
                                         </div>
                                     </BuildFilter>
@@ -90,11 +94,21 @@ const allMakes = await getCollection("makes");
                         <BuildFilterListing heading="Filter by Vehicle">
                             {
                                 allMakes.map((m) => (
-                                    <BuildFilter href={`/builds/${m.slug}`}>
+                                    <BuildFilter href={`/builds/${m.slug}`} current={m.slug.includes(model.data.make.toLowerCase()) ? true : false}>
                                         <div class="space-y-2">
                                             <div class="text-base line-clamp-1">{m.data.title}</div>
                                             <div class="text-xs line-clamp-2 text-stone-600">{m.data.descriptionShort}</div>
                                         </div>
+                                    </BuildFilter>
+                                ))
+                            }
+                        </BuildFilterListing>
+
+                        <BuildFilterListing heading="Filter by Model">
+                            {
+                                allModels.map((m) => (
+                                    <BuildFilter href={`/builds/${Astro.params.make}/${m.slug}`} current={Astro.url.pathname.includes(m.slug) ? true : false}>
+                                        {m.data.title}
                                     </BuildFilter>
                                 ))
                             }

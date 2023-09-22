@@ -1,0 +1,27 @@
+---
+// imports
+import { Icon } from "astro-icon";
+
+interface Props {
+    page: object;
+}
+const { page } = Astro.props;
+---
+
+<div class="flex flex-row justify-between items-center gap-4">
+    <div>
+        Page {page.currentPage} of {page.lastPage}
+    </div>
+
+    <div class="flex gap-4">
+        <a href={page.url.prev} class:list={["button", page.currentPage == 1 ? "button-disabled" : "button-primary"]}>
+            <div class="button-icon"><Icon name="hero/ChevronLeft" class="w-5 h-5" /></div>
+            <div class="button-text">Previous</div>
+        </a>
+
+        <a href={page.url.next} class:list={["button", page.currentPage == page.lastPage ? "button-disabled" : "button-primary"]}>
+            <div class="button-text">Next</div>
+            <div class="button-icon"><Icon name="hero/ChevronRight" class="w-5 h-5" /></div>
+        </a>
+    </div>
+</div>

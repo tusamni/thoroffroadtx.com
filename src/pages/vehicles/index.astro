@@ -39,7 +39,7 @@ const vehicleFill = {
 
 <Layout>
     <HeadingSplit>
-        <Picture src="builds/850633/06.jpg" alt="Outfitting a truck in Austin, TX" slot="background" loading="eager" sizes="50vw" />
+        <Picture src="builds/850633/06.jpg" alt="Outfitting a truck in Austin, TX" slot="background" loading="eager" sizes="(min-width: 1028px) 50vw, 100vw" />
 
         <div class="space-y-8">
             <h1>Texas' Top<br />Truck Outfitter</h1>
@@ -77,7 +77,7 @@ const vehicleFill = {
                     allMakes.map((v) => (
                         <a href={`/vehicles/${v.slug}`} class="group relative overflow-hidden rounded-sm border border-stone-300">
                             <div class="absolute w-full h-full">
-                                <Icon name={`makes/${v.data.logo}Icon`} class:list={[v.data.logoColor, "transition-all duration-300 hidden sm:block absolute w-2/3 h-auto left-1/2 top-full -rotate-12 -mt-20 sm:-mt-10 group-hover:-mt-20"]} />
+                                <Icon name={`makes/${v.data.logo.name}Icon`} class:list={[v.data.logo.color, "transition-all duration-300 hidden sm:block absolute w-2/3 h-auto left-1/2 top-full -rotate-12 -mt-20 sm:-mt-10 group-hover:-mt-20"]} />
                             </div>
 
                             <div class="flex flex-col p-8 relative h-full w-full transition duration-300">

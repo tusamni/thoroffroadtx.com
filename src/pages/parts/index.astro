@@ -34,7 +34,7 @@ const partsFill = {
 
 <Layout>
     <HeadingSplit>
-        <Picture src="builds/453172/03.jpg" alt="Installing truck modifications in Austin, TX" slot="background" loading="eager" sizes="50vw" />
+        <Picture src="builds/453172/03.jpg" alt="Installing truck modifications in Austin, TX" slot="background" loading="eager" sizes="(min-width: 1028px) 50vw, 100vw" />
 
         <div class="space-y-8">
             <h1>Off-Road Parts<br />and Installation</h1>
@@ -67,50 +67,44 @@ const partsFill = {
         <Container classes="space-y-16">
             <h2>We're building our<br />customer's dream vehicles.</h2>
 
-            <div class="grid grid-cols-1 lg:grid-cols-6 gap-8">
-                <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-                    {
-                        allParts.map((p) => (
-                            <a href={`/parts/${p.slug}`} class="flex flex-col justify-between border border-stone-300 rounded-lg">
-                                <div class="h-full flex flex-col justify-between p-8 relative gap-8">
-                                    <div class="space-y-5">
-                                        <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
-                                        <div class="leading-6 text-stone-500">{p.data.descriptionShort}</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+                {
+                    allParts.map((p) => (
+                        <a href={`/parts/${p.slug}`} class="flex flex-col justify-between border border-stone-300 rounded-lg">
+                            <div class="h-full flex flex-col justify-between p-8 relative gap-8">
+                                <div class="space-y-5">
+                                    <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
+                                    <div class="leading-6 text-stone-500">{p.data.descriptionShort}</div>
 
-                                        <div class="space-y-1">
-                                            Brands
-                                            <ul class="comma-list text-xs text-stone-500 font-normal line-clamp-2">
-                                                {allBrands.map((b) => {
-                                                    if (b.data.parts.includes(p.slug)) {
-                                                        return <li>{b.data.title}</li>;
-                                                    }
-                                                })}
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="button button-primary">
-                                        <div class="button-text">See More</div>
+                                    <div class="space-y-1">
+                                        Brands
+                                        <ul class="comma-list text-xs text-stone-500 font-normal line-clamp-2">
+                                            {allBrands.map((b) => {
+                                                if (b.data.parts.includes(p.slug)) {
+                                                    return <li>{b.data.title}</li>;
+                                                }
+                                            })}
+                                        </ul>
                                     </div>
                                 </div>
-                            </a>
-                        ))
-                    }
-                    <a href="/contact" class="p-8 flex flex-col justify-between rounded-lg border border-stone-300 gap-8">
-                        <div class="space-y-4">
-                            <h3 class="text-2xl font-semibold leading-6">{partsFill.title}</h3>
-                            <div class="leading-6 text-stone-500">{partsFill.descriptionShort}</div>
-                        </div>
 
-                        <div class="button button-primary">
-                            <div class="button-text">Contact Us</div>
-                        </div>
-                    </a>
-                </div>
+                                <div class="button button-primary">
+                                    <div class="button-text">See More</div>
+                                </div>
+                            </div>
+                        </a>
+                    ))
+                }
+                <a href="/contact" class="p-8 flex flex-col justify-between rounded-lg border border-stone-300 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-semibold leading-6">{partsFill.title}</h3>
+                        <div class="leading-6 text-stone-500">{partsFill.descriptionShort}</div>
+                    </div>
 
-                <div class="hidden lg:block lg:col-span-2">
-                    <Picture src="builds/977725/07.jpg" class="object-cover h-full w-full rounded-lg object-left" />
-                </div>
+                    <div class="button button-primary">
+                        <div class="button-text">Contact Us</div>
+                    </div>
+                </a>
             </div>
         </Container>
     </Section>

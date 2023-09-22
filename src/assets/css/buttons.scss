@@ -6,7 +6,7 @@
     }
 
     &.button-primary {
-        @apply text-stone-900 border border-stone-300 divide-stone-300 divide-x;
+        @apply text-stone-900 border border-stone-900 divide-stone-900 divide-x;
 
         .button-icon {
             @apply bg-white;
@@ -16,13 +16,13 @@
         }
     }
     &.button-secondary {
-        @apply divide-green-300 divide-x;
+        @apply divide-sky-300 divide-x border border-sky-500;
 
         .button-icon {
-            @apply bg-gradient-to-b from-green-400 to-green-500 text-stone-50;
+            @apply bg-gradient-to-b from-sky-400 to-sky-500 text-stone-50;
         }
         .button-text { 
-            @apply bg-gradient-to-b from-green-400 to-green-500 text-stone-50;
+            @apply bg-gradient-to-b from-sky-400 to-sky-500 text-stone-50;
         }
     }
     &.button-ghost {
@@ -34,6 +34,11 @@
         &:not(.button-inverse) {
             @apply text-white border-white divide-white;
         }
+    }
+    &.button-disabled {
+        @apply border border-stone-300 divide-x divide-stone-300 text-stone-300;
+
+        .button-icon { @apply text-stone-300; }
     }
     
     .button-icon {

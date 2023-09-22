@@ -10,6 +10,7 @@ import { timeAgo } from "@/functions/DateTime";
 import Container from "@/components/Container";
 import FlexColumn from "@/components/content/FlexColumn";
 import Gallery from "@/components/images/Gallery";
+import HeadingBottom from "@/components/content/headings/HeadingBottom";
 import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
 
@@ -27,20 +28,43 @@ const { Content } = await build.render();
 ---
 
 <Layout>
-    <Picture src={getBuildImage(build.data.id, 1)} alt="FOX Shocks waiting to be installed" loading="eager" class="w-full h-[30vh] object-cover lg:hidden" />
+    <HeadingBottom>
+        <Picture src={getBuildImage(build.data.id, 1)} alt="FOX Shocks waiting to be installed" slot="background" loading="eager" class="w-full h-[30vh] object-cover" />
+
+        <h1 slot="heading">{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+    </HeadingBottom>
+    <!-- <Picture src={getBuildImage(build.data.id, 1)} alt="FOX Shocks waiting to be installed" loading="eager" class="w-full h-[30vh] object-cover lg:hidden" /> -->
 
     <Section>
         <Container>
             <FlexColumn reverse={false}>
                 <div slot="left" class="flex flex-col gap-8">
                     <div class="h-full divide-y divide-stone-200 buildSidebar">
-                        <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+                        <!-- <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1> -->
 
                         {
                             build.data.goals && (
                                 <div class="space-y-4">
                                     <p class="font-semibold text-2xl">Build Goals</p>
                                     <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
+                                </div>
+                            )
+                        }
+
+                        {
+                            build.data.video && (
+                                <div>
+                                    <a
+                                        href={getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}
+                                        data-sources={`[{"src":"${getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
+                                        data-width={build.data.video.width}
+                                        data-height={build.data.video.height}
+                                        class="button button-primary video">
+                                        <div class="button-icon">
+                                            <Icon name="hero/PlayCircle" class="h-6" />
+                                        </div>
+                                        <div class="button-text">Watch the Build Video</div>
+                                    </a>
                                 </div>
                             )
                         }
@@ -75,20 +99,6 @@ const { Content } = await build.render();
 
                                     <blockquote class="italic text-lg leading-8 tracking-tight text-stone-700">"{build.data.testimonial}"</blockquote>
                                 </div>
-                            )
-                        }
-
-                        {
-                            build.data.video && (
-                                <a
-                                    href={getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}
-                                    data-sources={`[{"src":"${getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
-                                    data-width={build.data.video.width}
-                                    data-height={build.data.video.height}
-                                    class="flex gap-3 video">
-                                    <Icon name="hero/PlayCircle" class="text-stone-700 h-6" />
-                                    <span class="text-stone-800 font-medium">Watch the Build Video</span>
-                                </a>
                             )
                         }
                     </div>

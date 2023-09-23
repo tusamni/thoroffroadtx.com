@@ -28,115 +28,130 @@ const { Content } = await build.render();
 ---
 
 <Layout>
-    <HeadingBottom>
-        <Picture src={getBuildImage(build.data.id, 1)} alt="FOX Shocks waiting to be installed" slot="background" loading="eager" class="w-full h-[30vh] object-cover" />
+    <Picture src={getBuildImage(build.data.id, 1)} alt="FOX Shocks waiting to be installed" loading="eager" class="w-full h-[30vh] object-cover" />
 
-        <h1 slot="heading">{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
-    </HeadingBottom>
-    <!-- <Picture src={getBuildImage(build.data.id, 1)} alt="FOX Shocks waiting to be installed" loading="eager" class="w-full h-[30vh] object-cover lg:hidden" /> -->
-
-    <Section>
+    <Section small={true}>
         <Container>
-            <FlexColumn reverse={false}>
-                <div slot="left" class="flex flex-col gap-8">
-                    <div class="h-full divide-y divide-stone-200 buildSidebar">
-                        <!-- <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1> -->
+            <div class="grid grid-cols-3">
+                <div class="col-span-2 col-start-2">
+                    <div class="space-y-4">
+                        <div class="flex flex-row gap-4">
+                            <div class="flex flex-col sm:flex-row gap-1">
+                                <span>Color:</span>
+                                <span>{build.data.color}</span>
+                            </div>
 
-                        {
-                            build.data.goals && (
-                                <div class="space-y-4">
-                                    <p class="font-semibold text-2xl">Build Goals</p>
-                                    <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
-                                </div>
-                            )
-                        }
+                            <div class="flex flex-col sm:flex-row gap-1">
+                                <span>Drive:</span>
+                                <span>{build.data.drive}</span>
+                            </div>
 
-                        {
-                            build.data.video && (
-                                <div>
-                                    <a
-                                        href={getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}
-                                        data-sources={`[{"src":"${getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
-                                        data-width={build.data.video.width}
-                                        data-height={build.data.video.height}
-                                        class="button button-primary video">
-                                        <div class="button-icon">
-                                            <Icon name="hero/PlayCircle" class="h-6" />
-                                        </div>
-                                        <div class="button-text">Watch the Build Video</div>
-                                    </a>
-                                </div>
-                            )
-                        }
-
-                        {
-                            build.data.parts && (
-                                <div class="space-y-4">
-                                    <p class="font-semibold text-2xl">Parts List</p>
-                                    <ul class="space-y-1 text-base tracking-tight">
-                                        {build.data.parts.map((p) => (
-                                            <li>{p}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )
-                        }
-
-                        {
-                            build.data.testimonial && (
-                                <div class="space-y-8">
-                                    <div class="flex justify-between items-center">
-                                        <p class="font-semibold text-2xl">Testimonial</p>
-
-                                        <div class="flex items-center">
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
-                                        </div>
-                                    </div>
-
-                                    <blockquote class="italic text-lg leading-8 tracking-tight text-stone-700">"{build.data.testimonial}"</blockquote>
-                                </div>
-                            )
-                        }
-                    </div>
-                </div>
-
-                <Gallery>
-                    <div class="space-y-8">
-                        <div class="flex justify-between text-stone-500 text-sm uppercase">
-                            <div class="flex flex-row w-full gap-6 justify-between">
-                                <div class="flex flex-row gap-4">
-                                    <div class="flex flex-col sm:flex-row gap-1">
-                                        <span>Color:</span>
-                                        <span>{build.data.color}</span>
-                                    </div>
-
-                                    <div class="flex flex-col sm:flex-row gap-1">
-                                        <span>Drive:</span>
-                                        <span>{build.data.drive}</span>
-                                    </div>
-
-                                    <div class="flex flex-col sm:flex-row gap-1">
-                                        <span>Completed:</span>
-                                        <span>{timeAgo(build.data.date)}</span>
-                                    </div>
-                                </div>
-
-                                <div class="hidden lg:block">
-                                    <a href="/builds">&lt; Back to Builds</a>
-                                </div>
+                            <div class="flex flex-col sm:flex-row gap-1">
+                                <span>Completed:</span>
+                                <span>{timeAgo(build.data.date)}</span>
                             </div>
                         </div>
 
-                        <div>
-                            <Content />
+                        <h1 slot="heading">{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+                    </div>
+                </div>
+
+                {
+                    build.data.parts && (
+                        <div class="space-y-4 mt-12">
+                            <p class="font-semibold text-2xl">Parts List</p>
+                            <ul class="space-y-2 text-sm tracking-tight">
+                                {build.data.parts.map((p) => (
+                                    <li>{p}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )
+                }
+
+                <div class="col-span-2 space-y-8 mt-12">
+                    {
+                        build.data.goals && (
+                            <div class="space-y-4 col-span-2">
+                                <p class="font-semibold text-2xl">Build Goals</p>
+                                <div class="mt-4 text-base md:text-lg leading-7 md:leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+        </Container>
+
+        <Container large={true}>
+            <div class="grid grid-cols-2 md:grid-cols-4 h-[50vh] md:h-72 gap-4 md:gap-8">
+                {
+                    build.data.images.featured.map((p) => (
+                        <div class="relative">
+                            <Picture src={getBuildImage(build.data.id, p)} alt={`Outfitting in Austin, TX`} class="w-full h-full object-cover absolute rounded-sm" sizes="(min-height: 768px) 25vw, 50vw" />
+                        </div>
+                    ))
+                }
+            </div>
+        </Container>
+
+        <Container>
+            <div slot="left" class="flex flex-col gap-8">
+                <div class="h-full divide-y divide-stone-200 buildSidebar">
+                    {
+                        build.data.video && (
+                            <div>
+                                <a
+                                    href={getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}
+                                    data-sources={`[{"src":"${getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
+                                    data-width={build.data.video.width}
+                                    data-height={build.data.video.height}
+                                    class="button button-primary video">
+                                    <div class="button-icon">
+                                        <Icon name="hero/PlayCircle" class="h-6" />
+                                    </div>
+                                    <div class="button-text">Watch the Build Video</div>
+                                </a>
+                            </div>
+                        )
+                    }
+
+                    {
+                        build.data.testimonial && (
+                            <div class="space-y-8">
+                                <div class="flex justify-between items-center">
+                                    <p class="font-semibold text-2xl">Testimonial</p>
+
+                                    <div class="flex items-center">
+                                        <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                        <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                        <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                        <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                        <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                    </div>
+                                </div>
+
+                                <blockquote class="italic text-lg leading-8 tracking-tight text-stone-700">"{build.data.testimonial}"</blockquote>
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+
+            <Gallery>
+                <div class="space-y-8">
+                    <div class="flex justify-between text-stone-500 text-sm uppercase">
+                        <div class="flex flex-row w-full gap-6 justify-between">
+                            <div class="hidden lg:block">
+                                <a href="/builds">&lt; Back to Builds</a>
+                            </div>
                         </div>
                     </div>
-                </Gallery>
-            </FlexColumn>
+
+                    <div>
+                        <Content />
+                    </div>
+                </div>
+            </Gallery>
         </Container>
     </Section>
 </Layout>

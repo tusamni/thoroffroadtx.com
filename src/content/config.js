@@ -28,6 +28,7 @@ const buildCollection = defineCollection({
             total: z.number(),
             snippet: z.number().default(1),
             banner: z.number().default(1),
+            featured: z.array(z.number()).optional(),
         }),
         video: z
             .object({

@@ -1,0 +1,17 @@
+---
+// imports
+import BuildSnippet from "@/components/builds/BuildSnippet";
+
+// content
+import { getEntryBySlug } from "astro:content";
+
+// props
+export interface Props {
+    slug: any;
+}
+const { slug } = Astro.props;
+
+const build = await getEntryBySlug("builds", slug);
+---
+
+<BuildSnippet build={build} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, 100vw" height="h-[15em]" />

@@ -1,0 +1,46 @@
+.jc-Shell { @apply mt-0; } /* remove top margin from the comment box */
+
+/* style the form inputs */
+label.jc-CommentBox-label {
+    @apply text-base;
+}
+label.jc-CommentBox-label textarea, label.jc-CommentBox-label input {
+    @apply rounded-sm border border-stone-300 focus:border-0 p-3 text-stone-600 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6;
+}
+
+button.jc-CommentBox-button {
+    @apply transition-all duration-500 font-medium flex w-full sm:w-fit items-center justify-start h-12 border text-black border-black px-4;
+}
+
+.jc-CommentBox-submitWrapper {
+    @apply mb-8 flex items-center;
+}
+
+.jc-Auth-container a {
+    @apply text-base text-stone-800;
+}
+
+.jc-CommentList .jc-CommentList-count {
+    @apply hidden;
+}
+
+.jc-CommentList-item {
+    @apply px-0;
+}
+
+.jc-CommentList-item .jc-Comment-name {
+    @apply text-neutral-800;
+}
+
+.jc-CommentList-item .jc-Comment-actions::before {
+    @apply hidden;
+}
+
+ul.jc-Comment-actionList {
+    @apply m-0 p-0;
+
+    li {
+        @apply pl-0;
+    }
+}
+

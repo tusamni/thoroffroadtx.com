@@ -23,14 +23,14 @@ const sources = ImageConfig.imageSizes.map((w) => {
 const srcset = sources.join(", ");
 
 let dimensions;
-//if (import.meta.env.PROD) {
-//dimensions = await imageSize(fullPath);
-//} else {
-dimensions = {
-    width: 500,
-    height: 500,
-};
-//}
+if (import.meta.env.PROD) {
+    dimensions = await imageSize(fullPath);
+} else {
+    dimensions = {
+        width: 500,
+        height: 500,
+    };
+}
 ---
 
 <img srcset={srcset} src={getMedia(`images/${src}`)} loading={loading} sizes={sizes} alt={alt} {...attrs} data-img={getMedia(`images/${src}`)} data-caption={alt} data-width={dimensions.width} data-height={dimensions.height} />

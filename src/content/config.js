@@ -9,6 +9,7 @@ const buildCollection = defineCollection({
         summary: z.string(),
         categories: z.string().transform((category) => category.split(", ")),
         featured: z.boolean().optional(),
+        related: z.array(z.string()).optional(),
 
         // vehicle
         year: z.number(),

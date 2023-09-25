@@ -1,19 +1,5 @@
-.buildSidebar > * {
-    &:not(:first-child):not(:last-child) {
-        @apply py-8;
-    }
-
-    &:first-child {
-        @apply pb-8
-    }
-
-    &:last-child {
-        @apply pt-8
-    }
-}
-
 .row-full, .row-half, .row-third {
-    @apply object-cover w-full h-full rounded-lg;
+    @apply object-cover w-full h-full rounded;
 }
 .row-full {
     @apply col-span-12;

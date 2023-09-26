@@ -39,8 +39,6 @@ const allModels = await getCollection("models", ({ data, slug }) => {
     return data.draft !== true && data.make.includes(model.data.make);
 });
 const allParts = await getCollection("parts");
-
-console.log(Astro.params);
 ---
 
 <Layout>

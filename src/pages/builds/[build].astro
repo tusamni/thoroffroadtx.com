@@ -29,7 +29,7 @@ const { Content } = await build.render();
 ---
 
 <Layout>
-    <Picture src={getBuildImage(build.data.id, 1)} alt="FOX Shocks waiting to be installed" loading="eager" class="w-full h-[30vh] object-cover" />
+    <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt="FOX Shocks waiting to be installed" loading="eager" class="w-full h-[30vh] object-cover" />
 
     <Section small={true}>
         <Container>

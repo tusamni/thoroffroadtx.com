@@ -64,16 +64,7 @@ const { Content } = await build.render();
                 <h1 class="col-start-1 md:col-start-2 col-span-3 md:col-span-2" slot="heading">{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
 
                 <div class="col-span-3 md:col-span-1 h-full">
-                    <div class="space-y-8 md:sticky md:top-32">
-                        {
-                            build.data.goals && (
-                                <div class="space-y-4">
-                                    <p class="font-semibold text-2xl">Build Goals</p>
-                                    <div class="mt-4 text-base leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
-                                </div>
-                            )
-                        }
-
+                    <div class="space-y-16 md:sticky md:top-32">
                         <div class="space-y-4">
                             <p class="font-semibold text-2xl">Parts List</p>
                             <ul class="space-y-2 text-sm tracking-tight">
@@ -119,6 +110,17 @@ const { Content } = await build.render();
                             )
                         }
 
+                        {
+                            build.data.related && (
+                                <div class="space-y-6">
+                                    <p class="font-semibold text-2xl">Related Builds</p>
+                                    {build.data.related.map((b) => (
+                                        <RelatedBuild slug={b} />
+                                    ))}
+                                </div>
+                            )
+                        }
+
                         <a href="#comments" class="button button-primary">
                             <div class="button-icon">
                                 <Icon name="hero/ChatBubbleLeftRight" class="h-6" />
@@ -129,14 +131,25 @@ const { Content } = await build.render();
                 </div>
 
                 <div class="md:col-start-2 col-span-3 md:col-span-2">
-                    <div class="space-y-4">
-                        <div class="font-semibold text-2xl">Gallery</div>
+                    <div class="space-y-12">
+                        {
+                            build.data.goals && (
+                                <div class="space-y-4">
+                                    <p class="font-semibold text-2xl">Build Goals</p>
+                                    <div class="mt-4 text-lg leading-8 tracking-tight text-stone-700 space-y-6" set:html={build.data.goals} />
+                                </div>
+                            )
+                        }
 
-                        <Gallery>
-                            <div class="grid grid-cols-12 gap-4 md:gap-6">
-                                <Content />
-                            </div>
-                        </Gallery>
+                        <div class="space-y-4">
+                            <div class="font-semibold text-2xl">Gallery</div>
+
+                            <Gallery>
+                                <div class="grid grid-cols-12 gap-4 md:gap-6">
+                                    <Content />
+                                </div>
+                            </Gallery>
+                        </div>
                     </div>
                 </div>
 
@@ -145,10 +158,6 @@ const { Content } = await build.render();
 
                     <div class="font-semibold text-2xl">Leave a Comment</div>
                     <JamComments path={Astro.url} />
-                </div>
-
-                <div class="col-span-3 grid grid-cols-3 gap-8">
-                    {build.data.related && build.data.related.map((b) => <RelatedBuild slug={b} />)}
                 </div>
             </div>
         </Container>

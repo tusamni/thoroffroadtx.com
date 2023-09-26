@@ -20,10 +20,7 @@ images:
 ---
 
 import BuildGalleryRow from "@/components/builds/BuildGalleryRow";
-import Gallery from "@/components/images/Gallery";
 
-<Gallery>
-    <div class="grid grid-cols-12 gap-4 md:gap-8">
         <BuildGalleryRow id={frontmatter.id} image="1" columns="1" />
         <BuildGalleryRow id={frontmatter.id} image="2" columns="1" />
         <BuildGalleryRow id={frontmatter.id} image="3" columns="1" />
@@ -48,5 +45,3 @@ import Gallery from "@/components/images/Gallery";
         <BuildGalleryRow id={frontmatter.id} image="22" columns="1" />
         <BuildGalleryRow id={frontmatter.id} image="23" columns="1" />
         <BuildGalleryRow id={frontmatter.id} image="24" columns="1" />
-    </div>
-</Gallery>

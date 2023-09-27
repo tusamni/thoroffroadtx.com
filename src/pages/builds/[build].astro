@@ -10,6 +10,7 @@ import { timeAgo } from "@/functions/DateTime";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Picture from "@/components/images/Picture";
+import Pill from "@/components/buttons/Pill";
 import RelatedBuild from "@/components/builds/RelatedBuild";
 import Section from "@/components/Section";
 
@@ -34,34 +35,21 @@ const { Content } = await build.render();
     <Section small={true}>
         <Container>
             <div class="grid grid-cols-3 gap-8 md:gap-16">
-                <div class="text-stone-500 text-sm hidden sm:block">
-                    <a href="/builds" class="button button-ghost button-inverse">
-                        <div class="button-text">Back to Builds</div>
-                    </a>
-                </div>
+                <div class="col-start-2 col-span-2 space-y-8">
+                    <div class="flex flex-row gap-6 text-sm items-center">
+                        <Pill theme="secondary">
+                            Color: {build.data.color}
+                        </Pill>
 
-                <div class="col-span-3 sm:col-span-2 self-center">
-                    <div class="space-y-8">
-                        <div class="flex flex-row gap-6 text-sm items-center">
-                            <div class="flex flex-col sm:flex-row gap-1">
-                                <span>Color:</span>
-                                <span>{build.data.color}</span>
-                            </div>
+                        <Pill theme="secondary">
+                            Drive: {build.data.drive}
+                        </Pill>
 
-                            <div class="flex flex-col sm:flex-row gap-1">
-                                <span>Drive:</span>
-                                <span>{build.data.drive}</span>
-                            </div>
-
-                            <div class="flex flex-col sm:flex-row gap-1">
-                                <span>Completed:</span>
-                                <span>{timeAgo(build.data.date)}</span>
-                            </div>
-                        </div>
+                        <div>{timeAgo(build.data.date)}</div>
                     </div>
-                </div>
 
-                <h1 class="col-start-1 md:col-start-2 col-span-3 md:col-span-2" slot="heading">{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+                    <h1 class="col-start-1 md:col-start-2 col-span-3 md:col-span-2" slot="heading">{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+                </div>
 
                 <div class="col-span-3 md:col-span-1 h-full">
                     <div class="space-y-16 md:sticky md:top-32">
@@ -142,7 +130,7 @@ const { Content } = await build.render();
                         }
 
                         <div class="space-y-4">
-                            <div class="font-semibold text-2xl">Gallery</div>
+                            <!-- <div class="font-semibold text-2xl">Gallery</div> -->
 
                             <Gallery>
                                 <div class="grid grid-cols-12 gap-4 md:gap-6">

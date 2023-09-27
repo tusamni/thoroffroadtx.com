@@ -33,4 +33,4 @@ if (import.meta.env.PROD) {
 }
 ---
 
-<img srcset={srcset} src={getMedia(`images/${src}`)} loading={loading} sizes={sizes} alt={alt} {...attrs} data-img={getMedia(`images/${src}`)} data-caption={alt} data-width={dimensions.width} data-height={dimensions.height} />
+<img href={fullPath} src={fullPath} data-thumb={fullPath} data-img={fullPath} data-caption={alt}  data-width={dimensions.width} data-height={dimensions.height} srcset={srcset} loading={loading} sizes={sizes} alt={alt} {...attrs} />

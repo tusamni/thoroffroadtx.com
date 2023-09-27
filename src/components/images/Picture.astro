@@ -41,4 +41,4 @@ if (import.meta.env.PROD) {
 }
 ---
 
-<img src={optimizedImages[0].src} srcset={srcset} loading={loading} sizes={sizes} alt={alt} {...attrs} data-img={optimizedImages[0].src} data-width={dimensions.width} data-height={dimensions.height} />
+<img src={optimizedImages[0].src} srcset={srcset} width={dimensions.width} height={dimensions.height} loading={loading} sizes={sizes} alt={alt} {...attrs} data-img={optimizedImages[0].src} data-width={dimensions.width} data-height={dimensions.height} />

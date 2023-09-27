@@ -8,7 +8,6 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
     image: {
         remotePatterns: [{ hostname: "*.b-cdn.net" }],
-        service: sharpImageService(),
     },
     site: "https://thoroffroadtx.com",
     integrations: [

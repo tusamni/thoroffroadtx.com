@@ -1,7 +1,7 @@
 ---
 // imports
-import { getMedia } from "@/functions/Image";
-import { ImageConfig } from "@/config";
+import { getImage } from "astro:assets";
+import { imageConfig } from "@/config";
 
 import imageSize from "probe-image-size";
 
@@ -15,13 +15,21 @@ interface Props {
 const { src, alt, sizes = "100vw", loading = "lazy", ...attrs } = Astro.props;
 
 // content
-const fullPath = `${ImageConfig.cloudUrl}/images/${src}`;
-const sources = ImageConfig.imageSizes.map((w) => {
-    return `${fullPath}?width=${w}&quality=${ImageConfig.imageQuality} ${w}w`;
-});
+const fullPath = `${imageConfig.cloudUrl}/images/${src}`;
+const optimizedImages = [];
 
+// loop through all the necessary image widths
+for (let size of imageConfig.imageSizes) {
+    optimizedImages.push(await getImage({ src: fullPath, format: "webp", width: size, height: size }));
+}
+
+// create the srcset attribute
+const sources = optimizedImages.map((i) => {
+    return `${i.src} ${i.attributes.width}w`;
+});
 const srcset = sources.join(", ");
 
+// get the dimensions of the image
 let dimensions;
 if (import.meta.env.PROD) {
     dimensions = await imageSize(fullPath);
@@ -33,4 +41,4 @@ if (import.meta.env.PROD) {
 }
 ---
 
-<img href={fullPath} src={fullPath} data-thumb={fullPath} data-img={fullPath} data-caption={alt}  data-width={dimensions.width} data-height={dimensions.height} srcset={srcset} loading={loading} sizes={sizes} alt={alt} {...attrs} />
+<img src={optimizedImages[0].src} srcset={srcset} loading={loading} sizes={sizes} alt={alt} {...attrs} data-img={optimizedImages[0].src} data-width={dimensions.width} data-height={dimensions.height} />

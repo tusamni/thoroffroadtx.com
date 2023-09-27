@@ -1,0 +1,10 @@
+---
+import { getImage } from "astro:assets";
+
+const imageUrl = "https://thoroffroad.b-cdn.net/images/builds/692114/11.jpg";
+const optimizedImage = await getImage({ src: imageUrl, format: "avif", width: 1000, height: 1000 });
+
+console.log(optimizedImage);
+---
+
+<img src={optimizedImage.src} alt="hi" />

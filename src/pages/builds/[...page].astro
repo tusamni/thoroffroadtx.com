@@ -52,7 +52,7 @@ const { page } = Astro.props;
             </div>
 
             <ListingGrid>
-                {page.data.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, 100vw" height="h-[15em]" />)}
+                {page.data.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, (min-width:1280px) 300px, 100vw" height="h-[15em]" />)}
             </ListingGrid>
 
             <Pagination page={page} />

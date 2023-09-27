@@ -2,24 +2,15 @@
 import Layout from "@/layouts/Layout";
 
 // imports
-import { Icon } from "astro-icon";
-import { getBuildImage } from "@/functions/Image";
-
 import BuildFilter from "@/components/builds/BuildFilter";
-import BuildFilterListing from "@/components/builds/BuildFilterListing";
 import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
-import HeadingBottom from "@/components/content/headings/HeadingBottom";
 import ListingGrid from "@/components/builds/BuildListing";
 import Pagination from "@/components/Pagination";
-import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
 
 // content
 import { getCollection } from "astro:content";
-const allMakes = await getCollection("makes");
-const allParts = await getCollection("parts");
-
 export async function getStaticPaths({ paginate }) {
     const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
@@ -29,69 +20,28 @@ const { page } = Astro.props;
 ---
 
 <Layout>
-    <HeadingBottom>
-        <Picture src={getBuildImage(215615, 12)} slot="background" class="w-full h-[25vh] sm:h-full" />
-
-        <h1 slot="heading">THOR Off-Road Builds</h1>
-        <p slot="description" class="space-y-4 text-xl leading-8">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
-    </HeadingBottom>
-
-    <Section small={true}>
+    <Section small={false}>
         <Container classes="space-y-16">
-            <div class="flex flex-row justify-between items-center gap-4">
-                <div>
-                    Viewing {page.total} Builds
-                </div>
+            <div class="max-w-3xl space-y-4">
+                <h1>THOR Off-Road Builds</h1>
+                <p class="space-y-4 text-xl leading-8">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
+            </div>
 
-                <a href="#filter" class="button button-primary !w-fit text-sm sm:text-base">
-                    <div class="button-icon">
-                        <Icon name="hero/AdjustmentsHorizontal" class="w-5 h-auto" />
-                    </div>
-                    <div class="button-text">Filter Builds</div>
-                </a>
+            <div class="flex justify-between items-center">
+                <BuildFilter />
+
+                <Pagination page={page} />
             </div>
 
             <ListingGrid>
                 {page.data.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, (min-width:1280px) 300px, 100vw" height="h-[15em]" />)}
             </ListingGrid>
 
-            <Pagination page={page} />
+            <div class="flex justify-between items-center">
+                <div class="text-sm">Page {page.currentPage} of {page.lastPage}</div>
+
+                <Pagination page={page} />
+            </div>
         </Container>
     </Section>
-
-    <div id="filter" class="bg-gradient-to-br from-stone-100 via-stone-100 to-stone-50">
-        <Section small={true}>
-            <Container classes="space-y-12">
-                <div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-16">
-                        <BuildFilterListing heading="Filter by Parts">
-                            {
-                                allParts.map((p) => (
-                                    <BuildFilter href={`/builds/${p.slug}`}>
-                                        <div class="space-y-2">
-                                            <div class="text-base line-clamp-1">{p.data.title}</div>
-                                            <div class="text-xs line-clamp-2 text-stone-600">{p.data.descriptionShort}</div>
-                                        </div>
-                                    </BuildFilter>
-                                ))
-                            }
-                        </BuildFilterListing>
-
-                        <BuildFilterListing heading="Filter by Vehicle">
-                            {
-                                allMakes.map((m) => (
-                                    <BuildFilter href={`/builds/${m.slug}`}>
-                                        <div class="space-y-2">
-                                            <div class="text-base line-clamp-1">{m.data.title}</div>
-                                            <div class="text-xs line-clamp-2 text-stone-600">{m.data.descriptionShort}</div>
-                                        </div>
-                                    </BuildFilter>
-                                ))
-                            }
-                        </BuildFilterListing>
-                    </div>
-                </div>
-            </Container>
-        </Section>
-    </div>
 </Layout>

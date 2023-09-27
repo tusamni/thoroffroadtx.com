@@ -1,11 +1,85 @@
 ---
+// imports
+import { Icon } from "astro-icon";
+
 // props
 interface Props {
     current?: boolean;
 }
 const { current = false, ...attrs } = Astro.props;
+
+// content
+import { getCollection } from "astro:content";
+
+const allMakes = await getCollection("makes");
+const allParts = await getCollection("parts");
+
+let allModels;
+if (Astro.params.make) {
+    allModels = await getCollection("models", ({ data }) => {
+        return data.make.toLowerCase().includes(Astro.params.make);
+    });
+}
 ---
 
-<a class:list={["text-sm p-3 rounded-sm hover:bg-stone-50 border", current ? `bg-stone-50 border-stone-500` : `bg-white border-stone-300`]} {...attrs}>
-    <slot />
-</a>
+<form class="flex gap-4 items-center w-fit">
+    <Icon name="hero/AdjustmentsHorizontal" class="w-6" />
+
+    <div>
+        <label class="hidden text-sm">Filter by Parts</label>
+        <select class="w-40 filter">
+            <option value="">Select a Part</option>
+            {
+                allParts.map((p) => (
+                    <option value={`builds/${p.slug}`} selected={Astro.params.part == p.slug && `selected`}>
+                        {p.data.title}
+                    </option>
+                ))
+            }
+        </select>
+    </div>
+
+    <div>
+        <label class="hidden text-sm">Filter by Vehicle</label>
+        <select class="w-40 filter">
+            <option value="">Select a Vehicle</option>
+            {
+                allMakes.map((m) => (
+                    <option value={`builds/${m.slug}`} selected={Astro.params.make == m.slug && `selected`}>
+                        {m.data.title}
+                    </option>
+                ))
+            }
+        </select>
+    </div>
+
+    {
+        Astro.params.make && (
+            <div>
+                <label class="hidden text-sm">Filter by Model</label>
+                <select class="w-40 filter">
+                    <option value="">Select a Model</option>
+                    {allModels.map((m) => (
+                        <option value={`builds/${Astro.params.make}/${m.slug}`} selected={Astro.params.model == m.slug && `selected`}>
+                            {m.data.title}
+                        </option>
+                    ))}
+                </select>
+            </div>
+        )
+    }
+</form>
+
+<script>
+    const filterControls = document.getElementsByClassName("filter");
+
+    const runFilter = function () {
+        if (this.value !== "") {
+            window.location.href = `/${this.value}`;
+        }
+    };
+
+    for (let control of filterControls) {
+        control.addEventListener("change", runFilter);
+    }
+</script>

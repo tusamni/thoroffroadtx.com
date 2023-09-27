@@ -8,20 +8,14 @@ interface Props {
 const { page } = Astro.props;
 ---
 
-<div class="flex flex-row justify-between items-center gap-4">
-    <div>
-        Page {page.currentPage} of {page.lastPage}
-    </div>
+<div class="flex flex-row justify-between items-center border border-stone-300 divide-x divide-stone-300">
+    <a href={page.url.prev} class:list={["flex items-center gap-2 text-sm p-4", page.currentPage == 1 && "text-stone-300"]}>
+        <Icon name="hero/ChevronLeft" class="w-3 h-auto" />
+        Previous
+    </a>
 
-    <div class="flex gap-4">
-        <a href={page.url.prev} class:list={["button", page.currentPage == 1 ? "button-disabled" : "button-primary"]}>
-            <div class="button-icon"><Icon name="hero/ChevronLeft" class="w-5 h-5" /></div>
-            <div class="button-text">Previous</div>
-        </a>
-
-        <a href={page.url.next} class:list={["button", page.currentPage == page.lastPage ? "button-disabled" : "button-primary"]}>
-            <div class="button-text">Next</div>
-            <div class="button-icon"><Icon name="hero/ChevronRight" class="w-5 h-5" /></div>
-        </a>
-    </div>
+    <a href={page.url.next} class:list={["flex items-center gap-2 text-sm p-4", page.currentPage == page.lastPage && "text-stone-300"]}>
+        Next
+        <Icon name="hero/ChevronRight" class="w-3 h-auto" />
+    </a>
 </div>

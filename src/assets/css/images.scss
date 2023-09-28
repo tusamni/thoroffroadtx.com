@@ -1,7 +1,7 @@
 /* biggerPicture */
 /* modifications */
 .bp-cap {
-    @apply leading-7 tracking-tight px-6 py-4 text-base text-stone-300 rounded;
+    @apply leading-5 tracking-tight px-6 py-4 text-sm text-stone-300 rounded;
 }
 .bp-img img {
     @apply rounded shadow;
@@ -286,7 +286,7 @@
     color: rgba(255, 255, 255, 0.9);
     border-radius: 4px;
     max-width: 95%;
-    line-height: 1.3;
+    // line-height: 1.3;
     padding: 0.6em 1.2em;
     left: 50%;
     transform: translateX(-50%);

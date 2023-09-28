@@ -38,7 +38,7 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
 let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
 ---
 
-<Layout>
+<Layout title={part.data.seoTitle} description={part.data.seoDescription}>
     <div class="relative h-[35vh] md:h-[35em]">
         <Picture src={getBuildImage(featuredBuild.data.id, part.data.featured.image.heading)} alt=`${part.data.title} Outfitting in Austin, TX` loading="eager" class="w-full h-full object-cover absolute" />
     </div>
@@ -61,7 +61,7 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
         </Container>
     </div>
 
-    <Section small={true}>
+    <Section>
         <Container>
             <div class="space-y-6 max-w-4xl">
                 <h1>We're <i>the</i>&nbsp;{part.data.title} Experts</h1>
@@ -84,12 +84,12 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
 
         <Container large={false}>
             <div class="grid grid-cols-5 gap-16">
-                <div class:list={[part.data.contentParts.length < 7 ? "col-span-3" : "col-span-2", "space-y-6"]}>
+                <div class:list={[part.data.contentParts.length < 7 ? "md:col-span-3" : "md:col-span-2", "col-span-5 space-y-6"]}>
                     <h2>{part.data.title} Upgrades</h2>
                     <div class="leading-8 tracking-tight text-stone-700 text-lg space-y-6" set:html={part.data.contentSidebar} />
                 </div>
 
-                <div class:list={[part.data.contentParts.length < 7 ? "col-span-2 xl:grid-cols-2" : "col-span-3 xl:grid-cols-3", "grid grid-cols-1 md:grid-cols-2 text-gray-600 h-fit gap-y-8 sm:gap-y-16 md:gap-x-8"]}>
+                <div class:list={[part.data.contentParts.length < 7 ? "md:col-span-2 xl:grid-cols-2" : "md:col-span-3 xl:grid-cols-3", "h-fit col-span-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-8"]}>
                     {
                         part.data.contentParts.map(
                             (p) =>
@@ -97,9 +97,9 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
                                     <div class="relative">
                                         <Icon name="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 self-start" />
 
-                                        <div class="ml-9 flex flex-col gap-2 sm:cursor-pointer">
+                                        <div class="ml-9 flex flex-col gap-2">
                                             <p class="font-semibold text-stone-900">{p.title}</p>
-                                            <p class="text-sm">{p.description}</p>
+                                            <p class="text-sm text-gray-600">{p.description}</p>
                                         </div>
                                     </div>
                                 )
@@ -128,7 +128,7 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
                         <h2 class="text-center">Recent {part.data.title} Builds</h2>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12">
-                            {allBuilds.map((b) => <BuildSnippet build={b} sizes="(min-width: 350px), (min-width: 768px) 500px, (min-width: 1024px) 600px, (min-width: 1280px) 300px, 100vw" pad={false} height="h-72" />).slice(0, buildCount)}
+                            {allBuilds.map((b) => <BuildSnippet build={b} sizes="(min-width: 350px), (min-width: 768px) 500px, (min-width: 1024px) 600px, (min-width: 1280px) 300px, 100vw" pad={false} height="h-60" />).slice(0, buildCount)}
                         </div>
                     </div>
                 </Container>

@@ -13,8 +13,9 @@ interface Props {
     alt?: string;
     loading?: string;
     sizes?: string;
+    quality?: number;
 }
-const { src, buildId, alt, loading = "lazy", sizes = "100vw", ...attrs } = Astro.props;
+const { src, buildId, alt, loading = "lazy", sizes = "100vw", quality = 85, ...attrs } = Astro.props;
 
 // content
 const fullPath = `${imageConfig.cloudUrl}/images/${src}`;
@@ -30,7 +31,7 @@ if (buildId) {
 // loop through all the necessary image widths
 const optimizedImages = [];
 for (let size of imageConfig.imageSizes) {
-    optimizedImages.push(await getImage({ src: fullPath, format: "webp", width: size, height: size }));
+    optimizedImages.push(await getImage({ src: fullPath, format: "webp", width: size, height: size, quality: quality }));
 }
 
 // create the srcset attribute

@@ -2,23 +2,33 @@
 // imports
 import { getImage } from "astro:assets";
 import { imageConfig } from "@/config";
+import { getCollection } from "astro:content";
 
 import imageSize from "probe-image-size";
 
 // props
 interface Props {
     src: string;
-    alt: string;
+    buildId?: number;
+    alt?: string;
     loading?: string;
     sizes?: string;
 }
-const { src, alt, sizes = "100vw", loading = "lazy", ...attrs } = Astro.props;
+const { src, buildId, alt, loading = "lazy", sizes = "100vw", ...attrs } = Astro.props;
 
 // content
 const fullPath = `${imageConfig.cloudUrl}/images/${src}`;
-const optimizedImages = [];
+
+// get build data
+let build;
+if (buildId) {
+    build = await getCollection("builds", ({ data }) => {
+        return data.id == buildId;
+    });
+}
 
 // loop through all the necessary image widths
+const optimizedImages = [];
 for (let size of imageConfig.imageSizes) {
     optimizedImages.push(await getImage({ src: fullPath, format: "webp", width: size, height: size }));
 }
@@ -41,4 +51,18 @@ if (import.meta.env.PROD) {
 }
 ---
 
-<img src={optimizedImages[0].src} srcset={srcset} width={dimensions.width} height={dimensions.height} loading={loading} sizes={sizes} alt={alt} {...attrs} data-img={optimizedImages[0].src} data-width={dimensions.width} data-height={dimensions.height} />
+<img
+    href={optimizedImages[0].src}
+    src={optimizedImages[0].src}
+    srcset={srcset}
+    width={dimensions.width}
+    height={dimensions.height}
+    loading={loading}
+    sizes={sizes}
+    alt={buildId ? `${build[0].data.year} ${build[0].data.make} ${build[0].data.model} ${build[0].data.trim}` : alt}
+    {...attrs}
+    data-img={optimizedImages[0].src}
+    data-width={dimensions.width}
+    data-height={dimensions.height}
+    data-caption={buildId && build[0].data.summary}
+/>

@@ -1,5 +1,5 @@
 .button {
-    @apply transition-all duration-500 font-medium flex w-full sm:w-fit items-center justify-start h-12;
+    @apply transition-all rounded duration-500 font-medium flex w-full sm:w-fit items-center justify-start h-12;
 
     &.button-reverse {
         @apply flex-row-reverse;
@@ -9,30 +9,30 @@
         @apply text-stone-900 border border-stone-900 divide-stone-900 divide-x;
 
         .button-icon {
-            @apply bg-white;
+            @apply bg-white rounded-l;
         }
         .button-text {
-            @apply bg-white;
+            @apply bg-white rounded-r;
         }
     }
     &.button-secondary {
         @apply divide-sky-300 divide-x border border-sky-500;
 
         .button-icon {
-            @apply bg-gradient-to-b from-sky-400 to-sky-500 text-stone-50;
+            @apply bg-gradient-to-b from-sky-400 to-sky-500 text-stone-50 rounded-l;
         }
         .button-text { 
-            @apply bg-gradient-to-b from-sky-400 to-sky-500 text-stone-50;
+            @apply bg-gradient-to-b from-sky-400 to-sky-500 text-stone-50 rounded-r;
         }
     }
     &.button-ghost {
         @apply border divide-x;
 
         &.button-inverse {
-            @apply text-black border-black divide-black;
+            @apply text-black border-black divide-black rounded-l;
         }
         &:not(.button-inverse) {
-            @apply text-white border-white divide-white;
+            @apply text-white border-white divide-white rounded-r;
         }
     }
     &.button-disabled {

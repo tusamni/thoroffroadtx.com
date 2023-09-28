@@ -25,7 +25,7 @@ const allModels = await getCollection("models");
         x-transition:leave-end="opacity-0"
         x-show="makesMenu"
         class="md:w-[30em] lg:w-[40em] absolute bottom-auto z-10 pt-4">
-        <div class="grid grid-cols-2 bg-gradient-to-r from-stone-100 via-stone-200 to-stone-300 shadow-lg rounded-sm">
+        <div class="grid grid-cols-2 bg-gradient-to-r from-stone-100 via-stone-200 to-stone-300 shadow-lg rounded">
             {
                 allMakes.map((m) => (
                     <a href={`/vehicles/${m.slug}`} title={m.data.title} class="flex flex-col gap-x-4 font-semibold leading-6 text-stone-900 hover:bg-white px-6 py-4 transition">

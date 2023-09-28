@@ -5,7 +5,7 @@ label.jc-CommentBox-label {
     @apply text-base;
 }
 label.jc-CommentBox-label textarea, label.jc-CommentBox-label input {
-    @apply rounded-sm border border-stone-300 focus:border-0 p-3 text-stone-600 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6;
+    @apply rounded border border-stone-300 focus:border-0 p-3 text-stone-600 focus:ring-2 focus:ring-inset focus:ring-amber-400 sm:text-sm sm:leading-6;
 }
 
 button.jc-CommentBox-button {

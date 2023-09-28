@@ -59,7 +59,7 @@ const allModels = await getCollection("models");
             <div class="divide-y divide-stone-500/10">
                 <div class="space-y-2 py-6">
                     <div class="-mx-3" x-data={`{ expandVehicles : false }`}>
-                        <div class="flex w-full items-center justify-between rounded-sm py-2 pl-3 pr-3.5 text-lg font-semibold leading-7" x-bind:class={`expandVehicles && 'bg-stone-100'`}>
+                        <div class="flex w-full items-center justify-between rounded py-2 pl-3 pr-3.5 text-lg font-semibold leading-7" x-bind:class={`expandVehicles && 'bg-stone-100'`}>
                             <a href="/vehicles">Vehicles</a>
 
                             <button x-on:click={`expandVehicles = !expandVehicles`}>
@@ -98,7 +98,7 @@ const allModels = await getCollection("models");
                     </div>
 
                     <div class="-mx-3" x-data={`{ expandParts : false }`}>
-                        <div class="flex w-full items-center justify-between rounded-sm py-2 pl-3 pr-3.5 text-lg font-semibold leading-7" x-bind:class={`expandParts && 'bg-stone-100'`}>
+                        <div class="flex w-full items-center justify-between rounded py-2 pl-3 pr-3.5 text-lg font-semibold leading-7" x-bind:class={`expandParts && 'bg-stone-100'`}>
                             <a href="/parts">Parts</a>
                             <button x-on:click={`expandParts = !expandParts`}>
                                 <Icon name="hero/ChevronUp" class="h-4 w-4 flex-none transition" x-bind:class={`expandParts ? 'rotate-180' : ''`} />

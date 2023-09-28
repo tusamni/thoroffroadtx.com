@@ -10,7 +10,7 @@ import { timeAgo } from "@/functions/DateTime";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Picture from "@/components/images/Picture";
-import Pill from "@/components/buttons/Pill";
+import Pill from "@/components/Pill";
 import RelatedBuild from "@/components/builds/RelatedBuild";
 import Section from "@/components/Section";
 
@@ -30,20 +30,20 @@ const { Content } = await build.render();
 ---
 
 <Layout>
-    <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt="FOX Shocks waiting to be installed" loading="eager" class="w-full h-[30vh] object-cover" />
+    <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt={build.data.summary} loading="eager" class="w-full h-[30vh] object-cover" />
 
     <Section small={true}>
         <Container>
-            <div class="grid grid-cols-3 gap-8 md:gap-16">
-                <div class="col-start-2 col-span-2 space-y-8">
-                    <div class="flex flex-row gap-6 text-sm items-center">
-                        <Pill theme="secondary">
+            <div class="grid grid-cols-3 gap-16">
+                <div class="col-span-3 sm:col-start-2 sm:col-span-2 space-y-8">
+                    <div class="flex flex-row gap-6 text-sm sm:text-base items-center text-stone-700">
+                        <div>
                             Color: {build.data.color}
-                        </Pill>
+                        </div>
 
-                        <Pill theme="secondary">
+                        <div>
                             Drive: {build.data.drive}
-                        </Pill>
+                        </div>
 
                         <div>{timeAgo(build.data.date)}</div>
                     </div>
@@ -100,7 +100,7 @@ const { Content } = await build.render();
 
                         {
                             build.data.related && (
-                                <div class="space-y-6">
+                                <div class="hidden sm:block space-y-6">
                                     <p class="font-semibold text-2xl">Related Builds</p>
                                     {build.data.related.map((b) => (
                                         <RelatedBuild slug={b} />

@@ -19,7 +19,7 @@ const { build, height = "h-[25em]", pad = false, sizes = "100vw", description = 
 ---
 
 <a href={`/builds/${build.slug}`} class:list={[classes, pad ? "bg-white space-y-0" : "space-y-4"]}>
-    <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} sizes={sizes} alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class:list={["object-cover rounded-sm w-full", height]} slot="picture" />
+    <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} sizes={sizes} alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class:list={["object-cover rounded w-full", height]} slot="picture" />
 
     <div class:list={["space-y-4", pad && `bg-white p-4`]}>
         <div class="flex justify-between items-center gap-4">

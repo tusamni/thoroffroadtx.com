@@ -66,7 +66,7 @@ const partsFill = {
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                 {
                     allParts.map((p) => (
-                        <a href={`/parts/${p.slug}`} class="flex flex-col justify-between border border-stone-300 rounded-lg">
+                        <a href={`/parts/${p.slug}`} class="flex flex-col justify-between border border-stone-300 rounded">
                             <div class="h-full flex flex-col justify-between p-8 relative gap-8">
                                 <div class="space-y-5">
                                     <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
@@ -91,7 +91,7 @@ const partsFill = {
                         </a>
                     ))
                 }
-                <a href="/contact" class="p-8 flex flex-col justify-between rounded-lg border border-stone-300 gap-8">
+                <a href="/contact" class="p-8 flex flex-col justify-between rounded border border-stone-300 gap-8">
                     <div class="space-y-4">
                         <h3 class="text-2xl font-semibold leading-6">{partsFill.title}</h3>
                         <div class="leading-6 text-stone-500">{partsFill.descriptionShort}</div>

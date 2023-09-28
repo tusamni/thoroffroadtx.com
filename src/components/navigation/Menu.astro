@@ -31,7 +31,7 @@ import MenuVehicles from "@/components/navigation/desktop/MenuVehicles";
             </div>
 
             <!-- contact buttons -->
-            <div class="flex flex-1 items-center justify-end md:gap-0 lg:gap-x-6">
+            <div class="flex flex-1 items-center justify-end gap-x-3 lg:gap-x-6">
                 <div>
                     <a href={`tel:${Business.phone}`} class="button button-ghost">
                         <div class="button-text text-xs sm:text-sm lg:text-base">
@@ -42,8 +42,8 @@ import MenuVehicles from "@/components/navigation/desktop/MenuVehicles";
                 </div>
 
                 <div>
-                    <a href="/contact" class="button button-primary sm:text-sm md:text-base !border-0">
-                        <div class="button-text text-sm lg:text-base">
+                    <a href="/contact" class="button button-primary !border-0">
+                        <div class="button-text text-xs sm:text-sm lg:text-base rounded-l">
                             <span class="hidden sm:block">Contact Us</span>
                             <span class="sm:hidden">Email</span>
                         </div>
@@ -53,7 +53,7 @@ import MenuVehicles from "@/components/navigation/desktop/MenuVehicles";
 
             <!-- mobile trigger -->
             <div class="flex md:hidden" x-data={`{ mobileMenu : false }`}>
-                <button type="button" class="inline-flex items-center justify-center rounded-sm text-stone-700 cursor-pointer" x-on:click={`mobileMenu = true`}>
+                <button type="button" class="inline-flex items-center justify-center cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
 
                     <Icon name="hero/Hamburger" class="h-8 w-8 cursor-pointer text-white" />

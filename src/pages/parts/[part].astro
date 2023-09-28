@@ -75,7 +75,7 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
                 {
                     part.data.featured.image.gallery.map((p) => (
                         <div class="relative">
-                            <Picture src={getBuildImage(featuredBuild.data.id, p)} alt={`${part.data.title} Outfitting in Austin, TX`} class="w-full h-full object-cover absolute rounded-sm" sizes="(min-height: 768px) 25vw, 50vw" />
+                            <Picture src={getBuildImage(featuredBuild.data.id, p)} alt={`${part.data.title} Outfitting in Austin, TX`} class="w-full h-full object-cover absolute rounded" sizes="(min-height: 768px) 25vw, 50vw" />
                         </div>
                     ))
                 }
@@ -113,7 +113,7 @@ let remainder = allBuilds.length / 2 == 0 ? 4 : 5;
             <div class="mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
                 {
                     allBrands.map((b) => (
-                        <div class="bg-stone-100 p-6 flex justify-center rounded-sm">
+                        <div class="bg-stone-100 p-6 flex justify-center rounded">
                             <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 lg:h-16 w-full lg:w-1/2 object-contain text-stone-900 place-self-center" />
                         </div>
                     ))

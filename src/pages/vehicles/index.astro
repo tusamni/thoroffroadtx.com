@@ -69,7 +69,7 @@ const vehicleFill = {
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                 {
                     allMakes.map((v) => (
-                        <a href={`/vehicles/${v.slug}`} class="group relative overflow-hidden rounded-sm border border-stone-300">
+                        <a href={`/vehicles/${v.slug}`} class="group relative overflow-hidden rounded border border-stone-300">
                             <div class="absolute w-full h-full">
                                 <Icon name={`makes/${v.data.logo.name}Icon`} class:list={[v.data.logo.color, "transition-all duration-300 hidden sm:block absolute w-2/3 h-auto left-1/2 top-full -rotate-12 -mt-20 sm:-mt-10 group-hover:-mt-20"]} />
                             </div>
@@ -100,7 +100,7 @@ const vehicleFill = {
                         </a>
                     ))
                 }
-                <a href="/contact" class="flex flex-col p-8 relative rounded-sm border border-stone-300 justify-between gap-8">
+                <a href="/contact" class="flex flex-col p-8 relative rounded border border-stone-300 justify-between gap-8">
                     <div class="space-y-5">
                         <h3 class="text-2xl font-semibold leading-6">{vehicleFill.title}</h3>
                         <div class="leading-6">{vehicleFill.descriptionShort}</div>

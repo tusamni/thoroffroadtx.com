@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon";
 ---
 
-<form class="space-y-6" action="#" method="post" netlify netlify-honeypot="state">
+<form class="space-y-6" name="Contact Form" action="/contact/success" method="post" data-netlify="true" netlify-honeypot="state">
     <div class="space-y-2">
         <label for="name" class="block font-semibold leading-6">Name</label>
         <input type="text" name="name" id="name" autocomplete="name" required />
@@ -28,7 +28,7 @@ import { Icon } from "astro-icon";
         <textarea name="message" id="message" rows="4"></textarea>
     </div>
 
-    <input type="hidden" name="formSource" value={Astro.url.pathname} />
+    <input type="hidden" name="form-pathname" value={Astro.url.pathname} />
 
     <div class="flex justify-end">
         <button type="submit" class="button button-secondary">

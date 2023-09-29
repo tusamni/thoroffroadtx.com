@@ -9,6 +9,7 @@ import { Icon } from "astro-icon";
 import Background from "@/components/content/Background";
 import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
+import Gallery from "@/components/images/Gallery";
 import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
 
@@ -38,7 +39,7 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
 
 <Layout title={make.data.seoTitle} description={make.data.seoDescription}>
     <div class="relative h-[35vh] md:h-[35em]">
-        <Picture src={getBuildImage(featuredBuild.data.id, make.data.featured.image.heading)} alt=`${make.data.title} Outfitting in Austin, TX` loading="eager" class="w-full h-full object-cover absolute" />
+        <Picture src={getBuildImage(featuredBuild.data.id, make.data.featured.image.heading)} buildId={featuredBuild.data.id} loading="eager" class="w-full h-full object-cover absolute" />
     </div>
 
     <div class="bg-gradient-to-l from-orange-50 sm:to-orange-200 to-orange-100 py-4">
@@ -76,15 +77,17 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
         </Container>
 
         <Container large={true}>
-            <div class="grid grid-cols-2 md:grid-cols-4 h-[50vh] md:h-72 gap-4 md:gap-8">
-                {
-                    make.data.featured.image.gallery.map((p) => (
-                        <div class="relative">
-                            <Picture src={getBuildImage(featuredBuild.data.id, p)} alt={`${make.data.title} Outfitting in Austin, TX`} class="w-full h-full object-cover absolute rounded" sizes="(min-height: 768px) 25vw, 50vw" />
-                        </div>
-                    ))
-                }
-            </div>
+            <Gallery>
+                <div class="grid grid-cols-2 md:grid-cols-4 h-[50vh] md:h-72 gap-4 md:gap-8">
+                    {
+                        make.data.featured.image.gallery.map((p) => (
+                            <div class="relative">
+                                <Picture src={getBuildImage(featuredBuild.data.id, p)} buildId={featuredBuild.data.id} class="w-full h-full object-cover absolute rounded" sizes="(min-height: 768px) 25vw, 50vw" />
+                            </div>
+                        ))
+                    }
+                </div>
+            </Gallery>
         </Container>
 
         <Container>

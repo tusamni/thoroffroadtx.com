@@ -15,7 +15,11 @@
     display: none !important;
 }
 
-.bp-cap { @apply text-sm line-clamp-3 rounded }
+.bp-cap { 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    @apply text-sm line-clamp-2 rounded overflow-hidden p-0 border-transparent border-y-[1em] border-x-[1em];
+}
 .bp-img img { @apply rounded; }
 
 ::-moz-selection {

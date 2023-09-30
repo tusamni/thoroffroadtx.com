@@ -65,5 +65,5 @@ if (import.meta.env.PROD) {
     data-img={optimizedImages[0].src}
     data-width={dimensions.width}
     data-height={dimensions.height}
-    data-caption={buildId && build[0].data.summary}
+    data-caption={buildId && `<span class="line-clamp-2 mb-4">${build[0].data.summary}</span> <a href="${build[0].slug}" class="font-semibold underline">View Build Details &gt;</a>`}
 />

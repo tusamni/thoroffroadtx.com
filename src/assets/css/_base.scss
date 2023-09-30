@@ -15,6 +15,9 @@
     display: none !important;
 }
 
+.bp-cap { @apply text-sm line-clamp-3 rounded }
+.bp-img img { @apply rounded; }
+
 ::-moz-selection {
     background: #ffedd5;
 }

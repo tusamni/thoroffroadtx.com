@@ -1,13 +1,4 @@
 /* biggerPicture */
-/* modifications */
-.bp-cap {
-    @apply leading-5 tracking-tight px-6 py-4 text-sm text-stone-300 rounded;
-}
-.bp-img img {
-    @apply rounded shadow;
-}
-
-/* biggerPicture */
 /* base */
 @mixin bpfillall() {
     top: 0;

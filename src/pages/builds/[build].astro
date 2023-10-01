@@ -32,8 +32,8 @@ const { Content } = await build.render();
     <!-- <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt={build.data.summary} loading="eager" class="w-full h-[30vh] object-cover" /> -->
     <Picture src={getBuildImage(build.data.id, build.data.images.banner)} alt={build.data.summary} loading="eager" class="w-full h-[100vh] object-cover" />
 
-    <Section small={true}>
-        <Container>
+    <Section>
+        <Container large={true}>
             <div class="bg-white p-12 rounded relative grid grid-cols-3 gap-16 -mt-[75vh]">
                 <div class="col-span-3 sm:col-start-2 sm:col-span-2 space-y-8">
                     <div class="flex flex-row gap-6 text-sm sm:text-base items-center text-stone-700">

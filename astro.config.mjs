@@ -10,4 +10,13 @@ export default defineConfig({
     },
     site: "https://thoroffroadtx.com",
     integrations: [alpinejs(), mdx(), sitemap()],
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: '@import "./src/assets/css/_variables";',
+                },
+            },
+        },
+    },
 });

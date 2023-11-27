@@ -1,12 +1,14 @@
-@import "buttons";
-@import "builds";
-@import "comments";
-@import "forms";
-@import "images";
-@import "typography";
-@import "navigation";
+@import url("reset.css");
+@import url("_variables.css");
+@import url("buttons.css");
+@import url("builds.css");
+@import url("comments.css");
+@import url("forms.css");
+@import url("layout.css");
+@import url("typography.css");
+@import url("navigation.css");
 
-// alpine.js hide on load
+/* alpine.js hide on load */
 [x-cloak] {
     display: none !important;
 }
@@ -187,10 +189,6 @@
         url("/fonts/Inter-BlackItalic.woff?v=3.19") format("woff");
 }
 
-html { font-family: 'Inter', sans-serif; }
-@supports (font-variation-settings: normal) {
-    html { font-family: 'Inter var', sans-serif; }
-}
 @font-face {
     font-family: 'Inter var';
     font-weight: 100 900;
@@ -207,4 +205,9 @@ html { font-family: 'Inter', sans-serif; }
     font-style: italic;
     font-named-instance: 'Italic';
     src: url("/fonts/Inter-italic.var.woff2?v=3.19") format("woff2");
+}
+
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+    html { font-family: 'Inter var', sans-serif; }
 }

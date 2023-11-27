@@ -8,7 +8,7 @@ import { Social } from "@/config";
     <div class="container">
         <div class="split">
             <div class="marketing">
-                <span class="line-clamp-1">Carli Suspension in Stock</span>
+                <span>Carli Suspension in Stock sdlkjfsldkfjasldkfjsaldkfj</span>
                 <span class="hidden md:block">&middot;</span>
                 <span class="hidden md:block">Contact Us for Pricing!</span>
             </div>
@@ -38,8 +38,19 @@ import { Social } from "@/config";
         display: flex;
         gap: 6px;
 
-        & span:first-child {
+        & span:nth-child(1) {
             font-weight: 600;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @media (max-width: 640px) {
+            & span:nth-child(2),
+            & span:nth-child(3) {
+                display: none;
+            }
         }
     }
 

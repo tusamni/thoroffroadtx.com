@@ -1,9 +1,8 @@
 .nav-item {
     @apply inline-flex items-center gap-x-2 font-semibold leading-6 text-stone-50 lg:text-lg;
-
-    svg { 
-        @apply md:hidden lg:block;
-    }
+}
+.nav-item svg { 
+    @apply md:hidden lg:block;
 }
 
 .comma-list li {

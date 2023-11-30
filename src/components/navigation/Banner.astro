@@ -2,70 +2,32 @@
 // imports
 import { Icon } from "astro-icon";
 import { Social } from "@/config";
+
+import Container from "@/components/Container";
 ---
 
-<div class="banner">
-    <div class="container">
-        <div class="split">
-            <div class="marketing">
-                <span>Carli Suspension in Stock sdlkjfsldkfjasldkfjsaldkfj</span>
-                <span class="hidden md:block">&middot;</span>
-                <span class="hidden md:block">Contact Us for Pricing!</span>
+<div class="bg-primary text-white py-3">
+    <Container>
+        <div class="flex items-center justify-between py-4 sm:py-0">
+            <div class="leading-6">
+                <div class="text-sm flex items-center gap-2">
+                    <Icon name="brands/Carli" class="w-10 sm:w-12 h-auto" />
+                    <strong class="font-medium line-clamp-1">Carli Suspension in Stock</strong>
+                    <span class="hidden md:block">&middot;</span>
+                    <span class="font-light hidden md:block">Contact Us for Pricing!</span>
+                </div>
             </div>
 
-            <div class="social">
+            <!-- social -->
+            <div class="hidden sm:flex gap-4 items-center">
                 {
                     Social.map((s) => (
                         <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
-                            <Icon name={s.icon} />
+                            <Icon name={s.icon} class="h-auto w-4" />
                         </a>
                     ))
                 }
             </div>
         </div>
-    </div>
+    </Container>
 </div>
-
-<style>
-    .banner {
-        background-color: var(--color-alt);
-        color: var(--color-light);
-        font-size: 0.8em;
-        padding: 12px 0;
-    }
-
-    .marketing {
-        display: flex;
-        gap: 6px;
-
-        & span:nth-child(1) {
-            font-weight: 600;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        @media (max-width: 640px) {
-            & span:nth-child(2),
-            & span:nth-child(3) {
-                display: none;
-            }
-        }
-    }
-
-    .social {
-        display: flex;
-        align-content: center;
-        gap: 12px;
-
-        & a {
-            height: 1.2em;
-            width: 1.2em;
-        }
-
-        & :global(svg) {
-            color: var(--color-light);
-        }
-    }
-</style>

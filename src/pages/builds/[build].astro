@@ -13,8 +13,6 @@ import Picture from "@/components/images/Picture";
 import RelatedBuild from "@/components/builds/RelatedBuild";
 import Section from "@/components/Section";
 
-import JamComments from "@jam-comments/astro";
-
 // content
 import { getCollection } from "astro:content";
 export async function getStaticPaths() {
@@ -108,13 +106,6 @@ const { Content } = await build.render();
                                 </div>
                             )
                         }
-
-                        <a href="#comments" class="button button-primary">
-                            <div class="button-icon">
-                                <Icon name="hero/ChatBubbleLeftRight" class="h-6" />
-                            </div>
-                            <div class="button-text">Join the Conversation</div>
-                        </a>
                     </div>
                 </div>
 
@@ -137,13 +128,6 @@ const { Content } = await build.render();
                             </Gallery>
                         </div>
                     </div>
-                </div>
-
-                <div class="md:col-start-2 col-span-3 md:col-span-2 space-y-4">
-                    <a name="comments"></a>
-
-                    <div class="font-semibold text-2xl">Leave a Comment</div>
-                    <JamComments path={Astro.url} />
                 </div>
             </div>
         </Container>

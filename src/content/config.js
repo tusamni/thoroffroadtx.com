@@ -1,4 +1,31 @@
-import { z, defineCollection } from "astro:content";
+import { z, defineCollection, reference } from "astro:content";
+
+const makes = defineCollection({
+    type: "data",
+    schema: z.object({
+        title: z.string(),
+        heading: z.string(),
+        description: z.object({
+            short: z.string(),
+            long: z.string(),
+            push: z.string(),
+        }),
+        seo: z.object({
+            title: z.string(),
+            description: z.string(),
+        }),
+        logo: z.object({
+            name: z.string(),
+            color: z.string(),
+        }),
+        images: z.object({
+            featured: z.object({
+                id: z.number(),
+                image: z.number(),
+            }),
+        }),
+    }),
+});
 
 const buildCollection = defineCollection({
     schema: z.object({

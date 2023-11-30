@@ -2,14 +2,21 @@
 // imports
 import { Business } from "@/config";
 import { Icon } from "astro-icon";
+import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
 import MenuMobile from "@/components/navigation/mobile/MenuMobile";
-import MenuParts from "@/components/navigation/desktop/MenuParts";
-import MenuVehicles from "@/components/navigation/desktop/MenuVehicles";
+import HoverMenu from "@/components/navigation/desktop/HoverMenu";
+import MenuItem from "@/components/navigation/desktop/MenuItem";
+
+// data
+const allParts = await getCollection("parts");
+const allBrands = await getCollection("brands");
+const allMakes = await getCollection("makes");
+const allModels = await getCollection("models");
 ---
 
-<header class="bg-gradient-to-b from-red-600 to-red-700 relative">
+<header class="bg-black bg-opacity-40 relative">
     <Container>
         <nav class="flex items-center py-4 md:py-6 justify-between gap-x-4 lg:gap-x-6" aria-label="Global">
             <div class="flex gap-x-8 items-center">
@@ -22,8 +29,9 @@ import MenuVehicles from "@/components/navigation/desktop/MenuVehicles";
 
                 <!--- desktop menu -->
                 <div class="hidden md:flex items-center md:gap-6 lg:gap-8">
-                    <MenuVehicles />
-                    <MenuParts />
+                    <HoverMenu title="Vehicles" identifier="vehicles">
+                        {allMakes.map((m) => <MenuItem base="vehicles" item={m} items={allModels} />)}
+                    </HoverMenu>
 
                     <a href="/builds" title={`${Business.nameShort} Builds`} class="nav-item">Builds</a>
                     <a href="/about" title={`About ${Business.nameLong}`} class="nav-item">About</a>
@@ -43,7 +51,7 @@ import MenuVehicles from "@/components/navigation/desktop/MenuVehicles";
 
                 <div>
                     <a href="/contact" class="button button-primary !border-0">
-                        <div class="button-text text-xs sm:text-sm lg:text-base rounded-l">
+                        <div class="button-text text-xs sm:text-sm lg:text-base">
                             <span class="hidden sm:block">Contact Us</span>
                             <span class="sm:hidden">Email</span>
                         </div>

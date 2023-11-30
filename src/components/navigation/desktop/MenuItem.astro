@@ -1,0 +1,25 @@
+---
+interface Props {
+    base: string;
+    item: any;
+    items: any;
+}
+const { base, item, items } = Astro.props;
+
+// if (Object.values(i.data).includes(item.slug)) {
+//     return <li>{i.data.title}</li>;
+// }
+---
+
+<a href={`/${base}/${item.slug}`} title={item.data.title} class="flex flex-col gap-x-4 text-base font-semibold leading-6 text-stone-900 hover:bg-white px-6 py-4 transition">
+    {item.data.title}
+
+    <ul class="comma-list line-clamp-1 text-sm text-stone-500 font-normal">
+        <li>test</li>
+        {
+            items.map((i) => {
+                <li>{i.data.slug}</li>;
+            })
+        }
+    </ul>
+</a>

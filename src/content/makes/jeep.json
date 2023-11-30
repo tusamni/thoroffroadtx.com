@@ -1,0 +1,23 @@
+{
+    "title": "Jeep",
+    "heading": "A Jeep for Every Challenge",
+    "description": {
+        "short": "For 80 years the iconic Jeep Brand has been indelibly linked to freedom, adventure, authenticity, and passion.",
+        "long": "<p>If you are looking for the ultimate off-roading, weekend-cruising, mountain-climbing, sun-catching vehicle, everyone knows Jeep has this market locked up. The choices of style and performance for your Jeep are almost limitless.</p>",
+        "push": "<p>THOR can help you <a href=\"/contact\" title=\"Contact Us\" class=\"italic underline underline-offset-4\">design and build a Jeep</a> that can do anything, go anywhere, and turn heads doing it.</p>"
+    },
+    "seo": {
+        "title": "Texas Jeep Off-Road Parts & Installation",
+        "description": "There are no limits to what THOR Off-Road can do to make your Jeep Wrangler the perfect off-road performance vehicle you have always wanted."
+    },
+    "logo": {
+        "name": "Jeep",
+        "color": "text-[#485F2B]"
+    },
+    "images": {
+        "featured": {
+            "id": 229267,
+            "image": 1
+        }
+    }
+}

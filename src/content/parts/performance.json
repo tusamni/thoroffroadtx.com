@@ -1,0 +1,43 @@
+{
+    "title": "Performance",
+    "heading": "Power & Control",
+    "description": {
+        "short": "Enhance your off-road experience with more power, better gas mileage, and stronger stopping performance with proven engine, fuel delivery, exhaust, and brake upgrades.",
+        "long": "There is nothing more exhilarating than punching the gas and feeling and hearing that engine roar in response. THOR can enhance your off-road experience with more power, better gas mileage, and stronger stopping performance with proven engine, fuel delivery, exhaust, and brake upgrades."
+    },
+    "content": {
+        "sidebar": "<p>Performance upgrades can enhance your build to meet the needs of the vehicle.</p><p>Pair up a great sounding exhaust from <span class=\"font-medium\">Magnaflow</span> or <span class=\"font-medium\">Borla</span>, with an air intake kit from <span class=\"font-medium\">AFE Power</span> or <span class=\"font-medium\">K&N</span>. You'll get a boost in power and the sound to match.</p><p>Tuning options are available to add additional performance along side your bolt on parts. If you want to go even further, adding a supercharger from <span class=\"font-medium\">Whipple</span> or <span class=\"font-medium\">Magnusen</span>, will increase horsepower and drivability.</p><p>With all that extra power, don't forget you'll need to stop! Big brake kits will bring the vehicle back to balance after adding your performance modifications.</p><p>Heading out further than expected? Additional fuel tanks or replacement diesel tanks for HD trucks are a must have. We offer the best in-class fuel tanks from <span class=\"font-medium\">Titan Fuel Tanks</span>, <span class=\"font-medium\">Transferflow</span> and <span class=\"font-medium\">ATTA</span>. Fuel and distance issues will be a thing of the past.</p><p>With all the performance options available, THOR Off-Road can get you where you want to go, in a hurry and make all the stops!!!</p>",
+        "parts": [
+            {
+                "title": "Cold Air Intakes",
+                "description": "Cheap and easy upgrade. Changing the air intake will add felt power and improved response to your ride."
+            },
+            {
+                "title": "Exhaust",
+                "description": "An upgraded exhaust will make your rig sound better, look great and increase performance, worth every penny!"
+            },
+            {
+                "title": "Gear Ratio Upgrades",
+                "description": "If you're running larger tires, THOR can make a gear ratio change to recover any lost power and torque."
+            },
+            {
+                "title": "Superchargers",
+                "description": "THOR can find and install an application specific, bolt on supercharger kit for you. Big gains and instant power!"
+            },
+            {
+                "title": "Tuners & Programming",
+                "description": "Looking for plug and play upgrades? THOR sells and installs tuners for your vehicle to increase power, towing and mileage."
+            }
+        ]
+    },
+    "seo": {
+        "title": "Texas Engine and Brake Performance Upgrades",
+        "description": "THOR Off-Road can get your RAM, Chevy and Ford truck to pull harder, stop faster and conserve fuel with top parts from AFE Power, FASS, Flo-Pro Exhaust and Nitro Gears."
+    },
+    "images": {
+        "featured": {
+            "id": 300038,
+            "image": 9
+        }
+    }
+}

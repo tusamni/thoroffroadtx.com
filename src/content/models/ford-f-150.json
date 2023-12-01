@@ -1,0 +1,15 @@
+{
+    "slug": "f-150",
+    "title": "F-150",
+    "description": {
+        "short": "As the best-selling vehicle in America, there is no limit to what you can do with the Ford F-150.",
+        "long": "<p>As the best-selling vehicle in America, there is no limit to what you can do with the Ford F-150.</p><p>THOR can help you build a comfortable daily commuter or work truck, a trusty ranch or farm vehicle, or even a supercharged off-road racer capable of absorbing anything you throw at it.</p>"
+    },
+    "make": "ford",
+    "images": {
+        "featured": {
+            "id": 125830,
+            "image": 5
+        }
+    }
+}

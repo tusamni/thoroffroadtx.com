@@ -1,0 +1,15 @@
+{
+    "slug": "land-cruiser",
+    "title": "Land Cruiser",
+    "description": {
+        "short": "As the king of off-road adventuring, the Toyota Land Cruiser has conquered every environment on the planet.",
+        "long": "<p>As the king of off-road adventuring, the Toyota Land Cruiser has conquered every environment on the planet.</p><p>THOR can outfit your Land Cruiser to do anything, go anywhere and get you home safely.</p>"
+    },
+    "make": "toyota",
+    "images": {
+        "featured": {
+            "id": 223455,
+            "image": 2
+        }
+    }
+}

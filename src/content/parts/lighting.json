@@ -1,0 +1,59 @@
+{
+    "title": "Lighting",
+    "heading": "Cut Through the Night",
+    "description": {
+        "short": "See where you are going and get there safely with clear and bright high-performance LED headlight upgrades, pocket lights, light bars, and specialty off-road lighting solutions.",
+        "long": "<p>Off-road adventures and trips to the ranch or hunting lease will have you working well into the night so being able to see where you are going and get there safely is crucial.</p><p>THOR can outfit your truck or adventure vehicle with clear and bright high-performance LED headlight upgrades, pocket lights, light bars, and specialty off-road lighting solutions.</p>"
+    },
+    "content": {
+        "sidebar": "<p>You just added suspension, wheels, tires and bumpers to your rig. What's left? Lights!</p><p>Light bars are a great start for supplemental lighting, however, they aren't the only way to light the way ahead.</p><p>There are many reasons you may want to upgrade your lighting. Maybe you need increased visibility at night or are trying to navigate remote areas on a ranch. No matter the reason, THOR Off-Road has you covered.</p><p>We can sell and install fog lights, squadron lights, back up lights and linkable sets for your custom build. With companies like <span class=\"font-medium\">Baja Design</span>, <span class=\"font-medium\">Heretic Studios</span>, <span class=\"font-medium\">Rigid</span> and <span class=\"font-medium\">Plash Lighting</span> we can get you the auxiliary lighting you need, at a price you'll love, <a href=\"/contact\" class=\"underline font-medium\">let's get started</a>!</p>",
+        "parts": [
+            {
+                "title": "Amber Lighting",
+                "description": "Driving through fog or dust makes visibility difficult. Amber lighting will provides better visibility and safety."
+            },
+            {
+                "title": "Cube Lighting",
+                "description": "Square lighting is a popular solution for small spaces. We can add cube lighting to your bumpers, grilles and roof."
+            },
+            {
+                "title": "Laser Hybrid Lighting",
+                "description": "Laser lighting is a game-changer for night visibility up to 100 yards away. THOR sells and install hybrid laser lighting."
+            },
+            {
+                "title": "LED Light Bars",
+                "description": "Tried and true, light bars have set the bar for off-road lighting. We sell and install light bars from 4\" - 50\" long."
+            },
+            {
+                "title": "Linkable XL Sets",
+                "description": "Linkable lighting uses multiple pod lights to create a high-performing light bar. Our sets can be mounted anywhere!"
+            },
+            {
+                "title": "Reverse Lighting Kits",
+                "description": "Rear lighting is extremely useful for hauling and camping in tight spaces. We sell and install many reverse options."
+            },
+            {
+                "title": "Rooftop Mounted Lighting",
+                "description": "Elevation is key for effective lighting. Our roof-mounted light kids will provide incredibly bright light when needed."
+            },
+            {
+                "title": "Surround Lighting",
+                "description": "Light up the entire area around your rig. We can build a system of lights to expose the area around your vehicle."
+            },
+            {
+                "title": "Work Scene Lighting",
+                "description": "If you're building a work truck, THOR can design and install scene lighting to make sure the job gets done."
+            }
+        ]
+    },
+    "seo": {
+        "title": "Texas Off-Road Lighting Parts & Accessories",
+        "description": "High-performance LED headlight, pocket lights, light bars, & specialty lighting products from THOR Off-Road & top brands like ARB, Baja Designs and Rock Slide."
+    },
+    "images": {
+        "featured": {
+            "id": 266375,
+            "image": 2
+        }
+    }
+}

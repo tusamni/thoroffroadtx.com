@@ -1,0 +1,32 @@
+---
+interface Props {
+    identifier: string;
+    title: string;
+}
+const { identifier, title } = Astro.props;
+
+import { Icon } from "astro-icon";
+---
+
+<div class="relative" x-data={`{ ${identifier} : false }`} x-on:mouseenter={`${identifier} = true`} x-on:mouseover.away={`${identifier} = false`} x-on:click={`${identifier} = true`} x-cloak>
+    <a href={`/${identifier}`} class="nav-item">
+        <span>{title}</span>
+
+        <Icon name="hero/ChevronDown" class="w-4 h-4 transition" x-bind:class={`${identifier} ? 'rotate-180' : ''`} />
+    </a>
+
+    <div
+        x-cloak
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-100"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0"
+        x-show=`${identifier}`
+        class="md:w-[30em] lg:w-[35em] absolute bottom-auto z-10 pt-4">
+        <div class="grid grid-cols-2 bg-neutral-100 shadow-2xl">
+            <slot />
+        </div>
+    </div>
+</div>

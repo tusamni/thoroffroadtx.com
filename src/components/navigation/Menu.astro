@@ -5,15 +5,14 @@ import { Icon } from "astro-icon";
 import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
-import MenuMobile from "@/components/navigation/mobile/MenuMobile";
-import HoverMenu from "@/components/navigation/desktop/HoverMenu";
-import MenuItem from "@/components/navigation/desktop/MenuItem";
+import MenuMobile from "@/components/navigation/menus/Mobile";
+import HoverMenu from "@/components/navigation/menus/Hover";
 
 // data
-const allParts = await getCollection("parts");
-const allBrands = await getCollection("brands");
 const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
+const allParts = await getCollection("parts");
+const allBrands = await getCollection("brands");
 ---
 
 <header class="bg-black bg-opacity-40 relative">
@@ -30,7 +29,37 @@ const allModels = await getCollection("models");
                 <!--- desktop menu -->
                 <div class="hidden md:flex items-center md:gap-6 lg:gap-8">
                     <HoverMenu title="Vehicles" identifier="vehicles">
-                        {allMakes.map((m) => <MenuItem base="vehicles" item={m} items={allModels} />)}
+                        {
+                            allMakes.map((m) => (
+                                <a href={`/vehicles/${m.id}`} title={m.data.title} class="menu-item">
+                                    {m.data.title}
+
+                                    <ul class="comma-list">
+                                        {allModels.map((i) => {
+                                            if (i.data.make.id.includes(m.id)) {
+                                                return <li>{i.data.title}</li>;
+                                            }
+                                        })}
+                                    </ul>
+                                </a>
+                            ))
+                        }
+                    </HoverMenu>
+
+                    <HoverMenu title="Parts" identifier="parts">
+                        {
+                            allParts.map((p) => (
+                                <a href={`/parts/${p.id}`} title={p.data.title} class="menu-item">
+                                    {p.data.title}
+
+                                    <ul class="comma-list">
+                                        {p.data.content.parts.map((i) => (
+                                            <li>{i.title}</li>
+                                        ))}
+                                    </ul>
+                                </a>
+                            ))
+                        }
                     </HoverMenu>
 
                     <a href="/builds" title={`${Business.nameShort} Builds`} class="nav-item">Builds</a>
@@ -39,7 +68,7 @@ const allModels = await getCollection("models");
             </div>
 
             <!-- contact buttons -->
-            <div class="flex flex-1 items-center justify-end gap-x-3 lg:gap-x-6">
+            <div class="flex flex-1 items-center justify-end">
                 <div>
                     <a href={`tel:${Business.phone}`} class="button button-ghost">
                         <div class="button-text text-xs sm:text-sm lg:text-base">
@@ -73,3 +102,12 @@ const allModels = await getCollection("models");
         </nav>
     </Container>
 </header>
+
+<style type="text/css">
+    .menu-item {
+        @apply flex flex-col gap-x-4 text-base font-semibold leading-6 text-black hover:bg-white px-6 py-4 transition;
+    }
+    .comma-list {
+        @apply line-clamp-1 text-xs text-black font-normal;
+    }
+</style>

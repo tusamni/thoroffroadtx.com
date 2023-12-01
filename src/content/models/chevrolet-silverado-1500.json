@@ -1,0 +1,15 @@
+{
+    "slug": "silverado-1500",
+    "title": "Silverado 1500",
+    "description": {
+        "short": "Chevy Silverado 1500 series trucks have been leading the way for generations.",
+        "long": "<p>Chevy Silverado 1500 series trucks have been leading the way for generations.</p><p>With tried-and-true power plants and great styling, THOR can help you build an exceptional off-road truck that can still get you to work on time.</p>"
+    },
+    "make": "chevrolet",
+    "images": {
+        "featured": {
+            "id": 355738,
+            "image": 6
+        }
+    }
+}

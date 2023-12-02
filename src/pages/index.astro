@@ -17,8 +17,6 @@ import { Business } from "@/config";
 // content
 import { getCollection } from "astro:content";
 const allTestimonials = await getCollection("testimonials");
-allTestimonials.slice(0, 1);
-
 const allBrands = await getCollection("brands", ({ data }) => {
     return data.featured == true;
 });
@@ -29,7 +27,7 @@ const allBrands = await getCollection("brands", ({ data }) => {
 
     <div class="-mt-48">
         <Container>
-            <div class="grid grid-cols-2 gap-8">
+            <div class="grid grid-cols-2 gap-4">
                 <div class="bg-black text-white p-8 space-y-8">
                     <h1>The Best Off-Road Truck Outfitter in Texas!</h1>
                     <p>THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
@@ -55,7 +53,7 @@ const allBrands = await getCollection("brands", ({ data }) => {
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-8">
+                <div class="grid grid-cols-2 gap-4">
                     <Testimonial content={allTestimonials} />
                     <Testimonial content={allTestimonials} />
 

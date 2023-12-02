@@ -4,6 +4,16 @@
 @import url("navigation.css");
 @import url("typography.css");
 
+html {
+    font-size: 14px
+}
+
+@media (min-width:420px) {
+    html {
+        font-size: 18px
+    }
+}
+
 /* alpine.js hide on load */
 [x-cloak] {
     display: none !important;

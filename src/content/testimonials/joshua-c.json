@@ -1,5 +1,8 @@
 {
     "name": "Joshua H.",
     "highlight": "They Were on Time (Actually Early!)",
-    "testimonial": "<p>Seamless transaction when I went to THOR Off-Road.</p><p>Their personnel were extremely knowledgable and very friendly. They were on time (actually early) on the delivery and there were zero issues noted with the truck.</p>"
+    "testimonial": "<p>Seamless transaction when I went to THOR Off-Road.</p><p>Their personnel were extremely knowledgable and very friendly. They were on time (actually early) on the delivery and there were zero issues noted with the truck.</p>",
+    "featured": {
+        "homepage": false
+    }
 }

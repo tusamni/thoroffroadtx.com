@@ -126,10 +126,16 @@ const buildCollection = defineCollection({
 });
 
 const testimonialsCollection = defineCollection({
+    type: "data",
     schema: z.object({
         name: z.string(),
         highlight: z.string(),
         testimonial: z.string(),
+        featured: z
+            .object({
+                homepage: z.boolean().default(false),
+            })
+            .optional(),
     }),
 });
 

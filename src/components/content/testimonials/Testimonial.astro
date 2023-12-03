@@ -8,23 +8,21 @@ interface Props {
 const { content } = Astro.props;
 ---
 
-<div class="bg-white p-8 rounded-sm border">
-    <div class="col-span-3 md:col-span-2 space-y-6">
-        <div>
-            <div class="text-lg text-stone-800 line-clamp-1 italic font-semibold" set:html={`"${content.highlight}"`} />
-        </div>
+<div class="bg-white p-6">
+    <div class="space-y-4 flex flex-col justify-between">
+        <div class="text-sm line-clamp-1 italic font-medium" set:html={`"${content.data.highlight}"`} />
 
-        <blockquote class="text-stone-800 leading-6 text-sm space-y-4" set:html={content.testimonial} />
+        <blockquote class="text-xs space-y-4" set:html={content.data.testimonial} />
 
-        <div class="mt-6 flex justify-between">
-            <div class="font-semibold text-stone-900">{content.name}</div>
+        <div class="flex justify-between items-center">
+            <div class="text-sm font-medium">{content.data.name}</div>
 
-            <div class="flex gap-1 justify-center">
-                <Icon name="hero/StarFill" class="text-yellow-400 h-5" />
-                <Icon name="hero/StarFill" class="text-yellow-400 h-5" />
-                <Icon name="hero/StarFill" class="text-yellow-400 h-5" />
-                <Icon name="hero/StarFill" class="text-yellow-400 h-5" />
-                <Icon name="hero/StarFill" class="text-yellow-400 h-5" />
+            <div class="flex justify-center">
+                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
+                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
+                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
+                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
+                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
             </div>
         </div>
     </div>

@@ -2,7 +2,9 @@
 import Layout from "@/layouts/Layout";
 
 // imports
+import { Business } from "@/config";
 import { getBuildImage } from "@/functions/Image";
+import { getCollection } from "astro:content";
 import { Icon } from "astro-icon";
 
 import Container from "@/components/Container";
@@ -11,14 +13,12 @@ import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
 import Testimonial from "@/components/content/testimonials/Testimonial";
 
-// config
-import { Business } from "@/config";
-
 // content
-import { getCollection } from "astro:content";
-const allTestimonials = await getCollection("testimonials");
 const allBrands = await getCollection("brands", ({ data }) => {
     return data.featured == true;
+});
+const allTestimonials = await getCollection("testimonials", ({ data }) => {
+    return data.featured.homepage == true;
 });
 ---
 
@@ -54,15 +54,15 @@ const allBrands = await getCollection("brands", ({ data }) => {
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
-                    <Testimonial content={allTestimonials} />
-                    <Testimonial content={allTestimonials} />
+                    <Testimonial content={allTestimonials[0]} />
+                    <Testimonial content={allTestimonials[1]} />
 
                     <div class="col-span-2">
-                        <Testimonial content={allTestimonials} />
+                        <Testimonial content={allTestimonials[2]} />
                     </div>
 
-                    <Testimonial content={allTestimonials} />
-                    <Testimonial content={allTestimonials} />
+                    <Testimonial content={allTestimonials[3]} />
+                    <Testimonial content={allTestimonials[4]} />
                 </div>
             </div>
 
@@ -102,15 +102,6 @@ const allBrands = await getCollection("brands", ({ data }) => {
                             </div>
                         </div>
                     </Gallery>
-                </Container>
-            </Section>
-
-            <Section>
-                <Container>
-                    <div class="space-y-16">
-                        <h2 class="lg:text-center">We're building our <br /> customer's dream vehicles.</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">{allTestimonials.map((t) => <Testimonial content={t.data} />).slice(0, 6)}</div>
-                    </div>
                 </Container>
             </Section>
         </Container>

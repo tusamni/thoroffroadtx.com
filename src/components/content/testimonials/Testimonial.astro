@@ -4,15 +4,16 @@ import { Icon } from "astro-icon";
 
 interface Props {
     content: any;
+    lines: string;
 }
-const { content } = Astro.props;
+const { content, lines = "" } = Astro.props;
 ---
 
 <div class="bg-white p-6">
     <div class="space-y-4 flex flex-col justify-between">
         <div class="text-sm line-clamp-1 italic font-medium" set:html={`"${content.data.highlight}"`} />
 
-        <blockquote class="text-xs space-y-4" set:html={content.data.testimonial} />
+        <blockquote class:list={["text-xs space-y-4", lines]} set:html={content.data.testimonial} />
 
         <div class="flex justify-between items-center">
             <div class="text-sm font-medium">{content.data.name}</div>

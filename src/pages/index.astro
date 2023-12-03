@@ -54,15 +54,15 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
-                    <Testimonial content={allTestimonials[0]} />
-                    <Testimonial content={allTestimonials[1]} />
+                    <Testimonial content={allTestimonials[2]} lines="line-clamp-6" />
+                    <Testimonial content={allTestimonials[1]} lines="line-clamp-6" />
 
                     <div class="col-span-2">
-                        <Testimonial content={allTestimonials[2]} />
+                        <Testimonial content={allTestimonials[0]} />
                     </div>
 
-                    <Testimonial content={allTestimonials[3]} />
-                    <Testimonial content={allTestimonials[4]} />
+                    <Testimonial content={allTestimonials[3]} lines="line-clamp-6" />
+                    <Testimonial content={allTestimonials[4]} lines="line-clamp-6" />
                 </div>
             </div>
 

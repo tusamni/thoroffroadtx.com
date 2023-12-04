@@ -1,5 +1,5 @@
 .nav-item {
-    @apply inline-flex items-center gap-x-2 font-semibold leading-6 text-stone-50 lg:text-lg;
+    @apply inline-flex items-center gap-x-2 font-semibold leading-6 lg:text-lg;
 }
 .nav-item svg { 
     @apply md:hidden lg:block;

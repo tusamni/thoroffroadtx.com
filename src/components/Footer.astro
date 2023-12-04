@@ -2,10 +2,10 @@
 // imports
 import { Icon } from "astro-icon";
 import { Social, Business } from "@/config";
-import { getBuildImage } from "@/functions/Image"
+import { getBuildImage } from "@/functions/Image";
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
-import Picture from "@/components/images/Picture"
+import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
 
 // content
@@ -37,15 +37,6 @@ const allMakes = await getCollection("makes");
                 </iframe>
             </div>
 
-            <div class="grid grid-cols-3 lg:grid-cols-6">
-                <Picture src={getBuildImage(108058, 3)} buildId={108058} class="object-cover w-full h-[10em] sm:h-[10em] md:h-[15em]" sizes="20vw" />
-                <Picture src={getBuildImage(108058, 3)} buildId={108058} class="object-cover w-full h-[10em] sm:h-[10em] md:h-[15em]" sizes="20vw" />
-                <Picture src={getBuildImage(108058, 3)} buildId={108058} class="object-cover w-full h-[10em] sm:h-[10em] md:h-[15em]" sizes="20vw" />
-                <Picture src={getBuildImage(108058, 3)} buildId={108058} class="object-cover w-full h-[10em] sm:h-[10em] md:h-[15em]" sizes="20vw" />
-                <Picture src={getBuildImage(108058, 3)} buildId={108058} class="object-cover w-full h-[10em] sm:h-[10em] md:h-[15em]" sizes="20vw" />
-                <Picture src={getBuildImage(108058, 3)} buildId={108058} class="object-cover w-full h-[10em] sm:h-[10em] md:h-[15em]" sizes="20vw" />
-            </div>
-
             <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-12 lg:gap-20">
                 <div class="space-y-12 max-w-lg">
                     <Icon name="logo" class="h-14 w-auto text-white" />
@@ -62,7 +53,7 @@ const allMakes = await getCollection("makes");
                     </ul>
 
                     <div class="flex flex-col md:flex-row md:gap-6 text-white font-light lg:justify-end">
-                        <a href={`tel:${Business.phone}`} class="text-base">{Business.phone}</a>
+                        <a href={`tel:${Business.phone.number}`} class="text-base">{Business.phone.formatted}</a>
                         <a href={`mailto:${Business.email}`} class="text-base">{Business.email}</a>
                     </div>
                 </div>
@@ -75,15 +66,3 @@ const allMakes = await getCollection("makes");
         </Section>
     </Container>
 </footer>
-
-<Section>
-    <Container>
-        
-    </Container>
-</Section>
-
-<div class="bg-gradient-to-r from-stone-800 to-stone-900 py-6">
-    <Container>
-        
-    </Container>
-</div>

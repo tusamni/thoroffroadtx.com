@@ -145,11 +145,11 @@ const allModels = await getCollection("models");
                         <div class="button-text">Contact Us</div>
                     </a>
 
-                    <a href={`tel:${Business.phone}`} class="button button-primary">
+                    <a href={`tel:${Business.phone.number}`} class="button button-primary">
                         <div class="button-icon">
                             <Icon name="hero/PhoneFill" class="h-2/5 w-auto" />
                         </div>
-                        <div class="button-text">{Business.phone}</div>
+                        <div class="button-text">{Business.phone.formatted}</div>
                     </a>
                 </div>
             </div>

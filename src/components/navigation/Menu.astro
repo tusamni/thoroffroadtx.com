@@ -12,10 +12,9 @@ import HoverMenu from "@/components/navigation/menus/Hover";
 const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 const allParts = await getCollection("parts");
-const allBrands = await getCollection("brands");
 ---
 
-<header class="bg-black bg-opacity-40 relative">
+<header class="bg-neutral-50 bg-opacity-95 backdrop-filter backdrop-blur-md border-b border-neutral-400 sticky top-0 shadow-2xl z-20">
     <Container>
         <nav class="flex items-center py-4 md:py-6 justify-between gap-x-4 lg:gap-x-6" aria-label="Global">
             <div class="flex gap-x-8 items-center">
@@ -23,7 +22,7 @@ const allBrands = await getCollection("brands");
                 <a href="/" title={Business.nameLong}>
                     <span class="sr-only">{Business.nameLong}</span>
 
-                    <Icon name="logo" class="h-8 lg:h-10 w-auto text-white" />
+                    <Icon name="logo" class="h-8 lg:h-10 w-auto" />
                 </a>
 
                 <!--- desktop menu -->
@@ -34,7 +33,7 @@ const allBrands = await getCollection("brands");
                                 <a href={`/vehicles/${m.id}`} title={m.data.title} class="menu-item">
                                     {m.data.title}
 
-                                    <ul class="comma-list">
+                                    <ul class="comma-list !text-neutral-300">
                                         {allModels.map((i) => {
                                             if (i.data.make.id.includes(m.id)) {
                                                 return <li>{i.data.title}</li>;
@@ -52,7 +51,7 @@ const allBrands = await getCollection("brands");
                                 <a href={`/parts/${p.id}`} title={p.data.title} class="menu-item">
                                     {p.data.title}
 
-                                    <ul class="comma-list">
+                                    <ul class="comma-list !text-neutral-300">
                                         {p.data.content.parts.map((i) => (
                                             <li>{i.title}</li>
                                         ))}
@@ -68,21 +67,21 @@ const allBrands = await getCollection("brands");
             </div>
 
             <!-- contact buttons -->
-            <div class="flex flex-1 items-center justify-end">
+            <div class="flex flex-1 items-center justify-end gap-2 lg:gap-4">
                 <div>
-                    <a href={`tel:${Business.phone}`} class="button button-ghost">
-                        <div class="button-text text-xs sm:text-sm lg:text-base">
-                            <span class="hidden sm:block">{Business.phone}</span>
-                            <span class="sm:hidden">Call</span>
+                    <a href={`tel:${Business.phone.number}`} class="button button-ghost button-inverse">
+                        <div class="button-text text-xs sm:text-sm xl:text-base">
+                            <span class="hidden lg:block">{Business.phone.formatted}</span>
+                            <span class="lg:hidden">Call</span>
                         </div>
                     </a>
                 </div>
 
                 <div>
-                    <a href="/contact" class="button button-primary !border-0">
-                        <div class="button-text text-xs sm:text-sm lg:text-base">
-                            <span class="hidden sm:block">Contact Us</span>
-                            <span class="sm:hidden">Email</span>
+                    <a href="/contact" class="button button-secondary">
+                        <div class="button-text text-xs sm:text-sm xl:text-base">
+                            <span class="hidden lg:block">Contact Us</span>
+                            <span class="lg:hidden">Email</span>
                         </div>
                     </a>
                 </div>
@@ -93,7 +92,7 @@ const allBrands = await getCollection("brands");
                 <button type="button" class="inline-flex items-center justify-center cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
 
-                    <Icon name="hero/Hamburger" class="h-8 w-8 cursor-pointer text-white" />
+                    <Icon name="hero/Hamburger" class="h-8 w-8 cursor-pointer" />
                 </button>
 
                 <!-- mobile menu -->
@@ -105,9 +104,9 @@ const allBrands = await getCollection("brands");
 
 <style type="text/css">
     .menu-item {
-        @apply flex flex-col gap-x-4 text-base font-semibold leading-6 text-black hover:bg-white px-6 py-4 transition;
+        @apply flex flex-col gap-x-4 text-base font-semibold leading-6 text-white hover:bg-neutral-600 px-6 py-4 transition;
     }
     .comma-list {
-        @apply line-clamp-1 text-xs text-black font-normal;
+        @apply line-clamp-1 text-xs text-white font-normal;
     }
 </style>

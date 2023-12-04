@@ -40,6 +40,6 @@ import { Business } from "@/config";
             <div class="button-text">Let's Go!</div>
         </button>
 
-        <p class="text-white italic text-right">We're also available for a<br />chat at {Business.phone}</p>
+        <p class="text-white italic text-right">We're also available for a<br />chat at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a></p>
     </div>
 </form>

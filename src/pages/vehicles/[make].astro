@@ -41,7 +41,7 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
     <Picture src={getBuildImage(make.data.images.featured.id, make.data.images.featured.image)} buildId={make.data.images.featured.id} loading="eager" class="header-image object-[50%,50%]" />
 
     <div class="-mt-20">
-        <Container padding={false}>
+        <Container padding={true}>
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
                 <div class="bg-black col-span-2 lg:col-span-1 text-white px-4 sm:px-8 py-8 space-y-8">

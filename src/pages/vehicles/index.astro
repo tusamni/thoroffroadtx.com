@@ -42,7 +42,7 @@ const vehicleFill = {
     <Picture src="builds/215615/01.jpg" buildId={215615} alt="A modified RAM 3500 in Dripping Springs, TX" loading="eager" class="header-image object-[50%,50%]" />
 
     <div class="-mt-20 section section-bottom">
-        <Container padding={false}>
+        <Container padding={true}>
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
                 <div class="bg-black col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
@@ -69,7 +69,7 @@ const vehicleFill = {
                     </div>
                 </div>
 
-                <div class="bg-white px-4 py-6 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-8 col-span-2 lg:col-span-1">
+                <div class="bg-white px-4 py-8 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 col-span-2 lg:col-span-1">
                     {
                         process.map((f, i) => (
                             <div class="space-y-2">
@@ -106,12 +106,12 @@ const vehicleFill = {
                     </div>
                 </Gallery>
 
-                <div class="flex justify-between gap-4">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div class="button button-ghost button-inverse">
                         <div class="button-text">More Builds</div>
                     </div>
 
-                    <p class="italic text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted} to <br /> get started on your custom build.</a></p>
+                    <p class="italic text-center sm:text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted} to <br /> get started on your custom build.</a></p>
                 </div>
             </div>
 

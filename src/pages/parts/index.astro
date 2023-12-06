@@ -1,16 +1,17 @@
 ---
 import Layout from "@/layouts/Layout";
 
+import { Business } from "@/config";
+import { getBuildImage } from "@/functions/Image";
+
 import Container from "@/components/Container";
-import HeadingSplit from "@/components/content/headings/HeadingSplit";
+import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
 import Picture from "@/components/images/Picture";
-import Section from "@/components/Section";
 
 // content
 import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
-const allBrands = await getCollection("brands");
 
 const process = [
     {
@@ -28,78 +29,143 @@ const process = [
 ];
 const partsFill = {
     title: "Don't see what you're looking for?",
-    descriptionShort: "If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.",
+    description: {
+        short: "If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.",
+    },
+    icon: "hero/Envelope",
 };
 ---
 
 <Layout title="We're the Top Rated Carli Dealer and Installer in Texas">
-    <HeadingSplit>
-        <Picture src="builds/453172/03.jpg" alt="Installing truck modifications in Austin, TX" slot="background" loading="eager" sizes="(min-width: 1028px) 50vw, 100vw" />
+    <Picture src="builds/453172/02.jpg" buildId={453172} loading="eager" class="header-image object-[50%,50%]" />
 
-        <div class="space-y-8">
-            <h1>Off-Road Parts<br />and Installation</h1>
-            <p class="text-xl text-stone-700 leading-9 tracking-tight">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
-        </div>
-
-        <div class="mt-36 flex flex-col gap-8 w-3/4">
-            {
-                process.map((f, i) => (
-                    <div class="flex gap-3">
-                        <Icon icon="hero/CheckCircle" class="w-5 h-5 flex-none mt-1" />
-
-                        <div class="space-y-2">
-                            <h3 class="text-xl">{f.title}</h3>
-                            <div set:html={f.description} class="text-neutral-800 text-base leading-7" />
-                        </div>
+    <div class="-mt-20 section section-bottom">
+        <Container padding={true}>
+            <div class="grid grid-cols-2 sm:gap-4">
+                <!-- black content area -->
+                <div class="bg-black col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
+                    <div class="space-y-8">
+                        <h1>Off-Road Parts<br />and Installation</h1>
+                        <p class="text-base">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
                     </div>
-                ))
-            }
-        </div>
-    </HeadingSplit>
 
-    <Section>
-        <Container classes="space-y-16">
-            <h2>We're building our<br />customer's dream vehicles.</h2>
+                    <!-- cta buttons -->
+                    <div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
+                        <a href="/contact" class="button button-primary !w-full">
+                            <div class="button-icon">
+                                <Icon icon="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
+                            </div>
+                            <div class="button-text">Build Your Truck</div>
+                        </a>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-                {
-                    allParts.map((p) => (
-                        <a href={`/parts/${p.slug}`} class="flex flex-col justify-between border border-stone-300 rounded">
-                            <div class="h-full flex flex-col justify-between p-8 relative gap-8">
-                                <div class="space-y-5">
-                                    <h3 class="text-2xl font-semibold leading-6">{p.data.title}</h3>
-                                    <div class="leading-6 text-stone-500">{p.data.descriptionShort}</div>
+                        <a href="/builds" class="button button-ghost !w-full">
+                            <div class="button-icon">
+                                <Icon icon="hero/ArrowRightCircleFill" class="h-2/5 w-auto" />
+                            </div>
+                            <div class="button-text">See Our Builds</div>
+                        </a>
+                    </div>
+                </div>
 
-                                    <div class="space-y-1">
-                                        Brands
-                                        <ul class="comma-list text-xs text-stone-500 font-normal line-clamp-2">
-                                            {allBrands.map((b) => {
-                                                if (b.data.parts.includes(p.slug)) {
-                                                    return <li>{b.data.title}</li>;
-                                                }
-                                            })}
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="button button-primary">
-                                    <div class="button-text">See More</div>
+                <div class="bg-white px-4 py-8 sm:p-8 flex flex-col gap-8 col-span-2 lg:col-span-1">
+                    {
+                        process.map((f, i) => (
+                            <div class="flex flex-row gap-4">
+                                <div class="rounded-full w-5 h-5 p-3 text-xs flex justify-center items-center border border-black">{i + 1}</div>
+                                <div class="space-y-2">
+                                    <div class="text-base tracking-tight font-medium">{f.title}</div>
+                                    <div set:html={f.description} class="text-neutral-800 text-sm" />
                                 </div>
                             </div>
-                        </a>
-                    ))
-                }
-                <a href="/contact" class="p-8 flex flex-col justify-between rounded border border-stone-300 gap-8">
-                    <div class="space-y-4">
-                        <h3 class="text-2xl font-semibold leading-6">{partsFill.title}</h3>
-                        <div class="leading-6 text-stone-500">{partsFill.descriptionShort}</div>
-                    </div>
-
-                    <div class="button button-primary">
-                        <div class="button-text">Contact Us</div>
-                    </div>
-                </a>
+                        ))
+                    }
+                </div>
             </div>
         </Container>
-    </Section>
+    </div>
+
+    <div class="bg-neutral-50">
+        <Container>
+            <div class="section space-y-8">
+                <h2>Recent THOR Installs</h2>
+
+                <Gallery>
+                    <div class="sm:space-y-4">
+                        <div class="grid grid-cols-12 sm:gap-4">
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                        </div>
+                        <div class="grid grid-cols-12 sm:gap-4">
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                        </div>
+                    </div>
+                </Gallery>
+
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <a href="/builds" class="button button-ghost button-inverse">
+                        <div class="button-text">More Builds</div>
+                    </a>
+
+                    <p class="italic text-center sm:text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted} to <br /> get started on your custom build.</a></p>
+                </div>
+            </div>
+
+            <div class="section section-bottom grid md:grid-cols-5 gap-10">
+                <div class="md:col-span-2 flex flex-col justify-between gap-y-6">
+                    <div class="space-y-8">
+                        <h2>We're Building Our Customers' Dream Vehicles</h2>
+                        <p>THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
+                    </div>
+
+                    <div>
+                        <a href="/contact" class="button button-ghost button-inverse">
+                            <div class="button-text text-sm lg:text-base">Build Your Vehicle</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 grid grid-cols-2 gap-8">
+                    {
+                        allParts.map((p) => (
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
+                                    <Picture src={getBuildImage(p.data.images.featured.id, p.data.images.featured.image)} buildId={p.data.images.featured.id} loading="eager" class="w-full h-full object-cover" sizes="200px" />
+                                </div>
+
+                                <div class="flex flex-col gap-2 relative">
+                                    <div class="font-semibold">{p.data.title}</div>
+                                    <div class="text-xs line-clamp-4">{p.data.description.short}</div>
+
+                                    <a href={`/parts/${p.id}`} class="text-xs font-medium">
+                                        <span class="absolute inset-0" />
+                                        Read More &#x2192;
+                                    </a>
+                                </div>
+                            </div>
+                        ))
+                    }
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
+                            <Icon icon={partsFill.icon} class="text-neutral-900 absolute w-16 h-auto -rotate-12" />
+                        </div>
+
+                        <div class="flex flex-col gap-2 relative">
+                            <div class="font-semibold">{partsFill.title}</div>
+                            <div class="text-xs line-clamp-4">{partsFill.description.short}</div>
+
+                            <a href={`/contact`} class="text-xs font-medium">
+                                <span class="absolute inset-0"></span>
+                                 Contact Us &#x2192;{" "}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </div>
 </Layout>

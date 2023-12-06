@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout";
 
-import { closestNumber } from "@/functions/Misc";
 import { getBuildImage } from "@/functions/Image";
 
 import Container from "@/components/Container";
@@ -25,22 +24,13 @@ const { make } = Astro.props;
 const allModels = await getCollection("models", ({ data }) => {
     return data.make.id === make.id;
 });
-
 const makeTestimonial = await getEntry(make.data.testimonial);
-
-const allBuilds = (
-    await getCollection("builds", ({ data }) => {
-        return data.make.includes(make.data.title);
-    })
-).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const buildCount = closestNumber(allBuilds.length, 4, 8);
 ---
 
 <Layout title={make.data.seo.title} description={make.data.seo.description}>
     <Picture src={getBuildImage(make.data.images.featured.id, make.data.images.featured.image)} buildId={make.data.images.featured.id} loading="eager" class="header-image object-[50%,50%]" />
 
-    <div class="-mt-20">
+    <div class="-mt-20 section section-bottom">
         <Container padding={true}>
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
@@ -64,17 +54,6 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
                 </div>
             </div>
         </Container>
-
-        <div class="section section-top">
-            <Gallery>
-                <div class="grid grid-cols-12">
-                    <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                    <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                    <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                    <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                </div>
-            </Gallery>
-        </div>
     </div>
 
     <div class="bg-neutral-50 section">
@@ -100,88 +79,12 @@ const buildCount = closestNumber(allBuilds.length, 4, 8);
         </Container>
     </div>
 
-    <!--
-    <div class="bg-gradient-to-l from-orange-50 sm:to-orange-200 to-orange-100 py-4">
-        <Container>
-            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 sm:gap-6">
-                <div class="max-w-xl">
-                    <div class="font-medium">
-                        {`${featuredBuild.data.year} ${featuredBuild.data.make} ${featuredBuild.data.model}`}
-                    </div>
-
-                    <ul class="line-clamp-1 comma-list tracking-tight text-sm text-stone-700">
-                        {featuredBuild.data.parts.map((p) => <li>{p}</li>)}
-                    </ul>
-                </div>
-
-                <div><a href={`/builds/${featuredBuild.slug}`} class="text-sm sm:text-base hover:underline font-medium whitespace-nowrap">View Build</a></div>
-            </div>
-        </Container>
-    </div>
-
-    <Section small={true} classes="overflow-hidden relative">
-        <Container>
-            <Icon icon={`makes/${make.data.logo.name}Icon`} class:list={[make.data.logo.color, make.data.logo.position, "absolute w-72 lg:w-[25em] xl:w-[30em] h-auto right-0 xl:right-40 -rotate-12"]} />
-
-            <div class="relative pt-12">
-                <div class="space-y-20">
-                    <div class="space-y-6 max-w-4xl">
-                        <h1>We're <i>the</i>&nbsp;{make.data.title} Experts</h1>
-
-                        <div set:html={make.data.descriptionLong} class="text-xl text-stone-700 leading-9 tracking-tight" />
-                        <div set:html={make.data.descriptionPush} class="text-xl text-stone-700 leading-9 tracking-tight" />
-                    </div>
-                </div>
-            </div>
-        </Container>
-
-        <Container large={true}>
-            <Gallery>
-                <div class="grid grid-cols-2 md:grid-cols-4 h-[50vh] md:h-72 gap-4 md:gap-8">
-                    {
-                        make.data.featured.image.gallery.map((p) => (
-                            <div class="relative">
-                                <Picture src={getBuildImage(featuredBuild.data.id, p)} buildId={featuredBuild.data.id} class="w-full h-full object-cover absolute rounded" sizes="(min-height: 768px) 25vw, 50vw" />
-                            </div>
-                        ))
-                    }
-                </div>
-            </Gallery>
-        </Container>
-
-        <Container>
-            <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {
-                    allModels.map((m) => (
-                        <div class="group flex flex-col justify-between border border-stone-300 rounded bg-white">
-                            <div class="h-full p-8 flex flex-col gap-8 justify-between">
-                                <div class="space-y-5">
-                                    <h2 class="text-2xl font-semibold leading-6">{m.data.title}</h2>
-                                    <div class="leading-6 text-stone-500 space-y-8" set:html={m.data.descriptionLong} />
-                                </div>
-
-                                <button type="submit" class="button button-primary">
-                                    <div class="button-text">Build Your {m.data.title}</div>
-                                </button>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </Container>
-
-        {
-            allBuilds.length >= 3 && (
-                <Container>
-                    <div class="space-y-16">
-                        <h3 class="text-center">Recent {make.data.title} Builds</h3>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12">
-                            {allBuilds.map((b) => <BuildSnippet build={b} sizes="(min-width: 350px), (min-width: 768px) 500px, (min-width: 1024px) 600px, (min-width: 1280px) 300px, 100vw" pad={false} height="h-60" />).slice(0, buildCount)}
-                        </div>
-                    </div>
-                </Container>
-            )
-        }
-    </Section> -->
+    <Gallery>
+        <div class="grid grid-cols-12">
+            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+        </div>
+    </Gallery>
 </Layout>

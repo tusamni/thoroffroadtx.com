@@ -26,6 +26,7 @@ const makesCollection = defineCollection({
                 image: z.number(),
             }),
         }),
+        testimonial: reference("testimonials")
     }),
 });
 

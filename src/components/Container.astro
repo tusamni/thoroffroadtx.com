@@ -6,6 +6,6 @@ interface Props {
 const { classes, padding = true } = Astro.props;
 ---
 
-<div class:list={[`mx-auto max-w-screen-xl sm:px-6 md:px-8`, padding && `px-3`, classes]}>
+<div class:list={[`mx-auto max-w-screen-xl sm:px-6 md:px-8`, padding && `px-4`, classes]}>
     <slot />
 </div>

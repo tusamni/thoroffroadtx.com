@@ -1,6 +1,7 @@
 ---
-import { Icon } from "astro-icon";
 import { Business } from "@/config";
+
+import Icon from "@/components/Icon";
 ---
 
 <form id="form-contact" class="space-y-6" name="Contact Form" action="/contact/success" method="post" data-netlify="true" netlify-honeypot="state">
@@ -34,7 +35,7 @@ import { Business } from "@/config";
     <div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">
         <button type="submit" class="button button-secondary">
             <div class="button-icon">
-                <Icon name="hero/EnvelopeFill" class="h-2/5 w-auto" />
+                <Icon icon="hero/EnvelopeFill" class="h-2/5 w-auto" />
             </div>
 
             <div class="button-text">Let's Go!</div>

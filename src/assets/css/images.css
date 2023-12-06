@@ -1,3 +1,14 @@
 .header-image {
-    @apply w-full h-[70vh] object-cover;
+    @apply w-full h-[50vh] md:h-[70vh] max-h-[700px] object-cover;
+}
+
+/* bigger picture edits */
+.bp-cap {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    @apply text-sm line-clamp-2 rounded overflow-hidden p-0 border-transparent border-y-[1em] border-x-[1em];
+}
+
+.bp-img img {
+    @apply rounded;
 }

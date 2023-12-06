@@ -4,11 +4,11 @@ import Layout from "@/layouts/Layout";
 // imports
 import { getBuildImage } from "@/functions/Image";
 import { getMedia } from "@/functions/Image";
-import { Icon } from "astro-icon";
 import { timeAgo } from "@/functions/DateTime";
 
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
+import Icon from "@/components/Icon";
 import Picture from "@/components/images/Picture";
 import RelatedBuild from "@/components/builds/RelatedBuild";
 import Section from "@/components/Section";
@@ -65,11 +65,11 @@ const { Content } = await build.render();
                                         <p class="font-semibold text-2xl">Testimonial</p>
 
                                         <div class="flex items-center">
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
-                                            <Icon name="hero/StarFill" class="w-5 text-yellow-400" />
+                                            <Icon icon="hero/StarFill" class="w-5 text-yellow-400" />
+                                            <Icon icon="hero/StarFill" class="w-5 text-yellow-400" />
+                                            <Icon icon="hero/StarFill" class="w-5 text-yellow-400" />
+                                            <Icon icon="hero/StarFill" class="w-5 text-yellow-400" />
+                                            <Icon icon="hero/StarFill" class="w-5 text-yellow-400" />
                                         </div>
                                     </div>
 
@@ -88,7 +88,7 @@ const { Content } = await build.render();
                                         data-height={build.data.video.height}
                                         class="button button-primary video">
                                         <div class="button-icon">
-                                            <Icon name="hero/PlayCircle" class="h-6" />
+                                            <Icon icon="hero/PlayCircle" class="h-6" />
                                         </div>
                                         <div class="button-text">Watch the Build Video</div>
                                     </a>

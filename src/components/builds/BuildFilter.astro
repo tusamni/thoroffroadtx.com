@@ -1,6 +1,5 @@
 ---
-// imports
-import { Icon } from "astro-icon";
+import Icon from "@/components/Icon";
 
 // props
 interface Props {
@@ -23,7 +22,7 @@ if (Astro.params.make) {
 ---
 
 <form class="w-full flex flex-col md:flex-row gap-4 items-center">
-    <Icon name="hero/AdjustmentsHorizontal" class="hidden lg:block w-6" />
+    <Icon icon="hero/AdjustmentsHorizontal" class="hidden lg:block w-6" />
 
     <div class="w-full md:w-fit">
         <label for="filterParts" class="hidden">Filter by Parts</label>

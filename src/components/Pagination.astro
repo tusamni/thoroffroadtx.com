@@ -1,6 +1,5 @@
 ---
-// imports
-import { Icon } from "astro-icon";
+import Icon from "@/components/Icon";
 
 interface Props {
     page: object;
@@ -12,12 +11,12 @@ const { page } = Astro.props;
     {
         page.currentPage == 1 ? (
             <div class="w-full sm:w-fit flex items-center gap-2 text-sm text-stone-300">
-                <Icon name="hero/ChevronLeft" class="w-3 h-auto" />
+                <Icon icon="hero/ChevronLeft" class="w-3 h-auto" />
                 Previous
             </div>
         ) : (
             <a href={page.url.prev} class="w-full sm:w-fit flex items-center gap-2 text-sm">
-                <Icon name="hero/ChevronLeft" class="w-3 h-auto" />
+                <Icon icon="hero/ChevronLeft" class="w-3 h-auto" />
                 Previous
             </a>
         )
@@ -27,12 +26,12 @@ const { page } = Astro.props;
         page.currentPage == page.lastPage ? (
             <div class="w-full sm:w-fit flex items-center gap-2 text-sm text-stone-300">
                 Next
-                <Icon name="hero/ChevronRight" class="w-3 h-auto" />
+                <Icon icon="hero/ChevronRight" class="w-3 h-auto" />
             </div>
         ) : (
             <a href={page.url.next} class="w-full sm:w-fit flex items-center gap-2 text-sm">
                 Next
-                <Icon name="hero/ChevronRight" class="w-3 h-auto" />
+                <Icon icon="hero/ChevronRight" class="w-3 h-auto" />
             </a>
         )
     }

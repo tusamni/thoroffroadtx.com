@@ -1,0 +1,13 @@
+.section {
+    @apply py-16 sm:py-20 lg:py-28
+}
+.section.section-top {
+    @apply pt-16 sm:pt-20 lg:pt-28 pb-0
+}
+.section.section-bottom {
+    @apply pb-16 sm:pb-20 lg:pb-28 pt-0
+}
+
+.box-spacing {
+    @apply px-4 sm:px-8 py-8;
+}

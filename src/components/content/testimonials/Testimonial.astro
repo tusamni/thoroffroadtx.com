@@ -1,30 +1,27 @@
 ---
-// imports
-import { Icon } from "astro-icon";
+import Icon from "@/components/Icon";
 
 interface Props {
     content: any;
-    lines: string;
+    lines?: string;
 }
-const { content, lines = "" } = Astro.props;
+const { content, lines = "line-clamp-none" } = Astro.props;
 ---
 
-<div class="bg-white p-6">
-    <div class="space-y-4 flex flex-col justify-between">
-        <div class="text-sm line-clamp-1 italic font-medium" set:html={`"${content.data.highlight}"`} />
+<div class="space-y-4 flex flex-col justify-between">
+    <div class="text-sm line-clamp-1 italic font-medium" set:html={`"${content.data.highlight}"`} />
 
-        <blockquote class:list={["text-xs space-y-4", lines]} set:html={content.data.testimonial} />
+    <blockquote class:list={["text-xs space-y-4", lines]} set:html={content.data.testimonial} />
 
-        <div class="flex justify-between items-center">
-            <div class="text-sm font-medium">{content.data.name}</div>
+    <div class="flex justify-between items-center">
+        <div class="text-sm font-medium">{content.data.name}</div>
 
-            <div class="flex justify-center">
-                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
-                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
-                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
-                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
-                <Icon name="hero/StarFill" class="text-yellow-400 h-4" />
-            </div>
+        <div class="flex justify-center">
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
         </div>
     </div>
 </div>

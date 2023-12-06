@@ -1,11 +1,9 @@
 ---
 import Layout from "@/layouts/Layout";
 
-// imports
-import { Icon } from "astro-icon";
-
 import Container from "@/components/Container";
 import HeadingSplit from "@/components/content/headings/HeadingSplit";
+import Icon from "@/components/Icon";
 import Picture from "@/components/images/Picture";
 import Section from "@/components/Section";
 
@@ -47,7 +45,7 @@ const partsFill = {
             {
                 process.map((f, i) => (
                     <div class="flex gap-3">
-                        <Icon name="hero/CheckCircle" class="w-5 h-5 flex-none mt-1" />
+                        <Icon icon="hero/CheckCircle" class="w-5 h-5 flex-none mt-1" />
 
                         <div class="space-y-2">
                             <h3 class="text-xl">{f.title}</h3>

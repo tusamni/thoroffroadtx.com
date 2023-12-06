@@ -15,26 +15,32 @@
 }
 
 /* buttom themes */
+/* primary - white bg, black text */
 .button-primary {
     @apply text-black border border-black divide-black divide-x;
 }
-.button-primary .button-icon {
+.button-primary.button-inverse {
+    @apply text-white border-black divide-black;
+}
+.button-primary .button-icon, .button-primary .button-text {
     @apply bg-white;
 }
-.button-primary .button-text {
-    @apply bg-white;
+.button-primary.button-inverse .button-icon, .button-primary.button-inverse .button-text {
+    @apply bg-black;
 }
 
+/* secondary - amber bg, dark amber text */
 .button-secondary {
-    @apply divide-sky-300 divide-x border border-sky-500;
+    @apply divide-sky-500 divide-x bg-sky-600 hover:bg-sky-500;
 }
 .button-secondary .button-icon {
-    @apply bg-gradient-to-b from-sky-400 to-sky-500 text-stone-50;
+    @apply text-sky-50;
 }
 .button-secondary .button-text { 
-    @apply bg-gradient-to-b from-sky-400 to-sky-500 text-stone-50;
+    @apply text-sky-50
 }
 
+/* ghost - no bg, white or black text */
 .button-ghost {
     @apply border divide-x;
 }

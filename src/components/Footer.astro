@@ -1,23 +1,15 @@
 ---
 // imports
-import { Icon } from "astro-icon";
-import { Social, Business } from "@/config";
-import { getBuildImage } from "@/functions/Image";
+import { Business } from "@/config";
+
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
-import Picture from "@/components/images/Picture";
-import Section from "@/components/Section";
-
-// content
-import { getCollection } from "astro:content";
-
-const allParts = await getCollection("parts");
-const allMakes = await getCollection("makes");
+import Icon from "@/components/Icon";
 ---
 
 <footer class="bg-black">
     <Container>
-        <Section classes="space-y-20">
+        <div class="section space-y-20">
             <div class="grid lg:grid-cols-2 gap-20">
                 <div class="mx-auto max-w-screen-md lg:max-w-none space-y-8">
                     <h1 class="text-white">Let's start building your dream vehicle.</h1>
@@ -39,7 +31,7 @@ const allMakes = await getCollection("makes");
 
             <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-12 lg:gap-20">
                 <div class="space-y-12 max-w-lg">
-                    <Icon name="logo" class="h-14 w-auto text-white" />
+                    <Icon icon="logo" class="h-14 w-auto text-white" />
                     <p class="text-white text-md leading-7">Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.</p>
                 </div>
 
@@ -63,6 +55,6 @@ const allMakes = await getCollection("makes");
                 <p class="text-sm leading-5">&copy; {Business.nameLong}. All rights reserved.</p>
                 <a href={Business.mapUrl} class="text-sm leading-5 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</a>
             </div>
-        </Section>
+        </div>
     </Container>
 </footer>

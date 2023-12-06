@@ -1,13 +1,12 @@
 ---
 import Layout from "@/layouts/Layout";
 
-// imports
 import { getBuildImage } from "@/functions/Image";
 import { getCollection } from "astro:content";
-import { Icon } from "astro-icon";
 
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
+import Icon from "@/components/Icon";
 import Part from "@/components/content/snippets/Part";
 import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/content/testimonials/Testimonial";
@@ -27,9 +26,9 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
 
     <div class="-mt-20">
         <Container padding={false}>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
-                <div class="bg-black col-span-2 lg:col-span-1 text-white p-8 space-y-8">
+                <div class="bg-black col-span-2 lg:col-span-1 text-white px-4 sm:px-8 py-8 space-y-8">
                     <h1>The Best Off-Road Truck Outfitter in Texas!</h1>
                     <p class="text-base">THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
                     <p>
@@ -38,17 +37,17 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
                     </p>
 
                     <!-- cta buttons -->
-                    <div class="flex flex-col gap-4 sm:flex-row">
-                        <a href="/contact" class="button button-secondary">
+                    <div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
+                        <a href="/contact" class="button button-primary !w-full">
                             <div class="button-icon">
-                                <Icon name="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
+                                <Icon icon="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
                             </div>
                             <div class="button-text">Build Your Truck</div>
                         </a>
 
-                        <a href="/builds" class="button button-primary">
+                        <a href="/builds" class="button button-ghost !w-full">
                             <div class="button-icon">
-                                <Icon name="hero/ArrowRightCircleFill" class="h-2/5 w-auto" />
+                                <Icon icon="hero/ArrowRightCircleFill" class="h-2/5 w-auto" />
                             </div>
                             <div class="button-text">See Our Builds</div>
                         </a>
@@ -56,11 +55,11 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
                 </div>
 
                 <!-- testimonials -->
-                <div class="grid col-span-2 lg:col-span-1 sm:grid-cols-2 gap-4">
+                <div class="grid col-span-2 lg:col-span-1 grid-cols-1 sm:grid-cols-2 sm:gap-4 divide-y divide-neutral-300 sm:divide-y-0">
                     <Testimonial content={allTestimonials[2]} lines="line-clamp-5" />
                     <Testimonial content={allTestimonials[1]} lines="line-clamp-5" />
 
-                    <div class="col-span-2">
+                    <div class="sm:col-span-2">
                         <Testimonial content={allTestimonials[0]} />
                     </div>
 
@@ -69,12 +68,12 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
                 </div>
             </div>
 
-            <div class="mt-20 mx-auto grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10">
-                {allBrands.map((b) => <Icon name={`brands/${b.data.logo}`} alt={b.data.title} class="h-10 w-1/2 object-contain text-stone-900 place-self-center" />).slice(0, 12)}
+            <div class="section mx-auto grid grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-10">
+                {allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-10 w-1/2 object-contain text-stone-900 place-self-center" />).slice(0, 12)}
             </div>
         </Container>
 
-        <div class="bg-neutral-50 mt-20 py-20">
+        <div class="section bg-neutral-50">
             <Container>
                 <div class="grid md:grid-cols-2 gap-10">
                     <div class="flex flex-col justify-between gap-y-6">
@@ -84,7 +83,7 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
                         </div>
 
                         <div>
-                            <a href="/contact" class="button button-secondary">
+                            <a href="/contact" class="button button-ghost button-inverse">
                                 <div class="button-text text-sm lg:text-base">Build Your Vehicle</div>
                             </a>
                         </div>

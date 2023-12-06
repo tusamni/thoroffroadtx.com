@@ -1,13 +1,12 @@
 ---
 // imports
 import Container from "@/components/Container";
-import Section from "@/components/Section";
 ---
 
 <div class="relative">
     <slot name="background" />
 
-    <Section classes="relative">
+    <div class="section relative">
         <Container>
             <div class="bg-white max-w-3xl space-y-8 sm:p-14 rounded">
                 <slot name="heading" />
@@ -19,7 +18,7 @@ import Section from "@/components/Section";
                 <slot />
             </div>
         </Container>
-    </Section>
+    </div>
 </div>
 
 <style>

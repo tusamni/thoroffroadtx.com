@@ -1,10 +1,10 @@
 ---
 // imports
 import { Business } from "@/config";
-import { Icon } from "astro-icon";
 import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
+import Icon from "@/components/Icon";
 import MenuMobile from "@/components/navigation/menus/Mobile";
 import HoverMenu from "@/components/navigation/menus/Hover";
 
@@ -14,7 +14,7 @@ const allModels = await getCollection("models");
 const allParts = await getCollection("parts");
 ---
 
-<header class="bg-neutral-50 bg-opacity-95 backdrop-filter backdrop-blur-md border-b border-neutral-400 sticky top-0 shadow-2xl z-20">
+<header class="bg-neutral-50 border-b border-neutral-400 sticky top-0 shadow-2xl z-20">
     <Container>
         <nav class="flex items-center py-4 md:py-6 justify-between gap-x-4 lg:gap-x-6" aria-label="Global">
             <div class="flex gap-x-8 items-center">
@@ -22,7 +22,7 @@ const allParts = await getCollection("parts");
                 <a href="/" title={Business.nameLong}>
                     <span class="sr-only">{Business.nameLong}</span>
 
-                    <Icon name="logo" class="h-8 lg:h-10 w-auto" />
+                    <Icon icon="logo" class="h-8 lg:h-10 w-auto" />
                 </a>
 
                 <!--- desktop menu -->
@@ -78,7 +78,7 @@ const allParts = await getCollection("parts");
                 </div>
 
                 <div>
-                    <a href="/contact" class="button button-secondary">
+                    <a href="/contact" class="button button-primary button-inverse">
                         <div class="button-text text-xs sm:text-sm xl:text-base">
                             <span class="hidden lg:block">Contact Us</span>
                             <span class="lg:hidden">Email</span>
@@ -92,7 +92,7 @@ const allParts = await getCollection("parts");
                 <button type="button" class="inline-flex items-center justify-center cursor-pointer" x-on:click={`mobileMenu = true`}>
                     <span class="sr-only">Open main menu</span>
 
-                    <Icon name="hero/Hamburger" class="h-8 w-8 cursor-pointer" />
+                    <Icon icon="hero/Hamburger" class="h-8 w-8 cursor-pointer" />
                 </button>
 
                 <!-- mobile menu -->

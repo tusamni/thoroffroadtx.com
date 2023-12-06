@@ -24,11 +24,11 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
 <Layout>
     <Picture src="builds/662677/02.jpg" buildId={662677} loading="eager" class="header-image" />
 
-    <div class="-mt-20">
+    <div class="-mt-20 section section-bottom">
         <Container padding={false}>
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
-                <div class="bg-black col-span-2 lg:col-span-1 text-white px-4 sm:px-8 py-8 space-y-8">
+                <div class="box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8">
                     <h1>The Best Off-Road Truck Outfitter in Texas!</h1>
                     <p class="text-base">THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
                     <p>
@@ -56,59 +56,67 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
 
                 <!-- testimonials -->
                 <div class="grid col-span-2 lg:col-span-1 grid-cols-1 sm:grid-cols-2 sm:gap-4 divide-y divide-neutral-300 sm:divide-y-0">
-                    <Testimonial content={allTestimonials[2]} lines="line-clamp-5" />
-                    <Testimonial content={allTestimonials[1]} lines="line-clamp-5" />
+                    <div class="bg-white px-4 py-6 sm:p-6">
+                        <Testimonial content={allTestimonials[2]} lines="line-clamp-5" />
+                    </div>
+                    <div class="bg-white px-4 py-6 sm:p-6">
+                        <Testimonial content={allTestimonials[1]} lines="line-clamp-5" />
+                    </div>
 
-                    <div class="sm:col-span-2">
+                    <div class="sm:col-span-2 bg-white px-4 py-6 sm:p-6">
                         <Testimonial content={allTestimonials[0]} />
                     </div>
 
-                    <Testimonial content={allTestimonials[3]} lines="line-clamp-5" />
-                    <Testimonial content={allTestimonials[4]} lines="line-clamp-5" />
+                    <div class="bg-white px-4 py-6 sm:p-6">
+                        <Testimonial content={allTestimonials[3]} lines="line-clamp-5" />
+                    </div>
+                    <div class="bg-white px-4 py-6 sm:p-6">
+                        <Testimonial content={allTestimonials[4]} lines="line-clamp-5" />
+                    </div>
                 </div>
-            </div>
-
-            <div class="section mx-auto grid grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-10">
-                {allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-10 w-1/2 object-contain text-stone-900 place-self-center" />).slice(0, 12)}
             </div>
         </Container>
+    </div>
 
-        <div class="section bg-neutral-50">
-            <Container>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="flex flex-col justify-between gap-y-6">
-                        <div class="space-y-8">
-                            <h2>We Sell and Install the Best<br /> Off-Road Parts</h2>
-                            <p>THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
-                        </div>
+    <div class="bg-neutral-50">
+        <Container>
+            <div class="section grid grid-cols-3 lg:grid-cols-4 justify-between gap-8">
+                {allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 w-1/2 text-stone-900 place-self-center" />).slice(0, 12)}
+            </div>
 
-                        <div>
-                            <a href="/contact" class="button button-ghost button-inverse">
-                                <div class="button-text text-sm lg:text-base">Build Your Vehicle</div>
-                            </a>
-                        </div>
+            <div class="section section-bottom grid md:grid-cols-2 gap-10">
+                <div class="flex flex-col justify-between gap-y-6">
+                    <div class="space-y-8">
+                        <h2>We Sell and Install the Best<br /> Off-Road Parts</h2>
+                        <p>THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-8">
-                        {allParts.map((p) => <Part part={p} />)}
+                    <div>
+                        <a href="/contact" class="button button-ghost button-inverse">
+                            <div class="button-text text-sm lg:text-base">Build Your Vehicle</div>
+                        </a>
                     </div>
                 </div>
-            </Container>
-        </div>
 
-        <Gallery>
-            <div class="grid grid-cols-12 grid-rows-1 md:grid-rows-2 md:h-[1000px]">
-                <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="object-cover w-full h-full col-span-12 md:col-span-6 md:row-span-2 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                <Picture src={getBuildImage(298562, 13)} buildId={298562} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1" sizes="(min-width: 768px) 25vw, 100vw" />
-                <Picture src={getBuildImage(405642, 5)} buildId={405642} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1" sizes="(min-width: 768px) 25vw, 100vw" />
-                <Picture src={getBuildImage(266375, 2)} buildId={266375} class="object-cover w-full h-full col-span-12 md:row-start-2 md:col-start-7 md:col-span-6" sizes="(min-width: 768px) 50vw, 100vw" />
+                <div class="grid grid-cols-2 gap-8">
+                    {allParts.map((p) => <Part part={p} />)}
+                </div>
             </div>
-            <div class="grid grid-cols-12 grid-rows-1 md:grid-rows-2 md:h-[1000px]">
-                <Picture src={getBuildImage(108058, 3)} buildId={108058} class="object-cover w-full h-full col-span-12 md:col-span-6 md:row-span-2" sizes="(min-width: 768px) 50vw, 100vw" />
-                <Picture src={getBuildImage(276780, 6)} buildId={276780} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1" sizes="(min-width: 768px) 25vw, 100vw" />
-                <Picture src={getBuildImage(453172, 2)} buildId={453172} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1" sizes="(min-width: 768px) 25vw, 100vw" />
-                <Picture src={getBuildImage(791924, 7)} buildId={791924} class="object-cover w-full h-full col-span-12 md:row-start-2 md:col-start-7 md:col-span-6" sizes="(min-width: 768px) 50vw, 100vw" />
-            </div>
-        </Gallery>
+        </Container>
     </div>
+
+    <Gallery>
+        <div class="grid grid-cols-12 grid-rows-1 md:grid-rows-2 md:h-[1000px]">
+            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="object-cover w-full h-full col-span-12 md:col-span-6 md:row-span-2 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1" sizes="(min-width: 768px) 25vw, 100vw" />
+            <Picture src={getBuildImage(405642, 5)} buildId={405642} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1" sizes="(min-width: 768px) 25vw, 100vw" />
+            <Picture src={getBuildImage(266375, 2)} buildId={266375} class="object-cover w-full h-full col-span-12 md:row-start-2 md:col-start-7 md:col-span-6" sizes="(min-width: 768px) 50vw, 100vw" />
+        </div>
+        <div class="grid grid-cols-12 grid-rows-1 md:grid-rows-2 md:h-[1000px]">
+            <Picture src={getBuildImage(108058, 3)} buildId={108058} class="object-cover w-full h-full col-span-12 md:col-span-6 md:row-span-2" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(276780, 6)} buildId={276780} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1" sizes="(min-width: 768px) 25vw, 100vw" />
+            <Picture src={getBuildImage(453172, 2)} buildId={453172} class="object-cover w-full h-full col-span-12 md:col-span-3 md:row-span-1" sizes="(min-width: 768px) 25vw, 100vw" />
+            <Picture src={getBuildImage(791924, 7)} buildId={791924} class="object-cover w-full h-full col-span-12 md:row-start-2 md:col-start-7 md:col-span-6" sizes="(min-width: 768px) 50vw, 100vw" />
+        </div>
+    </Gallery>
 </Layout>

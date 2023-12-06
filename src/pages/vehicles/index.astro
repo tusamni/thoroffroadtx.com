@@ -1,18 +1,16 @@
 ---
 import Layout from "@/layouts/Layout";
 
+import { Business } from "@/config";
 import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
-import Make from "@/components/content/snippets/Make";
 import Picture from "@/components/images/Picture";
-import Section from "@/components/Section";
 
 // content
 const allMakes = await getCollection("makes");
-const allModels = await getCollection("models");
 const process = [
     {
         title: "We Know the Brands",
@@ -43,7 +41,7 @@ const vehicleFill = {
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
     <Picture src="builds/215615/01.jpg" buildId={215615} alt="A modified RAM 3500 in Dripping Springs, TX" loading="eager" class="header-image object-[50%,50%]" />
 
-    <div class="-mt-20">
+    <div class="-mt-20 section section-bottom">
         <Container padding={false}>
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
@@ -52,12 +50,30 @@ const vehicleFill = {
                         <h1>Texas' Top<br />Truck Outfitter</h1>
                         <p class="text-base">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
                     </div>
+
+                    <!-- cta buttons -->
+                    <div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
+                        <a href="/contact" class="button button-primary !w-full">
+                            <div class="button-icon">
+                                <Icon icon="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
+                            </div>
+                            <div class="button-text">Build Your Truck</div>
+                        </a>
+
+                        <a href="/builds" class="button button-ghost !w-full">
+                            <div class="button-icon">
+                                <Icon icon="hero/ArrowRightCircleFill" class="h-2/5 w-auto" />
+                            </div>
+                            <div class="button-text">See Our Builds</div>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="bg-white p-8 grid grid-cols-1 md:grid-cols-2 gap-6 col-span-2 lg:col-span-1">
+                <div class="bg-white px-4 py-6 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-8 col-span-2 lg:col-span-1">
                     {
                         process.map((f, i) => (
                             <div class="space-y-2">
+                                <div class="rounded-full w-5 h-5 p-3 text-xs flex justify-center items-center border border-black">{i + 1}</div>
                                 <div class="text-base tracking-tight font-medium">{f.title}</div>
                                 <div set:html={f.description} class="text-neutral-800 text-sm" />
                             </div>
@@ -65,10 +81,16 @@ const vehicleFill = {
                     }
                 </div>
             </div>
+        </Container>
+    </div>
 
-            <div class="mt-4 section section-bottom">
+    <div class="bg-neutral-50">
+        <Container>
+            <div class="section space-y-8">
+                <h2>Recent THOR Builds</h2>
+
                 <Gallery>
-                    <div class="space-y-4">
+                    <div class="sm:space-y-4">
                         <div class="grid grid-cols-12 sm:gap-4">
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
@@ -83,63 +105,67 @@ const vehicleFill = {
                         </div>
                     </div>
                 </Gallery>
-            </div>
-        </Container>
 
-        <div class="section bg-neutral-50">
-            <Container>
-                <div class="grid md:grid-cols-5 gap-10">
-                    <div class="col-span-2 flex flex-col justify-between gap-y-6">
-                        <div class="space-y-8">
-                            <h2>We're Building Our Customers' Dream Vehicles</h2>
-                            <p>THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
+                <div class="flex justify-between gap-4">
+                    <div class="button button-ghost button-inverse">
+                        <div class="button-text">More Builds</div>
+                    </div>
+
+                    <p class="italic text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted} to <br /> get started on your custom build.</a></p>
+                </div>
+            </div>
+
+            <div class="section section-bottom grid md:grid-cols-5 gap-10">
+                <div class="md:col-span-2 flex flex-col justify-between gap-y-6">
+                    <div class="space-y-8">
+                        <h2>We're Building Our Customers' Dream Vehicles</h2>
+                        <p>THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
+                    </div>
+
+                    <div>
+                        <a href="/contact" class="button button-ghost button-inverse">
+                            <div class="button-text text-sm lg:text-base">Build Your Vehicle</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 grid grid-cols-2 gap-8">
+                    {
+                        allMakes.map((m) => (
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
+                                    <Icon icon={`makes/${m.data.title}Icon`} class="text-neutral-900 absolute w-16 h-auto -rotate-12" />
+                                </div>
+
+                                <div class="flex flex-col gap-2 relative">
+                                    <div class="font-semibold">{m.data.title}</div>
+                                    <div class="text-xs line-clamp-4">{m.data.description.short}</div>
+
+                                    <a href={`/vehicles/${m.id}`} class="text-xs font-medium">
+                                        <span class="absolute inset-0" />
+                                        Read More &#x2192;{" "}
+                                    </a>
+                                </div>
+                            </div>
+                        ))
+                    }
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
+                            <Icon icon={vehicleFill.icon} class="text-neutral-900 absolute w-16 h-auto -rotate-12" />
                         </div>
 
-                        <div>
-                            <a href="/contact" class="button button-ghost button-inverse">
-                                <div class="button-text text-sm lg:text-base">Build Your Vehicle</div>
+                        <div class="flex flex-col gap-2 relative">
+                            <div class="font-semibold">{vehicleFill.title}</div>
+                            <div class="text-xs line-clamp-4">{vehicleFill.description.short}</div>
+
+                            <a href={`/contact`} class="text-xs font-medium">
+                                <span class="absolute inset-0"></span>
+                                 Contact Us &#x2192;{" "}
                             </a>
                         </div>
                     </div>
-
-                    <div class="col-span-3 grid grid-cols-2 gap-8">
-                        {
-                            allMakes.map((m) => (
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
-                                        <Icon icon={`makes/${m.data.title}Icon`} class="text-neutral-900 absolute w-16 h-auto -rotate-12" />
-                                    </div>
-
-                                    <div class="flex flex-col gap-2 relative">
-                                        <div class="font-semibold">{m.data.title}</div>
-                                        <div class="text-xs line-clamp-4">{m.data.description.short}</div>
-
-                                        <a href={`/vehicles/${m.id}`} class="text-xs font-medium">
-                                            <span class="absolute inset-0" />
-                                            Read More &#x2192;{" "}
-                                        </a>
-                                    </div>
-                                </div>
-                            ))
-                        }
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
-                                <Icon icon={vehicleFill.icon} class="text-neutral-900 absolute w-16 h-auto -rotate-12" />
-                            </div>
-
-                            <div class="flex flex-col gap-2 relative">
-                                <div class="font-semibold">{vehicleFill.title}</div>
-                                <div class="text-xs line-clamp-4">{vehicleFill.description.short}</div>
-
-                                <a href={`/contact`} class="text-xs font-medium">
-                                    <span class="absolute inset-0"></span>
-                                     Contact Us &#x2192;{" "}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </Container>
-        </div>
+            </div>
+        </Container>
     </div>
 </Layout>

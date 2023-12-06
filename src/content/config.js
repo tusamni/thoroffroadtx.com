@@ -1,90 +1,15 @@
 import { z, defineCollection, reference } from "astro:content";
 
-const makesCollection = defineCollection({
+const brandCollection = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
-        heading: z.string(),
-        description: z.object({
-            short: z.string(),
-            long: z.string(),
-            push: z.string(),
-        }),
-        models: z.array(reference("models")),
-        seo: z.object({
-            title: z.string(),
-            description: z.string(),
-        }),
-        logo: z.object({
-            name: z.string(),
-            text: z.string(),
-            bg: z.string(),
-        }),
-        images: z.object({
-            featured: z.object({
-                id: z.number(),
-                image: z.number(),
-            }),
-        }),
-        testimonial: reference("testimonials")
-    }),
-});
-
-const modelsCollection = defineCollection({
-    type: "data",
-    schema: z.object({
-        slug: z.string(),
-        title: z.string().or(z.number()),
-        description: z.object({
-            short: z.string(),
-            long: z.string(),
-        }),
-        make: reference("makes"),
-        images: z
-            .object({
-                featured: z
-                    .object({
-                        id: z.number(),
-                        image: z.number(),
-                    })
-                    .optional(),
-            })
-            .optional(),
-    }),
-});
-
-const partsCollection = defineCollection({
-    type: "data",
-    schema: z.object({
-        title: z.string(),
-        heading: z.string(),
-        description: z.object({
-            short: z.string(),
-            long: z.string(),
-        }),
-        content: z.object({
-            sidebar: z.string().optional(),
-            parts: z
-                .array(
-                    z.object({
-                        title: z.string(),
-                        description: z.string().nullable(),
-                    })
-                )
-                .optional(),
-        }),
-        seo: z.object({
-            title: z.string(),
-            description: z.string(),
-        }),
-        images: z.object({
-            featured: z.object({
-                id: z.number(),
-                image: z.number(),
-            }),
-        }),
-    }),
-});
+        description: z.string().optional(),
+        logo: z.string(),
+        featured: z.boolean().default(false),
+        parts: z.array(reference("parts")),
+    })
+})
 
 const buildCollection = defineCollection({
     schema: z.object({
@@ -126,7 +51,93 @@ const buildCollection = defineCollection({
     }),
 });
 
-const testimonialsCollection = defineCollection({
+const makeCollection = defineCollection({
+    type: "data",
+    schema: z.object({
+        title: z.string(),
+        heading: z.string(),
+        description: z.object({
+            short: z.string(),
+            long: z.string(),
+            push: z.string(),
+        }),
+        models: z.array(reference("models")),
+        seo: z.object({
+            title: z.string(),
+            description: z.string(),
+        }),
+        logo: z.object({
+            name: z.string(),
+            text: z.string(),
+            bg: z.string(),
+        }),
+        images: z.object({
+            featured: z.object({
+                id: z.number(),
+                image: z.number(),
+            }),
+        }),
+        testimonial: reference("testimonials")
+    }),
+});
+
+const modelCollection = defineCollection({
+    type: "data",
+    schema: z.object({
+        slug: z.string(),
+        title: z.string().or(z.number()),
+        description: z.object({
+            short: z.string(),
+            long: z.string(),
+        }),
+        make: reference("makes"),
+        images: z
+            .object({
+                featured: z
+                    .object({
+                        id: z.number(),
+                        image: z.number(),
+                    })
+                    .optional(),
+            })
+            .optional(),
+    }),
+});
+
+const partCollection = defineCollection({
+    type: "data",
+    schema: z.object({
+        title: z.string(),
+        heading: z.string(),
+        description: z.object({
+            short: z.string(),
+            long: z.string(),
+        }),
+        content: z.object({
+            sidebar: z.string().optional(),
+            parts: z
+                .array(
+                    z.object({
+                        title: z.string(),
+                        description: z.string().nullable(),
+                    })
+                )
+                .optional(),
+        }),
+        seo: z.object({
+            title: z.string(),
+            description: z.string(),
+        }),
+        images: z.object({
+            featured: z.object({
+                id: z.number(),
+                image: z.number(),
+            }),
+        }),
+    }),
+});
+
+const testimonialCollection = defineCollection({
     type: "data",
     schema: z.object({
         name: z.string(),
@@ -142,9 +153,10 @@ const testimonialsCollection = defineCollection({
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-    makes: makesCollection,
-    models: modelsCollection,
+    brands: brandCollection,
     builds: buildCollection,
-    parts: partsCollection,
-    testimonials: testimonialsCollection,
+    makes: makeCollection,
+    models: modelCollection,
+    parts: partCollection,
+    testimonials: testimonialCollection,
 };

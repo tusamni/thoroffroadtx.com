@@ -4,12 +4,11 @@ import Layout from "@/layouts/Layout";
 import { closestNumber } from "@/functions/Misc";
 import { getBuildImage } from "@/functions/Image";
 
-import BuildSnippet from "@/components/builds/BuildSnippet";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
+import Model from "@/components/content/snippets/Model";
 import Picture from "@/components/images/Picture";
-import Section from "@/components/Section";
 import Testimonial from "@/components/content/testimonials/Testimonial";
 
 // content
@@ -29,14 +28,13 @@ const allModels = await getCollection("models", ({ data }) => {
 
 const makeTestimonial = await getEntry(make.data.testimonial);
 
-// const allBuilds = (
-//     await getCollection("builds", ({ data }) => {
-//         return data.make.includes(make.data.title);
-//     })
-// ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-// const featuredBuild = await getEntry("builds", make.data.featured.id);
+const allBuilds = (
+    await getCollection("builds", ({ data }) => {
+        return data.make.includes(make.data.title);
+    })
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// const buildCount = closestNumber(allBuilds.length, 4, 8);
+const buildCount = closestNumber(allBuilds.length, 4, 8);
 ---
 
 <Layout title={make.data.seo.title} description={make.data.seo.description}>
@@ -48,7 +46,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
                 <!-- black content area -->
                 <div class="bg-black col-span-2 lg:col-span-1 text-white px-4 sm:px-8 py-8 space-y-8">
                     <h1>{`We're the ${make.data.title} Experts!`}</h1>
-                    <div class="text-base space-y-4" set:html={make.data.description.long} />
+                    <div class="text-base space-y-4" set:html={make.data.description.short} />
 
                     <!-- cta buttons -->
                     <div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
@@ -56,56 +54,52 @@ const makeTestimonial = await getEntry(make.data.testimonial);
                             <div class="button-icon">
                                 <Icon icon="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
                             </div>
-                            <div class="button-text">Build Your Truck</div>
-                        </a>
-
-                        <a href="/builds" class="button button-ghost !w-full">
-                            <div class="button-icon">
-                                <Icon icon="hero/ArrowRightCircleFill" class="h-2/5 w-auto" />
-                            </div>
-                            <div class="button-text">See Our Builds</div>
+                            <div class="button-text">Build Your {make.data.title}</div>
                         </a>
                     </div>
                 </div>
 
-                <div class="grid col-span-2 lg:col-span-1 grid-cols-1 sm:grid-cols-2 sm:gap-4 items-center">
+                <div class="col-span-2 lg:col-span-1 flex justify-center px-4 py-6 sm:p-6 items-center bg-white">
                     <Testimonial content={makeTestimonial} />
                 </div>
             </div>
-
-            <div class="mt-4 section section-bottom">
-                <Gallery>
-                    <div class="grid grid-cols-12 gap-4">
-                        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                        <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                    </div>
-                </Gallery>
-            </div>
         </Container>
 
-        <div class="section bg-neutral-50">
-            <Container>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="flex flex-col justify-between gap-y-6">
-                        <div class="space-y-8">
-                            <h2>We Sell and Install the Best<br /> Off-Road Parts</h2>
-                            <p>THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
-                        </div>
-
-                        <div>
-                            <a href="/contact" class="button button-ghost button-inverse">
-                                <div class="button-text text-sm lg:text-base">Build Your Vehicle</div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-8"></div>
+        <div class="section section-top">
+            <Gallery>
+                <div class="grid grid-cols-12">
+                    <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                    <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                    <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                    <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                 </div>
-            </Container>
+            </Gallery>
         </div>
     </div>
+
+    <div class="bg-neutral-50 section">
+        <Container>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="flex flex-col justify-between gap-y-6">
+                    <div class="space-y-8">
+                        <h2>Let THOR Off-Road Build Your Dream {make.data.title}</h2>
+                        <div set:html={make.data.description.long} />
+                    </div>
+
+                    <div>
+                        <a href="/contact" class="button button-ghost button-inverse">
+                            <div class="button-text text-sm lg:text-base">Build Your {make.data.title}</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-8">
+                    {allModels.map((m) => <Model model={m} />)}
+                </div>
+            </div>
+        </Container>
+    </div>
+
     <!--
     <div class="bg-gradient-to-l from-orange-50 sm:to-orange-200 to-orange-100 py-4">
         <Container>

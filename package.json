@@ -19,13 +19,10 @@
         "@tailwindcss/typography": "^0.5.10",
         "@types/alpinejs": "^3.13.5",
         "alpinejs": "^3.13.3",
-        "astro": "4.0.1",
-        "astro-icon": "0.8.1",
+        "astro": "4.0.2",
         "bigger-picture": "^1.1.12",
         "node-html-parser": "^6.1.11",
         "probe-image-size": "^7.2.3",
-        "sass": "^1.69.5",
-        "tailwind": "^4.0.0",
-        "yaml": "^2.3.4"
+        "tailwind": "^4.0.0"
     }
 }

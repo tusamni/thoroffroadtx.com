@@ -35,6 +35,7 @@
         "description": "THOR Off-Road can get your RAM, Chevy and Ford truck to pull harder, stop faster and conserve fuel with top parts from AFE Power, FASS, Flo-Pro Exhaust and Nitro Gears."
     },
     "images": {
+        "icon": "Pistons",
         "featured": {
             "id": 300038,
             "image": 9

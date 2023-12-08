@@ -79,6 +79,7 @@
         "description": "Let THOR Off-Road help you maximize cargo capacity of your off-road vehicle with top brands like BedRug, CBI, Go Rhino, Icky Concepts, & Retrax Bed Covers."
     },
     "images": {
+        "icon": "Pickup",
         "featured": {
             "id": 298562,
             "image": 4

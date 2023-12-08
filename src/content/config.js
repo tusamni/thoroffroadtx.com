@@ -129,6 +129,7 @@ const partCollection = defineCollection({
             description: z.string(),
         }),
         images: z.object({
+            icon: z.string(),
             featured: z.object({
                 id: z.number(),
                 image: z.number(),

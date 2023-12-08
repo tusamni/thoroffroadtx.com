@@ -31,6 +31,7 @@
         "description": "THOR Off-Road vehicles put power to the ground with top wheel and tire brands like Fuel Offroad, Hostile, Innov8, Method, Nitto, Raceline Toyo and VenomRex."
     },
     "images": {
+        "icon": "Chassis",
         "featured": {
             "id": 782922,
             "image": 23

@@ -51,6 +51,7 @@
         "description": "Make your off-road vehicle tougher with THOR Off-Road & top body and bumper brands like Addictive Desert Designs, AMP Research, Bodyguard, & HammerHead Armor."
     },
     "images": {
+        "icon": "Door",
         "featured": {
             "id": 561954,
             "image": 1

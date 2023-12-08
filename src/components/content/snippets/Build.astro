@@ -1,0 +1,25 @@
+---
+import { getBuildImage } from "@/functions/Image";
+import Picture from "@/components/images/Picture";
+
+interface Props {
+    build: any;
+}
+const { build, ...attrs } = Astro.props;
+---
+
+<div class="grid grid-cols-6 relative gap-4">
+    <div class="col-span-2 border-4 border-neutral-900 relative">
+        <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} buildId={build.data.id} class="absolute w-full h-full object-cover" sizes="400px" />
+    </div>
+
+    <div class="col-span-4 flex flex-col gap-2 py-2">
+        <div class="font-semibold">{`${build.data.year} ${build.data.make} ${build.data.model}`}</div>
+        <div class="text-xs line-clamp-2">{build.data.summary}</div>
+
+        <a href={build.slug} class="text-xs font-medium">
+            <span class="absolute inset-0"></span>
+             See Build &#x2192;
+        </a>
+    </div>
+</div>

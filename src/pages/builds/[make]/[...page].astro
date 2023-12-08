@@ -16,10 +16,10 @@ export async function getStaticPaths({ paginate }) {
     const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
     return allMakes.flatMap((make) => {
-        const filteredBuilds = allBuilds.filter((build) => build.data.make.toLowerCase().includes(make.slug));
+        const filteredBuilds = allBuilds.filter((build) => build.data.make.toLowerCase().includes(make.id));
 
         return paginate(filteredBuilds, {
-            params: { make: make.slug },
+            params: { make: make.id },
             props: { make },
             pageSize: 8,
         });

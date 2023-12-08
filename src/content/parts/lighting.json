@@ -51,6 +51,7 @@
         "description": "High-performance LED headlight, pocket lights, light bars, & specialty lighting products from THOR Off-Road & top brands like ARB, Baja Designs and Rock Slide."
     },
     "images": {
+        "icon": "Lighting",
         "featured": {
             "id": 266375,
             "image": 2

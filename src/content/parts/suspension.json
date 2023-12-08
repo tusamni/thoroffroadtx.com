@@ -59,6 +59,7 @@
         "description": "THOR Off-Road is the only Carli Suspension stocking dealer in Texas and experts in top brands like Carli, AEV, BDS, Fox, Baja Kits, Dobinsons and Toytec."
     },
     "images": {
+        "icon": "Coilover",
         "featured": {
             "id": 662677,
             "image": 2

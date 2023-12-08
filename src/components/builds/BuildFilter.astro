@@ -21,16 +21,30 @@ if (Astro.params.make) {
 }
 ---
 
-<form class="w-full flex flex-col md:flex-row gap-4 items-center">
-    <Icon icon="hero/AdjustmentsHorizontal" class="hidden lg:block w-6" />
+<div class="flex flex-col w-full sm:flex-row gap-4 items-center">
+    <div class="button button-primary text-xs">
+        <div class="button-icon">
+            <Icon icon="hero/ChevronDown" class="h-3 w-auto" />
+        </div>
+        <div class="button-text">Filter by Parts</div>
+    </div>
 
+    <div class="button button-primary text-xs">
+        <div class="button-icon">
+            <Icon icon="hero/ChevronDown" class="h-3 w-auto" />
+        </div>
+        <div class="button-text">Filter by Vehicle</div>
+    </div>
+</div>
+
+<!-- <form class="w-full flex flex-col md:flex-row gap-4 items-center">
     <div class="w-full md:w-fit">
         <label for="filterParts" class="hidden">Filter by Parts</label>
-        <select name="filterParts" id="filterParts" class="filter">
+        <select name="filterParts" id="filterParts" class="filter rounded-sm text-xs border-neutral-300 border">
             <option value="">Filter by Parts</option>
             {
                 allParts.map((p) => (
-                    <option value={`builds/${p.slug}`} selected={Astro.params.part == p.slug && `selected`}>
+                    <option value={`builds/${p.slug}`} selected={Astro.params.part == p.id && `selected`}>
                         {p.data.title}
                     </option>
                 ))
@@ -40,11 +54,11 @@ if (Astro.params.make) {
 
     <div class="w-full md:w-fit">
         <label for="filterVehicle" class="hidden">Filter by Vehicle</label>
-        <select name="filterVehicle" id="filterVehicle" class="md:pr-8 filter">
+        <select name="filterVehicle" id="filterVehicle" class="md:pr-8 filter rounded-sm text-xs border-neutral-300 border">
             <option value="">Filter by Vehicle</option>
             {
                 allMakes.map((m) => (
-                    <option value={`builds/${m.slug}`} selected={Astro.params.make == m.slug && `selected`}>
+                    <option value={`builds/${m.slug}`} selected={Astro.params.make == m.id && `selected`}>
                         {m.data.title}
                     </option>
                 ))
@@ -69,8 +83,7 @@ if (Astro.params.make) {
             </div>
         )
     }
-</form>
-
+</form> -->
 <script>
     const filterControls = document.getElementsByClassName("filter");
 

@@ -7,6 +7,7 @@ import { getCollection } from "astro:content";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
+import Make from "@/components/content/snippets/Make";
 import Picture from "@/components/images/Picture";
 
 // content
@@ -30,11 +31,13 @@ const process = [
     },
 ];
 const vehicleFill = {
-    title: "We Do It All!",
-    description: {
-        short: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
+    data: {
+        title: "We Do It All!",
+        description: {
+            short: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
+        },
+        icon: "hero/Envelope",
     },
-    icon: "hero/Envelope",
 };
 ---
 
@@ -91,13 +94,13 @@ const vehicleFill = {
 
                 <Gallery>
                     <div class="sm:space-y-4">
-                        <div class="grid grid-cols-12 sm:gap-4">
+                        <div class="grid grid-cols-6 md:grid-cols-12 sm:gap-4">
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                         </div>
-                        <div class="grid grid-cols-12 sm:gap-4">
+                        <div class="grid grid-cols-6 md:grid-cols-12 sm:gap-4">
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
@@ -130,40 +133,8 @@ const vehicleFill = {
                 </div>
 
                 <div class="md:col-span-3 grid grid-cols-2 gap-8">
-                    {
-                        allMakes.map((m) => (
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
-                                    <Icon icon={`makes/${m.data.title}Icon`} class="text-neutral-900 absolute w-16 h-auto -rotate-12" />
-                                </div>
-
-                                <div class="flex flex-col gap-2 relative">
-                                    <div class="font-semibold">{m.data.title}</div>
-                                    <div class="text-xs line-clamp-4">{m.data.description.short}</div>
-
-                                    <a href={`/vehicles/${m.id}`} class="text-xs font-medium">
-                                        <span class="absolute inset-0" />
-                                        Read More &#x2192;{" "}
-                                    </a>
-                                </div>
-                            </div>
-                        ))
-                    }
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
-                            <Icon icon={vehicleFill.icon} class="text-neutral-900 absolute w-16 h-auto -rotate-12" />
-                        </div>
-
-                        <div class="flex flex-col gap-2 relative">
-                            <div class="font-semibold">{vehicleFill.title}</div>
-                            <div class="text-xs line-clamp-4">{vehicleFill.description.short}</div>
-
-                            <a href={`/contact`} class="text-xs font-medium">
-                                <span class="absolute inset-0"></span>
-                                 Contact Us &#x2192;{" "}
-                            </a>
-                        </div>
-                    </div>
+                    {allMakes.map((m) => <Make make={m} />)}
+                    <Make make={vehicleFill} url="/contact" />
                 </div>
             </div>
         </Container>

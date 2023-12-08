@@ -7,6 +7,7 @@ import { getBuildImage } from "@/functions/Image";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
+import Part from "@/components/content/snippets/Part";
 import Picture from "@/components/images/Picture";
 
 // content
@@ -37,7 +38,7 @@ const partsFill = {
 ---
 
 <Layout title="We're the Top Rated Carli Dealer and Installer in Texas">
-    <Picture src="builds/453172/02.jpg" buildId={453172} loading="eager" class="header-image object-[50%,50%]" />
+    <Picture src="shop/2022-03-09/shop-shoot_01.jpg" alt="Fox shocks waiting to be installed" loading="eager" class="header-image object-[50%,50%]" />
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>
@@ -91,13 +92,13 @@ const partsFill = {
 
                 <Gallery>
                     <div class="sm:space-y-4">
-                        <div class="grid grid-cols-12 sm:gap-4">
+                        <div class="grid grid-cols-6 md:grid-cols-12 sm:gap-4">
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                         </div>
-                        <div class="grid grid-cols-12 sm:gap-4">
+                        <div class="grid grid-cols-6 md:grid-cols-12 sm:gap-4">
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
                             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
@@ -130,25 +131,7 @@ const partsFill = {
                 </div>
 
                 <div class="md:col-span-3 grid grid-cols-2 gap-8">
-                    {
-                        allParts.map((p) => (
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
-                                    <Picture src={getBuildImage(p.data.images.featured.id, p.data.images.featured.image)} buildId={p.data.images.featured.id} loading="eager" class="w-full h-full object-cover" sizes="200px" />
-                                </div>
-
-                                <div class="flex flex-col gap-2 relative">
-                                    <div class="font-semibold">{p.data.title}</div>
-                                    <div class="text-xs line-clamp-4">{p.data.description.short}</div>
-
-                                    <a href={`/parts/${p.id}`} class="text-xs font-medium">
-                                        <span class="absolute inset-0" />
-                                        Read More &#x2192;
-                                    </a>
-                                </div>
-                            </div>
-                        ))
-                    }
+                    {allParts.map((p) => <Part part={p} />)}
                     <div class="flex gap-4">
                         <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
                             <Icon icon={partsFill.icon} class="text-neutral-900 absolute w-16 h-auto -rotate-12" />

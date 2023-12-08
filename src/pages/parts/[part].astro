@@ -4,12 +4,12 @@ import Layout from "@/layouts/Layout";
 // imports
 import { getBuildImage } from "@/functions/Image";
 
-import BuildSnippet from "@/components/builds/BuildSnippet";
+import Build from "@/components/content/snippets/Build";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
+import PartDetail from "@/components/content/snippets/PartDetail";
 import Picture from "@/components/images/Picture";
-import Section from "@/components/Section";
 
 // content
 import { getCollection, getEntry } from "astro:content";
@@ -56,11 +56,52 @@ const allBuilds = (
                     </div>
                 </div>
 
-                <div class="col-span-2 lg:col-span-1 flex justify-center px-4 py-6 sm:p-6 items-center bg-white"></div>
+                <div class="col-span-2 lg:col-span-1 space-y-8 box-spacing bg-white">
+                    <h3 class="h4">Recent {part.data.title} Builds</h3>
+                    {allBuilds.map((b) => <Build build={b} />).slice(0, 3)}
+                </div>
             </div>
 
-            <div class="section flex flex-wrap justify-center">
-                {allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} class="h-[20px] w-[200px] object-contain text-stone-900" />).slice(0, 12)}
+            <div class="section section-top flex flex-wrap gap-y-12 gap-x-20 justify-center items-center">
+                {allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} class="h-[50px] w-[80px] sm:w-[150px] object-contain place-self-center text-stone-900" />).slice(0, 12)}
+            </div>
+        </Container>
+    </div>
+
+    <Gallery>
+        <div class="grid grid-cols-6 md:grid-cols-12">
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+        </div>
+        <div class="grid grid-cols-6 md:grid-cols-12">
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+        </div>
+    </Gallery>
+
+    <div class="bg-neutral-50 section">
+        <Container>
+            <div class="grid md:grid-cols-5 gap-10">
+                <div class="col-span-2 flex flex-col justify-between gap-y-6">
+                    <div class="space-y-8">
+                        <h2>{part.data.title} Upgrade Options</h2>
+                        <div class="space-y-8" set:html={part.data.description.long} />
+                    </div>
+
+                    <div>
+                        <a href="/contact" class="button button-ghost button-inverse">
+                            <div class="button-text text-sm lg:text-base">Let's Talk!</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-span-3 grid grid-cols-3 gap-8">
+                    {part.data.content.parts.map((p) => <PartDetail part={p} />)}
+                </div>
             </div>
         </Container>
     </div>

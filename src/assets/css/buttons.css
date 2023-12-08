@@ -20,7 +20,7 @@
     @apply text-black border border-black divide-black divide-x;
 }
 .button-primary.button-inverse {
-    @apply text-white border-black divide-black;
+    @apply text-white border-black divide-neutral-700;
 }
 .button-primary .button-icon, .button-primary .button-text {
     @apply bg-white;

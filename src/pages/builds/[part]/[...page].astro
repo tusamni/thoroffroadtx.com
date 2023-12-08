@@ -16,10 +16,10 @@ export async function getStaticPaths({ paginate }) {
     const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
     return allParts.flatMap((part) => {
-        const filteredBuilds = allBuilds.filter((build) => build.data.categories.includes(part.slug));
+        const filteredBuilds = allBuilds.filter((build) => build.data.categories.includes(part.id));
 
         return paginate(filteredBuilds, {
-            params: { part: part.slug },
+            params: { part: part.id },
             props: { part },
             pageSize: 8,
         });

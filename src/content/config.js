@@ -13,6 +13,7 @@ const brandCollection = defineCollection({
 
 const buildCollection = defineCollection({
     schema: z.object({
+        draft: z.boolean().default(false),
         id: z.number(),
         date: z.date(),
         path: z.string(),

@@ -12,7 +12,11 @@ import Picture from "@/components/images/Picture";
 
 // content
 export async function getStaticPaths({ paginate }) {
-    const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+    const allBuilds = (
+        await getCollection("builds", ({ data }) => {
+            return data.draft == false;
+        })
+    ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
     return paginate(allBuilds, { pageSize: 12 });
 }

@@ -22,7 +22,11 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
 ---
 
 <Layout>
-    <Picture src="builds/662677/02.jpg" buildId={662677} loading="eager" class="header-image" />
+    <div class="grid grid-cols-3">
+        <Picture src={getBuildImage(692114, 5)} buildId={692114} loading="eager" class="w-full h-[25em] object-cover" />
+        <Picture src={getBuildImage(662677, 2)} buildId={662677} loading="eager" class="w-full h-[25em] object-cover" />
+        <Picture src={getBuildImage(266375, 1)} buildId={266375} loading="eager" class="w-full h-[25em] object-cover" />
+    </div>
 
     <div class="-mt-20">
         <Container padding={true}>

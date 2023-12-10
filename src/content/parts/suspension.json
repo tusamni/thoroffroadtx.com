@@ -60,9 +60,19 @@
     },
     "images": {
         "icon": "Coilover",
-        "featured": {
-            "id": 662677,
-            "image": 2
-        }
+        "featured": [
+            {
+                "id": 662677,
+                "image": 2
+            },
+            {
+                "id": 662677,
+                "image": 2
+            },
+            {
+                "id": 662677,
+                "image": 2
+            }
+        ]
     }
 }

@@ -44,9 +44,19 @@
     },
     "images": {
         "icon": "Wheel",
-        "featured": {
-            "id": 276780,
-            "image": 1
-        }
+        "featured": [
+            {
+                "id": 276780,
+                "image": 1
+            },
+            {
+                "id": 276780,
+                "image": 1
+            },
+            {
+                "id": 276780,
+                "image": 1
+            }
+        ]
     }
 }

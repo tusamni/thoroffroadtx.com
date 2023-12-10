@@ -36,9 +36,19 @@
     },
     "images": {
         "icon": "Tachometer",
-        "featured": {
-            "id": 782922,
-            "image": 24
-        }
+        "featured": [
+            {
+                "id": 782922,
+                "image": 24
+            },
+            {
+                "id": 782922,
+                "image": 24
+            },
+            {
+                "id": 782922,
+                "image": 24
+            }
+        ]
     }
 }

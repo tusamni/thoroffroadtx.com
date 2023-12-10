@@ -35,7 +35,9 @@ const allBuilds = (
 ---
 
 <Layout title={part.data.seo.title} description={part.data.seo.description}>
-    <Picture src={getBuildImage(part.data.images.featured.id, part.data.images.featured.image)} buildId={part.data.images.featured.id} loading="eager" class="header-image object-[50%,50%]" />
+    <div class="grid grid-cols-3">
+        {part.data.images.featured.map((i) => <Picture src={getBuildImage(i.id, i.image)} buildId={i.id} loading="eager" class="w-full h-[25em] object-cover" />)}
+    </div>
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>

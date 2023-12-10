@@ -27,7 +27,11 @@ const featuredBuild = await getEntry("builds", featuredBuildId);
 ---
 
 <Layout title="Texas High-Performance Off-Road Vehicle Builds" description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep">
-    <Picture src="builds/215615/01.jpg" buildId={215615} alt="A modified RAM 3500 in Dripping Springs, TX" loading="eager" class="header-image object-[50%,50%]" />
+    <div class="grid grid-cols-3">
+        <Picture src="shop/2022-12-05/shop-shoot_15.jpg" alt="" loading="eager" class="w-full h-[25em] object-cover" />
+        <Picture src="shop/2022-12-05/shop-shoot_14.jpg" loading="eager" class="w-full h-[25em] object-cover" />
+        <Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class="w-full h-[25em] object-cover" />
+    </div>
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>

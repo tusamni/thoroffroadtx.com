@@ -52,9 +52,19 @@
     },
     "images": {
         "icon": "Door",
-        "featured": {
-            "id": 561954,
-            "image": 1
-        }
+        "featured": [
+            {
+                "id": 561954,
+                "image": 1
+            },
+            {
+                "id": 561954,
+                "image": 1
+            },
+            {
+                "id": 561954,
+                "image": 1
+            }
+        ]
     }
 }

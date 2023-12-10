@@ -80,9 +80,19 @@
     },
     "images": {
         "icon": "Pickup",
-        "featured": {
-            "id": 298562,
-            "image": 4
-        }
+        "featured": [
+            {
+                "id": 298562,
+                "image": 4
+            },
+            {
+                "id": 298562,
+                "image": 4
+            },
+            {
+                "id": 298562,
+                "image": 4
+            }
+        ]
     }
 }

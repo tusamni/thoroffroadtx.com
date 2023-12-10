@@ -36,9 +36,19 @@
     },
     "images": {
         "icon": "Pistons",
-        "featured": {
-            "id": 300038,
-            "image": 9
-        }
+        "featured": [
+            {
+                "id": 300038,
+                "image": 9
+            },
+            {
+                "id": 300038,
+                "image": 9
+            },
+            {
+                "id": 300038,
+                "image": 9
+            }
+        ]
     }
 }

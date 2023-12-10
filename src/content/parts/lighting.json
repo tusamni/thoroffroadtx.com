@@ -52,9 +52,19 @@
     },
     "images": {
         "icon": "Lighting",
-        "featured": {
-            "id": 266375,
-            "image": 2
-        }
+        "featured": [
+            {
+                "id": 266375,
+                "image": 2
+            },
+            {
+                "id": 266375,
+                "image": 2
+            },
+            {
+                "id": 266375,
+                "image": 2
+            }
+        ]
     }
 }

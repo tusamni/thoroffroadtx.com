@@ -13,6 +13,9 @@ import Picture from "@/components/images/Picture";
 // content
 import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
+const allBrands = await getCollection("brands", ({ data }) => {
+    return data.featured == true;
+});
 
 const process = [
     {
@@ -81,6 +84,10 @@ const partsFill = {
                         ))
                     }
                 </div>
+            </div>
+
+            <div class="section section-top grid grid-cols-3 lg:grid-cols-4 justify-between gap-8">
+                {allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 w-1/2 text-stone-900 place-self-center" />).slice(0, 12)}
             </div>
         </Container>
     </div>

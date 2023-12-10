@@ -32,9 +32,19 @@
     },
     "images": {
         "icon": "Chassis",
-        "featured": {
-            "id": 782922,
-            "image": 23
-        }
+        "featured": [
+            {
+                "id": 782922,
+                "image": 23
+            },
+            {
+                "id": 782922,
+                "image": 23
+            },
+            {
+                "id": 782922,
+                "image": 23
+            }
+        ]
     }
 }

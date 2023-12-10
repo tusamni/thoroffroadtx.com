@@ -44,34 +44,21 @@ const featuredBuild = await getEntry("builds", featuredBuildId);
                     </div>
                 </div>
 
-                <div class="bg-white box-spacing col-span-2 md:col-span-1 flex justify-center items-center">
+                <div class="bg-white box-spacing col-span-2 md:col-span-1 flex">
                     <div class="space-y-4">
                         <div class="flex gap-2">
-                            <Icon icon="hero/ArrowRightCircleFill" class="w-7 h-auto -rotate-[135deg]" />
+                            <Icon icon="hero/AdjustmentsHorizontal" class="w-7 h-auto" />
                             <h3 class="h4">Featured Build</h3>
                         </div>
 
                         <div class="space-y-2">
-                            <div class="text-base font-medium tracking-tight">{`${featuredBuild.data.year} ${featuredBuild.data.make} ${featuredBuild.data.model}`}</div>
-                            <div class="text-xs line-clamp-2 md:line-clamp-4 text-neutral-600">{`${featuredBuild.data.summary}`}</div>
-
-                            <div><a href={featuredBuild.slug} class="text-xs font-medium">See Build &#x2192;</a></div>
+                            <BuildFilter />
                         </div>
                     </div>
                 </div>
             </div>
         </Container>
     </div>
-
-    <Container>
-        <div class="mb-8 flex justify-between">
-            <BuildFilter />
-
-            <div class="hidden md:block">
-                <Pagination page={page} />
-            </div>
-        </div>
-    </Container>
 
     <div class="bg-neutral-50 section">
         <Container>
@@ -81,6 +68,8 @@ const featuredBuild = await getEntry("builds", featuredBuildId);
                 </div>
 
                 <div class="mt-16 flex justify-between">
+                    <Pagination page={page} />
+
                     <div class="text-sm">
                         Page {page.currentPage} of {page.lastPage}
                     </div>

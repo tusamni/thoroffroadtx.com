@@ -41,7 +41,11 @@ const partsFill = {
 ---
 
 <Layout title="We're the Top Rated Carli Dealer and Installer in Texas">
-    <Picture src="shop/2022-03-09/shop-shoot_01.jpg" alt="Fox shocks waiting to be installed" loading="eager" class="header-image object-[50%,50%]" />
+    <div class="grid grid-cols-3">
+        <Picture src={getBuildImage(276780, 6)} buildId={276780} loading="eager" class="w-full h-[25em] object-cover" />
+        <Picture src="shop/2022-03-09/shop-shoot_01.jpg" alt="Fox shocks waiting to be installed" loading="eager" class="w-full h-[25em] object-cover" />
+        <Picture src={getBuildImage(791924, 7)} buildId={791924} loading="eager" class="w-full h-[25em] object-cover" />
+    </div>
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>

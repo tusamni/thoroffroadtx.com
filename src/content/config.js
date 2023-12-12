@@ -24,15 +24,15 @@ const buildCollection = defineCollection({
 
         // vehicle
         year: z.number(),
-        make: z.string(),
-        model: z.union([z.string(), z.number()]),
+        make: reference("makes"),
+        model: reference("models"),
         trim: z.union([z.string(), z.number()]).optional().nullable(),
         color: z.string().optional(),
         drive: z.enum(["4x4", "4x2", "AWD"]),
         parts: z.string().transform((part) => part.split(", ")),
 
         // details
-        testimonial: z.string().optional(),
+        testimonial: reference("testimonials").optional(),
         goals: z.string().optional(),
 
         // images

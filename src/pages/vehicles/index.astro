@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout";
 
 import { Business } from "@/config";
+import { getBuildImage } from "@/functions/Image";
 import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
@@ -42,7 +43,11 @@ const vehicleFill = {
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
-    <Picture src="builds/215615/01.jpg" buildId={215615} alt="A modified RAM 3500 in Dripping Springs, TX" loading="eager" class="header-image object-[50%,50%]" />
+    <div class="grid grid-cols-3">
+        <Picture src={getBuildImage(405642, 7)} buildId={692114} loading="eager" class="w-full h-[25em] object-cover" />
+        <Picture src={getBuildImage(223455, 1)} buildId={662677} loading="eager" class="w-full h-[25em] object-cover" />
+        <Picture src={getBuildImage(298562, 1)} buildId={266375} loading="eager" class="w-full h-[25em] object-cover" />
+    </div>
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>

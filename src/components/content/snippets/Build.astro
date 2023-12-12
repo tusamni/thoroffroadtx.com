@@ -9,7 +9,7 @@ const { build, ...attrs } = Astro.props;
 ---
 
 <div class="grid grid-cols-6 relative gap-4">
-    <div class="col-span-2 border-4 border-neutral-900 relative">
+    <div class="col-span-2 relative">
         <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} buildId={build.data.id} class="absolute w-full h-full object-cover" sizes="400px" />
     </div>
 

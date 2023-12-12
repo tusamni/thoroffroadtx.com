@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@astrojs/alpinejs": "0.3.1",
-        "@astrojs/mdx": "2.0.0",
+        "@astrojs/mdx": "2.0.1",
         "@astrojs/sitemap": "3.0.3",
         "@astrojs/tailwind": "^5.0.3",
         "@tailwindcss/container-queries": "^0.1.1",
@@ -19,7 +19,7 @@
         "@tailwindcss/typography": "^0.5.10",
         "@types/alpinejs": "^3.13.5",
         "alpinejs": "^3.13.3",
-        "astro": "4.0.3",
+        "astro": "4.0.4",
         "bigger-picture": "^1.1.12",
         "node-html-parser": "^6.1.11",
         "probe-image-size": "^7.2.3",

@@ -51,9 +51,16 @@ const allBuilds = (
                     <div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
                         <a href="/contact" class="button button-primary !w-full">
                             <div class="button-icon">
-                                <Icon icon="hero/WrenchScrewdriverFill" class="h-2/5 w-auto" />
+                                <Icon icon="hero/EnvelopeFill" class="h-2/5 w-auto" />
                             </div>
-                            <div class="button-text">Start Your Build!</div>
+                            <div class="button-text">Contact Us!</div>
+                        </a>
+
+                        <a href={`/builds/${part.data.title.toLowerCase()}`} class="button button-ghost !w-full">
+                            <div class="button-icon">
+                                <Icon icon="hero/ArrowRightCircleFill" class="h-2/5 w-auto" />
+                            </div>
+                            <div class="button-text">{part.data.title} Builds</div>
                         </a>
                     </div>
                 </div>
@@ -69,21 +76,6 @@ const allBuilds = (
             </div>
         </Container>
     </div>
-
-    <Gallery>
-        <div class="grid grid-cols-6 md:grid-cols-12">
-            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-        </div>
-        <div class="grid grid-cols-6 md:grid-cols-12">
-            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-        </div>
-    </Gallery>
 
     <div class="bg-neutral-50 section">
         <Container>
@@ -107,6 +99,21 @@ const allBuilds = (
             </div>
         </Container>
     </div>
+
+    <Gallery>
+        <div class="grid grid-cols-6 md:grid-cols-12">
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+        </div>
+        <div class="grid grid-cols-6 md:grid-cols-12">
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+            <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+        </div>
+    </Gallery>
 
     <!-- <Section>
         <Container large={false}>

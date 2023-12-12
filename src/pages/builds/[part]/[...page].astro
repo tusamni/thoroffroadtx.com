@@ -21,7 +21,7 @@ export async function getStaticPaths({ paginate }) {
         return paginate(filteredBuilds, {
             params: { part: part.id },
             props: { part },
-            pageSize: 8,
+            pageSize: 6,
         });
     });
 }

@@ -1,22 +1,20 @@
 {
     "date": "2021-10-11T00:00:00.000Z",
     "summary": "2021 Ford F-250 Lariat in Lithium Grey with BedSlide Retractable Bed, Fab Fours Front Bumper, 18\" Method 305HD Wheels, Carli King Pintop Suspension Kit, Baja Squadron Fog Lights, Baja Design 30\" Light Bar, 37\" 1250 R18 Nitto Ridge Grappler Tires",
-    "categories": "bed-roof, body-bumper, wheel-tire, suspension, lighting",
-    "related": [
-        "958424-2021-ford-f-250",
-        "276780-2019-ford-f-250",
-        "319374-2022-ford-f-250"
-    ],
-    "year": 2021,
-    "make": "ford",
-    "model": "ford-f-250",
-    "trim": "Lariat",
-    "color": "Lithium Grey",
-    "drive": "4x4",
-    "parts": "BedSlide Retractable Bed, Fab Fours Front Bumper, 18\" Method 305HD Wheels, Carli King Pintop Suspension Kit, Baja Squadron Fog Lights, Baja Design 30\" Light Bar, 37\" 1250 R18 Nitto Ridge Grappler Tires",
+    "categories": ["bed-roof", "body-bumper", "wheel-tire", "suspension", "lighting"],
+    "related": ["958424-2021-ford-f-250", "276780-2019-ford-f-250", "319374-2022-ford-f-250"],
+    "meta": {
+        "year": 2021,
+        "make": "ford",
+        "model": "ford-f-250",
+        "trim": "Lariat",
+        "color": "Lithium Grey",
+        "drive": "4x4",
+        "parts": "BedSlide Retractable Bed, Fab Fours Front Bumper, 18\" Method 305HD Wheels, Carli King Pintop Suspension Kit, Baja Squadron Fog Lights, Baja Design 30\" Light Bar, 37\" 1250 R18 Nitto Ridge Grappler Tires"
+    },
     "images": {
         "total": 7,
         "snippet": 1,
-        "banner": 1
+        "build": [1]
     }
 }

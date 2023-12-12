@@ -1,24 +1,21 @@
 {
     "date": "2022-12-15T00:00:00.000Z",
     "summary": "2022 RAM 2500 Laramie in Red with AEV Dual Sport 3\" Suspension Kit, AEV Front Modular Bumper, AEV High Mark Fenders, AEV Katla 17x9\" Wheels, 40\" Tires",
-    "categories": "suspension, wheel-tire, body-bumper",
-    "featured": true,
-    "related": [
-        "439715-2022-ram-2500",
-        "301483-2019-ram-2500",
-        "855592-2020-ram-2500"
-    ],
-    "year": 2022,
-    "make": "ram",
-    "model": "ram-2500",
-    "trim": "Laramie",
-    "color": "Red",
-    "drive": "4x4",
-    "parts": "AEV Dual Sport 3\" Suspension Kit, AEV Front Modular Bumper, AEV High Mark Fenders, AEV Katla 17x9\" Wheels, 40\" Tires",
-    "goals": "<p>The AEV Prospector XL is a Beast in a world of Beasts. The owner of this RAM 2500 searched high and low to find an AEV Prospector XL only to realize these trucks don't come cheap. He then searched for a dealer to build the truck he wanted and found us here at THOR Off-Road. Being an AEV Authorized Dealer we were able to source all the parts to build out his RAM 2500 to match the spec of the AEV he really wanted.</p><p>With the Dual Sport Suspension, High Mark Fenders, Bumper and 40\" tires, this truck is a sight. The intention was to get exactly what AEV intended but for a fraction of the cost. We see this truck roll through town all the time and it is quite the head turner.</p>",
+    "categories": ["suspension", "wheel-tire", "body-bumper"],
+    "related": ["439715-2022-ram-2500", "301483-2019-ram-2500", "855592-2020-ram-2500"],
+    "meta": {
+        "year": 2022,
+        "make": "ram",
+        "model": "ram-2500",
+        "trim": "Laramie",
+        "color": "Red",
+        "drive": "4x4",
+        "parts": "AEV Dual Sport 3\" Suspension Kit, AEV Front Modular Bumper, AEV High Mark Fenders, AEV Katla 17x9\" Wheels, 40\" Tires",
+        "goals": "<p>The AEV Prospector XL is a Beast in a world of Beasts. The owner of this RAM 2500 searched high and low to find an AEV Prospector XL only to realize these trucks don't come cheap. He then searched for a dealer to build the truck he wanted and found us here at THOR Off-Road. Being an AEV Authorized Dealer we were able to source all the parts to build out his RAM 2500 to match the spec of the AEV he really wanted.</p><p>With the Dual Sport Suspension, High Mark Fenders, Bumper and 40\" tires, this truck is a sight. The intention was to get exactly what AEV intended but for a fraction of the cost. We see this truck roll through town all the time and it is quite the head turner.</p>"
+    },
     "images": {
         "total": 9,
         "snippet": 1,
-        "banner": 8
+        "build": [1]
     }
 }

@@ -1,22 +1,20 @@
 {
     "date": "2022-03-31T00:00:00.000Z",
     "summary": "2022 GMC Sierra 2500 HD AT4 in White with 4\" Cognito Performance Suspension Kit, 18\" Method MR315 Wheels, 37\" 1250 R18 Nitto Ridge Grappler Tires, Ranch Hand Legend Front Bumper, Ranch Hand Legend Rear Bumper, Ranch Hand Wheel to Wheel Steps",
-    "categories": "suspension, wheel-tire, body-bumper",
-    "related": [
-        "951355-2020-gmc-sierra-2500-hd",
-        "108058-2022-gmc-sierra-2500-hd",
-        "152378-2023-gmc-sierra-1500"
-    ],
-    "year": 2022,
-    "make": "gmc",
-    "model": "gmc-sierra-2500-hd",
-    "trim": "AT4",
-    "color": "White",
-    "drive": "4x4",
-    "parts": "4\" Cognito Performance Suspension Kit, 18\" Method MR315 Wheels, 37\" 1250 R18 Nitto Ridge Grappler Tires, Ranch Hand Legend Front Bumper, Ranch Hand Legend Rear Bumper, Ranch Hand Wheel to Wheel Steps",
+    "categories": ["suspension", "wheel-tire", "body-bumper"],
+    "related": ["951355-2020-gmc-sierra-2500-hd", "108058-2022-gmc-sierra-2500-hd", "152378-2023-gmc-sierra-1500"],
+    "meta": {
+        "year": 2022,
+        "make": "gmc",
+        "model": "gmc-sierra-2500-hd",
+        "trim": "AT4",
+        "color": "White",
+        "drive": "4x4",
+        "parts": "4\" Cognito Performance Suspension Kit, 18\" Method MR315 Wheels, 37\" 1250 R18 Nitto Ridge Grappler Tires, Ranch Hand Legend Front Bumper, Ranch Hand Legend Rear Bumper, Ranch Hand Wheel to Wheel Steps"
+    },
     "images": {
         "total": 5,
         "snippet": 1,
-        "banner": 1
+        "build": [1]
     }
 }

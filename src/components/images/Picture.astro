@@ -2,31 +2,22 @@
 // imports
 import { getImage } from "astro:assets";
 import { imageConfig } from "@/config";
-import { getCollection } from "astro:content";
 
 import imageSize from "probe-image-size";
 
 // props
 interface Props {
     src: string;
-    buildId?: number;
+    caption?: string;
     alt?: string;
     loading?: string;
     sizes?: string;
     quality?: number;
 }
-const { src, buildId, alt, loading = "lazy", sizes = "100vw", quality = 85, ...attrs } = Astro.props;
+const { src, caption, loading = "lazy", sizes = "100vw", quality = 85, ...attrs } = Astro.props;
 
 // content
 const fullPath = `${imageConfig.cloudUrl}/images/${src}`;
-
-// get build data
-let build;
-if (buildId) {
-    build = await getCollection("builds", ({ data }) => {
-        return data.id == buildId;
-    });
-}
 
 // loop through all the necessary image widths
 const optimizedImages = [];
@@ -60,10 +51,9 @@ if (import.meta.env.PROD) {
     height={dimensions.height}
     loading={loading}
     sizes={sizes}
-    alt={buildId ? `${build[0].data.year} ${build[0].data.make} ${build[0].data.model} ${build[0].data.trim}` : alt}
     {...attrs}
     data-img={optimizedImages[0].src}
     data-width={dimensions.width}
     data-height={dimensions.height}
-    data-caption={buildId && `<span class="line-clamp-2 mb-4">${build[0].data.summary}</span> <a href="${build[0].slug}" class="font-semibold underline">View Build Details &gt;</a>`}
+    data-caption={caption}
 />

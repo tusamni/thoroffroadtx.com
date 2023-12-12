@@ -1,23 +1,20 @@
 {
-  "date": "2021-09-02T00:00:00.000Z",
-  "path": "125830-2021-ford-f-150",
-  "summary": "2021 Ford F-150 Lariat in Silver with 4\" BDS Lift Kit, FOX Shocks, AMP Steps, Baja Design Fog Lights, 20\" Raceline Wheels, Nitto Ridge Grappler 35\" 1250 R20 Tires",
-  "categories": "suspension, body-bumper, lighting, wheel-tire",
-  "related": [
-    "813261-2021-ford-f-150",
-    "229741-2021-ford-f-150",
-    "846320-2023-ford-f-150"
-  ],
-  "year": 2021,
-  "make": "ford",
-  "model": "ford-f-150",
-  "trim": "Lariat",
-  "color": "Silver",
-  "drive": "4x4",
-  "parts": "4\" BDS Lift Kit, FOX Shocks, AMP Steps, Baja Design Fog Lights, 20\" Raceline Wheels, Nitto Ridge Grappler 35\" 1250 R20 Tires",
-  "images": {
-    "total": 25,
-    "snippet": 23,
-    "banner": 23
-  }
+    "date": "2021-09-02T00:00:00.000Z",
+    "summary": "2021 Ford F-150 Lariat in Silver with 4\" BDS Lift Kit, FOX Shocks, AMP Steps, Baja Design Fog Lights, 20\" Raceline Wheels, Nitto Ridge Grappler 35\" 1250 R20 Tires",
+    "categories": ["suspension", "body-bumper", "lighting", "wheel-tire"],
+    "related": ["813261-2021-ford-f-150", "229741-2021-ford-f-150", "846320-2023-ford-f-150"],
+    "meta": {
+        "year": 2021,
+        "make": "ford",
+        "model": "ford-f-150",
+        "trim": "Lariat",
+        "color": "Silver",
+        "drive": "4x4",
+        "parts": "4\" BDS Lift Kit, FOX Shocks, AMP Steps, Baja Design Fog Lights, 20\" Raceline Wheels, Nitto Ridge Grappler 35\" 1250 R20 Tires"
+    },
+    "images": {
+        "total": 25,
+        "snippet": 23,
+        "build": [1]
+    }
 }

@@ -1,22 +1,20 @@
 {
     "date": "2021-10-11T00:00:00.000Z",
     "summary": "2021 Ford F-350 King Ranch in Black with Carli Backcountry Suspension Kit, FOX shocks, 18\" Method Wheels, 37\" 1250 R18 Nitto Ridge Grappler Tires, Warn Winch",
-    "categories": "suspension, wheel-tire, body-bumper",
-    "related": [
-        "751326-2022-ford-f-250",
-        "561954-2021-ford-f-250",
-        "714731-2022-ford-f-250"
-    ],
-    "year": 2021,
-    "make": "ford",
-    "model": "ford-f-350",
-    "trim": "King Ranch",
-    "color": "Black",
-    "drive": "4x4",
-    "parts": "Carli Backcountry Suspension Kit, FOX shocks, 18\" Method Wheels, 37\" 1250 R18 Nitto Ridge Grappler Tires, Warn Winch",
+    "categories": ["suspension", "wheel-tire", "body-bumper"],
+    "related": ["751326-2022-ford-f-250", "561954-2021-ford-f-250", "714731-2022-ford-f-250"],
+    "meta": {
+        "year": 2021,
+        "make": "ford",
+        "model": "ford-f-350",
+        "trim": "King Ranch",
+        "color": "Black",
+        "drive": "4x4",
+        "parts": "Carli Backcountry Suspension Kit, FOX shocks, 18\" Method Wheels, 37\" 1250 R18 Nitto Ridge Grappler Tires, Warn Winch"
+    },
     "images": {
         "total": 12,
         "snippet": 1,
-        "banner": 1
+        "build": [1]
     }
 }

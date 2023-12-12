@@ -28,7 +28,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 ---
 
 <Layout title={make.data.seo.title} description={make.data.seo.description}>
-    <Picture src={getBuildImage(make.data.images.featured.id, make.data.images.featured.image)} buildId={make.data.images.featured.id} loading="eager" class="header-image object-[50%,50%]" />
+    <Picture src={getBuildImage(make.data.images.featured.id, make.data.images.featured.image)} loading="eager" class="header-image object-[50%,50%]" />
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>

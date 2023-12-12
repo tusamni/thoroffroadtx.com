@@ -1,23 +1,21 @@
 {
     "date": "2022-05-03T00:00:00.000Z",
     "summary": "REQUIRED",
-    "categories": "REQUIRED",
-    "related": [
-        "325186-2017-ford-f-250",
-        "410515-2022-ford-f-250",
-        "427484-2022-ford-f-250"
-    ],
-    "year": 2015,
-    "make": "ford",
-    "model": "ford-f-250",
-    "trim": "Platinum",
-    "color": "White",
-    "drive": "4x4",
-    "parts": "REQUIRED",
+    "categories": ["suspension"],
+    "related": ["325186-2017-ford-f-250", "410515-2022-ford-f-250", "427484-2022-ford-f-250"],
+    "meta": {
+        "year": 2015,
+        "make": "ford",
+        "model": "ford-f-250",
+        "trim": "Platinum",
+        "color": "White",
+        "drive": "4x4",
+        "parts": "REQUIRED"
+    },
     "images": {
         "total": 19,
         "snippet": 1,
-        "banner": 2
+        "build": [1]
     },
     "video": {
         "filename": "video",

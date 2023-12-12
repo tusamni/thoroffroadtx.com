@@ -8,21 +8,21 @@ const brandCollection = defineCollection({
         logo: z.string(),
         featured: z.boolean().default(false),
         parts: z.array(reference("parts")),
-    })
-})
+    }),
+});
 
 const buildCollection = defineCollection({
     type: "data",
     schema: z.object({
-        date: z.date(),
+        date: z.string().pipe(z.coerce.date()),
         summary: z.string(),
-        categories: reference("parts"),
-        related: z.array(reference("builds")),
+        categories: z.array(reference("parts")),
+        related: z.array(reference("builds")).optional(),
         meta: z.object({
             year: z.number(),
             make: reference("makes"),
             model: reference("models"),
-            trim: z.string().optional(),
+            trim: z.string().nullable().optional(),
             color: z.string().optional(),
             drive: z.enum(["4x4", "4x2", "AWD"]),
             parts: z.string().transform((part) => part.split(", ")),
@@ -32,13 +32,15 @@ const buildCollection = defineCollection({
             snippet: z.number().default(1),
             build: z.array(z.number()),
         }),
-        video: z.object({
-            filename: z.string(),
-            width: z.number(),
-            height: z.number(),
-        }).optional(),
-    })
-})
+        video: z
+            .object({
+                filename: z.string(),
+                width: z.number(),
+                height: z.number(),
+            })
+            .optional(),
+    }),
+});
 
 const makeCollection = defineCollection({
     type: "data",
@@ -66,7 +68,7 @@ const makeCollection = defineCollection({
                 image: z.number(),
             }),
         }),
-        testimonial: reference("testimonials")
+        testimonial: reference("testimonials"),
     }),
 });
 

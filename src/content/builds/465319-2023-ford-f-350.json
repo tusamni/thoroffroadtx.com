@@ -1,22 +1,20 @@
 {
     "date": "2023-08-04T00:00:00.000Z",
     "summary": "2023 Ford F-350 Super Duty XLT in White with Ready Lift 2.5\" Leveling System, 18x9\" Method 305 Matte Black Wheels, 35\" 1250R18 Nitto Ridge Grappler Tires, Frontier Front Bumper, Air Lift LoadLifter 5000 Ultimate",
-    "categories": "wheel-tire, suspension, body-bumper",
-    "related": [
-        "782922-2022-ford-f-350",
-        "295031-2022-ford-f-350",
-        "662677-2022-ford-f-350"
-    ],
-    "year": 2023,
-    "make": "ford",
-    "model": "ford-f-350",
-    "trim": "XLT",
-    "color": "White",
-    "drive": "4x4",
-    "parts": "Ready Lift 2.5\" Leveling System, 18x9\" Method 305 Matte Black Wheels, 35\" 1250R18 Nitto Ridge Grappler Tires, Frontier Front Bumper, Air Lift LoadLifter 5000 Ultimate",
+    "categories": ["wheel-tire", "suspension", "body-bumper"],
+    "related": ["782922-2022-ford-f-350", "295031-2022-ford-f-350", "662677-2022-ford-f-350"],
+    "meta": {
+        "year": 2023,
+        "make": "ford",
+        "model": "ford-f-350",
+        "trim": "XLT",
+        "color": "White",
+        "drive": "4x4",
+        "parts": "Ready Lift 2.5\" Leveling System, 18x9\" Method 305 Matte Black Wheels, 35\" 1250R18 Nitto Ridge Grappler Tires, Frontier Front Bumper, Air Lift LoadLifter 5000 Ultimate"
+    },
     "images": {
         "total": 10,
         "snippet": 2,
-        "banner": 10
+        "build": [1]
     }
 }

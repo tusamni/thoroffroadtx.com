@@ -2,22 +2,20 @@
     "id": 648828,
     "date": "2023-06-05T00:00:00.000Z",
     "summary": "REQUIRED",
-    "categories": "REQUIRED",
-    "related": [
-        "846320-2023-ford-f-150",
-        "665125-2023-ford-f-150",
-        "813261-2021-ford-f-150"
-    ],
-    "year": 2020,
-    "make": "ford",
-    "model": "ford-f-150",
-    "trim": "Platinum",
-    "color": "White",
-    "drive": "4x4",
-    "parts": "REQUIRED",
+    "categories": ["suspension"],
+    "related": ["846320-2023-ford-f-150", "665125-2023-ford-f-150", "813261-2021-ford-f-150"],
+    "meta": {
+        "year": 2020,
+        "make": "ford",
+        "model": "ford-f-150",
+        "trim": "Platinum",
+        "color": "White",
+        "drive": "4x4",
+        "parts": "REQUIRED"
+    },
     "images": {
         "total": 5,
         "snippet": 1,
-        "banner": 3
+        "build": [1]
     }
 }

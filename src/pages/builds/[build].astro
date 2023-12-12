@@ -102,7 +102,11 @@ const model = await getEntry("models", build.data.model.id);
 
                     <Gallery>
                         <div class="grid grid-cols-2 gap-4">
-                            {Array.from(Array(build.data.images.total)).map((_, i) => <Picture src={getBuildImage(build.data.id, i + 1)} id={build.data.id} class="aspect-square w-full h-auto object-cover" sizes="25vw" />)}
+                            {
+                                Array.from(Array(build.data.images.total)).map((_, i) => (
+                                    <Picture src={getBuildImage(build.data.id, i + 1)} id={build.data.id} class:list={["aspect-square w-full h-auto object-cover", build.data.images.total % 2 !== 0 && i + 1 == build.data.images.total && `col-span-2`]} sizes="25vw" />
+                                ))
+                            }
                         </div>
                     </Gallery>
                 </div>

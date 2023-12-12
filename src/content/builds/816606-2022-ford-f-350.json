@@ -1,33 +1,22 @@
-
-date: 2022-04-09
-
-summary: 2022 Ford F-350 XLT in Silver with Carli 3" Pintop Suspension Kit,
-    Carli Fabricated Radius Arms, Carli Full Rear Spring Replacement, Carli
-    Torsion Sway Bar, Carli High Mount Steering Stabilizer, Carli Low Mount
-    Steering Stabilizer, CJC Firestone Air Bag System
-categories: suspension
-related:
-    - 295031-2022-ford-f-350
-    - 588100-2022-ford-f-350
-    - 397060-2021-ford-f-350
-
-year: 2022
-make: ford
-model: ford-f-350
-trim: XLT
-color: Silver
-drive: 4x4
-parts: Carli 3" Pintop Suspension Kit, Carli Fabricated Radius Arms, Carli Full
-    Rear Spring Replacement, Carli Torsion Sway Bar, Carli High Mount Steering
-    Stabilizer, Carli Low Mount Steering Stabilizer, CJC Firestone Air Bag System
-
-images:
-    total: 2
-    snippet: 1
-    banner: 1
-
-
-
-
-
-
+{
+    "date": "2022-04-09T00:00:00.000Z",
+    "summary": "2022 Ford F-350 XLT in Silver with Carli 3\" Pintop Suspension Kit, Carli Fabricated Radius Arms, Carli Full Rear Spring Replacement, Carli Torsion Sway Bar, Carli High Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, CJC Firestone Air Bag System",
+    "categories": "suspension",
+    "related": [
+        "295031-2022-ford-f-350",
+        "588100-2022-ford-f-350",
+        "397060-2021-ford-f-350"
+    ],
+    "year": 2022,
+    "make": "ford",
+    "model": "ford-f-350",
+    "trim": "XLT",
+    "color": "Silver",
+    "drive": "4x4",
+    "parts": "Carli 3\" Pintop Suspension Kit, Carli Fabricated Radius Arms, Carli Full Rear Spring Replacement, Carli Torsion Sway Bar, Carli High Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, CJC Firestone Air Bag System",
+    "images": {
+        "total": 2,
+        "snippet": 1,
+        "banner": 1
+    }
+}

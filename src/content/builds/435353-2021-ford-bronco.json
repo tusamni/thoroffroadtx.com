@@ -1,35 +1,27 @@
-
-date: 2022-04-11
-
-summary: 2021 Ford Bronco Outer Banks in Black with 2" Rough Country Suspension
-    Kit, 35" Toyo AT II Tires, 17" KMC Mesa wheels
-categories: suspension, wheel-tire
-related:
-    - 266375-2022-ford-bronco
-    - 929818-2021-ford-bronco
-    - 122366-2021-ford-bronco
-
-year: 2021
-make: ford
-model: ford-bronco
-trim: Outer Banks
-color: Black
-drive: 4x4
-parts: 2" Rough Country Suspension Kit, 35" Toyo AT II Tires, 17" KMC Mesa wheels
-
-images:
-    total: 4
-    snippet: 1
-    banner: 1
-video:
-    filename: video
-    width: 720
-    height: 1280
-
-
-
-
-
-
-
-
+{
+    "date": "2022-04-11T00:00:00.000Z",
+    "summary": "2021 Ford Bronco Outer Banks in Black with 2\" Rough Country Suspension Kit, 35\" Toyo AT II Tires, 17\" KMC Mesa wheels",
+    "categories": "suspension, wheel-tire",
+    "related": [
+        "266375-2022-ford-bronco",
+        "929818-2021-ford-bronco",
+        "122366-2021-ford-bronco"
+    ],
+    "year": 2021,
+    "make": "ford",
+    "model": "ford-bronco",
+    "trim": "Outer Banks",
+    "color": "Black",
+    "drive": "4x4",
+    "parts": "2\" Rough Country Suspension Kit, 35\" Toyo AT II Tires, 17\" KMC Mesa wheels",
+    "images": {
+        "total": 4,
+        "snippet": 1,
+        "banner": 1
+    },
+    "video": {
+        "filename": "video",
+        "width": 720,
+        "height": 1280
+    }
+}

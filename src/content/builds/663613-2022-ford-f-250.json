@@ -1,33 +1,22 @@
-
-date: 2022-04-29
-
-summary: 2022 Ford F-250 Lariat in Silver with BodyGuard T2 Extreme Front and
-    Rear Bumpers
-categories: body-bumper
-related:
-    - 276780-2019-ford-f-250
-    - 808400-2015-ford-f-250
-    - 714731-2022-ford-f-250
-
-year: 2022
-make: ford
-model: ford-f-250
-trim: Lariat
-color: Silver
-drive: 4x4
-parts: BodyGuard T2 Extreme Front and Rear Bumpers
-
-images:
-    total: 6
-    snippet: 1
-    banner: 1
-
-
-
-
-
-
-
-
-
-
+{
+    "date": "2022-04-29T00:00:00.000Z",
+    "summary": "2022 Ford F-250 Lariat in Silver with BodyGuard T2 Extreme Front and Rear Bumpers",
+    "categories": "body-bumper",
+    "related": [
+        "276780-2019-ford-f-250",
+        "808400-2015-ford-f-250",
+        "714731-2022-ford-f-250"
+    ],
+    "year": 2022,
+    "make": "ford",
+    "model": "ford-f-250",
+    "trim": "Lariat",
+    "color": "Silver",
+    "drive": "4x4",
+    "parts": "BodyGuard T2 Extreme Front and Rear Bumpers",
+    "images": {
+        "total": 6,
+        "snippet": 1,
+        "banner": 1
+    }
+}

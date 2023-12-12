@@ -1,37 +1,22 @@
-
-date: 2022-10-28
-
-summary: 2005 Lexus GX 470 Base in Grey with Metal Tech Goblin Stage 2 Front
-    Bumper, Metal Tech Swing Out Rear Bumper, 285/70/17 Geolander MT Tires, Roof
-    Rack, Side Steps
-categories: body-bumper, wheel-tire, bed-roof
-related:
-    - 211559-2020-lexus-gx-460
-    - 328593-2018-lexus-gx-460
-    - 864745-2020-toyota-4runner
-
-year: 2005
-make: lexus
-model: lexus-gx
-trim: 470 Base
-color: Grey
-drive: 4x4
-parts: Metal Tech Goblin Stage 2 Front Bumper, Metal Tech Swing Out Rear Bumper,
-    285/70/17 Geolander MT Tires, Roof Rack, Side Steps
-
-images:
-    total: 8
-    snippet: 1
-    banner: 4
-
-
-
-
-
-
-
-
-
-
-
-
+{
+    "date": "2022-10-28T00:00:00.000Z",
+    "summary": "2005 Lexus GX 470 Base in Grey with Metal Tech Goblin Stage 2 Front Bumper, Metal Tech Swing Out Rear Bumper, 285/70/17 Geolander MT Tires, Roof Rack, Side Steps",
+    "categories": "body-bumper, wheel-tire, bed-roof",
+    "related": [
+        "211559-2020-lexus-gx-460",
+        "328593-2018-lexus-gx-460",
+        "864745-2020-toyota-4runner"
+    ],
+    "year": 2005,
+    "make": "lexus",
+    "model": "lexus-gx",
+    "trim": "470 Base",
+    "color": "Grey",
+    "drive": "4x4",
+    "parts": "Metal Tech Goblin Stage 2 Front Bumper, Metal Tech Swing Out Rear Bumper, 285/70/17 Geolander MT Tires, Roof Rack, Side Steps",
+    "images": {
+        "total": 8,
+        "snippet": 1,
+        "banner": 4
+    }
+}

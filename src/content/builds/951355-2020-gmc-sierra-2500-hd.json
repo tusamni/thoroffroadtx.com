@@ -1,38 +1,27 @@
-
-date: 2022-05-11
-
-summary: 2020 GMC Sierra 2500 HD AT4 in White with 4" Cognito Suspension Kit
-    with FOX Reservoirs, Amp Research Power Steps, 37" 1250 R20 Nitto Ridge
-    Grappler Tires
-categories: suspension, body-bumper, wheel-tire
-related:
-    - 108058-2022-gmc-sierra-2500-hd
-    - 965777-2022-gmc-sierra-2500-hd
-    - 152378-2023-gmc-sierra-1500
-
-year: 2020
-make: gmc
-model: gmc-sierra-2500-hd
-trim: AT4
-color: White
-drive: 4x4
-parts: 4" Cognito Suspension Kit with FOX Reservoirs, Amp Research Power Steps,
-    37" 1250 R20 Nitto Ridge Grappler Tires
-
-images:
-    total: 5
-    snippet: 1
-    banner: 4
-video:
-    filename: video
-    width: 720
-    height: 1280
-
-
-
-
-
-
-
-
-
+{
+    "date": "2022-05-11T00:00:00.000Z",
+    "summary": "2020 GMC Sierra 2500 HD AT4 in White with 4\" Cognito Suspension Kit with FOX Reservoirs, Amp Research Power Steps, 37\" 1250 R20 Nitto Ridge Grappler Tires",
+    "categories": "suspension, body-bumper, wheel-tire",
+    "related": [
+        "108058-2022-gmc-sierra-2500-hd",
+        "965777-2022-gmc-sierra-2500-hd",
+        "152378-2023-gmc-sierra-1500"
+    ],
+    "year": 2020,
+    "make": "gmc",
+    "model": "gmc-sierra-2500-hd",
+    "trim": "AT4",
+    "color": "White",
+    "drive": "4x4",
+    "parts": "4\" Cognito Suspension Kit with FOX Reservoirs, Amp Research Power Steps, 37\" 1250 R20 Nitto Ridge Grappler Tires",
+    "images": {
+        "total": 5,
+        "snippet": 1,
+        "banner": 4
+    },
+    "video": {
+        "filename": "video",
+        "width": 720,
+        "height": 1280
+    }
+}

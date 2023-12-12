@@ -1,42 +1,22 @@
-
-date: 2022-05-20
-
-summary: 2019 Ford F-250 Lariat in Grey with Carli 3.5" Suspension Kit, Carli
-    Low Mount Steering Stabilizer, Carli High Mount Steering Stabilizer, Carli
-    Add-A-Pack Spring Replacement, Carli Torsion Sway Bar, Method 315 18x9"
-    Machine Finished Wheels, Toyo ATIII 37" 1250 R18 Tires, Ranch Hand Legend
-    Front and Rear Bumpers, Baja Design Squadron Lighting
-categories: suspension, wheel-tire, body-bumper, lighting
-related:
-    - 714731-2022-ford-f-250
-    - 453172-2020-ford-f-250
-    - 410515-2022-ford-f-250
-
-year: 2019
-make: ford
-model: ford-f-250
-trim: Lariat
-color: Grey
-drive: 4x4
-parts: Carli 3.5" Suspension Kit, Carli Low Mount Steering Stabilizer, Carli
-    High Mount Steering Stabilizer, Carli Add-A-Pack Spring Replacement, Carli
-    Torsion Sway Bar, Method 315 18x9" Machine Finished Wheels, Toyo ATIII 37"
-    1250 R18 Tires, Ranch Hand Legend Front and Rear Bumpers, Baja Design Squadron
-    Lighting
-
-images:
-    total: 8
-    snippet: 1
-    banner: 3
-
-
-
-
-
-
-
-
-
-
-
-
+{
+  "date": "2022-05-20T00:00:00.000Z",
+  "summary": "2019 Ford F-250 Lariat in Grey with Carli 3.5\" Suspension Kit, Carli Low Mount Steering Stabilizer, Carli High Mount Steering Stabilizer, Carli Add-A-Pack Spring Replacement, Carli Torsion Sway Bar, Method 315 18x9\" Machine Finished Wheels, Toyo ATIII 37\" 1250 R18 Tires, Ranch Hand Legend Front and Rear Bumpers, Baja Design Squadron Lighting",
+  "categories": "suspension, wheel-tire, body-bumper, lighting",
+  "related": [
+    "714731-2022-ford-f-250",
+    "453172-2020-ford-f-250",
+    "410515-2022-ford-f-250"
+  ],
+  "year": 2019,
+  "make": "ford",
+  "model": "ford-f-250",
+  "trim": "Lariat",
+  "color": "Grey",
+  "drive": "4x4",
+  "parts": "Carli 3.5\" Suspension Kit, Carli Low Mount Steering Stabilizer, Carli High Mount Steering Stabilizer, Carli Add-A-Pack Spring Replacement, Carli Torsion Sway Bar, Method 315 18x9\" Machine Finished Wheels, Toyo ATIII 37\" 1250 R18 Tires, Ranch Hand Legend Front and Rear Bumpers, Baja Design Squadron Lighting",
+  "images": {
+    "total": 8,
+    "snippet": 1,
+    "banner": 3
+  }
+}

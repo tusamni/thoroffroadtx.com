@@ -1,68 +1,22 @@
-
-date: 2021-09-05
-
-summary: 2015 RAM 2500 Laramie in Black with 3.25" Carli King Pintop Suspension,
-    AEV Front Bumper, Baja Design Fog LIghts, Baja Design Aux Squadron Lights, AEV
-    Differential Covers, Carli High and Low Mount Steering Stabilizers, Air Lift
-    Rear Air Bags, Linkswell Stereo, Amp Research Steps, 37" 1250 R18 Nitto Ridge
-    Grappler Tires, 18" Method 305NV
-categories: suspension, body-bumper, lighting, specialties, wheel-tire
-related:
-    - 405642-2022-ram-2500
-    - 167209-2021-ram-2500
-    - 301483-2019-ram-2500
-
-year: 2015
-make: ram
-model: ram-2500
-trim: Laramie
-color: Black
-drive: 4x4
-parts: 3.25" Carli King Pintop Suspension, AEV Front Bumper, Baja Design Fog
-    LIghts, Baja Design Aux Squadron Lights, AEV Differential Covers, Carli High
-    and Low Mount Steering Stabilizers, Air Lift Rear Air Bags, Linkswell Stereo,
-    Amp Research Steps, 37" 1250 R18 Nitto Ridge Grappler Tires, 18" Method 305NV
-
-images:
-    total: 68
-    snippet: 1
-    banner: 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{
+    "date": "2021-09-05T00:00:00.000Z",
+    "summary": "2015 RAM 2500 Laramie in Black with 3.25\" Carli King Pintop Suspension, AEV Front Bumper, Baja Design Fog LIghts, Baja Design Aux Squadron Lights, AEV Differential Covers, Carli High and Low Mount Steering Stabilizers, Air Lift Rear Air Bags, Linkswell Stereo, Amp Research Steps, 37\" 1250 R18 Nitto Ridge Grappler Tires, 18\" Method 305NV",
+    "categories": "suspension, body-bumper, lighting, specialties, wheel-tire",
+    "related": [
+        "405642-2022-ram-2500",
+        "167209-2021-ram-2500",
+        "301483-2019-ram-2500"
+    ],
+    "year": 2015,
+    "make": "ram",
+    "model": "ram-2500",
+    "trim": "Laramie",
+    "color": "Black",
+    "drive": "4x4",
+    "parts": "3.25\" Carli King Pintop Suspension, AEV Front Bumper, Baja Design Fog LIghts, Baja Design Aux Squadron Lights, AEV Differential Covers, Carli High and Low Mount Steering Stabilizers, Air Lift Rear Air Bags, Linkswell Stereo, Amp Research Steps, 37\" 1250 R18 Nitto Ridge Grappler Tires, 18\" Method 305NV",
+    "images": {
+        "total": 68,
+        "snippet": 1,
+        "banner": 1
+    }
+}

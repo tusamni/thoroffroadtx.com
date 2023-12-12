@@ -1,37 +1,22 @@
-
-date: 2022-09-08
-
-summary: 2022 Chevrolet Silverado 1500 LT Trail Boss in Black with McGaughy's
-    Black SS Suspension Lift Kit, 6x5.5 Hostile Wheels, 37" 1350 R24 Nitto Ridge
-    Grappler Tires
-categories: suspension, wheel-tire
-related:
-    - 695527-2022-chevrolet-silverado-2500-hd
-    - 357202-2022-chevrolet-silverado-2500-hd
-    - 727698-2020-chevrolet-colorado
-
-year: 2022
-make: chevrolet
-model: chevrolet-silverado-1500
-trim: LT Trail Boss
-color: Black
-drive: 4x4
-parts: McGaughy's Black SS Suspension Lift Kit, 6x5.5 Hostile Wheels, 37" 1350
-    R24 Nitto Ridge Grappler Tires
-
-images:
-    total: 8
-    snippet: 1
-    banner: 3
-
-
-
-
-
-
-
-
-
-
-
-
+{
+  "date": "2022-09-08T00:00:00.000Z",
+  "summary": "2022 Chevrolet Silverado 1500 LT Trail Boss in Black with McGaughy's Black SS Suspension Lift Kit, 6x5.5 Hostile Wheels, 37\" 1350 R24 Nitto Ridge Grappler Tires",
+  "categories": "suspension, wheel-tire",
+  "related": [
+    "695527-2022-chevrolet-silverado-2500-hd",
+    "357202-2022-chevrolet-silverado-2500-hd",
+    "727698-2020-chevrolet-colorado"
+  ],
+  "year": 2022,
+  "make": "chevrolet",
+  "model": "chevrolet-silverado-1500",
+  "trim": "LT Trail Boss",
+  "color": "Black",
+  "drive": "4x4",
+  "parts": "McGaughy's Black SS Suspension Lift Kit, 6x5.5 Hostile Wheels, 37\" 1350 R24 Nitto Ridge Grappler Tires",
+  "images": {
+    "total": 8,
+    "snippet": 1,
+    "banner": 3
+  }
+}

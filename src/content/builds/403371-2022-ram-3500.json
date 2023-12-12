@@ -1,47 +1,22 @@
-
-date: 2022-12-09
-
-summary: 2022 RAM 3500 Laramie in White with Carli 3.25" Pintop Suspension Kit,
-    Carli Torsion Sway Bar, Carli High Mount Steering Stabilizer, Carli Low Mount
-    Steering Stabilizer, Carli Radius Arms, 18x9" Raceline 953B Krank Wheels, 37"
-    1250 R18 Toyo ATIII Tires
-categories: suspension, wheel-tire
-related:
-    - 850633-2022-ram-3500
-    - 452139-2023-ram-2500
-    - 692114-2023-ram-2500
-
-year: 2022
-make: ram
-model: ram-3500
-trim: Laramie
-color: White
-drive: 4x4
-parts: Carli 3.25" Pintop Suspension Kit, Carli Torsion Sway Bar, Carli High
-    Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, Carli Radius
-    Arms, 18x9" Raceline 953B Krank Wheels, 37" 1250 R18 Toyo ATIII Tires
-
-images:
-    total: 18
-    snippet: 1
-    banner: 4
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{
+  "date": "2022-12-09T00:00:00.000Z",
+  "summary": "2022 RAM 3500 Laramie in White with Carli 3.25\" Pintop Suspension Kit, Carli Torsion Sway Bar, Carli High Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, Carli Radius Arms, 18x9\" Raceline 953B Krank Wheels, 37\" 1250 R18 Toyo ATIII Tires",
+  "categories": "suspension, wheel-tire",
+  "related": [
+    "850633-2022-ram-3500",
+    "452139-2023-ram-2500",
+    "692114-2023-ram-2500"
+  ],
+  "year": 2022,
+  "make": "ram",
+  "model": "ram-3500",
+  "trim": "Laramie",
+  "color": "White",
+  "drive": "4x4",
+  "parts": "Carli 3.25\" Pintop Suspension Kit, Carli Torsion Sway Bar, Carli High Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, Carli Radius Arms, 18x9\" Raceline 953B Krank Wheels, 37\" 1250 R18 Toyo ATIII Tires",
+  "images": {
+    "total": 18,
+    "snippet": 1,
+    "banner": 4
+  }
+}

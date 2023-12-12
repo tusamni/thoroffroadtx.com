@@ -1,35 +1,22 @@
-
-date: 2022-03-25
-
-summary: 2022 RAM 2500 Power Wagon in Black with 3.25" Carli Backcountry, 37"
-    1250R18 Nitto Ridge Grappler, 18" MR305NV Wheels, Ranch hand Grill Guard
-categories: suspension, wheel-tire, body-bumper
-related:
-    - 298562-2021-ram-2500
-    - 340718-2022-ram-2500
-    - 850633-2022-ram-3500
-
-year: 2022
-make: ram
-model: ram-2500
-trim: Power Wagon
-color: Black
-drive: 4x4
-parts: 3.25" Carli Backcountry, 37" 1250R18 Nitto Ridge Grappler, 18" MR305NV
-    Wheels, Ranch hand Grill Guard
-
-images:
-    total: 7
-    snippet: 1
-    banner: 7
-
-
-
-
-
-
-
-
-
-
-
+{
+    "date": "2022-03-25T00:00:00.000Z",
+    "summary": "2022 RAM 2500 Power Wagon in Black with 3.25\" Carli Backcountry, 37\" 1250R18 Nitto Ridge Grappler, 18\" MR305NV Wheels, Ranch hand Grill Guard",
+    "categories": "suspension, wheel-tire, body-bumper",
+    "related": [
+        "298562-2021-ram-2500",
+        "340718-2022-ram-2500",
+        "850633-2022-ram-3500"
+    ],
+    "year": 2022,
+    "make": "ram",
+    "model": "ram-2500",
+    "trim": "Power Wagon",
+    "color": "Black",
+    "drive": "4x4",
+    "parts": "3.25\" Carli Backcountry, 37\" 1250R18 Nitto Ridge Grappler, 18\" MR305NV Wheels, Ranch hand Grill Guard",
+    "images": {
+        "total": 7,
+        "snippet": 1,
+        "banner": 7
+    }
+}

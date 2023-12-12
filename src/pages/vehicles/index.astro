@@ -53,7 +53,7 @@ const vehicleFill = {
         <Container padding={true}>
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
-                <div class="bg-black col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
+                <div class="bg-black h-fit col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
                     <div class="space-y-8">
                         <h1>Texas' Top<br />Truck Outfitter</h1>
                         <p class="text-base">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
@@ -77,16 +77,20 @@ const vehicleFill = {
                     </div>
                 </div>
 
-                <div class="bg-white px-4 py-8 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 col-span-2 lg:col-span-1">
-                    {
-                        process.map((f, i) => (
-                            <div class="space-y-2">
-                                <div class="rounded-full w-5 h-5 p-3 text-xs flex justify-center items-center border border-black">{i + 1}</div>
-                                <div class="text-base tracking-tight font-medium">{f.title}</div>
-                                <div set:html={f.description} class="text-neutral-800 text-sm" />
-                            </div>
-                        ))
-                    }
+                <div class="bg-white px-4 py-8 sm:p-8 col-span-2 lg:col-span-1">
+                    <h2 class="h3">Our Process</h2>
+                    <div class="grid grid-cols-1 gap-8 mt-5">
+                        {
+                            process.map((f, i) => (
+                                <div class="space-y-2">
+                                    <div class=" text-base tracking-tight font-medium flex items-center gap-2">
+                                        <span class="rounded-sm bg-black text-white px-2 text-sm py-1">{i + 1}</span> {f.title}
+                                    </div>
+                                    <div set:html={f.description} class="text-neutral-800 text-sm" />
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </Container>

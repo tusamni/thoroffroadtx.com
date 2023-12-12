@@ -12,45 +12,33 @@ const brandCollection = defineCollection({
 })
 
 const buildCollection = defineCollection({
+    type: "data",
     schema: z.object({
-        draft: z.boolean().default(false),
-        id: z.number(),
         date: z.date(),
-        path: z.string().optional(),
         summary: z.string(),
-        categories: z.string().transform((category) => category.split(", ")),
-        featured: z.boolean().optional(),
-        related: z.array(z.string()).optional(),
-
-        // vehicle
-        year: z.number(),
-        make: reference("makes"),
-        model: reference("models"),
-        trim: z.union([z.string(), z.number()]).optional().nullable(),
-        color: z.string().optional(),
-        drive: z.enum(["4x4", "4x2", "AWD"]),
-        parts: z.string().transform((part) => part.split(", ")),
-
-        // details
-        testimonial: reference("testimonials").optional(),
-        goals: z.string().optional(),
-
-        // images
+        categories: reference("parts"),
+        related: z.array(reference("builds")),
+        meta: z.object({
+            year: z.number(),
+            make: reference("makes"),
+            model: reference("models"),
+            trim: z.string().optional(),
+            color: z.string().optional(),
+            drive: z.enum(["4x4", "4x2", "AWD"]),
+            parts: z.string().transform((part) => part.split(", ")),
+        }),
         images: z.object({
             total: z.number(),
             snippet: z.number().default(1),
-            banner: z.number().default(1),
-            featured: z.array(z.number()).optional(),
+            build: z.array(z.number()),
         }),
-        video: z
-            .object({
-                filename: z.string(),
-                width: z.number(),
-                height: z.number(),
-            })
-            .optional(),
-    }),
-});
+        video: z.object({
+            filename: z.string(),
+            width: z.number(),
+            height: z.number(),
+        }).optional(),
+    })
+})
 
 const makeCollection = defineCollection({
     type: "data",

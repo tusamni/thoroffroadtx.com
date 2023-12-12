@@ -16,7 +16,7 @@ const buildCollection = defineCollection({
         draft: z.boolean().default(false),
         id: z.number(),
         date: z.date(),
-        path: z.string(),
+        path: z.string().optional(),
         summary: z.string(),
         categories: z.string().transform((category) => category.split(", ")),
         featured: z.boolean().optional(),

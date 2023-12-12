@@ -19,7 +19,8 @@
     "images": {
         "featured": {
             "id": 692114,
-            "image": 11
+            "headline": 11,
+            "secondary": [3, 4, 5]
         }
     },
     "testimonial": "andrew-p"

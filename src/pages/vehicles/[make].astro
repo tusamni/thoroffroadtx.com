@@ -28,7 +28,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 ---
 
 <Layout title={make.data.seo.title} description={make.data.seo.description}>
-    <Picture src={getBuildImage(make.data.images.featured.id, make.data.images.featured.image)} loading="eager" class="header-image object-[50%,50%]" />
+    <Picture src={getBuildImage(make.data.images.featured.id, make.data.images.featured.headline)} loading="eager" class="header-image object-[50%,50%]" />
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>
@@ -59,6 +59,12 @@ const makeTestimonial = await getEntry(make.data.testimonial);
                 <div class="col-span-2 lg:col-span-1 flex justify-center px-4 py-6 sm:p-6 items-center bg-white">
                     <Testimonial content={makeTestimonial} />
                 </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-3 h-[20em]">
+                {make.data.images.featured.secondary.map((i) => (
+                    <Picture src={getBuildImage(make.data.images.featured.id, i)} loading="eager" class="object-cover w-full h-full" />
+                ))}
             </div>
         </Container>
     </div>

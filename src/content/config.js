@@ -65,7 +65,8 @@ const makeCollection = defineCollection({
         images: z.object({
             featured: z.object({
                 id: z.number(),
-                image: z.number(),
+                headline: z.number(),
+                secondary: z.array(z.number()).length(3),
             }),
         }),
         testimonial: reference("testimonials"),

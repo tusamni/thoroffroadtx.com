@@ -1,0 +1,27 @@
+---
+import Icon from "@/components/Icon";
+
+interface Props {
+    content: any;
+    lines?: string;
+}
+const { content, lines = "line-clamp-none" } = Astro.props;
+---
+
+<div class="space-y-4 flex flex-col justify-between">
+    <div class="text-xl line-clamp-1 italic font-bold tracking-tighter" set:html={`"${content.data.highlight}"`} />
+
+    <blockquote class:list={["text-base space-y-4", lines]} set:html={content.data.testimonial} />
+
+    <div class="flex justify-between items-center">
+        <div class="text-xl font-medium">{content.data.name}</div>
+
+        <div class="flex justify-center">
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
+            <Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
+        </div>
+    </div>
+</div>

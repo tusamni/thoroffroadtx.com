@@ -4,7 +4,7 @@ import Layout from "@/layouts/Layout";
 // imports
 import { getBuildImage } from "@/functions/Image";
 
-import Build from "@/components/content/snippets/Build";
+import Build from "@/components/content/snippets/BuildAlt";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
@@ -114,71 +114,4 @@ const allBuilds = (
             <Picture src={getBuildImage(298562, 13)} buildId={298562} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
         </div>
     </Gallery>
-
-    <!-- <Section>
-        <Container large={false}>
-            <div class="grid grid-cols-5 gap-16">
-                <div class:list={[part.data.contentParts.length < 7 ? "md:col-span-3" : "md:col-span-2", "col-span-5 space-y-6"]}>
-                    <h2>{part.data.title} Upgrades</h2>
-                    <div class="leading-8 tracking-tight text-stone-700 text-lg space-y-6" set:html={part.data.contentSidebar} />
-                </div>
-
-                <div class:list={[part.data.contentParts.length < 7 ? "md:col-span-2 xl:grid-cols-2" : "md:col-span-3 xl:grid-cols-3", "h-fit col-span-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-8"]}>
-                    {
-                        part.data.contentParts.map(
-                            (p) =>
-                                p.description && (
-                                    <div class="relative">
-                                        <Icon icon="hero/CheckCircle" class="absolute left-0 top-0 h-6 w-6 self-start" />
-
-                                        <div class="ml-9 flex flex-col gap-2">
-                                            <p class="font-semibold text-stone-900">{p.title}</p>
-                                            <p class="text-sm text-gray-600">{p.description}</p>
-                                        </div>
-                                    </div>
-                                )
-                        )
-                    }
-                </div>
-            </div>
-        </Container>
-
-        <Container>
-            <div class="mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
-                {
-                    allBrands.map((b) => (
-                        <div class="bg-stone-100 p-6 flex justify-center rounded">
-                            <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 lg:h-16 w-full lg:w-1/2 object-contain text-stone-900 place-self-center" />
-                        </div>
-                    ))
-                }
-            </div>
-        </Container>
-
-        {
-            allBuilds.length >= 3 && (
-                <Container>
-                    <div class="space-y-16">
-                        <h2 class="text-center">Recent {part.data.title} Builds</h2>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12">
-                            {allBuilds.map((b) => <BuildSnippet build={b} sizes="(min-width: 350px), (min-width: 768px) 500px, (min-width: 1024px) 600px, (min-width: 1280px) 300px, 100vw" pad={false} height="h-60" />).slice(0, buildCount)}
-                        </div>
-                    </div>
-                </Container>
-            )
-        }
-    </Section>
-
-    <style define:vars={{ remainder }}>
-        .brands {
-            --gap: 3em;
-            --columns: var(--remainder);
-            gap: var(--gap);
-        }
-
-        .brandItem {
-            width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)));
-        }
-    </style> -->
 </Layout>

@@ -3,7 +3,8 @@ import Layout from "@/layouts/Layout";
 
 // imports
 import { getBuildImage } from "@/functions/Image";
-import { getEntry } from "astro:content";
+import { getBuildTitle } from "@/functions/Content";
+import { getCollection, getEntry } from "astro:content";
 import { getMedia } from "@/functions/Image";
 import { timeAgo } from "@/functions/DateTime";
 
@@ -14,7 +15,6 @@ import Picture from "@/components/images/Picture";
 import RelatedBuild from "@/components/builds/RelatedBuild";
 
 // content
-import { getCollection } from "astro:content";
 export async function getStaticPaths() {
     const allBuilds = await getCollection("builds");
     return allBuilds.map((build) => ({
@@ -23,7 +23,6 @@ export async function getStaticPaths() {
     }));
 }
 const { build } = Astro.props;
-const { Content } = await build.render();
 
 const make = await getEntry("makes", build.data.make.id);
 const model = await getEntry("models", build.data.model.id);
@@ -36,7 +35,7 @@ const model = await getEntry("models", build.data.model.id);
         <Container padding={true}>
             <div class="section section-bottom grid grid-cols-2 sm:gap-4">
                 <div class="sticky top-28 box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8 h-fit">
-                    <h1>{`${build.data.year} ${make.data.title} ${model.data.title} ${build.data.trim}`}</h1>
+                    <h1>{getBuildTitle(build.slug, false)}</h1>
 
                     <div class="space-y-8">
                         {build.data.goals && <div class="text-base space-y-4" set:html={build.data.goals} />}

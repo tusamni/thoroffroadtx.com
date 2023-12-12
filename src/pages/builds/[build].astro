@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout";
 
 // imports
 import { getBuildImage } from "@/functions/Image";
+import { getEntry } from "astro:content";
 import { getMedia } from "@/functions/Image";
 import { timeAgo } from "@/functions/DateTime";
 
@@ -23,16 +24,19 @@ export async function getStaticPaths() {
 }
 const { build } = Astro.props;
 const { Content } = await build.render();
+
+const make = await getEntry("makes", build.data.make.id);
+const model = await getEntry("models", build.data.model.id);
 ---
 
-<Layout title={`Custom ${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim} Built by THOR Off-Road`}>
+<Layout title={`Custom ${build.data.year} ${make.data.title} ${model.data.title} ${build.data.trim} Built by THOR Off-Road`}>
     <Picture src={getBuildImage(build.data.id, build.data.images.banner)} id={build.data.id} class="header-image" />
 
     <div class="-mt-20">
         <Container padding={true}>
             <div class="section section-bottom grid grid-cols-2 sm:gap-4">
                 <div class="sticky top-28 box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8 h-fit">
-                    <h1>{`${build.data.year} ${build.data.make} ${build.data.model} ${build.data.trim}`}</h1>
+                    <h1>{`${build.data.year} ${make.data.title} ${model.data.title} ${build.data.trim}`}</h1>
 
                     <div class="space-y-8">
                         {build.data.goals && <div class="text-base space-y-4" set:html={build.data.goals} />}

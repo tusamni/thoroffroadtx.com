@@ -18,7 +18,7 @@ interface Props {
 const { build, height = "h-[25em]", pad = false, sizes = "100vw", description = true, classes } = Astro.props;
 ---
 
-<a href={`/builds/${build.slug}`} class:list={[classes, pad ? "bg-white space-y-0" : "space-y-4"]}>
+<a href={`/builds/${build.id}`} class:list={[classes, pad ? "bg-white space-y-0" : "space-y-4"]}>
     <Picture src={getBuildImage(build.data.id, build.data.images.snippet)} sizes={sizes} alt={`${build.data.year} ${build.data.make} ${build.data.model} built by ${Business.nameLong}`} class:list={["object-cover rounded w-full", height]} slot="picture" />
 
     <div class:list={["space-y-4", pad && `bg-white p-4`]}>

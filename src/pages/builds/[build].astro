@@ -18,31 +18,31 @@ import RelatedBuild from "@/components/builds/RelatedBuild";
 export async function getStaticPaths() {
     const allBuilds = await getCollection("builds");
     return allBuilds.map((build) => ({
-        params: { build: build.slug },
+        params: { build: build.id },
         props: { build },
     }));
 }
 const { build } = Astro.props;
 
-const make = await getEntry("makes", build.data.make.id);
-const model = await getEntry("models", build.data.model.id);
+const make = await getEntry("makes", build.data.meta.make.id);
+const model = await getEntry("models", build.data.meta.model.id);
 ---
 
-<Layout title={`Custom ${build.data.year} ${make.data.title} ${model.data.title} ${build.data.trim} Built by THOR Off-Road`}>
-    <Picture src={getBuildImage(build.data.id, build.data.images.banner)} id={build.data.id} class="header-image" />
+<Layout title={`Custom ${build.data.meta.year} ${make.data.title} ${model.data.title} ${build.data.meta.trim} Built by THOR Off-Road`}>
+    <Picture src={getBuildImage(build.id, build.data.images.snippet)} class="header-image" />
 
     <div class="-mt-20">
         <Container padding={true}>
             <div class="section section-bottom grid grid-cols-2 sm:gap-4">
                 <div class="sticky top-28 box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8 h-fit">
-                    <h1>{getBuildTitle(build.slug, false)}</h1>
+                    <h1>{getBuildTitle(build.id)}</h1>
 
                     <div class="space-y-8">
-                        {build.data.goals && <div class="text-base space-y-4" set:html={build.data.goals} />}
+                        {build.data.meta.goals && <div class="text-base space-y-4" set:html={build.data.meta.goals} />}
                         <div class="space-y-4">
                             <h2 class="h4">Parts List</h2>
                             <ul class="space-y-2 text-sm tracking-tight">
-                                {build.data.parts.map((p) => <li>{p}</li>)}
+                                {build.data.meta.parts.map((p) => <li>{p}</li>)}
                             </ul>
                         </div>
 
@@ -64,12 +64,12 @@ const model = await getEntry("models", build.data.model.id);
                         <div class="flex flex-row gap-8 text-xs items-center text-stone-700">
                             <div class="flex flex-col gap-2">
                                 <div class="font-semibold">Color</div>
-                                <div>{build.data.color}</div>
+                                <div>{build.data.meta.color}</div>
                             </div>
 
                             <div class="flex flex-col gap-2">
                                 <div class="font-semibold">Drive</div>
-                                <div>{build.data.drive}</div>
+                                <div>{build.data.meta.drive}</div>
                             </div>
 
                             <div class="flex flex-col gap-2">
@@ -82,8 +82,8 @@ const model = await getEntry("models", build.data.model.id);
                             build.data.video && (
                                 <div class="place-self-end">
                                     <a
-                                        href={getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}
-                                        data-sources={`[{"src":"${getMedia(`images/builds/${build.data.id}/${build.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
+                                        href={getMedia(`images/builds/${build.id}/${build.data.video.filename}.mp4`)}
+                                        data-sources={`[{"src":"${getMedia(`images/builds/${build.id}/${build.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
                                         data-width={build.data.video.width}
                                         data-height={build.data.video.height}
                                         class="video text-sm flex items-center font-medium gap-2">
@@ -103,7 +103,7 @@ const model = await getEntry("models", build.data.model.id);
                         <div class="grid grid-cols-2 gap-4">
                             {
                                 Array.from(Array(build.data.images.total)).map((_, i) => (
-                                    <Picture src={getBuildImage(build.data.id, i + 1)} id={build.data.id} class:list={["aspect-square w-full h-auto object-cover", build.data.images.total % 2 !== 0 && i + 1 == build.data.images.total && `col-span-2`]} sizes="25vw" />
+                                    <Picture src={getBuildImage(build.id, i + 1)} class:list={["aspect-square w-full h-auto object-cover", build.data.images.total % 2 !== 0 && i + 1 == build.data.images.total && `col-span-2`]} sizes="25vw" />
                                 ))
                             }
                         </div>

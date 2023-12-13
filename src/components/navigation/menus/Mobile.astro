@@ -114,7 +114,7 @@ const allModels = await getCollection("models");
                             x-transition:leave-end="opacity-0">
                             {
                                 allParts.map((p) => (
-                                    <a href={`/parts/${p.slug}`} class="block py-2 pl-6 pr-3 text-base font-semibold leading-7 text-stone-900">
+                                    <a href={`/parts/${p.id}`} class="block py-2 pl-6 pr-3 text-base font-semibold leading-7 text-stone-900">
                                         {p.data.title}
 
                                         <ul class="comma-list line-clamp-1 text-xs font-light text-stone-500">

@@ -59,7 +59,7 @@ if (Astro.params.make) {
                 <select name="filterModel" id="filterModel" class="md:pr-8 filter">
                     <option value="">Filter by Model</option>
                     {allModels.map((m) => (
-                        <option value={`builds/${Astro.params.make}/${m.slug}`} selected={Astro.params.model == m.slug && `selected`}>
+                        <option value={`builds/${Astro.params.make}/${m.id}`} selected={Astro.params.model == m.id && `selected`}>
                             {m.data.title}
                         </option>
                     ))}

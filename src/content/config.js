@@ -26,6 +26,7 @@ const buildCollection = defineCollection({
             color: z.string().optional(),
             drive: z.enum(["4x4", "4x2", "AWD"]),
             parts: z.string().transform((part) => part.split(", ")),
+            goals: z.string().optional(),
         }),
         images: z.object({
             total: z.number(),
@@ -64,7 +65,7 @@ const makeCollection = defineCollection({
         }),
         images: z.object({
             featured: z.object({
-                id: z.number(),
+                id: reference("builds"),
                 headline: z.number(),
                 secondary: z.array(z.number()).length(3),
             }),
@@ -124,7 +125,7 @@ const partCollection = defineCollection({
             icon: z.string(),
             featured: z.array(
                 z.object({
-                    id: z.number(),
+                    id: reference("builds"),
                     image: z.number(),
                 })
             ),

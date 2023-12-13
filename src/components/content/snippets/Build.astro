@@ -16,7 +16,7 @@ const { build, ...attrs } = Astro.props;
         <div class="font-semibold">{getBuildTitle(build.id)}</div>
         <div class="text-xs line-clamp-2">{build.data.summary}</div>
 
-        <a href={`/builds/${build.slug}`} class="text-xs font-medium">
+        <a href={`/builds/${build.id}`} class="text-xs font-medium">
             <span class="absolute inset-0"></span>
              See Build &#x2192;
         </a>

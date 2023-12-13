@@ -77,7 +77,7 @@ const makeCollection = defineCollection({
 const modelCollection = defineCollection({
     type: "data",
     schema: z.object({
-        slug: z.string(),
+        draft: z.boolean().optional(),
         title: z.string().or(z.number()),
         description: z.object({
             short: z.string(),

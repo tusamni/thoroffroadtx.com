@@ -16,10 +16,10 @@ export async function getStaticPaths({ paginate }) {
     const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
     return allModels.flatMap((model) => {
-        const filteredBuilds = allBuilds.filter((build) => build.data.make == model.data.make && build.data.model == model.data.title);
+        const filteredBuilds = allBuilds.filter((build) => build.data.meta.make == model.data.make && build.data.meta.model == model.data.id);
 
         return paginate(filteredBuilds, {
-            params: { make: model.data.make.toLowerCase(), model: model.data.slug },
+            params: { make: model.data.make.id, model: model.data.id },
             props: { model },
             pageSize: 8,
         });
@@ -29,30 +29,5 @@ const { page, model } = Astro.props;
 ---
 
 <Layout>
-    <Section small={true}>
-        <Container classes="space-y-16">
-            <div class="max-w-3xl space-y-4">
-                <h1>{model.data.title}</h1>
-                <p class="space-y-4 text-xl leading-8">{model.data.descriptionShort}</p>
-            </div>
-
-            <div class="flex justify-between items-center">
-                <BuildFilter />
-
-                <div class="hidden md:block">
-                    <Pagination page={page} />
-                </div>
-            </div>
-
-            <ListingGrid>
-                {page.data.map((b) => <BuildSnippet build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, (min-width:1280px) 300px, 100vw" height="h-[15em]" />)}
-            </ListingGrid>
-
-            <div class="flex justify-between items-center">
-                <div class="hidden sm:block text-sm">Page {page.currentPage} of {page.lastPage}</div>
-
-                <Pagination page={page} />
-            </div>
-        </Container>
-    </Section>
+    
 </Layout>

@@ -88,7 +88,7 @@ const modelCollection = defineCollection({
             .object({
                 featured: z
                     .object({
-                        id: z.number(),
+                        id: reference("builds"),
                         image: z.number(),
                     })
                     .optional(),

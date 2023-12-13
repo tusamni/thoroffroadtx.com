@@ -1,14 +1,10 @@
 ---
-import Icon from "@/components/Icon";
+import { getCollection } from "astro:content";
 
-// props
 interface Props {
     current?: boolean;
 }
 const { current = false, ...attrs } = Astro.props;
-
-// content
-import { getCollection } from "astro:content";
 
 const allMakes = await getCollection("makes");
 const allParts = await getCollection("parts");
@@ -53,10 +49,8 @@ if (Astro.params.make) {
     {
         Astro.params.make && (
             <div class="w-full md:w-fit">
-                <label for="filterModel" class="hidden">
-                    Filter by Model
-                </label>
-                <select name="filterModel" id="filterModel" class="md:pr-8 filter">
+                <label for="filterModel" class="hidden">Filter by Model</label>
+                <select name="filterModel" id="filterModel" class="md:pr-8 filter rounded-sm text-xs border-neutral-300 border">
                     <option value="">Filter by Model</option>
                     {allModels.map((m) => (
                         <option value={`builds/${Astro.params.make}/${m.id}`} selected={Astro.params.model == m.id && `selected`}>

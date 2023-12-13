@@ -46,16 +46,16 @@ const model = await getEntry("models", build.data.meta.model.id);
                             </ul>
                         </div>
 
-                        <!-- {
+                        {
                             build.data.related && (
                                 <div class="hidden sm:block space-y-6">
                                     <h2 class="h4">Related Builds</h2>
                                     {build.data.related.map((b) => (
-                                        <RelatedBuild slug={b} />
+                                        <RelatedBuild id={b.id} />
                                     ))}
                                 </div>
                             )
-                        } -->
+                        }
                     </div>
                 </div>
 

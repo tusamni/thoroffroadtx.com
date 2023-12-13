@@ -1,16 +1,16 @@
 ---
 import Layout from "@/layouts/Layout";
 
-// imports
+import { getCollection } from "astro:content";
+import { getBuildImage } from "@/functions/Image";
+
 import BuildFilter from "@/components/builds/BuildFilter";
-import BuildSnippet from "@/components/builds/BuildSnippet";
+import Build from "@/components/content/snippets/Build";
 import Container from "@/components/Container";
-import ListingGrid from "@/components/builds/BuildListing";
 import Pagination from "@/components/Pagination";
-import Section from "@/components/Section";
+import Picture from "@/components/images/Picture";
 
 // content
-import { getCollection } from "astro:content";
 export async function getStaticPaths({ paginate }) {
     const allMakes = await getCollection("makes");
     const allBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -21,7 +21,7 @@ export async function getStaticPaths({ paginate }) {
         return paginate(filteredBuilds, {
             params: { make: make.id },
             props: { make },
-            pageSize: 8,
+            pageSize: 6,
         });
     });
 }
@@ -29,5 +29,43 @@ const { page, make } = Astro.props;
 ---
 
 <Layout>
-    
+    <Picture src={getBuildImage(make.data.images.featured.id.id, make.data.images.featured.headline)} loading="eager" class="w-full h-[25em] object-cover" />
+
+    <div class="-mt-20 bg-neutral-50 pb-8">
+        <Container padding={true}>
+            <div class="grid grid-cols-10 sm:gap-4">
+                <!-- black content area -->
+                <div class="bg-black col-span-6 text-white box-spacing space-y-8">
+                    <div class="space-y-8">
+                        <h1>{make.data.title} Builds</h1>
+                        <p class="text-base">{make.data.description.short}</p>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </div>
+
+    <div class="bg-neutral-50">
+        <Container>
+            <div class="space-y-8">
+                <div class="grid grid-cols-2 justify-between items-center">
+                    <BuildFilter />
+
+                    <div class="text-xs justify-self-end">Showing {page.total} Builds</div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-8">
+                    {page.data.map((b) => <Build build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, (min-width:1280px) 300px, 100vw" height="h-[15em]" />)}
+                </div>
+
+                <div class="flex justify-between pb-8">
+                    <div class="text-xs">
+                        Page {page.currentPage} of {page.lastPage}
+                    </div>
+
+                    <Pagination page={page} />
+                </div>
+            </div>
+        </Container>
+    </div>
 </Layout>

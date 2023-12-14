@@ -5,7 +5,7 @@ interface Props {
     make: any;
     url?: string;
 }
-const { make, icon, url, ...attrs } = Astro.props;
+const { make, url, ...attrs } = Astro.props;
 ---
 
 <div class="flex flex-col sm:flex-row md:flex-col xl:flex-row gap-4 relative">
@@ -19,7 +19,7 @@ const { make, icon, url, ...attrs } = Astro.props;
 
         <a href={url ? url : `/vehicles/${make.id}`} class="text-xs font-medium">
             <span class="absolute inset-0"></span>
-             Read More &#x2192;
+            {url ? <div>Contact Us &#x2192;</div> : <div>Read More &#x2192;</div>}
         </a>
     </div>
 </div>

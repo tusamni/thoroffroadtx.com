@@ -13,6 +13,7 @@ import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
 import Picture from "@/components/images/Picture";
 import RelatedBuild from "@/components/builds/RelatedBuild";
+import Testimonial from "@/components/content/testimonials/TestimonialAlt"
 
 // content
 export async function getStaticPaths() {
@@ -26,6 +27,11 @@ const { build } = Astro.props;
 
 const make = await getEntry("makes", build.data.meta.make.id);
 const model = await getEntry("models", build.data.meta.model.id);
+
+let testimonial;
+if (build.data.meta.testimonial) {
+    testimonial = await getEntry("testimonials", build.data.meta.testimonial.id);
+}
 ---
 
 <Layout title={`Custom ${build.data.meta.year} ${make.data.title} ${model.data.title} ${build.data.meta.trim} Built by THOR Off-Road`}>
@@ -34,11 +40,16 @@ const model = await getEntry("models", build.data.meta.model.id);
     <div class="-mt-20">
         <Container padding={true}>
             <div class="section section-bottom grid grid-cols-2 sm:gap-4">
-                <div class="sticky top-28 box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8 h-fit">
+                <div class="lg:sticky lg:top-28 box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8 h-fit">
                     <h1>{getBuildTitle(build.id)}</h1>
 
                     <div class="space-y-8">
                         {build.data.meta.goals && <div class="text-base space-y-4" set:html={build.data.meta.goals} />}
+                        
+                        {build.data.meta.testimonial && <div class="text-base space-y-4">
+                            <Testimonial content={testimonial}  />
+                        </div>}
+
                         <div class="space-y-4">
                             <h2 class="h4">Parts List</h2>
                             <ul class="space-y-2 text-sm tracking-tight">
@@ -59,8 +70,8 @@ const model = await getEntry("models", build.data.meta.model.id);
                     </div>
                 </div>
 
-                <div>
-                    <div class="bg-white box-spacing col-span-2 lg:col-span-1 mb-4 grid grid-cols-2">
+                <div class="col-span-2 lg:col-span-1">
+                    <div class="bg-white box-spacing mb-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4 sm:gap-0">
                         <div class="flex flex-row gap-8 text-xs items-center text-stone-700">
                             <div class="flex flex-col gap-2">
                                 <div class="font-semibold">Color</div>
@@ -80,19 +91,19 @@ const model = await getEntry("models", build.data.meta.model.id);
 
                         {
                             build.data.video && (
-                                <div class="place-self-end">
+                                <div class="align-self-end flex-none">
                                     <a
                                         href={getMedia(`images/builds/${build.id}/${build.data.video.filename}.mp4`)}
                                         data-sources={`[{"src":"${getMedia(`images/builds/${build.id}/${build.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
                                         data-width={build.data.video.width}
                                         data-height={build.data.video.height}
-                                        class="video text-sm flex items-center font-medium gap-2">
+                                        class="video text-xs sm:text-sm flex items-center font-medium gap-2">
                                         <span>
                                             Watch the
                                             <br />
                                             Build Video
                                         </span>
-                                        <Icon icon="hero/PlayCircleFill" class="h-10" />
+                                        <Icon icon="hero/PlayCircleFill" class="h-6 sm:h-10" />
                                     </a>
                                 </div>
                             )

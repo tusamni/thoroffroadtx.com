@@ -1,8 +1,8 @@
 ---
 import Layout from "@/layouts/Layout";
 
-// imports
 import { getBuildImage } from "@/functions/Image";
+import { getBuildDescription } from "@/functions/Content";
 
 import Build from "@/components/content/snippets/BuildAlt";
 import Container from "@/components/Container";
@@ -35,8 +35,10 @@ const allBuilds = (
 ---
 
 <Layout title={part.data.seo.title} description={part.data.seo.description}>
-    <div class="grid grid-cols-3">
-        {part.data.images.featured.map((i) => <Picture src={getBuildImage(i.id.id, i.image)} loading="eager" class="w-full h-[25em] object-cover" />)}
+    <div class="grid md:grid-cols-3">
+        {part.data.images.featured.map((h, i) => (
+            <Picture src={getBuildImage(h.id.id, h.image)} alt={getBuildDescription(h.id.id)} loading="eager" class:list={["w-full h-[25em] object-cover", (i === 0 || i === 2) && `hidden md:block`]} />
+        ))}
     </div>
 
     <div class="-mt-20 section section-bottom">
@@ -79,8 +81,8 @@ const allBuilds = (
 
     <div class="bg-neutral-50 section">
         <Container>
-            <div class="grid md:grid-cols-5 gap-10">
-                <div class="col-span-2 flex flex-col justify-between gap-y-6">
+            <div class="grid grid-cols-5 gap-10">
+                <div class="col-span-5 md:col-span-2 flex flex-col justify-between gap-y-6">
                     <div class="space-y-8">
                         <h2>{part.data.title} Upgrade Options</h2>
                         <div class="space-y-8" set:html={part.data.description.long} />
@@ -93,7 +95,7 @@ const allBuilds = (
                     </div>
                 </div>
 
-                <div class="col-span-3 grid grid-cols-3 gap-8">
+                <div class="col-span-5 md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
                     {part.data.content.parts.map((p) => <PartDetail part={p} />)}
                 </div>
             </div>

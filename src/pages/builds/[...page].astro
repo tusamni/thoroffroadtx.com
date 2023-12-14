@@ -25,7 +25,7 @@ const { page } = Astro.props;
         <Container padding={true}>
             <div class="grid grid-cols-10 sm:gap-4">
                 <!-- black content area -->
-                <div class="bg-black col-span-6 text-white box-spacing space-y-8">
+                <div class="bg-black col-span-10 lg:col-span-6 text-white box-spacing space-y-8">
                     <div class="space-y-8">
                         <h1>THOR Off-Road<br />Custom Builds</h1>
                         <p class="text-base">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
@@ -35,20 +35,20 @@ const { page } = Astro.props;
         </Container>
     </div>
 
-    <div class="bg-neutral-50">
+    <div class="section section-bottom bg-neutral-50">
         <Container>
             <div class="space-y-8">
-                <div class="grid grid-cols-2 justify-between items-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 justify-between items-center gap-4">
                     <BuildFilter />
 
-                    <div class="text-xs justify-self-end">Showing {page.total} Builds</div>
+                    <div class="text-xs justify-self-center md:justify-self-end">Showing {page.total} Builds</div>
                 </div>
 
                 <div class="grid grid-cols-3 gap-8">
                     {page.data.map((b) => <Build build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, (min-width:1280px) 300px, 100vw" height="h-[15em]" />)}
                 </div>
 
-                <div class="flex justify-between pb-8">
+                <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-4 sm:gap-0">
                     <div class="text-xs">
                         Page {page.currentPage} of {page.lastPage}
                     </div>

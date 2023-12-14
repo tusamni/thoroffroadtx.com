@@ -27,6 +27,7 @@ const buildCollection = defineCollection({
             drive: z.enum(["4x4", "4x2", "AWD"]),
             parts: z.string().transform((part) => part.split(", ")),
             goals: z.string().optional(),
+            testimonial: reference("testimonials").default(null).optional(),
         }),
         images: z.object({
             total: z.number(),

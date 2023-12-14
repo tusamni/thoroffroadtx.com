@@ -35,7 +35,7 @@ const { page, make } = Astro.props;
         <Container padding={true}>
             <div class="grid grid-cols-10 sm:gap-4">
                 <!-- black content area -->
-                <div class="bg-black col-span-6 text-white box-spacing space-y-8">
+                <div class="bg-black col-span-10 lg:col-span-6 text-white box-spacing space-y-8">
                     <div class="space-y-8">
                         <h1>{make.data.title} Builds</h1>
                         <p class="text-base">{make.data.description.short}</p>
@@ -48,10 +48,10 @@ const { page, make } = Astro.props;
     <div class="bg-neutral-50">
         <Container>
             <div class="space-y-8">
-                <div class="grid grid-cols-2 justify-between items-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 justify-between items-center gap-4">
                     <BuildFilter />
 
-                    <div class="text-xs justify-self-end">Showing {page.total} Builds</div>
+                    <div class="text-xs justify-self-center md:justify-self-end">Showing {page.total} Builds</div>
                 </div>
 
                 <div class="grid grid-cols-3 gap-8">

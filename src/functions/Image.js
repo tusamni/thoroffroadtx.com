@@ -10,9 +10,3 @@ export function getBuildImage(path, number) {
 
     return `builds/${path}/${filename}.jpg`;
 }
-
-export function isPortrait(img) {
-    var w = img.width,
-        h = img.height;
-    return h > w ? `aspect-[9/16]` : `aspect-[3/2]`;
-}

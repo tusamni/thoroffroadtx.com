@@ -8,3 +8,9 @@ export async function getBuildTitle(id) {
 
     return `${build.data.meta.year} ${make.data.title} ${model.data.title} ${build.data.meta.trim}`;
 }
+
+export async function getBuildDescription(id) {
+    const build = await getEntry("builds", id);
+
+    return `${build.data.summary}`;
+}

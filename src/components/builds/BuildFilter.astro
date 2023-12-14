@@ -12,7 +12,7 @@ const allParts = await getCollection("parts");
 let allModels;
 if (Astro.params.make) {
     allModels = await getCollection("models", ({ data }) => {
-        return data.make.id.includes(Astro.params.make);
+        return !data.draft && data.make.id.includes(Astro.params.make);
     });
 }
 ---

@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout";
 
 import { Business } from "@/config";
 import { getBuildImage } from "@/functions/Image";
+import { getBuildDescription } from "@/functions/Content";
 import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
@@ -40,20 +41,26 @@ const vehicleFill = {
         icon: "hero/Envelope",
     },
 };
+
+const headlineImages = [
+    { "src": getBuildImage("405642-2022-ram-2500", 7), "alt": getBuildDescription("405642-2022-ram-2500") },
+    { "src": getBuildImage("223455-2007-toyota-land-cruiser", 1), "alt": getBuildDescription("223455-2007-toyota-land-cruiser") },
+    { "src": getBuildImage("298562-2021-ram-2500", 1), "alt": getBuildDescription("298562-2021-ram-2500") },
+]
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
-    <div class="grid grid-cols-3">
-        <Picture src={getBuildImage("405642-2022-ram-2500", 7)} loading="eager" class="w-full h-[25em] object-cover" />
-        <Picture src={getBuildImage("223455-2007-toyota-land-cruiser", 1)} loading="eager" class="w-full h-[25em] object-cover" />
-        <Picture src={getBuildImage("298562-2021-ram-2500", 1)} loading="eager" class="w-full h-[25em] object-cover" />
+    <div class="grid md:grid-cols-3">
+         {headlineImages.map((h, i) => (
+            <Picture src={h.src} alt={h.alt} loading="eager" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />
+        ))}
     </div>
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
-                <div class="bg-black h-fit col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
+                <div class="bg-black h-fit lg:sticky lg:top-28 col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
                     <div class="space-y-8">
                         <h1>Texas' Top<br />Truck Outfitter</h1>
                         <p class="text-base">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
@@ -99,7 +106,7 @@ const vehicleFill = {
     <div class="bg-neutral-50">
         <Container>
             <div class="section space-y-8">
-                <h2>Recent THOR Builds</h2>
+                <h2 class="text-center">Recent THOR Builds</h2>
 
                 <Gallery>
                     <div class="sm:space-y-4">
@@ -123,7 +130,7 @@ const vehicleFill = {
                         <div class="button-text">More Builds</div>
                     </a>
 
-                    <p class="italic text-center sm:text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted} to <br /> get started on your custom build.</a></p>
+                    <p class="italic text-center sm:text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a> to <br /> get started on your custom build.</p>
                 </div>
             </div>
 

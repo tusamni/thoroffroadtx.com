@@ -17,7 +17,7 @@ const { make, icon, url, ...attrs } = Astro.props;
         <div class="font-semibold">{make.data.title}</div>
         <div class="text-xs line-clamp-4">{make.data.description.short}</div>
 
-        <a href={url ? url : `/parts/${make.id}`} class="text-xs font-medium">
+        <a href={url ? url : `/vehicles/${make.id}`} class="text-xs font-medium">
             <span class="absolute inset-0"></span>
              Read More &#x2192;
         </a>

@@ -21,7 +21,7 @@ const fullPath = `${imageConfig.cloudUrl}/images/${src}`;
 // loop through all the necessary image widths
 const optimizedImages = [];
 for (let size of imageConfig.imageSizes) {
-    optimizedImages.push(await getImage({ src: fullPath, format: "webp", width: size, height: size, quality: quality }));
+    optimizedImages.push(await getImage({ src: fullPath, format: "jpeg", width: size, height: size, quality: quality }));
 }
 
 // create the srcset attribute

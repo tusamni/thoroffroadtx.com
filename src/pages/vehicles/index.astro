@@ -43,16 +43,16 @@ const vehicleFill = {
 };
 
 const headlineImages = [
-    { "src": getBuildImage("405642-2022-ram-2500", 7), "alt": getBuildDescription("405642-2022-ram-2500") },
-    { "src": getBuildImage("223455-2007-toyota-land-cruiser", 1), "alt": getBuildDescription("223455-2007-toyota-land-cruiser") },
-    { "src": getBuildImage("298562-2021-ram-2500", 1), "alt": getBuildDescription("298562-2021-ram-2500") },
+    { "id": "405642-2022-ram-2500", "image": 7 },
+    { "id": "223455-2007-toyota-land-cruiser", "image": 1 },
+    { "id": "298562-2021-ram-2500", "image": 1 },
 ]
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
     <div class="grid md:grid-cols-3">
          {headlineImages.map((h, i) => (
-            <Picture src={h.src} alt={h.alt} loading="eager" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />
+            <Picture src={getBuildImage(h.id, h.image)} alt={getBuildDescription(h.id)} sizes="(max-width: 768px) 100vw, 33vw" loading="eager" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />
         ))}
     </div>
 
@@ -110,17 +110,17 @@ const headlineImages = [
 
                 <Gallery>
                     <div class="sm:space-y-4">
-                        <div class="grid grid-cols-6 md:grid-cols-12 sm:gap-4">
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                        <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
                         </div>
-                        <div class="grid grid-cols-6 md:grid-cols-12 sm:gap-4">
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                        <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
+                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
                         </div>
                     </div>
                 </Gallery>

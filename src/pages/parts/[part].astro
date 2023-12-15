@@ -37,7 +37,7 @@ const allBuilds = (
 <Layout title={part.data.seo.title} description={part.data.seo.description}>
     <div class="grid md:grid-cols-3">
         {part.data.images.featured.map((h, i) => (
-            <Picture src={getBuildImage(h.id.id, h.image)} alt={getBuildDescription(h.id.id)} loading="eager" class:list={["w-full h-[25em] object-cover", (i === 0 || i === 2) && `hidden md:block`]} />
+            <Picture src={getBuildImage(h.id.id, h.image)} alt={getBuildDescription(h.id.id)} sizes="(max-width: 768px) 100vw, 33vw" loading="eager" class:list={["w-full h-[25em] object-cover", (i === 0 || i === 2) && `hidden md:block`]} />
         ))}
     </div>
 
@@ -103,17 +103,17 @@ const allBuilds = (
     </div>
 
     <Gallery>
-        <div class="grid grid-cols-6 md:grid-cols-12">
-            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+        <div class="grid grid-cols-2 md:grid-cols-4">
+            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 768px) 50vw, 25vw" />
+            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 768px) 50vw, 25vw" />
+            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 768px) 50vw, 25vw" />
+            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 768px) 50vw, 25vw" />
         </div>
-        <div class="grid grid-cols-6 md:grid-cols-12">
-            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(min-width: 768px) 50vw, 100vw" />
+        <div class="grid grid-cols-2 md:grid-cols-4">
+            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 768px) 50vw, 25vw" />
+            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 768px) 50vw, 25vw" />
+            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 768px) 50vw, 25vw" />
+            <Picture src={getBuildImage("298562-2021-ram-2500", 13)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 768px) 50vw, 25vw" />
         </div>
     </Gallery>
 </Layout>

@@ -64,7 +64,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
             <Gallery>
                 <div class="mt-4 grid md:grid-cols-3 gap-4">
                     {make.data.images.featured.secondary.map((i) => (
-                        <Picture src={getBuildImage(make.data.images.featured.id.id, i)} loading="eager" class="object-cover w-full h-[30em]" sizes="100vw" />
+                        <Picture src={getBuildImage(make.data.images.featured.id.id, i)} loading="eager" class="object-cover w-full md:h-[15em] lg:h-[25em]" sizes="(max-width: 640px) 100vw, 33vw" />
                     ))}
                 </div>
             </Gallery>
@@ -95,8 +95,8 @@ const makeTestimonial = await getEntry(make.data.testimonial);
     </div>
 
     <Gallery>
-        <div class="grid grid-cols-6 md:grid-cols-12">
-            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+        <div class="grid grid-cols-2 sm:grid-cols-4">
+            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
             <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />

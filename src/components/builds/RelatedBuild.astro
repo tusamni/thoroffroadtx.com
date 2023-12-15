@@ -18,7 +18,7 @@ const build = await getEntry("builds", id);
 
 <div class="grid grid-cols-4 gap-3">
     <div class="relative w-full h-full">
-        <Picture src={getBuildImage(build.id, build.data.images.snippet)} sizes="100px" alt="" class:list={["absolute rounded-sm object-cover h-full"]} slot="picture" />
+        <Picture src={getBuildImage(build.id, build.data.images.snippet)} sizes="250px" alt={getBuildTitle(build.id)} class:list={["absolute rounded-sm object-cover h-full"]} slot="picture" />
     </div>
 
     <div class="col-span-3 space-y-1">

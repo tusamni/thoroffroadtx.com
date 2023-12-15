@@ -19,16 +19,27 @@ const { src, alt, loading = "lazy", sizes = "100vw", quality = 85, ...attrs } = 
 const fullPath = `${imageConfig.cloudUrl}/images/${src}`;
 
 // loop through all the necessary image widths
-const optimizedImages = [];
+const optimizedJpeg = [];
 for (let size of imageConfig.imageSizes) {
-    optimizedImages.push(await getImage({ src: fullPath, format: "jpeg", width: size, height: size, quality: quality }));
+    optimizedJpeg.push(await getImage({ src: fullPath, format: "jpeg", width: size, height: size, quality: quality }));
+}
+
+const optimizedWebp = [];
+for (let size of imageConfig.imageSizes) {
+    optimizedWebp.push(await getImage({ src: fullPath, format: "webp", width: size, height: size, quality: quality }));
 }
 
 // create the srcset attribute
-const sources = optimizedImages.map((i) => {
+const sourcesJpeg = optimizedJpeg.map((i) => {
     return `${i.src} ${i.attributes.width}w`;
 });
-const srcset = sources.join(", ");
+const srcsetJpeg = sourcesJpeg.join(", ");
+
+// create the srcset attribute
+const sourcesWebp = optimizedWebp.map((i) => {
+    return `${i.src} ${i.attributes.width}w`;
+});
+const srcsetWebp = sourcesWebp.join(", ");
 
 // get the dimensions of the image
 let dimensions;
@@ -41,8 +52,26 @@ if (import.meta.env.PROD) {
     };
 }
 ---
+<picture>
+    <source srcset={srcsetWebp} sizes={sizes} type="image/webp" />
+    <source srcset={srcsetJpeg} sizes={sizes} type="image/jpeg" />
+    <img
+        src={optimizedJpeg[0].src}
+        href={optimizedJpeg[0].src}
+        alt={await alt}
+        width={dimensions.width}
+        height={dimensions.height}
+        loading={loading}
+        sizes={sizes}
+        {...attrs}
+        data-img={optimizedJpeg[0].src}
+        data-width={dimensions.width}
+        data-height={dimensions.height}
+        data-caption={await alt}
+    />
+</picture>
 
-<img
+<!-- <img
     href={optimizedImages[0].src}
     src={optimizedImages[0].src}
     srcset={srcset}
@@ -56,4 +85,4 @@ if (import.meta.env.PROD) {
     data-width={dimensions.width}
     data-height={dimensions.height}
     data-caption={await alt}
-/>
+/> -->

@@ -35,7 +35,7 @@ if (build.data.meta.testimonial) {
 ---
 
 <Layout title={`Custom ${build.data.meta.year} ${make.data.title} ${model.data.title} ${build.data.meta.trim} Built by THOR Off-Road`}>
-    <Picture src={getBuildImage(build.id, build.data.images.snippet)} alt={getBuildTitle(build.id)} class="header-single" />
+    <Picture src={getBuildImage(build.id, build.data.images.snippet)} alt={getBuildTitle(build.id)} class="header-single" loading="eager" />
 
     <div class="-mt-20">
         <Container padding={true}>

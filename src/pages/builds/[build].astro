@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout";
 
 // imports
 import { getBuildImage } from "@/functions/Image";
-import { getBuildTitle } from "@/functions/Content";
+import { getBuildDescription, getBuildTitle } from "@/functions/Content";
 import { getCollection, getEntry } from "astro:content";
 import { getMedia } from "@/functions/Image";
 import { timeAgo } from "@/functions/DateTime";
@@ -111,10 +111,10 @@ if (build.data.meta.testimonial) {
                     </div>
 
                     <Gallery>
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="columns-2">
                             {
                                 Array.from(Array(build.data.images.total)).map((_, i) => (
-                                    <Picture src={getBuildImage(build.id, i + 1)} class:list={["aspect-square w-full h-auto object-cover", build.data.images.total % 2 !== 0 && i + 1 == build.data.images.total && `col-span-2`]} sizes="(max-width:1024) 50vw, 300px" />
+                                    <Picture src={getBuildImage(build.id, i + 1)} class="w-full h-auto mb-4" alt={getBuildDescription(build.id)} sizes="(max-width:1024) 50vw, 400px" />
                                 ))
                             }
                         </div>

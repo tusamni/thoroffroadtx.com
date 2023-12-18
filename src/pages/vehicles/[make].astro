@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout";
 
 import { getBuildImage } from "@/functions/Image";
+import { getBuildDescription } from "@/functions/Content";
 
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
@@ -28,7 +29,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 ---
 
 <Layout title={make.data.seo.title} description={make.data.seo.description}>
-    <Picture src={getBuildImage(make.data.images.featured.id.id, make.data.images.featured.headline)} loading="eager" class="header-single object-[50%,50%]" />
+    <Picture src={getBuildImage(make.data.images.featured.id.id, make.data.images.featured.headline)} alt={getBuildDescription(make.data.images.featured.id.id)} loading="eager" class="header-single object-[50%,50%]" />
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>
@@ -63,9 +64,11 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 
             <Gallery>
                 <div class="mt-4 grid md:grid-cols-3 gap-4">
-                    {make.data.images.featured.secondary.map((i) => (
-                        <Picture src={getBuildImage(make.data.images.featured.id.id, i)} loading="eager" class="object-cover w-full md:h-[15em] lg:h-[25em]" sizes="(max-width: 640px) 100vw, 33vw" />
-                    ))}
+                    {
+                        make.data.images.featured.secondary.map((i) => (
+                            <Picture src={getBuildImage(make.data.images.featured.id.id, i)} alt={getBuildDescription(make.data.images.featured.id.id)} loading="eager" class="object-cover w-full md:h-[15em] lg:h-[25em]" sizes="(max-width: 640px) 100vw, 33vw" />
+                        ))
+                    }
                 </div>
             </Gallery>
         </Container>
@@ -96,10 +99,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 
     <Gallery>
         <div class="grid grid-cols-2 sm:grid-cols-4">
-            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
-            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+            {make.data.images.gallery.map((g) => <Picture src={getBuildImage(g.id.id, g.image)} alt={getBuildDescription(g.id.id)} class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />)}
         </div>
     </Gallery>
 </Layout>

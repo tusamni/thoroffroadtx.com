@@ -70,6 +70,12 @@ const makeCollection = defineCollection({
                 headline: z.number(),
                 secondary: z.array(z.number()).length(3),
             }),
+            gallery: z.array(
+                z.object({
+                    id: reference("builds"),
+                    image: z.number(),
+                })
+            ),
         }),
         testimonial: reference("testimonials"),
     }),

@@ -20,8 +20,14 @@
         "featured": {
             "id": "328593-2018-lexus-gx-460",
             "headline": 1,
-            "secondary": [3, 4, 5]
-        }
+            "secondary": [3, 6, 9]
+        },
+        "gallery": [
+            {
+                "id": "355738-2022-chevrolet-silverado-1500",
+                "image": 8
+            }
+        ]
     },
     "testimonial": "andrew-p"
 }

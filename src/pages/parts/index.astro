@@ -40,22 +40,30 @@ const partsFill = {
         },
         images: {
             icon: "hero/Envelope",
-        }
-    }
+        },
+    },
 };
 
 const headlineImages = [
-    { "src": getBuildImage("276780-2019-ford-f-250", 6), "alt": getBuildDescription("276780-2019-ford-f-250") },
-    { "src": "shop/2022-03-09/shop-shoot_01.jpg", "alt": "Fox shocks waiting to be installed" },
-    { "src": getBuildImage("791924-2016-toyota-tacoma", 7), "alt": getBuildDescription("791924-2016-toyota-tacoma") },
-]
+    { src: getBuildImage("276780-2019-ford-f-250", 6), alt: getBuildDescription("276780-2019-ford-f-250") },
+    { src: "shop/2022-03-09/shop-shoot_01.jpg", alt: "Fox shocks waiting to be installed" },
+    { src: getBuildImage("791924-2016-toyota-tacoma", 7), alt: getBuildDescription("791924-2016-toyota-tacoma") },
+];
+const recentImages = [
+    { src: getBuildImage("665125-2023-ford-f-150", 5), alt: getBuildDescription("665125-2023-ford-f-150") },
+    { src: getBuildImage("864745-2020-toyota-4runner", 8), alt: getBuildDescription("864745-2020-toyota-4runner") },
+    { src: getBuildImage("692114-2023-ram-2500", 5), alt: getBuildDescription("692114-2023-ram-2500") },
+    { src: getBuildImage("782922-2022-ford-f-350", 23), alt: getBuildDescription("782922-2022-ford-f-350") },
+    { src: getBuildImage("300038-2022-ford-f-250", 9), alt: getBuildDescription("300038-2022-ford-f-250") },
+    { src: getBuildImage("850633-2022-ram-3500", 5), alt: getBuildDescription("850633-2022-ram-3500") },
+    { src: getBuildImage("453172-2020-ford-f-250", 10), alt: getBuildDescription("453172-2020-ford-f-250") },
+    { src: getBuildImage("695527-2022-chevrolet-silverado-2500-hd", 9), alt: getBuildDescription("695527-2022-chevrolet-silverado-2500-hd") },
+];
 ---
 
 <Layout title="We're the Top Rated Carli Dealer and Installer in Texas">
     <div class="grid md:grid-cols-3">
-         {headlineImages.map((h, i) => (
-            <Picture src={h.src} alt={h.alt} loading="eager" sizes="(max-width: 768px) 100vw, 33vw" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />
-        ))}
+        {headlineImages.map((h, i) => <Picture src={h.src} alt={h.alt} loading="eager" sizes="(max-width: 768px) 100vw, 33vw" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />)}
     </div>
 
     <div class="-mt-20 section section-bottom">
@@ -115,16 +123,10 @@ const headlineImages = [
                 <Gallery>
                     <div class="sm:space-y-4">
                         <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
+                            {recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />).slice(0, 4)}
                         </div>
                         <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />
+                            {recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />).slice(4, 8)}
                         </div>
                     </div>
                 </Gallery>
@@ -134,7 +136,7 @@ const headlineImages = [
                         <div class="button-text">More Builds</div>
                     </a>
 
-                    <p class="italic text-center sm:text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a> to <br /> get started on your custom build.</p>
+                    <p class="italic text-center sm:text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`} class="underline">{Business.phone.formatted}</a> to <br /> get started on your custom build.</p>
                 </div>
             </div>
 

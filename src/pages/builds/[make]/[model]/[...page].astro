@@ -9,6 +9,7 @@ import Build from "@/components/content/snippets/Build";
 import Container from "@/components/Container";
 import Pagination from "@/components/Pagination";
 import Picture from "@/components/images/Picture";
+import { getBuildDescription } from "@/functions/Content";
 
 // content
 export async function getStaticPaths({ paginate }) {
@@ -31,7 +32,7 @@ const { page, model } = Astro.props;
 ---
 
 <Layout>
-    <Picture src={getBuildImage(model.data.images.featured.id.id, model.data.images.featured.image)} loading="eager" class="w-full h-[25em] object-cover" />
+    <Picture src={getBuildImage(model.data.images.featured.id.id, model.data.images.featured.image)} alt={getBuildDescription(model.data.images.featured.id.id)} loading="eager" class="w-full h-[25em] object-cover" />
 
     <div class="-mt-20 bg-neutral-50 pb-8">
         <Container padding={true}>
@@ -47,7 +48,7 @@ const { page, model } = Astro.props;
         </Container>
     </div>
 
-    <div class="bg-neutral-50">
+    <div class="section section-bottom bg-neutral-50">
         <Container>
             <div class="space-y-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 justify-between items-center gap-4">
@@ -60,7 +61,7 @@ const { page, model } = Astro.props;
                     {page.data.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
                 </div>
 
-                <div class="flex justify-between items-center">
+                <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-4 sm:gap-0">
                     <div class="text-xs">
                         Page {page.currentPage} of {page.lastPage}
                     </div>

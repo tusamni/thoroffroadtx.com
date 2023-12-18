@@ -20,8 +20,26 @@
         "featured": {
             "id": "108058-2022-gmc-sierra-2500-hd",
             "headline": 2,
-            "secondary": [3, 4, 5]
-        }
+            "secondary": [5, 6, 7]
+        },
+        "gallery": [
+            {
+                "id": "965777-2022-gmc-sierra-2500-hd",
+                "image": 1
+            },
+            {
+                "id": "951355-2020-gmc-sierra-2500-hd",
+                "image": 4
+            },
+            {
+                "id": "152378-2023-gmc-sierra-1500",
+                "image": 4
+            },
+            {
+                "id": "965777-2022-gmc-sierra-2500-hd",
+                "image": 3
+            }
+        ]
     },
     "testimonial": "andrew-p"
 }

@@ -20,8 +20,14 @@
         "featured": {
             "id": "864745-2020-toyota-4runner",
             "headline": 1,
-            "secondary": [3, 4, 5]
-        }
+            "secondary": [8, 5, 12]
+        },
+        "gallery": [
+            {
+                "id": "355738-2022-chevrolet-silverado-1500",
+                "image": 8
+            }
+        ]
     },
     "testimonial": "andrew-p"
 }

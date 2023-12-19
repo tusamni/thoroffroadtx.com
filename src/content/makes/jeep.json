@@ -21,13 +21,7 @@
             "id": "229267-2018-jeep-wrangler",
             "headline": 1,
             "secondary": [8, 10, 11]
-        },
-        "gallery": [
-            {
-                "id": "355738-2022-chevrolet-silverado-1500",
-                "image": 8
-            }
-        ]
+        }
     },
     "testimonial": "andrew-p"
 }

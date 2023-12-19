@@ -99,7 +99,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 
     <Gallery>
         <div class="grid grid-cols-2 sm:grid-cols-4">
-            {make.data.images.gallery.map((g) => <Picture src={getBuildImage(g.id.id, g.image)} alt={getBuildDescription(g.id.id)} class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />)}
+            {make.data.images.gallery && make.data.images.gallery.map((g) => <Picture src={getBuildImage(g.id.id, g.image)} alt={getBuildDescription(g.id.id)} class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />)}
         </div>
     </Gallery>
 </Layout>

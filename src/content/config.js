@@ -75,7 +75,7 @@ const makeCollection = defineCollection({
                     id: reference("builds"),
                     image: z.number(),
                 })
-            ),
+            ).optional(),
         }),
         testimonial: reference("testimonials"),
     }),

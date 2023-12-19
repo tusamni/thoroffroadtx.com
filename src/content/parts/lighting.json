@@ -52,18 +52,42 @@
     },
     "images": {
         "icon": "Lighting",
-        "featured": [
+        "featured": {
+            "id": "266375-2022-ford-bronco",
+            "image": 2
+        },
+        "gallery": [
             {
-                "id": "266375-2022-ford-bronco",
-                "image": 2
+                "id": "777233-2022-ford-bronco",
+                "image": 3
             },
             {
-                "id": "266375-2022-ford-bronco",
-                "image": 2
+                "id": "777233-2022-ford-bronco",
+                "image": 7
             },
             {
-                "id": "266375-2022-ford-bronco",
-                "image": 2
+                "id": "300038-2022-ford-f-250",
+                "image": 39
+            },
+            {
+                "id": "300038-2022-ford-f-250",
+                "image": 17
+            },
+            {
+                "id": "453172-2020-ford-f-250",
+                "image": 10
+            },
+            {
+                "id": "695527-2022-chevrolet-silverado-2500-hd",
+                "image": 6
+            },
+            {
+                "id": "208146-2022-ford-f-350",
+                "image": 5
+            },
+            {
+                "id": "594995-2022-ram-1500",
+                "image": 4
             }
         ]
     }

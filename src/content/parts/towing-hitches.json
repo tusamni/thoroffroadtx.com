@@ -32,19 +32,9 @@
     },
     "images": {
         "icon": "Chassis",
-        "featured": [
-            {
-                "id": "782922-2022-ford-f-350",
-                "image": 23
-            },
-            {
-                "id": "782922-2022-ford-f-350",
-                "image": 23
-            },
-            {
-                "id": "782922-2022-ford-f-350",
-                "image": 23
-            }
-        ]
+        "featured": {
+            "id": "782922-2022-ford-f-350",
+            "image": 23
+        }
     }
 }

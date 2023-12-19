@@ -70,12 +70,14 @@ const makeCollection = defineCollection({
                 headline: z.number(),
                 secondary: z.array(z.number()).length(3),
             }),
-            gallery: z.array(
-                z.object({
-                    id: reference("builds"),
-                    image: z.number(),
-                })
-            ).optional(),
+            gallery: z
+                .array(
+                    z.object({
+                        id: reference("builds"),
+                        image: z.number(),
+                    })
+                )
+                .optional(),
         }),
         testimonial: reference("testimonials"),
     }),
@@ -130,12 +132,18 @@ const partCollection = defineCollection({
         }),
         images: z.object({
             icon: z.string(),
-            featured: z.array(
-                z.object({
-                    id: reference("builds"),
-                    image: z.number(),
-                })
-            ),
+            featured: z.object({
+                id: reference("builds"),
+                image: z.number(),
+            }),
+            gallery: z
+                .array(
+                    z.object({
+                        id: reference("builds"),
+                        image: z.number(),
+                    })
+                )
+                .optional(),
         }),
     }),
 });

@@ -36,19 +36,9 @@
     },
     "images": {
         "icon": "Pistons",
-        "featured": [
-            {
-                "id": "300038-2022-ford-f-250",
-                "image": 9
-            },
-            {
-                "id": "300038-2022-ford-f-250",
-                "image": 9
-            },
-            {
-                "id": "300038-2022-ford-f-250",
-                "image": 9
-            }
-        ]
+        "featured": {
+            "id": "300038-2022-ford-f-250",
+            "image": 9
+        }
     }
 }

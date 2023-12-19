@@ -36,19 +36,9 @@
     },
     "images": {
         "icon": "Tachometer",
-        "featured": [
-            {
-                "id": "782922-2022-ford-f-350",
-                "image": 24
-            },
-            {
-                "id": "782922-2022-ford-f-350",
-                "image": 24
-            },
-            {
-                "id": "782922-2022-ford-f-350",
-                "image": 24
-            }
-        ]
+        "featured": {
+            "id": "782922-2022-ford-f-350",
+            "image": 24
+        }
     }
 }

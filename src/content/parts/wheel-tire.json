@@ -44,18 +44,42 @@
     },
     "images": {
         "icon": "Wheel",
-        "featured": [
+        "featured": {
+            "id": "276780-2019-ford-f-250",
+            "image": 1
+        },
+        "gallery": [
             {
-                "id": "276780-2019-ford-f-250",
-                "image": 1
+                "id": "167209-2021-ram-2500",
+                "image": 6
             },
             {
-                "id": "276780-2019-ford-f-250",
-                "image": 1
+                "id": "108058-2022-gmc-sierra-2500-hd",
+                "image": 5
             },
             {
-                "id": "276780-2019-ford-f-250",
-                "image": 1
+                "id": "295031-2022-ford-f-350",
+                "image": 5
+            },
+            {
+                "id": "777233-2022-ford-bronco",
+                "image": 17
+            },
+            {
+                "id": "300038-2022-ford-f-250",
+                "image": 4
+            },
+            {
+                "id": "782922-2022-ford-f-350",
+                "image": 21
+            },
+            {
+                "id": "864745-2020-toyota-4runner",
+                "image": 5
+            },
+            {
+                "id": "665125-2023-ford-f-150",
+                "image": 3
             }
         ]
     }

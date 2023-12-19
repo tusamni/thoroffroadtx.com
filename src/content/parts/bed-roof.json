@@ -80,18 +80,26 @@
     },
     "images": {
         "icon": "Pickup",
-        "featured": [
+        "featured": {
+            "id": "298562-2021-ram-2500",
+            "image": 4
+        },
+        "gallery": [
             {
-                "id": "298562-2021-ram-2500",
-                "image": 4
+                "id": "988912-2005-lexus-gx-470",
+                "image": 5
             },
             {
-                "id": "298562-2021-ram-2500",
-                "image": 4
+                "id": "791924-2016-toyota-tacoma",
+                "image": 7
             },
             {
-                "id": "298562-2021-ram-2500",
-                "image": 4
+                "id": "977725-2021-ram-1500",
+                "image": 3
+            },
+            {
+                "id": "328593-2018-lexus-gx-460",
+                "image": 9
             }
         ]
     }

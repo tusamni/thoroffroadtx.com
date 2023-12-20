@@ -2,14 +2,12 @@
 import Layout from "@/layouts/Layout";
 
 import { getCollection } from "astro:content";
-import { getBuildImage } from "@/functions/Image";
 
 import BuildFilter from "@/components/builds/BuildFilter";
 import Build from "@/components/content/snippets/Build";
 import Container from "@/components/Container";
 import Pagination from "@/components/Pagination";
 import Picture from "@/components/images/Picture";
-import { getBuildDescription } from "@/functions/Content";
 
 // content
 export async function getStaticPaths({ paginate }) {

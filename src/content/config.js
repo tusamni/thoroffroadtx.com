@@ -22,12 +22,12 @@ const buildCollection = defineCollection({
             year: z.number(),
             make: reference("makes"),
             model: reference("models"),
-            trim: z.string().nullable().optional(),
+            trim: z.string().optional(),
             color: z.string().optional(),
             drive: z.enum(["4x4", "4x2", "AWD"]),
             parts: z.string().transform((part) => part.split(", ")),
             goals: z.string().optional(),
-            testimonial: reference("testimonials").default(null).optional(),
+            testimonial: reference("testimonials").optional(),
         }),
         images: z.object({
             total: z.number(),
@@ -121,7 +121,7 @@ const partCollection = defineCollection({
                 .array(
                     z.object({
                         title: z.string(),
-                        description: z.string().nullable(),
+                        description: z.string().optional(),
                     })
                 )
                 .optional(),

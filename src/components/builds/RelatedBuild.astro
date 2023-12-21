@@ -1,11 +1,10 @@
 ---
 // imports
 import { getBuildImage } from "@/functions/Image";
-import { getBuildTitle } from "@/functions/Content"
+import { getBuildTitle } from "@/functions/Content";
 import { getEntry } from "astro:content";
 
 import Picture from "@/components/images/Picture";
-
 
 // props
 export interface Props {
@@ -16,7 +15,7 @@ const { id } = Astro.props;
 const build = await getEntry("builds", id);
 ---
 
-<div class="grid grid-cols-4 gap-3">
+<a href={`/builds/${build.id}`} title={await getBuildTitle(build.id)} class="grid grid-cols-4 gap-3">
     <div class="relative w-full h-full">
         <Picture src={getBuildImage(build.id, build.data.images.snippet)} sizes="250px" alt={getBuildTitle(build.id)} class:list={["absolute rounded-sm object-cover h-full"]} slot="picture" />
     </div>
@@ -27,4 +26,4 @@ const build = await getEntry("builds", id);
             {build.data.meta.parts.map((p) => <li>{p}</li>)}
         </ul>
     </div>
-</div>
+</a>

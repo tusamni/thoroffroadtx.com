@@ -78,10 +78,10 @@ const allBuilds = (
     <div class="bg-neutral-50 section">
         <Container>
             <div class="grid grid-cols-5 gap-10">
-                <div class="col-span-5 md:col-span-2 flex flex-col justify-between gap-y-6">
+                <div class="col-span-5 lg:col-span-2 flex flex-col justify-between gap-y-6">
                     <div class="space-y-8">
                         <h2>{part.data.title} Upgrade Options</h2>
-                        <div class="space-y-8" set:html={part.data.description.long} />
+                        <div class="space-y-8" set:html={part.data.content.sidebar} />
                     </div>
 
                     <div>
@@ -91,7 +91,7 @@ const allBuilds = (
                     </div>
                 </div>
 
-                <div class="col-span-5 md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="col-span-5 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8 h-fit">
                     {part.data.content.parts.map((p) => <PartDetail part={p} />)}
                 </div>
             </div>

@@ -7,7 +7,7 @@ import Icon from "@/components/Icon";
 <form id="form-contact" class="space-y-6" name="Contact Form" action="/contact/success" method="post" data-netlify="true" netlify-honeypot="state">
     <div class="space-y-2">
         <label for="name" class="block font-semibold leading-6">Name</label>
-        <input type="text" name="name" id="name" autocomplete="name" required />
+        <input type="text" name="name" id="name" autocomplete="name" required oninput="updateSubject(`New Submission from thoroffroadtx.com - ${this.value}`)" />
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -43,4 +43,6 @@ import Icon from "@/components/Icon";
 
         <p class="text-white italic text-right">We're also available for a<br />chat at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a></p>
     </div>
+
+    <input id="output-email-subject" type="hidden" name="subject" value="" />
 </form>

@@ -21,7 +21,41 @@
             "id": "276780-2019-ford-f-250",
             "headline": 1,
             "secondary": [3, 4, 5]
-        }
+        },
+        "gallery": [
+            {
+                "id": "561954-2021-ford-f-250",
+                "image": 1
+            },
+            {
+                "id": "266375-2022-ford-bronco",
+                "image": 4
+            },
+            {
+                "id": "208146-2022-ford-f-350",
+                "image": 2
+            },
+            {
+                "id": "122366-2021-ford-bronco",
+                "image": 19
+            },
+            {
+                "id": "453172-2020-ford-f-250",
+                "image": 3
+            },
+            {
+                "id": "777233-2022-ford-bronco",
+                "image": 2
+            },
+            {
+                "id": "397060-2021-ford-f-350",
+                "image": 1
+            },
+            {
+                "id": "215615-2022-ford-bronco",
+                "image": 15
+            }
+        ]
     },
     "testimonial": "andrew-p"
 }

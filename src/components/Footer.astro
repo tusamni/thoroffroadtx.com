@@ -1,36 +1,31 @@
 ---
 // imports
 import { Business } from "@/config";
-import { getMedia } from "@/functions/Image"
 
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
 import Icon from "@/components/Icon";
 import Picture from "@/components/images/Picture";
+
 ---
 
 <footer class="bg-black">
     <Container>
         <div class="section space-y-20">
-            <div class="grid lg:grid-cols-2 gap-20">
-                <div class="mx-auto max-w-screen-md lg:max-w-none space-y-8">
-                    <h1 class="text-white">Let's start building your dream vehicle.</h1>
-                    <div class="text-white text-lg md:text-xl tracking-tight md:leading-8 space-y-6">
-                        <p>If you are ready to get started on designing and building the perfect truck, so are we. Tell us a little about your truck build and contact information and we will reach out to you as soon as possible.</p>
+            {!Astro.url.pathname.includes("/contact/success") && (
+                <div class="grid lg:grid-cols-2 gap-20">
+                    <div class="mx-auto max-w-screen-md lg:max-w-none space-y-8">
+                        <h1 class="text-white">Let's start building your dream vehicle.</h1>
+                        <div class="text-white text-lg md:text-xl tracking-tight md:leading-8 space-y-6">
+                            <p>If you are ready to get started on designing and building the perfect truck, so are we. Tell us a little about your truck build and contact information and we will reach out to you as soon as possible.</p>
+                        </div>
+
+                        <ContactForm />
                     </div>
 
-                    <ContactForm />
+                    <Picture src="shop/map.jpg" alt="Map for THOR Off-Road" class="object-cover w-full h-full" sizes="(max-width: 1024px) 100vw, 50vw" quality={100} />
                 </div>
-
-                <Picture src="shop/map.jpg" alt="Map for THOR Off-Road" class="object-cover w-full h-full" quality={100} />
-                <!-- <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.4305513113804!2d-98.023154187185!3d30.19625671125402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b46992512c29d%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1701457813373!5m2!1sen!2sus"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    class="w-full h-[30em] lg:h-full border-0">
-                </iframe> -->
-            </div>
+            )}
 
             <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-12 lg:gap-20">
                 <div class="space-y-12 max-w-lg">
@@ -47,7 +42,7 @@ import Picture from "@/components/images/Picture";
                         <li><a href="/sitemap">Sitemap</a></li>
                     </ul>
 
-                    <div class="flex flex-col md:flex-row md:gap-6 text-white font-light lg:justify-end">
+                    <div class="flex flex-col md:flex-row gap-3 text-white font-light lg:justify-end">
                         <a href={`tel:${Business.phone.number}`} class="text-base">{Business.phone.formatted}</a>
                         <a href={`mailto:${Business.email}`} class="text-base">{Business.email}</a>
                     </div>

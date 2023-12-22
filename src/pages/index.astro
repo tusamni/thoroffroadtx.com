@@ -22,27 +22,25 @@ const allTestimonials = await getCollection("testimonials", ({ data }) => {
 });
 
 const headlineImages = [
-    { "id": "692114-2023-ram-2500", "image": 5 },
-    { "id": "662677-2022-ford-f-350", "image": 2 },
-    { "id": "266375-2022-ford-bronco", "image": 1 }
-]
+    { id: "692114-2023-ram-2500", image: 5 },
+    { id: "662677-2022-ford-f-350", image: 2 },
+    { id: "266375-2022-ford-bronco", image: 1 },
+];
 const galleryImages = [
-    { "id": "298562-2021-ram-2500", "image": 5 },
-    { "id": "405642-2022-ram-2500", "image": 2 },
-    { "id": "266375-2022-ford-bronco", "image": 3 },
-    { "id": "108058-2022-gmc-sierra-2500-hd", "image": 6 },
-    { "id": "276780-2019-ford-f-250", "image": 2 },
-    { "id": "453172-2020-ford-f-250", "image": 7 },
-    { "id": "791924-2016-toyota-tacoma", "image": 7 },
-    { "id": "404814-2023-ford-f-250", "image": 2 }
-]
+    { id: "298562-2021-ram-2500", image: 5 },
+    { id: "405642-2022-ram-2500", image: 2 },
+    { id: "266375-2022-ford-bronco", image: 3 },
+    { id: "108058-2022-gmc-sierra-2500-hd", image: 6 },
+    { id: "276780-2019-ford-f-250", image: 2 },
+    { id: "453172-2020-ford-f-250", image: 7 },
+    { id: "791924-2016-toyota-tacoma", image: 7 },
+    { id: "404814-2023-ford-f-250", image: 2 },
+];
 ---
 
 <Layout>
     <div class="grid md:grid-cols-3">
-        {headlineImages.map((h, i) => (
-            <Picture src={getBuildImage(h.id, h.image)} alt={getBuildDescription(h.id)} loading="eager" sizes="(max-width: 768px) 100vw, 33vw" class:list={["w-full h-[25em] object-cover", (i === 0 || i === 2) && `hidden md:block`]} />
-        ))}
+        {headlineImages.map((h, i) => <Picture src={getBuildImage(h.id, h.image)} alt={getBuildDescription(h.id)} loading="eager" sizes="(max-width: 768px) 100vw, 33vw" class:list={["w-full h-[25em] object-cover", (i === 0 || i === 2) && `hidden md:block`]} />)}
     </div>
 
     <div class="-mt-20">
@@ -128,10 +126,7 @@ const galleryImages = [
 
     <Gallery>
         <div class="grid sm:grid-cols-4 lg:grid-cols-4">
-            {galleryImages.map((g) => (
-                <Picture src={getBuildImage(g.id, g.image)} alt={getBuildDescription(g.id)} class="object-cover w-full h-full col-span-12 sm:col-span-3 sm:h-[200px] md:h-[350px]" sizes="(min-width: 640px) 25vw, 100vw" />
-            ))}
-            
+            {galleryImages.map((g) => <Picture src={getBuildImage(g.id, g.image)} alt={getBuildDescription(g.id)} class="object-cover w-full h-full col-span-12 sm:col-span-3 sm:h-[200px] md:h-[350px]" sizes="(min-width: 640px) 25vw, 100vw" />)}
         </div>
     </Gallery>
 </Layout>

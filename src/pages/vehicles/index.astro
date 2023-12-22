@@ -43,27 +43,35 @@ const vehicleFill = {
 };
 
 const headlineImages = [
-    { "src": getBuildImage("405642-2022-ram-2500", 7), "alt": getBuildDescription("405642-2022-ram-2500") },
-    { "src": getBuildImage("223455-2007-toyota-land-cruiser", 1), "alt": getBuildDescription("223455-2007-toyota-land-cruiser") },
-    { "src": getBuildImage("298562-2021-ram-2500", 1), "alt": getBuildDescription("298562-2021-ram-2500") },
-]
+    { id: "405642-2022-ram-2500", image: 7 },
+    { id: "223455-2007-toyota-land-cruiser", image: 1 },
+    { id: "298562-2021-ram-2500", image: 1 },
+];
+const recentImages = [
+    { src: getBuildImage("404814-2023-ford-f-250", 3), alt: getBuildDescription("404814-2023-ford-f-250") },
+    { src: getBuildImage("692114-2023-ram-2500", 2), alt: getBuildDescription("692114-2023-ram-2500") },
+    { src: getBuildImage("215615-2022-ford-bronco", 2), alt: getBuildDescription("215615-2022-ford-bronco") },
+    { src: getBuildImage("662677-2022-ford-f-350", 2), alt: getBuildDescription("662677-2022-ford-f-350") },
+    { src: getBuildImage("300038-2022-ford-f-250", 22), alt: getBuildDescription("300038-2022-ford-f-250") },
+    { src: getBuildImage("295031-2022-ford-f-350", 12), alt: getBuildDescription("295031-2022-ford-f-350") },
+    { src: getBuildImage("108058-2022-gmc-sierra-2500-hd", 1), alt: getBuildDescription("108058-2022-gmc-sierra-2500-hd") },
+    { src: getBuildImage("714731-2022-ford-f-250", 1), alt: getBuildDescription("714731-2022-ford-f-250") },
+];
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
     <div class="grid md:grid-cols-3">
-         {headlineImages.map((h, i) => (
-            <Picture src={h.src} alt={h.alt} loading="eager" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />
-        ))}
+        {headlineImages.map((h, i) => <Picture src={getBuildImage(h.id, h.image)} alt={getBuildDescription(h.id)} sizes="(max-width: 768px) 100vw, 33vw" loading="eager" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />)}
     </div>
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
-                <div class="bg-black h-fit lg:sticky lg:top-28 col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
+                <div class="bg-black h-fit col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
                     <div class="space-y-8">
                         <h1>Texas' Top<br />Truck Outfitter</h1>
-                        <p class="text-base">276 Tailwind features section allows you to describe the features of your product or company in a clear way. Various layouts of icons, graphics.</p>
+                        <p class="text-base">THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
                     </div>
 
                     <!-- cta buttons -->
@@ -110,17 +118,11 @@ const headlineImages = [
 
                 <Gallery>
                     <div class="sm:space-y-4">
-                        <div class="grid grid-cols-6 md:grid-cols-12 sm:gap-4">
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                        <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
+                            {recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />).slice(0, 4)}
                         </div>
-                        <div class="grid grid-cols-6 md:grid-cols-12 sm:gap-4">
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
-                            <Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Modified Ford Super Duty in Dripping Springs, TX" class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(min-width: 768px) 50vw, 100vw" />
+                        <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
+                            {recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />).slice(4, 8)}
                         </div>
                     </div>
                 </Gallery>
@@ -130,7 +132,7 @@ const headlineImages = [
                         <div class="button-text">More Builds</div>
                     </a>
 
-                    <p class="italic text-center sm:text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a> to <br /> get started on your custom build.</p>
+                    <p class="italic text-center sm:text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`} class="underline">{Business.phone.formatted}</a> to <br /> get started on your custom build.</p>
                 </div>
             </div>
 
@@ -138,7 +140,6 @@ const headlineImages = [
                 <div class="md:col-span-2 flex flex-col justify-between gap-y-6">
                     <div class="space-y-8">
                         <h2>We're Building Our Customers' Dream Vehicles</h2>
-                        <p>THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
                     </div>
 
                     <div>

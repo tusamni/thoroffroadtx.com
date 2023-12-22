@@ -52,18 +52,42 @@
     },
     "images": {
         "icon": "Door",
-        "featured": [
+        "featured": {
+            "id": "561954-2021-ford-f-250",
+            "image": 1
+        },
+        "gallery": [
             {
-                "id": "561954-2021-ford-f-250",
-                "image": 1
+                "id": "608395-2021-ford-f-350",
+                "image": 3
             },
             {
-                "id": "561954-2021-ford-f-250",
-                "image": 1
+                "id": "223455-2007-toyota-land-cruiser",
+                "image": 3
             },
             {
-                "id": "561954-2021-ford-f-250",
-                "image": 1
+                "id": "929818-2021-ford-bronco",
+                "image": 14
+            },
+            {
+                "id": "594995-2022-ram-1500",
+                "image": 3
+            },
+            {
+                "id": "405642-2022-ram-2500",
+                "image": 2
+            },
+            {
+                "id": "663613-2022-ford-f-250",
+                "image": 4
+            },
+            {
+                "id": "122366-2021-ford-bronco",
+                "image": 19
+            },
+            {
+                "id": "714731-2022-ford-f-250",
+                "image": 4
             }
         ]
     }

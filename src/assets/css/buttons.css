@@ -1,5 +1,18 @@
+@keyframes ckw {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .button {
     @apply transition-all duration-500 font-semibold flex w-full sm:w-fit items-center justify-start h-12;
+}
+.button:hover .button-icon svg {
+    animation-name: ckw;
+    animation-duration: 0.75s;
 }
 
 .button.button-reverse {
@@ -22,22 +35,24 @@
 .button-primary.button-inverse {
     @apply text-white border-black divide-neutral-700;
 }
-.button-primary .button-icon, .button-primary .button-text {
+.button-primary .button-icon,
+.button-primary .button-text {
     @apply bg-white;
 }
-.button-primary.button-inverse .button-icon, .button-primary.button-inverse .button-text {
+.button-primary.button-inverse .button-icon,
+.button-primary.button-inverse .button-text {
     @apply bg-black;
 }
 
 /* secondary - amber bg, dark amber text */
 .button-secondary {
-    @apply divide-sky-500 divide-x bg-sky-600 hover:bg-sky-500;
+    @apply divide-sky-300 divide-x bg-sky-500 hover:bg-sky-400;
 }
 .button-secondary .button-icon {
     @apply text-sky-50;
 }
-.button-secondary .button-text { 
-    @apply text-sky-50
+.button-secondary .button-text {
+    @apply text-sky-50;
 }
 
 /* ghost - no bg, white or black text */

@@ -20,8 +20,26 @@
         "featured": {
             "id": "695527-2022-chevrolet-silverado-2500-hd",
             "headline": 2,
-            "secondary": [3, 4, 5]
-        }
+            "secondary": [3, 7, 5]
+        },
+        "gallery": [
+            {
+                "id": "355738-2022-chevrolet-silverado-1500",
+                "image": 6
+            },
+            {
+                "id": "355738-2022-chevrolet-silverado-1500",
+                "image": 7
+            },
+            {
+                "id": "357202-2022-chevrolet-silverado-2500-hd",
+                "image": 4
+            },
+            {
+                "id": "357202-2022-chevrolet-silverado-2500-hd",
+                "image": 2
+            }
+        ]
     },
     "testimonial": "andrew-p"
 }

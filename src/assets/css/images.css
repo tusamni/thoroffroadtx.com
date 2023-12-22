@@ -1,5 +1,5 @@
 .header-single {
-    @apply w-full h-[50vh] md:h-[70vh] max-h-[700px] object-cover;
+    @apply w-full h-[40vh] md:h-[50vh] max-h-[600px] object-cover;
 }
 .header-triple {
     @apply w-full h-[25em] object-cover;

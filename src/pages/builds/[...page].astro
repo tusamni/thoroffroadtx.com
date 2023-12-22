@@ -19,7 +19,7 @@ const { page } = Astro.props;
 ---
 
 <Layout title="Texas High-Performance Off-Road Vehicle Builds" description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep">
-    <Picture src="shop/2022-12-05/shop-shoot_16.jpg" loading="eager" class="w-full h-[25em] object-cover" />
+    <Picture src="shop/2022-12-05/shop-shoot_16.jpg" alt="THOR Off-Road installing Carli off-road parts" loading="eager" class="w-full h-[25em] object-cover" />
 
     <div class="-mt-20 bg-neutral-50 pb-8">
         <Container padding={true}>
@@ -44,8 +44,8 @@ const { page } = Astro.props;
                     <div class="text-xs justify-self-center md:justify-self-end">Showing {page.total} Builds</div>
                 </div>
 
-                <div class="grid grid-cols-3 gap-8">
-                    {page.data.map((b) => <Build build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, (min-width:1280px) 300px, 100vw" height="h-[15em]" />)}
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {page.data.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
                 </div>
 
                 <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-4 sm:gap-0">

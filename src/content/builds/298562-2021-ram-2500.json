@@ -1,7 +1,7 @@
 {
     "date": "2022-09-21T00:00:00.000Z",
-    "summary": "2021 RAM 2500 Power Wagon in Anvil with REQUIRED",
-    "categories": ["suspension"],
+    "summary": "2021 RAM 2500 Power Wagon in Anvil with Carli 5.5\" Pintop Suspension Kit, AEV 17\" Katla Wheels, BFGoodrich All Terrain T/A K02 37\" 1250R17 Tires, AEV Front Bumper, AEV Rear Bumper, Baja Designs LP6 Front Bumper Lights, Baja Designs LP4 Hood Lights, Warn Winch, GoFast Camper",
+    "categories": ["suspension", "bed-roof", "wheel-tire", "lighting", "body-bumper"],
     "related": ["340718-2022-ram-2500", "439715-2022-ram-2500", "301483-2019-ram-2500"],
     "meta": {
         "year": 2021,
@@ -10,7 +10,7 @@
         "trim": "Power Wagon",
         "color": "Anvil",
         "drive": "4x4",
-        "parts": "REQUIRED"
+        "parts": "Carli 5.5\" Pintop Suspension Kit, AEV 17\" Katla Wheels, BFGoodrich All Terrain T/A K02 37\" 1250R17 Tires, AEV Front Bumper, AEV Rear Bumper, Baja Designs LP6 Front Bumper Lights, Baja Designs LP4 Hood Lights, Warn Winch, GoFast Camper"
     },
     "images": {
         "total": 14,

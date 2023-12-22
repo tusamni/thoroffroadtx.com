@@ -2,7 +2,6 @@
 import Layout from "@/layouts/Layout";
 
 import { getCollection } from "astro:content";
-import { getBuildImage } from "@/functions/Image";
 
 import BuildFilter from "@/components/builds/BuildFilter";
 import Build from "@/components/content/snippets/Build";
@@ -29,7 +28,7 @@ const { page, make } = Astro.props;
 ---
 
 <Layout>
-    <Picture src={getBuildImage(make.data.images.featured.id.id, make.data.images.featured.headline)} loading="eager" class="w-full h-[25em] object-cover" />
+    <Picture src="shop/2022-12-05/shop-shoot_16.jpg" alt="THOR Off-Road installing Carli off-road parts" loading="eager" class="w-full h-[25em] object-cover" />
 
     <div class="-mt-20 bg-neutral-50 pb-8">
         <Container padding={true}>
@@ -45,7 +44,7 @@ const { page, make } = Astro.props;
         </Container>
     </div>
 
-    <div class="bg-neutral-50">
+    <div class="section section-bottom bg-neutral-50">
         <Container>
             <div class="space-y-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 justify-between items-center gap-4">
@@ -54,11 +53,11 @@ const { page, make } = Astro.props;
                     <div class="text-xs justify-self-center md:justify-self-end">Showing {page.total} Builds</div>
                 </div>
 
-                <div class="grid grid-cols-3 gap-8">
-                    {page.data.map((b) => <Build build={b} sizes="(min-width:640px) 50vw, (min-width:1024px) 25vw, (min-width:1280px) 300px, 100vw" height="h-[15em]" />)}
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {page.data.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
                 </div>
 
-                <div class="flex justify-between pb-8">
+                <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-4 sm:gap-0">
                     <div class="text-xs">
                         Page {page.currentPage} of {page.lastPage}
                     </div>

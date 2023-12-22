@@ -22,12 +22,12 @@ const buildCollection = defineCollection({
             year: z.number(),
             make: reference("makes"),
             model: reference("models"),
-            trim: z.string().nullable().optional(),
+            trim: z.string().optional(),
             color: z.string().optional(),
             drive: z.enum(["4x4", "4x2", "AWD"]),
             parts: z.string().transform((part) => part.split(", ")),
             goals: z.string().optional(),
-            testimonial: reference("testimonials").default(null).optional(),
+            testimonial: reference("testimonials").optional(),
         }),
         images: z.object({
             total: z.number(),
@@ -70,6 +70,14 @@ const makeCollection = defineCollection({
                 headline: z.number(),
                 secondary: z.array(z.number()).length(3),
             }),
+            gallery: z
+                .array(
+                    z.object({
+                        id: reference("builds"),
+                        image: z.number(),
+                    })
+                )
+                .optional(),
         }),
         testimonial: reference("testimonials"),
     }),
@@ -113,7 +121,7 @@ const partCollection = defineCollection({
                 .array(
                     z.object({
                         title: z.string(),
-                        description: z.string().nullable(),
+                        description: z.string().optional(),
                     })
                 )
                 .optional(),
@@ -124,12 +132,18 @@ const partCollection = defineCollection({
         }),
         images: z.object({
             icon: z.string(),
-            featured: z.array(
-                z.object({
-                    id: reference("builds"),
-                    image: z.number(),
-                })
-            ),
+            featured: z.object({
+                id: reference("builds"),
+                image: z.number(),
+            }),
+            gallery: z
+                .array(
+                    z.object({
+                        id: reference("builds"),
+                        image: z.number(),
+                    })
+                )
+                .optional(),
         }),
     }),
 });

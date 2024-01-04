@@ -20,7 +20,7 @@
         "alpinejs": "^3.13.3",
         "astro": "4.0.7",
         "bigger-picture": "^1.1.12",
-        "node-html-parser": "^6.1.11",
+        "node-html-parser": "^6.1.12",
         "probe-image-size": "^7.2.3",
         "tailwind": "^4.0.0"
     }

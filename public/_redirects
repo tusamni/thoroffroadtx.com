@@ -1,3 +1,17 @@
-# Redirects from what the browser requests to what we serve
+# parts
 
-/vehicles/toyota-lexus/ /vehicles/toyota
+/all-brands/ /parts/
+/fabrication/ /
+/hitches/ /parts/towing-hitches/
+/lights/ /parts/lighting/
+/performance/ /parts/performance/
+/suspension/ /parts/suspension/
+/wheels/ /parts/wheel-tire/
+
+/gallery/ /builds/
+
+/social/ /
+
+/vehicles/chevrolet-gmc/ /vehicles/chevrolet/
+/vehicles/toyota-lexus/ /vehicles/toyota/
+/vehicles/utv/ /vehicles/

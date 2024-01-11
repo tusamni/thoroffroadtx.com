@@ -6,13 +6,17 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 ---
 
-<Layout title="Page Not Found">
-    <Section small={true}>
-        <Container>
-            <div class="space-y-6">
-                <h1>Whoops</h1>
-                <p class="text-2xl">Our apologies, but we're having trouble finding that page.</p>
+<Layout title="404 - Not Found">
+    <div class="mt-20 section section-bottom">
+        <Container padding={true}>
+            <div class="box-spacing bg-white col-span-2 lg:col-span-1 space-y-8">
+                <article class="prose prose-sm max-w-none">
+                    <h1>404</h1>
+
+                    <p class="text-2xl">Our apologies, but we're having trouble finding that page.</p>
+                    <p></p>
+                </article>
             </div>
         </Container>
-    </Section>
+    </div>
 </Layout>

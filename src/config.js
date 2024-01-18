@@ -1,6 +1,8 @@
+// 1000, 800, 400, 200
+
 export const imageConfig = {
     cloudUrl: "https://thoroffroad.b-cdn.net",
-    imageSizes: [2000],
+    imageSizes: [2000, 1200],
 };
 
 export const Business = {
@@ -8,7 +10,7 @@ export const Business = {
     nameShort: "THOR",
     phone: {
         number: "512-894-2790",
-        formatted: "(512) 894-2790"
+        formatted: "(512) 894-2790",
     },
     email: "sales@thoroffroadtx.com",
     url: "https://thoroffroadtx.com",

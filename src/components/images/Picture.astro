@@ -1,8 +1,6 @@
 ---
 // imports
-import { getImage } from "astro:assets";
 import { imageConfig } from "@/config";
-
 import imageSize from "probe-image-size";
 
 // props
@@ -21,25 +19,10 @@ const fullPath = `${imageConfig.cloudUrl}/images/${src}`;
 // loop through all the necessary image widths
 const optimizedJpeg = [];
 for (let size of imageConfig.imageSizes) {
-    optimizedJpeg.push(await getImage({ src: fullPath, format: "jpeg", width: size, height: size, quality: quality }));
+    optimizedJpeg.push(`${fullPath}?width=${size}&height=${size}&quality=${quality} ${size}w`);
 }
 
-const optimizedWebp = [];
-for (let size of imageConfig.imageSizes) {
-    optimizedWebp.push(await getImage({ src: fullPath, format: "webp", width: size, height: size, quality: quality }));
-}
-
-// create the srcset attribute
-const sourcesJpeg = optimizedJpeg.map((i) => {
-    return `${i.src} ${i.attributes.width}w`;
-});
-const srcsetJpeg = sourcesJpeg.join(", ");
-
-// create the srcset attribute
-const sourcesWebp = optimizedWebp.map((i) => {
-    return `${i.src} ${i.attributes.width}w`;
-});
-const srcsetWebp = sourcesWebp.join(", ");
+const srcsetJpeg = optimizedJpeg.join(", ");
 
 // get the dimensions of the image
 let dimensions;
@@ -52,21 +35,8 @@ if (import.meta.env.PROD) {
     };
 }
 ---
+
 <picture>
-    <source srcset={srcsetWebp} sizes={sizes} type="image/webp" />
     <source srcset={srcsetJpeg} sizes={sizes} type="image/jpeg" />
-    <img
-        src={optimizedJpeg[0].src}
-        href={optimizedJpeg[0].src}
-        alt={await alt}
-        width={dimensions.width}
-        height={dimensions.height}
-        loading={loading}
-        sizes={sizes}
-        {...attrs}
-        data-img={optimizedJpeg[0].src}
-        data-width={dimensions.width}
-        data-height={dimensions.height}
-        data-caption={await alt}
-    />
+    <img src={optimizedJpeg[0].src} href={optimizedJpeg[0].src} alt={await alt} width={dimensions.width} height={dimensions.height} loading={loading} sizes={sizes} {...attrs} data-img={optimizedJpeg[0].src} data-width={dimensions.width} data-height={dimensions.height} data-caption={await alt} />
 </picture>

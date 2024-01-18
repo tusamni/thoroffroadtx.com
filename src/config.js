@@ -1,6 +1,6 @@
 export const imageConfig = {
     cloudUrl: "https://thoroffroad.b-cdn.net",
-    imageSizes: [2000, 1200, 1000, 800, 400, 200],
+    imageSizes: [2000],
 };
 
 export const Business = {

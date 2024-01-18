@@ -30,7 +30,7 @@ import Icon from "@/components/Icon";
         <textarea name="message" id="message" rows="4"></textarea>
     </div>
 
-    <input type="hidden" name="form-pathname" value={Astro.url.pathname} />
+    <input type="hidden" name="form-pathname" value={Astro.url} />
 
     <div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">
         <button type="submit" class="button button-primary">

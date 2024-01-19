@@ -38,5 +38,5 @@ if (import.meta.env.PROD) {
 
 <picture>
     <source srcset={srcsetJpeg} sizes={sizes} type="image/jpeg" />
-    <img src={optimizedJpeg[0].src} href={optimizedJpeg[0].src} alt={await alt} width={dimensions.width} height={dimensions.height} loading={loading} sizes={sizes} {...attrs} data-img={optimizedJpeg[0].src} data-width={dimensions.width} data-height={dimensions.height} data-caption={await alt} />
+    <img src={srcsetJpeg} href={srcsetJpeg} alt={await alt} width={dimensions.width} height={dimensions.height} loading={loading} sizes={sizes} {...attrs} data-img={optimizedJpeg} data-width={dimensions.width} data-height={dimensions.height} data-caption={await alt} />
 </picture>

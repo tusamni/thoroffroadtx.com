@@ -22,11 +22,7 @@ for (let size of imageConfig.imageSizes) {
     optimizedJpeg.push(`${fullPath}?width=${size}&height=${size}&quality=${quality} ${size}w`);
 }
 
-console.log(optimizedJpeg);
-
 const srcsetJpeg = optimizedJpeg.join(", ");
-
-console.log(srcsetJpeg);
 
 // get the dimensions of the image
 let dimensions;

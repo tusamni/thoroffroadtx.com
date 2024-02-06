@@ -47,7 +47,7 @@ const allBuilds = (
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
                 <div class="bg-black col-span-2 lg:col-span-1 text-white px-4 sm:px-8 py-8 space-y-8">
-                    <h1>{`We're the ${part.data.title} Experts!`}</h1>
+                    <h1 class="text-balance">{`We're the ${part.data.title} Experts!`}</h1>
                     <div class="text-base space-y-4" set:html={part.data.description.long} />
 
                     <!-- cta buttons -->
@@ -85,7 +85,7 @@ const allBuilds = (
             <div class="grid grid-cols-5 gap-10">
                 <div class="col-span-5 lg:col-span-2 flex flex-col justify-between gap-y-6">
                     <div class="space-y-8">
-                        <h2>{part.data.title} Upgrade Options</h2>
+                        <h2 class="text-balance">{part.data.title} Upgrade Options</h2>
                         <div class="space-y-8" set:html={part.data.content.sidebar} />
                     </div>
 

@@ -15,7 +15,6 @@ const buildCollection = defineCollection({
     type: "data",
     schema: z.object({
         date: z.string().pipe(z.coerce.date()),
-        summary: z.string(),
         categories: z.array(reference("parts")),
         related: z.array(reference("builds")).optional(),
         meta: z.object({
@@ -25,14 +24,13 @@ const buildCollection = defineCollection({
             trim: z.string().optional(),
             color: z.string().optional(),
             drive: z.enum(["4x4", "4x2", "AWD"]),
-            parts: z.string().transform((part) => part.split(", ")),
+            parts: z.array(z.string()),
             goals: z.string().optional(),
             testimonial: reference("testimonials").optional(),
         }),
         images: z.object({
             total: z.number(),
             snippet: z.number().default(1),
-            build: z.array(z.number()),
         }),
         video: z
             .object({
@@ -48,11 +46,9 @@ const makeCollection = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
-        heading: z.string(),
         description: z.object({
             short: z.string(),
             long: z.string(),
-            push: z.string(),
         }),
         models: z.array(reference("models")),
         seo: z.object({
@@ -61,8 +57,6 @@ const makeCollection = defineCollection({
         }),
         logo: z.object({
             name: z.string(),
-            text: z.string(),
-            bg: z.string(),
         }),
         images: z.object({
             featured: z.object({

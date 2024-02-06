@@ -1,6 +1,5 @@
 {
     "date": "2021-12-20T00:00:00.000Z",
-    "summary": "2021 Ford Bronco Badlands in Oxford White with Baja Design Fog Light Pocket Kit, XL Squadron Sport Linkable Lights, 17\" Raceline wheels, 35\" 1250 R17 Yokohama Geolander X-AT Tires, Rough Country Spare Tire Extender, Third Brake Light Relocation Bracket, Paint Matched Fender Flares, Retro Striping, Retro Badges",
     "categories": ["lighting", "wheel-tire", "body-bumper"],
     "related": ["777233-2022-ford-bronco", "435353-2021-ford-bronco", "266375-2022-ford-bronco"],
     "meta": {
@@ -10,11 +9,20 @@
         "trim": "Badlands",
         "color": "Oxford White",
         "drive": "4x4",
-        "parts": "Baja Design Fog Light Pocket Kit, XL Squadron Sport Linkable Lights, 17\" Raceline wheels, 35\" 1250 R17 Yokohama Geolander X-AT Tires, Rough Country Spare Tire Extender, Third Brake Light Relocation Bracket, Paint Matched Fender Flares, Retro Striping, Retro Badges"
+        "parts": [
+            "Baja Design Fog Light Pocket Kit",
+            "XL Squadron Sport Linkable Lights",
+            "17\" Raceline wheels",
+            "35\" 1250 R17 Yokohama Geolander X-AT Tires",
+            "Rough Country Spare Tire Extender",
+            "Third Brake Light Relocation Bracket",
+            "Paint Matched Fender Flares",
+            "Retro Striping",
+            "Retro Badges"
+        ]
     },
     "images": {
         "total": 26,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

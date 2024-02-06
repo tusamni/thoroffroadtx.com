@@ -1,6 +1,5 @@
 {
     "date": "2024-01-23T00:00:00.000Z",
-    "summary": "2018 Chevrolet Silverado 1500 in Silver with Rough Country 5\" Lift Kit",
     "categories": ["suspension"],
     "related": ["695527-2022-chevrolet-silverado-2500-hd", "357202-2022-chevrolet-silverado-2500-hd", "727698-2020-chevrolet-colorado"],
     "meta": {
@@ -9,11 +8,10 @@
         "model": "chevrolet-silverado-1500",
         "color": "Silver",
         "drive": "4x4",
-        "parts": "Rough Country 5\" Lift Kit"
+        "parts": ["Rough Country 5\" Lift Kit"]
     },
     "images": {
         "total": 8,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

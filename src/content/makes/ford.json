@@ -1,20 +1,16 @@
 {
     "title": "Ford",
-    "heading": "Something for Everyone",
     "description": {
         "short": "As the oldest brand and the top selling truck line in the industry, Ford has a truck or SUV for everyone.",
-        "long": "<p>As the oldest brand and the top selling truck line in the industry, Ford boasts that they have something for everyone. Ford owners love their trucks and SUVs for their ability to get things done.</p>",
-        "push": "<p>THOR Off Road can help you <a href=\"/contact\" title=\"Contact Us\" class=\"italic underline underline-offset-4\">build a capable Ford vehicle</a> to tame the road or tackle any backcountry trail.</p>"
+        "long": "<p>As the oldest brand and the top selling truck line in the industry, Ford boasts that they have something for everyone. Ford owners love their trucks and SUVs for their ability to get things done.</p>"
     },
-    "models": ["ford-bronco", "ford-f-150", "ford-f-250", "ford-f-350", "ford-ranger"],
+    "models": ["ford-bronco", "ford-f-150", "ford-f-250", "ford-f-350", "ford-f-450", "ford-ranger"],
     "seo": {
         "title": "Texas Ford Truck Bronco SUV Installer",
         "description": "THOR Off-Road is the Texas Ford Bronco HQ. Push the envelope of your Ford F-150, Ranger, Raptor or Super Duty."
     },
     "logo": {
-        "name": "Ford",
-        "text": "text-[#133A7C]",
-        "bg": "bg-[#133A7C]"
+        "name": "Ford"
     },
     "images": {
         "featured": {

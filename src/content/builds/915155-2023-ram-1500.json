@@ -1,0 +1,22 @@
+{
+    "date": "2024-01-15T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire"],
+    "related": ["594995-2022-ram-1500", "977725-2021-ram-1500", "301483-2019-ram-2500"],
+    "meta": {
+        "year": 2023,
+        "make": "ram",
+        "model": "ram-1500",
+        "color": "Grey",
+        "drive": "4x4",
+        "parts": ["M1 Leveing Kit", "Method MR304 20\"x10\" -18 Wheels", "Nitto Ridge Grappler 305/55R20 Tires"]
+    },
+    "images": {
+        "total": 11,
+        "snippet": 3
+    },
+    "video": {
+        "filename": "video",
+        "width": 1080,
+        "height": 1920
+    }
+}

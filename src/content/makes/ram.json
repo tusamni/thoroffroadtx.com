@@ -1,10 +1,8 @@
 {
     "title": "RAM",
-    "heading": "Long-Lasting Performance",
     "description": {
         "short": "RAM is America's longest-lasting pickup truck, known for its reliability, power, durability and quality.",
-        "long": "<p>RAM trucks are the longest lasting and hardest working trucks on the market, and we love outfitting these trucks for our customers.</p>",
-        "push": "<p>THOR can help you <a href=\"/contact\" title=\"Contact Us\" class=\"italic underline underline-offset-4\">outfit your RAM</a> to provide the very best ride quality on and off the road. We know how to get RAM trucks to reach a level of performance to take on anything and get you anywhere you want to go.</p>"
+        "long": "<p>RAM trucks are the longest lasting and hardest working trucks on the market, and we love outfitting these trucks for our customers.</p>"
     },
     "models": ["ram-1500", "ram-2500", "ram-3500"],
     "seo": {
@@ -12,9 +10,7 @@
         "description": "THOR Off-Road can make your RAM 1500, 2500 & 3500 truck meet any level of ride comfort and performance you want on the road or off."
     },
     "logo": {
-        "name": "RAM",
-        "text": "text-[#da3f34]",
-        "bg": "bg-[#da3f34]"
+        "name": "RAM"
     },
     "images": {
         "featured": {

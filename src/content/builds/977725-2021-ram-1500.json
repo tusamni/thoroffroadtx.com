@@ -1,6 +1,5 @@
 {
     "date": "2022-03-09T00:00:00.000Z",
-    "summary": "2021 RAM 1500 TRX in Orange with AFE Leveling Kit, 37\" 1250 R18 Nitto Ridge Grappler Tires, 18x9\" Method MR315 Wheels, Retrax Pro MX Bedcover",
     "categories": ["suspension", "wheel-tire", "bed-roof"],
     "related": ["594995-2022-ram-1500", "739587-2023-ram-1500", "340718-2022-ram-2500"],
     "meta": {
@@ -10,11 +9,10 @@
         "trim": "TRX",
         "color": "Orange",
         "drive": "4x4",
-        "parts": "AFE Leveling Kit, 37\" 1250 R18 Nitto Ridge Grappler Tires, 18x9\" Method MR315 Wheels, Retrax Pro MX Bedcover"
+        "parts": ["AFE Leveling Kit", "37\" 1250 R18 Nitto Ridge Grappler Tires", "18x9\" Method MR315 Wheels", "Retrax Pro MX Bedcover"]
     },
     "images": {
         "total": 7,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

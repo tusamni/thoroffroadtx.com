@@ -1,6 +1,5 @@
 {
     "date": "2022-12-22T00:00:00.000Z",
-    "summary": "2020 Ford F-250 Lariat in Black with Carli 3\" Pintop Suspension Kit, Carli Radius Arms, Carli Full Rear Spring Replacement, Carli High Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, Carli Torsion Sway Bar, 18x9\" Method 305NV HD Matte Black Wheels, 37\" 1350 R18 BF Goodrich KM3 Tires",
     "categories": ["suspension", "wheel-tire"],
     "related": ["325186-2017-ford-f-250", "300038-2022-ford-f-250", "404814-2023-ford-f-250"],
     "meta": {
@@ -10,11 +9,19 @@
         "trim": "Lariat",
         "color": "Black",
         "drive": "4x4",
-        "parts": "Carli 3\" Pintop Suspension Kit, Carli Radius Arms, Carli Full Rear Spring Replacement, Carli High Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, Carli Torsion Sway Bar, 18x9\" Method 305NV HD Matte Black Wheels, 37\" 1350 R18 BF Goodrich KM3 Tires"
+        "parts": [
+            "Carli 3\" Pintop Suspension Kit",
+            "Carli Radius Arms",
+            "Carli Full Rear Spring Replacement",
+            "Carli High Mount Steering Stabilizer",
+            "Carli Low Mount Steering Stabilizer",
+            "Carli Torsion Sway Bar",
+            "18x9\" Method 305NV HD Matte Black Wheels",
+            "37\" 1350 R18 BF Goodrich KM3 Tires"
+        ]
     },
     "images": {
         "total": 4,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

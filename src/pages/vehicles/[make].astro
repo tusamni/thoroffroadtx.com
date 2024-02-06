@@ -29,14 +29,19 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 ---
 
 <Layout title={make.data.seo.title} description={make.data.seo.description}>
-    <Picture src={getBuildImage(make.data.images.featured.id.id, make.data.images.featured.headline)} alt={getBuildDescription(make.data.images.featured.id.id)} loading="eager" class="header-single object-[50%,50%]" />
+    <Picture
+        src={getBuildImage(make.data.images.featured.id.id, make.data.images.featured.headline)}
+        alt={getBuildDescription(make.data.images.featured.id.id)}
+        loading="eager"
+        class="header-single object-[50%,50%]"
+    />
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>
             <div class="grid grid-cols-2 sm:gap-4">
                 <!-- black content area -->
                 <div class="bg-black col-span-2 lg:col-span-1 text-white px-4 sm:px-8 py-8 space-y-8">
-                    <h1>{`We're the ${make.data.title} Experts!`}</h1>
+                    <h1 class="text-balance max-w-lg">{`We're the ${make.data.title} Experts!`}</h1>
                     <div class="text-base space-y-4" set:html={make.data.description.short} />
 
                     <!-- cta buttons -->
@@ -66,7 +71,13 @@ const makeTestimonial = await getEntry(make.data.testimonial);
                 <div class="mt-4 grid md:grid-cols-3 gap-4">
                     {
                         make.data.images.featured.secondary.map((i) => (
-                            <Picture src={getBuildImage(make.data.images.featured.id.id, i)} alt={getBuildDescription(make.data.images.featured.id.id)} loading="eager" class="object-cover w-full md:h-[15em] lg:h-[25em]" sizes="(max-width: 640px) 100vw, 33vw" />
+                            <Picture
+                                src={getBuildImage(make.data.images.featured.id.id, i)}
+                                alt={getBuildDescription(make.data.images.featured.id.id)}
+                                loading="eager"
+                                class="object-cover w-full md:h-[15em] lg:h-[25em]"
+                                sizes="(max-width: 640px) 100vw, 33vw"
+                            />
                         ))
                     }
                 </div>
@@ -79,7 +90,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
             <div class="grid md:grid-cols-2 gap-10">
                 <div class="flex flex-col justify-between gap-y-6">
                     <div class="space-y-8">
-                        <h2>Let THOR Off-Road Build Your Dream {make.data.title}</h2>
+                        <h2 class="text-balance">Let THOR Off-Road Build Your Dream {make.data.title}</h2>
                         <div set:html={make.data.description.long} />
                     </div>
 
@@ -99,7 +110,12 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 
     <Gallery>
         <div class="grid grid-cols-2 sm:grid-cols-4">
-            {make.data.images.gallery && make.data.images.gallery.map((g) => <Picture src={getBuildImage(g.id.id, g.image)} alt={getBuildDescription(g.id.id)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 640px) 50vw, 25vw" />)}
+            {
+                make.data.images.gallery &&
+                    make.data.images.gallery.map((g) => (
+                        <Picture src={getBuildImage(g.id.id, g.image)} alt={getBuildDescription(g.id.id)} class="aspect-square object-cover w-full h-full" sizes="(max-width: 640px) 50vw, 25vw" />
+                    ))
+            }
         </div>
     </Gallery>
 </Layout>

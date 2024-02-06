@@ -1,6 +1,5 @@
 {
     "date": "2023-07-06T00:00:00.000Z",
-    "summary": "2023 RAM 1500 in Black with BDS 6\" Lift System, Fuel Rebel 20x9\" Bronze Wheels, 35\" 1250R20 Nitto Recon Grappler Tires",
     "categories": ["suspension", "wheel-tire"],
     "related": ["594995-2022-ram-1500", "977725-2021-ram-1500", "301483-2019-ram-2500"],
     "meta": {
@@ -9,11 +8,10 @@
         "model": "ram-1500",
         "color": "Black",
         "drive": "4x4",
-        "parts": "BDS 6\" Lift System, Fuel Rebel 20x9\" Bronze Wheels, 35\" 1250R20 Nitto Recon Grappler Tires"
+        "parts": ["BDS 6\" Lift System", "Fuel Rebel 20x9\" Bronze Wheels", "35\" 1250R20 Nitto Recon Grappler Tires"]
     },
     "images": {
         "total": 12,
-        "snippet": 4,
-        "build": [1]
+        "snippet": 4
     }
 }

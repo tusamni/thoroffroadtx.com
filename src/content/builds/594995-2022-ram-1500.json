@@ -1,6 +1,5 @@
 {
     "date": "2022-03-18T00:00:00.000Z",
-    "summary": "2022 RAM 1500 TRX in White with AFE Leveling Kit, 20x9\" Black Rhino Reno Candy Red Wheels, 35\" 1250 R20 Toyo AT III, ADD Front and Rear Bumpers, Baja Design LP6 Center Lights, Baja Design Squadron Front and Rear Lights, Retrax Pro MX Bed Cover, Baja Design Rock Lighting",
     "categories": ["suspension", "wheel-tire", "body-bumper", "lighting", "bed-roof"],
     "related": ["977725-2021-ram-1500", "739587-2023-ram-1500", "405642-2022-ram-2500"],
     "meta": {
@@ -10,12 +9,20 @@
         "trim": "TRX",
         "color": "White",
         "drive": "4x4",
-        "parts": "AFE Leveling Kit, 20x9\" Black Rhino Reno Candy Red Wheels, 35\" 1250 R20 Toyo AT III, ADD Front and Rear Bumpers, Baja Design LP6 Center Lights, Baja Design Squadron Front and Rear Lights, Retrax Pro MX Bed Cover, Baja Design Rock Lighting"
+        "parts": [
+            "AFE Leveling Kit",
+            "20x9\" Black Rhino Reno Candy Red Wheels",
+            "35\" 1250 R20 Toyo AT III",
+            "ADD Front and Rear Bumpers",
+            "Baja Design LP6 Center Lights",
+            "Baja Design Squadron Front and Rear Lights",
+            "Retrax Pro MX Bed Cover",
+            "Baja Design Rock Lighting"
+        ]
     },
     "images": {
         "total": 7,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     },
     "video": {
         "filename": "video",

@@ -1,6 +1,5 @@
 {
     "date": "2022-05-06T00:00:00.000Z",
-    "summary": "2023 GMC Sierra 1500 AT4X in Tan with Raceline Krank 20x9\" Wheels, Nitto Ridge Grappler Tires",
     "categories": ["wheel-tire"],
     "related": ["108058-2022-gmc-sierra-2500-hd", "951355-2020-gmc-sierra-2500-hd", "965777-2022-gmc-sierra-2500-hd"],
     "meta": {
@@ -10,11 +9,10 @@
         "trim": "AT4X",
         "color": "Tan",
         "drive": "4x4",
-        "parts": "Raceline Krank 20x9\" Wheels, Nitto Ridge Grappler Tires"
+        "parts": ["Raceline Krank 20x9\" Wheels", "Nitto Ridge Grappler Tires"]
     },
     "images": {
         "total": 4,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

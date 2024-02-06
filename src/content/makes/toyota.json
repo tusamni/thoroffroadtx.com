@@ -1,10 +1,8 @@
 {
     "title": "Toyota",
-    "heading": "Let's Go Places",
     "description": {
         "short": "Toyota trucks are made for the toughest terrains. Allowing you to go places others can't.",
-        "long": "<p>Toyota vehicles are made for the toughest terrains, from remote trails to daily worksites, allowing you to go places others can't. No other word describes Toyota like Durability. The Toyota brand has literally been built on the durability of their engine and drivetrain.</p>",
-        "push": "<p>THOR can help you <a href=\"/contact\" title=\"Contact Us\" class=\"italic underline underline-offset-4\">build the ultimate luxury and off-road Toyota</a> to get you anywhere you want to go in comfort and style.</p>"
+        "long": "<p>Toyota vehicles are made for the toughest terrains, from remote trails to daily worksites, allowing you to go places others can't. No other word describes Toyota like Durability. The Toyota brand has literally been built on the durability of their engine and drivetrain.</p>"
     },
     "models": ["toyota-4runner", "toyota-land-cruiser", "toyota-tacoma", "toyota-tundra"],
     "seo": {
@@ -12,9 +10,7 @@
         "description": "With Toyota trucks and SUVs there are no places you can't go especially with the suspension and overlanding accessories upgrades available from THOR Off-Road."
     },
     "logo": {
-        "name": "Toyota",
-        "text": "text-[#EB0A1E]",
-        "bg": "bg-[#EB0A1E]"
+        "name": "Toyota"
     },
     "images": {
         "featured": {

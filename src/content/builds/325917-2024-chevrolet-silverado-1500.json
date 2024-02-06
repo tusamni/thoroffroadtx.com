@@ -1,0 +1,18 @@
+{
+    "date": "2024-02-02T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire"],
+    "related": ["695527-2022-chevrolet-silverado-2500-hd", "357202-2022-chevrolet-silverado-2500-hd", "727698-2020-chevrolet-colorado"],
+    "meta": {
+        "year": 2024,
+        "make": "chevrolet",
+        "model": "chevrolet-silverado-1500",
+        "trim": "Trail Boss",
+        "color": "Silver",
+        "drive": "4x4",
+        "parts": ["Ready Lift 2\" Lift Kit", "Fuel Covert 20\" Wheels", "Nitto Ridge Grappler 295/65/20 Tires"]
+    },
+    "images": {
+        "total": 17,
+        "snippet": 17
+    }
+}

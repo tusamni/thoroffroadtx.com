@@ -1,0 +1,33 @@
+{
+    "date": "2023-11-22T00:00:00.000Z",
+    "categories": ["wheel-tire", "suspension", "specialties"],
+    "related": ["782922-2022-ford-f-350", "295031-2022-ford-f-350", "662677-2022-ford-f-350"],
+    "meta": {
+        "year": 2022,
+        "make": "ford",
+        "model": "ford-f-350",
+        "color": "White",
+        "drive": "4x4",
+        "parts": [
+            "Carli Pintop 3.5\" Suspension Kit",
+            "Carli Torsion Sway Bar",
+            "Carli Full Rear Spring Replacement",
+            "Carli Fabricated Radius Arms",
+            "Carli High Mount Steering Stabilizer",
+            "Carli Low Mount Steering Stabilizer",
+            "Air Lift 5000 Kit",
+            "KMC GRS 18\"x9\" +18 Wheels",
+            "Toyo Trail RT 37\" 1250R18 Tires",
+            "Titan XL Fuel Tank"
+        ]
+    },
+    "images": {
+        "total": 4,
+        "snippet": 3
+    },
+    "video": {
+        "filename": "video",
+        "width": 1080,
+        "height": 1920
+    }
+}

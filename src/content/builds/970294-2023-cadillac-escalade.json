@@ -1,0 +1,23 @@
+{
+    "date": "2024-01-05T00:00:00.000Z",
+    "categories": ["wheel-tire"],
+    "related": ["211559-2020-lexus-gx-460", "328593-2018-lexus-gx-460", "864745-2020-toyota-4runner"],
+    "meta": {
+        "year": 2023,
+        "make": "cadillac",
+        "model": "cadillac-escalade",
+        "trim": "V",
+        "color": "Grey",
+        "drive": "AWD",
+        "parts": ["Vossen HF6-1 Wheels", "Nitto Recon Grappler 295/45R24 Tires"]
+    },
+    "images": {
+        "total": 23,
+        "snippet": 13
+    },
+    "video": {
+        "filename": "video",
+        "width": 1080,
+        "height": 1920
+    }
+}

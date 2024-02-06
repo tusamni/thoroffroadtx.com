@@ -1,0 +1,29 @@
+{
+    "date": "2023-12-22T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire", "body-bumper", "lighting"],
+    "meta": {
+        "year": 2023,
+        "make": "jeep",
+        "model": "jeep-wrangler",
+        "trim": "Unlimited Rubicon",
+        "color": "Grey",
+        "drive": "4x4",
+        "parts": [
+            "Teraflex 2.5\" Sport S/T2 Lift Kit",
+            "Falcon 3.3 Shocks",
+            "Falken Wildpeak A/T 37\" 1250R17 Tires",
+            "Black Rhino Armory 17\" Wheels",
+            "Westin Tire Carrier",
+            "Ridgid Industries Pod Lights"
+        ]
+    },
+    "images": {
+        "total": 16,
+        "snippet": 1
+    },
+    "video": {
+        "filename": "video",
+        "width": 1080,
+        "height": 1920
+    }
+}

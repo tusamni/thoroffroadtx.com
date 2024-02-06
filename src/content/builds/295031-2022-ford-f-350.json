@@ -1,6 +1,5 @@
 {
     "date": "2022-08-20T00:00:00.000Z",
-    "summary": "2022 Ford F-350 Platinum in Atlas Blue with Carli 3.5\" King Pintop Suspension Kit, Carli Radius Arms, Carli Torsion Sway Bar, Full Rear Leafs, Steelcraft Front Bumper, 20\" Method Machined Standards, 37\" 1350 R20 Tires",
     "categories": ["suspension", "body-bumper", "wheel-tire"],
     "related": ["588100-2022-ford-f-350", "397060-2021-ford-f-350", "662677-2022-ford-f-350"],
     "meta": {
@@ -10,12 +9,19 @@
         "trim": "Platinum",
         "color": "Atlas Blue",
         "drive": "4x4",
-        "parts": "Carli 3.5\" King Pintop Suspension Kit, Carli Radius Arms, Carli Torsion Sway Bar, Full Rear Leafs, Steelcraft Front Bumper, 20\" Method Machined Standards, 37\" 1350 R20 Tires"
+        "parts": [
+            "Carli 3.5\" King Pintop Suspension Kit",
+            "Carli Radius Arms",
+            "Carli Torsion Sway Bar",
+            "Full Rear Leafs",
+            "Steelcraft Front Bumper",
+            "20\" Method Machined Standards",
+            "37\" 1350 R20 Tires"
+        ]
     },
     "images": {
         "total": 16,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     },
     "video": {
         "filename": "video",

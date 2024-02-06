@@ -1,6 +1,5 @@
 {
     "date": "2022-05-24T00:00:00.000Z",
-    "summary": "2006 RAM 2500 SLT in Red with Carli 3\" Backcountry Suspension,  FOX Suspension, Carli Torsion Sway Bar, Carli Full Proggressive Leaf Springs, 18\" Method 315 Machined Wheels, 35\" 1250 Yokohama XAT Tires",
     "categories": ["suspension", "wheel-tire"],
     "related": ["340718-2022-ram-2500", "403371-2022-ram-3500", "855592-2020-ram-2500"],
     "meta": {
@@ -10,11 +9,17 @@
         "trim": "SLT",
         "color": "Red",
         "drive": "4x4",
-        "parts": "Carli 3\" Backcountry Suspension,  FOX Suspension, Carli Torsion Sway Bar, Carli Full Proggressive Leaf Springs, 18\" Method 315 Machined Wheels, 35\" 1250 Yokohama XAT Tires"
+        "parts": [
+            "Carli 3\" Backcountry Suspension",
+            "FOX Suspension",
+            "Carli Torsion Sway Bar",
+            "Carli Full Proggressive Leaf Springs",
+            "18\" Method 315 Machined Wheels",
+            "35\" 1250 Yokohama XAT Tires"
+        ]
     },
     "images": {
         "total": 9,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

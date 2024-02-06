@@ -1,6 +1,5 @@
 {
     "date": "2022-09-08T00:00:00.000Z",
-    "summary": "2020 Ford F-250 Lariat in Silver with Carli 5.5\" Pintop Suspension Kit, Carli Torsion Sway Bar, Carli Radius Arms, Carli Low Mount Steering Stabilizer, Carli High Mount Steering Stabilizer, Carli Long Travel Air Bag Kit, 18x9\" Method 305 NV Wheels, 38\" 1350 R18 Toyo MT Tires, CJC Front and Rear Bumpers, Warn EVO 12-S Winch, Baja Design Lighting,",
     "categories": ["suspension", "wheel-tire", "body-bumper", "lighting"],
     "related": ["427484-2022-ford-f-250", "410515-2022-ford-f-250", "684213-2020-ford-f-250"],
     "meta": {
@@ -10,11 +9,23 @@
         "trim": "Lariat",
         "color": "Silver",
         "drive": "4x4",
-        "parts": "Carli 5.5\" Pintop Suspension Kit, Carli Torsion Sway Bar, Carli Radius Arms, Carli Low Mount Steering Stabilizer, Carli High Mount Steering Stabilizer, Carli Long Travel Air Bag Kit, 18x9\" Method 305 NV Wheels, 38\" 1350 R18 Toyo MT Tires, CJC Front and Rear Bumpers, Warn EVO 12-S Winch, Baja Design Lighting,"
+        "parts": [
+            "Carli 5.5\" Pintop Suspension Kit",
+            "Carli Torsion Sway Bar",
+            "Carli Radius Arms",
+            "Carli Low Mount Steering Stabilizer",
+            "Carli High Mount Steering Stabilizer",
+            "Carli Long Travel Air Bag Kit",
+            "18x9\" Method 305 NV Wheels",
+            "38\" 1350 R18 Toyo MT Tires",
+            "CJC Front and Rear Bumpers",
+            "Warn EVO 12-S Winch",
+            "Baja Design Lighting",
+            ""
+        ]
     },
     "images": {
         "total": 26,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

@@ -35,7 +35,12 @@ const allBuilds = (
 ---
 
 <Layout title={part.data.seo.title} description={part.data.seo.description}>
-    <Picture src={getBuildImage(part.data.images.featured.id.id, part.data.images.featured.image)} alt={getBuildDescription(part.data.images.featured.id.id)} loading="eager" class="header-single object-[50%,50%]" />
+    <Picture
+        src={getBuildImage(part.data.images.featured.id.id, part.data.images.featured.image)}
+        alt={getBuildDescription(part.data.images.featured.id.id)}
+        loading="eager"
+        class="header-single object-[50%,50%]"
+    />
 
     <div class="-mt-20 section section-bottom">
         <Container padding={true}>
@@ -100,7 +105,12 @@ const allBuilds = (
 
     <Gallery>
         <div class="grid grid-cols-2 sm:grid-cols-4">
-            {part.data.images.gallery && part.data.images.gallery.map((g) => <Picture src={getBuildImage(g.id.id, g.image)} alt={getBuildDescription(g.id.id)} class="aspect-square object-cover w-full h-full col-span-3" sizes="(max-width: 640px) 50vw, 25vw" />)}
+            {
+                part.data.images.gallery &&
+                    part.data.images.gallery.map((g) => (
+                        <Picture src={getBuildImage(g.id.id, g.image)} alt={getBuildDescription(g.id.id)} class="aspect-square object-cover w-full h-full" sizes="(max-width: 640px) 50vw, 25vw" />
+                    ))
+            }
         </div>
     </Gallery>
 </Layout>

@@ -1,0 +1,23 @@
+{
+    "date": "2023-12-19T00:00:00.000Z",
+    "categories": ["suspension"],
+    "related": ["777233-2022-ford-bronco", "122366-2021-ford-bronco", "435353-2021-ford-bronco"],
+    "meta": {
+        "year": 2023,
+        "make": "ford",
+        "model": "ford-bronco",
+        "trim": "Badlands",
+        "color": "Green",
+        "drive": "4x4",
+        "parts": ["Icon Billet Upper Control Arms", "Fox Racing Perfomrnace 2.5 Shox"]
+    },
+    "images": {
+        "total": 10,
+        "snippet": 4
+    },
+    "video": {
+        "filename": "video",
+        "width": 1080,
+        "height": 1920
+    }
+}

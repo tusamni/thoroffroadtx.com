@@ -1,6 +1,5 @@
 {
     "date": "2022-08-20T00:00:00.000Z",
-    "summary": "2022 Ford F-250 Lariat in Atlas Blue with ReadyLIFT 2.5\" Suspension Kit, Air Lift 5000 Ultimate Plus Kit",
     "categories": ["suspension"],
     "related": ["453172-2020-ford-f-250", "427484-2022-ford-f-250", "410515-2022-ford-f-250"],
     "meta": {
@@ -10,11 +9,10 @@
         "trim": "Lariat",
         "color": "Atlas Blue",
         "drive": "4x4",
-        "parts": "ReadyLIFT 2.5\" Suspension Kit, Air Lift 5000 Ultimate Plus Kit"
+        "parts": ["ReadyLIFT 2.5\" Suspension Kit", "Air Lift 5000 Ultimate Plus Kit"]
     },
     "images": {
         "total": 3,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

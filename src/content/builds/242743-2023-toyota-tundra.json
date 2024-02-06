@@ -1,0 +1,23 @@
+{
+    "date": "2023-11-30T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire"],
+    "related": ["864745-2020-toyota-4runner", "223455-2007-toyota-land-cruiser", "599061-2021-toyota-land-cruiser"],
+    "meta": {
+        "year": 2023,
+        "make": "toyota",
+        "model": "toyota-tundra",
+        "trim": "1794 Edition",
+        "color": "Wind Chill Pearl",
+        "drive": "4x4",
+        "parts": ["Rough Country 3.5\" Lift Kit", "Fuel Blitz 20\"x9\" Wheels", "Toyo ATIII 35\" 1250R20 Tires"]
+    },
+    "images": {
+        "total": 9,
+        "snippet": 2
+    },
+    "video": {
+        "filename": "video",
+        "width": 1080,
+        "height": 1920
+    }
+}

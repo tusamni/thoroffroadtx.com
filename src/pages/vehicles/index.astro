@@ -61,7 +61,17 @@ const recentImages = [
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
     <div class="grid md:grid-cols-3">
-        {headlineImages.map((h, i) => <Picture src={getBuildImage(h.id, h.image)} alt={getBuildDescription(h.id)} sizes="(max-width: 768px) 100vw, 33vw" loading="eager" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />)}
+        {
+            headlineImages.map((h, i) => (
+                <Picture
+                    src={getBuildImage(h.id, h.image)}
+                    alt={getBuildDescription(h.id)}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="eager"
+                    class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]}
+                />
+            ))
+        }
     </div>
 
     <div class="-mt-20 section section-bottom">
@@ -71,7 +81,10 @@ const recentImages = [
                 <div class="bg-black h-fit col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
                     <div class="space-y-8">
                         <h1>Texas' Top<br />Truck Outfitter</h1>
-                        <p class="text-base">THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams.</p>
+                        <p class="text-base">
+                            THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently
+                            deliver the truck or adventure vehicle of our customers' dreams.
+                        </p>
                     </div>
 
                     <!-- cta buttons -->
@@ -119,10 +132,18 @@ const recentImages = [
                 <Gallery>
                     <div class="sm:space-y-4">
                         <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
-                            {recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />).slice(0, 4)}
+                            {
+                                recentImages
+                                    .map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />)
+                                    .slice(0, 4)
+                            }
                         </div>
                         <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
-                            {recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full col-span-3 object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />).slice(4, 8)}
+                            {
+                                recentImages
+                                    .map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full object-bottom" sizes="(max-width: 640px) 50vw, 25vw" />)
+                                    .slice(4, 8)
+                            }
                         </div>
                     </div>
                 </Gallery>
@@ -132,7 +153,9 @@ const recentImages = [
                         <div class="button-text">More Builds</div>
                     </a>
 
-                    <p class="italic text-center sm:text-right text-sm">Call us today at <a href={`tel:${Business.phone.number}`} class="underline">{Business.phone.formatted}</a> to <br /> get started on your custom build.</p>
+                    <p class="italic text-center sm:text-right text-sm">
+                        Call us today at <a href={`tel:${Business.phone.number}`} class="underline">{Business.phone.formatted}</a> to <br /> get started on your custom build.
+                    </p>
                 </div>
             </div>
 

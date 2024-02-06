@@ -1,6 +1,5 @@
 {
     "date": "2022-08-17T00:00:00.000Z",
-    "summary": "2018 Jeep Wrangler Unlimited Rubicon in Anvil Clearcoat with Rough Country 2.5\" V2 Lift Kit, 17x8.5\" AEV Salta Matte Black Wheels, 35\" 1250R17 Yokohama Geolander X-AT Tires, Fender Flares",
     "categories": ["suspension", "wheel-tire", "body-bumper"],
     "meta": {
         "year": 2018,
@@ -9,11 +8,10 @@
         "trim": "Unlimited Rubicon",
         "color": "Anvil Clearcoat",
         "drive": "4x4",
-        "parts": "Rough Country 2.5\" V2 Lift Kit, 17x8.5\" AEV Salta Matte Black Wheels, 35\" 1250R17 Yokohama Geolander X-AT Tires, Fender Flares"
+        "parts": ["Rough Country 2.5\" V2 Lift Kit", "17x8.5\" AEV Salta Matte Black Wheels", "35\" 1250R17 Yokohama Geolander X-AT Tires", "Fender Flares"]
     },
     "images": {
         "total": 11,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

@@ -1,6 +1,5 @@
 {
     "date": "2022-10-28T00:00:00.000Z",
-    "summary": "2022 Ford Bronco Wildtrack in Black with Baja Kits Suspension, RPG Spring Perches, RPG Upper Control Arms, RPG Radius Arms, 17x8.5\" Raceline Beadlock Avenger Wheels, 37\" 1250 R17 BF Goodrich K02 Tires, ADD Rockfighter Front Bumper, ADD RockFighter Rear Bumper, Warn VR EVO 10S Winch, Baja Design Spare Tire S1 Light Kit, Baja Design Linkable XL Roof Mounted Lights, Baja Design 20\" Onyx 6 Lightbar, Rigid 6\" Round Fog Lights, THOR Badging, NFab Podium Steps, Ceramic Coating",
     "categories": ["suspension", "lighting", "wheel-tire", "body-bumper"],
     "related": ["929818-2021-ford-bronco", "266375-2022-ford-bronco", "435353-2021-ford-bronco"],
     "meta": {
@@ -10,12 +9,28 @@
         "trim": "Wildtrack",
         "color": "Black",
         "drive": "4x4",
-        "parts": "Baja Kits Suspension, RPG Spring Perches, RPG Upper Control Arms, RPG Radius Arms, 17x8.5\" Raceline Beadlock Avenger Wheels, 37\" 1250 R17 BF Goodrich K02 Tires, ADD Rockfighter Front Bumper, ADD RockFighter Rear Bumper, Warn VR EVO 10S Winch, Baja Design Spare Tire S1 Light Kit, Baja Design Linkable XL Roof Mounted Lights, Baja Design 20\" Onyx 6 Lightbar, Rigid 6\" Round Fog Lights, THOR Badging, NFab Podium Steps, Ceramic Coating",
-        "goals": "<p>After seeing a Badlands Bronco built for this customer's daughter, he handed us the keys and said \"Have Fun!\" That is exactly what we did. The Wildtrack Bronco provides such a great platform to modify. Here's what we did to make Jeremy's Bronco \"Badass\"! Starting with an RPG Suspension kit we were able to raise the Bronco 2.25\" and make room to Clear 37\" tires and provide full articulation.</p><p>Wrapping those BFG tires around a fully funtioning KMC beadlock provided ultimate versitily on and off the road. ADD Rock Fighter bumper front and rear. Baja Design lights in and on the bumper, on the roof and the spare tire mount. There is no lack of lighting to lead the way wherever this Bronco is headed.</p><p>This Bronco always has spectators surrounding it everywhere it goes!</p>"
+        "goals": "<p>After seeing a Badlands Bronco built for this customer's daughter, he handed us the keys and said \"Have Fun!\" That is exactly what we did. The Wildtrack Bronco provides such a great platform to modify. Here's what we did to make Jeremy's Bronco \"Badass\"! Starting with an RPG Suspension kit we were able to raise the Bronco 2.25\" and make room to Clear 37\" tires and provide full articulation.</p><p>Wrapping those BFG tires around a fully funtioning KMC beadlock provided ultimate versitily on and off the road. ADD Rock Fighter bumper front and rear. Baja Design lights in and on the bumper, on the roof and the spare tire mount. There is no lack of lighting to lead the way wherever this Bronco is headed.</p><p>This Bronco always has spectators surrounding it everywhere it goes!</p>",
+        "parts": [
+            "Baja Kits Suspension",
+            "RPG Spring Perches",
+            "RPG Upper Control Arms",
+            "RPG Radius Arms",
+            "17x8.5\" Raceline Beadlock Avenger Wheels",
+            "37\" 1250 R17 BF Goodrich K02 Tires",
+            "ADD Rockfighter Front Bumper",
+            "ADD RockFighter Rear Bumper",
+            "Warn VR EVO 10S Winch",
+            "Baja Design Spare Tire S1 Light Kit",
+            "Baja Design Linkable XL Roof Mounted Lights",
+            "Baja Design 20\" Onyx 6 Lightbar",
+            "Rigid 6\" Round Fog Lights",
+            "THOR Badging",
+            "NFab Podium Steps",
+            "Ceramic Coating"
+        ]
     },
     "images": {
         "total": 19,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

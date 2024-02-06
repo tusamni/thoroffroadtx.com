@@ -1,6 +1,5 @@
 {
     "date": "2021-10-19T00:00:00.000Z",
-    "summary": "2020 Chevrolet Colorado Z71 in Red with AEV Front Bumper, AEV High Mark Fenders, AEV Wheels, 285/70R17 Tires",
     "categories": ["body-bumper", "wheel-tire"],
     "related": ["357202-2022-chevrolet-silverado-2500-hd", "695527-2022-chevrolet-silverado-2500-hd", "355738-2022-chevrolet-silverado-1500"],
     "meta": {
@@ -10,11 +9,10 @@
         "trim": "Z71",
         "color": "Red",
         "drive": "4x4",
-        "parts": "AEV Front Bumper, AEV High Mark Fenders, AEV Wheels, 285/70R17 Tires"
+        "parts": ["AEV Front Bumper", "AEV High Mark Fenders", "AEV Wheels", "285/70R17 Tires"]
     },
     "images": {
         "total": 6,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

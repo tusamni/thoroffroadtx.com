@@ -1,6 +1,5 @@
 {
     "date": "2023-02-08T00:00:00.000Z",
-    "summary": "2020 RAM 2500 Limited in Black with Carli 3.25\" Backcountry Suspension Kit, Carli Torsion Sway Bar, Carli High Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, Carli Fabricated Radius Arms, 18x9\" Method MR305NV HD Matte Black Wheels, 37\" 1250 R18 Nitto Trail Grappler M/T Tires",
     "categories": ["suspension", "wheel-tire"],
     "related": ["692114-2023-ram-2500", "452139-2023-ram-2500", "301483-2019-ram-2500"],
     "meta": {
@@ -10,11 +9,18 @@
         "trim": "Limited",
         "color": "Black",
         "drive": "4x4",
-        "parts": "Carli 3.25\" Backcountry Suspension Kit, Carli Torsion Sway Bar, Carli High Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, Carli Fabricated Radius Arms, 18x9\" Method MR305NV HD Matte Black Wheels, 37\" 1250 R18 Nitto Trail Grappler M/T Tires"
+        "parts": [
+            "Carli 3.25\" Backcountry Suspension Kit",
+            "Carli Torsion Sway Bar",
+            "Carli High Mount Steering Stabilizer",
+            "Carli Low Mount Steering Stabilizer",
+            "Carli Fabricated Radius Arms",
+            "18x9\" Method MR305NV HD Matte Black Wheels",
+            "37\" 1250 R18 Nitto Trail Grappler M/T Tires"
+        ]
     },
     "images": {
         "total": 7,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

@@ -1,0 +1,18 @@
+{
+    "date": "2023-12-20T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire", "bed-roof"],
+    "related": ["864745-2020-toyota-4runner", "223455-2007-toyota-land-cruiser", "599061-2021-toyota-land-cruiser"],
+    "meta": {
+        "year": 2017,
+        "make": "toyota",
+        "model": "toyota-tundra",
+        "trim": "SR5",
+        "color": "Silver",
+        "drive": "4x4",
+        "parts": ["Method 701 17\"x9\" Wheels", "Toyo ATIII 35\" 1250R17 Tires", "Prinsu Roof Rack", "Prinsu Bed Rack", "Decked Short Bed System"]
+    },
+    "images": {
+        "total": 8,
+        "snippet": 1
+    }
+}

@@ -1,6 +1,5 @@
 {
     "date": "2022-04-11T00:00:00.000Z",
-    "summary": "1997 Ford F-250 XLT in Red with Bilstein Coil Over Conversion, Rear Leaf Spring Replacement, 17\" Raceline Defender Wheels, 35\" General Grabber MT Tires",
     "categories": ["suspension", "wheel-tire"],
     "related": ["684213-2020-ford-f-250", "427484-2022-ford-f-250", "453172-2020-ford-f-250"],
     "meta": {
@@ -10,12 +9,11 @@
         "trim": "XLT",
         "color": "Red",
         "drive": "4x4",
-        "parts": "Bilstein Coil Over Conversion, Rear Leaf Spring Replacement, 17\" Raceline Defender Wheels, 35\" General Grabber MT Tires"
+        "parts": ["Bilstein Coil Over Conversion", "Rear Leaf Spring Replacement", "17\" Raceline Defender Wheels", "35\" General Grabber MT Tires"]
     },
     "images": {
         "total": 6,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     },
     "video": {
         "filename": "video",

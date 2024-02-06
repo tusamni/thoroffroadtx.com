@@ -1,6 +1,5 @@
 {
     "date": "2024-01-19T00:00:00.000Z",
-    "summary": "2024 GMC Sierra 2500 HD in Grey with CST Stage 3 Suspension Kit, Method MR321 20\"x9\" Wheels, 37\" 1250R20 Yokohoma XAT Tires, Retrax Pro MX Bed Cover",
     "categories": ["bed-roof", "wheel-tire", "suspension"],
     "related": ["727698-2020-chevrolet-colorado", "695527-2022-chevrolet-silverado-2500-hd", "355738-2022-chevrolet-silverado-1500"],
     "meta": {
@@ -10,11 +9,10 @@
         "trim": "Denali",
         "color": "Grey",
         "drive": "4x4",
-        "parts": "CST Stage 3 Suspension Kit, Method MR321 20\"x9\" Wheels, 37\" 1250R20 Yokohoma XAT Tires, Retrax Pro MX Bed Cover"
+        "parts": ["CST Stage 3 Suspension Kit", "Method MR321 20\"x9\" Wheels", "37\" 1250R20 Yokohoma XAT Tires", "Retrax Pro MX Bed Cover"]
     },
     "images": {
-        "total": 9,
-        "snippet": 8,
-        "build": [1]
+        "total": 15,
+        "snippet": 1
     }
 }

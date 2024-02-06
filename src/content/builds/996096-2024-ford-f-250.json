@@ -1,0 +1,26 @@
+{
+    "date": "2024-01-24T00:00:00.000Z",
+    "categories": ["suspension", "bed-roof", "wheel-tire", "lighting"],
+    "related": ["684213-2020-ford-f-250", "427484-2022-ford-f-250", "663613-2022-ford-f-250"],
+    "meta": {
+        "year": 2024,
+        "make": "ford",
+        "model": "ford-f-250",
+        "trim": "Platinum",
+        "color": "White",
+        "drive": "4x4",
+        "parts": [
+            "Carli Backcountry 3.5\" Suspension Kit",
+            "Carli Sway Bar Drop Bracket",
+            "Carli Full Rear Spring Replacement",
+            "Carli High Mount Steering Stabilizer",
+            "Carli Low Mount Steering Stabilizer",
+            "Fuel Blitz 20\"x9\" +20 Wheels",
+            "Nitto Ridge Grappler Tires"
+        ]
+    },
+    "images": {
+        "total": 23,
+        "snippet": 17
+    }
+}

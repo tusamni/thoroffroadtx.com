@@ -1,0 +1,26 @@
+{
+    "date": "2024-01-16T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire"],
+    "related": ["850633-2022-ram-3500", "452139-2023-ram-2500", "692114-2023-ram-2500"],
+    "meta": {
+        "year": 2022,
+        "make": "ram",
+        "model": "ram-3500",
+        "color": "Grey",
+        "drive": "4x4",
+        "parts": [
+            "Carli 3\" Pintop Suspension System",
+            "Carli Fabricated Radius Arms",
+            "Carli Low Mount Steering Stabilizer",
+            "Carli High Mount Steering Stabilizer",
+            "Carli Ball Joints",
+            "Carli Add-a-Pack",
+            "Air Lift 5000 Load Lifter Kit",
+            "Nitto Ridge Grappler 37\" 1250R17 Tires"
+        ]
+    },
+    "images": {
+        "total": 30,
+        "snippet": 4
+    }
+}

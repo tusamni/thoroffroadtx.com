@@ -1,10 +1,8 @@
 {
     "title": "Chevrolet",
-    "heading": "Tackle Any Task",
     "description": {
         "short": "Chevy offers you capable, efficient and durable trucks backed by 100 years of proven performance.",
-        "long": "<p>Chevrolet offers you capable, efficient, durable, and professional vehicles backed by a 100 years of proven performance and an abundant supply of high-performance parts from companies like BDS Suspensions, Cognito, RPG Offroad and Baja Kits.</p>",
-        "push": "<p>THOR can help you <a href=\"/contact\" title=\"Contact Us\" class=\"italic underline underline-offset-4\">build a serious off-road Chevrolet</a> with the on-road comfort and towing capability that make these vehicles a dream to drive.</p>"
+        "long": "<p>Chevrolet offers you capable, efficient, durable, and professional vehicles backed by a 100 years of proven performance and an abundant supply of high-performance parts from companies like BDS Suspensions, Cognito, RPG Offroad and Baja Kits.</p>"
     },
     "models": ["chevrolet-colorado", "chevrolet-silverado-1500", "chevrolet-silverado-2500-hd", "chevrolet-silverado-3500-hd", "chevrolet-tahoe"],
     "seo": {
@@ -12,9 +10,7 @@
         "description": "At THOR Off-Road we know how to take your Chevrolet Colorado, Silverado or Tahoe to the next level."
     },
     "logo": {
-        "name": "Chevrolet",
-        "text": "text-[#D1AD57]",
-        "bg": "bg-[#D1AD57]"
+        "name": "Chevrolet"
     },
     "images": {
         "featured": {

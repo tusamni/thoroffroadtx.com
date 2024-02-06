@@ -1,6 +1,5 @@
 {
     "date": "2023-06-13T00:00:00.000Z",
-    "summary": "2022 Ford F-250 Super Duty in Red with",
     "categories": ["suspension", "lighting", "wheel-tire", "performance"],
     "related": ["445004-2022-ford-f-250", "427484-2022-ford-f-250", "453172-2020-ford-f-250"],
     "meta": {
@@ -10,11 +9,24 @@
         "trim": "Platinum",
         "color": "Red",
         "drive": "4x4",
-        "parts": "Carli Backcountry 3.5\" Suspension Kit, Carli 3.5\" Fabricated Radius Arms, Carli 3.5\" Full Rear Spring Replacement, Carli High Mount Steering Stabilizer, Carli Low Mount Steering Stabilizer, Carli Torsion Sway Bar, Method Racing MR304 17\" Machined Wheels, Toyo Open Country 37\" 1350R17 Tires, Baja Design Linkable Light Kit, Baja Design Fog Light Pocket Kit, Baja Design S2 Flush Mount Lights, Banks Differential Cover, Banks Exhaust Kit"
+        "parts": [
+            "Carli Backcountry 3.5\" Suspension Kit",
+            "Carli 3.5\" Fabricated Radius Arms",
+            "Carli 3.5\" Full Rear Spring Replacement",
+            "Carli High Mount Steering Stabilizer",
+            "Carli Low Mount Steering Stabilizer",
+            "Carli Torsion Sway Bar",
+            "Method Racing MR304 17\" Machined Wheels",
+            "Toyo Open Country 37\" 1350R17 Tires",
+            "Baja Design Linkable Light Kit",
+            "Baja Design Fog Light Pocket Kit",
+            "Baja Design S2 Flush Mount Lights",
+            "Banks Differential Cover",
+            "Banks Exhaust Kit"
+        ]
     },
     "images": {
         "total": 50,
-        "snippet": 12,
-        "build": [1]
+        "snippet": 12
     }
 }

@@ -1,6 +1,5 @@
 {
     "date": "2023-07-30T00:00:00.000Z",
-    "summary": "2020 Toyota 4Runner in Black with Icon Stage 5 Suspension Kit, 17x9\" Fuel Zephyr Bronze Wheels, 295/70/17 Baja Boss AT Tires, C4 Low Pro Bumper with Lighting, Borla Catback Touring Exhaust",
     "categories": ["suspension", "wheel-tire", "lighting", "performance"],
     "related": ["791924-2016-toyota-tacoma", "223455-2007-toyota-land-cruiser", "211559-2020-lexus-gx-460"],
     "meta": {
@@ -10,11 +9,10 @@
         "trim": "TRD Off-Road",
         "color": "Black",
         "drive": "4x4",
-        "parts": "Icon Stage 5 Suspension Kit, 17x9\" Fuel Zephyr Bronze Wheels, 295/70/17 Baja Boss AT Tires, C4 Low Pro Bumper with Lighting, Borla Catback Touring Exhaust"
+        "parts": ["Icon Stage 5 Suspension Kit", "17x9\" Fuel Zephyr Bronze Wheels", "295/70/17 Baja Boss AT Tires", "C4 Low Pro Bumper with Lighting", "Borla Catback Touring Exhaust"]
     },
     "images": {
         "total": 12,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

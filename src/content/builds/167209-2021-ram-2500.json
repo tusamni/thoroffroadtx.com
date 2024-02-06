@@ -1,6 +1,5 @@
 {
     "date": "2022-07-30T00:00:00.000Z",
-    "summary": "2021 RAM 2500 Limited in White with 3.25\" Carli King Pintop Suspension, 37\" 1250 R18 Nitto Ridge Grappler Tires, 18\" Trail Ready Machined Wheels with Black Rings",
     "categories": ["suspension", "wheel-tire"],
     "related": ["298562-2021-ram-2500", "340718-2022-ram-2500", "301483-2019-ram-2500"],
     "meta": {
@@ -10,12 +9,11 @@
         "trim": "Limited",
         "color": "White",
         "drive": "4x4",
-        "parts": "3.25\" Carli King Pintop Suspension, 37\" 1250 R18 Nitto Ridge Grappler Tires, 18\" Trail Ready Machined Wheels with Black Rings"
+        "parts": ["3.25\" Carli King Pintop Suspension", "37\" 1250 R18 Nitto Ridge Grappler Tires", "18\" Trail Ready Machined Wheels with Black Rings"]
     },
     "images": {
         "total": 13,
-        "snippet": 10,
-        "build": [1]
+        "snippet": 10
     },
     "video": {
         "filename": "video",

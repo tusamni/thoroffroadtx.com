@@ -1,6 +1,5 @@
 {
     "date": "2021-09-30T00:00:00.000Z",
-    "summary": "2021 Ford F-150 XLT in Silver with 2\" Leveling Kit, BF Goodrich K02 All Terrain Tires",
     "categories": ["suspension", "wheel-tire"],
     "related": ["125830-2021-ford-f-150", "229741-2021-ford-f-150", "846320-2023-ford-f-150"],
     "meta": {
@@ -10,11 +9,10 @@
         "trim": "XLT",
         "color": "Silver",
         "drive": "4x4",
-        "parts": "2\" Leveling Kit, BF Goodrich K02 All Terrain Tires"
+        "parts": ["2\" Leveling Kit", "BF Goodrich K02 All Terrain Tires"]
     },
     "images": {
         "total": 8,
-        "snippet": 1,
-        "build": [1]
+        "snippet": 1
     }
 }

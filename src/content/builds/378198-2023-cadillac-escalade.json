@@ -1,0 +1,18 @@
+{
+    "date": "2024-01-23T00:00:00.000Z",
+    "categories": ["wheel-tire"],
+    "related": ["211559-2020-lexus-gx-460", "328593-2018-lexus-gx-460", "864745-2020-toyota-4runner"],
+    "meta": {
+        "year": 2023,
+        "make": "cadillac",
+        "model": "cadillac-escalade",
+        "trim": "V",
+        "color": "White",
+        "drive": "AWD",
+        "parts": ["Vossen 24\"x10\" Wheels", "Yokohama Parada Spec-X 305/35/24 Tires"]
+    },
+    "images": {
+        "total": 10,
+        "snippet": 3
+    }
+}

@@ -9,7 +9,13 @@
         "trim": "TRD Off-Road",
         "color": "Black",
         "drive": "4x4",
-        "parts": ["Icon Stage 5 Suspension Kit", "17x9\" Fuel Zephyr Bronze Wheels", "295/70/17 Baja Boss AT Tires", "C4 Low Pro Bumper with Lighting", "Borla Catback Touring Exhaust"]
+        "parts": [
+            "Icon 0-3.5\" Stage 5 Suspension System with Tubular UCA",
+            "17x9\" Fuel Zephyr Bronze Wheels",
+            "295/70R17 Baja Boss AT Tires",
+            "C4 Low Pro Bumper with Lighting",
+            "Borla Catback Touring Exhaust"
+        ]
     },
     "images": {
         "total": 12,

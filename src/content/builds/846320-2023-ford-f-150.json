@@ -9,8 +9,7 @@
         "trim": "Platinum",
         "color": "Black",
         "drive": "4x4",
-        "parts": "BDS 6\" Lift System, 20x9\" Fuel Crush Wheels, 37\" 1250R20 Yokohama Geolander XAT Tires",
-        "parts": ["BDS 6\" Lift System", "20x9\" Fuel Crush Wheels", "37\" 1250R20 Yokohama Geolander XAT Tires"]
+        "parts": ["BDS 6\" Lift System", "20x9\" Fuel Crush Wheels", "37x12.50R20 Yokohama Geolander XAT Tires"]
     },
     "images": {
         "total": 11,

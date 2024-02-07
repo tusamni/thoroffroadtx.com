@@ -8,7 +8,7 @@
         "model": "chevrolet-silverado-1500",
         "color": "Black",
         "drive": "4x4",
-        "parts": ["BW Tow & Stow Hitch", "Fuel Ammo 20\"x9\" Wheels", "285/60/20 Nitto Recon Grappler Tires"]
+        "parts": ["BW Tow & Stow Hitch", "Fuel Ammo 20\"x9\" Wheels", "285/60R20 Nitto Recon Grappler Tires"]
     },
     "images": {
         "total": 4,

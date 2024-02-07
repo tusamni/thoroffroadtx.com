@@ -1,7 +1,15 @@
 ---
 import { Business } from "@/config";
-
+import { getCollection } from "astro:content";
 import Icon from "@/components/Icon";
+
+const allMakes = await getCollection("makes");
+const allModels = await getCollection("models");
+
+const yearStart = 1970;
+const yearEnd = new Date().getFullYear();
+
+var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart).toString()).reverse();
 ---
 
 <form id="form-contact" class="space-y-6" name="Contact Form" action="/contact/success" method="post" data-netlify="true" netlify-honeypot="state">
@@ -22,6 +30,31 @@ import Icon from "@/components/Icon";
         <div class="hidden space-y-2">
             <label for="state" class="block font-semibold leading-6">State</label>
             <input type="text" name="state" id="state" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="space-y-2">
+            <label for="year" class="block font-semibold leading-6">Year</label>
+            <select>
+                {years.map((y) => <option value={y}>{y}</option>)}
+            </select>
+        </div>
+
+        <div class="space-y-2">
+            <label for="make" class="block font-semibold leading-6">Vehicle Make</label>
+            <select id="make">
+                <option>Choose Make</option>
+                {allMakes.map((m) => <option value={m.data.title}>{m.data.title}</option>)}
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="space-y-2">
+            <label for="model" class="block font-semibold leading-6">Vehicle Model</label>
+            <select id="model">
+                <option>Choose Model</option>
+            </select>
         </div>
     </div>
 
@@ -47,8 +80,48 @@ import Icon from "@/components/Icon";
     <input id="output-email-subject" type="hidden" name="subject" value="" />
 </form>
 
-<script is:inline>
+<script is:inline define:vars={{ allModels }}>
     function updateSubject(valEmail) {
         document.getElementById("output-email-subject").value = `New Submission from thoroffroadtx.com - ${valEmail}`;
     }
+
+    const selectMake = document.getElementById("make");
+    const selectModel = document.getElementById("model");
+
+    function clearModel() {
+        while (selectModel.options.length > 0) {
+            selectModel.remove(0);
+        }
+    }
+
+    selectMake.addEventListener(
+        "change",
+        function (event) {
+            if (this.selectedIndex == 0) {
+                // clear options
+                clearModel();
+
+                let newOption = new Option("Choose Model", "");
+                selectModel.add(newOption);
+            } else if (this.value == "Other") {
+                clearModel();
+
+                let newOption = new Option("Other", "Other");
+                selectModel.add(newOption);
+            } else {
+                // clear options
+                while (selectModel.options.length > 0) {
+                    selectModel.remove(0);
+                }
+
+                allModels.map((i) => {
+                    if (i.data.make.id.includes(this.value.toLowerCase())) {
+                        let newOption = new Option(i.data.title, i.data.title);
+                        selectModel.add(newOption);
+                    }
+                });
+            }
+        },
+        false
+    );
 </script>

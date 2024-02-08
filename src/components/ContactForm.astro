@@ -36,14 +36,14 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="space-y-2">
             <label for="year" class="block font-semibold leading-6">Year</label>
-            <select>
+            <select name="year" id="year">
                 {years.map((y) => <option value={y}>{y}</option>)}
             </select>
         </div>
 
         <div class="space-y-2">
             <label for="make" class="block font-semibold leading-6">Vehicle Make</label>
-            <select id="make">
+            <select name="make" id="make">
                 <option>Choose Make</option>
                 {allMakes.map((m) => <option value={m.data.title}>{m.data.title}</option>)}
                 <option value="Other">Other</option>
@@ -52,7 +52,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 
         <div class="space-y-2">
             <label for="model" class="block font-semibold leading-6">Vehicle Model</label>
-            <select id="model">
+            <select name="model" id="model">
                 <option>Choose Model</option>
             </select>
         </div>

@@ -20,7 +20,7 @@ export async function getStaticPaths({ paginate }) {
         const filteredBuilds = allBuilds.filter((build) => build.data.meta.make.id === model.data.make.id && build.data.meta.model.id == model.id);
 
         return paginate(filteredBuilds, {
-            params: { make: model.data.make.id, model: model.id },
+            params: { make: model.data.make.id, model: model.data.slug },
             props: { model },
             pageSize: 6,
         });
@@ -39,7 +39,6 @@ const { page, model } = Astro.props;
                 <div class="bg-black col-span-10 lg:col-span-6 text-white box-spacing space-y-8">
                     <div class="space-y-8">
                         <h1>{model.data.title} Builds</h1>
-                        <p class="text-base">{model.data.description.short}</p>
                     </div>
                 </div>
             </div>

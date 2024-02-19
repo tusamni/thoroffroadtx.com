@@ -82,6 +82,7 @@ const modelCollection = defineCollection({
     type: "data",
     schema: z.object({
         draft: z.boolean().optional(),
+        slug: z.string(),
         title: z.string().or(z.number()),
         description: z.object({
             short: z.string(),

@@ -12,7 +12,7 @@ const allParts = await getCollection("parts");
 let allModels;
 if (Astro.params.make) {
     allModels = await getCollection("models", ({ data }) => {
-        return !data.draft && data.make.id.includes(Astro.params.make);
+        return data.make.id.includes(Astro.params.make);
     });
 }
 ---
@@ -49,11 +49,13 @@ if (Astro.params.make) {
     {
         Astro.params.make && (
             <div class="w-full md:w-fit">
-                <label for="filterModel" class="hidden">Filter by Model</label>
+                <label for="filterModel" class="hidden">
+                    Filter by Model
+                </label>
                 <select name="filterModel" id="filterModel" class="md:pr-8 filter rounded-sm text-xs border-neutral-300 border">
                     <option value="">Filter by Model</option>
                     {allModels.map((m) => (
-                        <option value={`builds/${Astro.params.make}/${m.id}`} selected={Astro.params.model == m.id && `selected`}>
+                        <option value={`builds/${Astro.params.make}/${m.data.slug}`} selected={Astro.params.model == m.id && `selected`}>
                             {m.data.title}
                         </option>
                     ))}

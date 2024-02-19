@@ -12,9 +12,7 @@ import HoverMenu from "@/components/navigation/menus/Hover";
 const allMakes = await getCollection("makes", ({ data }) => {
     return data.draft !== true;
 });
-const allModels = await getCollection("models", ({ data }) => {
-    return data.draft !== true;
-});
+const allModels = await getCollection("models");
 const allParts = await getCollection("parts");
 ---
 

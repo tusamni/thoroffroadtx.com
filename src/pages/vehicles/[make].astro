@@ -14,7 +14,9 @@ import Testimonial from "@/components/content/testimonials/Testimonial";
 // content
 import { getCollection, getEntry } from "astro:content";
 export async function getStaticPaths() {
-    const allMakes = await getCollection("makes");
+    const allMakes = await getCollection("makes", ({ data }) => {
+        return data.draft !== true;
+    });
     return allMakes.map((make) => ({
         params: { make: make.id },
         props: { make },

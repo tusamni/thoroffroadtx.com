@@ -9,8 +9,12 @@ import MenuMobile from "@/components/navigation/menus/Mobile";
 import HoverMenu from "@/components/navigation/menus/Hover";
 
 // data
-const allMakes = await getCollection("makes");
-const allModels = await getCollection("models");
+const allMakes = await getCollection("makes", ({ data }) => {
+    return data.draft !== true;
+});
+const allModels = await getCollection("models", ({ data }) => {
+    return data.draft !== true;
+});
 const allParts = await getCollection("parts");
 ---
 

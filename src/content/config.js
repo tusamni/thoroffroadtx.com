@@ -45,6 +45,7 @@ const buildCollection = defineCollection({
 const makeCollection = defineCollection({
     type: "data",
     schema: z.object({
+        draft: z.boolean().optional(),
         title: z.string(),
         description: z.object({
             short: z.string(),

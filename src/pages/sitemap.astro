@@ -6,7 +6,9 @@ import { getCollection } from "astro:content";
 import Container from "@/components/Container";
 
 // data
-const allMakes = await getCollection("makes");
+const allMakes = await getCollection("makes", ({ data }) => {
+    return data.draft !== true;
+});
 const allParts = await getCollection("parts");
 ---
 

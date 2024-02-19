@@ -7,8 +7,12 @@ import Icon from "@/components/Icon";
 // content
 import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
-const allMakes = await getCollection("makes");
-const allModels = await getCollection("models");
+const allMakes = await getCollection("makes", ({ data }) => {
+    return data.draft !== true;
+});
+const allModels = await getCollection("models", ({ data }) => {
+    return data.draft !== true;
+});
 ---
 
 <div class="lg:hidden" role="dialog" aria-modal="true" aria-label="Mobile Navigation">

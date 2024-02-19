@@ -13,7 +13,9 @@ import Make from "@/components/content/snippets/Make";
 import Picture from "@/components/images/Picture";
 
 // content
-const allMakes = await getCollection("makes");
+const allMakes = await getCollection("makes", ({ data }) => {
+    return data.draft !== true;
+});
 const process = [
     {
         title: "We Know the Brands",

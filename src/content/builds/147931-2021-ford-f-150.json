@@ -1,0 +1,18 @@
+{
+    "date": "2024-03-29T00:00:00.000Z",
+    "categories": ["wheel-tire", "suspension"],
+    "related": ["846320-2023-ford-f-150", "229741-2021-ford-f-150", "813261-2021-ford-f-150"],
+    "meta": {
+        "year": 2024,
+        "make": "ford",
+        "model": "ford-f-150",
+        "trim": "XLT",
+        "color": "Gray",
+        "drive": "4x4",
+        "parts": ["Stage 3 Motorsports 2.3\" Leveling Kit", "18\" Ford Tremor Wheels", "35x11.50R18 Falken Wildpeak AT4W Tires"]
+    },
+    "images": {
+        "total": 6,
+        "snippet": 2
+    }
+}

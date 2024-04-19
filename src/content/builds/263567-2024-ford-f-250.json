@@ -1,0 +1,26 @@
+{
+    "date": "2024-02-20T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire", "specialties"],
+    "related": ["684213-2020-ford-f-250", "427484-2022-ford-f-250", "453172-2020-ford-f-250"],
+    "meta": {
+        "year": 2023,
+        "make": "ford",
+        "model": "ford-f-250",
+        "trim": "King Ranch",
+        "color": "Black",
+        "drive": "4x4",
+        "parts": [
+            "Carli 3.5\" King Pintop Suspension",
+            "Carli Fabricated Radius Arms",
+            "Carli High Mount Steering Stabilizer",
+            "Carli Low Mount Steering Stabilizer",
+            "Carli Torsion Sway Bar 3.5",
+            "18\" Innov8 Racing G600 Wheels",
+            "37x12.50R18 Nitto Ridge Grappler Tires"
+        ]
+    },
+    "images": {
+        "total": 19,
+        "snippet": 3
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "date": "2024-04-15T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire"],
+    "related": ["319374-2022-ford-f-250", "453172-2020-ford-f-250", "427484-2022-ford-f-250"],
+    "meta": {
+        "year": 2023,
+        "make": "ford",
+        "model": "ford-f-250",
+        "trim": "Lariat",
+        "color": "White",
+        "drive": "4x4",
+        "parts": [
+            "Carli 3.5\" Backcountry Suspension Kit",
+            "Carli 3.5\" Full Rear Spring Replacement",
+            "Carli High Mount Steering Stabilizer",
+            "Carli Low Mount Steering Stabilizer",
+            "Carli Torsion Sway Bar",
+            "Carli Fabricated Radius Arms",
+            "Method MR705 18x9\" Wheels",
+            "37x12.50R18 Nitto Ridge Grappler Tires",
+            "Spray in Bedliner"
+        ]
+    },
+    "images": {
+        "total": 12,
+        "snippet": 1
+    }
+}

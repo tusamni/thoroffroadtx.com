@@ -1,0 +1,18 @@
+{
+    "date": "2024-04-09T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire", "bed-roof"],
+    "related": ["695527-2022-chevrolet-silverado-2500-hd", "357202-2022-chevrolet-silverado-2500-hd", "727698-2020-chevrolet-colorado"],
+    "meta": {
+        "year": 2024,
+        "make": "chevrolet",
+        "model": "chevrolet-silverado-1500",
+        "trim": "ZR2",
+        "color": "Blue",
+        "drive": "4x4",
+        "parts": ["Leveling Kit", "Icon Rebound 18x9\" Wheels", "295/70R18 Wrangler Duratrac RT Tires", "Lomax Bed Cover"]
+    },
+    "images": {
+        "total": 8,
+        "snippet": 1
+    }
+}

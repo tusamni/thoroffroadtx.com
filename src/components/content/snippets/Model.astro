@@ -9,7 +9,7 @@ const { model, ...attrs } = Astro.props;
     <div class="font-semibold">{model.data.title}</div>
     <div class="text-xs line-clamp-4">{model.data.description.short}</div>
 
-    <a href={`/builds/${model.data.make.id}/${model.id}`} class="text-xs font-medium">
+    <a href={`/builds/${model.data.make.id}/${model.data.slug}`} class="text-xs font-medium">
         <span class="absolute inset-0"></span>
         See Builds &#x2192;
     </a>

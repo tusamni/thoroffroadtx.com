@@ -55,7 +55,17 @@ const { page, model } = Astro.props;
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {page.data.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
+                    {
+                        page.total === 0 ? (
+                            <div class="sm:col-span-2 lg:col-span-3 justify-self-center w-3/4">
+                                <p class="text-lg text-center">
+                                    <strong>Hmm, we don't have any recent {model.data.title} builds right now.</strong> Why not bring your {model.data.title} in and let's get it featured.
+                                </p>
+                            </div>
+                        ) : (
+                            page.data.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)
+                        )
+                    }
                 </div>
 
                 <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-4 sm:gap-0">

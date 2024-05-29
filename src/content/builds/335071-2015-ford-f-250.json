@@ -1,0 +1,18 @@
+{
+    "date": "2024-05-15T00:00:00.000Z",
+    "categories": ["suspension", "wheel-tire"],
+    "related": ["453172-2020-ford-f-250", "427484-2022-ford-f-250", "410515-2022-ford-f-250"],
+    "meta": {
+        "year": 2015,
+        "make": "ford",
+        "model": "ford-f-250",
+        "trim": "Lariat",
+        "color": "White",
+        "drive": "4x4",
+        "parts": ["Carli 5.5\" King Pintop Suspension Kit", "Carli High Mount Steering Stabilizer", "Carli Low Mount Steering Stabilizer", "Carli Adjustable Radius Arms", "37x12.50R18 Toyo Open Country R/T Trail Tires"]
+    },
+    "images": {
+        "total": 14,
+        "snippet": 1
+    }
+}

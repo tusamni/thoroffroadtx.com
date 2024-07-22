@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout";
 
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
-
+import { getCollection, getEntry } from "astro:content";
 import Build from "@/components/content/snippets/BuildAlt";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
@@ -12,15 +12,11 @@ import PartDetail from "@/components/content/snippets/PartDetail";
 import Picture from "@/components/images/Picture";
 
 // content
-import { getCollection } from "astro:content";
-export async function getStaticPaths() {
-    const allParts = await getCollection("parts");
-    return allParts.map((part) => ({
-        params: { part: part.id },
-        props: { part },
-    }));
-}
-const { part } = Astro.props;
+const { slug } = Astro.params;
+const part = await getEntry("parts", slug);
+
+// if no entry slug found, return 404
+if (!slug) return Astro.redirect("/404");
 
 // get brands
 const allBrands = await getCollection("brands", ({ data }) => {

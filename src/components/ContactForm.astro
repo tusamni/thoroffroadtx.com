@@ -12,7 +12,7 @@ const yearEnd = new Date().getFullYear();
 var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart).toString()).reverse();
 ---
 
-<form id="form-contact" class="space-y-6" name="Contact Form" action="/contact/success" method="post" data-netlify="true" netlify-honeypot="state">
+<form class="space-y-6" action="/api/contact/lead/" method="post">
     <div class="space-y-2">
         <label for="name" class="block font-semibold leading-6">Name</label>
         <input type="text" name="name" id="name" autocomplete="name" required oninput="updateSubject(this.value)" />
@@ -24,12 +24,12 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
             <input type="email" name="email" id="email" autocomplete="email" required />
         </div>
         <div class="space-y-2">
-            <label for="phone-number" class="block font-semibold leading-6">Phone number</label>
-            <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" />
+            <label for="phone" class="block font-semibold leading-6">Phone number</label>
+            <input type="tel" name="phone" id="phone" autocomplete="tel" />
         </div>
         <div class="hidden space-y-2">
-            <label for="state" class="block font-semibold leading-6">State</label>
-            <input type="text" name="state" id="state" />
+            <label for="zip" class="block font-semibold leading-6">Zip Code</label>
+            <input type="text" name="zip" id="zip" />
         </div>
     </div>
 
@@ -63,7 +63,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
         <textarea name="message" id="message" rows="4"></textarea>
     </div>
 
-    <input type="hidden" name="form-pathname" value={Astro.url} />
+    <input type="hidden" name="url" id="url" value={Astro.url.pathname} />
 
     <div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">
         <button type="submit" class="button button-primary">
@@ -76,15 +76,9 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 
         <p class="text-white italic text-right">We're also available for a<br />chat at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a></p>
     </div>
-
-    <input id="output-email-subject" type="hidden" name="subject" value="" />
 </form>
 
 <script is:inline define:vars={{ allModels }}>
-    function updateSubject(valEmail) {
-        document.getElementById("output-email-subject").value = `New Submission from thoroffroadtx.com - ${valEmail}`;
-    }
-
     const selectMake = document.getElementById("make");
     const selectModel = document.getElementById("model");
 

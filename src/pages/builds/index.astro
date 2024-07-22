@@ -1,0 +1,160 @@
+---
+import Layout from "@/layouts/Layout";
+
+import { type CollectionEntry, getCollection } from "astro:content";
+import { getBuildTitle } from "@/functions/Content";
+import BuildFilter from "@/components/builds/BuildFilter";
+import Build from "@/components/content/snippets/Build";
+import Container from "@/components/Container";
+import FlexColumn from "@/components/content/FlexColumn";
+import Picture from "@/components/images/Picture";
+
+const allParts = await getCollection("parts");
+const allMakes = await getCollection("makes");
+const allModels = await getCollection("models");
+
+const partParams = Astro.url.searchParams.getAll("parts[]");
+const makeParms = Astro.url.searchParams.getAll("make[]");
+const searchParam = Astro.url.searchParams.get("search");
+
+// search
+const searchRegex = searchParam && new RegExp(searchParam, "i");
+
+// filter and search shoots
+function buildsFilter(build) {
+    if (searchRegex) {
+        return searchRegex.test(build.data.meta.year);
+    }
+
+    return true;
+}
+
+// get integrations, filtered by the applied search & filter, then sort the matches
+const filteredBuilds = await getCollection("builds", buildsFilter);
+---
+
+<Layout
+    title="Texas High-Performance Off-Road Vehicle Builds"
+    description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep"
+>
+    <Picture
+        src="shop/2022-12-05/shop-shoot_16.jpg"
+        alt="THOR Off-Road installing Carli off-road parts"
+        loading="eager"
+        class="w-full h-[25em] object-cover"
+    />
+
+    <div class="-mt-20 bg-neutral-50 pb-8">
+        <Container padding={true}>
+            <div class="grid grid-cols-10 sm:gap-4">
+                <!-- black content area -->
+                <div
+                    class="bg-black col-span-10 lg:col-span-6 text-white box-spacing space-y-8"
+                >
+                    <div class="space-y-8">
+                        <h1 class="text-balance">
+                            THOR Off-Road Custom Builds
+                        </h1>
+                        <p class="text-base">
+                            We're designing and building amazing vehicles each
+                            and every day. Browse through a small selection of
+                            our most recent finished builds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </div>
+
+    <div class="section section-bottom bg-neutral-50">
+        <Container>
+            <FlexColumn>
+                <div slot="left">
+                    <form class="flex flex-col gap-12 skip" method="get">
+                        <div class="relative rounded-md">
+                            <div
+                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 16 16"
+                                    fill="currentColor"
+                                    class="h-4 w-4 text-gray-400"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <input
+                                type="text"
+                                name="search"
+                                id="search"
+                                class="!pl-9"
+                                placeholder="Search"
+                                value={searchParam}
+                            />
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center">
+                                <div class="text-xl font-semibold">Filters</div>
+                                <a href="/builds" class="text-sm underline"
+                                    >Reset</a
+                                >
+                            </div>
+
+                            <!-- <div>
+                                <fieldset class="columns-2 space-y-2">
+                                    {allParts.map((p) => 
+                                        <label for={p.id} class="cursor-pointer w-full flex items-center gap-1">
+                                            <input id={p.id} name={`parts[]`} value={p.id} type="checkbox" class="cursor-pointer block" checked={partParams.includes(p.id)} />
+                                            <span class="capitalize text-sm">{p.data.title}</span>
+                                        </label>
+                                    )}
+                                </fieldset>
+                            </div> -->
+
+                            <!-- <select name="make" id="make">
+                                <option value="" disabled selected>Choose a Make</option>
+                                {allMakes.map((m) =>
+                                    <option>{m.data.title}</option>
+                                )}
+                            </select>
+
+                            <select name="model" id="model">
+                                <option value="" disabled selected>Choose a Model</option>
+                                {allModels.map((m) =>
+                                    <option>{m.data.title}</option>
+                                )}
+                            </select> -->
+
+                            <button class="button button-ghost button-inverse">
+                                <div
+                                    class="button-text text-xs sm:text-sm xl:text-base"
+                                >
+                                    Filter Shoots
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        filteredBuilds.map((b) => (
+                            // <Build
+                            //     build={b}
+                            //     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            // />
+                            <div>{b.id}</div>
+                        ))
+                    }
+                </div>
+            </FlexColumn>
+        </Container>
+    </div>
+</Layout>

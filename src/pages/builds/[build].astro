@@ -4,7 +4,7 @@ import Layout from "@/layouts/Layout";
 // imports
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription, getBuildTitle } from "@/functions/Content";
-import { getCollection, getEntry } from "astro:content";
+import { getEntry } from "astro:content";
 import { getMedia } from "@/functions/Image";
 import { timeAgo } from "@/functions/DateTime";
 
@@ -16,38 +16,35 @@ import RelatedBuild from "@/components/builds/RelatedBuild";
 import Testimonial from "@/components/content/testimonials/TestimonialAlt";
 
 // content
-export async function getStaticPaths() {
-    const allBuilds = await getCollection("builds");
-    return allBuilds.map((build) => ({
-        params: { build: build.id },
-        props: { build },
-    }));
-}
-const { build } = Astro.props;
+const { build } = Astro.params;
+const buildData = await getEntry("builds", build);
 
-const make = await getEntry("makes", build.data.meta.make.id);
-const model = await getEntry("models", build.data.meta.model.id);
+// if no entry found, return 404
+if (!build) return Astro.redirect("/404");
+
+const make = await getEntry("makes", buildData.data.meta.make.id);
+const model = await getEntry("models", buildData.data.meta.model.id);
 
 let testimonial;
-if (build.data.meta.testimonial) {
-    testimonial = await getEntry("testimonials", build.data.meta.testimonial.id);
+if (buildData.data.meta.testimonial) {
+    testimonial = await getEntry("testimonials", buildData.data.meta.testimonial.id);
 }
 ---
 
-<Layout title={`Custom ${build.data.meta.year} ${make.data.title} ${model.data.title} ${build.data.meta.trim ? `${build.data.meta.trim} ` : ``}Built by THOR Off-Road`}>
-    <Picture src={getBuildImage(build.id, build.data.images.snippet)} alt={getBuildTitle(build.id)} class="header-single" loading="eager" />
+<Layout title={`Custom ${buildData.data.meta.year} ${make.data.title} ${model.data.title} ${buildData.data.meta.trim ? `${buildData.data.meta.trim} ` : ``}Built by THOR Off-Road`}>
+    <Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="header-single" loading="eager" />
 
     <div class="-mt-20">
         <Container padding={true}>
             <div class="section section-bottom grid grid-cols-2 sm:gap-4">
                 <div class="lg:sticky lg:top-28 box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8 h-fit">
-                    <h1 class="text-balance">{getBuildTitle(build.id)}</h1>
+                    <h1 class="text-balance">{getBuildTitle(buildData.id)}</h1>
 
                     <div class="space-y-8">
-                        {build.data.meta.goals && <div class="text-base space-y-4" set:html={build.data.meta.goals} />}
+                        {buildData.data.meta.goals && <div class="text-base space-y-4" set:html={buildData.data.meta.goals} />}
 
                         {
-                            build.data.meta.testimonial && (
+                            buildData.data.meta.testimonial && (
                                 <div class="text-base space-y-4">
                                     <Testimonial content={testimonial} />
                                 </div>
@@ -57,15 +54,15 @@ if (build.data.meta.testimonial) {
                         <div class="space-y-4">
                             <h2 class="h4">Parts List</h2>
                             <ul class="space-y-2 text-sm tracking-tight">
-                                {build.data.meta.parts.map((p) => <li>{p}</li>)}
+                                {buildData.data.meta.parts.map((p) => <li>{p}</li>)}
                             </ul>
                         </div>
 
                         {
-                            build.data.related && (
+                            buildData.data.related && (
                                 <div class="hidden sm:block space-y-6">
                                     <h2 class="h4">Related Builds</h2>
-                                    {build.data.related.map((b) => (
+                                    {buildData.data.related.map((b) => (
                                         <RelatedBuild id={b.id} />
                                     ))}
                                 </div>
@@ -79,28 +76,28 @@ if (build.data.meta.testimonial) {
                         <div class="flex flex-row gap-8 text-xs items-center text-stone-700">
                             <div class="flex flex-col gap-2">
                                 <div class="font-semibold">Color</div>
-                                <div>{build.data.meta.color}</div>
+                                <div>{buildData.data.meta.color}</div>
                             </div>
 
                             <div class="flex flex-col gap-2">
                                 <div class="font-semibold">Drive</div>
-                                <div>{build.data.meta.drive}</div>
+                                <div>{buildData.data.meta.drive}</div>
                             </div>
 
                             <div class="flex flex-col gap-2">
                                 <div class="font-semibold">Date</div>
-                                <div>{timeAgo(build.data.date)}</div>
+                                <div>{timeAgo(buildData.data.date)}</div>
                             </div>
                         </div>
 
                         {
-                            build.data.video && (
+                            buildData.data.video && (
                                 <div class="align-self-end flex-none">
                                     <a
-                                        href={getMedia(`images/builds/${build.id}/${build.data.video.filename}.mp4`)}
-                                        data-sources={`[{"src":"${getMedia(`images/builds/${build.id}/${build.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
-                                        data-width={build.data.video.width}
-                                        data-height={build.data.video.height}
+                                        href={getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}
+                                        data-sources={`[{"src":"${getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
+                                        data-width={buildData.data.video.width}
+                                        data-height={buildData.data.video.height}
                                         class="video text-xs sm:text-sm flex items-center font-medium gap-2">
                                         <span>
                                             Watch the
@@ -117,8 +114,8 @@ if (build.data.meta.testimonial) {
                     <Gallery>
                         <div class="columns-2">
                             {
-                                Array.from(Array(build.data.images.total)).map((_, i) => (
-                                    <Picture src={getBuildImage(build.id, i + 1)} class="w-full h-auto mb-4" alt={getBuildDescription(build.id)} sizes="(max-width:1024) 50vw, 400px" />
+                                Array.from(Array(buildData.data.images.total)).map((_, i) => (
+                                    <Picture src={getBuildImage(buildData.id, i + 1)} class="w-full h-auto mb-4" alt={getBuildDescription(buildData.id)} sizes="(max-width:1024) 50vw, 400px" />
                                 ))
                             }
                         </div>

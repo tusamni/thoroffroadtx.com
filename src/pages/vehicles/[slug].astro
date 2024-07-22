@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout";
 
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
-
+import { getCollection, getEntry } from "astro:content";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
@@ -12,17 +12,11 @@ import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/content/testimonials/Testimonial";
 
 // content
-import { getCollection, getEntry } from "astro:content";
-export async function getStaticPaths() {
-    const allMakes = await getCollection("makes", ({ data }) => {
-        return data.draft !== true;
-    });
-    return allMakes.map((make) => ({
-        params: { make: make.id },
-        props: { make },
-    }));
-}
-const { make } = Astro.props;
+const { slug } = Astro.params;
+const make = await getEntry("makes", slug);
+
+// if no entry slug found, return 404
+if (!slug) return Astro.redirect("/404");
 
 const allModels = await getCollection("models", ({ data }) => {
     return data.make.id === make.id;

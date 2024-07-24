@@ -15,24 +15,29 @@ const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 
 const partParams = Astro.url.searchParams.getAll("parts[]");
-const makeParms = Astro.url.searchParams.getAll("make[]");
-const searchParam = Astro.url.searchParams.get("search");
+const makeParam = Astro.url.searchParams.get("make");
+const modelParam = Astro.url.searchParams.get("model");
+let filteredModels = [];
+for (const model of allModels) {
+	if (model.data.make.id === makeParam) {
+		filteredModels.push(model);
+	}
+}
 
 // search
+const searchParam = Astro.url.searchParams.get("search");
 const searchRegex = searchParam && new RegExp(searchParam, "i");
 
 // filter and search shoots
 function buildsFilter(build) {
 	if (partParams && partParams.length > 0) {
-		let foundBuild;
-
-		partParams.forEach((p) => {
-			foundBuild = build.data.categories.find(({ id }) => id === partParams[0]);
-		});
-
-		if (!foundBuild) {
-			return false;
+		for (const part of partParams) {
+			return build.data.categories.some((partObj) => partObj.id === part);
 		}
+	}
+
+	if (makeParam && modelParam) {
+		return build.data.meta.model.id === `${makeParam}-${modelParam}`;
 	}
 
 	if (searchRegex) {
@@ -67,7 +72,7 @@ const filteredBuilds = (await getCollection("builds", buildsFilter)).sort((a, b)
 
 	<div class="section section-bottom bg-neutral-50">
 		<Container>
-			<FlexColumn>
+			<FlexColumn size="small">
 				<div slot="left">
 					<form class="flex flex-col gap-12 skip" method="get">
 						<div class="relative rounded-md">
@@ -91,26 +96,34 @@ const filteredBuilds = (await getCollection("builds", buildsFilter)).sort((a, b)
 										allParts.map((p) => (
 											<label for={p.id} class="cursor-pointer w-full flex items-center gap-1">
 												<input id={p.id} name={`parts[]`} value={p.id} type="checkbox" class="cursor-pointer block" checked={partParams.includes(p.id)} />
-												<span class="capitalize text-sm">{p.data.title}</span>
+												<span class="capitalize text-sm line-clamp-1">{p.data.title}</span>
 											</label>
 										))
 									}
 								</fieldset>
 							</div>
 
-							<!-- <select name="make" id="make">
-                                <option value="" disabled selected>Choose a Make</option>
-                                {allMakes.map((m) =>
-                                    <option>{m.data.title}</option>
-                                )}
-                            </select>
+							<select name="make" id="make">
+								<option value="" disabled selected>Choose a Make</option>
+								{
+									allMakes.map((m) => (
+										<option value={m.id} selected={makeParam === m.id}>
+											{m.data.title}
+										</option>
+									))
+								}
+							</select>
 
-                            <select name="model" id="model">
-                                <option value="" disabled selected>Choose a Model</option>
-                                {allModels.map((m) =>
-                                    <option>{m.data.title}</option>
-                                )}
-                            </select> -->
+							<select name="model" id="model">
+								<option value="" disabled selected>Choose a Model</option>
+								{
+									filteredModels.map((m) => (
+										<option value={m.data.slug} selected={modelParam === m.data.slug}>
+											{m.data.title}
+										</option>
+									))
+								}
+							</select>
 
 							<Button type="submit" style="button-primary" inverse={true}> Filter Shoots </Button>
 						</div>

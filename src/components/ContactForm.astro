@@ -109,7 +109,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 
                 allModels.map((i) => {
                     if (i.data.make.id.includes(this.value.toLowerCase())) {
-                        let newOption = new Option(i.data.title, i.data.title);
+                        let newOption = new Option(i.data.title, i.data.slug);
                         selectModel.add(newOption);
                     }
                 });

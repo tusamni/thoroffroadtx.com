@@ -11,7 +11,17 @@
 [multiple],
 textarea,
 select {
-    @apply w-full px-4 py-3 border-0 focus:border-0 text-black focus:ring-inset focus:ring-4 focus:ring-sky-500 text-sm sm:leading-6
+    @apply w-full px-4 py-3 focus:ring-inset focus:ring-4 focus:ring-sky-500 text-sm sm:leading-6;
+
+    &.dark {
+        @apply text-black bg-white border-0 focus:border-0
+    }
 }
 
-footer label { @apply text-white; }
+footer label { 
+    @apply text-black block font-semibold leading-6;
+
+    &.dark {
+        @apply text-white;
+    }
+}

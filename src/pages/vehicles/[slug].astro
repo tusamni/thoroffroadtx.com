@@ -66,7 +66,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
                                 src={getBuildImage(make.data.images.featured.id.id, i)}
                                 alt={getBuildDescription(make.data.images.featured.id.id)}
                                 loading="eager"
-                                class="object-cover w-full md:h-[15em] lg:h-[25em]"
+                                class="object-coer w-full md:h-[15em] lg:h-[25em]"
                                 sizes="(max-width: 640px) 100vw, 33vw"
                             />
                         ))
@@ -100,7 +100,7 @@ const makeTestimonial = await getEntry(make.data.testimonial);
     </div>
 
     <Gallery>
-        <div class="grid grid-cols-2 sm:grid-cols-4">
+        <div class="grid grid-cols-2 sm:grid-cols-4">v
             {
                 make.data.images.gallery &&
                     make.data.images.gallery.map((g) => (

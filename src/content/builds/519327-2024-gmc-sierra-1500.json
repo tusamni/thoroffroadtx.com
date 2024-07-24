@@ -1,0 +1,32 @@
+{
+	"date": "2024-06-18T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"bed-roof"
+	],
+	"related": [
+		"684213-2020-ford-f-250",
+		"427484-2022-ford-f-250",
+		"453172-2020-ford-f-250"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "gmc",
+		"model": "gmc-sierra-1500",
+		"trim": "",
+		"color": "Grey",
+		"drive": "4x4",
+		"parts": [
+			"Rough Country 2\" Leveling Kit",
+			"BF Goodrich A/T KO2 35x12.50R20 Tires",
+			"Fuel Rebel Matte Black 18x9\" Wheels",
+			"Spray in Bedliner",
+			"BakFlip Tonneau Cover"
+		]
+	},
+	"images": {
+		"total": 6,
+		"snippet": 1
+	}
+}

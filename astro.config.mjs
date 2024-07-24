@@ -7,10 +7,10 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://thoroffroadtx.com",
-  integrations: [alpine(), sitemap(), tailwind({
-    applyBaseStyles: true
-  }), mdx()],
-  output: "server",
-  adapter: netlify()
+	site: "https://thoroffroadtx.com",
+	integrations: [alpine(), sitemap(), tailwind({
+		applyBaseStyles: true
+	}), mdx()],
+	output: "server",
+	adapter: netlify()
 });

@@ -1,0 +1,35 @@
+{
+	"date": "2024-06-26T00:00:00.000Z",
+	"categories": [
+		"body-bumper",
+		"suspension",
+		"towing-hitches"
+	],
+	"related": [
+		"850633-2022-ram-3500",
+		"452139-2023-ram-2500",
+		"692114-2023-ram-2500"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "ram",
+		"model": "ram-3500",
+		"trim": "",
+		"color": "Black",
+		"drive": "4x4",
+		"parts": [
+			"3.25\" Carli King Pintop Suspension",
+			"Carli Radius Drop Arm",
+			"Carli Low Mount Steering Stabilizer",
+			"Carli High Mount Steering Stabilizer",
+			"Carli Progressive Leaf Spring Kit",
+			"Carli Torsion Sway Bar",
+			"OEM Fender Flares",
+			"BW Tow and Stow"
+		]
+	},
+	"images": {
+		"total": 6,
+		"snippet": 1
+	}
+}

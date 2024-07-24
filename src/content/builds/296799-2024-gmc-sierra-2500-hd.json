@@ -1,0 +1,32 @@
+{
+	"date": "2024-06-19T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"bed-roof",
+		"wheel-tire"
+	],
+	"related": [
+		"684213-2020-ford-f-250",
+		"427484-2022-ford-f-250",
+		"453172-2020-ford-f-250"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "gmc",
+		"model": "gmc-sierra-2500-hd",
+		"trim": "Denali",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"Cognito 3\" Elite Leveling Kit",
+			"Toyo Open Country A/T III 35x12.50R20",
+			"KG1 DiamondHead 20x9.5\" Wheels",
+			"Retrax Pro MX Bed Cover",
+			"Bedslide Classic"
+		]
+	},
+	"images": {
+		"total": 20,
+		"snippet": 2
+	}
+}

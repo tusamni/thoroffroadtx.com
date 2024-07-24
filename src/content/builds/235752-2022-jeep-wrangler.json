@@ -1,0 +1,29 @@
+{
+	"date": "2024-06-25T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"body-bumper",
+		"lighting",
+		"performance"
+	],
+	"meta": {
+		"year": 2022,
+		"make": "jeep",
+		"model": "jeep-wrangler",
+		"trim": "Unlimited Rubicon",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"3\" Lift Kit",
+			"Power Running Boards",
+			"Nitto Ridge Grappler 35x12.50R20",
+			"S&B Cold Air Intake",
+			"Auxillary Lighting"
+		]
+	},
+	"images": {
+		"total": 8,
+		"snippet": 1
+	}
+}

@@ -15,35 +15,35 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 
 <form class="space-y-6" action="/api/contact/lead/" method="post">
     <div class="space-y-2">
-        <label for="name" class="block font-semibold leading-6">Name</label>
+        <label for="name" class="dark">Name</label>
         <input type="text" name="name" id="name" autocomplete="name" required oninput="updateSubject(this.value)" />
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="space-y-2">
-            <label for="email" class="block font-semibold leading-6">Email</label>
+            <label for="email" class="dark">Email</label>
             <input type="email" name="email" id="email" autocomplete="email" required />
         </div>
         <div class="space-y-2">
-            <label for="phone" class="block font-semibold leading-6">Phone number</label>
+            <label for="phone" class="dark">Phone number</label>
             <input type="tel" name="phone" id="phone" autocomplete="tel" />
         </div>
         <div class="hidden space-y-2">
-            <label for="zip" class="block font-semibold leading-6">Zip Code</label>
+            <label for="zip" class="dark">Zip Code</label>
             <input type="text" name="zip" id="zip" />
         </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="space-y-2">
-            <label for="year" class="block font-semibold leading-6">Year</label>
+            <label for="year" class="dark">Year</label>
             <select name="year" id="year">
                 {years.map((y) => <option value={y}>{y}</option>)}
             </select>
         </div>
 
         <div class="space-y-2">
-            <label for="make" class="block font-semibold leading-6">Vehicle Make</label>
+            <label for="make" class="dark">Vehicle Make</label>
             <select name="make" id="make">
                 <option>Choose Make</option>
                 {allMakes.map((m) => <option value={m.data.title}>{m.data.title}</option>)}
@@ -52,7 +52,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
         </div>
 
         <div class="space-y-2">
-            <label for="model" class="block font-semibold leading-6">Vehicle Model</label>
+            <label for="model" class="dark">Vehicle Model</label>
             <select name="model" id="model">
                 <option>Choose Model</option>
             </select>
@@ -60,7 +60,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
     </div>
 
     <div class="space-y-2">
-        <label for="message" class="block font-semibold leading-6">Message</label>
+        <label for="message" class="dark">Message</label>
         <textarea name="message" id="message" rows="4"></textarea>
     </div>
 

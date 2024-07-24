@@ -1,0 +1,37 @@
+{
+	"date": "2024-06-04T00:00:00.000Z",
+	"categories": [
+		"body-bumper",
+		"suspension",
+		"wheel-tire",
+		"lighting"
+	],
+	"related": [
+		"403371-2022-ram-3500",
+		"686981-2022-ram-3500",
+		"340718-2022-ram-2500"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "ram",
+		"model": "ram-3500",
+		"trim": "Limited",
+		"color": "Grey",
+		"drive": "4x4",
+		"parts": [
+			"Carli 3.25\" King Pintop Suspension",
+			"Carli Torsion Sway Bar",
+			"Carli High Mount Steering Stabilizer",
+			"Carli Low Mount Steering Stabilizer",
+			"Carli Fabricated Radius Arms",
+			"Flog Industries Steel Demon Series Front Bumper",
+			"Rigid D-Series Pro Flood Surface Mount Lights",
+			"Rigid D-Series Pro Spot Surface Mount Lights",
+			"Rigid SR-Series Pro 30\" Spot and Drive Combo Light Bar"
+		]
+	},
+	"images": {
+		"total": 9,
+		"snippet": 1
+	}
+}

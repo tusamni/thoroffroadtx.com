@@ -1,5 +1,6 @@
 {
     "IDX.aI.enableInlineCompletion": true,
     "IDX.aI.enableCodebaseIndexing": true,
-    "workbench.tree.indent": 20
+    "workbench.tree.indent": 20,
+    "prettier.printWidth": 250,
 }

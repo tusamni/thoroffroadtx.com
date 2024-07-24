@@ -5,6 +5,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import { getBuildTitle } from "@/functions/Content";
 import BuildFilter from "@/components/builds/BuildFilter";
 import Build from "@/components/content/snippets/Build";
+import Button from "@/components/Button";
 import Container from "@/components/Container";
 import FlexColumn from "@/components/content/FlexColumn";
 import Picture from "@/components/images/Picture";
@@ -22,15 +23,33 @@ const searchRegex = searchParam && new RegExp(searchParam, "i");
 
 // filter and search shoots
 function buildsFilter(build) {
+    if (partParams && partParams.length > 0) {
+        let foundBuild;
+
+        partParams.forEach((p) => {
+            foundBuild = build.data.categories.find(
+                ({ id }) => id === partParams[0],
+            );
+        })
+
+        if (!foundBuild) {
+            return false;
+        }
+    }
+
     if (searchRegex) {
-        return searchRegex.test(build.data.meta.year);
+        const title = `${build.data.meta.year} ${build.data.meta.make.id} ${build.data.meta.model.id} ${build.data.meta.trim ? ` ${build.data.meta.trim}` : ``}`;
+
+        return searchRegex.test(title);
     }
 
     return true;
 }
 
 // get integrations, filtered by the applied search & filter, then sort the matches
-const filteredBuilds = await getCollection("builds", buildsFilter);
+const filteredBuilds = (await getCollection("builds", buildsFilter)).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
 ---
 
 <Layout
@@ -105,16 +124,32 @@ const filteredBuilds = await getCollection("builds", buildsFilter);
                                 >
                             </div>
 
-                            <!-- <div>
+                            <div>
                                 <fieldset class="columns-2 space-y-2">
-                                    {allParts.map((p) => 
-                                        <label for={p.id} class="cursor-pointer w-full flex items-center gap-1">
-                                            <input id={p.id} name={`parts[]`} value={p.id} type="checkbox" class="cursor-pointer block" checked={partParams.includes(p.id)} />
-                                            <span class="capitalize text-sm">{p.data.title}</span>
-                                        </label>
-                                    )}
+                                    {
+                                        allParts.map((p) => (
+                                            <label
+                                                for={p.id}
+                                                class="cursor-pointer w-full flex items-center gap-1"
+                                            >
+                                                <input
+                                                    id={p.id}
+                                                    name={`parts[]`}
+                                                    value={p.id}
+                                                    type="checkbox"
+                                                    class="cursor-pointer block"
+                                                    checked={partParams.includes(
+                                                        p.id,
+                                                    )}
+                                                />
+                                                <span class="capitalize text-sm">
+                                                    {p.data.title}
+                                                </span>
+                                            </label>
+                                        ))
+                                    }
                                 </fieldset>
-                            </div> -->
+                            </div>
 
                             <!-- <select name="make" id="make">
                                 <option value="" disabled selected>Choose a Make</option>
@@ -130,13 +165,9 @@ const filteredBuilds = await getCollection("builds", buildsFilter);
                                 )}
                             </select> -->
 
-                            <button class="button button-ghost button-inverse">
-                                <div
-                                    class="button-text text-xs sm:text-sm xl:text-base"
-                                >
-                                    Filter Shoots
-                                </div>
-                            </button>
+                            <Button type="submit" style="button-primary" inverse={true}>
+                                Filter Shoots
+                            </Button>
                         </div>
                     </form>
                 </div>

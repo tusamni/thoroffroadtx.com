@@ -21,6 +21,9 @@
             "@/data/*": [
                 "src/data/*.ts"
             ],
+            "@/library/*": [
+                "src/library/*.ts"
+            ],
             "@/public/*": [
                 "public/*"
             ],

@@ -7,6 +7,7 @@ import { getCollection, getEntry } from "astro:content";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
+import Link from "@/components/Link";
 import Model from "@/components/content/snippets/Model";
 import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/content/testimonials/Testimonial";
@@ -42,19 +43,13 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 
                     <!-- cta buttons -->
                     <div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
-                        <a href="/contact" class="button button-primary !w-full">
-                            <div class="button-icon">
-                                <Icon icon="hero/EnvelopeFill" class="h-2/5 w-auto" />
-                            </div>
-                            <div class="button-text">Contact Us!</div>
-                        </a>
+                        <Link href="/contact" icon="hero/EnvelopeFill" style="button-primary" fullWidth={true}>
+                            Contact Us!
+                        </Link>
 
-                        <a href={`/builds/${make.data.title.toLowerCase()}`} class="button button-ghost !w-full">
-                            <div class="button-icon">
-                                <Icon icon="hero/ArrowRightCircleFill" class="h-2/5 w-auto" />
-                            </div>
-                            <div class="button-text">{make.data.title} Builds</div>
-                        </a>
+                        <Link href={`/builds/${make.data.title.toLowerCase()}`} icon="hero/ArrowRightCircleFill" style="button-ghost" fullWidth={true}>
+                            {make.data.title} Builds
+                        </Link>
                     </div>
                 </div>
 
@@ -91,9 +86,9 @@ const makeTestimonial = await getEntry(make.data.testimonial);
                     </div>
 
                     <div>
-                        <a href="/contact" class="button button-ghost button-inverse">
-                            <div class="button-text text-sm lg:text-base">Build Your {make.data.title}!</div>
-                        </a>
+                        <Link href="/contact" style="button-ghost" inverse={true}>
+                            Build Your {make.data.title}
+                        </Link>
                     </div>
                 </div>
 

@@ -1,6 +1,7 @@
 ---
 import { Business } from "@/config";
 import { getCollection } from "astro:content";
+import Button from "@/components/Button";
 import Icon from "@/components/Icon";
 
 const allMakes = await getCollection("makes");
@@ -66,15 +67,13 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
     <input type="hidden" name="url" id="url" value={Astro.url.pathname} />
 
     <div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">
-        <button type="submit" class="button button-primary">
-            <div class="button-icon">
-                <Icon icon="hero/EnvelopeFill" class="h-2/5 w-auto" />
-            </div>
+        <Button type="submit" style="button-primary">
+            Let's Go!
+        </Button>
 
-            <div class="button-text">Let's Go!</div>
-        </button>
-
-        <p class="text-white italic text-right">We're also available for a<br />chat at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a></p>
+        <p class="text-white italic text-right">
+            We're also available for a<br />chat at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a>
+        </p>
     </div>
 </form>
 
@@ -116,6 +115,6 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
                 });
             }
         },
-        false
+        false,
     );
 </script>

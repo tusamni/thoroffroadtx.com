@@ -1,74 +1,49 @@
-@keyframes ckw {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 .button {
     @apply transition-all duration-500 font-semibold flex w-full sm:w-fit items-center justify-start h-12;
-}
-.button:hover .button-icon svg {
-    animation-name: ckw;
-    animation-duration: 0.75s;
-}
 
-.button.button-reverse {
-    @apply flex-row-reverse;
-}
+    /* types */
+    .button-icon {
+        @apply h-full px-3 flex justify-center items-center;
+    }
 
-.button-icon {
-    @apply h-full px-3 flex justify-center items-center;
-}
+    .button-text {
+        @apply px-4 h-full w-full flex justify-start items-center;
+    }
 
-.button-text {
-    @apply px-4 h-full w-full flex justify-start items-center;
-}
+    /* themes */
+    &.button-primary {
+        @apply text-black border border-black divide-black divide-x;
 
-/* buttom themes */
-/* primary - white bg, black text */
-.button-primary {
-    @apply text-black border border-black divide-black divide-x;
-}
-.button-primary.button-inverse {
-    @apply text-white border-black divide-neutral-700;
-}
-.button-primary .button-icon,
-.button-primary .button-text {
-    @apply bg-white;
-}
-.button-primary.button-inverse .button-icon,
-.button-primary.button-inverse .button-text {
-    @apply bg-black;
-}
+        .button-icon,
+        .button-text {
+            @apply bg-white;
+        }
 
-/* secondary - amber bg, dark amber text */
-.button-secondary {
-    @apply divide-sky-300 divide-x bg-sky-500 hover:bg-sky-400;
-}
-.button-secondary .button-icon {
-    @apply text-sky-50;
-}
-.button-secondary .button-text {
-    @apply text-sky-50;
-}
+        /* inverse */
+        &.button-inverse {
+            @apply text-white border-black divide-neutral-700;
 
-/* ghost - no bg, white or black text */
-.button-ghost {
-    @apply border divide-x;
-}
-.button-ghost.button-inverse {
-    @apply text-black border-black divide-black;
-}
-.button-ghost:not(.button-inverse) {
-    @apply text-white border-white divide-white;
-}
+            .button-icon,
+            .button-text {
+                @apply bg-black;
+            }
+        }
+    }
 
-.button-disabled {
-    @apply border border-stone-300 divide-x divide-stone-300 text-stone-300;
-}
-.button-disabled.button-icon {
-    @apply text-stone-300;
+    &.button-ghost {
+        @apply border divide-x text-white border-white divide-white;
+
+        &.button-inverse {
+            @apply text-black border-black divide-black;
+        }
+
+    }
+
+    &.button-disabled {
+        @apply border border-stone-300 divide-x divide-stone-300 text-stone-300;
+
+        .button-icon {
+            @apply text-stone-300;
+        }
+    }
 }

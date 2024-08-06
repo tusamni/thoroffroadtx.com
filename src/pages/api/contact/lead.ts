@@ -58,7 +58,7 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 				email: contactEmail,
 				data: {
 					name: contactName,
-					...(contactMake && { vehicle: contactMake })
+					...(contactMake && contactMake != "Other" && { vehicle: contactMake })
 				}
 			}
 		]
@@ -91,6 +91,8 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 		} catch (error) {
 			console.error(error);
 		}
+
+		console.log(thanksPersonalization)
 
 		return redirect("/contact/success/", 307);
 	}

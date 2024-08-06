@@ -48,6 +48,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 			<select name="make" id="make">
 				<option disabled selected>Choose Make</option>
 				{allMakes.map((m) => <option value={m.data.title}>{m.data.title}</option>)}
+				<option value="Other">Other</option>
 			</select>
 		</div>
 
@@ -105,12 +106,16 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 					selectModel.remove(0);
 				}
 
+				// map through available models
 				allModels.map((i) => {
 					if (i.data.make.id.includes(this.value.toLowerCase())) {
 						let newOption = new Option(i.data.title, i.data.title);
 						selectModel.add(newOption);
 					}
 				});
+
+				let otherOption = new Option("Other", "Other");
+				selectModel.add(otherOption);
 			}
 		},
 		false,

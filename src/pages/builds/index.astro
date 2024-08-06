@@ -10,11 +10,11 @@ import Container from "@/components/Container";
 import FlexColumn from "@/components/content/FlexColumn";
 import Picture from "@/components/images/Picture";
 
-const allParts = await getCollection("parts");
+//const allParts = await getCollection("parts");
 const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 
-const partParams = Astro.url.searchParams.getAll("parts[]");
+//const partParams = Astro.url.searchParams.getAll("parts[]");
 const makeParam = Astro.url.searchParams.get("make");
 const modelParam = Astro.url.searchParams.get("model");
 let filteredModels = [];
@@ -30,11 +30,11 @@ const searchRegex = searchParam && new RegExp(searchParam, "i");
 
 // filter and search shoots
 function buildsFilter(build) {
-	if (partParams && partParams.length > 0) {
-		for (const part of partParams) {
-			return build.data.categories.some((partObj) => partObj.id === part);
-		}
-	}
+	// if (partParams && partParams.length > 0) {
+	// 	for (const part of partParams) {
+	// 		return build.data.categories.some((partObj) => partObj.id === part);
+	// 	}
+	// }
 
 	if (makeParam && modelParam) {
 		return build.data.meta.model.id === `${makeParam}-${modelParam}`;
@@ -90,7 +90,7 @@ const filteredBuilds = (await getCollection("builds", buildsFilter)).sort((a, b)
 								<a href="/builds" class="text-sm underline">Reset</a>
 							</div>
 
-							<div>
+							<!-- <div>
 								<fieldset class="columns-2 space-y-2">
 									{
 										allParts.map((p) => (
@@ -101,7 +101,7 @@ const filteredBuilds = (await getCollection("builds", buildsFilter)).sort((a, b)
 										))
 									}
 								</fieldset>
-							</div>
+							</div> -->
 
 							<select name="make" id="make">
 								<option value="" disabled selected>Choose a Make</option>

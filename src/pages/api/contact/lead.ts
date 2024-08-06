@@ -58,7 +58,7 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 				email: contactEmail,
 				data: {
 					name: contactName,
-					vehicle: `${contactMake}`,
+					...(contactMake && { vehicle: contactMake })
 				}
 			}
 		]
@@ -68,6 +68,7 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 			apiKey: import.meta.env.MAILERSEND_TOKEN,
 		});
 
+		const bcc = [new Recipient("erik@eriksolsen.com", "Erik Olsen")];
 		const sentFrom = new Sender(Business.email, Business.nameLong);
 		const leadRecipients = [new Recipient(Business.email, Business.nameLong)];
 		const thanksRecipients = [new Recipient(contactEmail, contactName)];
@@ -75,7 +76,7 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 		const thanksReplyTo = new Sender(Business.email, Business.nameLong);
 
 		// mailersend parameters
-		const leadParams = new EmailParams().setFrom(sentFrom).setTo(leadRecipients).setReplyTo(leadReplyTo).setSubject(leadSubject).setPersonalization(leadPersonalization).setTemplateId("jy7zpl9m6r0g5vx6");
+		const leadParams = new EmailParams().setFrom(sentFrom).setTo(leadRecipients).setReplyTo(leadReplyTo).setBcc(bcc).setSubject(leadSubject).setPersonalization(leadPersonalization).setTemplateId("jy7zpl9m6r0g5vx6");
 		const thanksParams = new EmailParams().setFrom(sentFrom).setTo(thanksRecipients).setReplyTo(thanksReplyTo).setSubject(thanksSubject).setPersonalization(thanksPersonalization).setTemplateId("0r83ql3x5dzlzw1j");
 
 		// send the contact email

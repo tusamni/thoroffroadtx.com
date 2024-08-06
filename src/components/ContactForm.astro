@@ -14,107 +14,105 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 ---
 
 <form class="space-y-6" action="/api/contact/lead/" method="post">
-    <div class="space-y-2">
-        <label for="name" class="dark">Name</label>
-        <input type="text" name="name" id="name" autocomplete="name" required oninput="updateSubject(this.value)" />
-    </div>
+	<div class="space-y-2">
+		<label for="name" class="dark">Name</label>
+		<input type="text" name="name" id="name" autocomplete="name" required oninput="updateSubject(this.value)" />
+	</div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="space-y-2">
-            <label for="email" class="dark">Email</label>
-            <input type="email" name="email" id="email" autocomplete="email" required />
-        </div>
-        <div class="space-y-2">
-            <label for="phone" class="dark">Phone number</label>
-            <input type="tel" name="phone" id="phone" autocomplete="tel" />
-        </div>
-        <div class="hidden space-y-2">
-            <label for="zip" class="dark">Zip Code</label>
-            <input type="text" name="zip" id="zip" />
-        </div>
-    </div>
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+		<div class="space-y-2">
+			<label for="email" class="dark">Email</label>
+			<input type="email" name="email" id="email" autocomplete="email" required />
+		</div>
+		<div class="space-y-2">
+			<label for="phone" class="dark">Phone number</label>
+			<input type="tel" name="phone" id="phone" autocomplete="tel" />
+		</div>
+		<div class="hidden space-y-2">
+			<label for="zip" class="dark">Zip Code</label>
+			<input type="text" name="zip" id="zip" />
+		</div>
+	</div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="space-y-2">
-            <label for="year" class="dark">Year</label>
-            <select name="year" id="year">
-                {years.map((y) => <option value={y}>{y}</option>)}
-            </select>
-        </div>
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+		<div class="space-y-2">
+			<label for="year" class="dark">Year</label>
+			<select name="year" id="year">
+				<option disabled selected>Choose Year</option>
+				{years.map((y) => <option value={y}>{y}</option>)}
+			</select>
+		</div>
 
-        <div class="space-y-2">
-            <label for="make" class="dark">Vehicle Make</label>
-            <select name="make" id="make">
-                <option>Choose Make</option>
-                {allMakes.map((m) => <option value={m.data.title}>{m.data.title}</option>)}
-                <option value="Other">Other</option>
-            </select>
-        </div>
+		<div class="space-y-2">
+			<label for="make" class="dark">Vehicle Make</label>
+			<select name="make" id="make">
+				<option disabled selected>Choose Make</option>
+				{allMakes.map((m) => <option value={m.data.title}>{m.data.title}</option>)}
+			</select>
+		</div>
 
-        <div class="space-y-2">
-            <label for="model" class="dark">Vehicle Model</label>
-            <select name="model" id="model">
-                <option>Choose Model</option>
-            </select>
-        </div>
-    </div>
+		<div class="space-y-2">
+			<label for="model" class="dark">Vehicle Model</label>
+			<select name="model" id="model">
+				<option disabled selected>Choose Model</option>
+			</select>
+		</div>
+	</div>
 
-    <div class="space-y-2">
-        <label for="message" class="dark">Message</label>
-        <textarea name="message" id="message" rows="4"></textarea>
-    </div>
+	<div class="space-y-2">
+		<label for="message" class="dark">Message</label>
+		<textarea name="message" id="message" rows="4"></textarea>
+	</div>
 
-    <input type="hidden" name="url" id="url" value={Astro.url.pathname} />
+	<input type="hidden" name="url" id="url" value={Astro.url.pathname} />
 
-    <div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">
-        <Button type="submit" style="button-primary">
-            Let's Go!
-        </Button>
+	<div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">
+		<Button type="submit" style="button-primary"> Let's Go! </Button>
 
-        <p class="text-white italic text-right">
-            We're also available for a<br />chat at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a>
-        </p>
-    </div>
+		<p class="text-white italic text-right">
+			We're also available for a<br />chat at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a>
+		</p>
+	</div>
 </form>
 
 <script is:inline define:vars={{ allModels }}>
-    const selectMake = document.getElementById("make");
-    const selectModel = document.getElementById("model");
+	const selectMake = document.getElementById("make");
+	const selectModel = document.getElementById("model");
 
-    function clearModel() {
-        while (selectModel.options.length > 0) {
-            selectModel.remove(0);
-        }
-    }
+	function clearModel() {
+		while (selectModel.options.length > 0) {
+			selectModel.remove(0);
+		}
+	}
 
-    selectMake.addEventListener(
-        "change",
-        function (event) {
-            if (this.selectedIndex == 0) {
-                // clear options
-                clearModel();
+	selectMake.addEventListener(
+		"change",
+		function (event) {
+			if (this.selectedIndex == 0) {
+				// clear options
+				clearModel();
 
-                let newOption = new Option("Choose Model", "");
-                selectModel.add(newOption);
-            } else if (this.value == "Other") {
-                clearModel();
+				let newOption = new Option("Choose Model", "");
+				selectModel.add(newOption);
+			} else if (this.value == "Other") {
+				clearModel();
 
-                let newOption = new Option("Other", "Other");
-                selectModel.add(newOption);
-            } else {
-                // clear options
-                while (selectModel.options.length > 0) {
-                    selectModel.remove(0);
-                }
+				let newOption = new Option("Other", "Other");
+				selectModel.add(newOption);
+			} else {
+				// clear options
+				while (selectModel.options.length > 0) {
+					selectModel.remove(0);
+				}
 
-                allModels.map((i) => {
-                    if (i.data.make.id.includes(this.value.toLowerCase())) {
-                        let newOption = new Option(i.data.title, i.data.title);
-                        selectModel.add(newOption);
-                    }
-                });
-            }
-        },
-        false,
-    );
+				allModels.map((i) => {
+					if (i.data.make.id.includes(this.value.toLowerCase())) {
+						let newOption = new Option(i.data.title, i.data.title);
+						selectModel.add(newOption);
+					}
+				});
+			}
+		},
+		false,
+	);
 </script>

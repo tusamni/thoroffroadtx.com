@@ -5,28 +5,28 @@ import Icon from "@/components/Icon";
 import Container from "@/components/Container";
 ---
 
-<div class="bg-red-600 text-white py-3">
-    <Container>
-        <div class="flex items-center justify-between">
-            <div class="leading-6">
-                <div class="text-xs flex items-center gap-2">
-                    <Icon icon="brands/Carli" class="w-10 sm:w-12 h-auto" />
-                    <strong class="font-medium line-clamp-1">Carli Suspension in Stock</strong>
-                    <span class="hidden md:block">&middot;</span>
-                    <span class="font-light hidden md:block">Contact Us for Pricing!</span>
-                </div>
-            </div>
+<div class="bg-neutral-200 text-black py-3">
+	<Container>
+		<div class="flex items-center justify-between">
+			<div class="leading-6">
+				<div class="text-sm tracking-wide flex items-center gap-2">
+					<Icon icon="brands/Carli" class="w-10 sm:w-12 h-auto" />
+					<strong class="font-medium line-clamp-1">Carli Suspension in Stock</strong>
+					<span class="hidden md:block">&middot;</span>
+					<span class="font-light hidden md:block">Contact Us for Pricing!</span>
+				</div>
+			</div>
 
-            <!-- social -->
-            <div class="hidden sm:flex gap-4 items-center">
-                {
-                    Social.map((s) => (
-                        <a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
-                            <Icon icon={s.icon} class="h-auto w-4" />
-                        </a>
-                    ))
-                }
-            </div>
-        </div>
-    </Container>
+			<!-- social -->
+			<div class="hidden sm:flex gap-4 items-center">
+				{
+					Social.map((s) => (
+						<a href={s.url} target="_blank" title={`THOR Off-Road ${s.title}`}>
+							<Icon icon={s.icon} class="h-auto w-4" />
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</Container>
 </div>

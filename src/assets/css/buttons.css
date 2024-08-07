@@ -1,49 +1,49 @@
 .button {
-    @apply transition-all duration-500 font-semibold flex w-full sm:w-fit items-center justify-start h-12;
+	@apply transition-all duration-500 font-semibold flex w-full sm:w-fit items-center justify-start h-12 rounded;
 
-    /* types */
-    .button-icon {
-        @apply h-full px-3 flex justify-center items-center;
-    }
+	/* types */
+	.button-icon {
+		@apply h-full px-3 flex justify-center items-center;
+	}
 
-    .button-text {
-        @apply px-4 h-full w-full flex justify-start items-center;
-    }
+	.button-text {
+		@apply px-4 h-full w-full flex justify-start items-center;
+	}
 
-    /* themes */
-    &.button-primary {
-        @apply text-black border border-black divide-black divide-x;
+	/* themes */
+	&.button-primary {
+		@apply text-black border border-black divide-black divide-x;
 
-        .button-icon,
-        .button-text {
-            @apply bg-white;
-        }
+		.button-icon,
+		.button-text {
+			@apply bg-white;
+		}
 
-        /* inverse */
-        &.button-inverse {
-            @apply text-white border-black divide-neutral-700;
+		/* inverse */
+		&.button-inverse {
+			@apply text-white border-black divide-neutral-700;
 
-            .button-icon,
-            .button-text {
-                @apply bg-black;
-            }
-        }
-    }
+			.button-icon,
+			.button-text {
+				@apply bg-black;
+			}
+		}
+	}
 
-    &.button-ghost {
-        @apply border divide-x text-white border-white divide-white;
+	&.button-ghost {
+		@apply border divide-x text-white border-white divide-white;
 
-        &.button-inverse {
-            @apply text-black border-black divide-black;
-        }
+		&.button-inverse {
+			@apply text-black border-black divide-black;
+		}
 
-    }
+	}
 
-    &.button-disabled {
-        @apply border border-stone-300 divide-x divide-stone-300 text-stone-300;
+	&.button-disabled {
+		@apply border border-stone-300 divide-x divide-stone-300 text-stone-300;
 
-        .button-icon {
-            @apply text-stone-300;
-        }
-    }
+		.button-icon {
+			@apply text-stone-300;
+		}
+	}
 }

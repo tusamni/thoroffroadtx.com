@@ -1,0 +1,21 @@
+---
+import { getEntry } from "astro:content";
+import { getBuildTitle } from "@/functions/Content";
+import { getBuildImage } from "@/functions/Image";
+import Picture from "@/components/images/Picture";
+
+interface Props {
+	build: any;
+}
+const { build, ...attrs } = Astro.props;
+
+const buildData = await getEntry("builds", build);
+---
+
+<a href={`/builds/${buildData.id}`} class="relative space-y-4">
+	<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="rounded shadow-2xl object-cover" sizes="400px" />
+
+	<div class="flex flex-col items-center">
+		<div class="font-alt text-2xl text-center text-balance uppercase text-white w-3/4 tracking-tight leading-7">{getBuildTitle(buildData.id)}</div>
+	</div>
+</a>

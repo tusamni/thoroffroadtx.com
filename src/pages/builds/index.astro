@@ -52,8 +52,6 @@ function buildsFilter(build) {
 
 // get integrations, filtered by the applied search & filter, then sort the matches
 const filteredBuilds = (await getCollection("builds", buildsFilter)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-console.log(modelParam)
 ---
 
 <Layout title="Texas High-Performance Off-Road Vehicle Builds" description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep">

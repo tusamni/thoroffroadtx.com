@@ -7,24 +7,25 @@
 @import url("spacing.css");
 @import url("typography.css");
 
-html {
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
+:root {
+	font-family: Manrope, sans-serif;
 }
-@supports (font-variation-settings: normal) {
-    html {
-        font-family: "Inter var", sans-serif;
-    }
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 }
 
 /* alpine.js hide on load */
 [x-cloak] {
-    display: none !important;
+	display: none !important;
 }
 
 ::-moz-selection {
-    background: #ffedd5;
+	background: #ffedd5;
 }
+
 ::selection {
-    background: #ffedd5;
+	background: #ffedd5;
 }

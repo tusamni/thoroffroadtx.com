@@ -11,90 +11,91 @@ import Footer from "@/components/Footer";
 import Menu from "@/components/navigation/Menu";
 
 export interface Props {
-    title?: string;
-    description?: string;
+	title?: string;
+	description?: string;
 }
 const { title = "THOR Off-Road: Texas Premiere Off-Road Parts & Installation", description = "THOR Off-Road is the top truck and off-road vehicle parts and installation outfitter in Texas - the Texas Carli Suspension HQ." } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={description} />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
 
-        <title>{title} | {Business.nameLong}</title>
+		<title>{title} | {Business.nameLong}</title>
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
-        <link rel="manifest" href="/favicons/site.webmanifest" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+		<link rel="manifest" href="/favicons/site.webmanifest" />
 
-        <link rel="sitemap" href="/sitemap-index.xml" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="preconnect" href="https://www.googletagmanager.com" />
+		<link rel="preconnect" href="https://www.google-analytics.com" />
 
-        <script>
-            (function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != "dataLayer" ? "&l=" + l : "";
-                j.async = true;
-                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", "GTM-NC37Z73G");
-        </script>
-    </head>
+		<script is:inline src="/scripts/builds.js"></script>
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-NC37Z73G");
+		</script>
+	</head>
 
-    <body style="background: url('/images/concrete.svg') repeat; background-color: rgba(212, 212, 212, 70%)">
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NC37Z73G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<body style="background: url('/images/concrete.svg') repeat; background-color: rgba(212, 212, 212, 70%)">
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NC37Z73G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-        <Banner />
-        <Menu />
+		<Banner />
+		<Menu />
 
-        <slot />
+		<slot />
 
-        <Footer />
-    </body>
+		<Footer />
+	</body>
 </html>
 
 <script>
-    import BiggerPicture from "bigger-picture";
+	import BiggerPicture from "bigger-picture";
 
-    let bp = BiggerPicture({
-        target: document.body,
-    });
+	let bp = BiggerPicture({
+		target: document.body,
+	});
 
-    // open (will be a child of the target element above)
-    let imageLinks = document.querySelectorAll(`.gallery img`);
-    let videoLinks = document.querySelectorAll(`.video`);
+	// open (will be a child of the target element above)
+	let imageLinks = document.querySelectorAll(`.gallery img`);
+	let videoLinks = document.querySelectorAll(`.video`);
 
-    // add click listener to open BiggerPicture
-    for (let link of imageLinks) {
-        link.addEventListener("click", openGallery);
-    }
-    for (let video of videoLinks) {
-        video.addEventListener("click", openVideo);
-    }
+	// add click listener to open BiggerPicture
+	for (let link of imageLinks) {
+		link.addEventListener("click", openGallery);
+	}
+	for (let video of videoLinks) {
+		video.addEventListener("click", openVideo);
+	}
 
-    // function to open BiggerPicture
-    function openGallery(e) {
-        e.preventDefault();
-        bp.open({
-            items: imageLinks,
-            el: e.currentTarget,
-            scale: 0.8,
-        });
-    }
-    function openVideo(e) {
-        e.preventDefault();
-        bp.open({
-            items: e.currentTarget,
-            el: e.currentTarget,
-        });
-    }
+	// function to open BiggerPicture
+	function openGallery(e) {
+		e.preventDefault();
+		bp.open({
+			items: imageLinks,
+			el: e.currentTarget,
+			scale: 0.8,
+		});
+	}
+	function openVideo(e) {
+		e.preventDefault();
+		bp.open({
+			items: e.currentTarget,
+			el: e.currentTarget,
+		});
+	}
 </script>

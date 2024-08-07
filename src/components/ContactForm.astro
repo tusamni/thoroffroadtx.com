@@ -2,7 +2,6 @@
 import { Business } from "@/config";
 import { getCollection } from "astro:content";
 import Button from "@/components/Button";
-import Icon from "@/components/Icon";
 
 const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
@@ -48,7 +47,6 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 			<select name="make" id="make">
 				<option disabled selected>Choose Make</option>
 				{allMakes.map((m) => <option value={m.data.title}>{m.data.title}</option>)}
-				<option value="Other">Other</option>
 			</select>
 		</div>
 
@@ -80,44 +78,5 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 	const selectMake = document.getElementById("make");
 	const selectModel = document.getElementById("model");
 
-	function clearModel() {
-		while (selectModel.options.length > 0) {
-			selectModel.remove(0);
-		}
-	}
-
-	selectMake.addEventListener(
-		"change",
-		function (event) {
-			if (this.selectedIndex == 0) {
-				// clear options
-				clearModel();
-
-				let newOption = new Option("Choose Model", "");
-				selectModel.add(newOption);
-			} else if (this.value == "Other") {
-				clearModel();
-
-				let newOption = new Option("Other", "Other");
-				selectModel.add(newOption);
-			} else {
-				// clear options
-				while (selectModel.options.length > 0) {
-					selectModel.remove(0);
-				}
-
-				// map through available models
-				allModels.map((i) => {
-					if (i.data.make.id.includes(this.value.toLowerCase())) {
-						let newOption = new Option(i.data.title, i.data.title);
-						selectModel.add(newOption);
-					}
-				});
-
-				let otherOption = new Option("Other", "Other");
-				selectModel.add(otherOption);
-			}
-		},
-		false,
-	);
+	getModelsFromMake(allModels, selectMake, selectModel, true, false);
 </script>

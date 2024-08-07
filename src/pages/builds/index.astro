@@ -15,8 +15,8 @@ const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 
 //const partParams = Astro.url.searchParams.getAll("parts[]");
-const makeParam = Astro.url.searchParams.get("make");
-const modelParam = Astro.url.searchParams.get("model");
+const makeParam = Astro.url.searchParams.get("buildMake");
+const modelParam = Astro.url.searchParams.get("buildModel");
 let filteredModels = [];
 for (const model of allModels) {
 	if (model.data.make.id === makeParam) {
@@ -37,7 +37,8 @@ function buildsFilter(build) {
 	// }
 
 	if (makeParam && modelParam) {
-		return build.data.meta.model.id === `${makeParam}-${modelParam}`;
+		let model = modelParam.replace(/\+/g, "-").toLowerCase();
+		return build.data.meta.model.id === `${makeParam.toLowerCase()}-${model}`;
 	}
 
 	if (searchRegex) {
@@ -51,6 +52,8 @@ function buildsFilter(build) {
 
 // get integrations, filtered by the applied search & filter, then sort the matches
 const filteredBuilds = (await getCollection("builds", buildsFilter)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+console.log(modelParam)
 ---
 
 <Layout title="Texas High-Performance Off-Road Vehicle Builds" description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep">
@@ -103,18 +106,18 @@ const filteredBuilds = (await getCollection("builds", buildsFilter)).sort((a, b)
 								</fieldset>
 							</div> -->
 
-							<select name="make" id="make">
+							<select name="buildMake" id="buildMake">
 								<option value="" disabled selected>Choose a Make</option>
 								{
 									allMakes.map((m) => (
-										<option value={m.id} selected={makeParam === m.id}>
+										<option value={m.data.title.toLowerCase()} selected={makeParam === m.data.title.toLowerCase()}>
 											{m.data.title}
 										</option>
 									))
 								}
 							</select>
 
-							<select name="model" id="model">
+							<select name="buildModel" id="buildModel">
 								<option value="" disabled selected>Choose a Model</option>
 								{
 									filteredModels.map((m) => (
@@ -137,3 +140,10 @@ const filteredBuilds = (await getCollection("builds", buildsFilter)).sort((a, b)
 		</Container>
 	</div>
 </Layout>
+
+<script is:inline define:vars={{ allModels }}>
+	const selectMake = document.getElementById("buildMake");
+	const selectModel = document.getElementById("buildModel");
+
+	getModelsFromMake(allModels, selectMake, selectModel, false, true);
+</script>

@@ -15,7 +15,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 <form class="space-y-6" action="/api/contact/lead/" method="post">
 	<div class="space-y-2">
 		<label for="name" class="dark">Name</label>
-		<input type="text" name="name" id="name" autocomplete="name" required oninput="updateSubject(this.value)" />
+		<input type="text" name="name" id="name" autocomplete="name" required />
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -64,10 +64,10 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 	</div>
 
 	<input type="hidden" name="url" id="url" value={Astro.url.pathname} />
-
+	<input type="hidden" name="marketing" id="marketing" value="" />
+	
 	<div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">
-		<Button type="submit" style="button-primary"> Let's Go! </Button>
-
+		<Button type="submit" style="button-primary" inverse={true}>Let's Go!</Button>
 		<p class="text-white italic text-right">
 			We're also available for a<br />chat at <a href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a>
 		</p>
@@ -79,4 +79,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 	const selectModel = document.getElementById("model");
 
 	getModelsFromMake(allModels, selectMake, selectModel, true, false);
+
+	// insert marketing data into form variable
+	document.getElementById("marketing").value = JSON.stringify(visitData.get());
 </script>

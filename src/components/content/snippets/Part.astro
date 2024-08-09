@@ -1,25 +1,41 @@
 ---
+import { getBuildImage } from "@/functions/Image";
 import Icon from "@/components/Icon";
+import Picture from "@/components/images/Picture";
 
 interface Props {
-    part: any;
-    url: string;
+	part: any;
+	url: string;
 }
 const { part, url, ...attrs } = Astro.props;
+
+console.log(part.data.images.featured.image);
 ---
 
-<div class="flex flex-col sm:flex-row md:flex-col xl:flex-row gap-4">
-    <div class="w-12 h-12 border-4 border-neutral-900 relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
-        <Icon icon={url ? part.data.images.icon : `parts/${part.data.images.icon}Outline`} class="text-neutral-900 absolute w-14 h-auto -rotate-12" />
-    </div>
+<div class="space-y-6 relative group">
+	<Picture src={getBuildImage(part.data.images.featured.id.id, part.data.images.featured.image)} class="h-48 w-full object-cover rounded" sizes="350px" />
 
-    <div class="flex flex-col gap-2 relative">
-        <div class="font-semibold">{part.data.title}</div>
-        <div class="text-xs line-clamp-4">{part.data.description.short}</div>
+	<div class="flex flex-col sm:flex-row md:flex-col xl:flex-row gap-3">
+		<div class="w-12 h-12 border-4 border-white rounded relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
+			<Icon icon={url ? part.data.images.icon : `parts/${part.data.images.icon}Outline`} class="text-white absolute w-14 h-auto -rotate-12" />
+		</div>
 
-        <a href={url ? url : `/parts/${part.id}`} class="text-xs font-medium">
-            <span class="absolute inset-0"></span>
-            {url ? <div>Contact Us &#x2192;</div> : <div>Read More &#x2192;</div>}
-        </a>
-    </div>
+		<div class="flex flex-col gap-2">
+			<div class="font-semibold uppercase font-alt text-xl">{part.data.title}</div>
+			<div class="text-sm leading-7 line-clamp-4">{part.data.description.short}</div>
+		</div>
+	</div>
+
+	<a href={url ? url : `/parts/${part.id}`} class="font-alt text-lg font-medium uppercase p-3 bg-[#5c4744] group-hover:bg-[#8a716e] transition duration-200 flex justify-center">
+		<span class="absolute inset-0"></span>
+		{
+			url ? (
+				<div>Contact Us &#x2192;</div>
+			) : (
+				<div>
+					Read More <span class="group-hover:translate-x-2 transition duration-200 inline-block">&#x2192;</span>
+				</div>
+			)
+		}
+	</a>
 </div>

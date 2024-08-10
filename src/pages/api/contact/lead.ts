@@ -20,17 +20,17 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 		const contactYear = data.get("year");
 		const contactMake = data.get("make");
 		const contactModel = data.get("model");
-		const contactSource = cookies.get("sourceData");
+		//	const contactSource = cookies.get("sourceData");
 
 		// subjects
 		const leadSubject = `New Lead from thoroffroadtx.com - ${contactName}`;
 		const thanksSubject = `Thanks ${contactName}, We've Received Your Message!`;
 
 		// if there is cookie data for source, parse it
-		const sourceData = []
-		if (contactSource) {
-			sourceData.push(JSON.parse(contactSource.value));
-		}
+		const sourceData = ""
+		// if (contactSource) {
+		// 	sourceData.push(JSON.parse(contactSource.value));
+		// }
 
 		// set personalization variables
 		const leadPersonalization = [

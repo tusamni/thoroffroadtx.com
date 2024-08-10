@@ -92,8 +92,6 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 			console.error(error);
 		}
 
-		console.log(thanksPersonalization)
-
 		return redirect("/contact/success/", 307);
 	}
 };

@@ -8,11 +8,11 @@ interface Props {
 const { content, lines = "line-clamp-none" } = Astro.props;
 ---
 
-<div class="flex flex-col bg-[#524D48] text-white overflow-hidden">
+<div class="flex flex-col bg-[#524D48] text-white overflow-hidden rounded">
 	<div class="p-12 space-y-6">
 		<div class="text-center font-alt uppercase text-xl line-clamp-1 font-bold" set:html={`"${content.data.highlight}"`} />
 
-		<blockquote class:list={["text-light space-y-4 leading-relaxed text-sm text-stone-200", lines]} set:html={content.data.testimonial} />
+		<blockquote class:list={["text-light space-y-4 leading-relaxed text-base text-stone-200", lines]} set:html={content.data.testimonial} />
 
 		<div class="flex justify-between items-start">
 			<div class="space-y-1">

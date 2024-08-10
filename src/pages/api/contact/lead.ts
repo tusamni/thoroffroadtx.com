@@ -6,6 +6,8 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 	// load form data
 	const data = await request.formData();
 
+	console.log(data)
+
 	// if honeypot exists, end request
 	// else process contact email
 	if (data.get("zip")) {
@@ -74,17 +76,17 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 		const thanksParams = new EmailParams().setFrom(sentFrom).setTo(thanksRecipients).setReplyTo(thanksReplyTo).setSubject(thanksSubject).setPersonalization(thanksPersonalization).setTemplateId("0r83ql3x5dzlzw1j");
 
 		// send the contact email
-		try {
-			await mailerSend.email.send(leadParams);
-		} catch (error) {
-			console.error(error);
-		}
-		// send the thanks email
-		try {
-			await mailerSend.email.send(thanksParams);
-		} catch (error) {
-			console.error(error);
-		}
+		// try {
+		// 	await mailerSend.email.send(leadParams);
+		// } catch (error) {
+		// 	console.error(error);
+		// }
+		// // send the thanks email
+		// try {
+		// 	await mailerSend.email.send(thanksParams);
+		// } catch (error) {
+		// 	console.error(error);
+		// }
 
 		return redirect("/contact/success/", 307);
 	}

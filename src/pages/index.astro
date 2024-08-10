@@ -21,17 +21,6 @@ const allBrands = await getCollection("brands", ({ data }) => {
 });
 const allParts = await getCollection("parts");
 const allTestimonials = await getCollection("testimonials");
-
-const galleryImages = [
-	{ id: "298562-2021-ram-2500", image: 5 },
-	{ id: "405642-2022-ram-2500", image: 2 },
-	{ id: "266375-2022-ford-bronco", image: 3 },
-	{ id: "108058-2022-gmc-sierra-2500-hd", image: 6 },
-	{ id: "276780-2019-ford-f-250", image: 2 },
-	{ id: "453172-2020-ford-f-250", image: 7 },
-	{ id: "791924-2016-toyota-tacoma", image: 7 },
-	{ id: "404814-2023-ford-f-250", image: 2 },
-];
 ---
 
 <Layout>
@@ -46,11 +35,12 @@ const galleryImages = [
 
 	<div class="bg-[#004D72] section">
 		<Container>
+			<div class=""
 			<div class="grid grid-cols-4 gap-16">
 				<BuildAlt build="235752-2022-jeep-wrangler" />
 				<BuildAlt build="435826-2024-ford-f-250" />
 				<BuildAlt build="632051-2022-ford-f-450" />
-				<BuildAlt build="424381-2019-toyota-tacoma" />
+				<BuildAlt build="568734-2023-ford-f-250" />
 			</div>
 		</Container>
 	</div>

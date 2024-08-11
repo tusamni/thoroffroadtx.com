@@ -64,6 +64,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 	</div>
 
 	<input type="hidden" name="url" id="url" value={Astro.url.pathname} />
+	<input type="hidden" name="marketing" id="marketing" value="" />
 
 	<div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">
 		<Button type="submit" style="button-primary"> Let's Go! </Button>
@@ -79,4 +80,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 	const selectModel = document.getElementById("model");
 
 	getModelsFromMake(allModels, selectMake, selectModel, true, false);
+
+	// insert marketing data into form variable
+	document.getElementById("marketing").value = JSON.stringify(visitData.get());
 </script>

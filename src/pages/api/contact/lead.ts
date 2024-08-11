@@ -20,17 +20,11 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 		const contactYear = data.get("year");
 		const contactMake = data.get("make");
 		const contactModel = data.get("model");
-		//	const contactSource = cookies.get("sourceData");
+		const contactMarketing = data.get("marketing")
 
 		// subjects
 		const leadSubject = `New Lead from thoroffroadtx.com - ${contactName}`;
 		const thanksSubject = `Thanks ${contactName}, We've Received Your Message!`;
-
-		// if there is cookie data for source, parse it
-		const sourceData = ""
-		// if (contactSource) {
-		// 	sourceData.push(JSON.parse(contactSource.value));
-		// }
 
 		// set personalization variables
 		const leadPersonalization = [
@@ -45,14 +39,11 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 					year: contactYear,
 					make: contactMake,
 					model: contactModel,
-					source: sourceData
+					source: contactMarketing
 				},
 			},
 		];
 
-		// TEMPORARY
-		// Removed ${contactModel} while I figure out a solution to deal with filtering
-		// and the contact form conflict
 		const thanksPersonalization = [
 			{
 				email: contactEmail,

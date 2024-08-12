@@ -13,7 +13,7 @@
 [multiple],
 textarea,
 select {
-	@apply w-full rounded px-4 py-3 focus:ring-inset focus:ring-4 focus:ring-[#B11D2F] text-sm sm:leading-6 border-none shadow-2xl;
+	@apply w-full rounded px-4 py-3 focus:ring-inset focus:ring-4 focus:ring-torch-red-700 text-sm sm:leading-6 border-none shadow-2xl;
 
 	&.dark {
 		@apply text-black bg-white border-0 focus:border-0

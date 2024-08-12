@@ -12,7 +12,7 @@ const { build, ...attrs } = Astro.props;
 const buildData = await getEntry("builds", build);
 ---
 
-<a href={`/builds/${buildData.id}`} class="relative group space-y-4">
+<a href={`/builds/${buildData.id}`} class="relative group space-y-4 flex flex-col min-w-[400px]">
 	<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="object-cover rounded shadow-2xl group-hover:shadow-white/10 transition duration-300" sizes="400px" />
 
 	<div class="mx-auto text-center w-3/4 text-balance font-alt text-2xl uppercase text-white tracking-tight leading-7 font-semibold">{getBuildTitle(buildData.id)}</div>

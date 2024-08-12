@@ -10,21 +10,20 @@ interface Props {
 const { part, url, ...attrs } = Astro.props;
 ---
 
-<div class="space-y-6 relative group">
+<div class="relative group">
 	<Picture src={getBuildImage(part.data.images.featured.id.id, part.data.images.featured.image)} class="h-48 w-full object-cover rounded" sizes="350px" />
 
-	<div class="flex flex-col sm:flex-row md:flex-col xl:flex-row gap-3">
-		<div class="w-12 h-12 border-4 border-white rounded relative flex-none overflow-hidden flex justify-center items-center rounded-sm">
-			<Icon icon={url ? part.data.images.icon : `parts/${part.data.images.icon}Outline`} class="text-white absolute w-14 h-auto -rotate-12" />
+	<div class="py-6 flex flex-col sm:flex-row md:flex-col xl:flex-row gap-3 items-center justify-center bg-rock-800">
+		<div class="w-8 h-8 border-2 border-white rounded relative flex-none overflow-hidden flex justify-center items-center">
+			<Icon icon={url ? part.data.images.icon : `parts/${part.data.images.icon}Outline`} class="text-white absolute w-10 h-auto -rotate-12" />
 		</div>
 
 		<div class="flex flex-col gap-2">
-			<div class="font-semibold uppercase font-alt text-xl">{part.data.title}</div>
-			<div class="text-sm leading-7 line-clamp-4">{part.data.description.short}</div>
+			<div class="font-semibold uppercase font-alt text-3xl">{part.data.title}</div>
 		</div>
 	</div>
 
-	<a href={url ? url : `/parts/${part.id}`} class="font-alt text-lg font-medium uppercase p-3 bg-[#5c4744] group-hover:bg-[#8a716e] transition duration-200 flex justify-center">
+	<a href={url ? url : `/parts/${part.id}`} class="font-alt text-lg font-medium uppercase p-3 bg-rock-700 group-hover:bg-rock-600 transition duration-200 flex justify-center">
 		<span class="absolute inset-0"></span>
 		{
 			url ? (

@@ -20,7 +20,7 @@ select {
 	}
 }
 
-footer label {
+label {
 	@apply text-black block font-semibold leading-6 uppercase font-alt;
 
 	&.dark {

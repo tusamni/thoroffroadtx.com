@@ -7,9 +7,9 @@ import ContactForm from "@/components/ContactForm";
 import Icon from "@/components/Icon";
 ---
 
-<footer class="bg-gradient-to-b from-torch-red-600 via-torch-red-600 to-torch-red-700">
+<div class="bg-torch-red-600 section">
 	<Container>
-		<div class="section space-y-20">
+		<div class="space-y-20">
 			{
 				!Astro.url.pathname.includes("/contact/success") && (
 					<div class="grid lg:grid-cols-2 gap-20">
@@ -35,35 +35,39 @@ import Icon from "@/components/Icon";
 					</div>
 				)
 			}
+		</div>
+	</Container>
+</div>
 
-			<div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-12 lg:gap-20">
-				<div class="space-y-12 max-w-lg">
-					<Icon icon="logo" class="h-14 w-auto text-white" />
-					<p class="text-white text-md leading-7">
-						Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.
-					</p>
-				</div>
-
-				<div class="min-w-fit flex flex-col gap-6">
-					<ul class="flex flex-row gap-x-4 gap-y-2 sm:gap-6 font-semibold text-white flex-wrap">
-						<li><a href="/vehicles">Vehicles</a></li>
-						<li><a href="/parts">Parts</a></li>
-						<li><a href="/builds">Builds</a></li>
-						<li><a href="/about">About</a></li>
-						<li><a href="/sitemap">Sitemap</a></li>
-					</ul>
-
-					<div class="flex flex-col md:flex-row gap-3 text-white font-light lg:justify-end">
-						<a href={`tel:${Business.phone.number}`} class="text-base">{Business.phone.formatted}</a>
-						<a href={`mailto:${Business.email}`} class="text-base">{Business.email}</a>
-					</div>
-				</div>
+<footer class="py-16">
+	<Container>
+		<div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-12 lg:gap-20">
+			<div class="space-y-12 max-w-lg">
+				<Icon icon="logo" class="h-14 w-auto" />
+				<p class="text-md leading-7">
+					Located in Dripping Springs, Texas, {Business.nameLong} are experts in designing and building off-road vehicles that deliver the exact performance and style that our customers dream about.
+				</p>
 			</div>
 
-			<div class="grid gap-y-2 md:grid-cols-2 md:justify-between text-white">
-				<p class="text-sm leading-5">&copy; {Business.nameLong}. All rights reserved.</p>
-				<a href={Business.mapUrl} class="text-sm leading-5 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</a>
+			<div class="min-w-fit flex flex-col gap-6">
+				<ul class="flex flex-row gap-x-4 gap-y-2 sm:gap-6 font-semibold flex-wrap">
+					<li><a href="/vehicles">Vehicles</a></li>
+					<li><a href="/parts">Parts</a></li>
+					<li><a href="/builds">Builds</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/sitemap">Sitemap</a></li>
+				</ul>
+
+				<div class="flex flex-col md:flex-row gap-3 font-light lg:justify-end">
+					<a href={`tel:${Business.phone.number}`} class="text-base">{Business.phone.formatted}</a>
+					<a href={`mailto:${Business.email}`} class="text-base">{Business.email}</a>
+				</div>
 			</div>
+		</div>
+
+		<div class="mt-16 grid gap-y-2 md:grid-cols-2 md:justify-between">
+			<p class="text-sm leading-5">&copy; {Business.nameLong}. All rights reserved.</p>
+			<a href={Business.mapUrl} class="text-sm leading-5 md:justify-self-end">{Business.address.street01} {Business.address.street02}, {Business.address.city}, {Business.address.state}</a>
 		</div>
 	</Container>
 </footer>

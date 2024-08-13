@@ -8,6 +8,8 @@ import Build from "@/components/content/snippets/Build";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import FlexColumn from "@/components/content/FlexColumn";
+import Icon from "@/components/Icon";
+import Map from "@/components/content/Map";
 import Picture from "@/components/images/Picture";
 
 //const allParts = await getCollection("parts");
@@ -55,88 +57,73 @@ const filteredBuilds = (await getCollection("builds", buildsFilter)).sort((a, b)
 ---
 
 <Layout title="Texas High-Performance Off-Road Vehicle Builds" description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep">
-	<Picture src="shop/2022-12-05/shop-shoot_16.jpg" alt="THOR Off-Road installing Carli off-road parts" loading="eager" class="w-full h-[25em] object-cover" />
+	<div class="section section-top space-y-24 bg-torch-red-600 text-white">
+		<Container classes="space-y-8">
+			<div class="space-y-8 text-white max-w-2xl">
+				<h1 class="text-balance uppercase">THOR Off-Road <strong>Custom Builds</strong></h1>
+				<p class="text-xl">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
+			</div>
 
-	<div class="-mt-20 bg-neutral-50 pb-8">
-		<Container padding={true}>
-			<div class="grid grid-cols-10 sm:gap-4">
-				<!-- black content area -->
-				<div class="bg-black col-span-10 lg:col-span-6 text-white box-spacing space-y-8">
-					<div class="space-y-8">
-						<h1 class="text-balance">THOR Off-Road Custom Builds</h1>
-						<p class="text-base">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
+			<form class="flex flex-row justify-between gap-12 bg-shiraz-600 p-8 rounded-t" method="get">
+				<div class="flex flex-col gap-2">
+					<div class="uppercase text-lg font-bold font-alt text-white">Search</div>
+
+					<div class="relative">
+						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 text-gray-400">
+								<path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd"></path>
+							</svg>
+						</div>
+						<input type="text" name="search" id="search" class="!pl-9" placeholder="Search" value={searchParam} />
 					</div>
 				</div>
+
+				<div class="flex flex-col gap-2">
+					<div class="flex justify-between items-center">
+						<div class="uppercase text-lg font-bold font-alt text-white">Filters</div>
+
+						<a href="/builds">
+							<Icon icon="hero/XCircleFill" class="size-6 text-white" />
+						</a>
+					</div>
+
+					<div class="flex justify-between items-center gap-4">
+						<select name="buildMake" id="buildMake" class="w-[12em]">
+							<option value="" disabled selected>Choose a Make</option>
+							{
+								allMakes.map((m) => (
+									<option value={m.data.title.toLowerCase()} selected={makeParam === m.data.title.toLowerCase()}>
+										{m.data.title}
+									</option>
+								))
+							}
+						</select>
+
+						<select name="buildModel" id="buildModel" class="w-[12em]">
+							<option value="" disabled selected>Choose a Model</option>
+							{
+								filteredModels.map((m) => (
+									<option value={m.data.slug} selected={modelParam === m.data.slug}>
+										{m.data.title}
+									</option>
+								))
+							}
+						</select>
+
+						<Button type="submit" style="button-primary" inverse={true}> Filter Shoots </Button>
+					</div>
+				</div>
+			</form>
+		</Container>
+	</div>
+
+	<Map classes="section bg-rock-100" fill="bg-rock-600" opacity={0.05}>
+		<Container>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+				{filteredBuilds.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
 			</div>
 		</Container>
-	</div>
-
-	<div class="section section-bottom bg-neutral-50">
-		<Container>
-			<FlexColumn size="small">
-				<div slot="left">
-					<form class="flex flex-col gap-12 skip" method="get">
-						<div class="relative rounded-md">
-							<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 text-gray-400">
-									<path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd"></path>
-								</svg>
-							</div>
-							<input type="text" name="search" id="search" class="!pl-9" placeholder="Search" value={searchParam} />
-						</div>
-
-						<div class="space-y-6">
-							<div class="flex justify-between items-center">
-								<div class="text-xl font-semibold">Filters</div>
-								<a href="/builds" class="text-sm underline">Reset</a>
-							</div>
-
-							<!-- <div>
-								<fieldset class="columns-2 space-y-2">
-									{
-										allParts.map((p) => (
-											<label for={p.id} class="cursor-pointer w-full flex items-center gap-1">
-												<input id={p.id} name={`parts[]`} value={p.id} type="checkbox" class="cursor-pointer block" checked={partParams.includes(p.id)} />
-												<span class="capitalize text-sm line-clamp-1">{p.data.title}</span>
-											</label>
-										))
-									}
-								</fieldset>
-							</div> -->
-
-							<select name="buildMake" id="buildMake">
-								<option value="" disabled selected>Choose a Make</option>
-								{
-									allMakes.map((m) => (
-										<option value={m.data.title.toLowerCase()} selected={makeParam === m.data.title.toLowerCase()}>
-											{m.data.title}
-										</option>
-									))
-								}
-							</select>
-
-							<select name="buildModel" id="buildModel">
-								<option value="" disabled selected>Choose a Model</option>
-								{
-									filteredModels.map((m) => (
-										<option value={m.data.slug} selected={modelParam === m.data.slug}>
-											{m.data.title}
-										</option>
-									))
-								}
-							</select>
-
-							<Button type="submit" style="button-primary" inverse={true}> Filter Shoots </Button>
-						</div>
-					</form>
-				</div>
-
-				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-					{filteredBuilds.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
-				</div>
-			</FlexColumn>
-		</Container>
-	</div>
+	</Map>
 </Layout>
 
 <script is:inline define:vars={{ allModels }}>

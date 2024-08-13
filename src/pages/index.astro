@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout";
 
+import { Business } from "@/config";
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 import { getCollection } from "astro:content";
@@ -22,62 +23,62 @@ const allBrands = await getCollection("brands", ({ data }) => {
 });
 const allParts = await getCollection("parts");
 const allTestimonials = await getCollection("testimonials");
+
+const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962843-2024-ram-3500", "884781-2023-ford-bronco", "185376-2023-toyota-tundra", "235752-2022-jeep-wrangler", "568734-2023-ford-f-250"];
 ---
 
 <Layout>
-	<div class="relative flex justify-end items-end min-h-[700px]">
+	<!-- hero -->
+	<div class="relative flex justify-end items-end min-h-[60vh] sm:min-h-[700px]">
 		<Picture src="builds/296799-2024-gmc-sierra-2500-hd/02.jpg" loading="eager" class:list={["w-full h-full object-cover absolute"]} />
 		<div class="absolute w-full h-full bg-gradient-to-b from-transparent via-black/20 to-black/70"></div>
 
 		<Container classes="w-full pb-12">
-			<h1 class="text-right relative text-balance font-alt text-7xl text-white uppercase font-medium">We're <strong>the Best</strong> Off-Road<br /> Truck Outfitter in Texas!</h1>
+			<h1 class="text-center lg:text-right relative text-balance font-alt text-3xl sm:text-5xl md:text-6xl xl:text-7xl text-white uppercase font-medium">We're <strong>the Best</strong> Off-Road<br /> Truck Outfitter in Texas!</h1>
 		</Container>
 	</div>
 
-	<div class="bg-gradient-to-br from-chathams-blue-950 to-chathams-blue-800 py-10 flex overflow-hidden space-x-16">
-		<div class="flex gap-x-16 animate-build-scroll">
-			<BuildAlt build="235752-2022-jeep-wrangler" />
-			<BuildAlt build="435826-2024-ford-f-250" />
-			<BuildAlt build="632051-2022-ford-f-450" />
-			<BuildAlt build="568734-2023-ford-f-250" />
-			<BuildAlt build="632051-2022-ford-f-450" />
-			<BuildAlt build="568734-2023-ford-f-250" />
-		</div>
-		<div class="flex gap-x-16 animate-build-scroll" aria-hidden="true">
-			<BuildAlt build="235752-2022-jeep-wrangler" />
-			<BuildAlt build="435826-2024-ford-f-250" />
-			<BuildAlt build="632051-2022-ford-f-450" />
-			<BuildAlt build="568734-2023-ford-f-250" />
-			<BuildAlt build="632051-2022-ford-f-450" />
-			<BuildAlt build="568734-2023-ford-f-250" />
+	<!-- featured builds with snap -->
+	<div class="bg-chathams-blue-700 py-10">
+		<div class="lg:flex lg:space-x-16 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_70px,_black_calc(100%-70px),transparent_100%)]">
+			<div id="featured" class="flex gap-x-6 lg:gap-x-16 lg:animate-build-scroll snap-x snap-mandatory lg:snap-none overflow-auto lg:overflow-visible no-scrollbar">
+				{featuredBuilds.map((b) => <BuildAlt build={b} classes="w-[75vw] sm:w-[50vw] lg:w-[400px] snap-center" />)}
+			</div>
+			<div class="hidden lg:flex gap-x-6 lg:gap-x-16 lg:animate-build-scroll" aria-hidden="true">
+				{featuredBuilds.map((b) => <BuildAlt build={b} classes="w-[400px]" />)}
+			</div>
 		</div>
 	</div>
 
-	<div class="bg-torch-red-600 text-white py-16 flex overflow-hidden space-x-24">
-		<div class="flex gap-24 animate-icon-scroll">
-			{allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-10 w-auto" />)}
-		</div>
-		<div class="flex gap-24 animate-icon-scroll" aria-hidden="true">
-			{allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-10 w-auto" />)}
+	<!-- logo scroll -->
+	<div class="bg-torch-red-600 text-white py-10 lg:py-16">
+		<div class="flex overflow-hidden space-x-12 lg:space-x-24 [mask-image:_linear-gradient(to_right,transparent_0,_black_70px,_black_calc(100%-70px),transparent_100%)]">
+			<div class="flex gap-12 lg:gap-24 animate-icon-scroll">
+				{allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-6 lg:h-10 w-auto" />)}
+			</div>
+			<div class="flex gap-12 lg:gap-24 animate-icon-scroll" aria-hidden="true">
+				{allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-6 lg:h-10 w-auto" />)}
+			</div>
 		</div>
 	</div>
 	<div class="bg-shiraz-700 text-white py-5">
 		<Container>
-			<div class="flex justify-between items-center">
-				<div class="text-xl uppercase font-bold tracking-wider">Selling & Installing the Industries Best Brands</div>
-				<div class="text-xl uppercase font-light tracking-wider">See More +</div>
+			<div class="flex justify-center lg:justify-between items-center">
+				<div class="text-center lg:text-left text-balance text-lg sm:text-xl uppercase font-bold tracking-wider">Selling & Installing the Industries Best Brands</div>
+				<a href="/parts" class="hidden lg:block text-lg uppercase font-light tracking-wider">More Parts +</a>
 			</div>
 		</Container>
 	</div>
 
-	<div class="section space-y-24" style="background-color: #44403C; background-image:url('/images/static.png'); background-repeat: repeat;">
-		<div class="grid grid-cols-2 gap-12 items-center">
-			<Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class:list={["w-full h-full object-cover rounded-r shadow-lg aspect-square"]} />
+	<!-- that's my truck -->
+	<div class="pb-32 lg:pt-32 space-y-24" style="background-color: #44403C; background-image:url('/images/static.png'); background-repeat: repeat;">
+		<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+			<Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg aspect-square"]} />
 
-			<div class="max-w-2xl">
-				<h1 class="text-balance font-alt text-7xl text-white uppercase font-normal">"I can't believe <br /> <strong>That's My Truck!</strong>"</h1>
+			<div class="px-8 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12">
+				<h1 class="text-center lg:text-left text-balance font-alt text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl text-white uppercase font-normal">"I can't believe <br /> <strong>That's My Truck!</strong>"</h1>
 
-				<div class="space-y-6 text-white text-xl mt-12 leading-relaxed font-light">
+				<div class="space-y-6 text-white text-lg md:text-xl mt-12 !leading-relaxed font-light">
 					<p>
 						THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers'
 						dreams.
@@ -90,16 +91,17 @@ const allTestimonials = await getCollection("testimonials");
 			</div>
 		</div>
 
+		<!-- testimonials -->
 		<Container>
-			<div class="grid grid-cols-3 gap-8">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 				{allTestimonials.map((t, i) => <TestimonialAlt content={t} lines="line-clamp-5" />).slice(0, 6)}
 			</div>
 
-			<div class="mt-10 flex justify-center">
-				<div class="flex flex-col bg-stone-800 text-white p-4 pr-8 rounded relative">
-					<div class="font-extrabold uppercase text-3xl font-alt inline-flex">4.9 <Icon icon="hero/StarFill" class="text-yellow-400 h-8" /> Stars on Google</div>
-					<div class="text-stone-300 text-lg text-balance w-[400px]">We're insanely proud of our 65+ 5 star reviews, read more from our fantastic customers!</div>
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48" class="absolute top-0 -right-8 w-16 h-16">
+			<div class="mt-8 sm:mt-24 flex justify-center">
+				<a href={Business.mapUrl} target="_blank" class="flex flex-col bg-stone-800 text-white p-4 pr-8 rounded relative sm:w-[32em]">
+					<div class="font-extrabold uppercase text-2xl lg:text-3xl font-alt inline-flex gap-1">4.9 <Icon icon="hero/StarFill" class="text-yellow-400 h-8" /> on Google</div>
+					<div class="text-stone-300 text-lg text-balance">We're insanely proud of our 65+ 5 star reviews, read more from our fantastic customers!</div>
+					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48" class="hidden sm:block sm:absolute sm:-top-4 sm:-right-6 w-16 h-16">
 						<path fill="#1c9957" d="M42,39V9c0-1.657-1.343-3-3-3H9C7.343,6,6,7.343,6,9v30c0,1.657,1.343,3,3,3h30C40.657,42,42,40.657,42,39z"></path><path fill="#3e7bf1" d="M9,42h30c1.657,0-15-16-15-16S7.343,42,9,42z"></path><path
 							fill="#cbccc9"
 							d="M42,39V9c0-1.657-16,15-16,15S42,40.657,42,39z"></path><path fill="#efefef" d="M39,42c1.657,0,3-1.343,3-3v-0.245L26.245,23L23,26.245L38.755,42H39z"></path><path
@@ -113,19 +115,20 @@ const allTestimonials = await getCollection("testimonials");
 							d="M14.493,12.531v2.101h2.994c-0.392,1.274-1.455,2.185-2.994,2.185c-1.833,0-3.318-1.485-3.318-3.318s1.486-3.318,3.318-3.318c0.824,0,1.576,0.302,2.156,0.799l1.548-1.547C17.22,8.543,15.92,8,14.493,8c-3.038,0-5.501,2.463-5.501,5.5s2.463,5.5,5.501,5.5c4.81,0,5.637-4.317,5.184-6.461L14.493,12.531z"
 						></path>
 					</svg>
-				</div>
+				</a>
 			</div>
 		</Container>
 	</div>
 
+	<!-- parts -->
 	<Map classes="section bg-rock-900" opacity={0.04}>
 		<Container>
-			<div class="grid grid-cols-5 gap-28">
-				<div class="col-span-2 h-full">
-					<div class="space-y-12 sticky top-32">
-						<h1 class="text-balance font-alt text-7xl text-white uppercase font-normal">We <strong>Sell and Install</strong> the Best Off-Road Parts</h1>
-						<hr class="w-32 opacity-50 text-white" />
-						<div class="space-y-6 text-white text-xl leading-relaxed font-light">
+			<div class="grid grid-cols-5 gap-16 lg:gap-20">
+				<div class="col-span-5 xl:col-span-2 h-full">
+					<div class="space-y-12 xl:sticky xl:top-32 mx-auto xl:mx-0 lg:max-w-2xl">
+						<h1 class="text-center xl:text-left text-balance font-alt text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl text-white uppercase font-normal">We <strong>Sell and Install</strong> the Best Off-Road Parts</h1>
+						<hr class="hidden xl:block w-32 opacity-50 text-white" />
+						<div class="space-y-6 text-white text-lg md:text-xl !leading-relaxed font-light">
 							<p>
 								THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our
 								customers' dreams.
@@ -134,10 +137,17 @@ const allTestimonials = await getCollection("testimonials");
 					</div>
 				</div>
 
-				<div class="col-span-3 grid grid-cols-2 gap-y-24 gap-x-24 text-white">
+				<div class="col-span-5 xl:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-12 text-white">
 					{allParts.map((p) => <Part part={p} />)}
 				</div>
 			</div>
 		</Container>
 	</Map>
 </Layout>
+
+<script is:inline>
+	// load the middle build into the slider on mobile
+	const myElement = document.getElementById("featured");
+	const middle = myElement.children[4];
+	middle.scrollIntoView();
+</script>

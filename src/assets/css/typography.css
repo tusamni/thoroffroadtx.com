@@ -1,27 +1,35 @@
-h1, .h1,
+h1,
+.h1,
 .prose h1 {
-    @apply text-5xl md:text-5xl font-bold tracking-tighter;
+	@apply font-alt text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-medium;
 }
+
 h2,
 .h2,
 .prose h2 {
-    @apply text-4xl sm:text-4xl font-bold tracking-tighter;
+	@apply text-4xl sm:text-4xl font-bold tracking-tighter;
 }
+
 h3,
 .h3,
 .prose h3 {
-    @apply text-3xl sm:text-3xl font-semibold tracking-tighter;
+	@apply text-3xl sm:text-3xl font-semibold tracking-tighter;
 }
+
 h4,
 .h4,
 .prose h4 {
-    @apply text-2xl sm:text-2xl font-semibold tracking-tighter;
+	@apply text-2xl sm:text-2xl font-semibold tracking-tighter;
 }
-h5,.h5,
+
+h5,
+.h5,
 .prose h5 {
-    @apply text-xl sm:text-2xl font-medium tracking-tighter;
+	@apply text-xl sm:text-2xl font-medium tracking-tighter;
 }
-h6,.h6,
+
+h6,
+.h6,
 .prose h6 {
-    @apply text-lg sm:text-xl tracking-tight;
+	@apply text-lg sm:text-xl tracking-tight;
 }

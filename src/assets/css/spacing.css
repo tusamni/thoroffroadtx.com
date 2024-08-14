@@ -2,12 +2,12 @@
 	@apply py-16 sm:py-24 lg:py-32;
 }
 
-.section.section-top {
-	@apply pt-16 sm:pt-20 lg:pt-28 pb-0;
+.section-top {
+	@apply pt-16 sm:pt-24 lg:pt-32;
 }
 
-.section.section-bottom {
-	@apply pb-16 sm:pb-20 lg:pb-28 pt-0;
+.section-bottom {
+	@apply pb-16 sm:pb-24 lg:pb-32;
 }
 
 .box-spacing {

@@ -1,0 +1,178 @@
+---
+export const prerender = false;
+
+import Layout from "@/layouts/Layout";
+
+import { getCollection } from "astro:content";
+import { paginate } from "@/functions/Paginate";
+import Build from "@/components/content/snippets/Build";
+import Button from "@/components/Button";
+import Container from "@/components/Container";
+import Map from "@/components/content/Map";
+import Pagination from "@/components/Pagination";
+
+//const allParts = await getCollection("parts");
+const allMakes = await getCollection("makes");
+const allModels = await getCollection("models");
+
+//const partParams = Astro.url.searchParams.getAll("parts[]");
+const makeParam = Astro.url.searchParams.get("buildMake");
+const modelParam = Astro.url.searchParams.get("buildModel");
+const searchParam = Astro.url.searchParams.get("search");
+
+let filteredModels = [];
+for (const model of allModels) {
+	if (model.data.make.id === makeParam) {
+		filteredModels.push(model);
+	}
+}
+
+const currentPage = Astro.params.page === undefined ? 1 : Number.parseInt(Astro.params.page);
+
+// filter and search shoots
+async function getFilteredBuilds(make, model, search) {
+	const searchRegex = searchParam && new RegExp(searchParam, "i");
+
+	function buildsFilter(build) {
+		if (makeParam && modelParam) {
+			let model = modelParam.replace(/\+/g, "-").toLowerCase();
+
+			console.log(build.data.meta.model.id);
+			if (build.data.meta.model.id !== `${makeParam.toLowerCase()}-${model}`) {
+				return false;
+			}
+		}
+
+		if (searchRegex) {
+			return searchRegex.test(build.data.meta.year) || searchRegex.test(build.data.meta.make.id) || searchRegex.test(build.data.meta.model.id) || searchRegex.test(build.data.meta.trim);
+		}
+
+		return true;
+	}
+
+	return (await getCollection("builds", buildsFilter)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+}
+
+// get integrations, filtered by the applied search & filter, then sort the matches
+const filteredBuilds = await getFilteredBuilds(makeParam, modelParam, searchParam);
+
+const paginatedResults = paginate({
+	data: filteredBuilds,
+	pageSize: 6,
+	currentPage,
+	route: "/builds/[...page]",
+	searchParams: Astro.url.searchParams,
+});
+
+const { page, allPages } = paginatedResults;
+
+// make sure the requested page number is valid, if not redirect to the first page of results
+if (allPages.length && !page) {
+	return Astro.redirect(allPages[0]);
+}
+---
+
+<Layout title="Texas High-Performance Off-Road Vehicle Builds" description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep">
+	<div class="section-top space-y-24 bg-torch-red-600 pb-8 md:pb-0">
+		<Container classes="space-y-8">
+			<div class="space-y-8 text-white max-w-2xl">
+				<h1 class="text-balance uppercase">THOR Off-Road <strong>Custom Builds</strong></h1>
+				<p class="text-base md:text-xl text-balance">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
+			</div>
+
+			<form class="grid grid-cols-1 md:grid-cols-6 bg-shiraz-600 p-8 rounded md:rounded-b-none gap-6" method="get">
+				<div class="flex flex-col gap-2 w-full md:col-span-2">
+					<div class="flex justify-between items-center">
+						<div class="uppercase text-lg font-bold font-alt text-white">Search</div>
+
+						<a href="/builds" class:list={["uppercase text-xs text-white font-medium", Astro.url.searchParams.get("search") ? "visible" : "hidden"]} id="clearSearch"> Clear </a>
+					</div>
+
+					<div class="relative">
+						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 text-stone-400">
+								<path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd"></path>
+							</svg>
+						</div>
+
+						<input type="text" name="search" id="search" class="!pl-9" placeholder="Search" value={searchParam} />
+					</div>
+				</div>
+
+				<div class="flex flex-col gap-2 md:col-span-4 lg:col-span-3 lg:col-start-4">
+					<div class="flex justify-between items-center">
+						<div class="uppercase text-lg font-bold font-alt text-white">Filters</div>
+
+						<a href="/builds" class:list={["uppercase text-xs text-white font-medium", Astro.url.searchParams.get("buildMake") ? "visible" : "hidden"]} id="clearFilters"> Clear </a>
+					</div>
+
+					<div class="flex flex-col sm:flex-row lg:justify-between lg:items-center gap-4">
+						<select name="buildMake" id="buildMake">
+							<option value="" disabled selected>Choose a Make</option>
+							{
+								allMakes.map((m) => (
+									<option value={m.data.title.toLowerCase()} selected={makeParam === m.data.title.toLowerCase()}>
+										{m.data.title}
+									</option>
+								))
+							}
+						</select>
+
+						<select name="buildModel" id="buildModel">
+							<option value="" disabled selected>Choose a Model</option>
+							{
+								filteredModels.map((m) => (
+									<option value={m.data.slug} selected={modelParam === m.data.slug}>
+										{m.data.title}
+									</option>
+								))
+							}
+						</select>
+
+						<Button type="submit" style="button-primary" inverse={true}>Filter</Button>
+					</div>
+				</div>
+			</form>
+		</Container>
+	</div>
+
+	<Map classes="section bg-rock-100" fill="bg-rock-600" opacity={0.03}>
+		<Container classes="space-y-8">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+				{paginatedResults.page.data.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
+			</div>
+
+			<div class="flex justify-center items-center">
+				{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}
+			</div>
+		</Container>
+	</Map>
+</Layout>
+
+<script is:inline define:vars={{ allModels }}>
+	// get models from make
+	const selectMake = document.getElementById("buildMake");
+	const selectModel = document.getElementById("buildModel");
+	getModelsFromMake(allModels, selectMake, selectModel, false, true);
+
+	// delete url params
+	const paramSearch = document.getElementById("clearSearch");
+	const paramFilter = document.getElementById("clearFilters");
+
+	paramSearch.addEventListener("click", function (event) {
+		event.preventDefault();
+		deleteParam(["search"]);
+	});
+	paramFilter.addEventListener("click", function (event) {
+		event.preventDefault();
+
+		deleteParam(["buildMake", "buildModel"]);
+	});
+
+	function deleteParam(param) {
+		const url = new URL(window.location.href);
+
+		param.forEach((p) => url.searchParams.delete(p));
+		window.location.href = url.toString();
+	}
+</script>

@@ -11,6 +11,6 @@ export default defineConfig({
 	integrations: [alpine(), sitemap(), tailwind({
 		applyBaseStyles: true
 	}), mdx()],
-	output: "server",
+	output: "hybrid",
 	adapter: netlify()
 });

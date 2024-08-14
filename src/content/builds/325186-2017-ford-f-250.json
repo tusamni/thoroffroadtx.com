@@ -1,27 +1,34 @@
 {
-    "date": "2023-03-28T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["300038-2022-ford-f-250", "445004-2022-ford-f-250", "684213-2020-ford-f-250"],
-    "meta": {
-        "year": 2017,
-        "make": "ford",
-        "model": "ford-f-250",
-        "trim": "Lariat",
-        "color": "Silver",
-        "drive": "4x4",
-        "parts": [
-            "Carli 3.5\" Backcountry Suspension Kit",
-            "Carli High Mount Steering Stabilizer",
-            "Carli Low Mount Steering Stabilizer",
-            "Carli Torsion Sway Bar",
-            "Carli Radius Arms",
-            "Carli Full Rear Spring Replacement",
-            "18x9\" Method 305NV HD Black Wheels",
-            "37x12.50R18 Toyo Open Country R/T Trail Tires"
-        ]
-    },
-    "images": {
-        "total": 9,
-        "snippet": 1
-    }
+	"date": "2023-03-28T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"300038-2022-ford-f-250",
+		"445004-2022-ford-f-250",
+		"684213-2020-ford-f-250"
+	],
+	"meta": {
+		"year": 2017,
+		"make": "ford",
+		"model": "ford-f-250-super-duty",
+		"trim": "Lariat",
+		"color": "Silver",
+		"drive": "4x4",
+		"parts": [
+			"Carli 3.5\" Backcountry Suspension Kit",
+			"Carli High Mount Steering Stabilizer",
+			"Carli Low Mount Steering Stabilizer",
+			"Carli Torsion Sway Bar",
+			"Carli Radius Arms",
+			"Carli Full Rear Spring Replacement",
+			"18x9\" Method 305NV HD Black Wheels",
+			"37x12.50R18 Toyo Open Country R/T Trail Tires"
+		]
+	},
+	"images": {
+		"total": 9,
+		"snippet": 1
+	}
 }

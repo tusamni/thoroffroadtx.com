@@ -1,23 +1,35 @@
 {
-    "date": "2023-11-27T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["662677-2022-ford-f-350", "397060-2021-ford-f-350", "295031-2022-ford-f-350"],
-    "meta": {
-        "year": 2020,
-        "make": "ford",
-        "model": "ford-f-250",
-        "trim": "Platinum",
-        "color": "Grey",
-        "drive": "4x4",
-        "parts": ["BDS 4\" RA Suspension Kit with Fox 2.0 Shocks", "KG1 22x10\" Javelin Wheels", "37x12.50R22 Nitto Ridge Grappler Tires", "Tremor Air Dam"]
-    },
-    "images": {
-        "total": 8,
-        "snippet": 1
-    },
-    "video": {
-        "filename": "video",
-        "width": 1080,
-        "height": 1920
-    }
+	"date": "2023-11-27T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"662677-2022-ford-f-350",
+		"397060-2021-ford-f-350",
+		"295031-2022-ford-f-350"
+	],
+	"meta": {
+		"year": 2020,
+		"make": "ford",
+		"model": "ford-f-250-super-duty",
+		"trim": "Platinum",
+		"color": "Grey",
+		"drive": "4x4",
+		"parts": [
+			"BDS 4\" RA Suspension Kit with Fox 2.0 Shocks",
+			"KG1 22x10\" Javelin Wheels",
+			"37x12.50R22 Nitto Ridge Grappler Tires",
+			"Tremor Air Dam"
+		]
+	},
+	"images": {
+		"total": 8,
+		"snippet": 1
+	},
+	"video": {
+		"filename": "video",
+		"width": 1080,
+		"height": 1920
+	}
 }

@@ -1,18 +1,25 @@
 {
-    "date": "2022-04-29T00:00:00.000Z",
-    "categories": ["body-bumper"],
-    "related": ["276780-2019-ford-f-250", "714731-2022-ford-f-250"],
-    "meta": {
-        "year": 2022,
-        "make": "ford",
-        "model": "ford-f-250",
-        "trim": "Lariat",
-        "color": "Silver",
-        "drive": "4x4",
-        "parts": ["BodyGuard T2 Extreme Front and Rear Bumpers"]
-    },
-    "images": {
-        "total": 6,
-        "snippet": 1
-    }
+	"date": "2022-04-29T00:00:00.000Z",
+	"categories": [
+		"body-bumper"
+	],
+	"related": [
+		"276780-2019-ford-f-250",
+		"714731-2022-ford-f-250"
+	],
+	"meta": {
+		"year": 2022,
+		"make": "ford",
+		"model": "ford-f-250-super-duty",
+		"trim": "Lariat",
+		"color": "Silver",
+		"drive": "4x4",
+		"parts": [
+			"BodyGuard T2 Extreme Front and Rear Bumpers"
+		]
+	},
+	"images": {
+		"total": 6,
+		"snippet": 1
+	}
 }

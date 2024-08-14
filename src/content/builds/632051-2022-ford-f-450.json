@@ -1,26 +1,33 @@
 {
-    "date": "2024-05-01T00:00:00.000Z",
-    "categories": ["wheel-tire", "suspension"],
-    "related": ["295031-2022-ford-f-350", "397060-2021-ford-f-350", "588100-2022-ford-f-350"],
-    "meta": {
-        "year": 2022,
-        "make": "ford",
-        "model": "ford-f-450",
-        "trim": "Platinum",
-        "color": "White",
-        "drive": "4x4",
-        "parts": [
-            "Carli 3.5\" E-Venture Suspension Kit",
-            "Carli Sway Bar",
-            "Carli Fabricated Radius Arms",
-            "Carli Full Rear Spring Replacement",
-            "LoadLifter 5000 Air Spring Kit",
-            "22\" KG1 Forged KD006 Wheels",
-            "37x12.50R22 Nitto Ridge Grappler Tires"
-        ]
-    },
-    "images": {
-        "total": 19,
-        "snippet": 1
-    }
+	"date": "2024-05-01T00:00:00.000Z",
+	"categories": [
+		"wheel-tire",
+		"suspension"
+	],
+	"related": [
+		"295031-2022-ford-f-350",
+		"397060-2021-ford-f-350",
+		"588100-2022-ford-f-350"
+	],
+	"meta": {
+		"year": 2022,
+		"make": "ford",
+		"model": "ford-f-450-super-duty",
+		"trim": "Platinum",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"Carli 3.5\" E-Venture Suspension Kit",
+			"Carli Sway Bar",
+			"Carli Fabricated Radius Arms",
+			"Carli Full Rear Spring Replacement",
+			"LoadLifter 5000 Air Spring Kit",
+			"22\" KG1 Forged KD006 Wheels",
+			"37x12.50R22 Nitto Ridge Grappler Tires"
+		]
+	},
+	"images": {
+		"total": 19,
+		"snippet": 1
+	}
 }

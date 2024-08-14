@@ -1,29 +1,38 @@
 {
-    "date": "2024-04-25T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire", "performance", "towing-hitches"],
-    "related": ["588100-2022-ford-f-350", "397060-2021-ford-f-350", "662677-2022-ford-f-350"],
-    "meta": {
-        "year": 2024,
-        "make": "ford",
-        "model": "ford-f-350",
-        "trim": "Platinum",
-        "color": "White",
-        "drive": "4x4",
-        "parts": [
-            "Carli 3.5\" E-Venture Suspension Kit",
-            "Carli Fabricated Radius Arms",
-            "Carli Torsion Sway Bar",
-            "Carli Full Rear Spring Replacement",
-            "Carli High Mount Steering Stabilizer",
-            "Carli Low Mount Steering Stabilizer",
-            "Carli Trophy Hitch",
-            "S&B 60 Gallon Fuel Tank",
-            "Method 18x9\" MR305 NV HD Bronze Wheels",
-            "37x13.50R18 Toyo Open Country R/T Tires"
-        ]
-    },
-    "images": {
-        "total": 15,
-        "snippet": 1
-    }
+	"date": "2024-04-25T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"performance",
+		"towing-hitches"
+	],
+	"related": [
+		"588100-2022-ford-f-350",
+		"397060-2021-ford-f-350",
+		"662677-2022-ford-f-350"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "ford",
+		"model": "ford-f-350-super-duty",
+		"trim": "Platinum",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"Carli 3.5\" E-Venture Suspension Kit",
+			"Carli Fabricated Radius Arms",
+			"Carli Torsion Sway Bar",
+			"Carli Full Rear Spring Replacement",
+			"Carli High Mount Steering Stabilizer",
+			"Carli Low Mount Steering Stabilizer",
+			"Carli Trophy Hitch",
+			"S&B 60 Gallon Fuel Tank",
+			"Method 18x9\" MR305 NV HD Bronze Wheels",
+			"37x13.50R18 Toyo Open Country R/T Tires"
+		]
+	},
+	"images": {
+		"total": 15,
+		"snippet": 1
+	}
 }

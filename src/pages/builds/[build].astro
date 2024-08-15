@@ -11,6 +11,7 @@ import { timeAgo } from "@/functions/DateTime";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
+import Map from "@/components/content/Map";
 import Picture from "@/components/images/Picture";
 import RelatedBuild from "@/components/builds/RelatedBuild";
 import Testimonial from "@/components/content/testimonials/TestimonialAlt";
@@ -33,108 +34,104 @@ const buildData = await getEntry("builds", build);
 const make = await getEntry("makes", buildData.data.meta.make.id);
 const model = await getEntry("models", buildData.data.meta.model.id);
 
-// let testimonial;
-// if (buildData.data.meta.testimonial) {
-// 	testimonial = await getEntry("testimonials", buildData.data.meta.testimonial.id);
-// }
+let testimonial;
+if (buildData.data.meta.testimonial) {
+	testimonial = await getEntry("testimonials", buildData.data.meta.testimonial.id);
+}
 ---
 
 <Layout title={`Custom ${buildData.data.meta.year} ${make.data.title} ${model.data.title} ${buildData.data.meta.trim ? `${buildData.data.meta.trim} ` : ``}Built by THOR Off-Road`}>
-		<div class="section-top space-y-24 pb-16">
-			<Container classes="space-y-8">
-				<div class="space-y-8 text-white max-w-3xl">
-					<h1 class="text-balance uppercase font-bold">{getBuildTitle(buildData.id)}</h1>
-				</div>
-			</Container>
-		</div>
+	<div class="bg-torch-red-600 text-white section-small">
+		<Container classes="space-y-4">
+			<div class="max-w-3xl">
+				<h1 class="text-balance uppercase font-bold">{getBuildTitle(buildData.id)}</h1>
+			</div>
 
-	<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="w-full h-full" loading="eager" />
-
-	<div class="-mt-20">
-		<Container padding={true}>
-			<div class="section section-bottom grid grid-cols-2 sm:gap-4">
-				<div class="lg:sticky lg:top-28 box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8 h-fit">
-					<h1 class="text-balance"></h1>
-
-					<div class="space-y-8">
-						{buildData.data.meta.goals && <div class="text-base space-y-4" set:html={buildData.data.meta.goals} />}
-
-						{
-							buildData.data.meta.testimonial && (
-								<div class="text-base space-y-4">
-									<Testimonial content={testimonial} />
-								</div>
-							)
-						}
-
-						<div class="space-y-4">
-							<h2 class="h4">Parts List</h2>
-							<ul class="space-y-2 text-sm tracking-tight">
-								{buildData.data.meta.parts.map((p) => <li>{p}</li>)}
-							</ul>
-						</div>
-
-						{
-							buildData.data.related && (
-								<div class="hidden sm:block space-y-6">
-									<h2 class="h4">Related Builds</h2>
-									{buildData.data.related.map((b) => (
-										<RelatedBuild id={b.id} />
-									))}
-								</div>
-							)
-						}
-					</div>
-				</div>
-
-				<div class="col-span-2 lg:col-span-1">
-					<div class="bg-white box-spacing mb-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4 sm:gap-0">
-						<div class="flex flex-row gap-8 text-xs items-center text-stone-700">
-							<div class="flex flex-col gap-2">
-								<div class="font-semibold">Color</div>
-								<div>{buildData.data.meta.color}</div>
-							</div>
-
-							<div class="flex flex-col gap-2">
-								<div class="font-semibold">Drive</div>
-								<div>{buildData.data.meta.drive}</div>
-							</div>
-
-							<div class="flex flex-col gap-2">
-								<div class="font-semibold">Date</div>
-								<div>{timeAgo(buildData.data.date)}</div>
-							</div>
-						</div>
-
-						{
-							buildData.data.video && (
-								<div class="align-self-end flex-none">
-									<a
-										href={getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}
-										data-sources={`[{"src":"${getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
-										data-width={buildData.data.video.width}
-										data-height={buildData.data.video.height}
-										class="video text-xs sm:text-sm flex items-center font-medium gap-2"
-									>
-										<span>
-											Watch the
-											<br />
-											Build Video
-										</span>
-										<Icon icon="hero/PlayCircleFill" class="h-6 sm:h-10" />
-									</a>
-								</div>
-							)
-						}
-					</div>
-
-					<Gallery>
-						<div class="columns-2">
-							{Array.from(Array(buildData.data.images.total)).map((_, i) => <Picture src={getBuildImage(buildData.id, i + 1)} class="w-full h-auto mb-4" alt={getBuildDescription(buildData.id)} sizes="(max-width:1024) 50vw, 400px" />)}
-						</div>
-					</Gallery>
-				</div>
+			<div class="flex gap-4">
+				<div>Completed {timeAgo(buildData.data.date)}</div>
+				<div>&middot;</div>
+				<a href={`builds?buildMake=${make.id}&buildModel=${model.data.slug}`} class="font-semibold hover:underline">See More {model.data.title} Builds &gt;</a>
 			</div>
 		</Container>
 	</div>
+
+	<Map classes="section bg-rock-100" opacity={0.04}>
+		<Container classes="space-y-8">
+			<div class="grid grid-cols-3 grid-rows-2 gap-8 h-[700px]">
+				<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="w-full h-full object-cover col-span-2 row-span-2 rounded shadow-2xl" loading="eager" />
+				<Picture src={getBuildImage(buildData.id, 2)} alt={getBuildTitle(buildData.id)} class="object-cover w-full h-full rounded shadow-2xl" loading="eager" />
+				<Picture src={getBuildImage(buildData.id, 15)} alt={getBuildTitle(buildData.id)} class="object-cover w-full h-full rounded shadow-2xl" loading="eager" />
+			</div>
+
+			<div class="grid grid-cols-5 gap-8">
+				<div class="space-y-12 col-span-2">
+					{
+						buildData.data.meta.goals && (
+							<div class="space-y-6">
+								<h2>Summary</h2>
+								<div class="space-y-6 text-lg leading-loose" set:html={buildData.data.meta.goals} />
+							</div>
+						)
+					}
+
+					<div class="space-y-6">
+						<h2>Parts List</h2>
+						<div class="space-y-2 columns-2">
+							{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
+						</div>
+					</div>
+
+					{
+						buildData.data.meta.testimonial && (
+							<div class="text-base space-y-4">
+								<Testimonial content={testimonial} />
+							</div>
+						)
+					}
+
+					{
+						buildData.data.video && (
+							<div class="align-self-end flex-none">
+								<a
+									href={getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}
+									data-sources={`[{"src":"${getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
+									data-width={buildData.data.video.width}
+									data-height={buildData.data.video.height}
+									class="video text-xs sm:text-sm flex items-center font-medium gap-2"
+								>
+									<span>
+										Watch the
+										<br />
+										Build Video
+									</span>
+									<Icon icon="hero/PlayCircleFill" class="h-6 sm:h-10" />
+								</a>
+							</div>
+						)
+					}
+
+					{
+						buildData.data.related && (
+							<div class="hidden sm:block space-y-6">
+								<h2 class="h4">Related Builds</h2>
+								{buildData.data.related.map((b) => (
+									<RelatedBuild id={b.id} />
+								))}
+							</div>
+						)
+					}
+				</div>
+
+				<div class="col-span-3">
+					<div class="columns-3 gap-8">
+						{
+							Array.from(Array(buildData.data.images.total)).map((_, i) => (
+								<Picture src={getBuildImage(buildData.id, i + 1)} class="w-full h-auto shadow-2xl rounded mb-8" alt={getBuildDescription(buildData.id)} sizes="(max-width:1024) 50vw, 400px" />
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</Container>
+	</Map>
 </Layout>

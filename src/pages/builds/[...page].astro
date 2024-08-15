@@ -21,9 +21,6 @@ const searchParam = Astro.url.searchParams.get("search");
 const actualMake = makeParam ? await getEntry("makes", makeParam) : null;
 const actualModel = modelParam ? await getEntry("models", `${makeParam}-${modelParam}`) : null;
 
-console.log(actualMake);
-console.log(actualModel);
-
 let filteredModels = [];
 for (const model of allModels) {
 	if (model.data.make.id === makeParam) {

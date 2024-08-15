@@ -8,6 +8,7 @@ import { getEntry, getCollection } from "astro:content";
 import { getMedia } from "@/functions/Image";
 import { timeAgo } from "@/functions/DateTime";
 
+import Link from "@/components/Link";
 import Container from "@/components/Container";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
@@ -64,32 +65,39 @@ if (buildData.data.meta.testimonial) {
 			</div>
 
 			<div class="grid grid-cols-5 gap-8">
-				<div class="space-y-12 col-span-2">
-					{
-						buildData.data.meta.goals && (
-							<div class="space-y-6">
-								<h2>Summary</h2>
-								<div class="space-y-6 text-lg leading-loose" set:html={buildData.data.meta.goals} />
-							</div>
-						)
-					}
+				<div class="col-span-2">
+					<div class="bg-gradient-to-br from-merlin-200 to-merlin-300 p-8 rounded space-y-12">
+						{
+							buildData.data.meta.goals && (
+								<div class="space-y-6">
+									<h2>Summary</h2>
+									<div class="space-y-6 text-lg leading-loose" set:html={buildData.data.meta.goals} />
+								</div>
+							)
+						}
 
-					<div class="space-y-6">
-						<h2>Parts List</h2>
-						<div class="space-y-2 columns-2">
-							{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
+						<div class="space-y-6">
+							<h2>Parts List</h2>
+							<div class="space-y-2 columns-2">
+								{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
+							</div>
 						</div>
-					</div>
 
-					{
-						buildData.data.meta.testimonial && (
-							<div class="text-base space-y-4">
-								<Testimonial content={testimonial} />
-							</div>
-						)
-					}
+						{
+							buildData.data.meta.testimonial && (
+								<div class="text-base space-y-4">
+									<Testimonial content={testimonial} />
+								</div>
+							)
+						}
 
-					{
+						<div class="space-y-8">
+							<h2>Let's <strong>Get Started</strong></h2>
+							<div class="leading-relaxed">There are endless options for your {model.data.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!</div>
+							<Link href="/contact" inverse={true}>Build Your {model.data.title}!</Link>
+						</div>
+
+						<!-- {
 						buildData.data.video && (
 							<div class="align-self-end flex-none">
 								<a
@@ -119,7 +127,8 @@ if (buildData.data.meta.testimonial) {
 								))}
 							</div>
 						)
-					}
+					} -->
+					</div>
 				</div>
 
 				<div class="col-span-3">

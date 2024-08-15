@@ -6,8 +6,6 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 	// load form data
 	const data = await request.formData();
 
-	console.log(data)
-
 	// if honeypot exists, end request
 	// else process contact email
 	if (data.get("zip")) {

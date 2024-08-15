@@ -3,91 +3,93 @@ import Layout from "@/layouts/Layout";
 
 // imports
 import Container from "@/components/Container";
+import Map from "@/components/content/Map";
 ---
 
 <Layout title="Privacy Policy">
-    <div class="mt-20 section section-bottom">
-        <Container padding={true}>
-            <div class="flex sm:gap-4">
-                <!-- black content area -->
-                <div class="box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8 h-fit md:sticky top-28">
-                    <h1>Privacy Policy</h1>
+	<Map classes="bg-rock-100" opacity={0.03}>
+		<Container classes="section space-y-16">
+			<h1 class="uppercase">THOR <strong>Privacy Policy</strong></h1>
 
-                    <div class="prose prose-sm prose-invert">
-                        <ul>
-                            <li><a href="#data-collected">Data Collected</a></li>
-                            <ul>
-                                <li><a href="#use-of-data">Use of the Data</a></li>
-                                <li><a href="#sharing-of-data">Sharing of Data</a></li>
-                                <li><a href="#cookies">Cookies</a></li>
-                                <li><a href="#opt-our">Opt-Out</a></li>
-                            </ul>
-                            <li><a href="#security">Security</a></li>
-                            <li><a href="#disputes">Disputes</a></li>
-                            <li><a href="#children">Children</a></li>
-                            <li><a href="#changes">Changes</a></li>
-                        </ul>
-                    </div>
-                </div>
+			<div class="flex flex-col md:flex-row gap-16 my-20">
+				<div class="h-fit md:sticky top-28">
+					<ul class="space-y-3">
+						<li class="space-y-3">
+							<a href="#data-collected">Data Collected</a>
+							<ul class="ml-3">
+								<li><a href="#use-of-data">Use of the Data</a></li>
+								<li><a href="#sharing-of-data">Sharing of Data</a></li>
+								<li><a href="#cookies">Cookies</a></li>
+								<li><a href="#opt-our">Opt-Out</a></li>
+							</ul>
+						</li>
+						<li><a href="#security">Security</a></li>
+						<li><a href="#disputes">Disputes</a></li>
+						<li><a href="#children">Children</a></li>
+						<li><a href="#changes">Changes</a></li>
+					</ul>
+				</div>
 
-                <div class="box-spacing bg-white col-span-2 lg:col-span-1 space-y-8">
-                    <article class="prose prose-sm">
-                        <h2 id="data-collected">Data Collected</h2>
-                        <p>
-                            We collect information you provide directly to us. For example, we collect information when you create an account, subscribe, participate in any interactive features of our services, fill out a form, request customer support or otherwise communicate with us. The types of
-                            information we may collect include your name, email address, postal address, credit card information and other contact or identifying information you choose to provide. We collect anonymous data from every visitor of the Website to monitor traffic and fix bugs. For
-                            example, we collect information like web requests, the data sent in response to such requests, the Internet Protocol address, the browser type, the browser language, and a timestamp for the request. We also use various technologies to collect information, and this may
-                            include sending cookies to your computer. Cookies are small data files stored on your hard drive or in your device memory that helps us to improve our services and your experience, see which areas and features of our services are popular and count visits. We may also
-                            collect information using web beacons (also known as “tracking pixels”). Web beacons are electronic images that may be used in our services or emails and to track count visits or understand usage and campaign effectiveness.
-                        </p>
+				<div class="space-y-8 max-w-2xl leading-relaxed">
+					<h2 id="data-collected">Data Collected</h2>
+					<p>
+						We collect information you provide directly to us. For example, we collect information when you create an account, subscribe, participate in any interactive features of our services, fill out a form, request customer support
+						or otherwise communicate with us. The types of information we may collect include your name, email address, postal address, credit card information and other contact or identifying information you choose to provide. We collect
+						anonymous data from every visitor of the Website to monitor traffic and fix bugs. For example, we collect information like web requests, the data sent in response to such requests, the Internet Protocol address, the browser
+						type, the browser language, and a timestamp for the request. We also use various technologies to collect information, and this may include sending cookies to your computer. Cookies are small data files stored on your hard
+						drive or in your device memory that helps us to improve our services and your experience, see which areas and features of our services are popular and count visits. We may also collect information using web beacons (also known
+						as “tracking pixels”). Web beacons are electronic images that may be used in our services or emails and to track count visits or understand usage and campaign effectiveness.
+					</p>
 
-                        <h3 id="use-of-data">Use of the Data</h3>
-                        <p>
-                            We only use your personal information to provide you the THOR Website services or to communicate with you about the Website or the services. We employ industry standard techniques to protect against unauthorized access of data about you that we store, including personal
-                            information. We do not share personal information you have provided to us without your consent, unless:
-                        </p>
-                        <ul>
-                            <li>Doing so is appropriate to carry out your own request</li>
-                            <li>We believe it's needed to enforce our legal agreements or that is legally required</li>
-                            <li>We believe it's needed to detect, prevent or address fraud, security or technical issues</li>
-                        </ul>
+					<h3 id="use-of-data">Use of the Data</h3>
+					<p>
+						We only use your personal information to provide you the THOR Website services or to communicate with you about the Website or the services. We employ industry standard techniques to protect against unauthorized access of data
+						about you that we store, including personal information. We do not share personal information you have provided to us without your consent, unless:
+					</p>
+					<ul>
+						<li>Doing so is appropriate to carry out your own request</li>
+						<li>We believe it's needed to enforce our legal agreements or that is legally required</li>
+						<li>We believe it's needed to detect, prevent or address fraud, security or technical issues</li>
+					</ul>
 
-                        <h3 id="sharing-of-data">Sharing of Data</h3>
-                        <p>
-                            We don't share your personal information with third parties. Aggregated, anonymized data is periodically transmitted to external services to help us improve the Website and service. We may allow third parties to provide analytics services. These third parties may use
-                            cookies, web beacons and other technologies to collect information about your use of the services and other websites, including your IP address, web browser, pages viewed, time spent on pages, links clicked and conversion information. We also use social buttons provided
-                            by services like Twitter, Google+, LinkedIn and Facebook. Your use of these third-party services is entirely optional. We are not responsible for the privacy policies and/or practices of these third-party services, and you are responsible for reading and understanding
-                            those third-party services' privacy policies.
-                        </p>
+					<h3 id="sharing-of-data">Sharing of Data</h3>
+					<p>
+						We don't share your personal information with third parties. Aggregated, anonymized data is periodically transmitted to external services to help us improve the Website and service. We may allow third parties to provide
+						analytics services. These third parties may use cookies, web beacons and other technologies to collect information about your use of the services and other websites, including your IP address, web browser, pages viewed, time
+						spent on pages, links clicked and conversion information. We also use social buttons provided by services like Twitter, Google+, LinkedIn and Facebook. Your use of these third-party services is entirely optional. We are not
+						responsible for the privacy policies and/or practices of these third-party services, and you are responsible for reading and understanding those third-party services' privacy policies.
+					</p>
 
-                        <h3 id="cookies">Cookies</h3>
-                        <p>We may use cookies on our site to remember your preferences. For more general information on cookies, please read “What Are Cookies”.</p>
+					<h3 id="cookies">Cookies</h3>
+					<p>We may use cookies on our site to remember your preferences. For more general information on cookies, please read “What Are Cookies”.</p>
 
-                        <h3 id="opt-out">Opt-Out, Communication Preferences</h3>
-                        <p>You may modify your communication preferences and/or opt-out from specific communications at any time. Please specify and adjust your preferences.</p>
+					<h3 id="opt-out">Opt-Out, Communication Preferences</h3>
+					<p>You may modify your communication preferences and/or opt-out from specific communications at any time. Please specify and adjust your preferences.</p>
 
-                        <h2 id="security">Security</h2>
-                        <p>
-                            We take reasonable steps to protect personally identifiable information from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. But, you should keep in mind that no Internet transmission is ever completely secure or error-free. In particular,
-                            email sent to or from the Sites may not be secure.
-                        </p>
+					<h2 id="security">Security</h2>
+					<p>
+						We take reasonable steps to protect personally identifiable information from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. But, you should keep in mind that no Internet transmission is ever
+						completely secure or error-free. In particular, email sent to or from the Sites may not be secure.
+					</p>
 
-                        <h2 id="disputes">Disputes</h2>
-                        <p>Any dispute related in any way to your visit to this website or to products you purchase from us shall be arbitrated by state or federal court Williamson County, Texas and you consent to exclusive jurisdiction and venue of such courts.</p>
+					<h2 id="disputes">Disputes</h2>
+					<p>
+						Any dispute related in any way to your visit to this website or to products you purchase from us shall be arbitrated by state or federal court Williamson County, Texas and you consent to exclusive jurisdiction and venue of
+						such courts.
+					</p>
 
-                        <h2 id="children">Children</h2>
-                        <p>The Website is not intended for children under the age of 13. We do not knowingly collect personally identifiable information via the Website from visitors in this age group.</p>
+					<h2 id="children">Children</h2>
+					<p>The Website is not intended for children under the age of 13. We do not knowingly collect personally identifiable information via the Website from visitors in this age group.</p>
 
-                        <h2 id="changes">Changes to the Privacy Policy</h2>
-                        <p>
-                            We may amend this Privacy Policy from time to time. Use of information we collect now is subject to the Privacy Policy in effect at the time such information is used. If we make major changes in the way we collect or use information, we will notify you by posting an
-                            announcement on the Website or sending you an email.
-                        </p>
+					<h2 id="changes">Changes to the Privacy Policy</h2>
+					<p>
+						We may amend this Privacy Policy from time to time. Use of information we collect now is subject to the Privacy Policy in effect at the time such information is used. If we make major changes in the way we collect or use
+						information, we will notify you by posting an announcement on the Website or sending you an email.
+					</p>
 
-                        <p>Last updated September 30, 2021</p>
-                    </article>
-                </div>
-            </div>
-        </Container>
-    </div>
+					<p>Last updated September 30, 2021</p>
+				</div>
+			</div>
+		</Container>
+	</Map>
 </Layout>

@@ -3,17 +3,22 @@ import Layout from "@/layouts/Layout";
 
 // imports
 import Container from "@/components/Container";
-import Section from "@/components/Section";
+import Picture from "@/components/images/Picture";
 ---
 
 <Layout title="404 - Not Found">
-	<div class="mt-20 section">
-		<Container>
-			<article class="flex flex-col items-center">
-				<h1 class="!font-black">404</h1>
-				<p class="text-2xl">Our apologies, but we're having trouble finding that page.</p>
-				<p></p>
-			</article>
-		</Container>
+	<div class="relative">
+		<img src="https://images.unsplash.com/photo-1707871737435-1c6719dd2b36?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="absolute w-full h-full object-cover" />
+		<div class="w-full h-full bg-white/80 absolute backdrop-blur-sm"></div>
+
+		<div class="section relative">
+			<Container>
+				<article class="flex flex-col items-center">
+					<h1 class="!font-black uppercase">Whoops!</h1>
+					<div class="text-xl text-balance leading-relaxed">Our apologies, but we're having trouble finding that page.</div>
+					<p></p>
+				</article>
+			</Container>
+		</div>
 	</div>
 </Layout>

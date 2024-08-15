@@ -3,7 +3,7 @@ export const prerender = false;
 
 import Layout from "@/layouts/Layout";
 
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { paginate } from "@/functions/Paginate";
 import Build from "@/components/content/snippets/Build";
 import Button from "@/components/Button";
@@ -11,14 +11,18 @@ import Container from "@/components/Container";
 import Map from "@/components/content/Map";
 import Pagination from "@/components/Pagination";
 
-//const allParts = await getCollection("parts");
 const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
 
-//const partParams = Astro.url.searchParams.getAll("parts[]");
 const makeParam = Astro.url.searchParams.get("buildMake");
 const modelParam = Astro.url.searchParams.get("buildModel");
 const searchParam = Astro.url.searchParams.get("search");
+
+const actualMake = makeParam ? await getEntry("makes", makeParam) : null;
+const actualModel = modelParam ? await getEntry("models", `${makeParam}-${modelParam}`) : null;
+
+console.log(actualMake);
+console.log(actualModel);
 
 let filteredModels = [];
 for (const model of allModels) {
@@ -26,8 +30,6 @@ for (const model of allModels) {
 		filteredModels.push(model);
 	}
 }
-
-const currentPage = Astro.params.page === undefined ? 1 : Number.parseInt(Astro.params.page);
 
 // filter and search shoots
 async function getFilteredBuilds(make, model, search) {
@@ -37,7 +39,6 @@ async function getFilteredBuilds(make, model, search) {
 		if (makeParam && modelParam) {
 			let model = modelParam.replace(/\+/g, "-").toLowerCase();
 
-			console.log(build.data.meta.model.id);
 			if (build.data.meta.model.id !== `${makeParam.toLowerCase()}-${model}`) {
 				return false;
 			}
@@ -53,9 +54,9 @@ async function getFilteredBuilds(make, model, search) {
 	return (await getCollection("builds", buildsFilter)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
-// get integrations, filtered by the applied search & filter, then sort the matches
 const filteredBuilds = await getFilteredBuilds(makeParam, modelParam, searchParam);
 
+const currentPage = Astro.params.page === undefined ? 1 : Number.parseInt(Astro.params.page);
 const paginatedResults = paginate({
 	data: filteredBuilds,
 	pageSize: 6,
@@ -136,15 +137,39 @@ if (allPages.length && !page) {
 		</Container>
 	</div>
 
-	<Map classes="section bg-rock-100" fill="bg-rock-600" opacity={0.03}>
+	<Map classes="section bg-rock-100" opacity={0.04}>
 		<Container classes="space-y-8">
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-				{paginatedResults.page.data.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
-			</div>
-
-			<div class="flex justify-center items-center">
-				{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}
-			</div>
+			{
+				page.data.length > 0 ? (
+					<>
+						<div class="flex justify-between items-center">
+							<div class="text-2xl font-medium font-alt">{page.total} Total Builds</div>
+							{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}
+						</div>
+						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+							{paginatedResults.page.data.map((b) => (
+								<Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+							))}
+						</div>
+						<div class="flex justify-center items-center">{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}</div>
+					</>
+				) : (
+					<div class="flex justify-center items-center">
+						<div class="max-w-2xl text-center space-y-4">
+							<div class="uppercase font-alt font-medium text-5xl text-balance">
+								We Need Your <span class="font-extrabold">{actualModel.data.title}</span>!
+							</div>
+							<div class="text-xl text-balance leading-relaxed">
+								It's been awhile since we've built a {actualModel.data.title} here at THOR. We'd love to{" "}
+								<a href="/contact" class="font-semibold underline">
+									get in touch
+								</a>{" "}
+								to discuss your needs and show you what's possible.
+							</div>
+						</div>
+					</div>
+				)
+			}
 		</Container>
 	</Map>
 </Layout>

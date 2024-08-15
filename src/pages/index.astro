@@ -6,11 +6,10 @@ import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 import { getCollection } from "astro:content";
 
+import Asphalt from "@/components/content/Asphalt";
 import BuildAlt from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
-import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
-import Link from "@/components/Link";
 import Map from "@/components/content/Map";
 import Part from "@/components/content/snippets/Part";
 import Picture from "@/components/images/Picture";
@@ -71,7 +70,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 	</div>
 
 	<!-- that's my truck -->
-	<div class="pb-32 lg:pt-32 space-y-24" style="background-color: #44403C; background-image:url('/images/static.png'); background-repeat: repeat;">
+	<Asphalt classes="pb-32 lg:pt-32 space-y-24 bg-stone-700" opacity={0.04} theme="light">
 		<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 			<Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg aspect-square"]} />
 
@@ -118,10 +117,10 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 				</a>
 			</div>
 		</Container>
-	</div>
+	</Asphalt>
 
 	<!-- parts -->
-	<Map classes="section bg-rock-900" opacity={0.04}>
+	<div class="section bg-rock-900">
 		<Container>
 			<div class="grid grid-cols-5 gap-16 lg:gap-20">
 				<div class="col-span-5 xl:col-span-2 h-full">
@@ -142,7 +141,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 				</div>
 			</div>
 		</Container>
-	</Map>
+	</div>
 </Layout>
 
 <script is:inline>

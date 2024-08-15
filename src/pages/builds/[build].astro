@@ -9,7 +9,6 @@ import { getMedia } from "@/functions/Image";
 import { timeAgo } from "@/functions/DateTime";
 
 import Container from "@/components/Container";
-import Dots from "@/components/content/Dots";
 import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
 import Picture from "@/components/images/Picture";
@@ -38,11 +37,9 @@ const model = await getEntry("models", buildData.data.meta.model.id);
 // if (buildData.data.meta.testimonial) {
 // 	testimonial = await getEntry("testimonials", buildData.data.meta.testimonial.id);
 // }
-console.log(buildData.data.meta);
 ---
 
 <Layout title={`Custom ${buildData.data.meta.year} ${make.data.title} ${model.data.title} ${buildData.data.meta.trim ? `${buildData.data.meta.trim} ` : ``}Built by THOR Off-Road`}>
-	<Dots classes="section bg-rock-900" fill="#ffffff">
 		<div class="section-top space-y-24 pb-16">
 			<Container classes="space-y-8">
 				<div class="space-y-8 text-white max-w-3xl">
@@ -50,7 +47,6 @@ console.log(buildData.data.meta);
 				</div>
 			</Container>
 		</div>
-	</Dots>
 
 	<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="w-full h-full" loading="eager" />
 

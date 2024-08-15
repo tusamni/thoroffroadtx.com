@@ -1,11 +1,12 @@
 function getModelsFromMake(allModels, formMake, formModel, includeOther = true, slug = false) {
+	console.log(includeOther)
 	// if includeOther, add it to the makes field
 	includeOther && formMake.add(new Option("Other", "Other"));
 
 	formMake.addEventListener(
 		"change",
 		function () {
-			if (this.value == "Other") {
+			if (this.value == "Other" && includeOther) {
 				clearField(formModel);
 
 				formModel.add(new Option("Other", "Other"));
@@ -20,7 +21,7 @@ function getModelsFromMake(allModels, formMake, formModel, includeOther = true, 
 					}
 				});
 
-				formModel.add(new Option("Other", "Other"));
+				includeOther && formModel.add(new Option("Other", "Other"));
 				formModel.selectedIndex = 0;
 			}
 		},

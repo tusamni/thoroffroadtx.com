@@ -4,75 +4,71 @@ import Layout from "@/layouts/Layout";
 // imports
 import { getCollection } from "astro:content";
 import Container from "@/components/Container";
+import Map from "@/components/content/Map";
 
 // data
 const allMakes = await getCollection("makes", ({ data }) => {
-    return data.draft !== true;
+	return data.draft !== true;
 });
 const allParts = await getCollection("parts");
 ---
 
 <Layout title="Sitemap">
-    <div class="mt-20 section section-bottom">
-        <Container padding={true}>
-            <div class="box-spacing bg-white col-span-2 lg:col-span-1 space-y-8">
-                <article class="prose prose-sm max-w-none">
-                    <h1>Sitemap</h1>
+	<Map classes="bg-rock-100" opacity={0.03}>
+		<Container classes="section space-y-16">
+			<h1 class="uppercase">THOR <strong>Sitemap</strong></h1>
+			<div class="grid grid-cols-3 max-w-2xl">
+				<div class="space-y-4">
+					<p class="font-semibold text-2xl">Vehicles</p>
+					<ul class="space-y-2">
+						{
+							allMakes.map((m) => (
+								<li>
+									<a href={`/vehicles/${m.id}`} title={m.data.title}>
+										{m.data.title}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 
-                    <div class="grid grid-cols-3">
-                        <div>
-                            <p class="font-semibold text-2xl">Vehicles</p>
-                            <ul>
-                                {
-                                    allMakes.map((m) => (
-                                        <li>
-                                            <a href={`/vehicles/${m.id}`} title={m.data.title}>
-                                                {m.data.title}
-                                            </a>
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                        </div>
+				<div class="space-y-4">
+					<p class="font-semibold text-2xl">Parts</p>
+					<ul class="space-y-2">
+						{
+							allParts.map((p) => (
+								<li>
+									<a href={`/parts/${p.id}`} title={p.data.title}>
+										{p.data.title}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 
-                        <div>
-                            <p class="font-semibold text-2xl">Parts</p>
-                            <ul>
-                                {
-                                    allParts.map((p) => (
-                                        <li>
-                                            <a href={`/parts/${p.id}`} title={p.data.title}>
-                                                {p.data.title}
-                                            </a>
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                        </div>
-
-                        <div>
-                            <p class="font-semibold text-2xl">Miscellaneous</p>
-                            <ul>
-                                <li>
-                                    <a href="/builds" title="Builds">Builds</a>
-                                </li>
-                                <li>
-                                    <a href="/about" title="About THOR">About THOR Off-Road</a>
-                                </li>
-                                <li>
-                                    <a href="/terms-of-use" title="Terms of Use">Terms of Use</a>
-                                </li>
-                                <li>
-                                    <a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a>
-                                </li>
-                                <li>
-                                    <a href="/contact" title="Contact Us">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </Container>
-    </div>
+				<div class="space-y-4">
+					<p class="font-semibold text-2xl">Miscellaneous</p>
+					<ul class="space-y-2">
+						<li>
+							<a href="/builds" title="Builds">Builds</a>
+						</li>
+						<li>
+							<a href="/about" title="About THOR">About THOR Off-Road</a>
+						</li>
+						<li>
+							<a href="/terms-of-use" title="Terms of Use">Terms of Use</a>
+						</li>
+						<li>
+							<a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="/contact" title="Contact Us">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</Container>
+	</Map>
 </Layout>

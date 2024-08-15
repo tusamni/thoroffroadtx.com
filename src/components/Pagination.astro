@@ -21,7 +21,7 @@ const collapsedPages = collapseRange(page, pages);
 ---
 
 <nav {...attrs}>
-	<ul class="flex justify-center items-center rounded text-lg font-medium">
+	<ul class="flex justify-center items-center rounded text-lg font-alt">
 		{
 			page.url.prev && (
 				<li class="prev">
@@ -37,7 +37,7 @@ const collapsedPages = collapseRange(page, pages);
 					{!link.href ? (
 						<p class="p-4">{link.text}</p>
 					) : (
-						<a href={link.href} class:list={["p-4 hover:bg-rock-50/80", link.pageNum !== page.currentPage && "hover:border-white focus:border-white"]} aria-current={link.pageNum === page.currentPage ? "page" : undefined}>
+						<a href={link.href} class:list={["p-4 hover:bg-rock-50/80", link.pageNum == page.currentPage && "bg-rock-50/35"]} aria-current={link.pageNum === page.currentPage ? "page" : undefined}>
 							{link.pageNum}
 						</a>
 					)}

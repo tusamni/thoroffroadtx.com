@@ -51,53 +51,59 @@ if (buildData.data.meta.testimonial) {
 			<div class="flex gap-4">
 				<div>Completed {timeAgo(buildData.data.date)}</div>
 				<div>&middot;</div>
-				<a href={`builds?buildMake=${make.id}&buildModel=${model.data.slug}`} class="font-semibold hover:underline">See More {model.data.title} Builds &gt;</a>
+				<a href={`builds?buildMake=${make.id}&buildModel=${model.data.slug}`} class="font-semibold hover:underline">More {model.data.title} Builds &gt;</a>
 			</div>
 		</Container>
 	</div>
 
-	<Map classes="section bg-rock-100" opacity={0.04}>
+	<Map classes="section-small bg-rock-100" opacity={0.04}>
 		<Container classes="space-y-8">
+			<div class:list={["grid grid-cols-5"]}>
+				{
+					buildData.data.images.total < 3 && (
+						<div class="col-span-3">
+							<Picture src={getBuildImage(buildData.id, 1)} alt={getBuildTitle(buildData.id)} class="w-full h-auto object-cover rounded shadow-2xl" loading="eager" />
+							<Picture src={getBuildImage(buildData.id, 2)} alt={getBuildTitle(buildData.id)} class="object-cover w-full h-auto rounded shadow-2xl" loading="eager" />
+						</div>
+					)
+				}
+			</div>
+			<!-- 			
 			<div class="grid grid-cols-3 grid-rows-2 gap-8 h-[700px]">
 				<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="w-full h-full object-cover col-span-2 row-span-2 rounded shadow-2xl" loading="eager" />
 				<Picture src={getBuildImage(buildData.id, 2)} alt={getBuildTitle(buildData.id)} class="object-cover w-full h-full rounded shadow-2xl" loading="eager" />
 				<Picture src={getBuildImage(buildData.id, 15)} alt={getBuildTitle(buildData.id)} class="object-cover w-full h-full rounded shadow-2xl" loading="eager" />
-			</div>
+			</div> -->
 
 			<div class="grid grid-cols-5 gap-8">
-				<div class="col-span-2">
-					<div class="bg-gradient-to-br from-merlin-200 to-merlin-300 p-8 rounded space-y-12">
-						{
-							buildData.data.meta.goals && (
-								<div class="space-y-6">
-									<h2>Summary</h2>
-									<div class="space-y-6 text-lg leading-loose" set:html={buildData.data.meta.goals} />
-								</div>
-							)
-						}
+				<div class="col-span-2 w-full h-full">
+					<div class="sticky top-36 space-y-12">
+						<div class="bg-gradient-to-br from-merlin-50 to-merlin-100 p-10 rounded space-y-12 shadow-2xl">
+							{
+								buildData.data.meta.goals && (
+									<div class="space-y-6">
+										<h2>Summary</h2>
+										<div class="space-y-6 text-lg leading-loose" set:html={buildData.data.meta.goals} />
+									</div>
+								)
+							}
 
-						<div class="space-y-6">
-							<h2>Parts List</h2>
-							<div class="space-y-2 columns-2">
-								{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
+							<div class="space-y-6">
+								<h2>Parts List</h2>
+								<div class:list={["space-y-2", buildData.data.meta.parts.length < 4 ? "columns-1" : "columns-1"]}>
+									{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
+								</div>
 							</div>
-						</div>
 
-						{
-							buildData.data.meta.testimonial && (
-								<div class="text-base space-y-4">
-									<Testimonial content={testimonial} />
-								</div>
-							)
-						}
+							{
+								buildData.data.meta.testimonial && (
+									<div class="text-base space-y-4">
+										<Testimonial content={testimonial} />
+									</div>
+								)
+							}
 
-						<div class="space-y-8">
-							<h2>Let's <strong>Get Started</strong></h2>
-							<div class="leading-relaxed">There are endless options for your {model.data.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!</div>
-							<Link href="/contact" inverse={true}>Build Your {model.data.title}!</Link>
-						</div>
-
-						<!-- {
+							<!-- {
 						buildData.data.video && (
 							<div class="align-self-end flex-none">
 								<a
@@ -128,14 +134,21 @@ if (buildData.data.meta.testimonial) {
 							</div>
 						)
 					} -->
+						</div>
+
+						<div class="space-y-8">
+							<h2>Let's <strong>Get Started</strong></h2>
+							<div class="leading-relaxed">There are endless options for your {model.data.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!</div>
+							<Link href="/contact" inverse={true}>Build Your {model.data.title}!</Link>
+						</div>
 					</div>
 				</div>
 
 				<div class="col-span-3">
-					<div class="columns-3 gap-8">
+					<div class="grid grid-cols-3 gap-8">
 						{
-							Array.from(Array(buildData.data.images.total)).map((_, i) => (
-								<Picture src={getBuildImage(buildData.id, i + 1)} class="w-full h-auto shadow-2xl rounded mb-8" alt={getBuildDescription(buildData.id)} sizes="(max-width:1024) 50vw, 400px" />
+							Array.from(Array(buildData.data.images.total)).map((_, i, arr) => (
+								<Picture src={getBuildImage(buildData.id, i + 1)} class="w-72 h-72 object-cover shadow-2xl rounded" alt={getBuildDescription(buildData.id)} sizes="(max-width:1024) 50vw, 400px" />
 							))
 						}
 					</div>

@@ -44,9 +44,9 @@ if (buildData.data.meta.testimonial) {
 let imageArray = Array.from({ length: buildData.data.images.total - 0 }, (_, i) => 0 + 1 + i);
 imageArray = imageArray.filter((item) => item !== buildData.data.images.snippet);
 
-console.log(buildData.data.images.total);
-const remainder = buildData.data.images.total % 2 === 0;
+const remainder = (buildData.data.images.total - 1) % 3;
 console.log(remainder);
+const colspan = 3 - remainder;
 ---
 
 <Layout title={`Custom ${buildData.data.meta.year} ${make.data.title} ${model.data.title} ${buildData.data.meta.trim ? `${buildData.data.meta.trim} ` : ``}Built by THOR Off-Road`}>
@@ -145,7 +145,7 @@ console.log(remainder);
 				<div class="col-span-3">
 					{
 						buildData.data.images.total == 2 && (
-							<div class="col-span-3 space-y-8">
+							<div class="space-y-8">
 								<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="w-full h-full object-cover rounded shadow-2xl" loading="eager" />
 								{imageArray.map((i) => (
 									<Picture src={getBuildImage(buildData.id, i)} alt={getBuildTitle(buildData.id)} class="w-full h-full object-cover rounded shadow-2xl" loading="eager" />
@@ -154,13 +154,31 @@ console.log(remainder);
 						)
 					}
 					{
-						buildData.data.images.total >= 3 && (
-							<div class:list={["col-span-3 grid gap-8", remainder ? "grid-cols-3" : "grid-cols-2"]}>
-								<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="w-full h-full object-cover rounded shadow-2xl col-span-3" loading="eager" />
+						buildData.data.images.total == 3 && (
+							<div class:list={["grid gap-8 grid-cols-2"]}>
+								<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="w-full h-full object-cover rounded shadow-2xl col-span-2" loading="eager" />
 
 								{imageArray.map((i) => (
 									<Picture src={getBuildImage(buildData.id, i)} alt={getBuildTitle(buildData.id)} class="w-full h-full aspect-square object-cover rounded shadow-2xl" loading="eager" />
 								))}
+							</div>
+						)
+					}
+					{
+						buildData.data.images.total > 3 && (
+							<div class:list={["grid gap-8 grid-cols-3"]}>
+								{/* <Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="w-full h-full object-cover rounded shadow-2xl col-span-3" loading="eager" /> */}
+
+								{imageArray.map((i, index, arr) => {
+									return (
+										<Picture
+											src={getBuildImage(buildData.id, i)}
+											alt={getBuildTitle(buildData.id)}
+											class:list={["w-full h-full object-cover rounded shadow-2xl", remainder !== 0 && index + 1 === arr.length ? `col-span-${colspan + 1}` : `aspect-square`]}
+											loading="eager"
+										/>
+									);
+								})}
 							</div>
 						)
 					}

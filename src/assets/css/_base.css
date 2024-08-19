@@ -1,6 +1,5 @@
 @import url("_fonts.css");
 @import url("buttons.css");
-@import url("builds.css");
 @import url("forms.css");
 @import url("images.css");
 @import url("navigation.css");
@@ -20,14 +19,6 @@ body {
 /* alpine.js hide on load */
 [x-cloak] {
 	display: none !important;
-}
-
-::-moz-selection {
-	background: #ffedd5;
-}
-
-::selection {
-	background: #ffedd5;
 }
 
 .no-scrollbar::-webkit-scrollbar {

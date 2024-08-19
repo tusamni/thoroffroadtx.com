@@ -1,11 +1,3 @@
-.header-single {
-	@apply w-full h-[40vh] md:h-[50vh] max-h-[600px] object-cover;
-}
-
-.header-triple {
-	@apply w-full h-[25em] object-cover;
-}
-
 /* bigger picture edits */
 .bp-cap {
 	display: -webkit-box;

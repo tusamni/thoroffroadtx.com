@@ -1,0 +1,16 @@
+---
+// props
+interface Props {
+	theme?: "dark" | "light";
+	opacity?: number;
+	classes?: string;
+}
+const { theme = "dark", opacity = 1, classes, ...attrs } = Astro.props;
+---
+
+<div
+	class:list={[classes]}
+	style={`background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23${theme == "dark" ? `000000` : `FFFFFF`}' fill-opacity='${opacity}' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");`}
+>
+	<slot />
+</div>

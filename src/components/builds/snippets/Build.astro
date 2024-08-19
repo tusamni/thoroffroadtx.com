@@ -11,7 +11,7 @@ interface Props {
 const { build, sizes = "100vw", ...attrs } = Astro.props;
 ---
 
-<a href={`/builds/${build.id}`} class="relative bg-rock-50 hover:bg-white shadow-lg hover:shadow-2xl transition duration-200 rounded flex flex-col justify-between group">
+<a href={`/builds/${build.id}`} class="relative bg-rock-50 hover:bg-white shadow-lg hover:shadow-2xl transition duration-200 rounded flex flex-col justify-between group" {...attrs}>
 	<Picture src={getBuildImage(build.id, build.data.images.snippet)} alt={getBuildTitle(build.id)} class="aspect-video object-cover rounded-t" sizes={sizes} />
 
 	<div class="flex flex-col gap-3 p-6">

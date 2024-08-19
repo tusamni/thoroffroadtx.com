@@ -5,10 +5,10 @@ import Layout from "@/layouts/Layout";
 
 import { getCollection, getEntry } from "astro:content";
 import { paginate } from "@/functions/Paginate";
-import Build from "@/components/content/snippets/Build";
+import Build from "@/components/builds/snippets/Build";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
-import Map from "@/components/content/Map";
+import Map from "@/components/content/background/Map";
 import Pagination from "@/components/Pagination";
 
 const allMakes = await getCollection("makes");

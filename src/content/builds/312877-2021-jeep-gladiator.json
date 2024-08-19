@@ -1,16 +1,26 @@
 {
-    "date": "2024-03-21T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "meta": {
-        "year": 2021,
-        "make": "jeep",
-        "model": "jeep-gladiator",
-        "color": "White",
-        "drive": "4x4",
-        "parts": ["JKS 3\" Lift Kit", "35x12.50R20 Toyo Open Country A/T III Tires"]
-    },
-    "images": {
-        "total": 10,
-        "snippet": 3
-    }
+	"date": "2024-03-21T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"meta": {
+		"year": 2021,
+		"make": "jeep",
+		"model": "jeep-gladiator",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"JKS 3\" Lift Kit",
+			"35x12.50R20 Toyo Open Country A/T III Tires"
+		]
+	},
+	"images": {
+		"total": 10,
+		"snippet": 3,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

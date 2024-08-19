@@ -1,18 +1,32 @@
 {
-    "date": "2021-09-30T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["125830-2021-ford-f-150", "229741-2021-ford-f-150", "846320-2023-ford-f-150"],
-    "meta": {
-        "year": 2021,
-        "make": "ford",
-        "model": "ford-f-150",
-        "trim": "XLT",
-        "color": "Silver",
-        "drive": "4x4",
-        "parts": ["2\" Leveling Kit", "BF Goodrich K02 All Terrain Tires"]
-    },
-    "images": {
-        "total": 8,
-        "snippet": 1
-    }
+	"date": "2021-09-30T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"125830-2021-ford-f-150",
+		"229741-2021-ford-f-150",
+		"846320-2023-ford-f-150"
+	],
+	"meta": {
+		"year": 2021,
+		"make": "ford",
+		"model": "ford-f-150",
+		"trim": "XLT",
+		"color": "Silver",
+		"drive": "4x4",
+		"parts": [
+			"2\" Leveling Kit",
+			"BF Goodrich K02 All Terrain Tires"
+		]
+	},
+	"images": {
+		"total": 8,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

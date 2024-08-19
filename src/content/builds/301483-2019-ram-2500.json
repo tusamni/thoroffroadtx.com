@@ -1,28 +1,39 @@
 {
-    "date": "2023-01-20T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["692114-2023-ram-2500", "340718-2022-ram-2500", "452139-2023-ram-2500"],
-    "meta": {
-        "year": 2019,
-        "make": "ram",
-        "model": "ram-2500",
-        "trim": "Longhorn",
-        "color": "Black",
-        "drive": "4x4",
-        "parts": [
-            "Carli 3.25\" Pintop Suspension Kit",
-            "Carli High Mount Steering Stabilizer",
-            "Carli Low Mount Steering Stabilizer",
-            "Carli Torsion Sway Bar",
-            "Carli Radius Arms",
-            "Carli HD Ball Joints",
-            "Carli Front Differential Guard",
-            "Method 18\" 305NV Wheels in Black",
-            "37x12.50R18 Nitto Ridge Grappler Tires"
-        ]
-    },
-    "images": {
-        "total": 7,
-        "snippet": 1
-    }
+	"date": "2023-01-20T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"692114-2023-ram-2500",
+		"340718-2022-ram-2500",
+		"452139-2023-ram-2500"
+	],
+	"meta": {
+		"year": 2019,
+		"make": "ram",
+		"model": "ram-2500",
+		"trim": "Longhorn",
+		"color": "Black",
+		"drive": "4x4",
+		"parts": [
+			"Carli 3.25\" Pintop Suspension Kit",
+			"Carli High Mount Steering Stabilizer",
+			"Carli Low Mount Steering Stabilizer",
+			"Carli Torsion Sway Bar",
+			"Carli Radius Arms",
+			"Carli HD Ball Joints",
+			"Carli Front Differential Guard",
+			"Method 18\" 305NV Wheels in Black",
+			"37x12.50R18 Nitto Ridge Grappler Tires"
+		]
+	},
+	"images": {
+		"total": 7,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

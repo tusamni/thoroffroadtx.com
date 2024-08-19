@@ -1,18 +1,35 @@
 {
-    "date": "2022-10-28T00:00:00.000Z",
-    "categories": ["suspension", "body-bumper", "lighting"],
-    "related": ["988912-2005-lexus-gx-470", "328593-2018-lexus-gx-460", "864745-2020-toyota-4runner"],
-    "meta": {
-        "year": 2020,
-        "make": "lexus",
-        "model": "lexus-gx",
-        "trim": "460 Premium",
-        "color": "Silver",
-        "drive": "4x4",
-        "parts": ["Icon 3.5\" Stage 2 Suspension", "Baja Design Sport Squadron Lights", "Victory 4x4 Strike Front Bumper", "Black Rhino Armory Wheels"]
-    },
-    "images": {
-        "total": 5,
-        "snippet": 1
-    }
+	"date": "2022-10-28T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"body-bumper",
+		"lighting"
+	],
+	"related": [
+		"988912-2005-lexus-gx-470",
+		"328593-2018-lexus-gx-460",
+		"864745-2020-toyota-4runner"
+	],
+	"meta": {
+		"year": 2020,
+		"make": "lexus",
+		"model": "lexus-gx",
+		"trim": "460 Premium",
+		"color": "Silver",
+		"drive": "4x4",
+		"parts": [
+			"Icon 3.5\" Stage 2 Suspension",
+			"Baja Design Sport Squadron Lights",
+			"Victory 4x4 Strike Front Bumper",
+			"Black Rhino Armory Wheels"
+		]
+	},
+	"images": {
+		"total": 5,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

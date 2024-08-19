@@ -1,18 +1,34 @@
 {
-    "date": "2021-10-19T00:00:00.000Z",
-    "categories": ["body-bumper", "wheel-tire"],
-    "related": ["357202-2022-chevrolet-silverado-2500-hd", "695527-2022-chevrolet-silverado-2500-hd", "355738-2022-chevrolet-silverado-1500"],
-    "meta": {
-        "year": 2020,
-        "make": "chevrolet",
-        "model": "chevrolet-colorado",
-        "trim": "Z71",
-        "color": "Red",
-        "drive": "4x4",
-        "parts": ["AEV Front Bumper", "AEV High Mark Fenders", "AEV Wheels", "285/70R17 Tires"]
-    },
-    "images": {
-        "total": 6,
-        "snippet": 1
-    }
+	"date": "2021-10-19T00:00:00.000Z",
+	"categories": [
+		"body-bumper",
+		"wheel-tire"
+	],
+	"related": [
+		"357202-2022-chevrolet-silverado-2500-hd",
+		"695527-2022-chevrolet-silverado-2500-hd",
+		"355738-2022-chevrolet-silverado-1500"
+	],
+	"meta": {
+		"year": 2020,
+		"make": "chevrolet",
+		"model": "chevrolet-colorado",
+		"trim": "Z71",
+		"color": "Red",
+		"drive": "4x4",
+		"parts": [
+			"AEV Front Bumper",
+			"AEV High Mark Fenders",
+			"AEV Wheels",
+			"285/70R17 Tires"
+		]
+	},
+	"images": {
+		"total": 6,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

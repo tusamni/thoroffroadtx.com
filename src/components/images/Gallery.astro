@@ -1,18 +1,18 @@
 ---
 // props
 export interface Props {
-    element?: string;
-    classes?: string;
+	element?: string;
+	classes?: string;
 }
 const { element = "gallery", classes } = Astro.props;
 ---
 
 <div class:list={[element, classes]}>
-    <slot />
+	<slot />
 </div>
 
 <style>
-    div :global(img) {
-        cursor: pointer;
-    }
+	:global(img) {
+		@apply cursor-pointer;
+	}
 </style>

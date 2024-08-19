@@ -1,18 +1,31 @@
 {
-    "date": "2024-01-23T00:00:00.000Z",
-    "categories": ["wheel-tire"],
-    "related": ["211559-2020-lexus-gx-460", "328593-2018-lexus-gx-460", "864745-2020-toyota-4runner"],
-    "meta": {
-        "year": 2023,
-        "make": "cadillac",
-        "model": "cadillac-escalade",
-        "trim": "V",
-        "color": "White",
-        "drive": "AWD",
-        "parts": ["Vossen HF6-5 24\"x10\" Wheels", "305/35R24 Yokohama Parada Spec-X Tires"]
-    },
-    "images": {
-        "total": 10,
-        "snippet": 3
-    }
+	"date": "2024-01-23T00:00:00.000Z",
+	"categories": [
+		"wheel-tire"
+	],
+	"related": [
+		"211559-2020-lexus-gx-460",
+		"328593-2018-lexus-gx-460",
+		"864745-2020-toyota-4runner"
+	],
+	"meta": {
+		"year": 2023,
+		"make": "cadillac",
+		"model": "cadillac-escalade",
+		"trim": "V",
+		"color": "White",
+		"drive": "AWD",
+		"parts": [
+			"Vossen HF6-5 24\"x10\" Wheels",
+			"305/35R24 Yokohama Parada Spec-X Tires"
+		]
+	},
+	"images": {
+		"total": 10,
+		"snippet": 3,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

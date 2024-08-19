@@ -1,18 +1,38 @@
 {
-    "date": "2021-09-02T00:00:00.000Z",
-    "categories": ["suspension", "body-bumper", "lighting", "wheel-tire"],
-    "related": ["813261-2021-ford-f-150", "229741-2021-ford-f-150", "846320-2023-ford-f-150"],
-    "meta": {
-        "year": 2021,
-        "make": "ford",
-        "model": "ford-f-150",
-        "trim": "Lariat",
-        "color": "Silver",
-        "drive": "4x4",
-        "parts": ["4\" BDS Lift Kit", "FOX Shocks", "AMP Steps", "Baja Design Fog Lights", "20\" Raceline Wheels", "35x12.50R20 Nitto Ridge Grappler Tires"]
-    },
-    "images": {
-        "total": 25,
-        "snippet": 23
-    }
+	"date": "2021-09-02T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"body-bumper",
+		"lighting",
+		"wheel-tire"
+	],
+	"related": [
+		"813261-2021-ford-f-150",
+		"229741-2021-ford-f-150",
+		"846320-2023-ford-f-150"
+	],
+	"meta": {
+		"year": 2021,
+		"make": "ford",
+		"model": "ford-f-150",
+		"trim": "Lariat",
+		"color": "Silver",
+		"drive": "4x4",
+		"parts": [
+			"4\" BDS Lift Kit",
+			"FOX Shocks",
+			"AMP Steps",
+			"Baja Design Fog Lights",
+			"20\" Raceline Wheels",
+			"35x12.50R20 Nitto Ridge Grappler Tires"
+		]
+	},
+	"images": {
+		"total": 25,
+		"snippet": 23,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

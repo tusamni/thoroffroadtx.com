@@ -1,18 +1,32 @@
 {
-    "date": "2024-02-27T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["684213-2020-ford-f-250", "427484-2022-ford-f-250", "453172-2020-ford-f-250"],
-    "meta": {
-        "year": 2022,
-        "make": "gmc",
-        "model": "gmc-sierra-2500-hd",
-        "trim": "AT4",
-        "color": "Blue",
-        "drive": "4x4",
-        "parts": ["Fox Suspension Lift Kit", "295/65R20 BFG All Terrain T/A KO2 Tires"]
-    },
-    "images": {
-        "total": 10,
-        "snippet": 7
-    }
+	"date": "2024-02-27T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"684213-2020-ford-f-250",
+		"427484-2022-ford-f-250",
+		"453172-2020-ford-f-250"
+	],
+	"meta": {
+		"year": 2022,
+		"make": "gmc",
+		"model": "gmc-sierra-2500-hd",
+		"trim": "AT4",
+		"color": "Blue",
+		"drive": "4x4",
+		"parts": [
+			"Fox Suspension Lift Kit",
+			"295/65R20 BFG All Terrain T/A KO2 Tires"
+		]
+	},
+	"images": {
+		"total": 10,
+		"snippet": 7,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

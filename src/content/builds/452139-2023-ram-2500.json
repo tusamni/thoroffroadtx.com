@@ -1,26 +1,39 @@
 {
-    "date": "2023-08-22T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire", "bed-roof", "body-bumper"],
-    "related": ["692114-2023-ram-2500", "298562-2021-ram-2500", "340718-2022-ram-2500"],
-    "meta": {
-        "year": 2023,
-        "make": "ram",
-        "model": "ram-2500",
-        "trim": "Power Wagon",
-        "color": "White",
-        "drive": "4x4",
-        "parts": [
-            "Carli 2\" King Pintop Suspension Kit",
-            "Carli High Mount Steering Stabilizer",
-            "Carli Low Mount Steering Stabilizer",
-            "18x9.5\" Black Rhino Arsenal Wheels",
-            "37x12.50R18 Nitto Ridge Grappler Tires",
-            "N-Fab Flat Mount Tire Carrier",
-            "Amp Research Power Steps"
-        ]
-    },
-    "images": {
-        "total": 8,
-        "snippet": 8
-    }
+	"date": "2023-08-22T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"bed-roof",
+		"body-bumper"
+	],
+	"related": [
+		"692114-2023-ram-2500",
+		"298562-2021-ram-2500",
+		"340718-2022-ram-2500"
+	],
+	"meta": {
+		"year": 2023,
+		"make": "ram",
+		"model": "ram-2500",
+		"trim": "Power Wagon",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"Carli 2\" King Pintop Suspension Kit",
+			"Carli High Mount Steering Stabilizer",
+			"Carli Low Mount Steering Stabilizer",
+			"18x9.5\" Black Rhino Arsenal Wheels",
+			"37x12.50R18 Nitto Ridge Grappler Tires",
+			"N-Fab Flat Mount Tire Carrier",
+			"Amp Research Power Steps"
+		]
+	},
+	"images": {
+		"total": 8,
+		"snippet": 8,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

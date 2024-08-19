@@ -1,17 +1,22 @@
 .header-single {
-    @apply w-full h-[40vh] md:h-[50vh] max-h-[600px] object-cover;
+	@apply w-full h-[40vh] md:h-[50vh] max-h-[600px] object-cover;
 }
+
 .header-triple {
-    @apply w-full h-[25em] object-cover;
+	@apply w-full h-[25em] object-cover;
 }
 
 /* bigger picture edits */
 .bp-cap {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    @apply text-sm line-clamp-2 rounded overflow-hidden p-0 border-transparent border-y-[1em] border-x-[1em];
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	@apply text-sm line-clamp-2 rounded overflow-hidden p-0 border-transparent border-y-[1em] border-x-[1em];
 }
 
 .bp-img img {
-    @apply rounded;
+	@apply rounded;
+}
+
+.gallery {
+	@apply hover:cursor-pointer;
 }

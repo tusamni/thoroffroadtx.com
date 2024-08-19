@@ -42,7 +42,7 @@ async function getFilteredBuilds(make, model, search) {
 		}
 
 		if (searchRegex) {
-			return searchRegex.test(build.data.meta.year) || searchRegex.test(build.data.meta.make.id) || searchRegex.test(build.data.meta.model.id) || searchRegex.test(build.data.meta.trim);
+			return searchRegex.test(build.data.meta.year) || searchRegex.test(build.data.meta.make.id) || searchRegex.test(build.data.meta.model.id) || searchRegex.test(build.data.meta.trim) || searchRegex.test(build.id);
 		}
 
 		return true;

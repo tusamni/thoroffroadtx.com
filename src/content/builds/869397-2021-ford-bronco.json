@@ -1,18 +1,37 @@
 {
-    "date": "2022-05-02T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire", "body-bumper", "lighting"],
-    "related": ["122366-2021-ford-bronco", "435353-2021-ford-bronco", "266375-2022-ford-bronco"],
-    "meta": {
-        "year": 2021,
-        "make": "ford",
-        "model": "ford-bronco",
-        "trim": "Big Bend",
-        "color": "Silver",
-        "drive": "4x4",
-        "parts": ["1.5\" ReadyLift Suspension Kit", "17x8\" KMC Wheels", "265/45R17 BFG Tires", "Rough Counttry Nudge Bar", "20\" Bumper Light Bar"]
-    },
-    "images": {
-        "total": 6,
-        "snippet": 1
-    }
+	"date": "2022-05-02T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"body-bumper",
+		"lighting"
+	],
+	"related": [
+		"122366-2021-ford-bronco",
+		"435353-2021-ford-bronco",
+		"266375-2022-ford-bronco"
+	],
+	"meta": {
+		"year": 2021,
+		"make": "ford",
+		"model": "ford-bronco",
+		"trim": "Big Bend",
+		"color": "Silver",
+		"drive": "4x4",
+		"parts": [
+			"1.5\" ReadyLift Suspension Kit",
+			"17x8\" KMC Wheels",
+			"265/45R17 BFG Tires",
+			"Rough Counttry Nudge Bar",
+			"20\" Bumper Light Bar"
+		]
+	},
+	"images": {
+		"total": 6,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

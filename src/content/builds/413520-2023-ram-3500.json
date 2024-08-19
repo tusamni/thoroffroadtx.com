@@ -1,44 +1,61 @@
 {
-    "date": "2023-10-31T00:00:00.000Z",
-    "categories": ["body-bumper", "suspension", "wheel-tire", "bed-roof", "lighting", "towing-hitches", "specialties", "performance"],
-    "related": ["850633-2022-ram-3500", "452139-2023-ram-2500", "692114-2023-ram-2500"],
-    "meta": {
-        "year": 2023,
-        "make": "ram",
-        "model": "ram-3500",
-        "trim": "Limited",
-        "color": "Grey",
-        "drive": "4x4",
-        "parts": [
-            "Carli 3.25\" Pintop Suspension System",
-            "Carli Leaf Springs",
-            "Carli Torsion Sway Bar",
-            "Carli High Mount Steering Stabilizer",
-            "Carli Low Mount Steering Stabilizer",
-            "Carli Fabricated Radius Arms",
-            "AEV HD Low Tube Front Bumper",
-            "AEV 17\"x8.5\" Salta Onyx Wheels",
-            "37x12.50R17 Toyo RT Tires",
-            "Smart Cap",
-            "Decked System",
-            "LP9 Clear Pro Driving Combo Lights",
-            "LP9 Amber Pro Driving Combo Lights",
-            "Baja Design Flush Mount Squadron Lights",
-            "Baja Design Fog Light Pocket Kit",
-            "BW Tow and Stow Hitch",
-            "Fender Flares",
-            "Titan XL 50 Gallon Fuel Tank",
-            "Valentine V2 Blend Mount",
-            "Magnaflow Exhaust"
-        ]
-    },
-    "images": {
-        "total": 19,
-        "snippet": 4
-    },
-    "video": {
-        "filename": "video",
-        "width": 1080,
-        "height": 1920
-    }
+	"date": "2023-10-31T00:00:00.000Z",
+	"categories": [
+		"body-bumper",
+		"suspension",
+		"wheel-tire",
+		"bed-roof",
+		"lighting",
+		"towing-hitches",
+		"specialties",
+		"performance"
+	],
+	"related": [
+		"850633-2022-ram-3500",
+		"452139-2023-ram-2500",
+		"692114-2023-ram-2500"
+	],
+	"meta": {
+		"year": 2023,
+		"make": "ram",
+		"model": "ram-3500",
+		"trim": "Limited",
+		"color": "Grey",
+		"drive": "4x4",
+		"parts": [
+			"Carli 3.25\" Pintop Suspension System",
+			"Carli Leaf Springs",
+			"Carli Torsion Sway Bar",
+			"Carli High Mount Steering Stabilizer",
+			"Carli Low Mount Steering Stabilizer",
+			"Carli Fabricated Radius Arms",
+			"AEV HD Low Tube Front Bumper",
+			"AEV 17\"x8.5\" Salta Onyx Wheels",
+			"37x12.50R17 Toyo RT Tires",
+			"Smart Cap",
+			"Decked System",
+			"LP9 Clear Pro Driving Combo Lights",
+			"LP9 Amber Pro Driving Combo Lights",
+			"Baja Design Flush Mount Squadron Lights",
+			"Baja Design Fog Light Pocket Kit",
+			"BW Tow and Stow Hitch",
+			"Fender Flares",
+			"Titan XL 50 Gallon Fuel Tank",
+			"Valentine V2 Blend Mount",
+			"Magnaflow Exhaust"
+		]
+	},
+	"images": {
+		"total": 19,
+		"snippet": 4,
+		"highlight": [
+			2,
+			3
+		]
+	},
+	"video": {
+		"filename": "video",
+		"width": 1080,
+		"height": 1920
+	}
 }

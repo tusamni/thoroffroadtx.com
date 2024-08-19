@@ -1,18 +1,31 @@
 {
-    "date": "2021-07-06T00:00:00.000Z",
-    "categories": ["wheel-tire"],
-    "related": ["125830-2021-ford-f-150", "846320-2023-ford-f-150", "813261-2021-ford-f-150"],
-    "meta": {
-        "year": 2021,
-        "make": "ford",
-        "model": "ford-f-150",
-        "trim": "Platinum",
-        "color": "Silver",
-        "drive": "4x4",
-        "parts": ["Open Country ATIII 295/60R20 Tires", "20\" Fuel Wheels"]
-    },
-    "images": {
-        "total": 15,
-        "snippet": 5
-    }
+	"date": "2021-07-06T00:00:00.000Z",
+	"categories": [
+		"wheel-tire"
+	],
+	"related": [
+		"125830-2021-ford-f-150",
+		"846320-2023-ford-f-150",
+		"813261-2021-ford-f-150"
+	],
+	"meta": {
+		"year": 2021,
+		"make": "ford",
+		"model": "ford-f-150",
+		"trim": "Platinum",
+		"color": "Silver",
+		"drive": "4x4",
+		"parts": [
+			"Open Country ATIII 295/60R20 Tires",
+			"20\" Fuel Wheels"
+		]
+	},
+	"images": {
+		"total": 15,
+		"snippet": 5,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

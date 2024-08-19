@@ -1,18 +1,33 @@
 {
-    "date": "2024-03-04T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["684213-2020-ford-f-250", "427484-2022-ford-f-250", "453172-2020-ford-f-250"],
-    "meta": {
-        "year": 2024,
-        "make": "gmc",
-        "model": "gmc-sierra-2500-hd",
-        "trim": "AT4",
-        "color": "White",
-        "drive": "4x4",
-        "parts": ["Cognito 3\" Leveling Kit", "Method MR321 20x9\" Wheels", "35x12.50R20 Nitto Recon Grappler A/T Tires"]
-    },
-    "images": {
-        "total": 11,
-        "snippet": 2
-    }
+	"date": "2024-03-04T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"684213-2020-ford-f-250",
+		"427484-2022-ford-f-250",
+		"453172-2020-ford-f-250"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "gmc",
+		"model": "gmc-sierra-2500-hd",
+		"trim": "AT4",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"Cognito 3\" Leveling Kit",
+			"Method MR321 20x9\" Wheels",
+			"35x12.50R20 Nitto Recon Grappler A/T Tires"
+		]
+	},
+	"images": {
+		"total": 11,
+		"snippet": 2,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

@@ -31,7 +31,11 @@
 	},
 	"images": {
 		"total": 4,
-		"snippet": 3
+		"snippet": 3,
+		"highlight": [
+			2,
+			3
+		]
 	},
 	"video": {
 		"filename": "video",

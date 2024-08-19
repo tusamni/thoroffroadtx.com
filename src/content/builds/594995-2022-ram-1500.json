@@ -1,32 +1,46 @@
 {
-    "date": "2022-03-18T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire", "body-bumper", "lighting", "bed-roof"],
-    "related": ["977725-2021-ram-1500", "739587-2023-ram-1500", "405642-2022-ram-2500"],
-    "meta": {
-        "year": 2022,
-        "make": "ram",
-        "model": "ram-1500",
-        "trim": "TRX",
-        "color": "White",
-        "drive": "4x4",
-        "parts": [
-            "AFE Leveling Kit",
-            "20x9\" Black Rhino Reno Candy Red Wheels",
-            "35x12.50R20 Toyo AT III",
-            "ADD Front and Rear Bumpers",
-            "Baja Design LP6 Center Lights",
-            "Baja Design Squadron Front and Rear Lights",
-            "Retrax Pro MX Bed Cover",
-            "Baja Design Rock Lighting"
-        ]
-    },
-    "images": {
-        "total": 7,
-        "snippet": 1
-    },
-    "video": {
-        "filename": "video",
-        "width": 720,
-        "height": 1280
-    }
+	"date": "2022-03-18T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"body-bumper",
+		"lighting",
+		"bed-roof"
+	],
+	"related": [
+		"977725-2021-ram-1500",
+		"739587-2023-ram-1500",
+		"405642-2022-ram-2500"
+	],
+	"meta": {
+		"year": 2022,
+		"make": "ram",
+		"model": "ram-1500",
+		"trim": "TRX",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"AFE Leveling Kit",
+			"20x9\" Black Rhino Reno Candy Red Wheels",
+			"35x12.50R20 Toyo AT III",
+			"ADD Front and Rear Bumpers",
+			"Baja Design LP6 Center Lights",
+			"Baja Design Squadron Front and Rear Lights",
+			"Retrax Pro MX Bed Cover",
+			"Baja Design Rock Lighting"
+		]
+	},
+	"images": {
+		"total": 7,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	},
+	"video": {
+		"filename": "video",
+		"width": 720,
+		"height": 1280
+	}
 }

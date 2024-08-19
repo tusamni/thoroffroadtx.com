@@ -1,18 +1,36 @@
 {
-    "date": "2022-12-15T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire", "body-bumper"],
-    "related": ["439715-2022-ram-2500", "301483-2019-ram-2500", "855592-2020-ram-2500"],
-    "meta": {
-        "year": 2022,
-        "make": "ram",
-        "model": "ram-2500",
-        "trim": "Laramie",
-        "color": "Red",
-        "drive": "4x4",
-        "parts": ["AEV Dual Sport 3\" Suspension Kit", "AEV Front Modular Bumper", "AEV High Mark Fenders", "AEV Katla 17x9\" Wheels", "40x13.50R17 Gladiator X Comp M/T Tires"]
-    },
-    "images": {
-        "total": 9,
-        "snippet": 1
-    }
+	"date": "2022-12-15T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"body-bumper"
+	],
+	"related": [
+		"439715-2022-ram-2500",
+		"301483-2019-ram-2500",
+		"855592-2020-ram-2500"
+	],
+	"meta": {
+		"year": 2022,
+		"make": "ram",
+		"model": "ram-2500",
+		"trim": "Laramie",
+		"color": "Red",
+		"drive": "4x4",
+		"parts": [
+			"AEV Dual Sport 3\" Suspension Kit",
+			"AEV Front Modular Bumper",
+			"AEV High Mark Fenders",
+			"AEV Katla 17x9\" Wheels",
+			"40x13.50R17 Gladiator X Comp M/T Tires"
+		]
+	},
+	"images": {
+		"total": 9,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

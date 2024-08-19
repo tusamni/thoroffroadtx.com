@@ -26,6 +26,10 @@
 	},
 	"images": {
 		"total": 7,
-		"snippet": 1
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
 	}
 }

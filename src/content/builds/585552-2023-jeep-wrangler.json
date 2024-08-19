@@ -1,29 +1,38 @@
 {
-    "date": "2023-12-22T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire", "body-bumper", "lighting"],
-    "meta": {
-        "year": 2023,
-        "make": "jeep",
-        "model": "jeep-wrangler",
-        "trim": "Unlimited Rubicon",
-        "color": "Grey",
-        "drive": "4x4",
-        "parts": [
-            "Teraflex 2.5\" Sport S/T2 Lift Kit",
-            "Falcon 3.3 Shocks",
-            "37x12.50R17 Falken Wildpeak A/T Tires",
-            "Black Rhino Armory 17\" Wheels",
-            "Westin Tire Carrier",
-            "Ridgid Industries Pod Lights"
-        ]
-    },
-    "images": {
-        "total": 16,
-        "snippet": 1
-    },
-    "video": {
-        "filename": "video",
-        "width": 1080,
-        "height": 1920
-    }
+	"date": "2023-12-22T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"body-bumper",
+		"lighting"
+	],
+	"meta": {
+		"year": 2023,
+		"make": "jeep",
+		"model": "jeep-wrangler",
+		"trim": "Unlimited Rubicon",
+		"color": "Grey",
+		"drive": "4x4",
+		"parts": [
+			"Teraflex 2.5\" Sport S/T2 Lift Kit",
+			"Falcon 3.3 Shocks",
+			"37x12.50R17 Falken Wildpeak A/T Tires",
+			"Black Rhino Armory 17\" Wheels",
+			"Westin Tire Carrier",
+			"Ridgid Industries Pod Lights"
+		]
+	},
+	"images": {
+		"total": 16,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	},
+	"video": {
+		"filename": "video",
+		"width": 1080,
+		"height": 1920
+	}
 }

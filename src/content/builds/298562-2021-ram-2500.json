@@ -1,28 +1,42 @@
 {
-    "date": "2022-09-21T00:00:00.000Z",
-    "categories": ["suspension", "bed-roof", "wheel-tire", "lighting", "body-bumper"],
-    "related": ["340718-2022-ram-2500", "439715-2022-ram-2500", "301483-2019-ram-2500"],
-    "meta": {
-        "year": 2021,
-        "make": "ram",
-        "model": "ram-2500",
-        "trim": "Power Wagon",
-        "color": "Anvil",
-        "drive": "4x4",
-        "parts": [
-            "Carli 5.5\" Pintop Suspension Kit",
-            "AEV 17\" Katla Wheels",
-            "37x12.50R17 BFGoodrich All Terrain T/A K02 Tires",
-            "AEV Front Bumper",
-            "AEV Rear Bumper",
-            "Baja Designs LP6 Front Bumper Lights",
-            "Baja Designs LP4 Hood Lights",
-            "Warn Winch",
-            "GoFast Camper"
-        ]
-    },
-    "images": {
-        "total": 14,
-        "snippet": 1
-    }
+	"date": "2022-09-21T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"bed-roof",
+		"wheel-tire",
+		"lighting",
+		"body-bumper"
+	],
+	"related": [
+		"340718-2022-ram-2500",
+		"439715-2022-ram-2500",
+		"301483-2019-ram-2500"
+	],
+	"meta": {
+		"year": 2021,
+		"make": "ram",
+		"model": "ram-2500",
+		"trim": "Power Wagon",
+		"color": "Anvil",
+		"drive": "4x4",
+		"parts": [
+			"Carli 5.5\" Pintop Suspension Kit",
+			"AEV 17\" Katla Wheels",
+			"37x12.50R17 BFGoodrich All Terrain T/A K02 Tires",
+			"AEV Front Bumper",
+			"AEV Rear Bumper",
+			"Baja Designs LP6 Front Bumper Lights",
+			"Baja Designs LP4 Hood Lights",
+			"Warn Winch",
+			"GoFast Camper"
+		]
+	},
+	"images": {
+		"total": 14,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

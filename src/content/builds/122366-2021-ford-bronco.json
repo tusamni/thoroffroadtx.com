@@ -1,33 +1,46 @@
 {
-    "date": "2022-06-23T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire", "body-bumper", "lighting"],
-    "related": ["777233-2022-ford-bronco", "215615-2022-ford-bronco", "435353-2021-ford-bronco"],
-    "meta": {
-        "year": 2021,
-        "make": "ford",
-        "model": "ford-bronco",
-        "trim": "Wildtrack",
-        "color": "Antimatter Blue",
-        "drive": "4x4",
-        "parts": [
-            "2.25\" RPG Lift Kit",
-            "RPG Upper Control Arms",
-            "RPG Rear Radius Arms",
-            "17x8.5\" KMC Mesa Wheels",
-            "37x12.50R17 Yokohama XAT Tires",
-            "Addictive Desert Designs Rock Fighter Bumpers",
-            "Baja Design 20\" Light Bar",
-            "Warn 10S Winch",
-            "Bronco Retro Badges"
-        ]
-    },
-    "images": {
-        "total": 20,
-        "snippet": 17
-    },
-    "video": {
-        "filename": "video",
-        "width": 720,
-        "height": 1280
-    }
+	"date": "2022-06-23T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"body-bumper",
+		"lighting"
+	],
+	"related": [
+		"777233-2022-ford-bronco",
+		"215615-2022-ford-bronco",
+		"435353-2021-ford-bronco"
+	],
+	"meta": {
+		"year": 2021,
+		"make": "ford",
+		"model": "ford-bronco",
+		"trim": "Wildtrack",
+		"color": "Antimatter Blue",
+		"drive": "4x4",
+		"parts": [
+			"2.25\" RPG Lift Kit",
+			"RPG Upper Control Arms",
+			"RPG Rear Radius Arms",
+			"17x8.5\" KMC Mesa Wheels",
+			"37x12.50R17 Yokohama XAT Tires",
+			"Addictive Desert Designs Rock Fighter Bumpers",
+			"Baja Design 20\" Light Bar",
+			"Warn 10S Winch",
+			"Bronco Retro Badges"
+		]
+	},
+	"images": {
+		"total": 20,
+		"snippet": 17,
+		"highlight": [
+			2,
+			3
+		]
+	},
+	"video": {
+		"filename": "video",
+		"width": 720,
+		"height": 1280
+	}
 }

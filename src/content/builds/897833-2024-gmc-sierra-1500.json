@@ -1,18 +1,32 @@
 {
-    "date": "2023-11-07T00:00:00.000Z",
-    "categories": ["wheel-tire"],
-    "related": ["108058-2022-gmc-sierra-2500-hd", "951355-2020-gmc-sierra-2500-hd", "965777-2022-gmc-sierra-2500-hd"],
-    "meta": {
-        "year": 2024,
-        "make": "gmc",
-        "model": "gmc-sierra-1500",
-        "trim": "AT4",
-        "color": "Black",
-        "drive": "4x4",
-        "parts": ["Cognito 1\" Elite Leveling Kit with King 2.5 Shocks", "Method 305NV Double Black 18x9\" +18 Wheels", "295/70R18 Nitto Ridge Grappler Tires"]
-    },
-    "images": {
-        "total": 11,
-        "snippet": 5
-    }
+	"date": "2023-11-07T00:00:00.000Z",
+	"categories": [
+		"wheel-tire"
+	],
+	"related": [
+		"108058-2022-gmc-sierra-2500-hd",
+		"951355-2020-gmc-sierra-2500-hd",
+		"965777-2022-gmc-sierra-2500-hd"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "gmc",
+		"model": "gmc-sierra-1500",
+		"trim": "AT4",
+		"color": "Black",
+		"drive": "4x4",
+		"parts": [
+			"Cognito 1\" Elite Leveling Kit with King 2.5 Shocks",
+			"Method 305NV Double Black 18x9\" +18 Wheels",
+			"295/70R18 Nitto Ridge Grappler Tires"
+		]
+	},
+	"images": {
+		"total": 11,
+		"snippet": 5,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

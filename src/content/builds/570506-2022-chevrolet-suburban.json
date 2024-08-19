@@ -1,18 +1,32 @@
 {
-    "date": "2024-03-26T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["211559-2020-lexus-gx-460", "328593-2018-lexus-gx-460", "864745-2020-toyota-4runner"],
-    "meta": {
-        "year": 2022,
-        "make": "chevrolet",
-        "model": "chevrolet-suburban",
-        "trim": "Z71",
-        "color": "Black",
-        "drive": "AWD",
-        "parts": ["Switch Suspension 2.5\" Lift Kit", "285/60R20 Toyo Open Country A/T III Tires"]
-    },
-    "images": {
-        "total": 5,
-        "snippet": 1
-    }
+	"date": "2024-03-26T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"211559-2020-lexus-gx-460",
+		"328593-2018-lexus-gx-460",
+		"864745-2020-toyota-4runner"
+	],
+	"meta": {
+		"year": 2022,
+		"make": "chevrolet",
+		"model": "chevrolet-suburban",
+		"trim": "Z71",
+		"color": "Black",
+		"drive": "AWD",
+		"parts": [
+			"Switch Suspension 2.5\" Lift Kit",
+			"285/60R20 Toyo Open Country A/T III Tires"
+		]
+	},
+	"images": {
+		"total": 5,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

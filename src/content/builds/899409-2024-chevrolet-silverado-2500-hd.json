@@ -1,21 +1,32 @@
 {
-    "date": "2024-05-15T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["357202-2022-chevrolet-silverado-2500-hd", "355738-2022-chevrolet-silverado-1500", "727698-2020-chevrolet-colorado"],
-    "meta": {
-        "year": 2024,
-        "make": "chevrolet",
-        "model": "chevrolet-silverado-2500-hd",
-        "trim": "High Country",
-        "color": "White",
-        "drive": "4x4",
-        "parts": [
-            "Cognito 3\" Leveling Kit with Fox 2.0 IFP Shocks",
-            "Bora 1.85\" Wheel Spacers"
-        ]
-    },
-    "images": {
-        "total": 17,
-        "snippet": 1
-    }
+	"date": "2024-05-15T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"357202-2022-chevrolet-silverado-2500-hd",
+		"355738-2022-chevrolet-silverado-1500",
+		"727698-2020-chevrolet-colorado"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "chevrolet",
+		"model": "chevrolet-silverado-2500-hd",
+		"trim": "High Country",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"Cognito 3\" Leveling Kit with Fox 2.0 IFP Shocks",
+			"Bora 1.85\" Wheel Spacers"
+		]
+	},
+	"images": {
+		"total": 17,
+		"snippet": 1,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

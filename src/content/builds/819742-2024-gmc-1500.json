@@ -1,18 +1,33 @@
 {
-    "date": "2024-03-14T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["108058-2022-gmc-sierra-2500-hd", "951355-2020-gmc-sierra-2500-hd", "965777-2022-gmc-sierra-2500-hd"],
-    "meta": {
-        "year": 2024,
-        "make": "gmc",
-        "model": "gmc-sierra-1500",
-        "trim": "Denali",
-        "color": "White",
-        "drive": "4x4",
-        "parts": ["Cognito 3\" Leveling Kit with Fox 2.0 Shocks", "Fuel Off-Road Hurricane 20x9\" Wheels", "285/60R20 Toyo Open Country A/T III Tires"]
-    },
-    "images": {
-        "total": 7,
-        "snippet": 2
-    }
+	"date": "2024-03-14T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"108058-2022-gmc-sierra-2500-hd",
+		"951355-2020-gmc-sierra-2500-hd",
+		"965777-2022-gmc-sierra-2500-hd"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "gmc",
+		"model": "gmc-sierra-1500",
+		"trim": "Denali",
+		"color": "White",
+		"drive": "4x4",
+		"parts": [
+			"Cognito 3\" Leveling Kit with Fox 2.0 Shocks",
+			"Fuel Off-Road Hurricane 20x9\" Wheels",
+			"285/60R20 Toyo Open Country A/T III Tires"
+		]
+	},
+	"images": {
+		"total": 7,
+		"snippet": 2,
+		"highlight": [
+			2,
+			3
+		]
+	}
 }

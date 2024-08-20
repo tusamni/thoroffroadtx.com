@@ -6,156 +6,133 @@ import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 import { getCollection } from "astro:content";
 
-import Build from "@/components/content/snippets/Build";
-import BuildAlt from "@/components/content/snippets/BuildAlt";
+import Build from "@/components/builds/snippets/Build";
 import Container from "@/components/Container";
-import Gallery from "@/components/images/Gallery";
-import Icon from "@/components/Icon";
 import Link from "@/components/Link";
-import Make from "@/components/content/snippets/Make";
+import Make from "@/components/snippets/Make";
 import Picture from "@/components/images/Picture";
 
 // content
 const recentBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 8);
 const allMakes = await getCollection("makes", ({ data }) => {
-    return data.draft !== true;
+	return data.draft !== true;
 });
 const process = [
-    {
-        title: "We Know the Brands",
-        description: "We love everything automotive and have decades of experience working on the top vehicle brands and platforms.",
-    },
-    {
-        title: "We Know the Parts",
-        description: "We only work with top manufacturers and have done the research and testing required to perfectly match parts for our off-road vehicle builds.",
-    },
-    {
-        title: "What Are You Looking For?",
-        description: "Our entire mission is to create purpose-built vehicles and we take the time to know you and the goals you have for your vehicle.",
-    },
-    {
-        title: "Let's Build It!",
-        description: "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
-    },
+	{
+		title: "We Know the Brands",
+		description: "We love everything automotive and have decades of experience working on the top vehicle brands and platforms.",
+	},
+	{
+		title: "We Know the Parts",
+		description: "We only work with top manufacturers and have done the research and testing required to perfectly match parts for our off-road vehicle builds.",
+	},
+	{
+		title: "What Are You Looking For?",
+		description: "Our entire mission is to create purpose-built vehicles and we take the time to know you and the goals you have for your vehicle.",
+	},
+	{
+		title: "Let's Build It!",
+		description: "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
+	},
 ];
 const vehicleFill = {
-    data: {
-        title: "We Do It All!",
-        description: {
-            long: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
-        },
-        icon: "hero/Envelope",
-    },
+	data: {
+		title: "We Do It All!",
+		description: {
+			long: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
+		},
+		icon: "hero/Envelope",
+	},
 };
 
 const headlineImages = [
-    { id: "405642-2022-ram-2500", image: 7 },
-    { id: "223455-2007-toyota-land-cruiser", image: 1 },
-    { id: "298562-2021-ram-2500", image: 1 },
+	{ id: "405642-2022-ram-2500", image: 7 },
+	{ id: "223455-2007-toyota-land-cruiser", image: 1 },
+	{ id: "298562-2021-ram-2500", image: 1 },
 ];
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
-    <div class="grid md:grid-cols-3">
-        {
-            headlineImages.map((h, i) => (
-                <Picture
-                    src={getBuildImage(h.id, h.image)}
-                    alt={getBuildDescription(h.id)}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    loading="eager"
-                    class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]}
-                />
-            ))
-        }
-    </div>
+	<div class="grid md:grid-cols-3">
+		{headlineImages.map((h, i) => <Picture src={getBuildImage(h.id, h.image)} alt={getBuildDescription(h.id)} sizes="(max-width: 768px) 100vw, 33vw" loading="eager" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />)}
+	</div>
 
-    <div class="-mt-20 section section-bottom">
-        <Container padding={true}>
-            <div class="grid grid-cols-2 sm:gap-4">
-                <!-- black content area -->
-                <div class="bg-black h-fit col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
-                    <div class="space-y-8">
-                        <h1 class="text-balance">Texas' Top Truck Outfitter</h1>
-                        <p class="text-base">
-                            THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently
-                            deliver the truck or adventure vehicle of our customers' dreams.
-                        </p>
-                    </div>
+	<div class="-mt-20 section section-bottom">
+		<Container padding={true}>
+			<div class="grid grid-cols-2 sm:gap-4">
+				<!-- black content area -->
+				<div class="bg-black h-fit col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
+					<div class="space-y-8">
+						<h1 class="text-balance">Texas' Top Truck Outfitter</h1>
+						<p class="text-base">
+							THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our
+							customers' dreams.
+						</p>
+					</div>
 
-                    <!-- cta buttons -->
-                    <div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
-                        <Link href="/contact" icon="hero/WrenchScrewdriverFill" style="button-primary" fullWidth={true}>
-                            Build Your Truck
-                        </Link>
+					<!-- cta buttons -->
+					<div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
+						<Link href="/contact" icon="hero/WrenchScrewdriverFill" style="button-primary" fullWidth={true}> Build Your Truck </Link>
 
-                        <Link href="/builds" icon="hero/ArrowRightCircleFill" style="button-ghost" fullWidth={true}>
-                            See Our Builds
-                        </Link>
-                    </div>
-                </div>
+						<Link href="/builds" icon="hero/ArrowRightCircleFill" style="button-ghost" fullWidth={true}> See Our Builds </Link>
+					</div>
+				</div>
 
-                <div class="bg-white px-4 py-8 sm:p-8 col-span-2 lg:col-span-1">
-                    <h2 class="h3">Our Process</h2>
-                    <div class="grid grid-cols-1 gap-8 mt-5">
-                        {
-                            process.map((f, i) => (
-                                <div class="space-y-2">
-                                    <div class=" text-base tracking-tight font-medium flex items-center gap-2">
-                                        <span class="rounded-sm bg-black text-white px-2 text-sm py-1">{i + 1}</span> {f.title}
-                                    </div>
-                                    <div set:html={f.description} class="text-neutral-800 text-sm" />
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
-        </Container>
-    </div>
+				<div class="bg-white px-4 py-8 sm:p-8 col-span-2 lg:col-span-1">
+					<h2 class="h3">Our Process</h2>
+					<div class="grid grid-cols-1 gap-8 mt-5">
+						{
+							process.map((f, i) => (
+								<div class="space-y-2">
+									<div class=" text-base tracking-tight font-medium flex items-center gap-2">
+										<span class="rounded-sm bg-black text-white px-2 text-sm py-1">{i + 1}</span> {f.title}
+									</div>
+									<div set:html={f.description} class="text-neutral-800 text-sm" />
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</Container>
+	</div>
 
-    <div class="bg-neutral-50">
-        <Container>
-            <div class="section space-y-8">
-                <h2 class="text-center">Recent THOR Builds</h2>
+	<div class="bg-neutral-50">
+		<Container>
+			<div class="section space-y-8">
+				<h2 class="text-center">Recent THOR Builds</h2>
 
-                <Gallery>
-                    <div class="sm:space-y-4">
-                        <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
-                            {recentBuilds.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
-                        </div>
-                    </div>
-                </Gallery>
+				<div class="sm:space-y-4">
+					<div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4 gallery">
+						{recentBuilds.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
+					</div>
+				</div>
 
-                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <Link href="/builds" style="button-ghost" inverse={true}>
-                        More Builds
-                    </Link>
+				<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+					<Link href="/builds" style="button-ghost" inverse={true}> More Builds </Link>
 
-                    <p class="italic text-center sm:text-right text-sm">
-                        Call us today at <a href={`tel:${Business.phone.number}`} class="underline">{Business.phone.formatted}</a> to <br /> get started on your custom build.
-                    </p>
-                </div>
-            </div>
+					<p class="italic text-center sm:text-right text-sm">
+						Call us today at <a href={`tel:${Business.phone.number}`} class="underline">{Business.phone.formatted}</a> to <br /> get started on your custom build.
+					</p>
+				</div>
+			</div>
 
-            <div class="section section-bottom grid md:grid-cols-5 gap-10">
-                <div class="md:col-span-2 flex flex-col justify-between gap-y-6">
-                    <div class="space-y-8">
-                        <h2 class="text-balance">We're Building Our Customers' Dream Vehicles</h2>
-                    </div>
+			<div class="section section-bottom grid md:grid-cols-5 gap-10">
+				<div class="md:col-span-2 flex flex-col justify-between gap-y-6">
+					<div class="space-y-8">
+						<h2 class="text-balance">We're Building Our Customers' Dream Vehicles</h2>
+					</div>
 
-                    <div>
-                        <Link href="/contact" style="button-ghost" inverse={true}>
-                            Build Your Vehicle
-                        </Link>
-                    </div>
-                </div>
+					<div>
+						<Link href="/contact" style="button-ghost" inverse={true}> Build Your Vehicle </Link>
+					</div>
+				</div>
 
-                <div class="md:col-span-3 grid grid-cols-2 gap-8">
-                    {allMakes.map((m) => <Make make={m} />)}
-                    <Make make={vehicleFill} url="/contact" />
-                </div>
-            </div>
-        </Container>
-    </div>
+				<div class="md:col-span-3 grid grid-cols-2 gap-8">
+					{allMakes.map((m) => <Make make={m} />)}
+					<Make make={vehicleFill} url="/contact" />
+				</div>
+			</div>
+		</Container>
+	</div>
 </Layout>

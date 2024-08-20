@@ -10,10 +10,9 @@ import { numberBetween } from "@/functions/Misc";
 
 import Link from "@/components/Link";
 import Container from "@/components/Container";
-import Gallery from "@/components/images/Gallery";
-import Map from "@/components/content/background/Map";
+import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
-import Testimonial from "@/components/content/testimonials/TestimonialAlt";
+import Testimonial from "@/components/testimonials/Testimonial";
 
 export async function getStaticPaths() {
 	const builds = await getCollection("builds");

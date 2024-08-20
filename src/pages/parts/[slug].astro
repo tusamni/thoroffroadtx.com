@@ -4,12 +4,11 @@ import Layout from "@/layouts/Layout";
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 import { getCollection, getEntry } from "astro:content";
-import Build from "@/components/content/snippets/BuildAlt";
+import Build from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
-import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
 import Link from "@/components/Link";
-import PartDetail from "@/components/content/snippets/PartDetail";
+import PartDetail from "@/components/snippets/PartDetail";
 import Picture from "@/components/images/Picture";
 
 // content
@@ -95,8 +94,7 @@ const allBuilds = (
         </Container>
     </div>
 
-    <Gallery>
-        <div class="grid grid-cols-2 sm:grid-cols-4">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gallery">
             {
                 part.data.images.gallery &&
                     part.data.images.gallery.map((g) => (
@@ -104,5 +102,4 @@ const allBuilds = (
                     ))
             }
         </div>
-    </Gallery>
 </Layout>

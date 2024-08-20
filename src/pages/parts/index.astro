@@ -6,162 +6,147 @@ import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 
 import Container from "@/components/Container";
-import Gallery from "@/components/images/Gallery";
 import Icon from "@/components/Icon";
 import Link from "@/components/Link";
-import Part from "@/components/content/snippets/Part";
+import Part from "@/components/snippets/Part";
 import Picture from "@/components/images/Picture";
 
 // content
 import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
 const allBrands = await getCollection("brands", ({ data }) => {
-    return data.featured == true;
+	return data.featured == true;
 });
 
 const process = [
-    {
-        title: "The Top Brands",
-        description: "We partner with the world's most trusted parts manufacturers in the industry to create quality builds that our customers can depend on.",
-    },
-    {
-        title: "Test, Test, Test",
-        description: "We don't just install parts, we put them to the test to ensure that they perform exactly the way we designed to deliver the ultimate off-road experience.",
-    },
-    {
-        title: "Targeted Performance",
-        description: "We help our customers find the right balance of style, performance, and budget to get the most out of their off-road vehicle build.",
-    },
+	{
+		title: "The Top Brands",
+		description: "We partner with the world's most trusted parts manufacturers in the industry to create quality builds that our customers can depend on.",
+	},
+	{
+		title: "Test, Test, Test",
+		description: "We don't just install parts, we put them to the test to ensure that they perform exactly the way we designed to deliver the ultimate off-road experience.",
+	},
+	{
+		title: "Targeted Performance",
+		description: "We help our customers find the right balance of style, performance, and budget to get the most out of their off-road vehicle build.",
+	},
 ];
 const partsFill = {
-    data: {
-        title: "Don't see what you're looking for?",
-        description: {
-            short: "If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.",
-        },
-        images: {
-            icon: "hero/Envelope",
-        },
-    },
+	data: {
+		title: "Don't see what you're looking for?",
+		description: {
+			short: "If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.",
+		},
+		images: {
+			icon: "hero/Envelope",
+		},
+	},
 };
 
 const headlineImages = [
-    { src: getBuildImage("276780-2019-ford-f-250", 6), alt: await getBuildDescription("276780-2019-ford-f-250") },
-    { src: "shop/2022-03-09/shop-shoot_01.jpg", alt: "Fox shocks waiting to be installed" },
-    { src: getBuildImage("791924-2016-toyota-tacoma", 7), alt: await getBuildDescription("791924-2016-toyota-tacoma") },
+	{ src: getBuildImage("276780-2019-ford-f-250", 6), alt: await getBuildDescription("276780-2019-ford-f-250") },
+	{ src: "shop/2022-03-09/shop-shoot_01.jpg", alt: "Fox shocks waiting to be installed" },
+	{ src: getBuildImage("791924-2016-toyota-tacoma", 7), alt: await getBuildDescription("791924-2016-toyota-tacoma") },
 ];
 const recentImages = [
-    { src: getBuildImage("665125-2023-ford-f-150", 5), alt: await getBuildDescription("665125-2023-ford-f-150") },
-    { src: getBuildImage("864745-2020-toyota-4runner", 8), alt: await getBuildDescription("864745-2020-toyota-4runner") },
-    { src: getBuildImage("692114-2023-ram-2500", 5), alt: await getBuildDescription("692114-2023-ram-2500") },
-    { src: getBuildImage("782922-2022-ford-f-350", 23), alt: await getBuildDescription("782922-2022-ford-f-350") },
-    { src: getBuildImage("300038-2022-ford-f-250", 9), alt: await getBuildDescription("300038-2022-ford-f-250") },
-    { src: getBuildImage("850633-2022-ram-3500", 5), alt: await getBuildDescription("850633-2022-ram-3500") },
-    { src: getBuildImage("453172-2020-ford-f-250", 10), alt: await getBuildDescription("453172-2020-ford-f-250") },
-    { src: getBuildImage("695527-2022-chevrolet-silverado-2500-hd", 9), alt: await getBuildDescription("695527-2022-chevrolet-silverado-2500-hd") },
+	{ src: getBuildImage("665125-2023-ford-f-150", 5), alt: await getBuildDescription("665125-2023-ford-f-150") },
+	{ src: getBuildImage("864745-2020-toyota-4runner", 8), alt: await getBuildDescription("864745-2020-toyota-4runner") },
+	{ src: getBuildImage("692114-2023-ram-2500", 5), alt: await getBuildDescription("692114-2023-ram-2500") },
+	{ src: getBuildImage("782922-2022-ford-f-350", 23), alt: await getBuildDescription("782922-2022-ford-f-350") },
+	{ src: getBuildImage("300038-2022-ford-f-250", 9), alt: await getBuildDescription("300038-2022-ford-f-250") },
+	{ src: getBuildImage("850633-2022-ram-3500", 5), alt: await getBuildDescription("850633-2022-ram-3500") },
+	{ src: getBuildImage("453172-2020-ford-f-250", 10), alt: await getBuildDescription("453172-2020-ford-f-250") },
+	{ src: getBuildImage("695527-2022-chevrolet-silverado-2500-hd", 9), alt: await getBuildDescription("695527-2022-chevrolet-silverado-2500-hd") },
 ];
 ---
 
 <Layout title="We're the Top Rated Carli Dealer and Installer in Texas">
-    <div class="grid md:grid-cols-3">
-        {
-            headlineImages.map((h, i) => (
-                <Picture src={h.src} alt={h.alt} loading="eager" sizes="(max-width: 768px) 100vw, 33vw" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />
-            ))
-        }
-    </div>
+	<div class="grid md:grid-cols-3">
+		{headlineImages.map((h, i) => <Picture src={h.src} alt={h.alt} loading="eager" sizes="(max-width: 768px) 100vw, 33vw" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />)}
+	</div>
 
-    <div class="-mt-20 section section-bottom">
-        <Container padding={true}>
-            <div class="grid grid-cols-2 sm:gap-4">
-                <!-- black content area -->
-                <div class="bg-black h-fit lg:sticky lg:top-28 col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
-                    <div class="space-y-8">
-                        <h1 class="text-balance">Off-Road Parts<br />and Installation</h1>
-                        <p class="text-base">
-                            THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently
-                            deliver the truck or adventure vehicle of our customers' dreams.
-                        </p>
-                    </div>
+	<div class="-mt-20 section section-bottom">
+		<Container padding={true}>
+			<div class="grid grid-cols-2 sm:gap-4">
+				<!-- black content area -->
+				<div class="bg-black h-fit lg:sticky lg:top-28 col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
+					<div class="space-y-8">
+						<h1 class="text-balance">Off-Road Parts<br />and Installation</h1>
+						<p class="text-base">
+							THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our
+							customers' dreams.
+						</p>
+					</div>
 
-                    <!-- cta buttons -->
-                    <div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
-                        <Link href="/contact" icon="hero/WrenchScrewdriverFill" style="button-primary" fullWidth={true}>
-                            Build Your Truck
-                        </Link>
+					<!-- cta buttons -->
+					<div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
+						<Link href="/contact" icon="hero/WrenchScrewdriverFill" style="button-primary" fullWidth={true}> Build Your Truck </Link>
 
-                        <Link href="/builds" icon="hero/ArrowRightCircleFill" style="button-ghost" fullWidth={true}>
-                            See Our Builds
-                        </Link>
-                    </div>
-                </div>
+						<Link href="/builds" icon="hero/ArrowRightCircleFill" style="button-ghost" fullWidth={true}> See Our Builds </Link>
+					</div>
+				</div>
 
-                <div class="bg-white px-4 py-8 sm:p-8 flex flex-col gap-8 col-span-2 lg:col-span-1">
-                    {
-                        process.map((f, i) => (
-                            <div class="flex flex-row gap-4">
-                                <div class="rounded-full w-5 h-5 p-3 text-xs flex justify-center items-center border border-black">{i + 1}</div>
-                                <div class="space-y-2">
-                                    <div class="text-base tracking-tight font-medium">{f.title}</div>
-                                    <div set:html={f.description} class="text-neutral-800 text-sm" />
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
+				<div class="bg-white px-4 py-8 sm:p-8 flex flex-col gap-8 col-span-2 lg:col-span-1">
+					{
+						process.map((f, i) => (
+							<div class="flex flex-row gap-4">
+								<div class="rounded-full w-5 h-5 p-3 text-xs flex justify-center items-center border border-black">{i + 1}</div>
+								<div class="space-y-2">
+									<div class="text-base tracking-tight font-medium">{f.title}</div>
+									<div set:html={f.description} class="text-neutral-800 text-sm" />
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
 
-            <div class="section section-top grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 justify-between gap-8">
-                {allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 w-1/2 text-stone-900 place-self-center" />).slice(0, 12)}
-            </div>
-        </Container>
-    </div>
+			<div class="section section-top grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 justify-between gap-8">
+				{allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-8 w-1/2 text-stone-900 place-self-center" />).slice(0, 12)}
+			</div>
+		</Container>
+	</div>
 
-    <div class="bg-neutral-50">
-        <Container>
-            <div class="section space-y-8">
-                <h2 class="text-center">Recent THOR Installs</h2>
+	<div class="bg-neutral-50">
+		<Container>
+			<div class="section space-y-8">
+				<h2 class="text-center">Recent THOR Installs</h2>
 
-                <Gallery>
-                    <div class="sm:space-y-4">
-                        <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
-                            {recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full" sizes="(max-width: 640px) 50vw, 25vw" />).slice(0, 4)}
-                        </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4">
-                            {recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full" sizes="(max-width: 640px) 50vw, 25vw" />).slice(4, 8)}
-                        </div>
-                    </div>
-                </Gallery>
+				<div class="sm:space-y-4">
+					<div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4 gallery">
+						{recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full" sizes="(max-width: 640px) 50vw, 25vw" />).slice(0, 4)}
+					</div>
+					<div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4 gallery">
+						{recentImages.map((r) => <Picture src={r.src} alt={r.alt} class="aspect-square object-cover w-full h-full" sizes="(max-width: 640px) 50vw, 25vw" />).slice(4, 8)}
+					</div>
+				</div>
 
-                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <Link href="/builds" style="button-ghost" inverse={true}>
-                        More Builds
-                    </Link>
+				<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+					<Link href="/builds" style="button-ghost" inverse={true}> More Builds </Link>
 
-                    <p class="italic text-center sm:text-right text-sm">
-                        Call us today at <a href={`tel:${Business.phone.number}`} class="underline">{Business.phone.formatted}</a> to <br /> get started on your custom build.
-                    </p>
-                </div>
-            </div>
+					<p class="italic text-center sm:text-right text-sm">
+						Call us today at <a href={`tel:${Business.phone.number}`} class="underline">{Business.phone.formatted}</a> to <br /> get started on your custom build.
+					</p>
+				</div>
+			</div>
 
-            <div class="section section-bottom grid md:grid-cols-5 gap-10">
-                <div class="md:col-span-2 flex flex-col justify-between gap-y-6">
-                    <div class="space-y-8">
-                        <h2 class="text-balance">We're Building Our Customers' Dream Vehicles</h2>
-                    </div>
+			<div class="section section-bottom grid md:grid-cols-5 gap-10">
+				<div class="md:col-span-2 flex flex-col justify-between gap-y-6">
+					<div class="space-y-8">
+						<h2 class="text-balance">We're Building Our Customers' Dream Vehicles</h2>
+					</div>
 
-                    <div>
-                        <Link href="/contact" style="button-primary">
-                            Build Your Vehicle
-                        </Link>
-                    </div>
-                </div>
+					<div>
+						<Link href="/contact" style="button-primary"> Build Your Vehicle </Link>
+					</div>
+				</div>
 
-                <div class="md:col-span-3 grid grid-cols-2 gap-8">
-                    {allParts.map((p) => <Part part={p} />)}
-                    <Part part={partsFill} url="/contact" />
-                </div>
-            </div>
-        </Container>
-    </div>
+				<div class="md:col-span-3 grid grid-cols-2 gap-8">
+					{allParts.map((p) => <Part part={p} />)}
+					<Part part={partsFill} url="/contact" />
+				</div>
+			</div>
+		</Container>
+	</div>
 </Layout>

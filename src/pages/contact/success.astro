@@ -4,51 +4,51 @@ import Layout from "@/layouts/Layout";
 import { Business } from "@/config";
 import { getEntry } from "astro:content";
 import { getBuildTitle } from "@/functions/Content";
-import BuildAlt from "@/components/content/snippets/BuildAlt";
+import BuildAlt from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
 import Picture from "@/components/images/Picture";
 
 const headlineImages = [
-    { "url": "team/shop/thoroffroad-01.jpg", "alt": 5 },
-    { "url": "team/shop/thoroffroad-02.jpg", "alt": 2 },
-    { "url": "team/shop/thoroffroad-03.jpg", "alt": 1 }
-]
-const featuredBuild = await getEntry("builds", "340718-2022-ram-2500")
+	{ url: "team/shop/thoroffroad-01.jpg", alt: 5 },
+	{ url: "team/shop/thoroffroad-02.jpg", alt: 2 },
+	{ url: "team/shop/thoroffroad-03.jpg", alt: 1 },
+];
 ---
 
 <Layout title="Contact Us - Success">
-    <div class="grid md:grid-cols-3">
-        {headlineImages.map((h, i) => (
-            <Picture src={h.url} alt={h.alt} loading="eager" sizes="(max-width: 768px) 100vw, 33vw" class:list={["w-full h-[25em] object-cover", (i === 0 || i === 2) && `hidden md:block`]} />
-        ))}
-    </div>
+	<div class="grid md:grid-cols-3">
+		{headlineImages.map((h, i) => <Picture src={h.url} alt={h.alt} loading="eager" sizes="(max-width: 768px) 100vw, 33vw" class:list={["w-full h-[25em] object-cover", (i === 0 || i === 2) && `hidden md:block`]} />)}
+	</div>
 
-    <div class="-mt-20 section section-bottom">
-        <Container padding={true}>
-            <div class="grid grid-cols-2 sm:gap-4">
-                <!-- black content area -->
-                <div class="box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8">
-                    <h1>Thank You!</h1>
-                    <p>We've received your contact information and will be reaching out shortly. In the meantime, if you need anything else, please reach out to us at <a href=`tel:${Business.phone.number}` title="THOR Off Road Phone">{Business.phone.formatted}</a>.</p>
-                    <p>Rather chat in person? THOR Off-Road is located at {`${Business.address.street01} ${Business.address.street02}, ${Business.address.city}, ${Business.address.state}, ${Business.address.zip}`} and open {Business.hours}.</p>
-                </div>
+	<div class="-mt-20 section section-bottom">
+		<Container padding={true}>
+			<div class="grid grid-cols-2 sm:gap-4">
+				<!-- black content area -->
+				<div class="box-spacing bg-black col-span-2 lg:col-span-1 text-white space-y-8">
+					<h1>Thank You!</h1>
+					<p>
+						We've received your contact information and will be reaching out shortly. In the meantime, if you need anything else, please reach out to us at <a href=`tel:${Business.phone.number}` title="THOR Off Road Phone"
+							>{Business.phone.formatted}</a
+						>.
+					</p>
+					<p>Rather chat in person? THOR Off-Road is located at {`${Business.address.street01} ${Business.address.street02}, ${Business.address.city}, ${Business.address.state}, ${Business.address.zip}`} and open {Business.hours}.</p>
+				</div>
 
-                <div class="box-spacing bg-white col-span-2 lg:col-span-1 space-y-8">
-                    <h2 class="h3">In the meantime&hellip;</h2>
-                    <p>While you're waiting for our reply, you might want to check out some of <a href="/builds" title="Recent Off-Road Builds" class="underline">our most recent builds</a>. Here's an example of a custom {getBuildTitle(featuredBuild.id)} recently finished for a customer.</p>
-                    
-                    <BuildAlt build={featuredBuild} />
-                </div>
-            </div>
-        </Container>
-    </div>
+				<div class="box-spacing bg-white col-span-2 lg:col-span-1 space-y-8">
+					<h2 class="h3">In the meantime&hellip;</h2>
+					<p>While you're waiting for our reply, you might want to check out some of <a href="/builds" title="Recent Off-Road Builds" class="underline">our most recent builds</a>.</p>
+				</div>
+			</div>
+		</Container>
+	</div>
 
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.4307137009937!2d-98.0231541877444!3d30.196252074742556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b46992512c29d%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1694229765516!5m2!1sen!2sus"
-        title="Map showing THOR-Off Road's store location in Dripping Springs"
-        class="w-full h-[40em]"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+	<iframe
+		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.4307137009937!2d-98.0231541877444!3d30.196252074742556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b46992512c29d%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1694229765516!5m2!1sen!2sus"
+		title="Map showing THOR-Off Road's store location in Dripping Springs"
+		class="w-full h-[40em]"
+		allowfullscreen=""
+		loading="lazy"
+		referrerpolicy="no-referrer-when-downgrade"
+	>
+	</iframe>
 </Layout>

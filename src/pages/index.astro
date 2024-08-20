@@ -4,14 +4,14 @@ import Layout from "@/layouts/Layout";
 import { Business } from "@/config";
 import { getCollection } from "astro:content";
 
-import BrickWall from "@/components/content/background/BrickWall";
+import BrickWall from "@/components/backgrounds/Curtain";
 import BuildAlt from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
-import Part from "@/components/content/snippets/Part";
+import Part from "@/components/snippets/Part";
 import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/testimonials/Testimonial";
-import Texture from "@/components/content/background/Texture";
+import Texture from "@/components/backgrounds/Texture";
 
 // content
 const allBrands = await getCollection("brands", ({ data }) => {
@@ -120,7 +120,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 		</div>
 	</Texture>
 
-	<BrickWall classes="section bg-rock-900" opacity={0.03} theme="light">
+	<BrickWall classes="section bg-rock-900" opacity={0.04} theme="dark">
 		<!-- parts -->
 		<Container>
 			<div class="grid grid-cols-5 gap-16 lg:gap-20">

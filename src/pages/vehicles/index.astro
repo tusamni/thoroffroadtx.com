@@ -46,15 +46,6 @@ const process = [
 		description: "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
 	},
 ];
-const vehicleFill = {
-	data: {
-		title: "We Do It All!",
-		description: {
-			long: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
-		},
-		icon: "hero/Envelope",
-	},
-};
 
 const headlineImages = [
 	{ id: "405642-2022-ram-2500", image: 7 },
@@ -64,20 +55,25 @@ const headlineImages = [
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
-	<div class="grid md:grid-cols-3">
-		{headlineImages.map((h, i) => <Picture src={getBuildImage(h.id, h.image)} alt={getBuildDescription(h.id)} sizes="(max-width: 768px) 100vw, 33vw" loading="eager" class:list={["header-triple", (i === 0 || i === 2) && `hidden md:block`]} />)}
+	<div class="section-small space-y-24 bg-chathams-blue-600 pb-8 md:pb-0">
+		<Container classes="space-y-8">
+			<div class="space-y-8 text-white">
+				<h1 class="text-balance uppercase max-w-2xl">Texas' Top <strong>Truck Outfitter</strong></h1>
+				<p class="text-base md:text-xl text-balance md:!leading-relaxed max-w-3xl">THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our
+					customers' dreams.</p>
+			</div>
+		</Container>
 	</div>
 
-	<div class="-mt-20 section section-bottom">
+	<div class="section section-bottom">
 		<Container padding={true}>
 			<div class="grid grid-cols-2 sm:gap-4">
 				<!-- black content area -->
 				<div class="bg-black h-fit col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
 					<div class="space-y-8">
-						<h1 class="text-balance">Texas' Top Truck Outfitter</h1>
+						<h1 class="text-balance"></h1>
 						<p class="text-base">
-							THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our
-							customers' dreams.
+							
 						</p>
 					</div>
 

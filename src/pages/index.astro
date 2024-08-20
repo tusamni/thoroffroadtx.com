@@ -4,14 +4,12 @@ import Layout from "@/layouts/Layout";
 import { Business } from "@/config";
 import { getCollection } from "astro:content";
 
-import BrickWall from "@/components/backgrounds/Curtain";
 import BuildAlt from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
 import Part from "@/components/snippets/Part";
 import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/testimonials/Testimonial";
-import Texture from "@/components/backgrounds/Texture";
 
 // content
 const allBrands = await getCollection("brands", ({ data }) => {
@@ -67,7 +65,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 	</div>
 
 	<!-- that's my truck -->
-	<Texture classes="bg-stone-700" opacity={0.15} theme="light">
+	<div class="bg-stone-700">
 		<div class="pb-32 lg:pt-32 space-y-24">
 			<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 				<Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg aspect-square"]} />
@@ -118,9 +116,9 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 				</div>
 			</Container>
 		</div>
-	</Texture>
+	</div>
 
-	<BrickWall classes="section bg-rock-900" opacity={0.04} theme="dark">
+	<div class="section bg-rock-900">
 		<!-- parts -->
 		<Container>
 			<div class="grid grid-cols-5 gap-16 lg:gap-20">
@@ -142,7 +140,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 				</div>
 			</div>
 		</Container>
-	</BrickWall>
+	</div>
 </Layout>
 
 <script is:inline>

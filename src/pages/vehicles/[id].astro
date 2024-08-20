@@ -10,12 +10,18 @@ import Model from "@/components/snippets/Model";
 import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/testimonials/Testimonial";
 
-// content
-const { slug } = Astro.params;
-const make = await getEntry("makes", slug);
+export async function getStaticPaths() {
+	const make = await getCollection("makes");
 
-// if no entry slug found, return 404
-if (!slug) return Astro.redirect("/404");
+	return make.map((make) => ({
+		params: {
+			id: make.id,
+		},
+		props: { make },
+	}));
+}
+
+const { make } = Astro.props;
 
 const allModels = await getCollection("models", ({ data }) => {
 	return data.make.id === make.id;
@@ -29,12 +35,10 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 	<div class="-mt-20 section section-bottom">
 		<Container padding={true}>
 			<div class="grid grid-cols-2 sm:gap-4">
-				<!-- black content area -->
 				<div class="bg-black col-span-2 lg:col-span-1 text-white px-4 sm:px-8 py-8 space-y-8">
 					<h1 class="text-balance max-w-lg">{`We're the ${make.data.title} Experts!`}</h1>
 					<div class="text-base space-y-4" set:html={make.data.description.short} />
 
-					<!-- cta buttons -->
 					<div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
 						<Link href="/contact" icon="hero/EnvelopeFill" style="button-primary" fullWidth={true}> Contact Us! </Link>
 

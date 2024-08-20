@@ -1,24 +1,28 @@
 ---
+import { getEntry } from "astro:content";
 import { getBuildTitle } from "@/functions/Content";
 import { getBuildImage } from "@/functions/Image";
 import { timeAgo } from "@/functions/DateTime";
 import Picture from "@/components/images/Picture";
 
 interface Props {
-	build: any;
+	build: string;
 	sizes?: string;
+	classes: string;
 }
-const { build, sizes = "100vw", ...attrs } = Astro.props;
+const { build, sizes = "100vw", classes, ...attrs } = Astro.props;
+
+const buildData = await getEntry("builds", build);
 ---
 
-<a href={`/builds/${build.id}`} class="relative bg-rock-50 hover:bg-white shadow-lg hover:shadow-2xl transition duration-200 rounded flex flex-col justify-between group" {...attrs}>
-	<Picture src={getBuildImage(build.id, build.data.images.snippet)} alt={getBuildTitle(build.id)} class="aspect-video object-cover rounded-t" sizes={sizes} />
+<a href={`/builds/${buildData.id}`} class:list={["relative bg-rock-50 hover:bg-white shadow-lg hover:shadow-2xl transition duration-200 rounded flex flex-col justify-between group", classes]} {...attrs}>
+	<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="aspect-video object-cover rounded-t" sizes={sizes} />
 
 	<div class="flex flex-col gap-3 p-6">
-		<div class="uppercase font-bold text-xl line-clamp-1 font-alt">{getBuildTitle(build.id)}</div>
+		<div class="uppercase font-bold text-xl line-clamp-1 font-alt">{getBuildTitle(buildData.id)}</div>
 		<!-- <ul class="comma-list text-sm line-clamp-3 tracking-wide">{build.data.meta.parts.map((p) => <li>{p}</li>)}</ul> -->
 		<div class="uppercase text-xs">
-			{timeAgo(build.data.date)}
+			{timeAgo(buildData.data.date)}
 		</div>
 	</div>
 </a>

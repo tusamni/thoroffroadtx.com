@@ -6,11 +6,22 @@ import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 import { getCollection } from "astro:content";
 
-import Build from "@/components/builds/snippets/Build";
+import BuildAlt from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
 import Link from "@/components/Link";
 import Make from "@/components/snippets/Make";
 import Picture from "@/components/images/Picture";
+
+export async function getStaticPaths() {
+	const parts = await getCollection("parts");
+
+	return parts.map((part) => ({
+		params: {
+			id: part.id,
+		},
+		props: { part },
+	}));
+}
 
 // content
 const recentBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 8);
@@ -104,7 +115,7 @@ const headlineImages = [
 
 				<div class="sm:space-y-4">
 					<div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4 gallery">
-						{recentBuilds.map((b) => <Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
+						{recentBuilds.map((b) => <BuildAlt build={b.id} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
 					</div>
 				</div>
 

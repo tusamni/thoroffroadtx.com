@@ -32,17 +32,6 @@ const process = [
 		description: "We help our customers find the right balance of style, performance, and budget to get the most out of their off-road vehicle build.",
 	},
 ];
-const partsFill = {
-	data: {
-		title: "Don't see what you're looking for?",
-		description: {
-			short: "If you don't see what you're looking for, let's chat. There's a good chance we can get it done. We're experts in truck customization and can sit down with you and discuss details.",
-		},
-		images: {
-			icon: "hero/Envelope",
-		},
-	},
-};
 
 const headlineImages = [
 	{ src: getBuildImage("276780-2019-ford-f-250", 6), alt: await getBuildDescription("276780-2019-ford-f-250") },
@@ -144,7 +133,6 @@ const recentImages = [
 
 				<div class="md:col-span-3 grid grid-cols-2 gap-8">
 					{allParts.map((p) => <Part part={p} />)}
-					<Part part={partsFill} url="/contact" />
 				</div>
 			</div>
 		</Container>

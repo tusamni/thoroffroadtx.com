@@ -145,7 +145,7 @@ if (allPages.length && !page) {
 						</div>
 						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 							{paginatedResults.page.data.map((b) => (
-								<Build build={b} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+								<Build build={b.id} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
 							))}
 						</div>
 						<div class="flex justify-center items-center">{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}</div>

@@ -1,5 +1,4 @@
 function getModelsFromMake(allModels, formMake, formModel, includeOther = true, slug = false) {
-	console.log(includeOther)
 	// if includeOther, add it to the makes field
 	includeOther && formMake.add(new Option("Other", "Other"));
 

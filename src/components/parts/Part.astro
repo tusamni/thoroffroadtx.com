@@ -19,11 +19,11 @@ const { part, url, ...attrs } = Astro.props;
 		</div>
 
 		<div class="flex flex-col gap-2">
-			<div class="font-semibold uppercase font-alt text-3xl">{part.data.title}</div>
+			<div class="font-semibold uppercase font-alt text-3xl text-white">{part.data.title}</div>
 		</div>
 	</div>
 
-	<a href={url ? url : `/parts/${part.id}`} class="font-alt text-lg font-medium uppercase p-3 bg-rock-700 group-hover:bg-rock-600 transition duration-200 flex justify-center">
+	<a href={url ? url : `/parts/${part.id}`} class="font-alt text-lg font-medium uppercase p-3 bg-rock-700 group-hover:bg-rock-600 transition duration-200 flex justify-center  text-white">
 		<span class="absolute inset-0"></span>
 		{
 			url ? (

@@ -44,9 +44,6 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 			},
 		];
 
-		// TEMPORARY
-		// Removed ${contactModel} while I figure out a solution to deal with filtering
-		// and the contact form conflict
 		const thanksPersonalization = [
 			{
 				email: contactEmail,
@@ -74,17 +71,17 @@ export const POST: APIRoute = async ({ request, params, redirect, cookies }) => 
 		const thanksParams = new EmailParams().setFrom(sentFrom).setTo(thanksRecipients).setReplyTo(thanksReplyTo).setSubject(thanksSubject).setPersonalization(thanksPersonalization).setTemplateId("0r83ql3x5dzlzw1j");
 
 		// send the contact email
-		// try {
-		// 	await mailerSend.email.send(leadParams);
-		// } catch (error) {
-		// 	console.error(error);
-		// }
-		// // send the thanks email
-		// try {
-		// 	await mailerSend.email.send(thanksParams);
-		// } catch (error) {
-		// 	console.error(error);
-		// }
+		try {
+			await mailerSend.email.send(leadParams);
+		} catch (error) {
+			console.error(error);
+		}
+		// send the thanks email
+		try {
+			await mailerSend.email.send(thanksParams);
+		} catch (error) {
+			console.error(error);
+		}
 
 		return redirect("/contact/success/", 307);
 	}

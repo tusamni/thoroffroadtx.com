@@ -1,15 +1,13 @@
 ---
 import Layout from "@/layouts/Layout";
 
-import { Business } from "@/config";
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 import { getCollection } from "astro:content";
 
-import BuildAlt from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
-import Link from "@/components/Link";
-import Make from "@/components/snippets/Make";
+import Make from "@/components/vehicles/Make";
+import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
 
 export async function getStaticPaths() {
@@ -46,12 +44,21 @@ const process = [
 		description: "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
 	},
 ];
-
 const headlineImages = [
-	{ id: "405642-2022-ram-2500", image: 7 },
-	{ id: "223455-2007-toyota-land-cruiser", image: 1 },
-	{ id: "298562-2021-ram-2500", image: 1 },
+	{ src: getBuildImage("185376-2023-toyota-tundra", 5), alt: await getBuildDescription("185376-2023-toyota-tundra") },
+	{ src: getBuildImage("692114-2023-ram-2500", 2), alt: await getBuildDescription("692114-2023-ram-2500") },
 ];
+const vehicleFill = {
+    data: {
+        title: "We Do It All!",
+        description: {
+            short: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
+        },
+        logo: {
+			name: "hero/Envelope"
+		}
+    },
+};
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
@@ -59,87 +66,44 @@ const headlineImages = [
 		<Container classes="space-y-8">
 			<div class="space-y-8 text-white">
 				<h1 class="text-balance uppercase max-w-2xl">Texas' Top <strong>Truck Outfitter</strong></h1>
-				<p class="text-base md:text-xl text-balance md:!leading-relaxed max-w-3xl">THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our
-					customers' dreams.</p>
+				<p class="text-base md:text-xl text-balance md:!leading-relaxed max-w-3xl">
+					THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers'
+					dreams.
+				</p>
 			</div>
 		</Container>
 	</div>
 
-	<div class="section section-bottom">
-		<Container padding={true}>
-			<div class="grid grid-cols-2 sm:gap-4">
-				<!-- black content area -->
-				<div class="bg-black h-fit col-span-2 lg:col-span-1 text-white box-spacing space-y-8">
-					<div class="space-y-8">
-						<h1 class="text-balance"></h1>
-						<p class="text-base">
-							
-						</p>
-					</div>
+	<div class="grid grid-cols-4 grid-rows-2 gap-0 gallery h-[75vh]">
+		<Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford F-250 Super Duty in Dripping Springs, TX" class="col-span-2 w-full h-full object-cover object-[100%,75%] row-span-2" />
+		{headlineImages.map((i) => <Picture src={i.src} alt={i.alt} class="col-span-2 w-full h-full object-cover row-span-1" />)}
+	</div>
 
-					<!-- cta buttons -->
-					<div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
-						<Link href="/contact" icon="hero/WrenchScrewdriverFill" style="button-primary" fullWidth={true}> Build Your Truck </Link>
+	<div class="section bg-torch-red-600 text-white">
+		<Container classes="space-y-12 w-3/4 mx-auto">
+			<h2 class="uppercase">Our <strong>Process</strong></h2>
 
-						<Link href="/builds" icon="hero/ArrowRightCircleFill" style="button-ghost" fullWidth={true}> See Our Builds </Link>
-					</div>
-				</div>
-
-				<div class="bg-white px-4 py-8 sm:p-8 col-span-2 lg:col-span-1">
-					<h2 class="h3">Our Process</h2>
-					<div class="grid grid-cols-1 gap-8 mt-5">
-						{
-							process.map((f, i) => (
-								<div class="space-y-2">
-									<div class=" text-base tracking-tight font-medium flex items-center gap-2">
-										<span class="rounded-sm bg-black text-white px-2 text-sm py-1">{i + 1}</span> {f.title}
-									</div>
-									<div set:html={f.description} class="text-neutral-800 text-sm" />
-								</div>
-							))
-						}
-					</div>
-				</div>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+				{
+					process.map((f, i) => (
+						<div class="space-y-2 relative">
+							<div class="absolute text-shiraz-600 text-[8em] uppercase font-alt font-black -top-8 -left-12">{i + 1}</div>
+							<div class="text-xl sm:text-2xl md:text-3xl font-bold uppercase font-alt z-10 relative">{f.title}</div>
+							<div set:html={f.description} class="text-base text-balance leading-relaxed z-10 relative" />
+						</div>
+					))
+				}
 			</div>
 		</Container>
 	</div>
 
-	<div class="bg-neutral-50">
+	<Map classes="bg-stone-700 section" theme="light" opacity={0.03}>
 		<Container>
-			<div class="section space-y-8">
-				<h2 class="text-center">Recent THOR Builds</h2>
-
-				<div class="sm:space-y-4">
-					<div class="grid grid-cols-2 sm:grid-cols-4 sm:gap-4 gallery">
-						{recentBuilds.map((b) => <BuildAlt build={b.id} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />)}
-					</div>
-				</div>
-
-				<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-					<Link href="/builds" style="button-ghost" inverse={true}> More Builds </Link>
-
-					<p class="italic text-center sm:text-right text-sm">
-						Call us today at <a href={`tel:${Business.phone.number}`} class="underline">{Business.phone.formatted}</a> to <br /> get started on your custom build.
-					</p>
-				</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-16 mx-auto sm:w-3/4 md:w-full lg:w-3/4 xl:w-full">
+				{allMakes.map((m) => <Make make={m} />)}
+				<Make make={vehicleFill} url="/contact" />
 			</div>
-
-			<div class="section section-bottom grid md:grid-cols-5 gap-10">
-				<div class="md:col-span-2 flex flex-col justify-between gap-y-6">
-					<div class="space-y-8">
-						<h2 class="text-balance">We're Building Our Customers' Dream Vehicles</h2>
-					</div>
-
-					<div>
-						<Link href="/contact" style="button-ghost" inverse={true}> Build Your Vehicle </Link>
-					</div>
-				</div>
-
-				<div class="md:col-span-3 grid grid-cols-2 gap-8">
-					{allMakes.map((m) => <Make make={m} />)}
-					<Make make={vehicleFill} url="/contact" />
-				</div>
-			</div>
+			<Container />
 		</Container>
-	</div>
-</Layout>
+	</Map></Layout
+>

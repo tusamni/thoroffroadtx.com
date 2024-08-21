@@ -1,0 +1,40 @@
+---
+import Icon from "@/components/Icon";
+
+interface Props {
+	part: any;
+	url?: string;
+}
+const { part, url, ...attrs } = Astro.props;
+---
+
+<div class="relative group space-y-6" {...attrs}>
+	<div class="flex flex-row gap-3">
+		<div class="w-8 h-8 border-2 border-white rounded relative flex-none overflow-hidden flex justify-center items-center">
+			<Icon icon={url ? part.data.images.icon : `parts/${part.data.images.icon}Outline`} class="text-white absolute w-10 h-auto -rotate-12" />
+		</div>
+
+		<div class="flex flex-col gap-2">
+			<div class="font-semibold uppercase font-alt text-3xl text-white line-clamp-1">{part.data.title}</div>
+		</div>
+	</div>
+
+	<div class="text-stone-300 text-base line-clamp-3">
+		{part.data.description.short}
+	</div>
+
+	<div>
+		<a href={url ? url : `/parts/${part.id}`} class="font-alt text-lg font-medium uppercase text-white">
+			<span class="absolute inset-0"></span>
+			{
+				url ? (
+					<div>Contact Us &#x2192;</div>
+				) : (
+					<div>
+						Read More <span class="group-hover:translate-x-2 transition duration-200 inline-block">&#x2192;</span>
+					</div>
+				)
+			}
+		</a>
+	</div>
+</div>

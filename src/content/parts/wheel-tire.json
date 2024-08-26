@@ -1,86 +1,112 @@
 {
-    "title": "Wheel & Tire",
-    "heading": "Power to the Ground",
-    "description": {
-        "short": "Put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for the job.",
-        "long": "All the power and performance of your truck won't do any good unless you can get traction to the ground. THOR can help you put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for your adventure."
-    },
-    "content": {
-        "sidebar": "<p>No matter what you do to your vehicle, nothing will make it stand out like wheels and tires. However, picking the right wheel and tire is not as easy as it may seem.</p><ul class=\"text-base ml-3\"><li>- Did I get the correct offset?</li><li>- What size and width is right?</li><li>- Does the style match my application?</li><li>- Will the color match and set off my build?</li></ul><p>THOR Off-Road has the knowledge to answer all those questions and supply you with some of the best wheels on the market. We're an authorized dealer for <span class=\"font-medium\">Method Race Wheels</span>, <span class=\"font-medium\">Raceline</span>, <span class=\"font-medium\">Hostile</, <span class=\"font-medium\">Fuel</span>, <span class=\"font-medium\">American Force</span>, <span class=\"font-medium\">Vossen</span> and <span class=\"font-medium\">Innov8</span>.</p><p>We know how important it is to get the proper fitment, look and feel for your vehicle's wheels and tire setup. <a href=\"/contact\" class=\"underline font-medium\">Pick up the phone or email us</a> to get started on your build today!</p>",
-        "parts": [
-            {
-                "title": "Beadlocks",
-                "description": "Planning on dropping tire pressure and getting off pavement? Beadlocks will unleash the ultimate in off-road grip."
-            },
-            {
-                "title": "Dually Wheels",
-                "description": "THOR can outfit your dually truck with wheels that will add performance and enhance the look of your truck."
-            },
-            {
-                "title": "Powder Coating",
-                "description": "Looking for color matched wheels? If your build needs something special, we can match virtually any color."
-            },
-            {
-                "title": "Simulated Beadlocks",
-                "description": "Want the beadlock look without limitations? Simulated beadlocks do that. Full DOT compliance & rugged looks."
-            },
-            {
-                "title": "Specialty Wheels",
-                "description": "We have access to almost any brand, color and size. Set your build off from the rest with custom, specialty wheels."
-            },
-            {
-                "title": "Tires",
-                "description": "THOR can guide you through the endless tire options for your vehicle. Get a tire matched exactly your build's needs."
-            },
-            {
-                "title": "Wheels",
-                "description": "THOR has the expertise to get you a perfectly matched wheel and tire setup. No compromises, just perfection."
-            }
-        ]
-    },
-    "seo": {
-        "title": "Texas Premium Off-Road Wheel & Tire Outfitter",
-        "description": "THOR Off-Road vehicles put power to the ground with top wheel and tire brands like Fuel Offroad, Hostile, Innov8, Method, Nitto, Raceline Toyo and VenomRex."
-    },
-    "images": {
-        "icon": "Wheel",
-        "featured": {
-            "id": "276780-2019-ford-f-250",
-            "image": 1
-        },
-        "gallery": [
-            {
-                "id": "167209-2021-ram-2500",
-                "image": 6
-            },
-            {
-                "id": "108058-2022-gmc-sierra-2500-hd",
-                "image": 5
-            },
-            {
-                "id": "295031-2022-ford-f-350",
-                "image": 5
-            },
-            {
-                "id": "777233-2022-ford-bronco",
-                "image": 17
-            },
-            {
-                "id": "300038-2022-ford-f-250",
-                "image": 4
-            },
-            {
-                "id": "782922-2022-ford-f-350",
-                "image": 21
-            },
-            {
-                "id": "864745-2020-toyota-4runner",
-                "image": 5
-            },
-            {
-                "id": "665125-2023-ford-f-150",
-                "image": 3
-            }
-        ]
-    }
+	"title": "Wheel & Tire",
+	"heading": "Power to the Ground",
+	"description": {
+		"short": "Put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for the job.",
+		"long": "All the power and performance of your truck won't do any good unless you can get traction to the ground. THOR can help you put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for your adventure."
+	},
+	"content": {
+		"sidebar": "<p>No matter what you do to your vehicle, nothing will make it stand out like wheels and tires. However, picking the right wheel and tire is not as easy as it may seem.</p><ul class=\"text-base ml-3\"><li>- Did I get the correct offset?</li><li>- What size and width is right?</li><li>- Does the style match my application?</li><li>- Will the color match and set off my build?</li></ul><p>THOR Off-Road has the knowledge to answer all those questions and supply you with some of the best wheels on the market. We're an authorized dealer for <span class=\"font-medium\">Method Race Wheels</span>, <span class=\"font-medium\">Raceline</span>, <span class=\"font-medium\">Hostile</, <span class=\"font-medium\">Fuel</span>, <span class=\"font-medium\">American Force</span>, <span class=\"font-medium\">Vossen</span> and <span class=\"font-medium\">Innov8</span>.</p><p>We know how important it is to get the proper fitment, look and feel for your vehicle's wheels and tire setup. <a href=\"/contact\" class=\"underline font-medium\">Pick up the phone or email us</a> to get started on your build today!</p>",
+		"parts": [
+			{
+				"title": "Beadlocks",
+				"description": "Planning on dropping tire pressure and getting off pavement? Beadlocks will unleash the ultimate in off-road grip."
+			},
+			{
+				"title": "Dually Wheels",
+				"description": "THOR can outfit your dually truck with wheels that will add performance and enhance the look of your truck."
+			},
+			{
+				"title": "Powder Coating",
+				"description": "Looking for color matched wheels? If your build needs something special, we can match virtually any color."
+			},
+			{
+				"title": "Simulated Beadlocks",
+				"description": "Want the beadlock look without limitations? Simulated beadlocks do that. Full DOT compliance & rugged looks."
+			},
+			{
+				"title": "Specialty Wheels",
+				"description": "We have access to almost any brand, color and size. Set your build off from the rest with custom, specialty wheels."
+			},
+			{
+				"title": "Tires",
+				"description": "THOR can guide you through the endless tire options for your vehicle. Get a tire matched exactly your build's needs."
+			},
+			{
+				"title": "Wheels",
+				"description": "THOR has the expertise to get you a perfectly matched wheel and tire setup. No compromises, just perfection."
+			}
+		]
+	},
+	"seo": {
+		"title": "Texas Premium Off-Road Wheel & Tire Outfitter",
+		"description": "THOR Off-Road vehicles put power to the ground with top wheel and tire brands like Fuel Offroad, Hostile, Innov8, Method, Nitto, Raceline Toyo and VenomRex."
+	},
+	"images": {
+		"icon": "Wheel",
+		"featured": [
+			{
+				"id": "296799-2024-gmc-sierra-2500-hd",
+				"image": 5
+			},
+			{
+				"id": "276780-2019-ford-f-250",
+				"image": 1
+			},
+			{
+				"id": "632051-2022-ford-f-450",
+				"image": 18
+			},
+			{
+				"id": "400626-2024-chevrolet-silverado-1500",
+				"image": 6
+			},
+			{
+				"id": "439929-2024-ford-f-250",
+				"image": 7
+			},
+			{
+				"id": "692114-2023-ram-2500",
+				"image": 5
+			},
+			{
+				"id": "266375-2022-ford-bronco",
+				"image": 4
+			}
+		],
+		"gallery": [
+			{
+				"id": "167209-2021-ram-2500",
+				"image": 6
+			},
+			{
+				"id": "108058-2022-gmc-sierra-2500-hd",
+				"image": 5
+			},
+			{
+				"id": "295031-2022-ford-f-350",
+				"image": 5
+			},
+			{
+				"id": "777233-2022-ford-bronco",
+				"image": 17
+			},
+			{
+				"id": "300038-2022-ford-f-250",
+				"image": 4
+			},
+			{
+				"id": "782922-2022-ford-f-350",
+				"image": 21
+			},
+			{
+				"id": "864745-2020-toyota-4runner",
+				"image": 5
+			},
+			{
+				"id": "665125-2023-ford-f-150",
+				"image": 3
+			}
+		]
+	}
 }

@@ -129,10 +129,11 @@ const partCollection = defineCollection({
 		}),
 		images: z.object({
 			icon: z.string(),
-			featured: z.object({
+			featured: z.array(z.object({
 				id: reference("builds"),
 				image: z.number(),
-			}),
+				position: z.string().optional(),
+			}).optional()),
 			gallery: z
 				.array(
 					z.object({

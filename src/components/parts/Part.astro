@@ -11,7 +11,7 @@ const { part, url, ...attrs } = Astro.props;
 ---
 
 <div class="relative group">
-	<Picture src={getBuildImage(part.data.images.featured.id.id, part.data.images.featured.image)} class="h-48 w-full object-cover rounded-t" sizes="350px" />
+	<Picture src={getBuildImage(part.data.images.featured[0].id.id, part.data.images.featured[0].image)} class="h-48 w-full object-cover rounded-t" sizes="350px" />
 
 	<div class="py-6 flex flex-row gap-3 items-center justify-center bg-rock-800">
 		<div class="w-8 h-8 border-2 border-white rounded relative flex-none overflow-hidden flex justify-center items-center">

@@ -49,24 +49,24 @@ const headlineImages = [
 	{ src: getBuildImage("692114-2023-ram-2500", 2), alt: await getBuildDescription("692114-2023-ram-2500") },
 ];
 const vehicleFill = {
-    data: {
-        title: "We Do It All!",
-        description: {
-            short: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
-        },
-        logo: {
-			name: "hero/Envelope"
-		}
-    },
+	data: {
+		title: "We Do It All!",
+		description: {
+			short: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
+		},
+		logo: {
+			name: "hero/Envelope",
+		},
+	},
 };
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
-	<div class="section-small space-y-24 bg-chathams-blue-600 pb-8 md:pb-0">
+	<div class="section-small space-y-24 bg-chathams-blue-600">
 		<Container classes="space-y-8">
 			<div class="space-y-8 text-white">
-				<h1 class="text-balance uppercase max-w-2xl">Texas' Top <strong>Truck Outfitter</strong></h1>
-				<p class="text-base md:text-xl text-balance md:!leading-relaxed max-w-3xl">
+				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">Texas' Top <strong>Truck Outfitter</strong></h1>
+				<p class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-3xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0">
 					THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers'
 					dreams.
 				</p>
@@ -74,9 +74,9 @@ const vehicleFill = {
 		</Container>
 	</div>
 
-	<div class="grid grid-cols-4 grid-rows-2 gap-0 gallery h-[75vh]">
-		<Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford F-250 Super Duty in Dripping Springs, TX" class="col-span-2 w-full h-full object-cover object-[100%,75%] row-span-2" />
-		{headlineImages.map((i) => <Picture src={i.src} alt={i.alt} class="col-span-2 w-full h-full object-cover row-span-1" />)}
+	<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-0 gallery md:h-[40vh]">
+		<Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford F-250 Super Duty in Dripping Springs, TX" class="md:col-span-2 w-full h-full object-cover object-[100%,75%] md:row-span-2" />
+		{headlineImages.map((i) => <Picture src={i.src} alt={i.alt} class="md:col-span-2 w-full h-full object-cover md:row-span-1" />)}
 	</div>
 
 	<div class="section bg-torch-red-600 text-white">

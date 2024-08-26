@@ -44,7 +44,7 @@ const removals = [buildData.data.images.highlight[0], buildData.data.images.high
 const imagesWithoutHero = imageArray.filter((item) => item !== buildData.data.images.snippet);
 const imagesWithoutAll = imageArray.filter((item) => !removals.includes(item));
 
-const imageCols = imageArray.length >= 9 ? 3 : 2; // based on the total number of images, how many columns are needed
+const imageCols = imageArray.length >= 9 ? `grid-cols-1 md:grid-cols-3` : `grid-cols-1 md:grid-cols-2`; // based on the total number of images, how many columns are needed
 const remainder = imageArray.length >= 9 ? imagesWithoutAll.length % 3 : imagesWithoutHero.length % 2;
 const colSpan = imageArray.length >= 9 ? 4 - remainder : 3 - remainder;
 const colWidth = 450;
@@ -65,7 +65,7 @@ const colWidth = 450;
 
 	<div class="bg-stone-700 section-small">
 		<Container classes="space-y-8">
-			<div class="grid grid-cols-6 grid-rows-2 gap-8 h-full md:h-[40vh] lg:h-[700px] gallery">
+			<div class="grid grid-cols-6 grid-rows-2 gap-4 sm:gap-8 h-full md:h-[40vh] lg:h-[700px] gallery">
 				<Picture
 					src={getBuildImage(buildData.id, buildData.data.images.snippet)}
 					alt={getBuildTitle(buildData.id)}
@@ -86,22 +86,22 @@ const colWidth = 450;
 
 	<Map classes="section-small bg-rock-100" opacity={0.03}>
 		<Container>
-			<div class="grid grid-cols-5 gap-8">
-				<div class="col-span-5 lg:col-span-2 w-full h-full">
+			<div class="grid grid-cols-5 gap-4 lg:gap-8">
+				<div class="col-span-5 md:col-span-2 w-full h-full">
 					<div class="sticky top-36 space-y-12 backdrop-blur-md bg-white/25 px-8 py-12 rounded">
 						<div class="space-y-12">
 							{
 								buildData.data.meta.goals && (
 									<div class="space-y-6">
-										<h2>Summary</h2>
+										<div class="uppercase text-4xl font-alt font-medium">Summary</div>
 										<div class="space-y-6 text-lg leading-loose" set:html={buildData.data.meta.goals} />
 									</div>
 								)
 							}
 
-							<div class="space-y-6">
-								<h2>Parts List</h2>
-								<div class:list={["space-y-2", buildData.data.meta.parts.length < 4 ? "columns-1" : "columns-1"]}>
+							<div class="space-y-4">
+								<div class="uppercase text-4xl font-alt font-medium"><strong>Parts</strong> List</div>
+								<div class="space-y-2 text-sm md:text-xs lg:text-base">
 									{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
 								</div>
 							</div>
@@ -136,7 +136,7 @@ const colWidth = 450;
 							}--->
 
 							<div class="hidden lg:block space-y-8">
-								<h2>Let's <strong>Get Started</strong></h2>
+								<div class="uppercase text-4xl font-alt font-medium">Let's <strong>Get Started</strong></div>
 								<div class="leading-relaxed">
 									There are endless options for your {model.data.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!
 								</div>
@@ -146,8 +146,8 @@ const colWidth = 450;
 					</div>
 				</div>
 
-				<div class="col-span-5 lg:col-span-3">
-					<div class:list={[`grid gap-8 grid-cols-${imageCols} gallery`]}>
+				<div class="col-span-5 md:col-span-3">
+					<div class:list={[`grid gap-4 lg:gap-8 gallery`, imageCols]}>
 						{
 							imageArray.length < 4 &&
 								imagesWithoutHero.map((i, index, arr) => {

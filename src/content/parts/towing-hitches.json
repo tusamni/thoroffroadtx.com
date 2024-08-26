@@ -1,40 +1,51 @@
 {
-    "title": "Towing & Hitches",
-    "heading": "Power to the Ground",
-    "description": {
-        "short": "Put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for the job.",
-        "long": "All the power and performance of your truck won't do any good unless you can get traction to the ground. THOR can help you put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for your adventure."
-    },
-    "content": {
-        "sidebar": "<p>If you're looking to build your vehicle for ride quality AND towing capabilty, that's no problem at THOR Off-Road.</p><p>We pride ourselves on creating \"Purpose Built\" vehicles. When towing is a consideration we want to ensure your vehicle is up to the task. Towing isn't something we take lightly and you shouldn't either.</p><p>From the right hitch, configuration, tire requirements, air assist and lights, we've got you covered. We use high quality hitches from <span class=\"font-medium\">B&W Hitches</span>, <span class=\"font-medium\">Curt Manufacturing</span> and <span class=\"font-medium\">Reese</span>. Whether you need a turnover ball to tow a gooseneck or a fifth wheel hithc to tow your trailer, we know what works best.</p><p>If you only need a simple bumper hitch, we sell and install quality options from <span class=\"font-medium\">B&W</span>, <span class=\"font-medium\">Tow & Stow</span> and <span class=\"font-medium\">BulletProof Hitches</span>. We can also outfit your vehicle with air bags or air assist to make sure the load out back stays level and pulls like a dream.</p><p>No matter the load, RV trailer, toy hauler, car hauler or equipment, THOR Off-Road can get you setup.</p>",
-        "parts": [
-            {
-                "title": "Gooseneck",
-                "description": "Towing a gooseneck trailer? THOR can help with that. Adding a turnover ball will make a capable gooseneck hauler."
-            },
-            {
-                "title": "Fifth Wheel Hitch",
-                "description": "We can prepare your vehicle to tow the largest fifth wheels on the market. Contact us to discuss options."
-            },
-            {
-                "title": "Bumper Hitches",
-                "description": "The most common trailers hook-up. We offer many options to ensure you can pull your trailer safely and effectively."
-            },
-            {
-                "title": "Air Bags",
-                "description": "When you're towing heavy loads, air suspension goes a long way. Add endless towing capability with air suspension."
-            }
-        ]
-    },
-    "seo": {
-        "title": "Texas Premium Off-Road Wheel & Tire Outfitter",
-        "description": "THOR Off-Road vehicles put power to the ground with top wheel and tire brands like Fuel Offroad, Hostile, Innov8, Method, Nitto, Raceline Toyo and VenomRex."
-    },
-    "images": {
-        "icon": "Chassis",
-        "featured": {
-            "id": "782922-2022-ford-f-350",
-            "image": 23
-        }
-    }
+	"title": "Towing & Hitches",
+	"heading": "Power to the Ground",
+	"description": {
+		"short": "Put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for the job.",
+		"long": "All the power and performance of your truck won't do any good unless you can get traction to the ground. THOR can help you put the power of your truck to work and look good doing it with the performance wheel and tire combination that is perfectly suited for your adventure."
+	},
+	"content": {
+		"sidebar": "<p>If you're looking to build your vehicle for ride quality AND towing capabilty, that's no problem at THOR Off-Road.</p><p>We pride ourselves on creating \"Purpose Built\" vehicles. When towing is a consideration we want to ensure your vehicle is up to the task. Towing isn't something we take lightly and you shouldn't either.</p><p>From the right hitch, configuration, tire requirements, air assist and lights, we've got you covered. We use high quality hitches from <span class=\"font-medium\">B&W Hitches</span>, <span class=\"font-medium\">Curt Manufacturing</span> and <span class=\"font-medium\">Reese</span>. Whether you need a turnover ball to tow a gooseneck or a fifth wheel hithc to tow your trailer, we know what works best.</p><p>If you only need a simple bumper hitch, we sell and install quality options from <span class=\"font-medium\">B&W</span>, <span class=\"font-medium\">Tow & Stow</span> and <span class=\"font-medium\">BulletProof Hitches</span>. We can also outfit your vehicle with air bags or air assist to make sure the load out back stays level and pulls like a dream.</p><p>No matter the load, RV trailer, toy hauler, car hauler or equipment, THOR Off-Road can get you setup.</p>",
+		"parts": [
+			{
+				"title": "Gooseneck",
+				"description": "Towing a gooseneck trailer? THOR can help with that. Adding a turnover ball will make a capable gooseneck hauler."
+			},
+			{
+				"title": "Fifth Wheel Hitch",
+				"description": "We can prepare your vehicle to tow the largest fifth wheels on the market. Contact us to discuss options."
+			},
+			{
+				"title": "Bumper Hitches",
+				"description": "The most common trailers hook-up. We offer many options to ensure you can pull your trailer safely and effectively."
+			},
+			{
+				"title": "Air Bags",
+				"description": "When you're towing heavy loads, air suspension goes a long way. Add endless towing capability with air suspension."
+			}
+		]
+	},
+	"seo": {
+		"title": "Texas Premium Off-Road Wheel & Tire Outfitter",
+		"description": "THOR Off-Road vehicles put power to the ground with top wheel and tire brands like Fuel Offroad, Hostile, Innov8, Method, Nitto, Raceline Toyo and VenomRex."
+	},
+	"images": {
+		"icon": "Chassis",
+		"featured": [
+			{
+				"id": "177260-2024-ford-f-250",
+				"image": 19
+			},
+			{
+				"id": "114756-2023-chevrolet-silverado-1500",
+				"image": 3,
+				"position": "object-[50%,75%]"
+			},
+			{
+				"id": "782922-2022-ford-f-350",
+				"image": 23
+			}
+		]
+	}
 }

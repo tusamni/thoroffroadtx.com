@@ -4,11 +4,12 @@ import Layout from "@/layouts/Layout";
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 import { getCollection } from "astro:content";
-import BuildAlt from "@/components/builds/snippets/BuildAlt";
+
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
 import Link from "@/components/Link";
-import PartDetail from "@/components/snippets/PartDetail";
+import Map from "@/components/backgrounds/Map";
+import PartDetail from "@/components/parts/PartDetail";
 import Picture from "@/components/images/Picture";
 
 export async function getStaticPaths() {
@@ -23,7 +24,6 @@ export async function getStaticPaths() {
 }
 
 // content
-//const { id } = Astro.params;
 const { part } = Astro.props;
 
 // get brands
@@ -36,48 +36,35 @@ const allBuilds = (
 		return data.categories.find((c) => c.id === part.id);
 	})
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 ---
 
 <Layout title={part.data.seo.title} description={part.data.seo.description}>
-	<Picture src={getBuildImage(part.data.images.featured.id.id, part.data.images.featured.image)} alt={getBuildDescription(part.data.images.featured.id.id)} loading="eager" class="header-single object-[50%,50%]" />
-
-	<div class="-mt-20 section section-bottom">
-		<Container padding={true}>
-			<div class="grid grid-cols-2 sm:gap-4">
-				<!-- black content area -->
-				<div class="bg-black col-span-2 lg:col-span-1 text-white px-4 sm:px-8 py-8 space-y-8">
-					<h1 class="text-balance">{`We're the ${part.data.title} Experts!`}</h1>
-					<div class="text-base space-y-4" set:html={part.data.description.long} />
-
-					<!-- cta buttons -->
-					<div class="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
-						<Link href="/contact" icon="hero/EnvelopeFill" style="button-primary" fullWidth={true}> Contact Us! </Link>
-
-						<Link href={`/builds/${part.data.title.toLowerCase()}`} icon="hero/ArrowRightCircleFill" style="button-ghost" fullWidth={true}>
-							{part.data.title} Builds
-						</Link>
-					</div>
-				</div>
-
-				<div class="col-span-2 lg:col-span-1 space-y-8 box-spacing bg-white">
-					<h3 class="h4">Recent {part.data.title} Builds</h3>
-					{allBuilds.map((b) => <BuildAlt build={b.id} />).slice(0, 3)}
-				</div>
-			</div>
-
-			<div class="section section-top flex flex-wrap gap-y-12 gap-x-20 justify-center items-center">
-				{allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} class="h-[50px] w-[80px] sm:w-[150px] object-contain place-self-center text-stone-900" />).slice(0, 12)}
+	<Map classes="bg-stone-700 section-small space-y-24" opacity={0.05} theme="light">
+		<Container>
+			<div class="space-y-8 text-white">
+				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">We're the <strong>{part.data.title} Experts</strong>!</h1>
+				<div class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-4xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0" set:html={part.data.description.short} />
 			</div>
 		</Container>
+	</Map>
+
+	<div class:list={["h-[40vh]", part.data.images.featured.length >= 2 && "grid grid-rows-2", part.data.images.featured.length == 3 && "grid-cols-2", part.data.images.featured.length >= 4 && "grid-cols-4"]}>
+		{part.data.images.featured.map((image, i, arr) => <Picture src={getBuildImage(image.id.id, image.image)} alt={getBuildDescription(image.id.id)} class:list={[i === 0 && arr.length >= 2 && `row-span-2`, image.position, "w-full h-full object-cover"]} sizes="25vw" />)}
 	</div>
 
-	<div class="bg-neutral-50 section">
-		<Container>
+	<!-- {allBuilds.map((b) => <BuildAlt build={b.id} />).slice(0, 3)} -->
+	<!-- {allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} class="h-[50px] w-[80px] sm:w-[150px] object-contain place-self-center text-stone-900" />).slice(0, 12)} -->
+
+	<div class="section bg-rock-50">
+		<Container classes="space-y-12">
 			<div class="grid grid-cols-5 gap-10">
-				<div class="col-span-5 lg:col-span-2 flex flex-col justify-between gap-y-6">
+				<h2 class="col-span-5 text-balance uppercase font-medium max-w-3xl"><strong>{part.data.title}</strong> Upgrade Options</h2>
+
+				<div class="col-span-5 lg:col-span-2 flex flex-col gap-y-6">
 					<div class="space-y-8">
-						<h2 class="text-balance">{part.data.title} Upgrade Options</h2>
-						<div class="space-y-8" set:html={part.data.content.sidebar} />
+						<div class="space-y-8 leading-loose text-lg" set:html={part.data.content.sidebar} />
 					</div>
 
 					<div>
@@ -85,14 +72,24 @@ const allBuilds = (
 					</div>
 				</div>
 
-				<div class="col-span-5 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8 h-fit">
+				<div class="col-span-5 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-10 h-fit">
 					{part.data.content.parts.map((p) => <PartDetail part={p} />)}
 				</div>
 			</div>
 		</Container>
 	</div>
 
-	<div class="grid grid-cols-2 sm:grid-cols-4 gallery">
-		{part.data.images.gallery && part.data.images.gallery.map((g) => <Picture src={getBuildImage(g.id.id, g.image)} alt={getBuildDescription(g.id.id)} class="aspect-square object-cover w-full h-full" sizes="(max-width: 640px) 50vw, 25vw" />)}
+	<div class="section-small bg-chathams-blue-600">
+		<Container>
+			<div class:list={["flex flex-wrap gap-0.5 rounded justify-center", `grid-cols-${iconCols}`]}>
+				{
+					allBrands.map((b) => (
+						<div class:list={["p-6 sm:p-10 text-white bg-white/30 w-52", allBrands.length <= 8 && "w-52"]}>
+							<Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="max-h-12 w-full object-contain" />
+						</div>
+					))
+				}
+			</div>
+		</Container>
 	</div>
 </Layout>

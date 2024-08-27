@@ -1,13 +1,13 @@
 .button {
-	@apply transition-all duration-500 font-semibold flex w-full sm:w-fit items-center justify-start h-12 rounded;
+	@apply transition-all duration-500 font-semibold flex w-full justify-start sm:w-fit items-center h-12 rounded;
 
 	/* types */
 	.button-icon {
-		@apply h-full px-3 flex justify-center items-center;
+		@apply h-full px-3 hidden sm:flex justify-center items-center;
 	}
 
 	.button-text {
-		@apply px-4 h-full w-full flex justify-start items-center;
+		@apply px-4 h-full w-full flex justify-center sm:justify-start items-center;
 	}
 
 	/* themes */

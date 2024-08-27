@@ -1,42 +1,49 @@
 {
-    "draft": true,
-    "title": "Cadillac",
-    "description": {
-        "short": "Cadillac offers timeless elegance and cutting-edge innovation. Experience luxury redefined with unparalleled craftsmanship.",
-        "long": "<p>Elevate your Cadillac with THOR Off-Road. We specialize in transforming your ride into a personalized masterpiece. THOR can outfit your Cadillac to exceed your every expectation on the road.</p>"
-    },
-    "models": ["cadillac-escalade"],
-    "seo": {
-        "title": "Texas Cadillac SUV Installer",
-        "description": "At THOR Off-Road we know how to take your Cadillac Escalade to the next level."
-    },
-    "logo": {
-        "name": "Cadillac"
-    },
-    "images": {
-        "featured": {
-            "id": "378198-2023-cadillac-escalade",
-            "headline": 2,
-            "secondary": [3, 7, 5]
-        },
-        "gallery": [
-            {
-                "id": "970294-2023-cadillac-escalade",
-                "image": 8
-            },
-            {
-                "id": "970294-2023-cadillac-escalade",
-                "image": 15
-            },
-            {
-                "id": "378198-2023-cadillac-escalade",
-                "image": 1
-            },
-            {
-                "id": "970294-2023-cadillac-escalade",
-                "image": 3
-            }
-        ]
-    },
-    "testimonial": "andrew-p"
+	"draft": true,
+	"title": "Cadillac",
+	"description": {
+		"short": "Cadillac offers timeless elegance and cutting-edge innovation. Experience luxury redefined with unparalleled craftsmanship.",
+		"long": "<p>Elevate your Cadillac with THOR Off-Road. We specialize in transforming your ride into a personalized masterpiece. THOR can outfit your Cadillac to exceed your every expectation on the road.</p>"
+	},
+	"models": [
+		"cadillac-escalade"
+	],
+	"seo": {
+		"title": "Texas Cadillac SUV Installer",
+		"description": "At THOR Off-Road we know how to take your Cadillac Escalade to the next level."
+	},
+	"logo": {
+		"name": "Cadillac"
+	},
+	"images": {
+		"featured": [
+			{
+				"id": "378198-2023-cadillac-escalade",
+				"image": 3
+			},
+			{
+				"id": "970294-2023-cadillac-escalade",
+				"image": 13
+			}
+		],
+		"gallery": [
+			{
+				"id": "970294-2023-cadillac-escalade",
+				"image": 8
+			},
+			{
+				"id": "970294-2023-cadillac-escalade",
+				"image": 15
+			},
+			{
+				"id": "378198-2023-cadillac-escalade",
+				"image": 1
+			},
+			{
+				"id": "970294-2023-cadillac-escalade",
+				"image": 3
+			}
+		]
+	},
+	"testimonial": "andrew-p"
 }

@@ -4,11 +4,12 @@ import Icon from "@/components/Icon";
 interface Props {
 	make: any;
 	url?: string;
+	classes?: string;
 }
-const { make, url, ...attrs } = Astro.props;
+const { make, url, classes, ...attrs } = Astro.props;
 ---
 
-<div class="relative group space-y-4 md:space-y-6" {...attrs}>
+<div class:list={["relative group space-y-4 md:space-y-6 md:p-8 md:hover:bg-white/10 transition duration-200", classes]} {...attrs}>
 	<div class="flex flex-row gap-3">
 		<div class="w-8 h-8 border-2 border-white rounded relative flex-none overflow-hidden flex justify-center items-center">
 			<Icon icon={url ? make.data.logo.name : `makes/${make.data.logo.name}Icon`} class="text-white absolute w-10 h-auto -rotate-12" />

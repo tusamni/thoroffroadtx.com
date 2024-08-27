@@ -3,24 +3,22 @@
 import Icon from "@/components/Icon";
 
 interface Props {
-    icon?: string;
-    style?: "button-primary" | "button-ghost" | "button-disabled";
-    inverse?: boolean;
-    fullWidth?: boolean;
+	icon?: string;
+	classes?: string;
 }
-const { icon, style = "button-primary", inverse = false, fullWidth = false, ...attrs } = Astro.props;
+const { icon, classes, ...attrs } = Astro.props;
 ---
 
-<a class:list={["button", style, inverse && "button-inverse", fullWidth && "!w-full"]} {...attrs}>
-    {
-        icon && (
-            <div class="button-icon">
-                <Icon icon={icon} class="h-2/5 w-auto" />
-            </div>
-        )
-    }
+<a class:list={["button", classes]} {...attrs}>
+	{
+		icon && (
+			<div class="button-icon">
+				<Icon icon={icon} class="h-2/5 w-auto" />
+			</div>
+		)
+	}
 
-    <div class="button-text">
-        <slot />
-    </div>
+	<div class="button-text">
+		<slot />
+	</div>
 </a>

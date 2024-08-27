@@ -20,15 +20,37 @@
 		"name": "Ford"
 	},
 	"images": {
-		"featured": {
-			"id": "276780-2019-ford-f-250",
-			"headline": 1,
-			"secondary": [
-				3,
-				4,
-				5
-			]
-		},
+		"featured": [
+			{
+				"id": "940558-2023-ford-f-450",
+				"image": 11,
+				"position": "object-[0%,50%]"
+			},
+			{
+				"id": "266375-2022-ford-bronco",
+				"image": 1
+			},
+			{
+				"id": "356018-2023-ford-f-150",
+				"image": 8
+			},
+			{
+				"id": "285810-2024-ford-f-350",
+				"image": 7
+			},
+			{
+				"id": "996096-2024-ford-f-250",
+				"image": 21
+			},
+			{
+				"id": "300038-2022-ford-f-250",
+				"image": 32
+			},
+			{
+				"id": "383241-2022-ford-f-350",
+				"image": 5
+			}
+		],
 		"gallery": [
 			{
 				"id": "940558-2023-ford-f-450",

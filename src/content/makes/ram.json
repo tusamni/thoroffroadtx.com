@@ -1,57 +1,86 @@
 {
-    "title": "RAM",
-    "description": {
-        "short": "<p>Shop from a selection of top name brand parts like Carli Suspension, BDS, and AEV for your RAM 1500, 2500, 3500 or Power Wagon.</p><p>For any questions regarding inventory or recommendations on parts, feel free to reach out to one of our experts at <a href=\"tel:512-894-2790\" class=\"underline\">512-894-2790</a>. Our knowledgeable staff will gladly guide you with making an educated purchasing decision.</p>",
-        "long": "<p>RAM trucks are the longest lasting and hardest working trucks on the market, and we love outfitting these trucks for our customers.</p>"
-    },
-    "models": ["ram-1500", "ram-2500", "ram-3500"],
-    "seo": {
-        "title": "Texas RAM Truck Off-Road Parts & Installation",
-        "description": "THOR Off-Road can make your RAM 1500, 2500 & 3500 truck meet any level of ride comfort and performance you want on the road or off."
-    },
-    "logo": {
-        "name": "RAM"
-    },
-    "images": {
-        "featured": {
-            "id": "692114-2023-ram-2500",
-            "headline": 11,
-            "secondary": [1, 5, 9]
-        },
-        "gallery": [
-            {
-                "id": "452139-2023-ram-2500",
-                "image": 7
-            },
-            {
-                "id": "855592-2020-ram-2500",
-                "image": 6
-            },
-            {
-                "id": "301483-2019-ram-2500",
-                "image": 1
-            },
-            {
-                "id": "340718-2022-ram-2500",
-                "image": 6
-            },
-            {
-                "id": "403371-2022-ram-3500",
-                "image": 10
-            },
-            {
-                "id": "204479-2006-ram-2500",
-                "image": 5
-            },
-            {
-                "id": "977725-2021-ram-1500",
-                "image": 3
-            },
-            {
-                "id": "405642-2022-ram-2500",
-                "image": 5
-            }
-        ]
-    },
-    "testimonial": "andrew-p"
+	"title": "RAM",
+	"description": {
+		"short": "<p>Shop from a selection of top name brand parts like Carli Suspension, BDS, and AEV for your RAM 1500, 2500, 3500 or Power Wagon.</p><p>For any questions regarding inventory or recommendations on parts, feel free to reach out to one of our experts at <a href=\"tel:512-894-2790\" class=\"underline\">512-894-2790</a>. Our knowledgeable staff will gladly guide you with making an educated purchasing decision.</p>",
+		"long": "<p>RAM trucks are the longest lasting and hardest working trucks on the market, and we love outfitting these trucks for our customers.</p>"
+	},
+	"models": [
+		"ram-1500",
+		"ram-2500",
+		"ram-3500"
+	],
+	"seo": {
+		"title": "Texas RAM Truck Off-Road Parts & Installation",
+		"description": "THOR Off-Road can make your RAM 1500, 2500 & 3500 truck meet any level of ride comfort and performance you want on the road or off."
+	},
+	"logo": {
+		"name": "RAM"
+	},
+	"images": {
+		"featured": [
+			{
+				"id": "692114-2023-ram-2500",
+				"image": 5
+			},
+			{
+				"id": "850633-2022-ram-3500",
+				"image": 2
+			},
+			{
+				"id": "686981-2022-ram-3500",
+				"image": 3
+			},
+			{
+				"id": "167209-2021-ram-2500",
+				"image": 6
+			},
+			{
+				"id": "340718-2022-ram-2500",
+				"image": 6
+			},
+			{
+				"id": "850633-2022-ram-3500",
+				"image": 5
+			},
+			{
+				"id": "452139-2023-ram-2500",
+				"image": 5
+			}
+		],
+		"gallery": [
+			{
+				"id": "452139-2023-ram-2500",
+				"image": 7
+			},
+			{
+				"id": "855592-2020-ram-2500",
+				"image": 6
+			},
+			{
+				"id": "301483-2019-ram-2500",
+				"image": 1
+			},
+			{
+				"id": "340718-2022-ram-2500",
+				"image": 6
+			},
+			{
+				"id": "403371-2022-ram-3500",
+				"image": 10
+			},
+			{
+				"id": "204479-2006-ram-2500",
+				"image": 5
+			},
+			{
+				"id": "977725-2021-ram-1500",
+				"image": 3
+			},
+			{
+				"id": "405642-2022-ram-2500",
+				"image": 5
+			}
+		]
+	},
+	"testimonial": "andrew-p"
 }

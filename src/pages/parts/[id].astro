@@ -84,7 +84,7 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 			<div class:list={["flex flex-wrap gap-0.5 rounded justify-center", `grid-cols-${iconCols}`]}>
 				{
 					allBrands.map((b) => (
-						<div class:list={["p-6 sm:p-10 text-white bg-white/30 w-52", allBrands.length <= 8 && "w-52"]}>
+						<div class:list={["p-6 sm:p-10 text-white w-52"]}>
 							<Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="max-h-12 w-full object-contain" />
 						</div>
 					))

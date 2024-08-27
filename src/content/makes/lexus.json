@@ -1,23 +1,35 @@
 {
-    "title": "Lexus",
-    "description": {
-        "short": "<p>Shop from a selection of top name brand parts like Toytec, Bilstein, Old Man Emu and Icon Vehicle Dynamics for your GX or LX.</p><p>For any questions regarding inventory or recommendations on parts, feel free to reach out to one of our experts at <a href=\"tel:512-894-2790\" class=\"underline\">512-894-2790</a>. Our knowledgeable staff will gladly guide you with making an educated purchasing decision.</p>",
-        "long": "<p>Lexus vehicles are made for the toughest terrains, from remote trails to daily worksites, allowing you to go places others can't. No other word describes Lexus like Durability. The Lexus brand has literally been built on the durability of their engine and drivetrain.</p>"
-    },
-    "models": ["lexus-gx", "lexus-lx"],
-    "seo": {
-        "title": "Texas Lexus Truck SUV Installer",
-        "description": "With Lexus trucks and SUVs there are no places you can't go especially with the suspension and overlanding accessories upgrades available from THOR Off-Road."
-    },
-    "logo": {
-        "name": "Lexus"
-    },
-    "images": {
-        "featured": {
-            "id": "328593-2018-lexus-gx-460",
-            "headline": 1,
-            "secondary": [3, 6, 9]
-        }
-    },
-    "testimonial": "andrew-p"
+	"title": "Lexus",
+	"description": {
+		"short": "<p>Shop from a selection of top name brand parts like Toytec, Bilstein, Old Man Emu and Icon Vehicle Dynamics for your GX or LX.</p><p>For any questions regarding inventory or recommendations on parts, feel free to reach out to one of our experts at <a href=\"tel:512-894-2790\" class=\"underline\">512-894-2790</a>. Our knowledgeable staff will gladly guide you with making an educated purchasing decision.</p>",
+		"long": "<p>Lexus vehicles are made for the toughest terrains, from remote trails to daily worksites, allowing you to go places others can't. No other word describes Lexus like Durability. The Lexus brand has literally been built on the durability of their engine and drivetrain.</p>"
+	},
+	"models": [
+		"lexus-gx",
+		"lexus-lx"
+	],
+	"seo": {
+		"title": "Texas Lexus Truck SUV Installer",
+		"description": "With Lexus trucks and SUVs there are no places you can't go especially with the suspension and overlanding accessories upgrades available from THOR Off-Road."
+	},
+	"logo": {
+		"name": "Lexus"
+	},
+	"images": {
+		"featured": [
+			{
+				"id": "527072-2012-lexus-gx-460",
+				"image": 2
+			},
+			{
+				"id": "211559-2020-lexus-gx-460",
+				"image": 2
+			},
+			{
+				"id": "328593-2018-lexus-gx-460",
+				"image": 2
+			}
+		]
+	},
+	"testimonial": "andrew-p"
 }

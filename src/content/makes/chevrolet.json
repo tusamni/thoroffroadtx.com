@@ -1,41 +1,73 @@
 {
-    "title": "Chevrolet",
-    "description": {
-        "short": "<p>Shop from a selection of top name brand parts like Cognito Motorsports, BDS, and Dirt King for your Tahoe, Colorado, Silverado 1500, 2500 HD or 3500 HD.</p><p>For any questions regarding inventory or recommendations on parts, feel free to reach out to one of our experts at <a href=\"tel:512-894-2790\" class=\"underline\">512-894-2790</a>. Our knowledgeable staff will gladly guide you with making an educated purchasing decision.</p>",
-        "long": "<p>Chevrolet offers you capable, efficient, durable, and professional vehicles backed by a 100 years of proven performance and an abundant supply of high-performance parts from companies like BDS Suspensions, Cognito, RPG Offroad and Baja Kits.</p>"
-    },
-    "models": ["chevrolet-colorado", "chevrolet-silverado-1500", "chevrolet-silverado-2500-hd", "chevrolet-silverado-3500-hd", "chevrolet-tahoe"],
-    "seo": {
-        "title": "Texas Chevy Truck SUV Installer",
-        "description": "At THOR Off-Road we know how to take your Chevrolet Colorado, Silverado or Tahoe to the next level."
-    },
-    "logo": {
-        "name": "Chevrolet"
-    },
-    "images": {
-        "featured": {
-            "id": "695527-2022-chevrolet-silverado-2500-hd",
-            "headline": 2,
-            "secondary": [3, 7, 5]
-        },
-        "gallery": [
-            {
-                "id": "355738-2022-chevrolet-silverado-1500",
-                "image": 6
-            },
-            {
-                "id": "355738-2022-chevrolet-silverado-1500",
-                "image": 7
-            },
-            {
-                "id": "357202-2022-chevrolet-silverado-2500-hd",
-                "image": 4
-            },
-            {
-                "id": "357202-2022-chevrolet-silverado-2500-hd",
-                "image": 2
-            }
-        ]
-    },
-    "testimonial": "andrew-p"
+	"title": "Chevrolet",
+	"description": {
+		"short": "<p>Shop from a selection of top name brand parts like Cognito Motorsports, BDS, and Dirt King for your Tahoe, Colorado, Silverado 1500, 2500 HD or 3500 HD.</p><p>For any questions regarding inventory or recommendations on parts, feel free to reach out to one of our experts at <a href=\"tel:512-894-2790\" class=\"underline\">512-894-2790</a>. Our knowledgeable staff will gladly guide you with making an educated purchasing decision.</p>",
+		"long": "<p>Chevrolet offers you capable, efficient, durable, and professional vehicles backed by a 100 years of proven performance and an abundant supply of high-performance parts from companies like BDS Suspensions, Cognito, RPG Offroad and Baja Kits.</p>"
+	},
+	"models": [
+		"chevrolet-colorado",
+		"chevrolet-silverado-1500",
+		"chevrolet-silverado-2500-hd",
+		"chevrolet-silverado-3500-hd",
+		"chevrolet-tahoe"
+	],
+	"seo": {
+		"title": "Texas Chevy Truck SUV Installer",
+		"description": "At THOR Off-Road we know how to take your Chevrolet Colorado, Silverado or Tahoe to the next level."
+	},
+	"logo": {
+		"name": "Chevrolet"
+	},
+	"images": {
+		"featured": [
+			{
+				"id": "400626-2024-chevrolet-silverado-1500",
+				"image": 2,
+				"position": "object-[0%,100%]"
+			},
+			{
+				"id": "282688-2024-chevrolet-silverado-1500",
+				"image": 10
+			},
+			{
+				"id": "325917-2024-chevrolet-silverado-1500",
+				"image": 10
+			},
+			{
+				"id": "114756-2023-chevrolet-silverado-1500",
+				"image": 1
+			},
+			{
+				"id": "899409-2024-chevrolet-silverado-2500-hd",
+				"image": 11
+			},
+			{
+				"id": "899409-2024-chevrolet-silverado-2500-hd",
+				"image": 7
+			},
+			{
+				"id": "570506-2022-chevrolet-suburban",
+				"image": 3
+			}
+		],
+		"gallery": [
+			{
+				"id": "355738-2022-chevrolet-silverado-1500",
+				"image": 6
+			},
+			{
+				"id": "355738-2022-chevrolet-silverado-1500",
+				"image": 7
+			},
+			{
+				"id": "357202-2022-chevrolet-silverado-2500-hd",
+				"image": 4
+			},
+			{
+				"id": "357202-2022-chevrolet-silverado-2500-hd",
+				"image": 2
+			}
+		]
+	},
+	"testimonial": "andrew-p"
 }

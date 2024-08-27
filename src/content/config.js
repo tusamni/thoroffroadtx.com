@@ -61,11 +61,11 @@ const makeCollection = defineCollection({
 			name: z.string(),
 		}),
 		images: z.object({
-			featured: z.object({
+			featured: z.array(z.object({
 				id: reference("builds"),
-				headline: z.number(),
-				secondary: z.array(z.number()).length(3),
-			}),
+				image: z.number(),
+				position: z.string().optional(),
+			}).optional()),
 			gallery: z
 				.array(
 					z.object({

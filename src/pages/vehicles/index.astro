@@ -6,6 +6,8 @@ import { getBuildDescription } from "@/functions/Content";
 import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
+import FeatureGrid from "@/components/sections/FeatureGrid";
+import Link from "@/components/Link";
 import Make from "@/components/vehicles/Make";
 import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
@@ -45,8 +47,8 @@ const process = [
 	},
 ];
 const headlineImages = [
-	{ src: getBuildImage("185376-2023-toyota-tundra", 5), alt: await getBuildDescription("185376-2023-toyota-tundra") },
-	{ src: getBuildImage("692114-2023-ram-2500", 2), alt: await getBuildDescription("692114-2023-ram-2500") },
+	{ src: getBuildImage("185376-2023-toyota-tundra", 5), alt: await getBuildDescription("185376-2023-toyota-tundra"), position: "md:object-[10%,75%] lg:object-[50%,75%]" },
+	{ src: getBuildImage("692114-2023-ram-2500", 2), alt: await getBuildDescription("692114-2023-ram-2500"), position: "md:object-[50%,80%]" },
 ];
 const vehicleFill = {
 	data: {
@@ -63,20 +65,25 @@ const vehicleFill = {
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
 	<div class="section-small space-y-24 bg-chathams-blue-600">
-		<Container classes="space-y-8">
-			<div class="space-y-8 text-white">
+		<Container>
+			<div class="space-y-4 md:space-y-8 text-white">
 				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">Texas' Top <strong>Truck Outfitter</strong></h1>
 				<p class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-3xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0">
 					THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers'
 					dreams.
 				</p>
+
+				<div class="flex flex-col md:flex-row gap-6 items-center justify-center lg:justify-start">
+					<a href="/contact" class="font-semibold py-3 px-4 rounded bg-chathams-blue-500">Build Your Truck!</a>
+					<a href="/builds" class="font-medium">See Our Builds &rarr;</a>
+				</div>
 			</div>
 		</Container>
 	</div>
 
-	<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-0 gallery md:h-[40vh]">
+	<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-0 gallery md:min-h-[800px] md:h-[50vh]">
 		<Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford F-250 Super Duty in Dripping Springs, TX" class="md:col-span-2 w-full h-full object-cover object-[100%,75%] md:row-span-2" />
-		{headlineImages.map((i) => <Picture src={i.src} alt={i.alt} class="md:col-span-2 w-full h-full object-cover md:row-span-1" />)}
+		{headlineImages.map((i) => <Picture src={i.src} alt={i.alt} class:list={["md:col-span-2 w-full h-full object-cover md:row-span-1", i.position]} />)}
 	</div>
 
 	<div class="section bg-torch-red-600 text-white">
@@ -99,11 +106,10 @@ const vehicleFill = {
 
 	<Map classes="bg-stone-700 section" theme="light" opacity={0.03}>
 		<Container>
-			<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-16 mx-auto sm:w-3/4 md:w-full lg:w-3/4 xl:w-full">
+			<FeatureGrid>
 				{allMakes.map((m) => <Make make={m} />)}
 				<Make make={vehicleFill} url="/contact" />
-			</div>
-			<Container />
+			</FeatureGrid>
 		</Container>
-	</Map></Layout
->
+	</Map>
+</Layout>

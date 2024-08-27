@@ -5,6 +5,7 @@ import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 
 import Container from "@/components/Container";
+import FeatureGrid from "@/components/sections/FeatureGrid";
 import Icon from "@/components/Icon";
 import Map from "@/components/backgrounds/Map";
 import PartAlt from "@/components/parts/PartAlt";
@@ -51,8 +52,7 @@ const headlineImages = [
 				</p>
 
 				<div class="flex flex-col items-center sm:flex-row gap-4 justify-center lg:justify-start">
-					<a href="/contact" class="font-semibold hover:underline">Contact Us</a>
-					<div class="hidden sm:block">&middot;</div>
+					<a href="/contact" class="font-semibold hover:underline py-3 px-4 rounded bg-chathams-blue-500">Contact Us</a>
 					<a href="/builds" class="hover:underline">See Our Builds &gt;</a>
 				</div>
 			</div>
@@ -109,9 +109,9 @@ const headlineImages = [
 
 	<Map classes="bg-stone-700 section" theme="light" opacity={0.03}>
 		<Container>
-			<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-16 mx-auto sm:w-3/4 md:w-full lg:w-3/4 xl:w-full">
+			<FeatureGrid>
 				{allParts.map((p) => <PartAlt part={p} />)}
-			</div>
+			</FeatureGrid>
 		</Container>
 	</Map>
 </Layout>

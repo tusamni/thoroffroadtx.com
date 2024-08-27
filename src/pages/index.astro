@@ -7,6 +7,7 @@ import { getCollection } from "astro:content";
 import BuildAlt from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
+import Map from "@/components/backgrounds/Map";
 import Part from "@/components/parts/Part";
 import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/testimonials/Testimonial";
@@ -28,7 +29,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 		<div class="absolute w-full h-full bg-gradient-to-b from-transparent via-black/20 to-black/70"></div>
 
 		<Container classes="w-full pb-12">
-			<h1 class="text-center lg:text-right relative text-balance font-alt text-3xl sm:text-5xl md:text-6xl xl:text-7xl text-white uppercase font-medium">We're <strong>the Best</strong> Off-Road<br /> Truck Outfitter in Texas!</h1>
+			<h1 class="text-center lg:text-right relative text-balance font-alt text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-white uppercase font-medium">We're <strong>the Best</strong> Off-Road<br /> Truck Outfitter in Texas!</h1>
 		</Container>
 	</div>
 
@@ -65,7 +66,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 	</div>
 
 	<!-- that's my truck -->
-	<div class="bg-stone-700">
+	<Map classes="bg-stone-700" opacity={0.05}>
 		<div class="pb-32 lg:pt-32 space-y-24">
 			<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 				<Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg aspect-square"]} />
@@ -116,7 +117,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 				</div>
 			</Container>
 		</div>
-	</div>
+	</Map>
 
 	<div class="section bg-rock-900">
 		<!-- parts -->

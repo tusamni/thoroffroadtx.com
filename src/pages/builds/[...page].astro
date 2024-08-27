@@ -137,7 +137,7 @@ if (allPages.length && !page) {
 	<Map classes="section bg-rock-100" opacity={0.04}>
 		<Container classes="space-y-8">
 			{
-				page.data.length > 0 ? (
+				page.data.length > 0 && (
 					<>
 						<div class="flex justify-between items-center">
 							<div class="text-2xl font-medium font-alt">{page.total} Total Builds</div>
@@ -150,23 +150,35 @@ if (allPages.length && !page) {
 						</div>
 						<div class="flex justify-center items-center">{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}</div>
 					</>
-				) : (
+				)
+			}
+			{
+				page.data.length == 0 && (
 					<div class="flex justify-center items-center">
 						<div class="max-w-2xl text-center space-y-4">
-							<div class="uppercase font-alt font-medium text-5xl text-balance">
-								We Need Your <span class="font-extrabold">{actualModel.data.title}</span>!
-							</div>
-							<div class="text-xl text-balance leading-relaxed">
-								It's been awhile since we've built a {actualModel.data.title} here at THOR. We'd love to{" "}
-								<a href="/contact" class="font-semibold underline">
-									get in touch
-								</a>{" "}
-								to discuss your needs and show you what's possible.
-							</div>
+							{makeParam && modelParam && (
+								<div class="uppercase font-alt font-medium text-5xl text-balance">
+									We Need Your <span class="font-extrabold">{actualModel.data.title}</span>!
+								</div>
+								<div class="text-xl text-balance leading-relaxed">
+									It's been awhile since we've built a {actualModel.data.title} here at THOR. We'd love to{" "}
+									<a href="/contact" class="font-semibold underline">
+										get in touch
+									</a>{" "}
+									to discuss your needs and show you what's possible.
+								</div>
+							)}
+							{searchParam && (
+								<div class="uppercase font-alt font-medium text-5xl text-balance">
+									Hmm, no builds found for <span class="font-extrabold">{searchParam}</span>.
+								</div>
+							)}
 						</div>
 					</div>
 				)
 			}
+
+
 		</Container>
 	</Map>
 </Layout>

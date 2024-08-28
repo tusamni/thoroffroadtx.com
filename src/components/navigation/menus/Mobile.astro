@@ -3,7 +3,6 @@
 import { Business } from "@/config";
 
 import Icon from "@/components/Icon";
-import Link from "@/components/Link";
 
 // content
 import { getCollection } from "astro:content";
@@ -141,13 +140,13 @@ const allModels = await getCollection("models", ({ data }) => {
                 </div>
 
                 <div class="flex flex-col gap-4 py-6">
-                    <Link href="/contact" icon="hero/EnvelopeFill" style="button-primary" inverse={true}>
+                    <a href="/contact" class="button button-primary button-inverse justify-center">
                         Contact Us
-                    </Link>
+					</a>
 
-                    <Link href={`tel:${Business.phone.number}`} icon="hero/PhoneFill" style="button-primary">
+                    <a href={`tel:${Business.phone.number}`} class="button button-primary justify-center">
                         {Business.phone.formatted}
-                    </Link>
+					</a>
                 </div>
             </div>
         </div>

@@ -6,7 +6,6 @@ import Layout from "@/layouts/Layout";
 import { getCollection, getEntry } from "astro:content";
 import { paginate } from "@/functions/Paginate";
 import Build from "@/components/builds/snippets/Build";
-import Button from "@/components/Button";
 import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 import Pagination from "@/components/Pagination";
@@ -71,7 +70,7 @@ if (allPages.length && !page) {
 ---
 
 <Layout title="Texas High-Performance Off-Road Vehicle Builds" description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep">
-	<div class="section-top space-y-24 bg-torch-red-600 pb-8 md:pb-0">
+	<div class="section section-top space-y-24 bg-torch-red-600 pb-8 md:pb-0">
 		<Container classes="space-y-8">
 			<div class="space-y-8 text-white max-w-2xl">
 				<h1 class="text-balance uppercase">THOR Off-Road <strong>Custom Builds</strong></h1>
@@ -127,20 +126,20 @@ if (allPages.length && !page) {
 							}
 						</select>
 
-						<Button type="submit" style="button-primary" inverse={true}>Filter</Button>
+						<button type="submit" class="button button-primary button-inverse">Filter</button>
 					</div>
 				</div>
 			</form>
 		</Container>
 	</div>
 
-	<Map classes="section bg-rock-100" opacity={0.04}>
+	<Map classes="bg-rock-950 section" opacity={0.03} theme="light">
 		<Container classes="space-y-8">
 			{
 				page.data.length > 0 && (
 					<>
 						<div class="flex justify-between items-center">
-							<div class="text-2xl font-medium font-alt">{page.total} Total Builds</div>
+							<div class="text-2xl font-semibold font-alt uppercase text-white">{page.total} Total Builds</div>
 							{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}
 						</div>
 						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -155,7 +154,7 @@ if (allPages.length && !page) {
 			{
 				page.data.length == 0 && (
 					<div class="flex justify-center items-center">
-						<div class="max-w-2xl text-center space-y-4">
+						<div class="max-w-2xl text-center space-y-4 text-white">
 							{makeParam && modelParam && (
 								<div class="uppercase font-alt font-medium text-5xl text-balance">
 									We Need Your <span class="font-extrabold">{actualModel.data.title}</span>!
@@ -168,7 +167,7 @@ if (allPages.length && !page) {
 									to discuss your needs and show you what's possible.
 								</div>
 							)}
-							{searchParam && (
+							{searchParam && !modelParam && !makeParam && (
 								<div class="uppercase font-alt font-medium text-5xl text-balance">
 									Hmm, no builds found for <span class="font-extrabold">{searchParam}</span>.
 								</div>
@@ -177,8 +176,6 @@ if (allPages.length && !page) {
 					</div>
 				)
 			}
-
-
 		</Container>
 	</Map>
 </Layout>

@@ -7,7 +7,6 @@ import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
-import Link from "@/components/Link";
 import Map from "@/components/backgrounds/Map";
 import PartDetail from "@/components/parts/PartDetail";
 import Picture from "@/components/images/Picture";
@@ -41,25 +40,31 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 ---
 
 <Layout title={part.data.seo.title} description={part.data.seo.description}>
-	<Map classes="bg-stone-700 section-small space-y-24" opacity={0.05} theme="light">
+	<div class="bg-chathams-blue-600 section section-small">
 		<Container>
 			<div class="space-y-8 text-white">
 				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">We're the <strong>{part.data.title} Experts</strong>!</h1>
 				<div class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-4xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0" set:html={part.data.description.short} />
 			</div>
-		</Container>
-	</Map>
 
-	<div class:list={["h-[40vh]", part.data.images.featured.length >= 2 && "grid grid-rows-2", part.data.images.featured.length == 3 && "grid-cols-2", part.data.images.featured.length >= 4 && "grid-cols-4"]}>
-		{part.data.images.featured.map((image, i, arr) => <Picture src={getBuildImage(image.id.id, image.image)} alt={getBuildDescription(image.id.id)} class:list={[i === 0 && arr.length >= 2 && `row-span-2`, image.position, "w-full h-full object-cover"]} sizes="25vw" />)}
+			<div class:list={["lg:min-h-[800px] sm:h-[50vh]", part.data.images.featured.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
+				{
+					part.data.images.featured.map((image, i, arr) => (
+						<Picture
+							src={getBuildImage(image.id.id, image.image)}
+							alt={getBuildDescription(image.id.id)}
+							class:list={[i === 0 && arr.length >= 2 && `col-span-4 sm:col-span-2 sm:row-span-2`, image.position, "col-span-4 sm:col-span-2 w-full h-64 sm:h-full object-cover"]}
+							sizes="25vw"
+						/>
+					))
+				}
+			</div>
+		</Container>
 	</div>
 
-	<!-- {allBuilds.map((b) => <BuildAlt build={b.id} />).slice(0, 3)} -->
-	<!-- {allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} class="h-[50px] w-[80px] sm:w-[150px] object-contain place-self-center text-stone-900" />).slice(0, 12)} -->
-
-	<div class="section bg-rock-50">
+	<Map classes="section bg-rock-950" opacity={0.03} theme="light">
 		<Container classes="space-y-12">
-			<div class="grid grid-cols-5 gap-10">
+			<div class="grid grid-cols-5 gap-10 text-white">
 				<h2 class="col-span-5 text-balance uppercase font-medium max-w-3xl"><strong>{part.data.title}</strong> Upgrade Options</h2>
 
 				<div class="col-span-5 lg:col-span-2 flex flex-col gap-y-6">
@@ -68,16 +73,16 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 					</div>
 
 					<div>
-						<Link href="/contact" style="button-ghost" inverse={true}> Let's Talk! </Link>
+						<a href="/contact" class="button button-primary button-inverse w-fit">Let's Talk!</a>
 					</div>
 				</div>
 
-				<div class="col-span-5 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-10 h-fit">
+				<div class="col-span-5 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-1 h-fit">
 					{part.data.content.parts.map((p) => <PartDetail part={p} />)}
 				</div>
 			</div>
 		</Container>
-	</div>
+	</Map>
 
 	<div class="section-small bg-chathams-blue-600">
 		<Container>

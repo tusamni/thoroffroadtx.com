@@ -3,7 +3,6 @@
 import { Business } from "@/config";
 import { getCollection } from "astro:content";
 
-import Link from "@/components/Link";
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
 import MenuMobile from "@/components/navigation/menus/Mobile";
@@ -72,17 +71,17 @@ const allParts = await getCollection("parts");
 			<!-- contact buttons -->
 			<div class="flex flex-1 items-center justify-end gap-2 lg:gap-4">
 				<div>
-					<Link href={`tel:${Business.phone.number}`} style="button-ghost" inverse={true}>
+					<a href={`tel:${Business.phone.number}`} class="button button-ghost button-inverse">
 						<span class="hidden lg:block text-xs sm:text-sm xl:text-base">{Business.phone.formatted}</span>
 						<span class="lg:hidden text-xs sm:text-sm xl:text-base">Call</span>
-					</Link>
+					</a>
 				</div>
 
 				<div>
-					<Link href="/contact" style="button-primary" inverse={true}>
+					<a href="/contact" class="button button-primary button-inverse">
 						<span class="hidden lg:block text-xs sm:text-sm xl:text-base">Contact Us</span>
 						<span class="lg:hidden text-xs sm:text-sm xl:text-base">Email</span>
-					</Link>
+					</a>
 				</div>
 			</div>
 

@@ -8,7 +8,6 @@ import { getEntry, getCollection } from "astro:content";
 import { timeAgo } from "@/functions/DateTime";
 import { numberBetween } from "@/functions/Misc";
 
-import Link from "@/components/Link";
 import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
@@ -51,7 +50,7 @@ const colWidth = 450;
 ---
 
 <Layout title={`Custom ${buildData.data.meta.year} ${make.data.title} ${model.data.title} ${buildData.data.meta.trim ? `${buildData.data.meta.trim} ` : ``}Built by THOR Off-Road`}>
-	<div class="bg-torch-red-600 text-white section-small">
+	<div class="bg-torch-red-600 text-white section section-small">
 		<Container classes="space-y-4">
 			<h1 class="text-balance uppercase font-bold text-center lg:text-left lg:max-w-3xl">{getBuildTitle(buildData.id)}</h1>
 
@@ -63,7 +62,7 @@ const colWidth = 450;
 		</Container>
 	</div>
 
-	<div class="bg-stone-700 section-small">
+	<Map classes="bg-rock-950 section space-y-24" opacity={0.03} theme="light">
 		<Container classes="space-y-8">
 			<div class="grid grid-cols-6 grid-rows-2 gap-4 sm:gap-8 h-full md:h-[40vh] lg:h-[700px] gallery">
 				<Picture
@@ -82,13 +81,13 @@ const colWidth = 450;
 				}
 			</div>
 		</Container>
-	</div>
+	</Map>
 
-	<Map classes="section-small bg-rock-100" opacity={0.03}>
+	<Map classes="bg-rock-800 section" opacity={0.03} theme="light">
 		<Container>
 			<div class="grid grid-cols-5 gap-4 lg:gap-8">
 				<div class="col-span-5 md:col-span-2 w-full h-full">
-					<div class="sticky top-36 space-y-12 backdrop-blur-md bg-white/25 px-8 py-12 rounded">
+					<div class="sticky top-36 space-y-12 backdrop-blur-md bg-rock-200 px-8 py-12 rounded">
 						<div class="space-y-12">
 							{
 								buildData.data.meta.goals && (
@@ -140,7 +139,7 @@ const colWidth = 450;
 								<div class="leading-relaxed">
 									There are endless options for your {model.data.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!
 								</div>
-								<Link href="/contact" inverse={true}>Build Your {model.data.title}!</Link>
+								<a href="/contact" class="button button-primary button-inverse justify-center">Build Your {model.data.title}!</a>
 							</div>
 						</div>
 					</div>

@@ -1,0 +1,17 @@
+---
+interface Props {
+	number: number;
+	title: string;
+	description: string;
+}
+const { number, title, description, ...attrs } = Astro.props;
+---
+
+<div class="text-white space-y-3" {...attrs}>
+	<div class="flex flex-row xl:flex-col items-center xl:items-start gap-3">
+		<div class="py-1 px-3 md:py-2 md:px-4 bg-rock-800 rounded w-fit h-fit text-xl font-alt font-semibold">{number}</div>
+		<div class="text-xl sm:text-2xl md:text-3xl font-bold uppercase font-alt text-balance">{title}</div>
+	</div>
+
+	<div set:html={description} class="text-base text-balanced leading-relaxed" />
+</div>

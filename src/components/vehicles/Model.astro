@@ -1,21 +1,25 @@
 ---
 interface Props {
 	model: any;
+	classes?: string;
 }
-const { model, ...attrs } = Astro.props;
+const { model, classes, ...attrs } = Astro.props;
 ---
 
-<div class="flex flex-col relative space-y-4 group">
-	<div class="space-y-2">
-		<div class="font-bold uppercase text-xl">{model.data.title}</div>
-		<div class="line-clamp-4">{model.data.description.short}</div>
+<div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-white/10 transition duration-200 hover:bg-white/15  backdrop-blur-sm", classes]} {...attrs}>
+	<div class="flex flex-row gap-3 items-center">
+		<div class="font-semibold uppercase font-alt text-2xl md:text-3xl text-white line-clamp-1">{model.data.title}</div>
 	</div>
 
-	<a href={`/builds/?buildMake=${model.data.make.id}&buildModel=${model.data.slug}`} class="text-base uppercase bg-rock-100 flex justify-center p-3 group-hover:bg-rock-200/50">
-		<span class="absolute inset-0"></span>
+	<div class="text-stone-300 text-base line-clamp-3" set:html={model.data.description.short} />
 
-		<div class="font-semibold">
-			{model.data.title} Builds
-		</div>
-	</a>
+	<div>
+		<a href={`/builds/?buildMake=${model.data.make.id}&buildModel=${model.data.slug}`} class="font-alt text-lg font-medium uppercase text-white">
+			<span class="absolute inset-0"></span>
+
+			<div>
+				{model.data.title} Builds <span class="group-hover:translate-x-2 transition duration-200 inline-block">&#x2192;</span>
+			</div>
+		</a>
+	</div>
 </div>

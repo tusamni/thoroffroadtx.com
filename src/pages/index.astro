@@ -33,8 +33,8 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 		</Container>
 	</div>
 
-	<!-- featured builds with snap -->
-	<div class="bg-chathams-blue-700 py-10">
+	<!-- featured builds with snaps -->
+	<Map opacity={0.1} theme="light" classes="bg-chathams-blue-700 py-10">
 		<div class="lg:flex lg:space-x-16 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_70px,_black_calc(100%-70px),transparent_100%)]">
 			<div id="featured" class="flex gap-x-6 lg:gap-x-16 lg:animate-build-scroll snap-x snap-mandatory lg:snap-none overflow-auto lg:overflow-visible no-scrollbar">
 				{featuredBuilds.map((b) => <BuildAlt build={b} classes="w-[75vw] sm:w-[50vw] lg:w-[400px] snap-center" />)}
@@ -43,7 +43,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 				{featuredBuilds.map((b) => <BuildAlt build={b} classes="w-[400px]" />)}
 			</div>
 		</div>
-	</div>
+	</Map>
 
 	<!-- logo scroll -->
 	<div class="bg-torch-red-600 text-white py-10 lg:py-16">
@@ -66,13 +66,13 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 	</div>
 
 	<!-- that's my truck -->
-	<Map classes="bg-stone-700" opacity={0.05}>
-		<div class="pb-32 lg:pt-32 space-y-24">
+	<Map classes="bg-rock-950 section space-y-24" opacity={0.03} theme="light">
+		<div class="pb-32 lg:pt-32 space-y-24 lg:space-y-32">
 			<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
-				<Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg aspect-square"]} />
+				<Picture src="team/jamey/jamey.jpg" alt="Jamey Whitlock in Dripping Springs, TX" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg aspect-square object-[50%,40%]"]} />
 
 				<div class="px-8 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12">
-					<h1 class="text-center lg:text-left text-balance font-alt text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl text-white uppercase font-normal">"I can't believe <br /> <strong>That's My Truck!</strong>"</h1>
+					<h1 class="text-balance font-alt text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl text-white uppercase font-normal">"I can't believe <br /> <strong>That's My Truck!</strong>"</h1>
 
 					<div class="space-y-6 text-white text-lg md:text-xl mt-12 !leading-relaxed font-light">
 						<p>
@@ -85,6 +85,10 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 								>"Wow, I can't believe that's my truck!"</span
 							>
 						</p>
+						<div>
+							<div class="uppercase font-semibold font-alt text-3xl">- Jamey Whitlock</div>
+							<div class="text-sm uppercase">Owner, THOR Off-Road</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -96,7 +100,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 				</div>
 
 				<div class="mt-8 sm:mt-24 flex justify-center">
-					<a href={Business.mapUrl} target="_blank" class="flex flex-col bg-stone-800 text-white p-4 pr-8 rounded relative sm:w-[32em]">
+					<a href={Business.mapUrl} target="_blank" class="flex flex-col bg-rock-900 text-white p-4 pr-8 rounded relative sm:w-[32em]">
 						<div class="font-extrabold uppercase text-2xl lg:text-3xl font-alt inline-flex gap-1">4.9 <Icon icon="hero/StarFill" class="text-yellow-400 h-8" /> on Google</div>
 						<div class="text-stone-300 text-lg text-balance">We're insanely proud of our 65+ 5 star reviews, read more from our fantastic customers!</div>
 						<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48" class="hidden sm:block sm:absolute sm:-top-4 sm:-right-6 w-16 h-16">
@@ -116,32 +120,29 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 					</a>
 				</div>
 			</Container>
-		</div>
-	</Map>
 
-	<div class="section bg-rock-900">
-		<!-- parts -->
-		<Container>
-			<div class="grid grid-cols-5 gap-16 lg:gap-20">
-				<div class="col-span-5 xl:col-span-2 h-full">
-					<div class="space-y-12 xl:sticky xl:top-32 mx-auto xl:mx-0 lg:max-w-2xl">
-						<h1 class="text-center xl:text-left text-balance font-alt text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl text-white uppercase font-normal">We <strong>Sell and Install</strong> the Best Off-Road Parts</h1>
-						<hr class="hidden xl:block w-32 opacity-50 text-white" />
-						<div class="space-y-6 text-white text-lg md:text-xl !leading-relaxed font-light">
-							<p>
-								THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our
-								customers' dreams.
-							</p>
+			<Container>
+				<div class="grid grid-cols-5 gap-16 lg:gap-20">
+					<div class="col-span-5 xl:col-span-2 h-full">
+						<div class="space-y-12 xl:sticky xl:top-32 mx-auto xl:mx-0 lg:max-w-2xl">
+							<h1 class="text-center xl:text-left text-balance font-alt text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl text-white uppercase font-normal">We <strong>Sell and Install</strong> the Best Off-Road Parts</h1>
+							<hr class="hidden xl:block w-32 opacity-50 text-white" />
+							<div class="space-y-6 text-white text-lg md:text-xl !leading-relaxed font-light">
+								<p>
+									THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our
+									customers' dreams.
+								</p>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="col-span-5 xl:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-12 text-white">
-					{allParts.map((p) => <Part part={p} />)}
+					<div class="col-span-5 xl:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-12 text-white">
+						{allParts.map((p) => <Part part={p} />)}
+					</div>
 				</div>
-			</div>
-		</Container>
-	</div>
+			</Container>
+		</div>
+	</Map>
 </Layout>
 
 <script is:inline>

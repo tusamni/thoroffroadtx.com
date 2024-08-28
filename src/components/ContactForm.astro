@@ -1,7 +1,6 @@
 ---
 import { Business } from "@/config";
 import { getCollection } from "astro:content";
-import Button from "@/components/Button";
 
 const allMakes = await getCollection("makes");
 const allModels = await getCollection("models");
@@ -67,8 +66,8 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 	<input type="hidden" name="marketing" id="marketing" value="" />
 
 	<div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">
-		<Button type="submit" style="button-primary" inverse={true}>Let's Go!</Button>
-		
+		<button type="submit" class="button button-primary button-inverse">Let's Go!</button>
+
 		<p class="text-white text-right">
 			We're also available for a<br />chat at <a class="font-bold underline" href={`tel:${Business.phone.number}`}>{Business.phone.formatted}</a>
 		</p>

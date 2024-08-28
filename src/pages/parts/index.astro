@@ -10,6 +10,7 @@ import Icon from "@/components/Icon";
 import Map from "@/components/backgrounds/Map";
 import PartAlt from "@/components/parts/PartAlt";
 import Picture from "@/components/images/Picture";
+import Steps from "@/components/sections/Steps";
 
 // content
 import { getCollection } from "astro:content";
@@ -42,7 +43,7 @@ const headlineImages = [
 ---
 
 <Layout title="We're the Top Rated Carli Dealer and Installer in Texas">
-	<div class="section-small space-y-24 bg-chathams-blue-600">
+	<div class="section section-small bg-chathams-blue-600">
 		<Container classes="space-y-8">
 			<div class="space-y-8 text-white">
 				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">Off-Road <strong>Parts and Installation</strong></h1>
@@ -52,41 +53,45 @@ const headlineImages = [
 				</p>
 
 				<div class="flex flex-col items-center sm:flex-row gap-4 justify-center lg:justify-start">
-					<a href="/contact" class="font-semibold hover:underline py-3 px-4 rounded bg-chathams-blue-500">Contact Us</a>
-					<a href="/builds" class="hover:underline">See Our Builds &gt;</a>
+					<a href="/contact" class="button button-secondary">Contact Us</a>
+					<a href="/builds">See Our Builds &gt;</a>
 				</div>
 			</div>
 		</Container>
 	</div>
 
-	<div class="gallery">
-		<Picture src="shop/2022-03-09/shop-shoot_01.jpg" alt="FOX Shocks waiting to be installed" class="w-full h-[30vh] object-cover object-[50%,65%]" />
-		<div class="grid grid-cols-2 lg:grid-cols-6 gap-0">
-			{headlineImages.map((image) => <Picture src={image.src} alt={image.alt} class="w-full h-[15em] lg:h-[20em] object-cover" sizes="(min-width: 1024px) 20vw, 50vw" />)}
-		</div>
+	<Picture src="shop/2022-03-09/shop-shoot_01.jpg" alt="FOX Shocks waiting to be installed" class="w-full h-[350px] lg:h-[600px] object-cover object-[50%,65%]" />
+	<div class="grid grid-cols-6 gallery">
+		{headlineImages.map((image) => <Picture src={image.src} alt={image.alt} class="w-full h-52 sm:h-72 lg:h-full object-cover col-span-3 lg:col-span-1" sizes="(min-width: 1024px) 20vw, 50vw" />)}
 	</div>
 
-	<div class="section bg-torch-red-600 text-white">
+	<Map classes="bg-rock-950 section space-y-24" opacity={0.03} theme="light">
 		<Container classes="space-y-12">
-			<h2 class="uppercase">Our <strong>Process</strong></h2>
-
-			<div class="grid grid-cols-1 lg:grid-cols-3 justify-between gap-12 w-3/4 lg:w-auto mx-auto">
-				{
-					process.map((f, i) => (
-						<div class="space-y-2 relative">
-							<div class="absolute text-shiraz-600 text-[8em] uppercase font-alt font-black -top-8 -left-12">{i + 1}</div>
-							<div class="text-xl sm:text-2xl md:text-3xl font-bold uppercase font-alt z-10 relative">{f.title}</div>
-							<div set:html={f.description} class="text-base text-balance leading-relaxed z-10 relative" />
-						</div>
-					))
-				}
+			<div class="flex items-center justify-center">
+				<h2 class="uppercase text-white">Outfit <strong>Your Vehicle</strong></h2>
 			</div>
-		</Container>
-	</div>
 
-	<div class="section bg-rock-50" x-data="{ expanded: false }">
+			<FeatureGrid>
+				{allParts.map((p) => <PartAlt part={p} />)}
+			</FeatureGrid>
+		</Container>
+
+		<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+			<Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg"]} />
+
+			<div class="px-8 lg:py-12 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12 space-y-12">
+				<h2 class="uppercase text-white text-center lg:text-left">Our <strong>Process</strong></h2>
+
+				<div class="space-y-12 text-white">
+					{process.map((f, i) => <Steps number={i + 1} title={f.title} description={f.description} />)}
+				</div>
+			</div>
+		</div>
+	</Map>
+
+	<div class="section bg-rock-900" x-data="{ expanded: false }">
 		<Container classes="space-y-12">
-			<div class="flex flex-col md:flex-row justify-between items-center">
+			<div class="flex flex-col md:flex-row justify-between items-center text-white">
 				<h2 class="uppercase">Our <strong>Brands</strong></h2>
 				<h6 class="uppercase text-balance font-semibold text-center text-lg lg:text-xl"><strong>Selling & Installing</strong> the Best!</h6>
 			</div>
@@ -94,7 +99,7 @@ const headlineImages = [
 			<div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-0.5 rounded justify-between" :class="!expanded && '[mask-image:_linear-gradient(to_bottom,black_50%,transparent_100%)]'" x-show="expanded" x-collapse.min.400px>
 				{
 					allBrands.map((b) => (
-						<div class="p-6 sm:p-10 text-stone-900 bg-rock-100/30">
+						<div class="p-6 sm:p-10 text-merlin-50 bg-merlin-100/20">
 							<Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="max-h-12 w-full object-contain" />
 						</div>
 					))
@@ -102,18 +107,10 @@ const headlineImages = [
 			</div>
 
 			<div class="flex justify-center">
-				<div @click="expanded =! expanded" x-text="expanded ? `Hide 'Em!` : 'See More Brands'" class="font-semibold text-lg border p-4 rounded cursor-pointer"></div>
+				<div @click="expanded =! expanded" x-text="expanded ? `Hide 'Em!` : 'See More Brands'" class="button button-ghost cursor-pointer"></div>
 			</div>
 		</Container>
 	</div>
-
-	<Map classes="bg-stone-700 section" theme="light" opacity={0.03}>
-		<Container>
-			<FeatureGrid>
-				{allParts.map((p) => <PartAlt part={p} />)}
-			</FeatureGrid>
-		</Container>
-	</Map>
 </Layout>
 
 <script is:inline src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>

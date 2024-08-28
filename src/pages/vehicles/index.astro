@@ -7,10 +7,10 @@ import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
 import FeatureGrid from "@/components/sections/FeatureGrid";
-import Link from "@/components/Link";
 import Make from "@/components/vehicles/Make";
 import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
+import StepsAlt from "@/components/sections/StepsAlt";
 
 export async function getStaticPaths() {
 	const parts = await getCollection("parts");
@@ -38,7 +38,7 @@ const process = [
 		description: "We only work with top manufacturers and have done the research and testing required to perfectly match parts for our off-road vehicle builds.",
 	},
 	{
-		title: "What Are You Looking For?",
+		title: "Build Goals",
 		description: "Our entire mission is to create purpose-built vehicles and we take the time to know you and the goals you have for your vehicle.",
 	},
 	{
@@ -64,7 +64,7 @@ const vehicleFill = {
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
-	<div class="section-small space-y-24 bg-chathams-blue-600">
+	<div class="section section-small bg-chathams-blue-600">
 		<Container>
 			<div class="space-y-4 md:space-y-8 text-white">
 				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">Texas' Top <strong>Truck Outfitter</strong></h1>
@@ -74,8 +74,8 @@ const vehicleFill = {
 				</p>
 
 				<div class="flex flex-col md:flex-row gap-6 items-center justify-center lg:justify-start">
-					<a href="/contact" class="font-semibold py-3 px-4 rounded bg-chathams-blue-500">Build Your Truck!</a>
-					<a href="/builds" class="font-medium">See Our Builds &rarr;</a>
+					<a href="/contact" class="button button-secondary">Build Your Truck!</a>
+					<a href="/builds" class="font-medium">See Our Builds &gt;</a>
 				</div>
 			</div>
 		</Container>
@@ -86,30 +86,29 @@ const vehicleFill = {
 		{headlineImages.map((i) => <Picture src={i.src} alt={i.alt} class:list={["md:col-span-2 w-full h-full object-cover md:row-span-1", i.position]} />)}
 	</div>
 
-	<div class="section bg-torch-red-600 text-white">
-		<Container classes="space-y-12 w-3/4 mx-auto">
-			<h2 class="uppercase">Our <strong>Process</strong></h2>
-
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-				{
-					process.map((f, i) => (
-						<div class="space-y-2 relative">
-							<div class="absolute text-shiraz-600 text-[8em] uppercase font-alt font-black -top-8 -left-12">{i + 1}</div>
-							<div class="text-xl sm:text-2xl md:text-3xl font-bold uppercase font-alt z-10 relative">{f.title}</div>
-							<div set:html={f.description} class="text-base text-balance leading-relaxed z-10 relative" />
-						</div>
-					))
-				}
+	<Map classes="bg-rock-950 section space-y-24" opacity={0.03} theme="light">
+		<Container classes="space-y-12">
+			<div class="flex flex-col md:flex-row justify-between items-center text-white">
+				<h2 class="uppercase"><strong>Vehicles</strong></h2>
+				<h6 class="uppercase text-balance font-semibold text-center text-lg lg:text-xl"><strong>Servicing</strong> Only the Best!</h6>
 			</div>
-		</Container>
-	</div>
 
-	<Map classes="bg-stone-700 section" theme="light" opacity={0.03}>
-		<Container>
 			<FeatureGrid>
 				{allMakes.map((m) => <Make make={m} />)}
 				<Make make={vehicleFill} url="/contact" />
 			</FeatureGrid>
 		</Container>
+
+		<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+			<Picture src="team/shop/thoroffroad-04.jpg" alt="THOR Off-Road Employee in Dripping Springs, TX" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg"]} />
+
+			<div class="px-8 lg:py-12 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12 space-y-12">
+				<h2 class="uppercase text-white text-center lg:text-left">Our <strong>Process</strong></h2>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-16 mx-auto max-w-4xl">
+					{process.map((f, i) => <StepsAlt number={i + 1} title={f.title} description={f.description} />)}
+				</div>
+			</div>
+		</div>
 	</Map>
 </Layout>

@@ -5,11 +5,9 @@ import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 import { getCollection, getEntry } from "astro:content";
 import Container from "@/components/Container";
-import Link from "@/components/Link";
 import Map from "@/components/backgrounds/Map";
 import Model from "@/components/vehicles/Model";
 import Picture from "@/components/images/Picture";
-import Testimonial from "@/components/testimonials/Testimonial";
 
 export async function getStaticPaths() {
 	const make = await getCollection("makes");
@@ -31,26 +29,31 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 ---
 
 <Layout title={make.data.seo.title} description={make.data.seo.description}>
-	<Map classes="bg-stone-700 section-small space-y-24" opacity={0.05} theme="light">
+	<div class="bg-chathams-blue-600 section section-small">
 		<Container>
 			<div class="space-y-8 text-white">
 				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">We're the <strong>{make.data.title} Experts!</strong>!</h1>
 				<div class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-4xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0" set:html={make.data.description.long} />
 			</div>
 		</Container>
-	</Map>
+	</div>
 
-	<div class:list={["h-[40vh]", make.data.images.featured.length >= 2 && "grid grid-rows-2", make.data.images.featured.length == 3 && "grid-cols-2", make.data.images.featured.length >= 4 && "grid-cols-4"]}>
+	<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", make.data.images.featured.length >= 2 && "grid grid-rows-2", make.data.images.featured.length == 3 && "grid-cols-2", make.data.images.featured.length >= 4 && "grid-cols-4"]}>
 		{
 			make.data.images.featured.map((image, i, arr) => (
-				<Picture src={getBuildImage(image.id.id, image.image)} alt={getBuildDescription(image.id.id)} class:list={[i === 0 && arr.length >= 2 && `row-span-2`, image.position, "w-full h-full object-cover"]} sizes="25vw" />
+				<Picture
+					src={getBuildImage(image.id.id, image.image)}
+					alt={getBuildDescription(image.id.id)}
+					class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-1 md:row-span-2`, image.position, "col-span-2 md:col-span-1 w-full h-64 md:h-full object-cover"]}
+					sizes="25vw"
+				/>
 			))
 		}
 	</div>
 
-	<div class="section bg-rock-50">
+	<Map classes="section bg-rock-950" opacity={0.03} theme="light">
 		<Container classes="space-y-12">
-			<div class="grid grid-cols-5 gap-10">
+			<div class="grid grid-cols-5 gap-10 text-white">
 				<h2 class="col-span-5 text-balance uppercase font-medium max-w-2xl">Let's Build Your <strong>Dream {make.data.title}</strong></h2>
 
 				<div class="col-span-5 lg:col-span-2 flex flex-col gap-y-6">
@@ -59,14 +62,14 @@ const makeTestimonial = await getEntry(make.data.testimonial);
 					</div>
 
 					<div>
-						<Link href="/contact" style="button-ghost" inverse={true}> Let's Talk! </Link>
+						<a href="/contact" class="button button-primary w-fit">Build My {make.data.title}!</a>
 					</div>
 				</div>
 
-				<div class="col-span-5 lg:col-span-3 grid grid-cols-2 gap-x-12 gap-y-16 h-fit">
+				<div class="col-span-5 lg:col-span-3 grid grid-cols-2 gap-1 h-fit">
 					{allModels.map((m) => <Model model={m} />)}
 				</div>
 			</div>
 		</Container>
-	</div>
+	</Map>
 </Layout>

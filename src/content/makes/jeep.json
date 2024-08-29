@@ -18,15 +18,7 @@
 	"images": {
 		"featured": [
 			{
-				"id": "312877-2021-jeep-gladiator",
-				"image": 9
-			},
-			{
 				"id": "187918-2023-jeep-gladiator",
-				"image": 1
-			},
-			{
-				"id": "585552-2023-jeep-wrangler",
 				"image": 1
 			}
 		]

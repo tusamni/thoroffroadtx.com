@@ -15,15 +15,11 @@ textarea,
 select {
 	@apply w-full rounded px-4 py-3 focus:ring-inset focus:ring-4 focus:ring-torch-red-700 text-sm sm:leading-6 border-none shadow-2xl;
 
-	&.dark {
-		@apply text-black bg-white border-0 focus:border-0
+	&.input-secondary {
+		@apply focus:ring-chathams-blue-800;
 	}
 }
 
 label {
-	@apply text-black block font-semibold leading-6 uppercase font-alt;
-
-	&.dark {
-		@apply text-white;
-	}
+	@apply text-white block font-semibold leading-6 uppercase font-alt;
 }

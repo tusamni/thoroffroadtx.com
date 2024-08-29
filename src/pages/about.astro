@@ -1,52 +1,71 @@
 ---
 import { Business } from "@/config";
-
 import Container from "@/components/Container";
 import Layout from "@/layouts/Layout";
+import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
+
+const headlineImages = [
+	{ url: "team/shop/thoroffroad-01.jpg", alt: "Employee at THOR Off-Road" },
+	{ url: "team/shop/thoroffroad-02.jpg", alt: "Working on a vehicle at THOR Off-Road" },
+	{ url: "team/shop/thoroffroad-03.jpg", alt: "Installing off road parts at THOR Off-Road" },
+];
 ---
 
 <Layout title="About Us">
-	<div class="mt-20 section section-bottom">
-		<Container padding={true}>
-			<div class="grid grid-cols-2 sm:gap-4">
-				<!-- black content area -->
-				<div class="bg-black col-span-2 lg:col-span-1 text-white space-y-8">
-					<h1 class="text-balance">The Best Off-Road Truck Outfitter in Texas!</h1>
-					<p>
-						THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers'
-						dreams.
-					</p>
-					<p>
-						THOR is passionate about creating purpose-built vehicles for our customers, but we also thrive on building strong personal relationships that are based on competence and trust. We are experts in all things off-road and love to
-						inspire and help our customers to build the truck or adventure vehicle that they have always wanted. We aren't satisfied until we hear our customers say: <span class="italic font-semibold"
-							>"Wow, I can't believe that's my truck!"</span
-						>
-					</p>
-					<p>
-						If you'd like to visit our shop, we're located at {`${Business.address.street01} ${Business.address.street02}, ${Business.address.city}, ${Business.address.state}, ${Business.address.zip}`} and open {Business.hours}.
-					</p>
+	<div class="bg-chathams-blue-600">
+		<Container>
+			<div class="section section-small space-y-4 md:space-y-8 text-white">
+				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">About <br /><strong>THOR Off-Road</strong></h1>
+				<p class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-3xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0">
+					THOR Off-Road is a premier off-road vehicle outfitter located in Dripping Springs, Texas. They specialize in providing high-quality parts, accessories, and expert installation services for trucks and SUVs.
+				</p>
 
-					<div class="flex flex-col">
-						<div class="font-bold text-xl tracking-tighter">Jamey Whitlock</div>
-						<div>Owner, THOR Off-Road</div>
-					</div>
-				</div>
-
-				<div class="col-span-2 lg:col-span-1 relative">
-					<Picture src="team/jamey/jamey.jpg" loading="eager" sizes="50vw" class="w-full h-full object-cover absolute object-[50%,30%]" />
+				<div class="flex flex-col md:flex-row gap-6 items-center justify-center lg:justify-start">
+					<a href="/contact" class="button button-secondary">Build Your Truck!</a>
+					<a href="/builds" class="font-medium">See Our Builds &gt;</a>
 				</div>
 			</div>
 		</Container>
 	</div>
 
-	<iframe
-		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.4307137009937!2d-98.0231541877444!3d30.196252074742556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b46992512c29d%3A0x8d5bae8937d3b284!2sTHOR%20Off%20Road!5e0!3m2!1sen!2sus!4v1694229765516!5m2!1sen!2sus"
-		title="Map showing THOR-Off Road's store location in Dripping Springs"
-		class="w-full h-[40em]"
-		allowfullscreen=""
-		loading="lazy"
-		referrerpolicy="no-referrer-when-downgrade"
-	>
-	</iframe>
+	<div class="grid grid-cols-3 h-[400px]">
+		{headlineImages.map((h) => <Picture src={h.url} alt={h.alt} loading="eager" class:list={["w-full h-full object-cover rounded shadow-lg"]} />)}
+	</div>
+
+	<Map classes="bg-rock-100 section" ">
+		<Container>
+			<div class="grid grid-cols-2 gap-8">
+				<div class="flex flex-col gap-8">
+					<h2 class="uppercase max-w-xl">A Word from <strong>Jamey Whitlock</strong></h2>
+					<div class="text-xl leading-relaxed max-w-2xl">
+						If you'd like to visit our shop, we're located at <a href={Business.mapUrl} class="underline"
+							>{`${Business.address.street01} ${Business.address.street02}, ${Business.address.city}, ${Business.address.state} ${Business.address.zip}`}</a
+						> and open {Business.hours}.
+					</div>
+				</div>
+
+				<div class="text-black space-y-8">
+					<div class="space-y-4">
+						<p class="text-2xl md:text-3xl font-medium">"THOR Off-Road spawned off of my own passion of building trucks for people who use them."</p>
+					</div>
+
+					<div class="space-y-6 text-lg md:text-xl !leading-relaxed font-light">
+						<p>
+							It all started when I was a kid. My dad owned a brake shop, and I ran around the shop, playing with parts, learning how to balance tires and mop floors. Growing up, I had a passion for making things better. I started
+							creating purpose built vehicles, mostly around hunting and ranch trucks. We quickly realized there was there was a niche for purpose built vehicles.
+						</p>
+						<p>
+							THOR Off-Road takes the time to listen to the customer's needs. We put a personal touch on every truck and make sure that we're getting them exactly what they're looking for. Every customer who comes into THOR Off-Road
+							wants something different. No matter your budget, you'll get world class service.
+						</p>
+					</div>
+				</div>
+			</div>
+		</Container>
+	</Map>
+
+	<video autoplay loop class="w-full h-full">
+		<source src="https://thoroffroad.b-cdn.net/videos/drone-footage.mp4" type="video/mp4" />
+	</video>
 </Layout>

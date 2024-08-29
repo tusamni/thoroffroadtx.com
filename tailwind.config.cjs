@@ -97,5 +97,10 @@ module.exports = {
 			}
 		}
 	},
+	safelist: [
+		{
+			pattern: /bg-(torch-red|shiraz|chathams-blue|rock|merlin)-(50|100|200|300|400|500|600|700|800|900|950)/, // You can display all the colors that you need
+		},
+	],
 	plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography"), require("@tailwindcss/container-queries")],
 };

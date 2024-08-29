@@ -35,16 +35,7 @@
 		"featured": [
 			{
 				"id": "177260-2024-ford-f-250",
-				"image": 19
-			},
-			{
-				"id": "114756-2023-chevrolet-silverado-1500",
-				"image": 3,
-				"position": "object-[50%,75%]"
-			},
-			{
-				"id": "782922-2022-ford-f-350",
-				"image": 23
+				"image": 20
 			}
 		]
 	}

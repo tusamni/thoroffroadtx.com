@@ -46,25 +46,25 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">We're the <strong>{part.data.title} Experts</strong>!</h1>
 				<div class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-4xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0" set:html={part.data.description.short} />
 			</div>
-
-			<div class:list={["lg:min-h-[800px] sm:h-[50vh]", part.data.images.featured.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
-				{
-					part.data.images.featured.map((image, i, arr) => (
-						<Picture
-							src={getBuildImage(image.id.id, image.image)}
-							alt={getBuildDescription(image.id.id)}
-							class:list={[i === 0 && arr.length >= 2 && `col-span-4 sm:col-span-2 sm:row-span-2`, image.position, "col-span-4 sm:col-span-2 w-full h-64 sm:h-full object-cover"]}
-							sizes="25vw"
-						/>
-					))
-				}
-			</div>
 		</Container>
 	</div>
 
-	<Map classes="section bg-rock-950" opacity={0.03} theme="light">
+	<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", part.data.images.featured.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
+		{
+			part.data.images.featured.map((image, i, arr) => (
+				<Picture
+					src={getBuildImage(image.id.id, image.image)}
+					alt={getBuildDescription(image.id.id)}
+					class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, image.position, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]}
+					sizes="100vw"
+				/>
+			))
+		}
+	</div>
+
+	<Map classes="section bg-rock-100" ">
 		<Container classes="space-y-12">
-			<div class="grid grid-cols-5 gap-10 text-white">
+			<div class="grid grid-cols-5 gap-10">
 				<h2 class="col-span-5 text-balance uppercase font-medium max-w-3xl"><strong>{part.data.title}</strong> Upgrade Options</h2>
 
 				<div class="col-span-5 lg:col-span-2 flex flex-col gap-y-6">

@@ -6,15 +6,15 @@ interface Props {
 const { model, classes, ...attrs } = Astro.props;
 ---
 
-<div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-white/10 transition duration-200 hover:bg-white/15  backdrop-blur-sm", classes]} {...attrs}>
+<div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-rock-200/60 transition duration-200 hover:bg-rock-200 backdrop-blur-sm", classes]} {...attrs}>
 	<div class="flex flex-row gap-3 items-center">
-		<div class="font-semibold uppercase font-alt text-2xl md:text-3xl text-white line-clamp-1">{model.data.title}</div>
+		<div class="font-semibold uppercase font-alt text-2xl md:text-3xl line-clamp-1">{model.data.title}</div>
 	</div>
 
-	<div class="text-stone-300 text-base line-clamp-3" set:html={model.data.description.short} />
+	<div class="text-base line-clamp-3" set:html={model.data.description.short} />
 
 	<div>
-		<a href={`/builds/?buildMake=${model.data.make.id}&buildModel=${model.data.slug}`} class="font-alt text-lg font-medium uppercase text-white">
+		<a href={`/builds/?buildMake=${model.data.make.id}&buildModel=${model.data.slug}`} class="font-alt text-lg font-medium uppercase">
 			<span class="absolute inset-0"></span>
 
 			<div>

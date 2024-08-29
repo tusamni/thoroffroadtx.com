@@ -62,7 +62,7 @@ const colWidth = 450;
 		</Container>
 	</div>
 
-	<Map classes="bg-rock-950 section space-y-24" opacity={0.03} theme="light">
+	<Map classes="bg-rock-100 section section-small space-y-24"">
 		<Container classes="space-y-8">
 			<div class="grid grid-cols-6 grid-rows-2 gap-4 sm:gap-8 h-full md:h-[40vh] lg:h-[700px] gallery">
 				<Picture
@@ -83,63 +83,67 @@ const colWidth = 450;
 		</Container>
 	</Map>
 
-	<Map classes="bg-rock-800 section" opacity={0.03} theme="light">
+	<Map classes="bg-rock-200 section section-small"">
 		<Container>
 			<div class="grid grid-cols-5 gap-4 lg:gap-8">
 				<div class="col-span-5 md:col-span-2 w-full h-full">
-					<div class="sticky top-36 space-y-12 backdrop-blur-md bg-rock-200 px-8 py-12 rounded">
-						<div class="space-y-12">
-							{
-								buildData.data.meta.goals && (
-									<div class="space-y-6">
-										<div class="uppercase text-4xl font-alt font-medium">Summary</div>
-										<div class="space-y-6 text-lg leading-loose" set:html={buildData.data.meta.goals} />
-									</div>
-								)
-							}
+					<div class="sticky top-36 space-y-8">
+						<div class="bg-rock-300/70 px-8 py-12 rounded">
+							<div class="space-y-12">
+								{
+									buildData.data.meta.goals && (
+										<div class="space-y-6">
+											<div class="uppercase text-4xl font-alt font-medium">Summary</div>
+											<div class="space-y-6 text-lg leading-loose" set:html={buildData.data.meta.goals} />
+										</div>
+									)
+								}
 
-							<div class="space-y-4">
-								<div class="uppercase text-4xl font-alt font-medium"><strong>Parts</strong> List</div>
-								<div class="space-y-2 text-sm md:text-xs lg:text-base">
-									{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
+								<div class="space-y-4">
+									<div class="uppercase text-4xl font-alt font-medium"><strong>Parts</strong> List</div>
+									<div class="space-y-2 text-sm md:text-xs lg:text-base">
+										{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
+									</div>
 								</div>
+
+								{
+									buildData.data.meta.testimonial && (
+										<div class="text-base space-y-4">
+											<Testimonial content={testimonial} />
+										</div>
+									)
+								}
+
+								<!-- {
+									buildData.data.video && (
+										<div class="align-self-end flex-none">
+											<a
+												href={getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}
+												data-sources={`[{"src":"${getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
+												data-width={buildData.data.video.width}
+												data-height={buildData.data.video.height}
+												class="video text-xs sm:text-sm flex items-center font-medium gap-2"
+											>
+												<span>
+													Watch the
+													<br />
+													Build Video
+												</span>
+												<Icon icon="hero/PlayCircleFill" class="h-6 sm:h-10" />
+											</a>
+										</div>
+									)
+								}--->
 							</div>
+						</div>
 
-							{
-								buildData.data.meta.testimonial && (
-									<div class="text-base space-y-4">
-										<Testimonial content={testimonial} />
-									</div>
-								)
-							}
-
-							<!-- {
-								buildData.data.video && (
-									<div class="align-self-end flex-none">
-										<a
-											href={getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}
-											data-sources={`[{"src":"${getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
-											data-width={buildData.data.video.width}
-											data-height={buildData.data.video.height}
-											class="video text-xs sm:text-sm flex items-center font-medium gap-2"
-										>
-											<span>
-												Watch the
-												<br />
-												Build Video
-											</span>
-											<Icon icon="hero/PlayCircleFill" class="h-6 sm:h-10" />
-										</a>
-									</div>
-								)
-							}--->
-
+						<div class="bg-chathams-blue-600 text-white px-8 py-12 rounded">
 							<div class="hidden lg:block space-y-8">
 								<div class="uppercase text-4xl font-alt font-medium">Let's <strong>Get Started</strong></div>
 								<div class="leading-relaxed">
 									There are endless options for your {model.data.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!
 								</div>
-								<a href="/contact" class="button button-primary button-inverse justify-center">Build Your {model.data.title}!</a>
+								<a href="/contact" class="button button-secondary justify-center">Build Your {model.data.title}!</a>
 							</div>
 						</div>
 					</div>

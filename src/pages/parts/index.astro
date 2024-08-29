@@ -65,10 +65,10 @@ const headlineImages = [
 		{headlineImages.map((image) => <Picture src={image.src} alt={image.alt} class="w-full h-52 sm:h-72 lg:h-full object-cover col-span-3 lg:col-span-1" sizes="(min-width: 1024px) 20vw, 50vw" />)}
 	</div>
 
-	<Map classes="bg-rock-950 section space-y-24" opacity={0.03} theme="light">
+	<Map classes="bg-rock-100 section space-y-24" ">
 		<Container classes="space-y-12">
 			<div class="flex items-center justify-center">
-				<h2 class="uppercase text-white">Outfit <strong>Your Vehicle</strong></h2>
+				<h2 class="uppercase">Outfit <strong>Your Vehicle</strong></h2>
 			</div>
 
 			<FeatureGrid>
@@ -80,18 +80,18 @@ const headlineImages = [
 			<Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg"]} />
 
 			<div class="px-8 lg:py-12 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12 space-y-12">
-				<h2 class="uppercase text-white text-center lg:text-left">Our <strong>Process</strong></h2>
+				<h2 class="uppercase text-center lg:text-left">Our <strong>Process</strong></h2>
 
-				<div class="space-y-12 text-white">
+				<div class="space-y-12">
 					{process.map((f, i) => <Steps number={i + 1} title={f.title} description={f.description} />)}
 				</div>
 			</div>
 		</div>
 	</Map>
 
-	<div class="section bg-rock-900" x-data="{ expanded: false }">
+	<div class="section bg-rock-200" x-data="{ expanded: false }">
 		<Container classes="space-y-12">
-			<div class="flex flex-col md:flex-row justify-between items-center text-white">
+			<div class="flex flex-col md:flex-row justify-between items-center">
 				<h2 class="uppercase">Our <strong>Brands</strong></h2>
 				<h6 class="uppercase text-balance font-semibold text-center text-lg lg:text-xl"><strong>Selling & Installing</strong> the Best!</h6>
 			</div>
@@ -99,7 +99,7 @@ const headlineImages = [
 			<div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-0.5 rounded justify-between" :class="!expanded && '[mask-image:_linear-gradient(to_bottom,black_50%,transparent_100%)]'" x-show="expanded" x-collapse.min.400px>
 				{
 					allBrands.map((b) => (
-						<div class="p-6 sm:p-10 text-merlin-50 bg-merlin-100/20">
+						<div class="p-6 sm:p-10 bg-merlin-100/20">
 							<Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="max-h-12 w-full object-contain" />
 						</div>
 					))
@@ -107,7 +107,7 @@ const headlineImages = [
 			</div>
 
 			<div class="flex justify-center">
-				<div @click="expanded =! expanded" x-text="expanded ? `Hide 'Em!` : 'See More Brands'" class="button button-ghost cursor-pointer"></div>
+				<div @click="expanded =! expanded" x-text="expanded ? `Hide 'Em!` : 'See More Brands'" class="button button-ghost button-inverse cursor-pointer"></div>
 			</div>
 		</Container>
 	</div>

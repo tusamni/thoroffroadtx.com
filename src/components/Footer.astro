@@ -7,11 +7,11 @@ import ContactForm from "@/components/ContactForm";
 import Icon from "@/components/Icon";
 ---
 
-<div class="bg-torch-red-600 section">
-	<Container>
-		<div class="space-y-20">
-			{
-				!Astro.url.pathname.includes("/contact/success") && (
+{
+	!Astro.url.pathname.includes("/contact/success") && (
+		<div class="bg-torch-red-600 section">
+			<Container>
+				<div class="space-y-20">
 					<div class="grid lg:grid-cols-2 gap-20">
 						<div class="mx-auto max-w-screen-md lg:max-w-none space-y-8">
 							<h1 class="uppercase text-balance text-white">
@@ -33,11 +33,11 @@ import Icon from "@/components/Icon";
 							referrerpolicy="no-referrer-when-downgrade"
 						/>
 					</div>
-				)
-			}
+				</div>
+			</Container>
 		</div>
-	</Container>
-</div>
+	)
+}
 
 <footer class="py-16">
 	<Container>

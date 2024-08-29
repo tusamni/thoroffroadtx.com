@@ -15,13 +15,20 @@ const { build, sizes = "100vw", classes, ...attrs } = Astro.props;
 const buildData = await getEntry("builds", build);
 ---
 
-<a href={`/builds/${buildData.id}`} class:list={["relative bg-gradient-to-r from-rock-800 to-rock-700 hover:to-rock-600 shadow-lg hover:shadow-2xl transition duration-200 rounded flex flex-col justify-between group", classes]} {...attrs}>
+<a href={`/builds/${buildData.id}`} class:list={["relative bg-rock-50 transition duration-200 rounded flex flex-col justify-between group", classes]} {...attrs}>
 	<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="aspect-video object-cover rounded-t" sizes={sizes} />
 
-	<div class="flex flex-col gap-3 p-6 text-white">
+	<div class="flex flex-col gap-4 p-6">
 		<div class="uppercase font-semibold text-2xl line-clamp-1 font-alt">{getBuildTitle(buildData.id)}</div>
-		<div class="uppercase text-xs">
-			{timeAgo(buildData.data.date)}
+		<ul class="comma-list line-clamp-2">
+			{buildData.data.meta.parts.map((p) => <li>{p}</li>)}
+		</ul>
+		<div class="flex justify-between items-center">
+			<div class="button button-primary button-inverse button-xs">View Build</div>
+
+			<div class="text-sm">
+				{timeAgo(buildData.data.date)}
+			</div>
 		</div>
 	</div>
 </a>

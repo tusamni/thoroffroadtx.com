@@ -2,15 +2,10 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { getBuildImage } from "@/functions/Image";
-import { getBuildDescription } from "@/functions/Content";
-import { getCollection } from "astro:content";
-
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
 import Map from "@/components/backgrounds/Map";
 import PartDetail from "@/components/parts/PartDetail";
-import Picture from "@/components/images/Picture";
 
 export async function getStaticPaths() {
 	const parts = await supabaseService.from("parts").select("*, parts_items (*), brands_parts (brand_id(*)), parts_images (*))");
@@ -27,7 +22,7 @@ export async function getStaticPaths() {
 const { part } = Astro.props;
 const iconCols = part.brands_parts.length <= 8 ? 5 : Math.round(part.brands_parts.length / 2);
 
-const { data } = supabaseService.storage.from(part.parts_images[0].bucket_id).getPublicUrl(part.parts_images[0].image_name);
+//const { data } = supabaseService.storage.from(part.parts_images[0].bucket_id).getPublicUrl(part.parts_images[0].image_name);
 ---
 
 <Layout title={part.seo_title} description={part.seo_description}>
@@ -39,8 +34,6 @@ const { data } = supabaseService.storage.from(part.parts_images[0].bucket_id).ge
 			</div>
 		</Container>
 	</div>
-
-	<img src={data.publicUrl} alt="Test" sizes="100vw" />
 
 	<!-- <div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", part.data.images.featured.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
 		{

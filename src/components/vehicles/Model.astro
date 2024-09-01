@@ -1,24 +1,25 @@
 ---
 interface Props {
+	make: string;
 	model: any;
 	classes?: string;
 }
-const { model, classes, ...attrs } = Astro.props;
+const { make, model, classes, ...attrs } = Astro.props;
 ---
 
 <div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-rock-200/60 transition duration-200 hover:bg-rock-200 backdrop-blur-sm", classes]} {...attrs}>
 	<div class="flex flex-row gap-3 items-center">
-		<div class="font-semibold uppercase font-alt text-2xl md:text-3xl line-clamp-1">{model.data.title}</div>
+		<div class="font-semibold uppercase font-alt text-2xl md:text-3xl line-clamp-1">{model.title}</div>
 	</div>
 
-	<div class="text-base line-clamp-3" set:html={model.data.description.short} />
+	<div class="text-base line-clamp-3" set:html={model.description_short} />
 
 	<div>
-		<a href={`/builds/?buildMake=${model.data.make.id}&buildModel=${model.data.slug}`} class="font-alt text-lg font-medium uppercase">
+		<a href={`/builds/?buildMake=${make}&buildModel=${model.slug}`} class="font-alt text-lg font-medium uppercase">
 			<span class="absolute inset-0"></span>
 
 			<div>
-				{model.data.title} Builds <span class="group-hover:translate-x-2 transition duration-200 inline-block">&#x2192;</span>
+				{model.title} Builds <span class="group-hover:translate-x-2 transition duration-200 inline-block">&#x2192;</span>
 			</div>
 		</a>
 	</div>

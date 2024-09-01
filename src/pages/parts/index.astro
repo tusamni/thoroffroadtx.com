@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout";
 
+import { supabaseService } from "@/library/supabase";
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 
@@ -15,7 +16,7 @@ import Steps from "@/components/sections/Steps";
 // content
 import { getCollection } from "astro:content";
 const allParts = await getCollection("parts");
-const allBrands = await getCollection("brands");
+const allBrands = await supabaseService.from("brands").select("*");
 
 const process = [
 	{
@@ -98,9 +99,9 @@ const headlineImages = [
 
 			<div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-0.5 rounded justify-between" :class="!expanded && '[mask-image:_linear-gradient(to_bottom,black_50%,transparent_100%)]'" x-show="expanded" x-collapse.min.400px>
 				{
-					allBrands.map((b) => (
+					allBrands.data.map((b) => (
 						<div class="p-6 sm:p-10 bg-merlin-100/20">
-							<Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="max-h-12 w-full object-contain" />
+							<Icon icon={`brands/${b.logo}`} alt={b.title} class="max-h-12 w-full object-contain" />
 						</div>
 					))
 				}

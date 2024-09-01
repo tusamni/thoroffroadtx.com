@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout";
 
+import { supabaseService } from "@/library/supabase";
 import { Business } from "@/config";
 import { getCollection } from "astro:content";
 
@@ -13,9 +14,7 @@ import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/testimonials/Testimonial";
 
 // content
-const allBrands = await getCollection("brands", ({ data }) => {
-	return data.featured == true;
-});
+const allBrands = await supabaseService.from("brands").select("*").eq("featured", true);
 const allParts = await getCollection("parts");
 const allTestimonials = await getCollection("testimonials");
 
@@ -49,10 +48,10 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 	<div class="bg-torch-red-600 text-white py-10 lg:py-16">
 		<div class="flex overflow-hidden space-x-12 lg:space-x-24 [mask-image:_linear-gradient(to_right,transparent_0,_black_70px,_black_calc(100%-70px),transparent_100%)]">
 			<div class="flex gap-12 lg:gap-24 animate-icon-scroll">
-				{allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-6 lg:h-10 w-auto" />)}
+				{allBrands.data.map((b) => <Icon icon={`brands/${b.logo}`} alt={b.title} class="h-6 lg:h-10 w-auto" />)}
 			</div>
 			<div class="flex gap-12 lg:gap-24 animate-icon-scroll" aria-hidden="true">
-				{allBrands.map((b) => <Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="h-6 lg:h-10 w-auto" />)}
+				{allBrands.data.map((b) => <Icon icon={`brands/${b.logo}`} alt={b.title} class="h-6 lg:h-10 w-auto" />)}
 			</div>
 		</div>
 	</div>

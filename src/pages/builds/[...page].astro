@@ -3,6 +3,7 @@ export const prerender = false;
 
 import Layout from "@/layouts/Layout";
 
+import { supabaseService } from "@/library/supabase";
 import { getCollection, getEntry } from "astro:content";
 import { paginate } from "@/functions/Paginate";
 import Build from "@/components/builds/snippets/Build";
@@ -10,19 +11,19 @@ import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 import Pagination from "@/components/Pagination";
 
-const allMakes = await getCollection("makes");
-const allModels = await getCollection("models");
+const allMakes = await supabaseService.from("makes").select("*");
+const allModels = await supabaseService.from("models").select("*");
 
 const makeParam = Astro.url.searchParams.get("buildMake");
 const modelParam = Astro.url.searchParams.get("buildModel");
 const searchParam = Astro.url.searchParams.get("search");
 
-const actualMake = makeParam ? await getEntry("makes", makeParam) : null;
-const actualModel = modelParam ? await getEntry("models", `${makeParam}-${modelParam}`) : null;
+const actualModelArray = allModels.data.filter((m) => m.slug == modelParam);
+const actualModel = actualModelArray[0];
 
 let filteredModels = [];
-for (const model of allModels) {
-	if (model.data.make.id === makeParam) {
+for (const model of allModels.data) {
+	if (model.make.id === makeParam) {
 		filteredModels.push(model);
 	}
 }
@@ -107,9 +108,9 @@ if (allPages.length && !page) {
 						<select name="buildMake" id="buildMake" class="input-secondary">
 							<option value="" disabled selected>Choose a Make</option>
 							{
-								allMakes.map((m) => (
-									<option value={m.data.title.toLowerCase()} selected={makeParam === m.data.title.toLowerCase()}>
-										{m.data.title}
+								allMakes.data.map((m) => (
+									<option value={m.slug} selected={makeParam === m.slug}>
+										{m.title}
 									</option>
 								))
 							}

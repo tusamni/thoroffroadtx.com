@@ -15,7 +15,7 @@ import Steps from "@/components/sections/Steps";
 
 // content
 import { getCollection } from "astro:content";
-const allParts = await getCollection("parts");
+const allParts = await supabaseService.from("parts").select("*");
 const allBrands = await supabaseService.from("brands").select("*");
 
 const process = [
@@ -73,7 +73,7 @@ const headlineImages = [
 			</div>
 
 			<FeatureGrid>
-				{allParts.map((p) => <PartAlt part={p} />)}
+				{allParts.data.map((p) => <PartAlt part={p} />)}
 			</FeatureGrid>
 		</Container>
 

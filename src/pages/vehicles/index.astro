@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout";
 
+import { supabaseService } from "@/library/supabase";
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
 import { getCollection } from "astro:content";
@@ -12,22 +13,9 @@ import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
 import StepsAlt from "@/components/sections/StepsAlt";
 
-export async function getStaticPaths() {
-	const parts = await getCollection("parts");
-
-	return parts.map((part) => ({
-		params: {
-			id: part.id,
-		},
-		props: { part },
-	}));
-}
-
 // content
 const recentBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 8);
-const allMakes = await getCollection("makes", ({ data }) => {
-	return data.draft !== true;
-});
+const allMakes = await supabaseService.from("makes").select("*, models(title)").eq("status", true);
 const process = [
 	{
 		title: "We Know the Brands",
@@ -51,15 +39,9 @@ const headlineImages = [
 	{ src: getBuildImage("692114-2023-ram-2500", 2), alt: await getBuildDescription("692114-2023-ram-2500"), position: "md:object-[50%,80%]" },
 ];
 const vehicleFill = {
-	data: {
-		title: "We Do It All!",
-		description: {
-			short: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
-		},
-		logo: {
-			name: "hero/Envelope",
-		},
-	},
+	title: "We Do It All!",
+	description_short: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
+	logo: "hero/Envelope",
 };
 ---
 
@@ -94,7 +76,7 @@ const vehicleFill = {
 			</div>
 
 			<FeatureGrid>
-				{allMakes.map((m) => <Make make={m} />)}
+				{allMakes.data.map((m) => <Make make={m} />)}
 				<Make make={vehicleFill} url="/contact" />
 			</FeatureGrid>
 		</Container>

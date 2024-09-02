@@ -1,27 +1,31 @@
 ---
+import { supabaseService } from "@/library/supabase";
 import { getBuildImage } from "@/functions/Image";
 import Icon from "@/components/Icon";
 import Picture from "@/components/images/Picture";
 
 interface Props {
 	part: any;
-	url: string;
+	url?: string;
 }
 const { part, url, ...attrs } = Astro.props;
+
+const featuredImage = part.parts_images.filter((p) => p.featured == true);
+const { data } = supabaseService.storage.from("images").getPublicUrl(featuredImage.image_name);
 ---
 
 <div class="relative group">
-	<Picture src={getBuildImage(part.data.images.featured[0].id.id, part.data.images.featured[0].image)} class="h-48 w-full object-cover rounded-t" sizes="350px" />
+	<!-- {featuredImage && <Picture src={data.publicURL} class="h-48 w-full object-cover rounded-t" sizes="350px" />} -->
 
 	<div class="py-6 flex flex-row gap-3 items-center justify-center bg-gradient-to-r from-rock-200 to-rock-300 group-hover:to-rock-400">
 		<div class="w-8 h-8 border-2 border-rock-900 rounded relative flex-none overflow-hidden flex justify-center items-center">
-			<Icon icon={url ? part.data.images.icon : `parts/${part.data.images.icon}Outline`} class="text-rock-900 absolute w-10 h-auto -rotate-12" />
+			<Icon icon={url ? part.icon : `parts/${part.icon}Outline`} class="text-rock-900 absolute w-10 h-auto -rotate-12" />
 		</div>
 
 		<div class="flex flex-col gap-2">
-			<a href={url ? url : `/parts/${part.id}`} class="font-semibold uppercase font-alt text-3xl text-rock-950">
+			<a href={url ? url : `/parts/${part.slug}`} class="font-semibold uppercase font-alt text-3xl text-rock-950">
 				<span class="absolute inset-0"></span>
-				{part.data.title}
+				{part.title}
 			</a>
 		</div>
 	</div>

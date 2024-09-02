@@ -9,7 +9,6 @@ import Layout from "@/layouts/Layout";
 import Container from "@/components/Container";
 
 const result = Astro.getActionResult(actions.login);
-console.log(result);
 if (result && !result.error) {
 	return Astro.redirect(`/dashboard`);
 }

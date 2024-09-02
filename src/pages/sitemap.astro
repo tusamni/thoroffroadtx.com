@@ -2,15 +2,14 @@
 import Layout from "@/layouts/Layout";
 
 // imports
+import { supabaseService } from "@/library/supabase";
 import { getCollection } from "astro:content";
 import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 
 // data
-const allMakes = await getCollection("makes", ({ data }) => {
-	return data.draft !== true;
-});
-const allParts = await getCollection("parts");
+const allMakes = await supabaseService.from("makes").select("*").eq("status", true);
+const allParts = await supabaseService.from("parts").select("*");
 ---
 
 <Layout title="Sitemap">
@@ -37,10 +36,10 @@ const allParts = await getCollection("parts");
 					<p class="font-semibold text-2xl">Parts</p>
 					<ul class="space-y-2">
 						{
-							allParts.map((p) => (
+							allParts.data.map((p) => (
 								<li>
-									<a href={`/parts/${p.id}`} title={p.data.title}>
-										{p.data.title}
+									<a href={`/parts/${p.slug}`} title={p.title}>
+										{p.title}
 									</a>
 								</li>
 							))

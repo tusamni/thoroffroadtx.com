@@ -2,22 +2,17 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { getBuildImage } from "@/functions/Image";
-import { getBuildDescription } from "@/functions/Content";
-import { getCollection } from "astro:content";
-
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
 import Map from "@/components/backgrounds/Map";
 import PartDetail from "@/components/parts/PartDetail";
-import Picture from "@/components/images/Picture";
 
 export async function getStaticPaths() {
-	const parts = await getCollection("parts");
+	const parts = await supabaseService.from("parts").select("*, parts_items (*), brands_parts (brand_id(*)), parts_images (*))");
 
-	return parts.map((part) => ({
+	return parts.data.map((part) => ({
 		params: {
-			id: part.id,
+			id: part.slug,
 		},
 		props: { part },
 	}));
@@ -25,32 +20,22 @@ export async function getStaticPaths() {
 
 // content
 const { part } = Astro.props;
+const iconCols = part.brands_parts.length <= 8 ? 5 : Math.round(part.brands_parts.length / 2);
 
-// get brands
-const allBrands = await getCollection("brands", ({ data }) => {
-	return data.parts.find((p) => p.id === part.id);
-});
-
-const allBuilds = (
-	await getCollection("builds", ({ data }) => {
-		return data.categories.find((c) => c.id === part.id);
-	})
-).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
+//const { data } = supabaseService.storage.from(part.parts_images[0].bucket_id).getPublicUrl(part.parts_images[0].image_name);
 ---
 
-<Layout title={part.data.seo.title} description={part.data.seo.description}>
+<Layout title={part.seo_title} description={part.seo_description}>
 	<div class="bg-chathams-blue-600 section section-small">
 		<Container>
 			<div class="space-y-8 text-white">
-				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">We're the <strong>{part.data.title} Experts</strong>!</h1>
-				<div class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-4xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0" set:html={part.data.description.short} />
+				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">We're the <strong>{part.title} Experts</strong>!</h1>
+				<div class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-4xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0" set:html={part.description_short} />
 			</div>
 		</Container>
 	</div>
 
-	<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", part.data.images.featured.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
+	<!-- <div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", part.data.images.featured.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
 		{
 			part.data.images.featured.map((image, i, arr) => (
 				<Picture
@@ -61,16 +46,16 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 				/>
 			))
 		}
-	</div>
+	</div> -->
 
 	<Map classes="section bg-rock-100">
 		<Container classes="space-y-12">
 			<div class="grid grid-cols-5 gap-10">
-				<h2 class="col-span-5 text-balance uppercase font-medium max-w-3xl"><strong>{part.data.title}</strong> Upgrade Options</h2>
+				<h2 class="col-span-5 text-balance uppercase font-medium max-w-3xl"><strong>{part.title}</strong> Upgrade Options</h2>
 
 				<div class="col-span-5 lg:col-span-2 flex flex-col gap-y-6">
 					<div class="space-y-8">
-						<div class="space-y-8 leading-loose text-lg" set:html={part.data.content.sidebar} />
+						<div class="space-y-8 leading-loose text-lg" set:html={part.content} />
 					</div>
 
 					<div>
@@ -79,7 +64,7 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 				</div>
 
 				<div class="col-span-5 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-1 h-fit">
-					{part.data.content.parts.map((p) => <PartDetail part={p} />)}
+					{part.parts_items.map((p) => <PartDetail part={p} />)}
 				</div>
 			</div>
 		</Container>
@@ -89,9 +74,9 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 		<Container>
 			<div class:list={["flex flex-wrap gap-0.5 rounded justify-center", `grid-cols-${iconCols}`]}>
 				{
-					allBrands.map((b) => (
+					part.brands_parts.map((b) => (
 						<div class:list={["p-6 sm:p-10 text-white w-52"]}>
-							<Icon icon={`brands/${b.data.logo}`} alt={b.data.title} class="max-h-12 w-full object-contain" />
+							<Icon icon={`brands/${b["brand_id"].logo}`} alt={b["brand_id"].title} class="max-h-12 w-full object-contain" />
 						</div>
 					))
 				}

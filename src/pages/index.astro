@@ -15,7 +15,7 @@ import Testimonial from "@/components/testimonials/Testimonial";
 
 // content
 const allBrands = await supabaseService.from("brands").select("*").eq("featured", true);
-const allParts = await getCollection("parts");
+const allParts = await supabaseService.from("parts").select("*, parts_images(*)");
 const allTestimonials = await getCollection("testimonials");
 
 const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962843-2024-ram-3500", "884781-2023-ford-bronco", "185376-2023-toyota-tundra", "235752-2022-jeep-wrangler", "568734-2023-ford-f-250"];
@@ -137,7 +137,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 					</div>
 
 					<div class="col-span-5 xl:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-12">
-						{allParts.map((p) => <Part part={p} />)}
+						{allParts.data.map((p) => <Part part={p} />)}
 					</div>
 				</div>
 			</Container>

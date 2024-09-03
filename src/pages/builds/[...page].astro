@@ -11,14 +11,14 @@ import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 import Pagination from "@/components/Pagination";
 
-const allMakes = await supabaseService.from("makes").select("*");
+const allMakes = await supabaseService.from("makes").select("*, models (*)").order("slug");
 const allModels = await supabaseService.from("models").select("*");
 
-const makeParam = Astro.url.searchParams.get("buildMake");
-const modelParam = Astro.url.searchParams.get("buildModel");
+const makeParam = parseInt(Astro.url.searchParams.get("buildMake"));
+const modelParam = parseInt(Astro.url.searchParams.get("buildModel"));
 const searchParam = Astro.url.searchParams.get("search");
 
-const actualModelArray = allModels.data.filter((m) => m.slug == modelParam);
+const actualModelArray = allModels.data.filter((m) => m.id == modelParam);
 const actualModel = actualModelArray[0];
 
 let filteredModels = [];
@@ -34,8 +34,6 @@ async function getFilteredBuilds(make, model, search) {
 
 	function buildsFilter(build) {
 		if (makeParam && modelParam) {
-			let model = modelParam.replace(/\+/g, "-").toLowerCase();
-
 			if (build.data.meta.model.id !== `${makeParam.toLowerCase()}-${model}`) {
 				return false;
 			}
@@ -109,7 +107,7 @@ if (allPages.length && !page) {
 							<option value="" disabled selected>Choose a Make</option>
 							{
 								allMakes.data.map((m) => (
-									<option value={m.slug} selected={makeParam === m.slug}>
+									<option value={m.id} selected={makeParam === m.slug}>
 										{m.title}
 									</option>
 								))
@@ -181,11 +179,11 @@ if (allPages.length && !page) {
 	</Map>
 </Layout>
 
-<script is:inline define:vars={{ allModels }}>
+<script is:inline define:vars={{ allMakes }}>
 	// get models from make
 	const selectMake = document.getElementById("buildMake");
 	const selectModel = document.getElementById("buildModel");
-	getModelsFromMake(allModels, selectMake, selectModel, false, true);
+	getModelsFromMake(allMakes, selectMake, selectModel, false, true);
 
 	// delete url params
 	const paramSearch = document.getElementById("clearSearch");

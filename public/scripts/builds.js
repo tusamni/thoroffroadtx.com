@@ -1,10 +1,12 @@
-function getModelsFromMake(allModels, formMake, formModel, includeOther = true, slug = false) {
+function getModelsFromMake(allMakes, formMake, formModel, includeOther = true) {
 	// if includeOther, add it to the makes field
 	includeOther && formMake.add(new Option("Other", "Other"));
 
 	formMake.addEventListener(
 		"change",
 		function () {
+			const makeId = parseInt(this.value);
+
 			if (this.value == "Other" && includeOther) {
 				clearField(formModel);
 
@@ -13,12 +15,13 @@ function getModelsFromMake(allModels, formMake, formModel, includeOther = true, 
 				clearField(formModel);
 
 				// map through available models
-				allModels.map((i) => {
-					if (i.data.make.id.includes(this.value.toLowerCase())) {
-						let newOption = new Option(i.data.title, slug ? i.data.slug : i.data.title);
-						formModel.add(newOption);
-					}
-				});
+				const selectedMake = allMakes.data.filter(m => {
+					return m.id === makeId;
+				})
+				selectedMake[0].models.map((m) => {
+					let newOption = new Option(m.title, m.id);
+					formModel.add(newOption);
+				})
 
 				includeOther && formModel.add(new Option("Other", "Other"));
 				formModel.selectedIndex = 0;

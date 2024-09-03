@@ -4,7 +4,6 @@ export const prerender = false;
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { getCollection, getEntry } from "astro:content";
 import { paginate } from "@/functions/Paginate";
 import Build from "@/components/builds/snippets/Build";
 import Container from "@/components/Container";
@@ -20,6 +19,7 @@ const searchParam = Astro.url.searchParams.get("search");
 
 const actualModelArray = allModels.data.filter((m) => m.id == modelParam);
 const actualModel = actualModelArray[0];
+console.log(actualModel)
 
 let filteredModels = [];
 for (const model of allModels.data) {
@@ -31,29 +31,30 @@ for (const model of allModels.data) {
 // filter and search shoots
 async function getFilteredBuilds(make, model, search) {
 	const searchRegex = searchParam && new RegExp(searchParam, "i");
+	const builds = await supabaseService.from("builds").select("*, makes (*), models (*)").order("created_at", { ascending: false });
 
-	function buildsFilter(build) {
+	const filteredBuilds = builds.data.filter((build) => {
 		if (makeParam && modelParam) {
-			if (build.data.meta.model.id !== `${makeParam.toLowerCase()}-${model}`) {
+			if (build.makes.id !== makeParam || build.models.id !== modelParam) {
 				return false;
 			}
 		}
 
 		if (searchRegex) {
-			return searchRegex.test(build.data.meta.year) || searchRegex.test(build.data.meta.make.id) || searchRegex.test(build.data.meta.model.id) || searchRegex.test(build.data.meta.trim) || searchRegex.test(build.id);
+			return searchRegex.test(build.year) || searchRegex.test(build.makes.title) || searchRegex.test(build.models.title) || searchRegex.test(build.trim) || searchRegex.test(build.slug);
 		}
 
 		return true;
-	}
+	});
 
-	return (await getCollection("builds", buildsFilter)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+	return filteredBuilds;
 }
 
-const filteredBuilds = await getFilteredBuilds(makeParam, modelParam, searchParam);
+const postFilteredBuilds = await getFilteredBuilds(makeParam, modelParam, searchParam);
 
 const currentPage = Astro.params.page === undefined ? 1 : Number.parseInt(Astro.params.page);
 const paginatedResults = paginate({
-	data: filteredBuilds,
+	data: postFilteredBuilds,
 	pageSize: 6,
 	currentPage,
 	route: "/builds/[...page]",
@@ -143,7 +144,7 @@ if (allPages.length && !page) {
 						</div>
 						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 							{paginatedResults.page.data.map((b) => (
-								<Build build={b.id} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+								<Build build={b.slug} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
 							))}
 						</div>
 						<div class="flex justify-center items-center">{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}</div>
@@ -153,13 +154,13 @@ if (allPages.length && !page) {
 			{
 				page.data.length == 0 && (
 					<div class="flex justify-center items-center">
-						<div class="max-w-2xl text-center space-y-4 text-white">
+						<div class="max-w-2xl text-center space-y-4">
 							{makeParam && modelParam && (
 								<div class="uppercase font-alt font-medium text-5xl text-balance">
-									We Need Your <span class="font-extrabold">{actualModel.data.title}</span>!
+									We Need Your <span class="font-extrabold">{actualModel.title}</span>!
 								</div>
 								<div class="text-xl text-balance leading-relaxed">
-									It's been awhile since we've built a {actualModel.data.title} here at THOR. We'd love to{" "}
+									It's been awhile since we've built a {actualModel.title} here at THOR. We'd love to{" "}
 									<a href="/contact" class="font-semibold underline">
 										get in touch
 									</a>{" "}

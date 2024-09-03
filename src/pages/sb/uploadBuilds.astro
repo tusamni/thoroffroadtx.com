@@ -1,0 +1,44 @@
+---
+import Layout from "@/layouts/Layout";
+
+import moment from "moment";
+import { supabaseService } from "@/library/supabase";
+import { pipeline } from "@xenova/transformers";
+import { getCollection, getEntry } from "astro:content";
+
+const sbMakes = await supabaseService.from("makes").select("*");
+const sbModels = await supabaseService.from("models").select("*");
+const astroBuilds = await getCollection("builds");
+
+const buildArr = [];
+
+await Promise.all(
+	astroBuilds.map(async (b) => {
+		let astroModels = await getEntry("models", b.data.meta.model.id);
+		//console.log(astroModels);
+
+		const filteredMake = sbMakes.data.filter((m) => m.slug === b.data.meta.make.id);
+		const filteredModel = sbModels.data.filter((m) => m.slug === astroModels.data.slug);
+
+		let buildObj = {
+			created_at: b.data.date.toISOString(),
+			year: b.data.meta.year,
+			make: filteredMake[0].id,
+			model: filteredModel[0].id,
+			trim: b.data.meta.trim,
+			drive: b.data.meta.drive,
+			color: b.data.meta.color,
+			status: true,
+			//vector: vector,
+			slug: b.id,
+		};
+		buildArr.push(buildObj);
+	}),
+);
+
+const { data, error } = await supabaseService
+  .from("builds")
+  .insert(buildArr)
+---
+
+<Layout />

@@ -14,10 +14,7 @@ import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
 
 export async function getStaticPaths() {
-	const builds = await supabaseService.from("builds").select("*");
-	console.log(builds.data[0]);
-	console.log(builds.error);
-	//const builds = await getCollection("builds");
+	const builds = await supabaseService.from("builds").select("*, makes (*), models (*)");
 
 	return builds.data.map((build) => ({
 		params: { build: build.slug },
@@ -26,7 +23,8 @@ export async function getStaticPaths() {
 }
 
 // content
-// const { build } = Astro.params;
+const { build } = Astro.props;
+
 // const buildData = await getEntry("builds", build);
 
 // const make = await getEntry("makes", buildData.data.meta.make.id);
@@ -45,19 +43,19 @@ export async function getStaticPaths() {
 // const colWidth = 450;
 ---
 
-<!-- <Layout title={`Custom ${buildData.data.meta.year} ${make.data.title} ${model.data.title} ${buildData.data.meta.trim ? `${buildData.data.meta.trim} ` : ``}Built by THOR Off-Road`}>
+<Layout title={`Custom ${getBuildTitle(build.slug)} Built by THOR Off-Road`}>
 	<div class="bg-torch-red-600 text-white section section-small">
 		<Container classes="space-y-4">
-			<h1 class="text-balance uppercase font-bold text-center lg:text-left lg:max-w-3xl">{getBuildTitle(buildData.id)}</h1>
+			<h1 class="text-balance uppercase font-bold text-center lg:text-left lg:max-w-3xl">{getBuildTitle(build.slug)}</h1>
 
 			<div class="flex flex-col items-center sm:flex-row gap-4 justify-center lg:justify-start">
-				<div>Completed {timeAgo(buildData.data.date)}</div>
+				<div>Completed {timeAgo(build.created_at)}</div>
 				<div class="hidden sm:block">&middot;</div>
-				<a href={`builds?buildMake=${make.id}&buildModel=${model.data.slug}`} class="font-semibold hover:underline">More {model.data.title} Builds &gt;</a>
+				<a href={`builds?buildMake=${build.makes.id}&buildModel=${build.models.id}`} class="font-semibold hover:underline">More {build.models.title} Builds &gt;</a>
 			</div>
 		</Container>
 	</div>
-
+<!-- 
 	<Map classes="bg-rock-100 section section-small space-y-24">
 		<Container classes="space-y-8">
 			<div class="grid grid-cols-6 grid-rows-2 gap-4 sm:gap-8 h-full md:h-[40vh] lg:h-[700px] gallery">
@@ -185,5 +183,5 @@ export async function getStaticPaths() {
 				</div>
 			</div>
 		</Container>
-	</Map>
-</Layout> -->
+	</Map> -->
+</Layout>

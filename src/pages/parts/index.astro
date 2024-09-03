@@ -14,7 +14,6 @@ import Picture from "@/components/images/Picture";
 import Steps from "@/components/sections/Steps";
 
 // content
-import { getCollection } from "astro:content";
 const allParts = await supabaseService.from("parts").select("*");
 const allBrands = await supabaseService.from("brands").select("*");
 

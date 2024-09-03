@@ -1,19 +1,20 @@
-import { getEntry } from "astro:content";
+import { supabaseService } from "@/library/supabase";
 
 export async function getBuildTitle(id) {
-	const build = await getEntry("builds", id);
+	console.log(id);
+	const build = await supabaseService.from("builds").select("*, makes (*), models (*)").eq("slug", id).maybeSingle();
 
-	return `${build.data.meta.year} ${build.data.meta.make.id} ${build.data.meta.model.id}${build.data.meta.trim ? ` ${build.data.meta.trim}` : ``}`;
+	return `${build.data.year} ${build.data.makes.title} ${build.data.models.title}${build.data.trim ? ` ${build.data.trim}` : ``}`;
 }
 
 export async function getBuildDescription(id) {
-	const build = await getEntry("builds", id);
-	const make = await getEntry(build.data.meta.make.collection, build.data.meta.make.id);
-	const model = await getEntry(build.data.meta.model.collection, build.data.meta.model.id);
+	const build = await supabaseService.from("builds").select("*, makes (*), models (*)").eq("slug", id).single();
 
-	return `${build.data.meta.year} ${make.data.title} ${model.data.title}${build.data.meta.trim ? ` ${build.data.meta.trim}` : ``} in ${build.data.meta.color} with ${build.data.meta.parts.map(
-		function (p, index) {
-			return (index ? " " : "") + p;
-		}
-	)}`;
+	return `${build.data.year} ${build.data.makes.title} ${build.data.models.title}${build.data.trim ? ` ${build.data.trim}` : ``} in ${build.data.color}`
+
+	// with ${build.data.parts.map(
+	// 	function (p, index) {
+	// 		return (index ? " " : "") + p;
+	// 	}
+	// )}`;
 }

@@ -8,7 +8,7 @@ import Map from "@/components/backgrounds/Map";
 import PartDetail from "@/components/parts/PartDetail";
 
 export async function getStaticPaths() {
-	const parts = await supabaseService.from("parts").select("*, parts_items (*), brands_parts (brand_id(*)), parts_images (*))");
+	const parts = await supabaseService.from("parts").select("*, parts_items (*), brands_parts (brand_id (*)), parts_images (*))");
 
 	return parts.data.map((part) => ({
 		params: {

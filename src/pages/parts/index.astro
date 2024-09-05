@@ -33,12 +33,12 @@ const process = [
 ];
 
 const headlineImages = [
-	{ src: getBuildImage("223455-2007-toyota-land-cruiser", 17), alt: await getBuildDescription("223455-2007-toyota-land-cruiser") },
-	{ src: getBuildImage("235752-2022-jeep-wrangler", 6), alt: await getBuildDescription("235752-2022-jeep-wrangler") },
-	{ src: getBuildImage("296799-2024-gmc-sierra-2500-hd", 9), alt: await getBuildDescription("296799-2024-gmc-sierra-2500-hd") },
-	{ src: getBuildImage("296799-2024-gmc-sierra-2500-hd", 6), alt: await getBuildDescription("296799-2024-gmc-sierra-2500-hd") },
-	{ src: getBuildImage("435826-2024-ford-f-250", 8), alt: await getBuildDescription("435826-2024-ford-f-250") },
-	{ src: getBuildImage("335071-2015-ford-f-250", 13), alt: await getBuildDescription("335071-2015-ford-f-250") },
+	"builds/223455-2007-toyota-land-cruiser/17.jpg",
+	"builds/235752-2022-jeep-wrangler/06.jpg",
+	"builds/296799-2024-gmc-sierra-2500-hd/09.jpg",
+	"builds/296799-2024-gmc-sierra-2500-hd/06.jpg",
+	"builds/435826-2024-ford-f-250/08.jpg",
+	"builds/335071-2015-ford-f-250/13.jpg",
 ];
 ---
 
@@ -62,7 +62,7 @@ const headlineImages = [
 
 	<Picture src="shop/2022-03-09/shop-shoot_01.jpg" alt="FOX Shocks waiting to be installed" class="w-full h-[350px] lg:h-[600px] object-cover object-[50%,65%]" />
 	<div class="grid grid-cols-6 gallery">
-		{headlineImages.map((image) => <Picture src={image.src} alt={image.alt} class="w-full h-52 sm:h-72 lg:h-full object-cover col-span-3 lg:col-span-1" sizes="(min-width: 1024px) 20vw, 50vw" />)}
+		{headlineImages.map((image) => <Picture src={image} alt={getBuildDescription(image)} class="w-full h-52 sm:h-72 lg:h-full object-cover col-span-3 lg:col-span-1" sizes="(min-width: 1024px) 20vw, 50vw" />)}
 	</div>
 
 	<Map classes="bg-rock-100 section space-y-24">
@@ -77,7 +77,7 @@ const headlineImages = [
 		</Container>
 
 		<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
-			<Picture src="team/shop/thoroffroad-01.jpg" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg"]} />
+			<Picture src="team/shop/thoroffroad-01.jpg" alt="THOR Off-Road Employee intalling parts in Dripping Springs, TX" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg"]} />
 
 			<div class="px-8 lg:py-12 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12 space-y-12">
 				<h2 class="uppercase text-center lg:text-left">Our <strong>Process</strong></h2>

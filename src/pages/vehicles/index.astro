@@ -35,8 +35,8 @@ const process = [
 	},
 ];
 const headlineImages = [
-	{ src: getBuildImage("185376-2023-toyota-tundra", 5), alt: await getBuildDescription("185376-2023-toyota-tundra"), position: "md:object-[10%,75%] lg:object-[50%,75%]" },
-	{ src: getBuildImage("692114-2023-ram-2500", 2), alt: await getBuildDescription("692114-2023-ram-2500"), position: "md:object-[50%,80%]" },
+	{ src: getBuildImage("185376-2023-toyota-tundra", 5), position: "md:object-[10%,75%] lg:object-[50%,75%]" },
+	{ src: getBuildImage("692114-2023-ram-2500", 2), position: "md:object-[50%,80%]" },
 ];
 const vehicleFill = {
 	title: "We Do It All!",
@@ -65,7 +65,7 @@ const vehicleFill = {
 
 	<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-0 gallery md:min-h-[800px] md:h-[50vh]">
 		<Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford F-250 Super Duty in Dripping Springs, TX" class="md:col-span-2 w-full h-full object-cover object-[100%,75%] md:row-span-2" />
-		{headlineImages.map((i) => <Picture src={i.src} alt={i.alt} class:list={["md:col-span-2 w-full h-full object-cover md:row-span-1", i.position]} />)}
+		{headlineImages.map((i) => <Picture src={i.src} alt={getBuildDescription(i.src)} class:list={["md:col-span-2 w-full h-full object-cover md:row-span-1", i.position]} />)}
 	</div>
 
 	<Map classes="bg-rock-100 section space-y-24">

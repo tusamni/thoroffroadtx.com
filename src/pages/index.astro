@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
 import { Business } from "@/config";
-import { getCollection } from "astro:content";
+import { getBuildDescription } from "@/functions/Content";
 
 import BuildAlt from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
@@ -24,7 +24,7 @@ const featuredBuilds = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962
 <Layout>
 	<!-- hero -->
 	<div class="relative flex justify-end items-end min-h-[60vh] sm:min-h-[700px]">
-		<Picture src="builds/296799-2024-gmc-sierra-2500-hd/02.jpg" loading="eager" class:list={["w-full h-full object-cover absolute"]} />
+		<Picture src="builds/296799-2024-gmc-sierra-2500-hd/02.jpg" alt={getBuildDescription("builds/296799-2024-gmc-sierra-2500-hd/02.jpg")} loading="eager" class:list={["w-full h-full object-cover absolute"]} />
 		<div class="absolute w-full h-full bg-gradient-to-b from-transparent via-black/20 to-black/70"></div>
 
 		<Container classes="w-full pb-12">

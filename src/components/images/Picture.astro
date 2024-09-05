@@ -14,12 +14,12 @@ interface Props {
 const { src, alt, loading = "lazy", sizes = "100vw", quality = 100, ...attrs } = Astro.props;
 
 // content
-const fullPath = `${imageConfig.cloudUrl}/images/${src}`;
+const fullPath = `${imageConfig.cloudUrl}/${src}`;
 
 // loop through all the necessary image widths
 const optimizedJpeg = [];
 for (let size of imageConfig.imageSizes) {
-	optimizedJpeg.push(`${fullPath}?width=${size}&height=${size}&quality=${quality} ${size}w`);
+	optimizedJpeg.push(`${fullPath}?width=${size}&height=${size}&quality=${quality}&resize=contain ${size}w`);
 }
 
 const srcsetJpeg = optimizedJpeg.join(", ");

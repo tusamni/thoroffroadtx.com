@@ -2,16 +2,14 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
-import { getCollection, getEntry } from "astro:content";
 import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 import Model from "@/components/vehicles/Model";
 import Picture from "@/components/images/Picture";
 
 export async function getStaticPaths() {
-	const makes = await supabaseService.from("makes").select("*, models (*)");
+	const makes = await supabaseService.from("makes").select("*, models (*), makes_images (*)");
 
 	return makes.data.map((make) => ({
 		params: {
@@ -34,18 +32,13 @@ const { make } = Astro.props;
 		</Container>
 	</div>
 
-	<!-- <div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", make.data.images.featured.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
+	<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", make.makes_images.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
 		{
-			make.data.images.featured.map((image, i, arr) => (
-				<Picture
-					src={getBuildImage(image.id.id, image.image)}
-					alt={getBuildDescription(image.id.id)}
-					class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, image.position, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]}
-					sizes="100vw"
-				/>
+			make.makes_images.map((image, i, arr) => (
+				<Picture src={image.image_name} alt={getBuildDescription(image.image_name)} class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]} sizes="100vw" />
 			))
 		}
-	</div> -->
+	</div>
 
 	<Map classes="section bg-rock-100">
 		<Container classes="space-y-12">

@@ -10,8 +10,8 @@ import MenuMobile from "@/components/navigation/menus/Mobile";
 import HoverMenu from "@/components/navigation/menus/Hover";
 
 // data
-const allMakes = await supabaseService.from("makes").select("*, models(title)").eq("status", true);
-const allParts = await supabaseService.from("parts").select("*, parts_items(title)");
+const allMakes = await supabaseService.from("makes").select("*, models(title)").eq("status", true).order("slug");
+const allParts = await supabaseService.from("parts").select("*, parts_items(title)").order("slug");
 ---
 
 <header class="bg-neutral-50 sticky top-0 shadow-2xl z-20">

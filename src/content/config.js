@@ -32,34 +32,7 @@ const buildCollection = defineCollection({
 	}),
 });
 
-
-const modelCollection = defineCollection({
-	type: "data",
-	schema: z.object({
-		draft: z.boolean().optional(),
-		slug: z.string(),
-		title: z.string().or(z.number()),
-		description: z.object({
-			short: z.string(),
-			long: z.string(),
-		}),
-		make: reference("makes"),
-		images: z
-			.object({
-				featured: z
-					.object({
-						id: reference("builds"),
-						image: z.number(),
-					})
-					.optional(),
-			})
-			.optional(),
-	}),
-});
-
-
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
 	builds: buildCollection,
-	models: modelCollection,
 };

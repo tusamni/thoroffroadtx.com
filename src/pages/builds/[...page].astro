@@ -19,7 +19,6 @@ const searchParam = Astro.url.searchParams.get("search");
 
 const actualModelArray = allModels.data.filter((m) => m.id == modelParam);
 const actualModel = actualModelArray[0];
-console.log(actualModel)
 
 let filteredModels = [];
 for (const model of allModels.data) {

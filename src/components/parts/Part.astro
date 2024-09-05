@@ -1,6 +1,5 @@
 ---
-import { supabaseService } from "@/library/supabase";
-import { getBuildImage } from "@/functions/Image";
+import { getBuildDescription } from "@/functions/Content";
 import Icon from "@/components/Icon";
 import Picture from "@/components/images/Picture";
 
@@ -11,11 +10,10 @@ interface Props {
 const { part, url, ...attrs } = Astro.props;
 
 const featuredImage = part.parts_images.filter((p) => p.featured == true);
-const { data } = supabaseService.storage.from("images").getPublicUrl(featuredImage.image_name);
 ---
 
 <div class="relative group">
-	<!-- {featuredImage && <Picture src={data.publicURL} class="h-48 w-full object-cover rounded-t" sizes="350px" />} -->
+	{featuredImage && <Picture src={featuredImage[0].image_name} alt={getBuildDescription(featuredImage[0].image_name)} class="h-48 w-full object-cover rounded-t" sizes="350px" />}
 
 	<div class="py-6 flex flex-row gap-3 items-center justify-center bg-gradient-to-r from-rock-200 to-rock-300 group-hover:to-rock-400">
 		<div class="w-8 h-8 border-2 border-rock-900 rounded relative flex-none overflow-hidden flex justify-center items-center">

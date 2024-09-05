@@ -2,15 +2,36 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
+import { getCollection } from "astro:content";
 import { pipeline } from "@xenova/transformers";
 
 const sbMakes = await supabaseService.from("makes").select("*");
 const sbModels = await supabaseService.from("models").select("*");
 const sbBuilds = await supabaseService.from("builds").select("*");
+const asBuilds = await getCollection("builds");
 
 const buildArr = [];
 
-await Promise.all(sbBuilds.data.map(async (b) => {}));
+await Promise.all(
+	sbBuilds.data.map(async (b) => {
+		const ccBuild = asBuilds.filter((a) => a.id === b.slug);
+
+		const imageArray = [];
+		const imageTotal = ccBuild[0].data.images.total;
+
+		for (let i = 1; i <= imageTotal; i++) {
+			let imageObj = {
+				build_id: b.id,
+				bucket_id: "images",
+				image_name: "builds/" + b.slug + "/" + String(i).padStart(2, "0") + ".jpg",
+			};
+			imageArray.push(imageObj);
+		}
+
+		// const { error, data } = await supabaseService.from("builds_images").insert(imageArray);
+		// console.log(error);
+	}),
+);
 
 //const { data, error } = await supabaseService.from("builds").insert(buildArr);
 ---

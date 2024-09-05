@@ -12,9 +12,10 @@ import { numberBetween } from "@/functions/Misc";
 import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
+import Testimonial from "@/components/testimonials/Testimonial";
 
 export async function getStaticPaths() {
-	const builds = await supabaseService.from("builds").select("*, makes (*), models (*)");
+	const builds = await supabaseService.from("builds").select("*, makes (*), models (*), builds_images (*), testimonials (*)");
 
 	return builds.data.map((build) => ({
 		params: { build: build.slug },
@@ -25,25 +26,22 @@ export async function getStaticPaths() {
 // content
 const { build } = Astro.props;
 
-// const buildData = await getEntry("builds", build);
+console.log(build);
 
-// const make = await getEntry("makes", buildData.data.meta.make.id);
-// const model = await getEntry("models", buildData.data.meta.model.id);
-
-// // create image array and remove the featured image from the array
-// const imageArray = Array.from({ length: buildData.data.images.total - 0 }, (_, i) => 0 + 1 + i);
-// const removals = [buildData.data.images.highlight[0], buildData.data.images.highlight[1], buildData.data.images.snippet];
+// create image array and remove the featured image from the array
+//const imageArray = Array.from({ length: buildData.data.images.total - 0 }, (_, i) => 0 + 1 + i);
+//const removals = [buildData.data.images.highlight[0], buildData.data.images.highlight[1], buildData.data.images.snippet];
 
 // const imagesWithoutHero = imageArray.filter((item) => item !== buildData.data.images.snippet);
 // const imagesWithoutAll = imageArray.filter((item) => !removals.includes(item));
 
-// const imageCols = imageArray.length >= 9 ? `grid-cols-1 md:grid-cols-3` : `grid-cols-1 md:grid-cols-2`; // based on the total number of images, how many columns are needed
-// const remainder = imageArray.length >= 9 ? imagesWithoutAll.length % 3 : imagesWithoutHero.length % 2;
-// const colSpan = imageArray.length >= 9 ? 4 - remainder : 3 - remainder;
-// const colWidth = 450;
+const imageCols = build.builds_images.length >= 9 ? `grid-cols-1 md:grid-cols-3` : `grid-cols-1 md:grid-cols-2`; // based on the total number of images, how many columns are needed
+const remainder = build.builds_images.length >= 9 ? build.builds_images.length % 3 : build.builds_images.length % 2;
+const colSpan = build.builds_images.length >= 9 ? 4 - remainder : 3 - remainder;
+const colWidth = 450;
 ---
 
-<Layout title={`Custom ${getBuildTitle(build.slug)} Built by THOR Off-Road`}>
+<Layout title={`Custom ${await getBuildTitle(build.slug)} Built by THOR Off-Road`}>
 	<div class="bg-torch-red-600 text-white section section-small">
 		<Container classes="space-y-4">
 			<h1 class="text-balance uppercase font-bold text-center lg:text-left lg:max-w-3xl">{getBuildTitle(build.slug)}</h1>
@@ -55,21 +53,16 @@ const { build } = Astro.props;
 			</div>
 		</Container>
 	</div>
-	<!-- 
+
 	<Map classes="bg-rock-100 section section-small space-y-24">
 		<Container classes="space-y-8">
 			<div class="grid grid-cols-6 grid-rows-2 gap-4 sm:gap-8 h-full md:h-[40vh] lg:h-[700px] gallery">
-				<Picture
-					src={getBuildImage(buildData.id, buildData.data.images.snippet)}
-					alt={getBuildTitle(buildData.id)}
-					class:list={["w-full h-full object-cover row-span-2 rounded shadow-2xl", buildData.data.images.total >= 9 ? "col-span-6 md:col-span-4" : "col-span-6"]}
-					loading="eager"
-				/>
+				<Picture src={build.builds_images[0].image_name} class:list={["w-full h-full object-cover row-span-2 rounded shadow-2xl", build.builds_images.length >= 9 ? "col-span-6 md:col-span-4" : "col-span-6"]} loading="eager" />
 				{
-					imageArray.length >= 9 && (
+					build.builds_images.length >= 9 && (
 						<>
-							<Picture src={getBuildImage(buildData.id, buildData.data.images.highlight[0])} alt={getBuildTitle(buildData.id)} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
-							<Picture src={getBuildImage(buildData.id, buildData.data.images.highlight[1])} alt={getBuildTitle(buildData.id)} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
+							<Picture src={build.builds_images[1].image_name} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
+							<Picture src={build.builds_images[2].image_name} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
 						</>
 					)
 				}
@@ -85,30 +78,30 @@ const { build } = Astro.props;
 						<div class="bg-rock-300/70 px-8 py-12 rounded">
 							<div class="space-y-12">
 								{
-									buildData.data.meta.goals && (
+									build.goals && (
 										<div class="space-y-6">
 											<div class="uppercase text-4xl font-alt font-medium">Summary</div>
-											<div class="space-y-6 text-lg leading-loose" set:html={buildData.data.meta.goals} />
+											<div class="space-y-6 text-lg leading-loose" set:html={build.goals} />
 										</div>
 									)
 								}
 
-								<div class="space-y-4">
+								<!-- <div class="space-y-4">
 									<div class="uppercase text-4xl font-alt font-medium"><strong>Parts</strong> List</div>
 									<div class="space-y-2 text-sm md:text-xs lg:text-base">
 										{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
 									</div>
-								</div>
+								</div> -->
 
 								{
-									buildData.data.meta.testimonial && (
+									build.testimonials.length > 0 && (
 										<div class="text-base space-y-4">
-											<Testimonial content={testimonial} />
+											<Testimonial content={build.testimonials[0]} />
 										</div>
 									)
 								}
 
-								{
+								<!-- {
 									buildData.data.video && (
 										<div class="align-self-end flex-none">
 											<a
@@ -127,7 +120,7 @@ const { build } = Astro.props;
 											</a>
 										</div>
 									)
-								}
+								} -->
 							</div>
 						</div>
 
@@ -135,9 +128,9 @@ const { build } = Astro.props;
 							<div class="hidden lg:block space-y-8">
 								<div class="uppercase text-4xl font-alt font-medium">Let's <strong>Get Started</strong></div>
 								<div class="leading-relaxed">
-									There are endless options for your {model.data.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!
+									There are endless options for your {build.models.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!
 								</div>
-								<a href="/contact" class="button button-secondary justify-center">Build Your {model.data.title}!</a>
+								<a href="/contact" class="button button-secondary justify-center">Build Your {build.models.title}!</a>
 							</div>
 						</div>
 					</div>
@@ -146,19 +139,18 @@ const { build } = Astro.props;
 				<div class="col-span-5 md:col-span-3">
 					<div class:list={[`grid gap-4 lg:gap-8 gallery`, imageCols]}>
 						{
-							imageArray.length < 4 &&
-								imagesWithoutHero.map((i, index, arr) => {
-									return <Picture src={getBuildImage(buildData.id, i)} alt={getBuildTitle(buildData.id)} class:list={["w-full h-full object-cover rounded shadow-2xl col-span-2"]} sizes="1000px" />;
+							build.builds_images.length < 4 &&
+								build.builds_images.map((i, index, arr) => {
+									return <Picture src={i.image_name} class:list={["w-full h-full object-cover rounded shadow-2xl col-span-2"]} sizes="1000px" />;
 								})
 						}
 
 						{
-							numberBetween(imageArray.length, 4, 8) &&
-								imagesWithoutHero.map((i, index, arr) => {
+							numberBetween(build.builds_images.length, 4, 8) &&
+								build.builds_images.map((i, index, arr) => {
 									return (
 										<Picture
-											src={getBuildImage(buildData.id, i)}
-											alt={getBuildTitle(buildData.id)}
+											src={i.image_name}
 											class:list={["w-full h-full object-cover rounded shadow-2xl", remainder !== 0 && index + 1 === arr.length ? `col-span-${colSpan}` : `aspect-square`]}
 											sizes={remainder !== 0 && index + 1 === arr.length ? `${colSpan * colWidth}px` : `${colWidth}px`}
 										/>
@@ -167,12 +159,11 @@ const { build } = Astro.props;
 						}
 
 						{
-							imageArray.length >= 9 &&
-								imagesWithoutAll.map((i, index, arr) => {
+							build.builds_images.length >= 9 &&
+								build.builds_images.map((i, index, arr) => {
 									return (
 										<Picture
-											src={getBuildImage(buildData.id, i)}
-											alt={getBuildTitle(buildData.id)}
+											src={i.image_name}
 											class:list={["w-full h-full object-cover rounded shadow-2xl", remainder !== 0 && index + 1 === arr.length ? `col-span-${colSpan}` : `aspect-square`]}
 											sizes={remainder !== 0 && index + 1 === arr.length ? `${colSpan * colWidth}px` : `${colWidth}px`}
 										/>
@@ -183,5 +174,5 @@ const { build } = Astro.props;
 				</div>
 			</div>
 		</Container>
-	</Map> -->
+	</Map>
 </Layout>

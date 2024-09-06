@@ -5,30 +5,26 @@ import { supabaseService } from "@/library/supabase";
 import { getCollection } from "astro:content";
 import { pipeline } from "@xenova/transformers";
 
-const sbMakes = await supabaseService.from("makes").select("*");
-const sbModels = await supabaseService.from("models").select("*");
-const sbBuilds = await supabaseService.from("builds").select("*");
-const asBuilds = await getCollection("builds");
+// const sbMakes = await supabaseService.from("makes").select("*");
+// const sbModels = await supabaseService.from("models").select("*");
+// const sbParts = await supabaseService.from("parts").select("*");
+// const sbBuilds = await supabaseService.from("builds").select("*");
+// const sbInstalledParts = await supabaseService.from("parts_installed").select("*");
+const astroBuilds = await getCollection("builds");
 
-const partsArr = [];
+const insertArray = [];
 
 await Promise.all(
-	asBuilds.map(async (b) => {
-		// const ccBuild = asBuilds.filter((a) => a.id === b.slug);
-
-		b.data.meta.parts.forEach((part) => partsArr.push(part));
-
-		// const { error, data } = await supabaseService.from("builds_images").insert(imageArray);
-		// console.log(error);
+	astroBuilds.map(async (b) => {
+		
 	}),
 );
 
-const unique = [...new Set(partsArr)];
-const sorted = partsArr.sort();
 ---
 
 <Layout>
+	<!-- map sorted items
 	<ul>
 		{sorted.map((u) => <li>{u}</li>)}
-	</ul>
+	</ul> -->
 </Layout>

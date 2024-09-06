@@ -15,7 +15,7 @@ import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/testimonials/Testimonial";
 
 export async function getStaticPaths() {
-	const builds = await supabaseService.from("builds").select("*, makes (*), models (*), builds_images (*), testimonials (*)");
+	const builds = await supabaseService.from("builds").select("*, makes (*), models (*), builds_images (*), builds_parts (*), builds_parts_installed (parts_installed_id (*)), testimonials (*)");
 
 	return builds.data.map((build) => ({
 		params: { build: build.slug },
@@ -37,6 +37,8 @@ const imageCols = build.builds_images.length >= 9 ? `grid-cols-1 md:grid-cols-3`
 const remainder = build.builds_images.length >= 9 ? build.builds_images.length % 3 : build.builds_images.length % 2;
 const colSpan = build.builds_images.length >= 9 ? 4 - remainder : 3 - remainder;
 const colWidth = 450;
+
+console.log(build.builds_parts);
 ---
 
 <Layout title={`Custom ${await getBuildTitle(build.slug)} Built by THOR Off-Road`}>
@@ -84,12 +86,12 @@ const colWidth = 450;
 									)
 								}
 
-								<!-- <div class="space-y-4">
+								<div class="space-y-4">
 									<div class="uppercase text-4xl font-alt font-medium"><strong>Parts</strong> List</div>
 									<div class="space-y-2 text-sm md:text-xs lg:text-base">
-										{buildData.data.meta.parts.map((p) => <div>{p}</div>)}
+										{build.builds_parts_installed.map((p) => <div>{p["parts_installed_id"].title}</div>)}
 									</div>
-								</div> -->
+								</div>
 
 								{
 									build.testimonials.length > 0 && (

@@ -3,9 +3,7 @@ import Layout from "@/layouts/Layout";
 
 // imports
 import { supabaseService } from "@/library/supabase";
-import { getBuildImage } from "@/functions/Image";
 import { getBuildTitle } from "@/functions/Content";
-import { getEntry, getCollection } from "astro:content";
 import { timeAgo } from "@/functions/DateTime";
 import { numberBetween } from "@/functions/Misc";
 
@@ -37,8 +35,6 @@ const imageCols = build.builds_images.length >= 9 ? `grid-cols-1 md:grid-cols-3`
 const remainder = build.builds_images.length >= 9 ? build.builds_images.length % 3 : build.builds_images.length % 2;
 const colSpan = build.builds_images.length >= 9 ? 4 - remainder : 3 - remainder;
 const colWidth = 450;
-
-console.log(build.builds_parts);
 ---
 
 <Layout title={`Custom ${await getBuildTitle(build.slug)} Built by THOR Off-Road`}>

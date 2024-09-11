@@ -2,24 +2,10 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { getCollection } from "astro:content";
 import { pipeline } from "@xenova/transformers";
 
-// const sbMakes = await supabaseService.from("makes").select("*");
-// const sbModels = await supabaseService.from("models").select("*");
-// const sbParts = await supabaseService.from("parts").select("*");
-// const sbBuilds = await supabaseService.from("builds").select("*");
-// const sbInstalledParts = await supabaseService.from("parts_installed").select("*");
-const astroBuilds = await getCollection("builds");
-
-const insertArray = [];
-
-await Promise.all(
-	astroBuilds.map(async (b) => {
-		
-	}),
-);
-
+const builds = await supabaseService.from("builds").select("id").eq("slug", "940558-2023-ford-f-450").single();
+console.log(builds.data);
 ---
 
 <Layout>

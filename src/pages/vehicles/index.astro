@@ -4,7 +4,6 @@ import Layout from "@/layouts/Layout";
 import { supabaseService } from "@/library/supabase";
 import { getBuildImage } from "@/functions/Image";
 import { getBuildDescription } from "@/functions/Content";
-import { getCollection } from "astro:content";
 
 import Container from "@/components/Container";
 import FeatureGrid from "@/components/sections/FeatureGrid";
@@ -14,7 +13,6 @@ import Picture from "@/components/images/Picture";
 import StepsAlt from "@/components/sections/StepsAlt";
 
 // content
-const recentBuilds = (await getCollection("builds")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 8);
 const allMakes = await supabaseService.from("makes").select("*, models(title)").eq("status", true);
 const process = [
 	{

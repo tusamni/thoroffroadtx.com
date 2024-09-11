@@ -1,7 +1,6 @@
 ---
-import { getEntry } from "astro:content";
+import { supabaseService } from "@/library/supabase";
 import { getBuildTitle } from "@/functions/Content";
-import { getBuildImage } from "@/functions/Image";
 import { timeAgo } from "@/functions/DateTime";
 import Picture from "@/components/images/Picture";
 
@@ -12,23 +11,23 @@ interface Props {
 }
 const { build, sizes = "100vw", classes, ...attrs } = Astro.props;
 
-const buildData = await getEntry("builds", build);
+const sbBuild = await supabaseService.from("builds").select("*, builds_images (*), builds_parts_installed (parts_installed_id (*))").eq("slug", build).single();
 ---
 
-<a href={`/builds/${buildData.id}`} class:list={["relative bg-rock-50 transition duration-200 rounded flex flex-col justify-between group", classes]} {...attrs}>
-	<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="aspect-video object-cover rounded-t" sizes={sizes} />
+<a href={`/builds/${sbBuild.data.slug}`} class:list={["relative bg-rock-50 transition duration-200 rounded flex flex-col justify-between group", classes]} {...attrs}>
+	<Picture src={sbBuild.data.builds_images[0].image_name} alt={getBuildTitle(sbBuild.data.slug)} class="aspect-video object-cover rounded-t" sizes={sizes} />
 
 	<div class="flex flex-col gap-4 p-6">
-		<div class="uppercase font-semibold text-2xl line-clamp-1 font-alt">{getBuildTitle(buildData.id)}</div>
+		<div class="uppercase font-semibold text-2xl line-clamp-1 font-alt">{getBuildTitle(sbBuild.data.slug)}</div>
 		<ul class="comma-list line-clamp-2">
-			{buildData.data.meta.parts.map((p) => <li>{p}</li>)}
-		</ul>
-		<div class="flex justify-between items-center">
-			<div class="button button-primary button-inverse button-xs">View Build</div>
+			<!-- {sbBuild.data.b.map((p) => <li>{p}</li>)} -->
+			<div class="flex justify-between items-center">
+				<div class="button button-primary button-inverse button-xs">View Build</div>
 
-			<div class="text-sm">
-				{timeAgo(buildData.data.date)}
+				<div class="text-sm">
+					{timeAgo(sbBuild.data.created_at)}
+				</div>
 			</div>
-		</div>
-	</div>
-</a>
+		</ul>
+	</div></a
+>

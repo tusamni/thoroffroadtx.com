@@ -1,33 +1,42 @@
 {
-    "date": "2022-06-20T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire", "body-bumper", "lighting"],
-    "related": ["300038-2022-ford-f-250", "191821-2022-ford-f-250", "319374-2022-ford-f-250"],
-    "meta": {
-        "year": 2022,
-        "make": "ford",
-        "model": "ford-f-250",
-        "trim": "King Ranch",
-        "color": "Stone Grey",
-        "drive": "4x4",
-        "parts": [
-            "3.5\" Carli King Pintop Suspension Kit",
-            "Carli Torsion Sway Bar",
-            "Carli Fabricated Radius Arms",
-            "Carli Rear Full Leaf Springs",
-            "20\" Fuel Blitz Wheels",
-            "37x12.50R20 Toyo ATIII Tires",
-            "CJC Front and Rear Bumpers",
-            "Baja Design XL Squadron Lighting",
-            "Warn 12S Winch"
-        ]
-    },
-    "images": {
-        "total": 8,
-        "snippet": 4
-    },
-    "video": {
-        "filename": "video",
-        "width": 720,
-        "height": 1280
-    }
+	"date": "2022-06-20T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire",
+		"body-bumper",
+		"lighting"
+	],
+	"related": [
+		"300038-2022-ford-f-250",
+		"191821-2022-ford-f-250",
+		"319374-2022-ford-f-250"
+	],
+	"meta": {
+		"year": 2022,
+		"make": "ford",
+		"model": "ford-f-250-super-duty",
+		"trim": "King Ranch",
+		"color": "Stone Grey",
+		"drive": "4x4",
+		"parts": [
+			"3.5\" Carli King Pintop Suspension Kit",
+			"Carli Torsion Sway Bar",
+			"Carli Fabricated Radius Arms",
+			"Carli Rear Full Leaf Springs",
+			"20\" Fuel Blitz Wheels",
+			"37x12.50R20 Toyo ATIII Tires",
+			"CJC Front and Rear Bumpers",
+			"Baja Design XL Squadron Lighting",
+			"Warn 12S Winch"
+		]
+	},
+	"images": {
+		"total": 8,
+		"snippet": 4
+	},
+	"video": {
+		"filename": "video",
+		"width": 720,
+		"height": 1280
+	}
 }

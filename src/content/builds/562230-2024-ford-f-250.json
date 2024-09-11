@@ -1,18 +1,28 @@
 {
-    "date": "2024-02-27T00:00:00.000Z",
-    "categories": ["suspension"],
-    "related": ["684213-2020-ford-f-250", "427484-2022-ford-f-250", "453172-2020-ford-f-250"],
-    "meta": {
-        "year": 2024,
-        "make": "ford",
-        "model": "ford-f-250",
-        "trim": "Platinum",
-        "color": "Gray",
-        "drive": "4x4",
-        "parts": ["Carli Backcountry 3.5\" Suspension Kit", "Carli 3.5\" Full Rear Spring Replacement", "Carli Torsion Sway Bar 3.5\""]
-    },
-    "images": {
-        "total": 23,
-        "snippet": 1
-    }
+	"date": "2024-02-27T00:00:00.000Z",
+	"categories": [
+		"suspension"
+	],
+	"related": [
+		"684213-2020-ford-f-250",
+		"427484-2022-ford-f-250",
+		"453172-2020-ford-f-250"
+	],
+	"meta": {
+		"year": 2024,
+		"make": "ford",
+		"model": "ford-f-250-super-duty",
+		"trim": "Platinum",
+		"color": "Gray",
+		"drive": "4x4",
+		"parts": [
+			"Carli Backcountry 3.5\" Suspension Kit",
+			"Carli 3.5\" Full Rear Spring Replacement",
+			"Carli Torsion Sway Bar 3.5\""
+		]
+	},
+	"images": {
+		"total": 23,
+		"snippet": 1
+	}
 }

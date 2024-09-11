@@ -1,73 +1,84 @@
 {
-    "title": "Ford",
-    "description": {
-        "short": "<p>Shop from a selection of top name brand parts like Carli Suspension, BDS, and Baja Kits for your Bronco, Ford F-150, F-250, F-350, and F-450 truck.</p><p>For any questions regarding inventory or recommendations on parts, feel free to reach out to one of our experts at <a href=\"tel:512-894-2790\" class=\"underline\">512-894-2790</a>. Our knowledgeable staff will gladly guide you with making an educated purchasing decision.</p>",
-        "long": "<p>As the oldest brand and the top selling truck line in the industry, Ford boasts that they have something for everyone. Ford owners love their trucks and SUVs for their ability to get things done.</p>"
-    },
-    "models": ["ford-bronco", "ford-f-150", "ford-f-250", "ford-f-350", "ford-f-450", "ford-ranger"],
-    "seo": {
-        "title": "Texas Ford Truck Bronco SUV Installer",
-        "description": "THOR Off-Road is the Texas Ford Bronco HQ. Push the envelope of your Ford F-150, Ranger, Raptor or Super Duty."
-    },
-    "logo": {
-        "name": "Ford"
-    },
-    "images": {
-        "featured": {
-            "id": "276780-2019-ford-f-250",
-            "headline": 1,
-            "secondary": [3, 4, 5]
-        },
-        "gallery": [
-            {
-                "id": "940558-2023-ford-f-450",
-                "image": 12
-            },
-            {
-                "id": "266375-2022-ford-bronco",
-                "image": 4
-            },
-            {
-                "id": "665503-2020-ford-f-350",
-                "image": 6
-            },
-            {
-                "id": "208146-2022-ford-f-350",
-                "image": 2
-            },
-            {
-                "id": "520816-2022-ford-f-350",
-                "image": 2
-            },
-            {
-                "id": "122366-2021-ford-bronco",
-                "image": 19
-            },
-            {
-                "id": "453172-2020-ford-f-250",
-                "image": 3
-            },
-            {
-                "id": "996096-2024-ford-f-250",
-                "image": 2
-            },
-            {
-                "id": "777233-2022-ford-bronco",
-                "image": 2
-            },
-            {
-                "id": "397060-2021-ford-f-350",
-                "image": 1
-            },
-            {
-                "id": "215615-2022-ford-bronco",
-                "image": 15
-            },
-            {
-                "id": "494754-2022-ford-f-350",
-                "image": 1
-            }
-        ]
-    },
-    "testimonial": "andrew-p"
+	"title": "Ford",
+	"description": {
+		"short": "<p>Shop from a selection of top name brand parts like Carli Suspension, BDS, and Baja Kits for your Bronco, Ford F-150, F-250, F-350, and F-450 truck.</p><p>For any questions regarding inventory or recommendations on parts, feel free to reach out to one of our experts at <a href=\"tel:512-894-2790\" class=\"underline\">512-894-2790</a>. Our knowledgeable staff will gladly guide you with making an educated purchasing decision.</p>",
+		"long": "<p>As the oldest brand and the top selling truck line in the industry, Ford boasts that they have something for everyone. Ford owners love their trucks and SUVs for their ability to get things done.</p>"
+	},
+	"models": [
+		"ford-bronco",
+		"ford-f-150",
+		"ford-f-250-super-duty",
+		"ford-f-350-super-duty",
+		"ford-f-450-super-duty",
+		"ford-ranger"
+	],
+	"seo": {
+		"title": "Texas Ford Truck Bronco SUV Installer",
+		"description": "THOR Off-Road is the Texas Ford Bronco HQ. Push the envelope of your Ford F-150, Ranger, Raptor or Super Duty."
+	},
+	"logo": {
+		"name": "Ford"
+	},
+	"images": {
+		"featured": {
+			"id": "276780-2019-ford-f-250",
+			"headline": 1,
+			"secondary": [
+				3,
+				4,
+				5
+			]
+		},
+		"gallery": [
+			{
+				"id": "940558-2023-ford-f-450",
+				"image": 12
+			},
+			{
+				"id": "266375-2022-ford-bronco",
+				"image": 4
+			},
+			{
+				"id": "665503-2020-ford-f-350",
+				"image": 6
+			},
+			{
+				"id": "208146-2022-ford-f-350",
+				"image": 2
+			},
+			{
+				"id": "520816-2022-ford-f-350",
+				"image": 2
+			},
+			{
+				"id": "122366-2021-ford-bronco",
+				"image": 19
+			},
+			{
+				"id": "453172-2020-ford-f-250",
+				"image": 3
+			},
+			{
+				"id": "996096-2024-ford-f-250",
+				"image": 2
+			},
+			{
+				"id": "777233-2022-ford-bronco",
+				"image": 2
+			},
+			{
+				"id": "397060-2021-ford-f-350",
+				"image": 1
+			},
+			{
+				"id": "215615-2022-ford-bronco",
+				"image": 15
+			},
+			{
+				"id": "494754-2022-ford-f-350",
+				"image": 1
+			}
+		]
+	},
+	"testimonial": "andrew-p"
 }

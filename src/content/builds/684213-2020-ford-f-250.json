@@ -1,27 +1,34 @@
 {
-    "date": "2022-12-22T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["325186-2017-ford-f-250", "300038-2022-ford-f-250", "404814-2023-ford-f-250"],
-    "meta": {
-        "year": 2020,
-        "make": "ford",
-        "model": "ford-f-250",
-        "trim": "Lariat",
-        "color": "Black",
-        "drive": "4x4",
-        "parts": [
-            "Carli 3\" Pintop Suspension Kit",
-            "Carli Radius Arms",
-            "Carli Full Rear Spring Replacement",
-            "Carli High Mount Steering Stabilizer",
-            "Carli Low Mount Steering Stabilizer",
-            "Carli Torsion Sway Bar",
-            "18x9\" Method 305NV HD Matte Black Wheels",
-            "37x13.50R18 BF Goodrich KM3 Tires"
-        ]
-    },
-    "images": {
-        "total": 4,
-        "snippet": 1
-    }
+	"date": "2022-12-22T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"325186-2017-ford-f-250",
+		"300038-2022-ford-f-250",
+		"404814-2023-ford-f-250"
+	],
+	"meta": {
+		"year": 2020,
+		"make": "ford",
+		"model": "ford-f-250-super-duty",
+		"trim": "Lariat",
+		"color": "Black",
+		"drive": "4x4",
+		"parts": [
+			"Carli 3\" Pintop Suspension Kit",
+			"Carli Radius Arms",
+			"Carli Full Rear Spring Replacement",
+			"Carli High Mount Steering Stabilizer",
+			"Carli Low Mount Steering Stabilizer",
+			"Carli Torsion Sway Bar",
+			"18x9\" Method 305NV HD Matte Black Wheels",
+			"37x13.50R18 BF Goodrich KM3 Tires"
+		]
+	},
+	"images": {
+		"total": 4,
+		"snippet": 1
+	}
 }

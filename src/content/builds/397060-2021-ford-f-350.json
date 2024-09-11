@@ -1,26 +1,33 @@
 {
-    "date": "2022-10-28T00:00:00.000Z",
-    "categories": ["suspension", "wheel-tire"],
-    "related": ["662677-2022-ford-f-350", "782922-2022-ford-f-350", "588100-2022-ford-f-350"],
-    "meta": {
-        "year": 2021,
-        "make": "ford",
-        "model": "ford-f-350",
-        "trim": "Lariat",
-        "color": "Grey",
-        "drive": "4x4",
-        "parts": [
-            "Carli 3\" Backcountry Suspension Kit",
-            "Carli Radius Arms",
-            "Carli High Mount Steering Stabilizer",
-            "Carli Low Mount Steering Stabilizer",
-            "Carli Torsion Sway Bar",
-            "Method 18x9\" 305-HD Matte Black Wheels",
-            "37x12.50R18 Nitto Ridge Grappler Tires"
-        ]
-    },
-    "images": {
-        "total": 7,
-        "snippet": 1
-    }
+	"date": "2022-10-28T00:00:00.000Z",
+	"categories": [
+		"suspension",
+		"wheel-tire"
+	],
+	"related": [
+		"662677-2022-ford-f-350",
+		"782922-2022-ford-f-350",
+		"588100-2022-ford-f-350"
+	],
+	"meta": {
+		"year": 2021,
+		"make": "ford",
+		"model": "ford-f-350-super-duty",
+		"trim": "Lariat",
+		"color": "Grey",
+		"drive": "4x4",
+		"parts": [
+			"Carli 3\" Backcountry Suspension Kit",
+			"Carli Radius Arms",
+			"Carli High Mount Steering Stabilizer",
+			"Carli Low Mount Steering Stabilizer",
+			"Carli Torsion Sway Bar",
+			"Method 18x9\" 305-HD Matte Black Wheels",
+			"37x12.50R18 Nitto Ridge Grappler Tires"
+		]
+	},
+	"images": {
+		"total": 7,
+		"snippet": 1
+	}
 }

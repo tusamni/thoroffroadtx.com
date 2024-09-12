@@ -132,12 +132,12 @@ if (allPages.length && !page) {
 		</Container>
 	</div>
 
-	<Map classes="bg-rock-100 section">
+	<Map classes="bg-rock-900 section" theme="light">
 		<Container classes="space-y-8">
 			{
 				page.data.length > 0 && (
 					<>
-						<div class="flex justify-between items-center">
+						<div class="flex justify-between items-center text-white">
 							<div class="text-2xl font-semibold font-alt uppercase">{page.total} Builds</div>
 							{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}
 						</div>

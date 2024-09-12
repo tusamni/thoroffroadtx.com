@@ -33,24 +33,21 @@ const headlineImages = [
 		{headlineImages.map((h) => <Picture src={h.url} alt={h.alt} loading="eager" class:list={["w-full h-full object-cover rounded shadow-lg"]} />)}
 	</div>
 
-	<Map classes="bg-rock-100 section">
+	<Map classes="bg-rock-900 section" theme="light" opacity={0.02}>
 		<Container>
 			<div class="grid grid-cols-2 gap-8">
 				<div class="flex flex-col gap-8">
-					<h2 class="uppercase max-w-xl">A Word from <strong>Jamey Whitlock</strong></h2>
-					<div class="text-xl leading-relaxed max-w-2xl">
+					<h2 class="uppercase max-w-xl text-white">A Word from <strong>Jamey Whitlock</strong></h2>
+					<div class="text-xl leading-relaxed max-w-2xl text-rock-50">
 						If you'd like to visit our shop, we're located at <a href={Business.mapUrl} class="underline"
 							>{`${Business.address.street01} ${Business.address.street02}, ${Business.address.city}, ${Business.address.state} ${Business.address.zip}`}</a
 						> and open {Business.hours}.
 					</div>
 				</div>
 
-				<div class="text-black space-y-8">
-					<div class="space-y-4">
-						<p class="text-2xl md:text-3xl font-medium">"THOR Off-Road spawned off of my own passion of building trucks for people who use them."</p>
-					</div>
-
-					<div class="space-y-6 text-lg md:text-lg !leading-relaxed font-light">
+				<div class="space-y-8">
+					<p class="text-2xl md:text-3xl font-medium text-white">"THOR Off-Road spawned off of my own passion of building trucks for people who use them."</p>
+					<div class="space-y-6 text-lg md:text-lg !leading-relaxed font-light text-rock-50">
 						<p>
 							It all started when I was a kid. My dad owned a brake shop, and I ran around the shop, playing with parts, learning how to balance tires and mop floors. Growing up, I had a passion for making things better. I started
 							creating purpose built vehicles, mostly around hunting and ranch trucks. We quickly realized there was there was a niche for purpose built vehicles.

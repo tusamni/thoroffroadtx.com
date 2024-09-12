@@ -20,10 +20,10 @@ const allParts = await supabaseService.from("parts").select("*");
 					<p class="font-semibold text-2xl">Vehicles</p>
 					<ul class="space-y-2">
 						{
-							allMakes.map((m) => (
+							allMakes.data.map((m) => (
 								<li>
-									<a href={`/vehicles/${m.id}`} title={m.data.title}>
-										{m.data.title}
+									<a href={`/vehicles/${m.slug}`} title={m.title}>
+										{m.title}
 									</a>
 								</li>
 							))

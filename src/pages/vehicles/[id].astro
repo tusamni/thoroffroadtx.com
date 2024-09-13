@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { getBuildDescription } from "@/functions/Content";
+import { getBuildDescription } from "@/functions/Build";
 import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 import Model from "@/components/vehicles/Model";
@@ -35,28 +35,33 @@ const { make } = Astro.props;
 	<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", make.makes_images.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
 		{
 			make.makes_images.map((image, i, arr) => (
-				<Picture src={image.image_name} alt={getBuildDescription(image.image_name)} class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]} sizes="100vw" />
+				<Picture
+					src={image.image_name}
+					alt={getBuildDescription(image.image_name)}
+					class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]}
+					sizes="100vw"
+				/>
 			))
 		}
 	</div>
 
-	<Map classes="section bg-rock-100">
+	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
 		<Container classes="space-y-12">
 			<div class="grid grid-cols-5 gap-10">
-				<h2 class="col-span-5 text-balance uppercase font-medium max-w-2xl">Let's Build Your <strong>Dream {make.title}</strong></h2>
+				<h2 class="col-span-5 text-balance uppercase font-medium max-w-2xl text-white">Let's Build Your <strong>Dream {make.title}</strong></h2>
 
 				<div class="col-span-5 lg:col-span-2 flex flex-col gap-y-6">
 					<div class="space-y-8">
-						<div class="space-y-8 leading-loose text-lg" set:html={make.description_short} />
+						<div class="space-y-8 leading-loose text-lg text-rock-100" set:html={make.description_short} />
 					</div>
 
 					<div>
-						<a href="/contact" class="button button-primary button-inverse w-fit">Build My {make.title}!</a>
+						<a href="/contact" class="button button-primary w-fit">Build My {make.title}!</a>
 					</div>
 				</div>
 
 				<div class="col-span-5 lg:col-span-3 grid grid-cols-2 gap-1 h-fit">
-					{make.models.map((m) => <Model make={make.slug} model={m} />)}
+					{make.models.map((m) => <Model make={make.id} model={m} />)}
 				</div>
 			</div>
 		</Container>

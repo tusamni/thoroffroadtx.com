@@ -12,15 +12,16 @@ interface Props {
 const { build, sizes = "100vw", classes, ...attrs } = Astro.props;
 
 const sbBuild = await supabaseService.from("builds").select("*, builds_images (*), builds_parts_installed (parts_installed_id (title))").eq("slug", build).single();
+const featuredImage = sbBuild.data.builds_images.filter((i) => i.featured === true);
 ---
 
-<a href={`/builds/${sbBuild.data.slug}`} class:list={["relative text-rock-50 bg-rock-900/70 transition duration-200 rounded flex flex-col justify-between group", classes]} {...attrs}>
-	<Picture src={sbBuild.data.builds_images[0].image_name} alt={getBuildTitle(sbBuild.data.slug)} class="aspect-video object-cover rounded-t" sizes={sizes} />
+<a href={`/builds/${sbBuild.data.slug}`} class:list={[`relative text-rock-50 transition duration-200 rounded flex flex-col gap-4 justify-between group p-6 bg-rock-700 hover:bg-rock-700/80`, classes]} {...attrs}>
+	<Picture src={featuredImage.length > 0 ? featuredImage[0].image_name : sbBuild.data.builds_images[0].image_name} alt={getBuildTitle(sbBuild.data.slug)} class="aspect-video object-cover rounded-t" sizes={sizes} />
 
-	<div class="flex flex-col gap-4 p-6">
+	<div class="flex flex-col gap-1">
 		<div class="uppercase font-semibold text-2xl line-clamp-1 font-alt">{getBuildTitle(sbBuild.data.slug)}</div>
 
-		<ul class="comma-list line-clamp-2">
+		<ul class="comma-list line-clamp-2 text-sm text-rock-100">
 			{
 				sbBuild.data.builds_parts_installed.map((p) => {
 					return <li>{p["parts_installed_id"].title}</li>;
@@ -28,7 +29,7 @@ const sbBuild = await supabaseService.from("builds").select("*, builds_images (*
 			}
 		</ul>
 
-		<div class="flex justify-between items-center">
+		<div class="flex justify-between items-center mt-3">
 			<div class="button button-primary button-inverse button-xs">View Build</div>
 
 			<div class="text-sm">

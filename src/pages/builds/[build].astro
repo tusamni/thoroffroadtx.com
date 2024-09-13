@@ -50,7 +50,7 @@ const colWidth = 450;
 		</Container>
 	</div>
 
-	<Map classes="bg-rock-100 section section-small space-y-24">
+	<Map classes="bg-rock-900 section section-small space-y-24" theme="light" opacity={0.02}>
 		<Container classes="space-y-8">
 			<div class="grid grid-cols-6 grid-rows-2 gap-4 sm:gap-8 h-full md:h-[40vh] lg:h-[700px] gallery">
 				<Picture src={build.builds_images[0].image_name} class:list={["w-full h-full object-cover row-span-2 rounded shadow-2xl", build.builds_images.length >= 9 ? "col-span-6 md:col-span-4" : "col-span-6"]} loading="eager" />
@@ -63,28 +63,24 @@ const colWidth = 450;
 					)
 				}
 			</div>
-		</Container>
-	</Map>
 
-	<Map classes="bg-rock-200 section section-small">
-		<Container>
 			<div class="grid grid-cols-5 gap-4 lg:gap-8">
 				<div class="col-span-5 md:col-span-2 w-full h-full">
 					<div class="sticky top-36 space-y-8">
-						<div class="bg-rock-300/70 px-8 py-12 rounded">
+						<div class="bg-rock-800 px-8 py-12 rounded">
 							<div class="space-y-12">
 								{
 									build.goals && (
 										<div class="space-y-6">
-											<div class="uppercase text-4xl font-alt font-medium">Summary</div>
-											<div class="space-y-6 text-lg leading-loose" set:html={build.goals} />
+											<div class="uppercase text-4xl font-alt font-medium text-white">Summary</div>
+											<div class="space-y-6 text-lg leading-loose text-rock-100" set:html={build.goals} />
 										</div>
 									)
 								}
 
 								<div class="space-y-4">
-									<div class="uppercase text-4xl font-alt font-medium"><strong>Parts</strong> List</div>
-									<div class="space-y-2 text-sm md:text-xs lg:text-base">
+									<div class="uppercase text-4xl font-alt font-medium text-white"><strong>Parts</strong> List</div>
+									<div class="space-y-2 text-sm md:text-xs lg:text-base text-rock-100">
 										{build.builds_parts_installed.map((p) => <div>{p["parts_installed_id"].title}</div>)}
 									</div>
 								</div>

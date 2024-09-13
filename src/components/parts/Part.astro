@@ -1,5 +1,4 @@
 ---
-import { getBuildDescription } from "@/functions/Content";
 import Icon from "@/components/Icon";
 import Picture from "@/components/images/Picture";
 
@@ -13,9 +12,9 @@ const featuredImage = part.parts_images.filter((p) => p.featured == true);
 ---
 
 <div class="relative group">
-	{featuredImage && <Picture src={featuredImage[0].image_name} alt={getBuildDescription(featuredImage[0].image_name)} class="h-48 w-full object-cover rounded-t" sizes="350px" />}
+	{featuredImage && <Picture src={featuredImage[0].image_name} alt={`${part.title} at THOR Off-Road`} class="h-48 w-full object-cover rounded-t" sizes="350px" />}
 
-	<div class="py-6 flex flex-row gap-3 items-center justify-center bg-gradient-to-r from-rock-200 to-rock-300 group-hover:to-rock-400">
+	<div class="py-6 flex flex-row gap-3 items-center justify-center bg-rock-300 hover:bg-rock-300/70 transition duration-300">
 		<div class="w-8 h-8 border-2 border-rock-900 rounded relative flex-none overflow-hidden flex justify-center items-center">
 			<Icon icon={url ? part.icon : `parts/${part.icon}Outline`} class="text-rock-900 absolute w-10 h-auto -rotate-12" />
 		</div>

@@ -14,18 +14,18 @@
 		"@astrojs/netlify": "^5.3.0",
 		"@astrojs/sitemap": "3.1.6",
 		"@astrojs/tailwind": "^5.1.0",
-		"@supabase/supabase-js": "^2.45.3",
+		"@supabase/supabase-js": "^2.45.4",
 		"@tailwindcss/container-queries": "^0.1.1",
-		"@tailwindcss/forms": "^0.5.8",
+		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"@types/alpinejs": "^3.13.10",
 		"@xenova/transformers": "^2.17.2",
 		"alpinejs": "^3.14.1",
-		"astro": "^4.15",
+		"astro": "^4.15.4",
 		"bigger-picture": "^1.1.17",
 		"mailersend": "^2.3.0",
 		"node-html-parser": "^6.1.13",
 		"probe-image-size": "^7.2.3",
-		"tailwindcss": "^3.4.10"
+		"tailwindcss": "^3.4.11"
 	}
 }

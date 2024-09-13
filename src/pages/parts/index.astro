@@ -2,8 +2,7 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { getBuildImage } from "@/functions/Image";
-import { getBuildDescription } from "@/functions/Content";
+import { getBuildDescription } from "@/functions/Build";
 
 import Container from "@/components/Container";
 import FeatureGrid from "@/components/sections/FeatureGrid";
@@ -14,8 +13,8 @@ import Picture from "@/components/images/Picture";
 import Steps from "@/components/sections/Steps";
 
 // content
-const allParts = await supabaseService.from("parts").select("*");
-const allBrands = await supabaseService.from("brands").select("*");
+const allParts = await supabaseService.from("parts").select("*").order("title");
+const allBrands = await supabaseService.from("brands").select("*").order("title");
 
 const process = [
 	{
@@ -65,10 +64,10 @@ const headlineImages = [
 		{headlineImages.map((image) => <Picture src={image} alt={getBuildDescription(image)} class="w-full h-52 sm:h-72 lg:h-full object-cover col-span-3 lg:col-span-1" sizes="(min-width: 1024px) 20vw, 50vw" />)}
 	</div>
 
-	<Map classes="bg-rock-100 section space-y-24">
+	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
 		<Container classes="space-y-12">
 			<div class="flex items-center justify-center">
-				<h2 class="uppercase">Outfit <strong>Your Vehicle</strong></h2>
+				<h2 class="text-white uppercase">Outfit <strong>Your Vehicle</strong></h2>
 			</div>
 
 			<FeatureGrid>
@@ -80,7 +79,7 @@ const headlineImages = [
 			<Picture src="team/shop/thoroffroad-01.jpg" alt="THOR Off-Road Employee intalling parts in Dripping Springs, TX" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg"]} />
 
 			<div class="px-8 lg:py-12 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12 space-y-12">
-				<h2 class="uppercase text-center lg:text-left">Our <strong>Process</strong></h2>
+				<h2 class="uppercase text-center lg:text-left text-white">Our <strong>Process</strong></h2>
 
 				<div class="space-y-12">
 					{process.map((f, i) => <Steps number={i + 1} title={f.title} description={f.description} />)}

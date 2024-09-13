@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { getBuildDescription } from "@/functions/Content";
+import { getBuildDescription } from "@/functions/Build";
 import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 import PartDetail from "@/components/parts/PartDetail";
@@ -37,23 +37,28 @@ const iconCols = part.brands_parts.length <= 8 ? 5 : Math.round(part.brands_part
 	<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", part.parts_images.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
 		{
 			part.parts_images.map((image, i, arr) => (
-				<Picture src={image.image_name} alt={getBuildDescription(image.image_name)} class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]} sizes="100vw" />
+				<Picture
+					src={image.image_name}
+					alt={getBuildDescription(image.image_name)}
+					class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]}
+					sizes="100vw"
+				/>
 			))
 		}
 	</div>
 
-	<Map classes="section bg-rock-100">
+	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
 		<Container classes="space-y-12">
 			<div class="grid grid-cols-5 gap-10">
-				<h2 class="col-span-5 text-balance uppercase font-medium max-w-3xl"><strong>{part.title}</strong> Upgrade Options</h2>
+				<h2 class="col-span-5 text-balance uppercase font-medium max-w-3xl text-white"><strong>{part.title}</strong> Upgrade Options</h2>
 
 				<div class="col-span-5 lg:col-span-2 flex flex-col gap-y-6">
 					<div class="space-y-8">
-						<div class="space-y-8 leading-loose text-lg" set:html={part.content} />
+						<div class="space-y-8 leading-loose text-lg text-rock-100" set:html={part.content} />
 					</div>
 
 					<div>
-						<a href="/contact" class="button button-primary button-inverse w-fit">Let's Talk!</a>
+						<a href="/contact" class="button button-primary w-fit">Let's Talk!</a>
 					</div>
 				</div>
 

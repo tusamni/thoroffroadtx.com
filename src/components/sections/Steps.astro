@@ -8,12 +8,12 @@ const { number, title, description, ...attrs } = Astro.props;
 ---
 
 <div class="relative grid grid-cols-5 items-center gap-6" {...attrs}>
-	<div class="bg-rock-800 flex justify-center items-center w-full h-full rounded">
+	<div class="bg-rock-700 flex justify-center items-center w-full h-full rounded">
 		<div class="text-white text-2xl sm:text-4xl uppercase font-alt font-semibold">{number}</div>
 	</div>
 
 	<div class="flex flex-col relative col-span-4 gap-2">
-		<div class="text-xl sm:text-2xl md:text-3xl font-bold uppercase font-alt">{title}</div>
-		<div set:html={description} class="text-base text-balanced leading-relaxed" />
+		<div class="text-white text-xl sm:text-2xl md:text-3xl font-bold uppercase font-alt">{title}</div>
+		<div set:html={description} class="text-rock-100 text-base text-balanced leading-relaxed" />
 	</div>
 </div>

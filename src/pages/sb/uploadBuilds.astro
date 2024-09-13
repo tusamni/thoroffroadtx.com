@@ -2,15 +2,14 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { pipeline } from "@xenova/transformers";
 
-const builds = await supabaseService.from("builds").select("id").eq("slug", "940558-2023-ford-f-450").single();
-console.log(builds.data);
+const res = await supabaseService.from("images").upload(uploadPath, file, {
+	metadata: {
+		custom: "metadata",
+		second: "second",
+		third: "third",
+	},
+});
 ---
 
-<Layout>
-	<!-- map sorted items
-	<ul>
-		{sorted.map((u) => <li>{u}</li>)}
-	</ul> -->
-</Layout>
+<Layout />

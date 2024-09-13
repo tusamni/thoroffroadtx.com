@@ -1,20 +1,17 @@
 ---
-import { getEntry } from "astro:content";
 import { getBuildTitle } from "@/functions/Content";
-import { getBuildImage } from "@/functions/Image";
 import Picture from "@/components/images/Picture";
 
 interface Props {
-	build: string;
+	build: object;
 	sizes?: string;
 	classes: string;
 }
 const { build, sizes = "100vw", classes, ...attrs } = Astro.props;
 ---
 
-<!-- 
-<a href={`/builds/${buildData.id}`} class:list={["group space-y-4 flex flex-col flex-shrink-0", classes]} {...attrs}>
-	<Picture src={getBuildImage(buildData.id, buildData.data.images.snippet)} alt={getBuildTitle(buildData.id)} class="h-auto aspect-video object-cover rounded shadow-2xl group-hover:shadow-white/10 transition duration-300" sizes="400px" />
+<a href={`/builds/${build.slug}`} class:list={["group space-y-4 flex flex-col flex-shrink-0", classes]} {...attrs}>
+	<Picture src={build.builds_images[0].image_name} alt={getBuildTitle(build.slug)} class="h-auto aspect-video object-cover rounded shadow-2xl group-hover:shadow-white/10 transition duration-300" sizes="400px" />
 
-	<div class="mx-auto text-center w-3/4 text-balance font-alt text-xl lg:text-2xl uppercase text-white tracking-tight leading-7 font-semibold">{getBuildTitle(buildData.id)}</div>
-</a> -->
+	<div class="mx-auto text-center w-3/4 text-balance font-alt text-xl lg:text-2xl uppercase text-white tracking-tight leading-7 font-semibold">{getBuildTitle(build.slug)}</div>
+</a>

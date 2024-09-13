@@ -2,8 +2,7 @@
 import Layout from "@/layouts/Layout";
 
 import { supabaseService } from "@/library/supabase";
-import { getBuildImage } from "@/functions/Image";
-import { getBuildDescription } from "@/functions/Content";
+import { getBuildDescription } from "@/functions/Build";
 
 import Container from "@/components/Container";
 import FeatureGrid from "@/components/sections/FeatureGrid";
@@ -32,10 +31,6 @@ const process = [
 		description: "We match great design with high quality parts and professional installation to create the off-road or adventure vehicle of your dreams.",
 	},
 ];
-const headlineImages = [
-	{ src: getBuildImage("185376-2023-toyota-tundra", 5), position: "md:object-[10%,75%] lg:object-[50%,75%]" },
-	{ src: getBuildImage("692114-2023-ram-2500", 2), position: "md:object-[50%,80%]" },
-];
 const vehicleFill = {
 	title: "We Do It All!",
 	description_short: "We don't only work on trucks. If you've got a vehicle you're interested in modifying, why not give us a call or e-mail and see what we can do for you?",
@@ -62,12 +57,23 @@ const vehicleFill = {
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-0 gallery md:min-h-[800px] md:h-[50vh]">
-		<Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford F-250 Super Duty in Dripping Springs, TX" class="md:col-span-2 w-full h-full object-cover object-[100%,75%] md:row-span-2" />
-		{headlineImages.map((i) => <Picture src={i.src} alt={getBuildDescription(i.src)} class:list={["md:col-span-2 w-full h-full object-cover md:row-span-1", i.position]} />)}
+		<Picture src="shop/2023-02-23/shop-shoot_01.jpg" alt="Ford F-250 Super Duty in Dripping Springs, TX" class="md:col-span-2 w-full h-full object-cover object-[100%,75%] md:row-span-2" sizes="(max-width: 768px) 100vw, 50vw" />
+		<Picture
+			src="builds/185376-2023-toyota-tundra/05.jpg"
+			alt={getBuildDescription("builds/185376-2023-toyota-tundra/05.jpg")}
+			class:list={["md:col-span-2 w-full h-full object-cover md:row-span-1 md:object-[10%,75%] lg:object-[50%,75%]"]}
+			sizes="(max-width: 768px) 100vw, 50vw"
+		/>
+		<Picture
+			src="builds/692114-2023-ram-2500/02.jpg"
+			alt={getBuildDescription("builds/692114-2023-ram-2500/02.jpg")}
+			class:list={["md:col-span-2 w-full h-full object-cover md:row-span-1 md:object-[50%,80%]"]}
+			sizes="(max-width: 768px) 100vw, 50vw"
+		/>
 	</div>
 
-	<Map classes="bg-rock-100 section space-y-24">
-		<Container classes="space-y-12">
+	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
+		<Container classes="space-y-12 text-white">
 			<div class="flex flex-col md:flex-row justify-between items-center">
 				<h2 class="uppercase"><strong>Vehicles</strong></h2>
 				<h6 class="uppercase text-balance font-semibold text-center text-lg lg:text-xl"><strong>Servicing</strong> Only the Best!</h6>
@@ -83,7 +89,7 @@ const vehicleFill = {
 			<Picture src="team/shop/thoroffroad-04.jpg" alt="THOR Off-Road Employee in Dripping Springs, TX" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg"]} />
 
 			<div class="px-8 lg:py-12 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12 space-y-12">
-				<h2 class="uppercase text-center lg:text-left">Our <strong>Process</strong></h2>
+				<h2 class="uppercase text-center lg:text-left text-white">Our <strong>Process</strong></h2>
 
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-16 mx-auto max-w-4xl">
 					{process.map((f, i) => <StepsAlt number={i + 1} title={f.title} description={f.description} />)}

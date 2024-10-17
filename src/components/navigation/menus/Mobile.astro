@@ -4,10 +4,11 @@ import { Business } from "@/config";
 import Icon from "@/components/Icon";
 
 interface Props {
-	makes: object;
-	parts: object;
+	makes: any;
+	models: any;
+	parts: any;
 }
-const { makes, parts } = Astro.props;
+const { makes, models, parts } = Astro.props;
 ---
 
 <div class="lg:hidden" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
@@ -77,14 +78,14 @@ const { makes, parts } = Astro.props;
 							x-transition:leave-end="opacity-0"
 						>
 							{
-								makes.data.map((m) => (
-									<a href={`/vehicles/${m.slug}`} class="block py-2 pl-6 pr-3 text-base font-semibold leading-7 text-black">
-										{m.title}
+								makes.map((m) => (
+									<a href={`/vehicles/${m.id}`} class="block py-2 pl-6 pr-3 text-base font-semibold leading-7 text-black">
+										{m.data.title}
 
 										<ul class="comma-list line-clamp-1 text-xs font-light text-black">
-											{m.models.map((i) => (
-												<li>{i.title}</li>
-											))}
+											{models.map((i) => {
+												return i.data.make.slug === m.id && <li>{i.data.title}</li>;
+											})}
 										</ul>
 									</a>
 								))
@@ -114,12 +115,12 @@ const { makes, parts } = Astro.props;
 							x-transition:leave-end="opacity-0"
 						>
 							{
-								parts.data.map((p) => (
-									<a href={`/parts/${p.slug}`} class="block py-2 pl-6 pr-3 text-base font-semibold leading-7 text-stone-900">
-										{p.title}
+								parts.map((p) => (
+									<a href={`/parts/${p.id}`} class="block py-2 pl-6 pr-3 text-base font-semibold leading-7 text-stone-900">
+										{p.data.title}
 
 										<ul class="comma-list line-clamp-2 text-xs font-light text-stone-500">
-											{p.parts_items.map((i) => (
+											{p.data.items.map((i) => (
 												<li>{i.title}</li>
 											))}
 										</ul>

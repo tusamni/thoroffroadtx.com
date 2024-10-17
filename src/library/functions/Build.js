@@ -14,7 +14,7 @@ export async function getBuildDescription(id) {
 	const result = typeof id === "string" ? (await supabaseService.from("builds").select("*, make (title), model (title), builds_parts_installed (parts_installed_id (title))").eq("slug", formatBuildId(id)).maybeSingle()).data : id;
 
 	if (!result.builds_parts_installed) {
-		console.log(id)
+		//console.log(id)
 	}
 
 	return `${result.year} ${result.make.title} ${result.model.title}${result.trim ? ` ${result.trim}` : ``} in ${result.color} with `

@@ -1,6 +1,6 @@
 ---
 // imports
-import { supabaseService } from "@/library/supabase";
+import { getCollection } from "astro:content";
 import { Business } from "@/config";
 
 import Container from "@/components/Container";
@@ -9,8 +9,11 @@ import MenuMobile from "@/components/navigation/menus/Mobile";
 import HoverMenu from "@/components/navigation/menus/Hover";
 
 // data
-const allMakes = await supabaseService.from("makes").select("*, models(title)").eq("status", true).order("slug");
-const allParts = await supabaseService.from("parts").select("*, parts_items(title)").order("slug");
+const allMakes = await getCollection("makes", ({ data }) => {
+	return data.status == true;
+});
+const allModels = await getCollection("models");
+const allParts = await getCollection("parts");
 ---
 
 <header class="bg-neutral-50 sticky top-0 shadow-2xl z-20">
@@ -28,14 +31,14 @@ const allParts = await supabaseService.from("parts").select("*, parts_items(titl
 				<div class="hidden md:flex items-center md:gap-6 lg:gap-8">
 					<HoverMenu title="Vehicles" identifier="vehicles">
 						{
-							allMakes.data.map((m) => (
-								<a href={`/vehicles/${m.slug}`} title={m.title} class="menu-item">
-									{m.title}
+							allMakes.map((m) => (
+								<a href={`/vehicles/${m.id}`} title={m.data.title} class="menu-item">
+									{m.data.title}
 
-									<ul class="comma-list !text-neutral-300">
-										{m.models.map((i) => (
-											<li>{i.title}</li>
-										))}
+									<ul class="comma-list !text-neutral-300 tracking-wide">
+										{allModels.map((i) => {
+											return i.data.make.slug === m.id && <li>{i.data.title}</li>;
+										})}
 									</ul>
 								</a>
 							))
@@ -44,12 +47,12 @@ const allParts = await supabaseService.from("parts").select("*, parts_items(titl
 
 					<HoverMenu title="Parts" identifier="parts">
 						{
-							allParts.data.map((p) => (
-								<a href={`/parts/${p.slug}`} title={p.title} class="menu-item">
-									{p.title}
+							allParts.map((p) => (
+								<a href={`/parts/${p.id}`} title={p.data.title} class="menu-item">
+									{p.data.title}
 
-									<ul class="comma-list !text-neutral-300">
-										{p.parts_items.map((i) => (
+									<ul class="comma-list !text-neutral-300 tracking-wide">
+										{p.data.items.map((i) => (
 											<li>{i.title}</li>
 										))}
 									</ul>
@@ -89,7 +92,7 @@ const allParts = await supabaseService.from("parts").select("*, parts_items(titl
 				</button>
 
 				<!-- mobile menu -->
-				<MenuMobile makes={allMakes} parts={allParts} />
+				<MenuMobile makes={allMakes} models={allModels} parts={allParts} />
 			</div>
 		</nav>
 	</Container>

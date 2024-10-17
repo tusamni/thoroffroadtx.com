@@ -1,8 +1,9 @@
 ---
-import { supabaseService } from "@/library/supabase";
 import { Business } from "@/config";
+import { getCollection } from "astro:content";
 
-const allMakes = await supabaseService.from("makes").select("*, models (*)").eq("status", true).order("slug");
+const allMakes = await getCollection("makes");
+const allModels = await getCollection("models");
 
 // build year options
 const yearStart = 1970;
@@ -44,7 +45,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 			<label for="make">Vehicle Make</label>
 			<select name="make" id="make">
 				<option disabled selected>Choose Make</option>
-				{allMakes.data.map((m) => <option value={m.id}>{m.title}</option>)}
+				{allMakes.map((m) => <option value={m.id}>{m.data.title}</option>)}
 			</select>
 		</div>
 
@@ -73,11 +74,11 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 	</div>
 </form>
 
-<script is:inline define:vars={{ allMakes }}>
+<script is:inline define:vars={{ allMakes, allModels }}>
 	const selectMake = document.getElementById("make");
 	const selectModel = document.getElementById("model");
 
-	getModelsFromMake(allMakes, selectMake, selectModel, true, false);
+	getModelsFromMake(allMakes, allModels, selectMake, selectModel, true, false);
 
 	// insert marketing data into form variable
 	document.getElementById("marketing").value = JSON.stringify(visitData.get());

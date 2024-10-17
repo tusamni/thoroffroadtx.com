@@ -83,7 +83,7 @@ module.exports = {
 		},
 		extend: {
 			animation: {
-				'icon-scroll': 'infinite-scroll 45s linear infinite',
+				'icon-scroll': 'infinite-scroll 70s linear infinite',
 				'build-scroll': 'infinite-scroll 90s linear infinite reverse',
 			},
 			keyframes: {

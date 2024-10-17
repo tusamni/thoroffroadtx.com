@@ -3,26 +3,26 @@ export const prerender = false;
 
 import Layout from "@/layouts/Layout";
 
-import { supabaseService } from "@/library/supabase";
+import { getCollection } from "astro:content";
 import { paginate } from "@/functions/Paginate";
 import Build from "@/components/builds/snippets/Build";
 import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 import Pagination from "@/components/Pagination";
 
-const allMakes = await supabaseService.from("makes").select("*, models (*)").order("slug");
-const allModels = await supabaseService.from("models").select("*");
+const allMakes = await getCollection("makes");
+const allModels = await getCollection("models");
 
-const makeParam = parseInt(Astro.url.searchParams.get("buildMake"));
-const modelParam = parseInt(Astro.url.searchParams.get("buildModel"));
+const makeParam = Astro.url.searchParams.get("buildMake");
+const modelParam = Astro.url.searchParams.get("buildModel");
 const searchParam = Astro.url.searchParams.get("search");
 
-const actualModelArray = allModels.data.filter((m) => m.id == modelParam);
+const actualModelArray = allModels.filter((m) => m.id == modelParam);
 const actualModel = actualModelArray[0];
 
 let filteredModels = [];
-for (const model of allModels.data) {
-	if (model.make.id === makeParam) {
+for (const model of allModels) {
+	if (model.data.make.slug === makeParam) {
 		filteredModels.push(model);
 	}
 }
@@ -30,17 +30,17 @@ for (const model of allModels.data) {
 // filter and search shoots
 async function getFilteredBuilds(make, model, search) {
 	const searchRegex = searchParam && new RegExp(searchParam, "i");
-	const builds = await supabaseService.from("builds").select("*, makes (*), models (*)").order("created_at", { ascending: false });
+	const builds = await getCollection("builds");
 
-	const filteredBuilds = builds.data.filter((build) => {
+	const filteredBuilds = builds.filter((build) => {
 		if (makeParam && modelParam) {
-			if (build.makes.id !== makeParam || build.models.id !== modelParam) {
+			if (build.data.vehicle.make.find((make) => make.slug !== makeParam) || build.data.vehicle.model.find((model) => model.slug !== modelParam)) {
 				return false;
 			}
 		}
 
 		if (searchRegex) {
-			return searchRegex.test(build.year) || searchRegex.test(build.makes.title) || searchRegex.test(build.models.title) || searchRegex.test(build.trim) || searchRegex.test(build.slug);
+			return searchRegex.test(build.data.vehicle.year) || searchRegex.test(build.data.title) || searchRegex.test(build.data.vehicle.trim) || searchRegex.test(build.id);
 		}
 
 		return true;
@@ -106,9 +106,9 @@ if (allPages.length && !page) {
 						<select name="buildMake" id="buildMake" class="input-secondary">
 							<option value="" disabled selected>Choose a Make</option>
 							{
-								allMakes.data.map((m) => (
-									<option value={m.id} selected={makeParam === m.slug}>
-										{m.title}
+								allMakes.map((m) => (
+									<option value={m.id} selected={makeParam === m.id}>
+										{m.data.title}
 									</option>
 								))
 							}
@@ -118,7 +118,7 @@ if (allPages.length && !page) {
 							<option value="" disabled selected>Choose a Model</option>
 							{
 								filteredModels.map((m) => (
-									<option value={m.data.slug} selected={modelParam === m.data.slug}>
+									<option value={m.id} selected={modelParam === m.id}>
 										{m.data.title}
 									</option>
 								))
@@ -143,14 +143,14 @@ if (allPages.length && !page) {
 						</div>
 						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 							{paginatedResults.page.data.map((b) => (
-								<Build build={b.slug} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+								<Build build={b.id} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
 							))}
 						</div>
 						<div class="flex justify-center items-center">{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}</div>
 					</>
 				)
 			}
-			{
+			<!-- {
 				page.data.length == 0 && (
 					<div class="flex justify-center items-center">
 						<div class="max-w-2xl text-center space-y-4">
@@ -174,16 +174,16 @@ if (allPages.length && !page) {
 						</div>
 					</div>
 				)
-			}
+			} -->
 		</Container>
 	</Map>
 </Layout>
 
-<script is:inline define:vars={{ allMakes }}>
+<script is:inline define:vars={{ allMakes, allModels }}>
 	// get models from make
 	const selectMake = document.getElementById("buildMake");
 	const selectModel = document.getElementById("buildModel");
-	getModelsFromMake(allMakes, selectMake, selectModel, false, true);
+	getModelsFromMake(allMakes, allModels, selectMake, selectModel, false, true);
 
 	// delete url params
 	const paramSearch = document.getElementById("clearSearch");

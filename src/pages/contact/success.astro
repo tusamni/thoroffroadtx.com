@@ -1,15 +1,17 @@
 ---
 import Layout from "@/layouts/Layout";
 
+import { cosmic } from "@/library/cosmic";
 import { Business } from "@/config";
 import Container from "@/components/Container";
 import Picture from "@/components/images/Picture";
 
-const headlineImages = [
-	{ url: "team/shop/thoroffroad-01.jpg", alt: "Employee at THOR Off-Road" },
-	{ url: "team/shop/thoroffroad-02.jpg", alt: "Working on a vehicle at THOR Off-Road" },
-	{ url: "team/shop/thoroffroad-03.jpg", alt: "Installing off road parts at THOR Off-Road" },
-];
+const { object: page } = await cosmic.objects
+	.findOne({
+		type: "page-contact",
+		slug: "page-contact",
+	})
+	.props("slug, title, metadata");
 ---
 
 <Layout title="Contact Us - Success">
@@ -29,6 +31,6 @@ const headlineImages = [
 	</div>
 
 	<div class="grid grid-cols-3 h-[400px]">
-		{headlineImages.map((h) => <Picture src={h.url} alt={h.alt} loading="eager" class:list={["w-full h-full object-cover rounded shadow-lg"]} />)}
+		{page.metadata.success_images.map((h) => <Picture src={h.url} alt="" loading="eager" class:list={["w-full h-full object-cover rounded shadow-lg"]} />)}
 	</div>
 </Layout>

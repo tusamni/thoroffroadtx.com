@@ -1,53 +1,50 @@
 ---
 // imports
+import { getEntry } from "astro:content";
 import { imageConfig } from "@/config";
-import imageSize from "probe-image-size";
 
 // props
 interface Props {
 	src: string;
 	alt?: string;
-	loading?: string;
+	lazy?: boolean;
 	sizes?: string;
 	quality?: number;
 }
-const { src, alt, loading = "lazy", sizes = "100vw", quality = 100, ...attrs } = Astro.props;
+const { src, alt, lazy = true, sizes = "100vw", ...attrs } = Astro.props;
 
 // content
-const fullPath = `${imageConfig.cloudUrl}/${src}`;
+// image details
+const imageName = src.replace("https://cdn.cosmicjs.com/", "");
+
+// get image data
+const imageMetadata = await getEntry("media", imageName);
 
 // loop through all the necessary image widths
-const optimizedJpeg = [];
+const imageOptimized = [];
 for (let size of imageConfig.imageSizes) {
-	optimizedJpeg.push(`${fullPath}?width=${size}&height=${size}&quality=${quality}&resize=contain ${size}w`);
+	imageOptimized.push(`${imageMetadata.data.imgix_url}?w=${size}&auto=format ${size}w`);
 }
-
-const srcsetJpeg = optimizedJpeg.join(", ");
-
-// get the dimensions of the image
-let dimensions;
-if (import.meta.env.PROD) {
-	dimensions = await imageSize(fullPath);
-} else {
-	dimensions = {
-		width: 500,
-		height: 500,
-	};
-}
+const imageSrcSet = imageOptimized.join(", ");
 ---
 
-<img
-	srcset={srcsetJpeg}
-	src={fullPath}
-	href={fullPath}
-	alt={await alt}
-	width={dimensions.width}
-	height={dimensions.height}
-	loading={loading}
-	sizes={sizes}
-	{...attrs}
-	data-img={fullPath}
-	data-width={dimensions.width}
-	data-height={dimensions.height}
-	data-caption={await alt}
-/>
+{
+	imageMetadata ? (
+		<img
+			srcset={imageSrcSet}
+			src={`${imageMetadata.data.imgix_url}?auto=format`}
+			alt={imageMetadata.data.alt}
+			width={imageMetadata.data.width}
+			height={imageMetadata.data.height}
+			data-img={`${imageMetadata.data.imgix_url}?auto=format`}
+			data-width={imageMetadata.data.width}
+			data-height={imageMetadata.data.height}
+			data-caption={imageMetadata.data.alt}
+			sizes={sizes}
+			{...attrs}
+			loading={lazy ? "lazy" : "eager"}
+		/>
+	) : (
+		<img src={`${imageMetadata.data.imgix_url}?auto=format`} srcset={imageSrcSet} loading={lazy ? "lazy" : "eager"} sizes={sizes} {...attrs} />
+	)
+}

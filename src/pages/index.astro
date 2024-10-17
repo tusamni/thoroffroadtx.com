@@ -1,10 +1,9 @@
 ---
 import Layout from "@/layouts/Layout";
 
-import { supabaseService } from "@/library/supabase";
+import { cosmic } from "@/library/cosmic";
+import { getCollection } from "astro:content";
 import { Business } from "@/config";
-import { getBuildImage, getBuildDescription } from "@/functions/Build";
-
 import BuildAlt from "@/components/builds/snippets/BuildAlt";
 import Container from "@/components/Container";
 import Icon from "@/components/Icon";
@@ -14,23 +13,26 @@ import Picture from "@/components/images/Picture";
 import Testimonial from "@/components/testimonials/Testimonial";
 
 // content
-const allBrands = await supabaseService.from("brands").select("*").eq("featured", true);
-const allParts = await supabaseService.from("parts").select("*, parts_images(*)");
-const allTestimonials = await supabaseService.from("testimonials").select("*");
+const { object: page } = await cosmic.objects
+	.findOne({
+		type: "page-home",
+		slug: "page-home",
+	})
+	.props("slug, title, metadata")
+	.depth(1);
 
-const headingBuild = await supabaseService.from("builds").select("*, make (title), model (title)").eq("slug", "296799-2024-gmc-sierra-2500-hd").single();
-const featuredSlugs = ["940558-2023-ford-f-450", "439929-2024-ford-f-250", "962843-2024-ram-3500", "884781-2023-ford-bronco", "185376-2023-toyota-tundra", "235752-2022-jeep-wrangler", "568734-2023-ford-f-250"];
-const featuredBuilds = await supabaseService.from("builds").select("*, builds_images (*)").in("slug", featuredSlugs);
+const allParts = await getCollection("parts");
+const allTestimonials = await getCollection("testimonials");
 ---
 
 <Layout>
 	<!-- hero -->
 	<div class="relative flex justify-end items-end min-h-[60vh] sm:min-h-[700px]">
-		<Picture src={getBuildImage(headingBuild.data.slug, 2)} alt={getBuildDescription(headingBuild.data)} loading="eager" class:list={["w-full h-full object-cover absolute"]} />
+		<Picture src={page.metadata.featured_image.url} alt="" loading="eager" class:list={["w-full h-full object-cover absolute"]} />
 		<div class="absolute w-full h-full bg-gradient-to-b from-transparent via-black/20 to-black/70"></div>
 
 		<Container classes="w-full pb-12">
-			<h1 class="text-center lg:text-right relative text-balance font-alt text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-white uppercase font-medium">We're <strong>the Best</strong> Off-Road<br /> Truck Outfitter in Texas!</h1>
+			<h1 class="text-center lg:text-right relative text-balance font-alt text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-white uppercase">The <span class="font-bold">Best Off-Road<br /> Truck Outfitter</span> in Texas!</h1>
 		</Container>
 	</div>
 
@@ -38,10 +40,10 @@ const featuredBuilds = await supabaseService.from("builds").select("*, builds_im
 	<Map classes="bg-chathams-blue-700 py-10">
 		<div class="lg:flex lg:space-x-16 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_70px,_black_calc(100%-70px),transparent_100%)]">
 			<div id="featured" class="flex gap-x-6 lg:gap-x-16 lg:animate-build-scroll snap-x snap-mandatory lg:snap-none overflow-auto lg:overflow-visible no-scrollbar">
-				{featuredBuilds.data.map((b) => <BuildAlt build={b} classes="w-[75vw] sm:w-[50vw] lg:w-[400px] snap-center" />)}
+				{page.metadata.featured_builds.map((b) => <BuildAlt build={b} classes="w-[75vw] sm:w-[50vw] lg:w-[400px] snap-center" />)}
 			</div>
 			<div class="hidden lg:flex gap-x-6 lg:gap-x-16 lg:animate-build-scroll" aria-hidden="true">
-				{featuredBuilds.data.map((b) => <BuildAlt build={b} classes="w-[400px]" />)}
+				{page.metadata.featured_builds.map((b) => <BuildAlt build={b} classes="w-[400px]" />)}
 			</div>
 		</div>
 	</Map>
@@ -50,10 +52,10 @@ const featuredBuilds = await supabaseService.from("builds").select("*, builds_im
 	<div class="bg-torch-red-600 text-white py-10 lg:py-16">
 		<div class="flex overflow-hidden space-x-12 lg:space-x-24 [mask-image:_linear-gradient(to_right,transparent_0,_black_70px,_black_calc(100%-70px),transparent_100%)]">
 			<div class="flex gap-12 lg:gap-24 animate-icon-scroll">
-				{allBrands.data.map((b) => <Icon icon={`brands/${b.logo}`} alt={b.title} class="h-6 lg:h-10 w-auto" />)}
+				{page.metadata.featured_brands.map((b) => <Icon icon={`brands/${b.metadata.icon}`} alt={b.metadata.title} class="h-6 lg:h-10 w-auto" />)}
 			</div>
 			<div class="flex gap-12 lg:gap-24 animate-icon-scroll" aria-hidden="true">
-				{allBrands.data.map((b) => <Icon icon={`brands/${b.logo}`} alt={b.title} class="h-6 lg:h-10 w-auto" />)}
+				{page.metadata.featured_brands.map((b) => <Icon icon={`brands/${b.metadata.icon}`} alt={b.metadata.title} class="h-6 lg:h-10 w-auto" />)}
 			</div>
 		</div>
 	</div>
@@ -70,7 +72,12 @@ const featuredBuilds = await supabaseService.from("builds").select("*, builds_im
 	<Map classes="bg-rock-900 section space-y-24">
 		<div class="pb-32 lg:pt-32 space-y-24 lg:space-y-32">
 			<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
-				<Picture src="team/jamey/jamey.jpg" alt="Jamey Whitlock in Dripping Springs, TX" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg aspect-square object-[50%,40%]"]} />
+				<Picture
+					src="https://cdn.cosmicjs.com/0b3e4e10-8a64-11ef-b5a0-93db72e2be98-jamey.jpg"
+					alt="Jamey Whitlock in Dripping Springs, TX"
+					loading="eager"
+					class:list={["w-full h-full object-cover lg:rounded-r shadow-lg aspect-square object-[50%,40%]"]}
+				/>
 
 				<div class="px-8 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12 space-y-8">
 					<h1 class="text-white text-balance font-alt text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl uppercase font-normal">"I can't believe <br /> <strong>That's My Truck!</strong>"</h1>
@@ -96,7 +103,7 @@ const featuredBuilds = await supabaseService.from("builds").select("*, builds_im
 			<!-- testimonials -->
 			<Container>
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-					{allTestimonials.data.map((t) => <Testimonial content={t} lines="line-clamp-5" />).slice(0, 6)}
+					{allTestimonials.map((t) => <Testimonial content={t} lines="line-clamp-5" />).slice(0, 6)}
 				</div>
 
 				<div class="mt-8 sm:mt-24 flex justify-center">
@@ -140,7 +147,7 @@ const featuredBuilds = await supabaseService.from("builds").select("*, builds_im
 				</div>
 
 				<div class="col-span-5 xl:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-12">
-					{allParts.data.map((p) => <Part part={p} />)}
+					{allParts.map((p) => <Part part={p} />)}
 				</div>
 			</div>
 		</Container>

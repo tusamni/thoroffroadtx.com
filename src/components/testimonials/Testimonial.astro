@@ -19,16 +19,16 @@ const { content, lines = "line-clamp-none" } = Astro.props;
 				<Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
 				<Icon icon="hero/StarFill" class="text-yellow-400 h-4" />
 			</div>
-			<div class="text-center font-alt uppercase text-xl line-clamp-1 font-bold" set:html={`"${content.highlight}"`} />
+			<div class="text-center font-alt uppercase text-xl line-clamp-1 font-bold" set:html={`"${content.data.highlight}"`} />
 		</div>
 
-		<blockquote class:list={["text-light space-y-4 leading-relaxed sm:text-sm md:text-base text-stone-200", lines]} set:html={content.content} />
+		<blockquote class:list={["text-light space-y-4 leading-relaxed sm:text-sm md:text-base text-stone-200", lines]} set:html={content.data.content} />
 
 		<div class="flex gap-3 items-center">
-			<Picture src="builds/424381-2019-toyota-tacoma/01.jpg" class="w-12 h-12 object-cover rounded shadow-lg" sizes="100px" />
+			<Picture src="https://cdn.cosmicjs.com/78928520-8ccc-11ef-b5a0-93db72e2be98-996096-2024-ford-f-250_08.jpg" class="w-12 h-12 object-cover rounded shadow-lg" sizes="100px" />
 
 			<div class="py-1">
-				<div class="font-bold line-clamp-1">{content.name}</div>
+				<div class="font-bold line-clamp-1">{content.title}</div>
 				<a class="font-light text-sm underline line-clamp-1">2024 Toyota Tundra</a>
 			</div>
 		</div>

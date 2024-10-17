@@ -7,22 +7,20 @@ interface Props {
 	url?: string;
 }
 const { part, url, ...attrs } = Astro.props;
-
-const featuredImage = part.parts_images.filter((p) => p.featured == true);
 ---
 
 <div class="relative group">
-	{featuredImage && <Picture src={featuredImage[0].image_name} alt={`${part.title} at THOR Off-Road`} class="h-48 w-full object-cover rounded-t" sizes="350px" />}
+	<Picture src={part.data.images.featured.url} alt={`${part.data.title} at THOR Off-Road`} class="h-48 w-full object-cover rounded-t" sizes="350px" />
 
 	<div class="py-6 flex flex-row gap-3 items-center justify-center bg-rock-300 hover:bg-rock-300/70 transition duration-300">
 		<div class="w-8 h-8 border-2 border-rock-900 rounded relative flex-none overflow-hidden flex justify-center items-center">
-			<Icon icon={url ? part.icon : `parts/${part.icon}Outline`} class="text-rock-900 absolute w-10 h-auto -rotate-12" />
+			<Icon icon={url ? part.data.icon : `parts/${part.data.icon}Outline`} class="text-rock-900 absolute w-10 h-auto -rotate-12" />
 		</div>
 
 		<div class="flex flex-col gap-2">
-			<a href={url ? url : `/parts/${part.slug}`} class="font-semibold uppercase font-alt text-3xl text-rock-950">
+			<a href={url ? url : `/parts/${part.id}`} class="font-semibold uppercase font-alt text-3xl text-rock-950">
 				<span class="absolute inset-0"></span>
-				{part.title}
+				{part.data.title}
 			</a>
 		</div>
 	</div>

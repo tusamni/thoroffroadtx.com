@@ -1,9 +1,7 @@
 ---
 import Layout from "@/layouts/Layout";
 
-import { supabaseService } from "@/library/supabase";
-import { getBuildDescription } from "@/functions/Build";
-
+import { cosmic } from "@/library/cosmic";
 import Container from "@/components/Container";
 import FeatureGrid from "@/components/sections/FeatureGrid";
 import Icon from "@/components/Icon";
@@ -11,34 +9,18 @@ import Map from "@/components/backgrounds/Map";
 import PartAlt from "@/components/parts/PartAlt";
 import Picture from "@/components/images/Picture";
 import Steps from "@/components/sections/Steps";
+import { getCollection } from "astro:content";
 
 // content
-const allParts = await supabaseService.from("parts").select("*").order("title");
-const allBrands = await supabaseService.from("brands").select("*").order("title");
+const allParts = await getCollection("parts");
+const allBrands = await getCollection("brands");
 
-const process = [
-	{
-		title: "The Top Brands",
-		description: "We partner with the world's most trusted parts manufacturers in the industry to create quality builds that our customers can depend on.",
-	},
-	{
-		title: "Test, Test, Test",
-		description: "We don't just install parts, we put them to the test to ensure that they perform exactly the way we designed to deliver the ultimate off-road experience.",
-	},
-	{
-		title: "Targeted Performance",
-		description: "We help our customers find the right balance of style, performance, and budget to get the most out of their off-road vehicle build.",
-	},
-];
-
-const headlineImages = [
-	"builds/223455-2007-toyota-land-cruiser/17.jpg",
-	"builds/235752-2022-jeep-wrangler/06.jpg",
-	"builds/296799-2024-gmc-sierra-2500-hd/09.jpg",
-	"builds/296799-2024-gmc-sierra-2500-hd/06.jpg",
-	"builds/435826-2024-ford-f-250/08.jpg",
-	"builds/335071-2015-ford-f-250/13.jpg",
-];
+const { object: page } = await cosmic.objects
+	.findOne({
+		type: "page-parts",
+		slug: "parts",
+	})
+	.props("slug, title, metadata");
 ---
 
 <Layout title="We're the Top Rated Carli Dealer and Installer in Texas">
@@ -59,9 +41,9 @@ const headlineImages = [
 		</Container>
 	</div>
 
-	<Picture src="shop/2022-03-09/shop-shoot_01.jpg" alt="FOX Shocks waiting to be installed" class="w-full h-[350px] lg:h-[600px] object-cover object-[50%,65%]" />
+	<Picture src={page.metadata.images.headline.url} alt="FOX Shocks waiting to be installed" class="w-full h-[350px] lg:h-[600px] object-cover object-[50%,65%]" />
 	<div class="grid grid-cols-6 gallery">
-		{headlineImages.map((image) => <Picture src={image} alt={getBuildDescription(image)} class="w-full h-52 sm:h-72 lg:h-full object-cover col-span-3 lg:col-span-1" sizes="(min-width: 1024px) 20vw, 50vw" />)}
+		{page.metadata.images.featured.map((image) => <Picture src={image.url} alt="" class="w-full h-52 sm:h-72 lg:h-full object-cover col-span-3 lg:col-span-1" sizes="(min-width: 1024px) 20vw, 50vw" />)}
 	</div>
 
 	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
@@ -71,18 +53,18 @@ const headlineImages = [
 			</div>
 
 			<FeatureGrid>
-				{allParts.data.map((p) => <PartAlt part={p} />)}
+				{allParts.map((p) => <PartAlt part={p} />)}
 			</FeatureGrid>
 		</Container>
 
 		<div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
-			<Picture src="team/shop/thoroffroad-01.jpg" alt="THOR Off-Road Employee intalling parts in Dripping Springs, TX" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg"]} />
+			<Picture src={page.metadata.images.process.url} alt="THOR Off-Road Employee intalling parts in Dripping Springs, TX" loading="eager" class:list={["w-full h-full object-cover lg:rounded-r shadow-lg"]} />
 
 			<div class="px-8 lg:py-12 mx-auto lg:pl-0 lg:mx-0 md:max-w-2xl lg:pr-12 space-y-12">
 				<h2 class="uppercase text-center lg:text-left text-white">Our <strong>Process</strong></h2>
 
 				<div class="space-y-12">
-					{process.map((f, i) => <Steps number={i + 1} title={f.title} description={f.description} />)}
+					{page.metadata.process.map((f, i) => <Steps number={i + 1} title={f.title} description={f.description} />)}
 				</div>
 			</div>
 		</div>
@@ -97,9 +79,9 @@ const headlineImages = [
 
 			<div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-0.5 rounded justify-between" :class="!expanded && '[mask-image:_linear-gradient(to_bottom,black_50%,transparent_100%)]'" x-show="expanded" x-collapse.min.400px>
 				{
-					allBrands.data.map((b) => (
+					allBrands.map((b) => (
 						<div class="p-6 sm:p-10 bg-merlin-100/20">
-							<Icon icon={`brands/${b.logo}`} alt={b.title} class="max-h-12 w-full object-contain" />
+							<Icon icon={`brands/${b.data.icon}`} alt={b.data.title} class="max-h-12 w-full object-contain" />
 						</div>
 					))
 				}

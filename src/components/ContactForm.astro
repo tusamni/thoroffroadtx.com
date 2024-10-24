@@ -1,5 +1,6 @@
 ---
 import { Business } from "@/config";
+import { actions } from "astro:actions";
 import { getCollection } from "astro:content";
 
 const allMakes = await getCollection("makes");
@@ -9,9 +10,22 @@ const allModels = await getCollection("models");
 const yearStart = 1970;
 const yearEnd = new Date().getFullYear();
 var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart).toString()).reverse();
+
+// content
+const result = Astro.getActionResult(actions.contact);
+
+console.log(result);
 ---
 
-<form class="space-y-6" action="/api/contact/lead/" method="post">
+<form class="space-y-6" action={"/contact/success/" + actions.contact} method="POST">
+	{
+		result?.error && (
+			<ul class="col-span-2">
+				<li class="text-red-500">Unable to send email. Please try again later.</li>
+			</ul>
+		)
+	}
+
 	<div class="space-y-2">
 		<label for="name">Name</label>
 		<input type="text" name="name" id="name" autocomplete="name" required />
@@ -62,7 +76,7 @@ var years = Array.from(Array(yearEnd + 1 - yearStart), (_, i) => (i + yearStart)
 		<textarea name="message" id="message" rows="4"></textarea>
 	</div>
 
-	<input type="hidden" name="url" id="url" value={Astro.url.pathname} />
+	<input type="hidden" name="path" id="path" value={Astro.url.pathname} />
 	<input type="hidden" name="marketing" id="marketing" value="" />
 
 	<div class="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center">

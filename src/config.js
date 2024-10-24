@@ -1,12 +1,3 @@
-export const imageConfig = {
-	cloudUrl: "https://hmwzqxtfqtgqxvovmkwr.supabase.co/storage/v1/render/image/public/images",
-	imageSizes: [4000, 3000, 2000, 1200, 1000, 800, 400, 200],
-};
-
-export const videoConfig = {
-	cloudUrl: "https://hmwzqxtfqtgqxvovmkwr.supabase.co/storage/v1/object/public/videos",
-}
-
 export const Business = {
 	nameLong: "THOR Off-Road",
 	nameShort: "THOR",

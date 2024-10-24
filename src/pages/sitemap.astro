@@ -2,13 +2,13 @@
 import Layout from "@/layouts/Layout";
 
 // imports
-import { supabaseService } from "@/library/supabase";
+import { getCollection } from "astro:content";
 import Container from "@/components/Container";
 import Map from "@/components/backgrounds/Map";
 
 // data
-const allMakes = await supabaseService.from("makes").select("*").eq("status", true);
-const allParts = await supabaseService.from("parts").select("*");
+const allMakes = await getCollection("makes");
+const allParts = await getCollection("parts");
 ---
 
 <Layout title="Sitemap">
@@ -20,10 +20,10 @@ const allParts = await supabaseService.from("parts").select("*");
 					<p class="font-semibold text-2xl">Vehicles</p>
 					<ul class="space-y-2">
 						{
-							allMakes.data.map((m) => (
+							allMakes.map((m) => (
 								<li>
-									<a href={`/vehicles/${m.slug}`} title={m.title}>
-										{m.title}
+									<a href={`/vehicles/${m.id}`} title={m.data.title}>
+										{m.data.title}
 									</a>
 								</li>
 							))
@@ -35,10 +35,10 @@ const allParts = await supabaseService.from("parts").select("*");
 					<p class="font-semibold text-2xl">Parts</p>
 					<ul class="space-y-2">
 						{
-							allParts.data.map((p) => (
+							allParts.map((p) => (
 								<li>
-									<a href={`/parts/${p.slug}`} title={p.title}>
-										{p.title}
+									<a href={`/parts/${p.id}`} title={p.data.title}>
+										{p.data.title}
 									</a>
 								</li>
 							))

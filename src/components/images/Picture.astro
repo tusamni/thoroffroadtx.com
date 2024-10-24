@@ -1,7 +1,6 @@
 ---
 // imports
 import { getEntry } from "astro:content";
-import { imageConfig } from "@/config";
 
 // props
 interface Props {
@@ -13,6 +12,8 @@ interface Props {
 }
 const { src, alt, lazy = true, sizes = "100vw", ...attrs } = Astro.props;
 
+const imageSizes = [4000, 3000, 2000, 1200, 1000, 800, 400, 200];
+
 // content
 // image details
 const imageName = src.replace("https://cdn.cosmicjs.com/", "");
@@ -22,7 +23,7 @@ const imageMetadata = await getEntry("media", imageName);
 
 // loop through all the necessary image widths
 const imageOptimized = [];
-for (let size of imageConfig.imageSizes) {
+for (let size of imageSizes) {
 	imageOptimized.push(`${imageMetadata.data.imgix_url}?w=${size}&auto=format ${size}w`);
 }
 const imageSrcSet = imageOptimized.join(", ");

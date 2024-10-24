@@ -22,16 +22,9 @@ export async function getStaticPaths() {
 // content
 const { build } = Astro.props;
 
-// create image array and remove the featured image from the array
-//const imageArray = Array.from({ length: buildData.data.images.total - 0 }, (_, i) => 0 + 1 + i);
-//const removals = [buildData.data.images.highlight[0], buildData.data.images.highlight[1], buildData.data.images.snippet];
-
-// const imagesWithoutHero = imageArray.filter((item) => item !== buildData.data.images.snippet);
-// const imagesWithoutAll = imageArray.filter((item) => !removals.includes(item));
-
-const imageCols = build.builds_images.length >= 9 ? `grid-cols-1 md:grid-cols-3` : `grid-cols-1 md:grid-cols-2`; // based on the total number of images, how many columns are needed
-const remainder = build.builds_images.length >= 9 ? build.builds_images.length % 3 : build.builds_images.length % 2;
-const colSpan = build.builds_images.length >= 9 ? 4 - remainder : 3 - remainder;
+const imageCols = build.data.images.gallery.length >= 9 ? `grid-cols-1 md:grid-cols-3` : `grid-cols-1 md:grid-cols-2`; // based on the total number of images, how many columns are needed
+const remainder = build.data.images.gallery.length >= 9 ? build.data.images.gallery.length % 3 : build.data.images.gallery.length % 2;
+const colSpan = build.data.images.gallery.length >= 9 ? 4 - remainder : 3 - remainder;
 const colWidth = 450;
 ---
 
@@ -41,9 +34,9 @@ const colWidth = 450;
 			<h1 class="text-balance uppercase font-bold text-center lg:text-left lg:max-w-3xl">{build.data.title}</h1>
 
 			<div class="flex flex-col items-center sm:flex-row gap-4 justify-center lg:justify-start">
-				<div>Completed {timeAgo(build.created_at)}</div>
+				<div>Completed {timeAgo(build.data.date)}</div>
 				<div class="hidden sm:block">&middot;</div>
-				<a href={`builds?buildMake=${build.makes.id}&buildModel=${build.models.id}`} class="font-semibold hover:underline">More {build.models.title} Builds &gt;</a>
+				<a href={`builds?buildMake=${build.data.vehicle.make.slug}&buildModel=${build.data.vehicle.model.slug}`} class="font-semibold hover:underline">More {build.data.vehicle.model.title} Builds &gt;</a>
 			</div>
 		</Container>
 	</div>
@@ -51,12 +44,16 @@ const colWidth = 450;
 	<Map classes="bg-rock-900 section section-small space-y-24" theme="light" opacity={0.02}>
 		<Container classes="space-y-8">
 			<div class="grid grid-cols-6 grid-rows-2 gap-4 sm:gap-8 h-full md:h-[40vh] lg:h-[700px] gallery">
-				<Picture src={build.builds_images[0].image_name} class:list={["w-full h-full object-cover row-span-2 rounded shadow-2xl", build.builds_images.length >= 9 ? "col-span-6 md:col-span-4" : "col-span-6"]} loading="eager" />
+				<Picture
+					src={build.data.images.featured.url}
+					class:list={["w-full h-full object-cover row-span-2 rounded shadow-2xl", build.data.images.gallery && build.data.images.gallery.length >= 9 ? "col-span-6 md:col-span-4" : "col-span-6"]}
+					loading="eager"
+				/>
 				{
-					build.builds_images.length >= 9 && (
+					build.data.images.gallery.length >= 9 && (
 						<>
-							<Picture src={build.builds_images[1].image_name} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
-							<Picture src={build.builds_images[2].image_name} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
+							<Picture src={build.data.images.gallery[0].url} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
+							<Picture src={build.data.images.gallery[1].url} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
 						</>
 					)
 				}
@@ -68,10 +65,10 @@ const colWidth = 450;
 						<div class="bg-rock-800 px-8 py-12 rounded">
 							<div class="space-y-12">
 								{
-									build.goals && (
+									build.data.goals && (
 										<div class="space-y-6">
 											<div class="uppercase text-4xl font-alt font-medium text-white">Summary</div>
-											<div class="space-y-6 text-lg leading-loose text-rock-100" set:html={build.goals} />
+											<div class="space-y-6 text-lg leading-loose text-rock-100" set:html={build.data.goals} />
 										</div>
 									)
 								}
@@ -79,17 +76,17 @@ const colWidth = 450;
 								<div class="space-y-4">
 									<div class="uppercase text-4xl font-alt font-medium text-white"><strong>Parts</strong> List</div>
 									<div class="space-y-2 text-sm md:text-xs lg:text-base text-rock-100">
-										{build.builds_parts_installed.map((p) => <div>{p["parts_installed_id"].title}</div>)}
+										{build.data.installed_parts.map((p) => <div>{p.part}</div>)}
 									</div>
 								</div>
 
-								{
+								<!-- {
 									build.testimonials.length > 0 && (
 										<div class="text-base space-y-4">
 											<Testimonial content={build.testimonials[0]} />
 										</div>
 									)
-								}
+								} -->
 
 								<!-- {
 									buildData.data.video && (
@@ -118,9 +115,9 @@ const colWidth = 450;
 							<div class="hidden lg:block space-y-8">
 								<div class="uppercase text-4xl font-alt font-medium">Let's <strong>Get Started</strong></div>
 								<div class="leading-relaxed">
-									There are endless options for your {build.models.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!
+									There are endless options for your {build.data.vehicle.model.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!
 								</div>
-								<a href="/contact" class="button button-secondary justify-center">Build Your {build.models.title}!</a>
+								<a href="/contact" class="button button-secondary justify-center">Build Your {build.data.vehicle.model.title}!</a>
 							</div>
 						</div>
 					</div>
@@ -129,18 +126,18 @@ const colWidth = 450;
 				<div class="col-span-5 md:col-span-3">
 					<div class:list={[`grid gap-4 lg:gap-8 gallery`, imageCols]}>
 						{
-							build.builds_images.length < 4 &&
-								build.builds_images.map((i, index, arr) => {
-									return <Picture src={i.image_name} class:list={["w-full h-full object-cover rounded shadow-2xl col-span-2"]} sizes="1000px" />;
+							build.data.images.gallery.length < 4 &&
+								build.data.images.gallery.map((i, index, arr) => {
+									return <Picture src={i.url} class:list={["w-full h-full object-cover rounded shadow-2xl col-span-2"]} sizes="1000px" />;
 								})
 						}
 
 						{
-							numberBetween(build.builds_images.length, 4, 8) &&
-								build.builds_images.map((i, index, arr) => {
+							numberBetween(build.data.images.gallery.length, 4, 8) &&
+								build.data.images.gallery.map((i, index, arr) => {
 									return (
 										<Picture
-											src={i.image_name}
+											src={i.url}
 											class:list={["w-full h-full object-cover rounded shadow-2xl", remainder !== 0 && index + 1 === arr.length ? `col-span-${colSpan}` : `aspect-square`]}
 											sizes={remainder !== 0 && index + 1 === arr.length ? `${colSpan * colWidth}px` : `${colWidth}px`}
 										/>
@@ -149,11 +146,11 @@ const colWidth = 450;
 						}
 
 						{
-							build.builds_images.length >= 9 &&
-								build.builds_images.map((i, index, arr) => {
+							build.data.images.gallery.length >= 9 &&
+								build.data.images.gallery.map((i, index, arr) => {
 									return (
 										<Picture
-											src={i.image_name}
+											src={i.url}
 											class:list={["w-full h-full object-cover rounded shadow-2xl", remainder !== 0 && index + 1 === arr.length ? `col-span-${colSpan}` : `aspect-square`]}
 											sizes={remainder !== 0 && index + 1 === arr.length ? `${colSpan * colWidth}px` : `${colWidth}px`}
 										/>

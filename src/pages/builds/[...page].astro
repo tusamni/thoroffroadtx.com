@@ -34,7 +34,7 @@ async function getFilteredBuilds(make, model, search) {
 
 	const filteredBuilds = builds.filter((build) => {
 		if (makeParam && modelParam) {
-			if (build.data.vehicle.make.find((make) => make.slug !== makeParam) || build.data.vehicle.model.find((model) => model.slug !== modelParam)) {
+			if (build.data.vehicle.make.slug !== makeParam || build.data.vehicle.model.slug !== modelParam) {
 				return false;
 			}
 		}

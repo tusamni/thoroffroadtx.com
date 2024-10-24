@@ -38,13 +38,19 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 		</Container>
 	</div>
 
-	<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", part.data.images.gallery.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
-		{
-			part.data.images.gallery.map((image, i, arr) => (
-				<Picture src={image.url} alt="" class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]} sizes="100vw" />
-			))
-		}
-	</div>
+	{
+		part.data.images.gallery ? (
+			<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", part.data.images.gallery.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
+				{part.data.images.gallery.map((image, i, arr) => (
+					<Picture src={image.url} alt="" class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]} sizes="100vw" />
+				))}
+			</div>
+		) : (
+			<div class="gallery lg:min-h-[800px] lg:h-[50vh]">
+				<Picture src={part.data.images.featured.url} alt="" class:list={["col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]} sizes="100vw" />
+			</div>
+		)
+	}
 
 	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
 		<Container classes="space-y-12">

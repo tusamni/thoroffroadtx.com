@@ -6,10 +6,16 @@
 	}
 
 	&.section-top {
+		&.section-small {
+			@apply pt-8 sm:pt-12 lg:pt-16;
+		}
 		@apply pt-16 sm:pt-24 lg:pt-32 pb-0;
 	}
 
 	&.section-bottom {
+		&.section-small {
+			@apply pb-8 sm:pb-12 lg:pb-16;
+		}
 		@apply pt-0 pb-16 sm:pb-24 lg:pb-32;
 	}
 }

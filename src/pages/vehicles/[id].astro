@@ -8,7 +8,9 @@ import Model from "@/components/vehicles/Model";
 import Picture from "@/components/images/Picture";
 
 export async function getStaticPaths() {
-	const makes = await getCollection("makes");
+	const makes = await getCollection("makes", ({ data }) => {
+		return data.status == true;
+	});
 
 	return makes.map((make) => ({
 		params: {

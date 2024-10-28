@@ -44,7 +44,7 @@ const models = await getCollection("models");
 
 	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
 		<Container classes="space-y-12">
-			<div class="grid grid-cols-5 gap-10">
+			<div class="grid grid-cols-5 gap-10 @container">
 				<h2 class="col-span-5 text-balance uppercase font-medium max-w-2xl text-white">Let's Build Your <strong>Dream {make.data.title}</strong></h2>
 
 				<div class="col-span-5 lg:col-span-2 flex flex-col gap-y-6">
@@ -57,7 +57,7 @@ const models = await getCollection("models");
 					</div>
 				</div>
 
-				<div class="col-span-5 lg:col-span-3 grid grid-cols-2 gap-1 h-fit">
+				<div class="col-span-5 lg:col-span-3 grid grid-cols-1 @lg:grid-cols-2 gap-1 h-fit">
 					{
 						models.map((m) => {
 							return m.data.make.slug == make.id && <Model make={make.id} model={m} />;

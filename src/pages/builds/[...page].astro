@@ -69,14 +69,14 @@ if (allPages.length && !page) {
 ---
 
 <Layout title="Texas High-Performance Off-Road Vehicle Builds" description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep">
-	<div class="section section-small section-top space-y-24 bg-chathams-blue-600 pb-8 md:pb-0">
+	<div class="section section-small section-top space-y-24 bg-rock-200 pb-8 md:pb-0">
 		<Container classes="space-y-8">
-			<div class="space-y-8 text-white max-w-2xl">
+			<div class="space-y-8 max-w-2xl">
 				<h1 class="text-balance uppercase">THOR Off-Road <strong>Custom Builds</strong></h1>
 				<p class="text-base md:text-xl text-balance md:!leading-relaxed">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
 			</div>
 
-			<form class="grid grid-cols-1 md:grid-cols-6 bg-chathams-blue-700 p-8 rounded md:rounded-b-none gap-6" method="get">
+			<form class="grid grid-cols-1 md:grid-cols-6 bg-rock-400 p-8 rounded md:rounded-b-none gap-6" method="get">
 				<div class="flex flex-col gap-2 w-full md:col-span-2">
 					<div class="flex justify-between items-center">
 						<div class="uppercase text-lg font-bold font-alt text-white">Search</div>
@@ -135,7 +135,7 @@ if (allPages.length && !page) {
 	<Map classes="bg-rock-900 section section-small" theme="light">
 		<Container classes="space-y-8">
 			{
-				page.data.length > 0 && (
+				page.data.length > 0 ? (
 					<>
 						<div class="flex justify-between items-center">
 							<div class="text-2xl font-semibold font-alt uppercase text-white">{page.total} Builds</div>
@@ -148,18 +148,15 @@ if (allPages.length && !page) {
 						</div>
 						<div class="flex justify-center items-center">{allPages.length > 1 && <Pagination restRoute page={page} allPages={allPages} />}</div>
 					</>
-				)
-			}
-			<!-- {
-				page.data.length == 0 && (
+				) : (
 					<div class="flex justify-center items-center">
-						<div class="max-w-2xl text-center space-y-4">
+						<div class="max-w-2xl text-center space-y-4 text-white">
 							{makeParam && modelParam && (
 								<div class="uppercase font-alt font-medium text-5xl text-balance">
-									We Need Your <span class="font-extrabold">{actualModel.title}</span>!
+									We Need Your <span class="font-extrabold">{actualModel.data.title}</span>!
 								</div>
-								<div class="text-xl text-balance leading-relaxed">
-									It's been awhile since we've built a {actualModel.title} here at THOR. We'd love to{" "}
+								<div class="text-xl font-light text-balance leading-relaxed">
+									It's been awhile since we've built a {actualModel.data.title} here at THOR. We'd love to{" "}
 									<a href="/contact" class="font-semibold underline">
 										get in touch
 									</a>{" "}
@@ -167,14 +164,14 @@ if (allPages.length && !page) {
 								</div>
 							)}
 							{searchParam && !modelParam && !makeParam && (
-								<div class="uppercase font-alt font-medium text-5xl text-balance">
+								<div class="uppercase text-white font-alt font-medium text-5xl text-balance">
 									Hmm, no builds found for <span class="font-extrabold">{searchParam}</span>.
 								</div>
 							)}
 						</div>
 					</div>
 				)
-			} -->
+			}
 		</Container>
 	</Map>
 </Layout>

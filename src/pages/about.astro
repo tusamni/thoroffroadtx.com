@@ -31,13 +31,13 @@ const { object: page } = await cosmic.objects
 		</Container>
 	</div>
 
-	<div class="grid grid-cols-3 h-[400px]">
+	<div class="grid grid-cols-3 h-40 sm:h-52 md:h-[400px]">
 		{page.metadata.featured_images.map((h) => <Picture src={h.url} alt="" loading="eager" class:list={["w-full h-full object-cover rounded shadow-lg"]} />)}
 	</div>
 
 	<Map classes="bg-rock-900 section">
 		<Container>
-			<div class="grid grid-cols-2 gap-8">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 				<div class="flex flex-col gap-8">
 					<h2 class="uppercase max-w-xl text-white">A Word from <strong>Jamey Whitlock</strong></h2>
 					<div class="text-xl leading-relaxed max-w-2xl text-rock-50">

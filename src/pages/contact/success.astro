@@ -32,7 +32,7 @@ const { object: page } = await cosmic.objects
 		</Container>
 	</div>
 
-	<div class="grid grid-cols-3 h-[400px]">
+	<div class="grid grid-cols-3 h-40 sm:h-52 md:h-[400px]">
 		{page.metadata.success_images.map((h) => <Picture src={h.url} alt="" loading="eager" class:list={["w-full h-full object-cover rounded shadow-lg"]} />)}
 	</div>
 </Layout>

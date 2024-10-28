@@ -22,10 +22,13 @@ export async function getStaticPaths() {
 // content
 const { build } = Astro.props;
 
-const imageCols = build.data.images.gallery.length >= 9 ? `grid-cols-1 md:grid-cols-3` : `grid-cols-1 md:grid-cols-2`; // based on the total number of images, how many columns are needed
+const imageCols = build.data.images.gallery.length >= 9 ? `grid-cols-1 md:grid-cols-3` : `grid-cols-2`; // based on the total number of images, how many columns are needed
 const remainder = build.data.images.gallery.length >= 9 ? build.data.images.gallery.length % 3 : build.data.images.gallery.length % 2;
 const colSpan = build.data.images.gallery.length >= 9 ? 4 - remainder : 3 - remainder;
 const colWidth = 450;
+
+console.log(imageCols);
+console.log(colSpan);
 ---
 
 <Layout title={`Custom ${build.data.title} Built by THOR Off-Road`}>
@@ -48,12 +51,13 @@ const colWidth = 450;
 					src={build.data.images.featured.url}
 					class:list={["w-full h-full object-cover row-span-2 rounded shadow-2xl", build.data.images.gallery && build.data.images.gallery.length >= 9 ? "col-span-6 md:col-span-4" : "col-span-6"]}
 					loading="eager"
+					sizes={build.data.images.gallery && build.data.images.gallery.length >= 9 ? "(min-width: 768px) 70vw, 100vw" : "(min-width: 1500px) 1400px, 100vw"}
 				/>
 				{
 					build.data.images.gallery.length >= 9 && (
 						<>
-							<Picture src={build.data.images.gallery[0].url} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
-							<Picture src={build.data.images.gallery[1].url} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" />
+							<Picture src={build.data.images.gallery[0].url} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" sizes="(min-width: 768px) 40vw, 50vw" />
+							<Picture src={build.data.images.gallery[1].url} class="object-cover w-full h-full rounded shadow-2xl col-span-3 md:col-span-2" loading="eager" sizes="(min-width: 768px) 40vw, 50vw" />
 						</>
 					)
 				}
@@ -85,38 +89,17 @@ const colWidth = 450;
 								</div>
 
 								<!-- {
-									build.testimonials.length > 0 && (
+									build.bjtestimonials.length > 0 && (
 										<div class="text-base space-y-4">
 											<Testimonial content={build.testimonials[0]} />
-										</div>
-									)
-								} -->
-
-								<!-- {
-									buildData.data.video && (
-										<div class="align-self-end flex-none">
-											<a
-												href={getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}
-												data-sources={`[{"src":"${getMedia(`images/builds/${buildData.id}/${buildData.data.video.filename}.mp4`)}", "type": "video/mp4" }]`}
-												data-width={buildData.data.video.width}
-												data-height={buildData.data.video.height}
-												class="video text-xs sm:text-sm flex items-center font-medium gap-2"
-											>
-												<span>
-													Watch the
-													<br />
-													Build Video
-												</span>
-												<Icon icon="hero/PlayCircleFill" class="h-6 sm:h-10" />
-											</a>
 										</div>
 									)
 								} -->
 							</div>
 						</div>
 
-						<div class="bg-chathams-blue-600 text-white px-8 py-12 rounded">
-							<div class="hidden lg:block space-y-8">
+						<div class="hidden lg:block bg-chathams-blue-600 text-white px-8 py-12 rounded">
+							<div class="space-y-8">
 								<div class="uppercase text-4xl font-alt font-medium">Let's <strong>Get Started</strong></div>
 								<div class="leading-relaxed">
 									There are endless options for your {build.data.vehicle.model.title} and we can help design, build and install everthing needed for your adventure. Give us a call or e-mail and let's get started today!
@@ -132,7 +115,7 @@ const colWidth = 450;
 						{
 							build.data.images.gallery.length < 4 &&
 								build.data.images.gallery.map((i, index, arr) => {
-									return <Picture src={i.url} class:list={["w-full h-full object-cover rounded shadow-2xl col-span-2"]} sizes="1000px" />;
+									return <Picture src={i.url} class:list={["w-full h-full object-cover rounded shadow-2xl col-span-2"]} sizes="(min-width:768px) 60vw, 100vw" />;
 								})
 						}
 

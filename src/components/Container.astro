@@ -1,11 +1,12 @@
 ---
 interface Props {
+	large?: boolean;
 	classes?: string;
 	padding?: boolean;
 }
-const { classes, padding = true } = Astro.props;
+const { large = false, classes, padding = true } = Astro.props;
 ---
 
-<div class:list={[`mx-auto max-w-screen-2xl md:px-8`, padding && `px-6`, classes]}>
+<div class:list={[`mx-auto md:px-8`, padding && `px-6`, large ? `max-w-[1650px]` : `max-w-screen-2xl`, classes]}>
 	<slot />
 </div>

@@ -34,20 +34,35 @@ const models = await getCollection("models");
 		</Container>
 	</div>
 
-	<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", make.data.images.featured.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
-		{
-			make.data.images.featured.map((image, i, arr) => (
-				<Picture src={image.url} alt="" class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]} sizes="100vw" />
-			))
-		}
+	<div class="section section-small bg-rock-200">
+		<Container large={true}>
+			<div class="gallery space-y-4 md:space-y-8">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
+					<Picture src={make.data.images.featured.url} alt="" class="object-cover w-full rounded shadow-2xl lg:h-[500px]" sizes="(min-width:1024px) 50vw, 100vw" />
+					<Picture src={make.data.images.secondary.url} alt="" class="object-cover w-full rounded shadow-2xl lg:h-[500px]" sizes="(min-width:1024px) 50vw, 100vw" />
+				</div>
+
+				{
+					make.data.images.gallery && (
+						<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
+							{make.data.images.gallery.map((image) => (
+								<Picture src={image.url} alt="" class="w-full h-full object-cover rounded shadow-2xl aspect-square" sizes="(min-width:768px) 33vw, (min-width:1024px) 15vw, 50vw" />
+							))}
+						</div>
+					)
+				}
+			</div>
+		</Container>
 	</div>
 
 	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
-		<Container classes="space-y-12">
-			<div class="grid grid-cols-5 gap-10 @container">
-				<h2 class="col-span-5 text-balance uppercase font-medium max-w-2xl text-white">Let's Build Your <strong>Dream {make.data.title}</strong></h2>
+		<Container classes="space-y-24">
+			<h2 class="mx-auto text-center text-balance uppercase font-medium max-w-2xl text-white">Let's Build Your <strong>Dream {make.data.title}</strong></h2>
 
+			<div class="grid grid-cols-5 gap-10 @container">
 				<div class="col-span-5 lg:col-span-2 flex flex-col gap-y-6">
+					<h5 class="uppercase text-white">We Sell & Install the Best</h5>
+
 					<div class="space-y-8">
 						<div class="space-y-8 leading-loose text-lg text-rock-100" set:html={make.data.description.short} />
 					</div>
@@ -57,7 +72,7 @@ const models = await getCollection("models");
 					</div>
 				</div>
 
-				<div class="col-span-5 lg:col-span-3 grid grid-cols-1 @lg:grid-cols-2 gap-1 h-fit">
+				<div class="col-span-5 lg:col-span-3 grid grid-cols-1 @lg:grid-cols-2 gap-4 h-fit">
 					{
 						models.map((m) => {
 							return m.data.make.slug == make.id && <Model make={make.id} model={m} />;

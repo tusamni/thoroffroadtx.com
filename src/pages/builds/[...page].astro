@@ -69,66 +69,74 @@ if (allPages.length && !page) {
 ---
 
 <Layout title="Texas High-Performance Off-Road Vehicle Builds" description="THOR Off-Road is the top off-road parts and installation outfitter in Texas for Ford Chevrolet GMC RAM Toyota Lexus Jeep">
-	<div class="section section-small section-top space-y-24 bg-rock-200 pb-8 md:pb-0">
-		<Container classes="space-y-8">
+	<div class="section section-small space-y-24 bg-rock-200">
+		<Container>
 			<div class="space-y-8 max-w-2xl">
 				<h1 class="text-balance uppercase">THOR Off-Road <strong>Custom Builds</strong></h1>
 				<p class="text-base md:text-xl text-balance md:!leading-relaxed">We're designing and building amazing vehicles each and every day. Browse through a small selection of our most recent finished builds.</p>
 			</div>
 
-			<form class="grid grid-cols-1 md:grid-cols-6 bg-rock-400 p-8 rounded md:rounded-b-none gap-6" method="get">
-				<div class="flex flex-col gap-2 w-full md:col-span-2">
-					<div class="flex justify-between items-center">
-						<div class="uppercase text-lg font-bold font-alt text-white">Search</div>
+			<div x-data="{ open: false }">
+				<div @click="open = !open" class="fixed lg:hidden bottom-5 right-3 z-50 bg-white shadow-xl border-4 border-white/20 flex items-center justify-center p-3 rounded-full">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+					</svg>
+				</div>
 
-						<a href="/builds" class:list={["uppercase text-xs text-white font-medium", Astro.url.searchParams.get("search") ? "visible" : "hidden"]} id="clearSearch"> Clear </a>
-					</div>
-
-					<div class="relative">
-						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 text-stone-400">
-								<path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd"></path>
-							</svg>
+				<form x-show="open" x-transition x-cloak class="fixed lg:static lg:mt-8 bottom-20 right-3 z-50 lg:!grid grid-cols-1 md:grid-cols-6 bg-rock-400 p-8 rounded md:rounded-b-none gap-6 space-y-6 lg:space-y-0" method="get">
+					<div class="flex flex-col gap-2 w-full md:col-span-2">
+						<div class="flex justify-between items-center">
+							<div class="uppercase text-lg font-bold font-alt text-white">Search</div>
+	
+							<a href="/builds" class:list={["uppercase text-xs text-white font-medium", Astro.url.searchParams.get("search") ? "visible" : "hidden"]} id="clearSearch"> Clear </a>
 						</div>
-
-						<input type="text" name="search" id="search" class="!pl-9 input-secondary" placeholder="Search" value={searchParam} />
+	
+						<div class="relative">
+							<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 text-stone-400">
+									<path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd"></path>
+								</svg>
+							</div>
+	
+							<input type="text" name="search" id="search" class="!pl-9 input-secondary" placeholder="Search" value={searchParam} />
+						</div>
 					</div>
-				</div>
-
-				<div class="flex flex-col gap-2 md:col-span-4 lg:col-span-3 lg:col-start-4">
-					<div class="flex justify-between items-center">
-						<div class="uppercase text-lg font-bold font-alt text-white">Filters</div>
-
-						<a href="/builds" class:list={["uppercase text-xs text-white font-medium", Astro.url.searchParams.get("buildMake") ? "visible" : "hidden"]} id="clearFilters"> Clear </a>
+	
+					<div class="flex flex-col gap-2 md:col-span-4 lg:col-span-3 lg:col-start-4">
+						<div class="flex justify-between items-center">
+							<div class="uppercase text-lg font-bold font-alt text-white">Filters</div>
+	
+							<a href="/builds" class:list={["uppercase text-xs text-white font-medium", Astro.url.searchParams.get("buildMake") ? "visible" : "hidden"]} id="clearFilters"> Clear </a>
+						</div>
+	
+						<div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4">
+							<select name="buildMake" id="buildMake" class="input-secondary">
+								<option value="" disabled selected>Choose a Make</option>
+								{
+									allMakes.map((m) => (
+										<option value={m.id} selected={makeParam === m.id}>
+											{m.data.title}
+										</option>
+									))
+								}
+							</select>
+	
+							<select name="buildModel" id="buildModel" class="input-secondary">
+								<option value="" disabled selected>Choose a Model</option>
+								{
+									filteredModels.map((m) => (
+										<option value={m.id} selected={modelParam === m.id}>
+											{m.data.title}
+										</option>
+									))
+								}
+							</select>
+	
+							<button type="submit" class="button button-primary button-inverse">Filter</button>
+						</div>
 					</div>
-
-					<div class="flex flex-col sm:flex-row lg:justify-between lg:items-center gap-4">
-						<select name="buildMake" id="buildMake" class="input-secondary">
-							<option value="" disabled selected>Choose a Make</option>
-							{
-								allMakes.map((m) => (
-									<option value={m.id} selected={makeParam === m.id}>
-										{m.data.title}
-									</option>
-								))
-							}
-						</select>
-
-						<select name="buildModel" id="buildModel" class="input-secondary">
-							<option value="" disabled selected>Choose a Model</option>
-							{
-								filteredModels.map((m) => (
-									<option value={m.id} selected={modelParam === m.id}>
-										{m.data.title}
-									</option>
-								))
-							}
-						</select>
-
-						<button type="submit" class="button button-primary button-inverse">Filter</button>
-					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</Container>
 	</div>
 

@@ -4,7 +4,9 @@ import Layout from "@/layouts/Layout";
 import { cosmic } from "@/library/cosmic";
 import { getCollection } from "astro:content";
 import Container from "@/components/Container";
+import Heading from "@/components/content/Heading";
 import FeatureGrid from "@/components/sections/FeatureGrid";
+import GalleryPrimary from "@/components/content/gallery/GalleryPrimary";
 import Make from "@/components/vehicles/Make";
 import Map from "@/components/backgrounds/Map";
 import Picture from "@/components/images/Picture";
@@ -24,31 +26,26 @@ const { object: page } = await cosmic.objects
 ---
 
 <Layout title="We're the Top Truck Outfitter and Carli Dealer in Texas">
-	<div class="section section-small bg-chathams-blue-600">
-		<Container>
-			<div class="space-y-4 md:space-y-8 text-white">
-				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">Texas' Top <strong>Truck Outfitter</strong></h1>
-				<p class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-3xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0">
-					THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers'
-					dreams.
-				</p>
-
+	<Map classes="bg-rock-200" theme="dark" opacity={0.02}>
+		<Container classes="section section-small">
+			<Heading
+				heading="Texas' Top <strong>Truck Outfitter</strong>"
+				description="THOR is the premiere truck and off-road vehicle outfitter in Texas with the unique automotive knowledge, technical expertise, and deep customer insights to consistently deliver the truck or adventure vehicle of our customers' dreams."
+			>
 				<div class="flex flex-col md:flex-row gap-6 items-center justify-center lg:justify-start">
-					<a href="/contact" class="button button-secondary">Build Your Truck!</a>
+					<a href="/contact" class="button button-rock">Build Your Truck!</a>
 					<a href="/builds" class="font-medium">See Our Builds &gt;</a>
 				</div>
-			</div>
+			</Heading>
 		</Container>
-	</div>
 
-	<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-0 gallery md:min-h-[800px] md:h-[50vh]">
-		<Picture src={page.metadata.images.featured[0].url} alt="" class="md:col-span-2 w-full h-full object-cover object-[100%,75%] md:row-span-2" sizes="(max-width: 768px) 100vw, 50vw" />
-		<Picture src={page.metadata.images.featured[1].url} alt="" class:list={["md:col-span-2 w-full h-full object-cover md:row-span-1 md:object-[10%,75%] lg:object-[50%,75%]"]} sizes="(max-width: 768px) 100vw, 50vw" />
-		<Picture src={page.metadata.images.featured[2].url} alt="" class:list={["md:col-span-2 w-full h-full object-cover md:row-span-1 md:object-[50%,80%]"]} sizes="(max-width: 768px) 100vw, 50vw" />
-	</div>
+		<Container classes="section section-bottom" large={true}>
+			<GalleryPrimary featured={page.metadata.images.featured} gallery={page.metadata.images.gallery} />
+		</Container>
+	</Map>
 
-	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
-		<Container classes="space-y-12 text-white">
+	<div class="bg-rock-900 section">
+		<Container classes="space-y-12 text-white section section-bottom">
 			<div class="flex flex-col md:flex-row justify-between items-center">
 				<h2 class="uppercase"><strong>Vehicles</strong></h2>
 				<h6 class="uppercase text-balance font-semibold text-center text-lg lg:text-xl"><strong>Servicing</strong> Only the Best!</h6>
@@ -71,5 +68,5 @@ const { object: page } = await cosmic.objects
 				</div>
 			</div>
 		</div>
-	</Map>
+	</div>
 </Layout>

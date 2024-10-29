@@ -27,11 +27,11 @@ const allTestimonials = await getCollection("testimonials");
 
 <Layout>
 	<!-- hero -->
-	<div class="relative flex justify-end items-end min-h-[60vh] sm:min-h-[700px]">
+	<div class="relative flex justify-end items-end min-h-[60vh] sm:min-h-[900px]">
 		<Picture src={page.metadata.featured_image.url} alt="" loading="eager" class:list={["w-full h-full object-cover absolute"]} />
 		<div class="absolute w-full h-full bg-gradient-to-b from-transparent via-black/20 to-black/70"></div>
 
-		<Container classes="w-full pb-12">
+		<Container classes="w-full pb-24">
 			<h1 class="text-center lg:text-right relative text-balance font-alt text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-white uppercase">The <span class="font-bold">Best Off-Road<br /> Truck Outfitter</span> in Texas!</h1>
 		</Container>
 	</div>

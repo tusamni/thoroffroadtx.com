@@ -54,7 +54,7 @@ const postFilteredBuilds = await getFilteredBuilds(makeParam, modelParam, search
 const currentPage = Astro.params.page === undefined ? 1 : Number.parseInt(Astro.params.page);
 const paginatedResults = paginate({
 	data: postFilteredBuilds,
-	pageSize: 6,
+	pageSize: 12,
 	currentPage,
 	route: "/builds/[...page]",
 	searchParams: Astro.url.searchParams,

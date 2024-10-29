@@ -1,0 +1,14 @@
+---
+interface Props {
+	heading: string;
+	description: string;
+}
+const { heading, description } = Astro.props;
+---
+
+<div class="space-y-4 md:space-y-8">
+	<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl" set:html={heading} />
+	<div class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-4xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0" set:html={description} />
+
+	<slot />
+</div>

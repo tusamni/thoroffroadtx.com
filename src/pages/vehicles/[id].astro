@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout";
 
 import { getCollection } from "astro:content";
 import Container from "@/components/Container";
+import Heading from "@/components/content/Heading";
 import Map from "@/components/backgrounds/Map";
 import Model from "@/components/vehicles/Model";
 import Picture from "@/components/images/Picture";
@@ -25,17 +26,12 @@ const models = await getCollection("models");
 ---
 
 <Layout title={make.data.seo.title} description={make.data.seo.description}>
-	<div class="bg-chathams-blue-600 section section-small">
-		<Container>
-			<div class="space-y-8 text-white">
-				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">We're the <strong>{make.data.title} Experts!</strong>!</h1>
-				<div class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-4xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0" set:html={make.data.description.long} />
-			</div>
+	<Map classes="bg-rock-200" theme="dark" opacity={0.02}>
+		<Container classes="section section-small">
+			<Heading heading={`We're the <strong>${make.data.title} Experts</strong>!`} description={make.data.description.long} />
 		</Container>
-	</div>
 
-	<div class="section section-small bg-rock-200">
-		<Container large={true}>
+		<Container classes="section section-bottom" large={true}>
 			<div class="gallery space-y-4 md:space-y-8">
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
 					<Picture src={make.data.images.featured.url} alt="" class="object-cover w-full rounded shadow-2xl lg:h-[500px]" sizes="(min-width:1024px) 50vw, 100vw" />
@@ -53,9 +49,9 @@ const models = await getCollection("models");
 				}
 			</div>
 		</Container>
-	</div>
+	</Map>
 
-	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
+	<div class="bg-rock-900 section">
 		<Container classes="space-y-24">
 			<h2 class="mx-auto text-center text-balance uppercase font-medium max-w-2xl text-white">Let's Build Your <strong>Dream {make.data.title}</strong></h2>
 
@@ -81,5 +77,5 @@ const models = await getCollection("models");
 				</div>
 			</div>
 		</Container>
-	</Map>
+	</div>
 </Layout>

@@ -29,6 +29,15 @@
 		}
 	}
 
+	&.button-rock {
+		@apply bg-rock-600 text-white border border-rock-600;
+
+		/* inverse */
+		&.button-inverse {
+			@apply bg-white text-rock-600 border-white border;
+		}
+	}
+
 	&.button-ghost {
 		@apply border text-white border-white;
 

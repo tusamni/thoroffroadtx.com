@@ -1,0 +1,28 @@
+---
+import Picture from "@/components/images/Picture";
+
+interface Props {
+	featured: object;
+	secondary: object;
+	gallery: object;
+}
+const { featured, secondary, gallery } = Astro.props;
+---
+
+<div class="gallery space-y-4 md:space-y-8">
+	<div class:list={["grid gap-4 md:gap-8", secondary ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1"]}>
+		<Picture src={featured.url} alt="" class:list={["object-cover w-full rounded shadow-2xl", secondary ? "lg:h-[500px]" : "lg:h-[700px]"]} sizes="(min-width:1024px) 50vw, 100vw" />
+
+		{secondary && <Picture src={secondary.url} alt="" class="object-cover w-full rounded shadow-2xl lg:h-[500px]" sizes="(min-width:1024px) 50vw, 100vw" />}
+	</div>
+
+	{
+		gallery && (
+			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
+				{gallery.map((image) => (
+					<Picture src={image.url} alt="" class="w-full h-full object-cover rounded shadow-2xl aspect-square" sizes="(min-width:768px) 33vw, (min-width:1024px) 15vw, 50vw" />
+				))}
+			</div>
+		)
+	}
+</div>

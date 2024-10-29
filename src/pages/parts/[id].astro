@@ -3,6 +3,8 @@ import Layout from "@/layouts/Layout";
 
 import { getCollection } from "astro:content";
 import Container from "@/components/Container";
+import GallerySecondary from "@/components/content/gallery/GallerySecondary";
+import Heading from "@/components/content/Heading";
 import Icon from "@/components/Icon";
 import Map from "@/components/backgrounds/Map";
 import PartDetail from "@/components/parts/PartDetail";
@@ -29,30 +31,17 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 ---
 
 <Layout title={part.data.seo.title} description={part.data.seo.description}>
-	<div class="bg-chathams-blue-600 section section-small">
-		<Container>
-			<div class="space-y-8 text-white">
-				<h1 class="text-balance uppercase text-center lg:text-left lg:max-w-3xl">We're the <strong>{part.data.title} Experts</strong>!</h1>
-				<div class="text-base lg:text-xl text-balance md:!leading-relaxed lg:max-w-4xl text-center lg:text-left mx-auto md:max-w-2xl lg:mx-0" set:html={part.data.description.short} />
-			</div>
+	<Map classes="bg-rock-200" theme="dark" opacity={0.02}>
+		<Container classes="section section-small">
+			<Heading heading={`We're the <strong>${part.data.title} Experts</strong>!`} description={part.data.description.short} />
 		</Container>
-	</div>
 
-	{
-		part.data.images.gallery ? (
-			<div class:list={["gallery lg:min-h-[800px] lg:h-[50vh]", part.data.images.gallery.length >= 2 && "grid grid-rows-2 grid-cols-4"]}>
-				{part.data.images.gallery.map((image, i, arr) => (
-					<Picture src={image.url} alt="" class:list={[i === 0 && arr.length >= 2 && `col-span-4 md:col-span-2 md:row-span-2`, "col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]} sizes="100vw" />
-				))}
-			</div>
-		) : (
-			<div class="gallery lg:min-h-[800px] lg:h-[50vh]">
-				<Picture src={part.data.images.featured.url} alt="" class:list={["col-span-4 md:col-span-2 lg:col-span-1 w-full h-full object-cover"]} sizes="100vw" />
-			</div>
-		)
-	}
+		<Container classes="section section-bottom" large={true}>
+			<GallerySecondary featured={part.data.images.featured} secondary={part.data.images.secondary} gallery={part.data.images.gallery} />
+		</Container>
+	</Map>
 
-	<Map classes="bg-rock-900 section space-y-24" theme="light" opacity={0.02}>
+	<div class="bg-rock-900 section">
 		<Container classes="space-y-12">
 			<div class="grid grid-cols-5 gap-10 @container">
 				<h2 class="col-span-5 text-balance uppercase font-medium max-w-3xl text-white"><strong>{part.data.title}</strong> Upgrade Options</h2>
@@ -67,14 +56,14 @@ const iconCols = allBrands.length <= 8 ? 5 : Math.round(allBrands.length / 2);
 					</div>
 				</div>
 
-				<div class="col-span-5 lg:col-span-3 grid grid-cols-1 @lg:grid-cols-2 md:grid-cols-3 gap-1 h-fit">
+				<div class="col-span-5 lg:col-span-3 grid grid-cols-1 @lg:grid-cols-2 md:grid-cols-3 gap-4 h-fit">
 					{part.data.items.map((p) => <PartDetail part={p} />)}
 				</div>
 			</div>
 		</Container>
-	</Map>
+	</div>
 
-	<div class="section-small bg-chathams-blue-600">
+	<div class="section section-small bg-chathams-blue-600">
 		<Container>
 			<div class:list={["flex flex-wrap gap-0.5 rounded justify-center", `grid-cols-${iconCols}`]}>
 				{

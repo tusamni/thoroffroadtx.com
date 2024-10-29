@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout";
 
 import { getCollection } from "astro:content";
 import Container from "@/components/Container";
+import GallerySecondary from "@/components/content/gallery/GallerySecondary";
 import Heading from "@/components/content/Heading";
 import Map from "@/components/backgrounds/Map";
 import Model from "@/components/vehicles/Model";
@@ -32,22 +33,7 @@ const models = await getCollection("models");
 		</Container>
 
 		<Container classes="section section-bottom" large={true}>
-			<div class="gallery space-y-4 md:space-y-8">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
-					<Picture src={make.data.images.featured.url} alt="" class="object-cover w-full rounded shadow-2xl lg:h-[500px]" sizes="(min-width:1024px) 50vw, 100vw" />
-					<Picture src={make.data.images.secondary.url} alt="" class="object-cover w-full rounded shadow-2xl lg:h-[500px]" sizes="(min-width:1024px) 50vw, 100vw" />
-				</div>
-
-				{
-					make.data.images.gallery && (
-						<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
-							{make.data.images.gallery.map((image) => (
-								<Picture src={image.url} alt="" class="w-full h-full object-cover rounded shadow-2xl aspect-square" sizes="(min-width:768px) 33vw, (min-width:1024px) 15vw, 50vw" />
-							))}
-						</div>
-					)
-				}
-			</div>
+			<GallerySecondary featured={make.data.images.featured} secondary={make.data.images.secondary} gallery={make.data.images.gallery} />
 		</Container>
 	</Map>
 

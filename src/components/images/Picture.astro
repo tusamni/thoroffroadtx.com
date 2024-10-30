@@ -51,11 +51,11 @@ const imageSrcSet = imageOptimized.join(", ");
 			/>
 			{buildMetadata && (
 				<div class="flex justify-between gap-x-4">
-					<a href={`/builds/${buildMetadata.id}`} class="text-center mx-auto @xs:mx-0 @xs:text-left text-xs @xs:text-sm line-clamp-1">
+					<a href={`/builds/${buildMetadata.id}`} class="text-center mx-auto @md:mx-0 @md:text-left text-xs @md:text-sm line-clamp-1">
 						{buildMetadata.data.title}
 					</a>
 
-					<div class="hidden @xs:block">
+					<div class="hidden @md:block">
 						<a href={`/builds/${buildMetadata.id}`} class="font-semibold">
 							View Build
 						</a>

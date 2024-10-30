@@ -9,7 +9,7 @@ interface Props {
 const { make, url, classes, ...attrs } = Astro.props;
 ---
 
-<div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-rock-800 transition duration-200 hover:bg-rock-800/80 backdrop-blur-sm", classes]} {...attrs}>
+<div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-rock-700 hover:bg-rock-700/80 transition duration-200", classes]} {...attrs}>
 	<div class="flex flex-row gap-3 items-center">
 		<div class="size-6 md:size-8 border-2 rounded relative flex-none overflow-hidden flex justify-center items-center">
 			<Icon icon={url ? make.data.icon : `makes/${make.data.icon}Icon`} class="absolute w-10 h-auto -rotate-12 text-white" />

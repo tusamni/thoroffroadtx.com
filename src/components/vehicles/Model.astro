@@ -7,7 +7,7 @@ interface Props {
 const { make, model, classes, ...attrs } = Astro.props;
 ---
 
-<div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-rock-800 transition duration-200 hover:bg-rock-800/80 backdrop-blur-sm", classes]} {...attrs}>
+<div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-rock-700 hover:bg-rock-700/80 transition duration-200", classes]} {...attrs}>
 	<div class="flex flex-row gap-3 items-center">
 		<div class="font-semibold uppercase font-alt text-2xl md:text-3xl line-clamp-1 text-white">{model.data.title}</div>
 	</div>

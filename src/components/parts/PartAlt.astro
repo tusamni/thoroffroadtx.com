@@ -9,7 +9,7 @@ interface Props {
 const { part, url, classes, ...attrs } = Astro.props;
 ---
 
-<div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-rock-700 transition duration-200 hover:bg-rock-700/80 backdrop-blur-sm", classes]} {...attrs}>
+<div class:list={["relative group space-y-3 md:space-y-6 p-8 rounded bg-rock-700 hover:bg-rock-700/80 transition duration-200", classes]} {...attrs}>
 	<div class="flex flex-row gap-3 items-center text-white">
 		<div class="size-6 md:size-8 border-2 rounded relative flex-none overflow-hidden flex justify-center items-center">
 			<Icon icon={url ? part.data.icon : `parts/${part.data.icon}Outline`} class="absolute w-10 h-auto -rotate-12" />

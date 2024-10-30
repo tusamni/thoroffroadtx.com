@@ -9,9 +9,9 @@ const { featured, gallery } = Astro.props;
 ---
 
 <div class="space-y-4 md:space-y-8">
-	<Picture src={featured.url} alt="" class="gallery rounded shadow-2xl w-full h-[350px] lg:h-[600px] object-cover" />
+	<Picture src={featured.url} metadata={true} class="gallery rounded shadow-2xl w-full h-[350px] lg:h-[600px] object-cover" />
 
 	<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
-		{gallery.map((image) => <Picture src={image.url} alt="" class="gallery rounded shadow-2xl w-full h-full aspect-square object-cover" sizes="(min-width: 1024px) 20vw, 50vw" />)}
+		{gallery.map((image) => <Picture src={image.url} metadata={true} class="gallery rounded shadow-2xl w-full h-full aspect-square object-cover" sizes="(min-width: 1024px) 20vw, 50vw" />)}
 	</div>
 </div>

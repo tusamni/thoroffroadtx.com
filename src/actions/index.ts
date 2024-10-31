@@ -35,6 +35,7 @@ export const server = {
 			// set personalization variables
 			const leadSubject = `New Lead from thoroffroadtx.com - ${input.name}`;
 			const leadRecipients = [new Recipient(Business.email, Business.nameLong)];
+			const leadBcc = [new Recipient("erik@eriksolsen.com", "Erik Olsen")];
 			const leadReplyTo = new Sender(input.email, input.name);
 			const leadPersonalization = [
 				{
@@ -52,14 +53,14 @@ export const server = {
 					},
 				},
 			];
-			const leadParams = new EmailParams().setFrom(sentFrom).setTo(leadRecipients).setReplyTo(leadReplyTo).setSubject(leadSubject).setPersonalization(leadPersonalization).setTemplateId("jy7zpl9m6r0g5vx6");
+			const leadParams = new EmailParams().setFrom(sentFrom).setTo(leadRecipients).setBcc(leadBcc).setReplyTo(leadReplyTo).setSubject(leadSubject).setPersonalization(leadPersonalization).setTemplateId("jy7zpl9m6r0g5vx6");
 
 			// send the contact email
-			// try {
-			// 	await mailerSend.email.send(leadParams);
-			// } catch (error) {
-			// 	console.error(error);
-			// }
+			try {
+				await mailerSend.email.send(leadParams);
+			} catch (error) {
+				console.error(error);
+			}
 
 			const thanksSubject = `Thanks ${input.name}, We've Received Your Message!`;
 			const thanksRecipients = [new Recipient(input.email, input.name)];

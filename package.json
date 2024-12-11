@@ -20,7 +20,7 @@
 		"@tailwindcss/typography": "^0.5.15",
 		"@types/alpinejs": "^3.13.11",
 		"alpinejs": "^3.14.7",
-		"astro": "^5.0.5",
+		"astro": "^5.0.4",
 		"bigger-picture": "^1.1.19",
 		"mailersend": "^2.3.0",
 		"node-html-parser": "^6.1.13",

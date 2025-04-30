@@ -32,10 +32,10 @@ const allParts = await getCollection("parts");
 					<HoverMenu title="Vehicles" identifier="vehicles">
 						{
 							allMakes.map((m) => (
-								<a href={`/vehicles/${m.id}`} title={m.data.title} class="menu-item">
+								<a href={`/vehicles/${m.id}`} title={m.data.title} class="flex flex-col gap-x-4 text-base font-semibold leading-6 text-white hover:bg-neutral-600 px-6 py-4 transition">
 									{m.data.title}
 
-									<ul class="comma-list !text-neutral-300 tracking-wide">
+									<ul class="comma-list line-clamp-2 leading-5 text-xs font-normal !text-neutral-300 tracking-wide">
 										{allModels.map((i) => {
 											return i.data.make.slug === m.id && <li>{i.data.title}</li>;
 										})}
@@ -48,10 +48,10 @@ const allParts = await getCollection("parts");
 					<HoverMenu title="Parts" identifier="parts">
 						{
 							allParts.map((p) => (
-								<a href={`/parts/${p.id}`} title={p.data.title} class="menu-item">
+								<a href={`/parts/${p.id}`} title={p.data.title} class="flex flex-col gap-x-4 text-base font-semibold leading-6 text-white hover:bg-neutral-600 px-6 py-4 transition">
 									{p.data.title}
 
-									<ul class="comma-list !text-neutral-300 tracking-wide">
+									<ul class="comma-list line-clamp-2 leading-5 text-xs font-normal !text-neutral-300 tracking-wide">
 										{p.data.items.map((i) => (
 											<li>{i.title}</li>
 										))}
@@ -97,12 +97,3 @@ const allParts = await getCollection("parts");
 		</nav>
 	</Container>
 </header>
-
-<style type="text/css">
-	.menu-item {
-		@apply flex flex-col gap-x-4 text-base font-semibold leading-6 text-white hover:bg-neutral-600 px-6 py-4 transition;
-	}
-	.comma-list {
-		@apply line-clamp-1 text-xs text-white font-normal;
-	}
-</style>

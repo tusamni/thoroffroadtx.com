@@ -1,10 +1,89 @@
-@import url("_fonts.css");
-@import url("buttons.css");
-@import url("forms.css");
-@import url("images.css");
-@import url("navigation.css");
-@import url("spacing.css");
-@import url("typography.css");
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@import "./_fonts.css";
+@import "./buttons.css";
+@import "./forms.css";
+@import "./images.css";
+@import "./navigation.css";
+@import "./spacing.css";
+@import "./typography.css";
+
+@keyframes infinite-scroll {
+	from {
+		transform: translateX(0%);
+	}
+
+	to {
+		transform: translateX(-100%);
+	}
+}
+
+
+@theme {
+	--color-torch-red-50: #fff1f3;
+	--color-torch-red-100: #ffdfe3;
+	--color-torch-red-200: #ffc5cc;
+	--color-torch-red-300: #ff9ca8;
+	--color-torch-red-400: #ff6376;
+	--color-torch-red-500: #ff334b;
+	--color-torch-red-600: #f02840;
+	--color-torch-red-700: #c90c23;
+	--color-torch-red-800: #a60e20;
+	--color-torch-red-900: #891321;
+	--color-torch-red-950: #4b040d;
+	--color-chathams-blue-50: #eefaff;
+	--color-chathams-blue-100: #dcf4ff;
+	--color-chathams-blue-200: #b2ecff;
+	--color-chathams-blue-300: #6ddfff;
+	--color-chathams-blue-400: #20d0ff;
+	--color-chathams-blue-500: #00baff;
+	--color-chathams-blue-600: #0096df;
+	--color-chathams-blue-700: #0077b4;
+	--color-chathams-blue-800: #006494;
+	--color-chathams-blue-900: #004d72;
+	--color-chathams-blue-950: #003451;
+	--color-shiraz-50: #fef2f2;
+	--color-shiraz-100: #fde7e6;
+	--color-shiraz-200: #fbd0d0;
+	--color-shiraz-300: #f7aaaa;
+	--color-shiraz-400: #f27a7c;
+	--color-shiraz-500: #e84b53;
+	--color-shiraz-600: #d42a3a;
+	--color-shiraz-700: #b11d2f;
+	--color-shiraz-800: #961b2e;
+	--color-shiraz-900: #801b2e;
+	--color-shiraz-950: #470a14;
+	--color-rock-50: #f5f4f1;
+	--color-rock-100: #e7e1da;
+	--color-rock-200: #d0c4b8;
+	--color-rock-300: #b5a18f;
+	--color-rock-400: #a0846f;
+	--color-rock-500: #917461;
+	--color-rock-600: #7c5f52;
+	--color-rock-700: #644b44;
+	--color-rock-800: #56413d;
+	--color-rock-900: #443432;
+	--color-rock-950: #2a1f1e;
+	--color-merlin-50: #f6f5f5;
+	--color-merlin-100: #e9e6e4;
+	--color-merlin-200: #d5cfcc;
+	--color-merlin-300: #b7aea9;
+	--color-merlin-400: #92867e;
+	--color-merlin-500: #776b63;
+	--color-merlin-600: #655c55;
+	--color-merlin-700: #554e49;
+	--color-merlin-800: #4a4540;
+	--color-merlin-900: #44403c;
+	--color-merlin-950: #292623;
+
+	--font-alt: "LeagueSpartan", sans-serif;
+
+	--animate-icon-scroll: infinite-scroll 70s linear infinite;
+	--animate-build-scroll: infinite-scroll 90s linear infinite reverse;
+}
+
 
 :root {
 	font-family: Manrope, sans-serif;

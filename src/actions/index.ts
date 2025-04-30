@@ -15,6 +15,7 @@ export const server = {
 			year: z.string().optional(),
 			make: z.string().optional(),
 			model: z.string().optional(),
+			mileage: z.string().optional(),
 			path: z.string(),
 			marketing: z.string().optional()
 		}),
@@ -49,6 +50,7 @@ export const server = {
 						year: input.year,
 						make: input.make,
 						model: input.model,
+						mileage: input.mileage,
 						marketing: input.marketing
 					},
 				},

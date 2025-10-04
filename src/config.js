@@ -8,8 +8,8 @@ export const Business = {
 	email: "sales@thoroffroadtx.com",
 	url: "https://thoroffroadtx.com",
 	address: {
-		street01: "3996 US-290",
-		street02: "Building B",
+		street01: "30307 Ranch Road 12",
+		street02: "Suite 400",
 		city: "Dripping Springs",
 		state: "TX",
 		zip: "78620",

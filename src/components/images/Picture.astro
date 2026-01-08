@@ -22,7 +22,7 @@ const imageName = src.replace("https://cdn.cosmicjs.com/", "");
 
 // get image data
 const imageMetadata = await getEntry("media", imageName);
-const buildMetadata = metadata && (await getEntry("builds", imageMetadata.data.name.split("_", 1)));
+const buildMetadata = metadata && (await getEntry("builds", imageMetadata.data.name.split("_", 1)[0]));
 
 // loop through all the necessary image widths
 const imageOptimized = [];

@@ -10,6 +10,9 @@ export default defineConfig({
 	integrations: [alpine(), sitemap()],
 	adapter: netlify(),
 	vite: {
-		plugins: [tailwindcss()]
+		plugins: [tailwindcss()],
+		optimizeDeps: {
+			exclude: ["alpinejs"]
+		}
 	}
 });
